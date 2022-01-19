@@ -1,10 +1,22 @@
 characters={
-	SPR_josé_sanjurjo={
+	SPR_jose_sanjurjo={
 		name="José Sanjurjo"
 		portraits={
 			civilian={
-				large="gfx/leaders/jose_san.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_jose_sanjurjo.dds"
 			}
+			army={
+				large="gfx/leaders/SPR/Portrait_SPR_jose_sanjurjo.dds"
+			}
+		}
+		field_marshal={
+			traits={ politically_connected logistics_wizard old_guard }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=2
+			legacy_id=1108
 		}
 		country_leader={
 			#desc="POLITICS_ALEJANDRO_LERROUX_DESC"
@@ -35,10 +47,8 @@ characters={
 		name="Vicente Rojo Lluch"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+				small="gfx/interface/ideas/idea_SPR_vicente_rojo_lluch.dds"
+				large="gfx/leaders/SPR/Portrait_SWF_Rojo_Lluch.png"
 			}
 		}
 		corps_commander={
@@ -50,15 +60,27 @@ characters={
 			logistics_skill=3
 			legacy_id=1102
 		}
+		advisor={
+			slot = army_chief
+			idea_token = SPR_vincente_rojo_lluch
+			allowed = {	
+				original_tag = SPR
+			}
+			traits = {
+				army_chief_maneuver_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 	}
-	SPR_josé_miaja={
+	SPR_miaja={
 		name="José Miaja"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+				small="gfx/interface/ideas/idea_SPR_jose_miaja.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Jose_Miaja.png"
 			}
 		}
 		corps_commander={
@@ -70,15 +92,28 @@ characters={
 			logistics_skill=1
 			legacy_id=1103
 		}
+		advisor={
+			slot = high_command
+			idea_token = SPR_jose_miaja
+			ledger = army
+			allowed = {	
+				original_tag = SPR
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 	}
-	SPR_josé_asensio_torrado={
+	SPR_jose_torrado={
 		name="José Asensio Torrado"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_3.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+				small="gfx/interface/ideas/idea_SPR_jose_asensio_torrado.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_jose_asensio_torrado.png"
 			}
 		}
 		corps_commander={
@@ -95,14 +130,12 @@ characters={
 		name="Francisco Franco"
 		portraits={
 			army={
-				small="GFX_portrait_spain_francisco_franco_small"
-			}
-			army={
-				large="GFX_portrait_spain_francisco_franco"
+				small="gfx/interface/ideas/idea_SPA_francisco_franco.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Francisco_Franco.png"
 			}
 		}
 		field_marshal={
-			traits={ logistics_wizard organisational_leader expert_delegator }
+			traits={ politically_connected logistics_wizard organisational_leader expert_delegator }
 			skill=3
 			attack_skill=3
 			defense_skill=2
@@ -110,35 +143,27 @@ characters={
 			logistics_skill=2
 			legacy_id=1108
 		}
-	}
-	SPR_mohamed_meziane={
-		name="Mohamed Meziane"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_4.dds"
+		advisor={
+			slot = army_chief
+			idea_token = SPA_francisco_franco
+			allowed = {
+				original_tag = SPR
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_4.dds"
+			traits = {
+				army_chief_offensive_3
 			}
-		}
-		corps_commander={
-			traits={ career_officer harsh_leader }
-			skill=4
-			attack_skill=5
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=1109
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	SPR_gonzalo_queipo_de_llano={
 		name="Gonzalo Queipo de Llano"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_5.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
+				small="gfx/interface/ideas/idea_SPA_gonzalo_queipo_de_llano.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Queipo_de_Llano_y_Sierra.png"
 			}
 		}
 		corps_commander={
@@ -156,9 +181,7 @@ characters={
 		portraits={
 			army={
 				small="GFX_Portrait_Europe_Generic_land_1_small"
-			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+				large="gfx/leaders/SPR/Portrait_SPR_Mola_Vidal.png"
 			}
 		}
 		corps_commander={
@@ -171,14 +194,12 @@ characters={
 			legacy_id=1111
 		}
 	}
-	SPR_juan_yagüe={
+	SPR_juan_yague={
 		name="Juan Yagüe"
 		portraits={
 			army={
-				small="GFX_Portrait_Europe_Generic_land_1_small"
-			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+				small="gfx/interface/ideas/idea_spa_juan_yague.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Juan_Yague_Blanco.png"
 			}
 		}
 		corps_commander={
@@ -190,35 +211,37 @@ characters={
 			logistics_skill=2
 			legacy_id=1112
 		}
-	}
-	SPR_agustín_muñoz_grandes={
-		name="Agustín Muñoz Grandes"
-		portraits={
-			army={
-				small="GFX_Portrait_Europe_Generic_land_1_small"
+		advisor={
+			slot = army_chief
+			idea_token = SPA_juan_yague
+			ledger = army
+			allowed = {
+				original_tag = SPR
 			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+			traits = {
+				army_chief_offensive_2
 			}
-		}
-		corps_commander={
-			traits={ infantry_officer }
-			skill=3
-			attack_skill=2
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=1113
+			cost = 100
 		}
 	}
-	SPR_josé_enrique_varela={
+	SPR_jose_enrique_varela={
 		name="José Enrique Varela"
 		portraits={
 			army={
-				small="GFX_Portrait_Europe_Generic_land_1_small"
+				small="gfx/interface/ideas/idea_spa_jose_enrique_varela.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Jose_Enrique_Varela.png"
 			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = SPA_jose_enrique_varela
+			ledger = army
+			allowed = {
+				original_tag = SPR
+			}
+			traits = {
+				military_theorist
 			}
 		}
 		corps_commander={
@@ -235,10 +258,20 @@ characters={
 		name="Miguel Cabanellas"
 		portraits={
 			army={
-				small="GFX_Portrait_Europe_Generic_land_1_small"
+				small="gfx/interface/ideas/idea_spa_miguel_cabanellas.dds"
+				large="gfx/leaders/SPR/Portrait_SPR_Miguel_Cabanellas_Ferrer.png"
 			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+		}
+		advisor={
+			slot = high_command
+			idea_token = SPA_miguel_cabanellas
+			ledger = army
+			cost = 100
+			allowed = {
+				original_tag = SPR
+			}
+			traits = {
+				army_regrouping_2
 			}
 		}
 		corps_commander={
@@ -251,14 +284,12 @@ characters={
 			legacy_id=1115
 		}
 	}
-	SPR_josé_millán_astray={
+	SPR_jose_millan_astray={
 		name="José Millán Astray"
 		portraits={
 			army={
 				small="GFX_Portrait_Europe_Generic_land_1_small"
-			}
-			army={
-				large="GFX_Portrait_Europe_Generic_land_1"
+				large="gfx/leaders/SPR/Portrait_SPR_Jose_Millan_Astray.png"
 			}
 		}
 		corps_commander={
@@ -275,129 +306,61 @@ characters={
 		name="Luis Carrero Blanco"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_navy_1.dds"
+				large="GFX_portrait_SPA_luis_carrero_blanco"
+				small="gfx/interface/ideas/idea_spa_luis_carrero_blanco.dds"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_1.dds"
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = SPA_luis_carrero_blanco
+			allowed = {
+				original_tag = SPR
 			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			cost = 100
 		}
 		navy_leader={
 			traits={ seawolf }
 			skill=2
 			attack_skill=2
 			defense_skill=2
-			maneuvering_skill=1
+			maneuvering_skill=2
 			coordination_skill=1
 			legacy_id=1118
 		}
 	}
-	SPR_vicente_molina={
-		name="Vicente Molina"
+	SPA_alfredo_kindelan_duany={
+		name= "Alfredo Kindelán"
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+			army={
+				large="gfx/leaders/SPR/Portrait_SPR_Alfredo_Kindelan.png"
+				small="GFX_idea_generic_air_europe_1"
 			}
 		}
-		country_leader={
-			ideology=centralism
-			expire="1953.1.1.12"
-			id=-1
+		corps_commander={
+			traits={  }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
 		}
-	}
-	SPR_manuel_herrera={
-		name="Manuel Herrera"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+		advisor={
+			slot = air_chief
+			idea_token = SPA_alfredo_kindelan_duany
+			allowed = {
+				original_tag = SPR
+			}
+			traits = {
+				air_chief_ground_support_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
-		country_leader={
-			ideology=marxism
-			traits={ reluctant_interventionist }
-			expire="1941.1.1.12"
-			id=-1
-		}
 	}
-	SPR_julio_martínez={
-		name="Julio Martínez"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=market_socialism
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	SPR_baldomero_garcía={
-		name="Baldomero García"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=centrism
-			traits={ financial_expert }
-			expire="1950.1.1.12"
-			id=-1
-		}
-	}
-	SPR_jorge_mariano_calvo={
-		name="Jorge Mariano Calvo"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_4"
-			}
-		}
-		country_leader={
-			ideology=paternalistic_conservatism
-			traits={ appeaser fortification_engineer }
-			expire="1954.1.1.12"
-			id=-1
-		}
-	}
-	SPR_nicolás_de_orleans={
-		name="Nicolás de Orleans"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=nationalist_autocrat
-			traits={ compassionate_gentleman }
-			expire="1942.1.1.12"
-			id=-1
-		}
-	}
-	SPR_mario_eduardo_hernández={
-		name="Mario Eduardo Hernández"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=fascism_ideology
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	SPR_marcelo_urkiaga={
-		name="Marcelo Urkiaga"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			traits={ editor }
-			expire="1951.1.1.12"
-			id=-1
-		}
-	}
+	
 }
