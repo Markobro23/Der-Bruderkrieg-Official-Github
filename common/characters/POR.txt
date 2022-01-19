@@ -50,6 +50,24 @@ characters={
 			civilian={
 				large="gfx/leaders/POR/Portrait_POR_Francisco_Rolao_Preto.png"
 			}
+			army={
+				small="GFX_idea_POR_rolao_preto"
+				large="gfx/leaders/POR/Portrait_POR_Francisco_Rolao_Preto.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = POR_rolao_preto
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		country_leader={
 			#desc="POLITICS_FRANSISCO_BARCELOS_ROLAO_PRETO_DESC"
@@ -67,6 +85,20 @@ characters={
 			}
 			army={
 				large="gfx/leaders/POR/Portrait_POR_Norton_Matos.png"
+			}
+		}
+		advisor = {
+			cost = 100
+			
+			slot = theorist
+			idea_token = POR_jose_norton_de_matos
+			ledger = army
+			allowed = {
+				original_tag = POR
+			}
+				
+			traits = {
+				military_theorist
 			}
 		}
 		field_marshal={
@@ -125,6 +157,22 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/POR/Portrait_Portugal_Antonio_Carmona.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_antonio_oscar_carmona
+			ledger = army
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ledger = army
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -234,8 +282,8 @@ characters={
 			skill=4
 			attack_skill=3
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=4
+			coordination_skill=4
 			legacy_id=19100
 		}
 	}
@@ -267,7 +315,7 @@ characters={
 			attack_skill=2
 			defense_skill=2
 			maneuvering_skill=1
-			coordination_skill=1
+			coordination_skill=2
 			legacy_id=19101
 		}
 	}
@@ -283,8 +331,8 @@ characters={
 			skill=2
 			attack_skill=1
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
 			legacy_id=19102
 		}
 	}
@@ -318,6 +366,189 @@ characters={
 			maneuvering_skill=1
 			coordination_skill=1
 			legacy_id=19103
+		}
+	}
+	POR_humberto_delgado = {
+		name = "Humberto Delgado"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_air_europe_1"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = POR_humberto_delgado
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				air_chief_ground_support_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_vieira_da_rocha = {
+		name = "Ernesto Vieira da Rocha"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_army_europe_4"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = POR_vieira_da_rocha
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_francisco_craveiro_lopes = {
+		name = "Francisco Craveiro Lopes"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_air_europe_2"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_francisco_craveiro_lopes
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				air_air_combat_training_2
+			}
+			cost = 100
+			ledger = army
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_manuel_quintao_meireles = {
+		name = "Manuel Quintão Meireles"
+		portraits = {
+			army = {
+				small = "GFX_idea_POR_manuel_quintao_meireles"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_manuel_quintao_meireles
+			ledger = navy
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				navy_fleet_logistics_2
+			}
+			cost = 100
+			ledger = navy
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_domingos_oliveira = {
+		name = "Domingos Oliveira"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_army_europe_3"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = POR_domingos_oliveira
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_chief_old_guard
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_manuel_gouveia = {
+		name = "Manuel Gouveia"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_air_europe_3"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = POR_manuel_gouveia
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	POR_jose_filipe_de_barros_rodrigues = {
+		name = "Jose Filipe de Barros Rodrigues"
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_army_europe_5"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_jose_filipe_de_barros_rodrigues
+			ledger = army
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+			ledger = army
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	POR_francisco_da_costa_gomes = {
+		name = POR_francisco_da_costa_gomes
+		portraits = {
+			army = {
+				small = "GFX_idea_generic_army_europe_3"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_francisco_da_costa_gomes
+			ledger = army
+			allowed = {
+				original_tag = POR
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ledger = army
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }
