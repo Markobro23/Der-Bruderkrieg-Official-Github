@@ -50,7 +50,23 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/SWI/Portrait_Switzerland_Eugen_Bircher.png"
+				small="GFX_idea_generic_army_europe_2"
 			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = SWI_eugen_bircher
+			ledger = army
+				allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					army_armored_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 		corps_commander={
 			traits={ trait_cautious hill_fighter skilled_staffer }
@@ -69,6 +85,19 @@ characters={
 				large="gfx/leaders/SWI/Portrait_Switzerland_Gustave_Combe.png"
 			}
 		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = SWI_gustave_combe
+			ledger = army
+				allowed = {
+					original_tag = SWI
+				}
+				
+				traits = {
+					military_theorist
+				}
+		}
 		corps_commander={
 			traits={ hill_fighter }
 			skill=2
@@ -85,6 +114,20 @@ characters={
 			army={
 				large="gfx/leaders/SWI/Portrait_Switzerland_Hermann_Fluckiger.png"
 			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = SWI_johann_august_sutter
+			allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 		corps_commander={
 			traits={ inflexible_strategist skilled_staffer }
@@ -162,6 +205,118 @@ characters={
 			planning_skill=1
 			logistics_skill=1
 			legacy_id=-1
+		}
+	}
+	SWI_j_d_de_montenach={
+		advisor={
+			slot = air_chief
+			idea_token = SWI_j_d_de_montenach
+			allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					air_chief_safety_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name= "Jean-Daniel de Montenach"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
+		}
+	}
+	SWI_jean_de_muralt={
+		advisor={
+			slot = high_command
+			idea_token = SWI_jean_de_muralt
+			ledger = army
+				allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					army_artillery_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name= "Jean de Muralt"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+	}
+	SWI_ernst_laur={
+		advisor={
+			slot = army_chief
+			idea_token = SWI_ernst_laur
+			allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					army_chief_organizational_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name= "Ernst Laur"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+	}
+	SWI_etienne_primault={
+		advisor={
+			slot = high_command
+			idea_token = SWI_etienne_primault
+			ledger = air
+				allowed = {
+					original_tag = SWI
+				}
+				traits = {
+					air_air_superiority_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name= "Etienne Primault"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
+		}
+	}
+	SWI_oskar_bider={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = SWI_oskar_bider
+			ledger = air
+				allowed = {
+					original_tag = SWI
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
+		}
+		name= "Oskar Bider"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
 		}
 	}
 }
