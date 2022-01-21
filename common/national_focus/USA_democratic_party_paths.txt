@@ -2677,11 +2677,704 @@ shared_focus = {
 	}
 }
 
+shared_focus = {
+	id = USA_denounce_the_mosley_regime
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_bring_them_to_the_table
+	}
+	prerequisite = {
+		focus = USA_the_british_situation
+	}
+	relative_position_id = USA_the_british_situation
+	
+	completion_reward = {
+	}
+}
 
+shared_focus = {
+	id = USA_bring_them_to_the_table
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_denounce_the_mosley_regime
+	}
+	prerequisite = {
+		focus = USA_the_british_situation
+	}
+	relative_position_id = USA_the_british_situation
+	
+	completion_reward = {
+	}
+}
 
+shared_focus = {
+	id = USA_offer_them_nothing
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_offer_the_return_of_jamaica
+		focus = USA_offer_business_concessions
+	}
+	prerequisite = {
+		focus = USA_bring_them_to_the_table
+	}
+	relative_position_id = USA_bring_them_to_the_table
+	
+	completion_reward = {
+	}
+}
 
+shared_focus = {
+	id = USA_offer_business_concessions
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_offer_the_return_of_jamaica
+		focus = USA_offer_them_nothing
+	}
+	prerequisite = {
+		focus = USA_bring_them_to_the_table
+	}
+	relative_position_id = USA_bring_them_to_the_table
+	
+	completion_reward = {
+	}
+}
 
+shared_focus = {
+	id = USA_offer_the_return_of_jamaica
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_offer_business_concessions
+		focus = USA_offer_them_nothing
+	}
+	prerequisite = {
+		focus = USA_bring_them_to_the_table
+	}
+	relative_position_id = USA_bring_them_to_the_table
+	
+	completion_reward = {
+	}
+}
 
+shared_focus = {
+	id = USA_the_british_decline
+	icon = GFX_goal_USA_the_british_situation
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_offer_the_return_of_jamaica
+		focus = USA_offer_business_concessions
+		focus = USA_offer_them_nothing
+	}
+	mutually_exclusive = {
+		focus = USA_the_british_accept
+	}
+	relative_position_id = USA_offer_the_return_of_jamaica
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_the_british_accept
+	icon = GFX_goal_USA_the_british_situation
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_offer_the_return_of_jamaica
+		focus = USA_offer_business_concessions
+		focus = USA_offer_them_nothing
+	}
+	mutually_exclusive = {
+		focus = USA_the_british_decline
+	}
+	relative_position_id = USA_offer_the_return_of_jamaica
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_demand_reparations
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_forget_the_past
+	}
+	prerequisite = {
+		focus = USA_the_british_decline
+		focus = USA_the_british_accept
+	}
+	relative_position_id = USA_the_british_decline
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_forget_the_past
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_demand_reparations
+	}
+	prerequisite = {
+		focus = USA_the_british_decline
+		focus = USA_the_british_accept
+	}
+	relative_position_id = USA_the_british_accept
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_renew_our_cold_war
+	icon = GFX_goal_USA_the_british_situation
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_demand_reparations
+		focus = USA_the_british_decline
+	}
+	mutually_exclusive = { 
+		focus = USA_bury_the_hatchet
+	}
+	relative_position_id = USA_demand_reparations
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_manipulate_the_london_stock_exchange
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_renew_our_cold_war
+	}
+	relative_position_id = USA_renew_our_cold_war
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_embargo_the_commonwealths
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_renew_our_cold_war
+	}
+	relative_position_id = USA_renew_our_cold_war
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_expand_operations_in_canada
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_renew_our_cold_war
+	}
+	relative_position_id = USA_renew_our_cold_war
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_bury_the_hatchet
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_demand_reparations
+		focus = USA_forget_the_past
+	}
+	mutually_exclusive = {
+		focus = USA_renew_our_cold_war
+	}
+	relative_position_id = USA_forget_the_past
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_the_far_east
+	icon = GFX_goal_USA_the_british_situation
+	x = 3
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_lets_stand_against_extremism
+	}
+	relative_position_id = USA_lets_stand_against_extremism
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_relations_with_the_bear
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_the_far_east
+	}
+	relative_position_id = USA_the_far_east
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_send_a_delegate_to_the_royal_court
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_invite_their_president_to_seattle
+		focus = USA_detente_with_the_reds
+	}
+	prerequisite = {
+		focus = USA_relations_with_the_bear
+	}
+	relative_position_id = USA_relations_with_the_bear
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_invite_their_president_to_seattle
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_send_a_delegate_to_the_royal_court
+		focus = USA_detente_with_the_reds
+	}
+	prerequisite = {
+		focus = USA_relations_with_the_bear
+	}
+	relative_position_id = USA_relations_with_the_bear
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_not_friends_but_acquaintances
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_send_a_delegate_to_the_royal_court
+	}
+	relative_position_id = USA_send_a_delegate_to_the_royal_court
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_exchange_investments
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_invite_their_president_to_seattle
+	}
+	relative_position_id = USA_invite_their_president_to_seattle
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_not_friends_but_acquaintances
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_not_friends_but_acquaintances
+		focus = USA_exchange_investments
+	}
+	relative_position_id = USA_exchange_investments
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_detente_with_the_reds
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_invite_their_president_to_seattle
+		focus = USA_send_a_delegate_to_the_royal_court
+	}
+	prerequisite = {
+		focus = USA_relations_with_the_bear
+	}
+	relative_position_id = USA_relations_with_the_bear
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_re_open_their_embassy
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_detente_with_the_reds
+	}
+	relative_position_id = USA_detente_with_the_reds
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_quietly_take_refugees
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_re_open_their_embassy
+	}
+	relative_position_id = USA_re_open_their_embassy
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_the_rising_sun
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_the_far_east
+	}
+	relative_position_id = USA_the_far_east
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_continue_relations_with_the_emperor
+	icon = GFX_goal_USA_the_british_situation
+	x = -2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_land_of_the_eastern_democracy
+		focus = USA_cut_ties_with_japan
+	}
+	prerequisite = {
+		focus = USA_the_rising_sun
+	}
+	relative_position_id = USA_the_rising_sun
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_isolate_the_emperor
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_continue_relations_with_the_emperor
+	}
+	relative_position_id = USA_continue_relations_with_the_emperor
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_cut_ties_with_japan
+	icon = GFX_goal_USA_the_british_situation
+	x = 2
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_land_of_the_eastern_democracy
+		focus = USA_continue_relations_with_the_emperor
+	}
+	prerequisite = {
+		focus = USA_the_rising_sun
+	}
+	relative_position_id = USA_the_rising_sun
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_land_of_the_eastern_democracy
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_cut_ties_with_japan
+		focus = USA_continue_relations_with_the_emperor
+	}
+	prerequisite = {
+		focus = USA_the_rising_sun
+	}
+	relative_position_id = USA_the_rising_sun
+	
+	completion_reward = {
+	}
+}
+
+shared_focus = {
+	id = USA_invest_in_japanese_businesses
+	icon = GFX_goal_USA_the_british_situation
+	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_land_of_the_eastern_democracy
+	}
+	relative_position_id = USA_land_of_the_eastern_democracy
+	
+	completion_reward = {
+	}
+}
 
 ##mcaddo FP
 shared_focus = {
