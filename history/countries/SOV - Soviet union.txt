@@ -1,5 +1,7 @@
 capital = 195
 
+starting_train_buffer = 3.0
+
 oob = "SOV_1936"
 if = {
 	limit = { has_dlc = "Man the Guns" }
@@ -45,10 +47,6 @@ set_technology = {
 	paratroopers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1  # PLACEHOLDER
-	#basic_heavy_tank = 1  # PLACEHOLDER
-	#basic_medium_tank = 1 # PLACEHOLDER
 	early_fighter = 1
 	fighter1 = 1
 	early_bomber = 1
@@ -60,6 +58,30 @@ set_technology = {
 	fuel_refining = 1
 	basic_train = 1
 }
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		engine_tech_1 = 1
+		engine_tech_2 = 1
+	}
+}
+
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	set_technology = {
@@ -159,7 +181,6 @@ recruit_character = SOV_sergey_markov
 recruit_character = SOV_pyotr_krasnov
 recruit_character = SOV_mikhail_drozdovskiy
 recruit_character = SOV_ivan_konev
-recruit_character = SOV_konstantin_rokossovsky
 recruit_character = SOV_mikhail_tukhachevsky
 recruit_character = SOV_aleksandr_vasilevsky
 recruit_character = SOV_boris_shaposhnikov
@@ -174,8 +195,6 @@ recruit_character = SOV_vladimir_von_manstein
 recruit_character = SOV_abram_dragomirov
 recruit_character = SOV_pavlo_skoropadskyi
 recruit_character = SOV_giorgi_khimshiashvili
-recruit_character = SOV_roman_von_ungernsternberg
-recruit_character = SOV_boris_rezukhin
 recruit_character = SOV_konstantin_gilchevsky
 recruit_character = SOV_leonid_govorov
 recruit_character = SOV_markian_popov
@@ -198,6 +217,21 @@ recruit_character = SOV_gordey_levchenko
 recruit_character = SOV_arseniy_golovko
 recruit_character = SOV_vladimir_kasatonov
 recruit_character = SOV_nestor_monastyryev
+recruit_character = SOV_sergey_rudenko
+recruit_character = SOV_aleksandr_golovanov
+recruit_character = SOV_igor_kurchatov
+recruit_character = SOV_sergey_korolyov
+recruit_character = SOV_nikolay_kuznetsov
+recruit_character = SOV_mikhail_berens
+recruit_character = SOV_aleksandr_novikov
+recruit_character = SOV_vyacheslav_tkachyov
+recruit_character = SOV_yakov_smushkevich
+recruit_character = SOV_pavel_argeyev
+recruit_character = SOV_konstantin_nechayev
+recruit_character = SOV_anatoli_rogozhin
+recruit_character = SOV_pavel_zhigarev
+recruit_character = SOV_sergey_khudyakov
+
 
 if = {
 	limit = {

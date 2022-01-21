@@ -1187,10 +1187,21 @@ form_india_category = {
 				}
 				all_of_scopes = {
 					array = AIG.core_states
-					OR = {
-						is_owned_by = ROOT
-						is_controlled_by = ROOT
-						
+					if = {
+						limit = {
+							NOT = {
+								owner = {
+									tag = FRA
+								}
+								owner = {
+									tag = POR
+								}
+							}
+						}
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
 					}
 				}
 				all_of_scopes = {
@@ -1202,16 +1213,40 @@ form_india_category = {
 				}
 				all_of_scopes = {
 					array = DRA.core_states
-					OR = {
-						is_owned_by = ROOT
-						is_controlled_by = ROOT
+					if = {
+						limit = {
+							NOT = {
+								owner = {
+									tag = FRA
+								}
+								owner = {
+									tag = POR
+								}
+							}
+						}
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
 					}
 				}
 				all_of_scopes = {
 					array = RAJ.core_states
-					OR = {
-						is_owned_by = ROOT
-						is_controlled_by = ROOT
+					if = {
+						limit = {
+							NOT = {
+								owner = {
+									tag = FRA
+								}
+								owner = {
+									tag = POR
+								}
+							}
+						}
+						OR = {
+							is_owned_by = ROOT
+							is_controlled_by = ROOT
+						}
 					}
 				} 
 			}

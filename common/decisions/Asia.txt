@@ -26,6 +26,12 @@ AIG_worldbuilding_decisions = {
 				id = USA_flavor_events.2
 				days = 950
 			}
+			add_popularity = {
+				socialism_democratic = 0.3
+			}
+			set_politics = {
+				ruling_party = socialism_democratic
+			}
 		}
 		fire_only_once = yes
 		days_remove = 620
@@ -400,6 +406,49 @@ AIG_worldbuilding_decisions = {
 					instant_build = yes
 				}
 				add_extra_state_shared_building_slots = 1
+			}
+		}
+	
+	}
+
+	AIG_united_indian_republic = {
+		icon = generic_nation
+		available = {
+			RAJ = {
+				exists = no
+			}
+			controls_state = 431
+			has_country_flag = indian_united_front
+		}
+		visible = {
+		
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		remove_effect = {
+			annex_country = {
+				target = INC
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = DRA
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = KHA
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = PAK
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = KAS
+				transfer_troops = yes
 			}
 		}
 	
