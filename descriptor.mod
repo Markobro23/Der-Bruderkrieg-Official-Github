@@ -28,6 +28,7 @@ replace_path="common/ai_strategy"
 replace_path="common/characters"
 replace_path="common/on_actions"
 replace_path="common/bookmarks"
+replace_path="portraits"
 replace_path="music"
 replace_path="map/strategicregions"
 
