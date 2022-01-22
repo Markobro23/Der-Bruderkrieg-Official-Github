@@ -9,7 +9,7 @@ news_event = {
 	is_triggered_only = yes
 	#fire_only_once = yes
 	major = yes
-
+ 
 
 
 	option = { 
@@ -309,8 +309,6 @@ news_event = {
 	#fire_only_once = yes
 	major = yes
 
-
-
 	option = { 
 		name = prussian_expansion.3.a
 		if = {
@@ -337,6 +335,48 @@ news_event = {
 	option = { 
 		name = prussian_expansion.4.a
 		
+	}
+}
+
+##treaty of westphalia
+news_event = {
+	id = prussian_expansion.5
+	title = prussian_expansion.5.t
+	desc = prussian_expansion.5.d
+	picture = GFX_formingofthengc
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	option = { 
+		name = prussian_expansion.5.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			france_loses_peace_deal = yes
+		}
+	}
+}
+
+##treaty of minsk
+news_event = {
+	id = prussian_expansion.6
+	title = prussian_expansion.6.t
+	desc = prussian_expansion.6.d
+	picture = GFX_formingofthengc
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	option = { 
+		name = prussian_expansion.6.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			russia_loses_to_prussia_deal = yes
+		}
 	}
 }
 
