@@ -3039,7 +3039,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_relations_with_the_bear
 	icon = GFX_goal_USA_the_british_situation
-	x = 2
+	x = 4
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3068,6 +3068,18 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Nikolai Belogurov"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_invite_their_president_to_seattle
@@ -3093,6 +3105,18 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Pavel Milyukov"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Alexander Kerensky"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_send_a_delegate_to_the_royal_court
@@ -3162,10 +3186,30 @@ shared_focus = {
 	available = {
 	}
 	prerequisite = {
+		focus = USA_send_a_delegate_to_the_royal_court
+	}
+	relative_position_id = USA_send_a_delegate_to_the_royal_court
+	
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = USA_cultural_exchange_programs
+	icon = GFX_goal_USA_the_british_situation
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
 		focus = USA_not_friends_but_acquaintances
 		focus = USA_exchange_investments
 	}
-	relative_position_id = USA_exchange_investments
+	relative_position_id = USA_not_friends_but_acquaintances
 	
 	completion_reward = {
 	}
@@ -3182,6 +3226,14 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Vladimir Lenin"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_invite_their_president_to_seattle
@@ -3241,7 +3293,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_the_rising_sun
 	icon = GFX_goal_USA_the_british_situation
-	x = -2
+	x = -4
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
