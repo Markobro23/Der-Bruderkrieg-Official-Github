@@ -5325,21 +5325,21 @@ shared_focus = {
 	id = ITA_INVEST_IN_SOUTH
 	icon = GFX_focus_generic_industry_2
 	text = ITA_INVEST_IN_SOUTH
-	x = 7
-	y = 0
+	x = 25
+	y = 2
 	cost = 3
 	ai_will_do = {
 	  factor = 1
 	}
 
-	  available = {
-		  has_country_flag = mafia_solved
-	  }
+	#   available = {
+	# 	  has_country_flag = mafia_solved
+	#   }
 	  relative_position_id = ITA_MAFIA_FOCUS
 
-	  allow_branch = {
-		always = no
-	}
+	#   allow_branch = {
+	# 	always = no
+	# }
 
 	available_if_capitulated = yes
 	search_filters = { FOCUS_FILTER_RESEARCH }
@@ -5519,16 +5519,14 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		  swap_ideas = {
-			  add_idea = Southern_Problem_2
-			  remove_idea = Southern_Problem
-		  }
+		##state modifier stuff
+		add_ideas = ITA_appeased_mafia
 	}
   }
 
   shared_focus = {
 	id = ITA_SOUTH_REJUVANATED
-	icon = GFX_ITA_the_south_rejuvenated
+	icon = GFX_goal_USA_economic_reform_plan
 	text = ITA_SOUTH_REJUVANATED
 	prerequisite = { focus = ITA_CATHOLIC_CHARITY_WORK }
 	prerequisite = {focus = ITA_naples_university}
