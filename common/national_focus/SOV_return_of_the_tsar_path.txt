@@ -2048,7 +2048,7 @@ shared_focus = {
     icon = GFX_goal_SOV_the_prussian_question
     prerequisite = {focus = SOV_russian_glory }
   
-	x = -1
+	x = 0
 	y = 1
     relative_position_id = SOV_russian_glory 
     cost = 2
@@ -2057,7 +2057,7 @@ shared_focus = {
         factor = 1000
     }
     mutually_exclusive = {
-        focus = SOV_prussian_russian_war_games
+        
     }
     completion_reward = {
      GER = {
@@ -2069,34 +2069,34 @@ shared_focus = {
      create_faction = "Silver Entente"
     }
 }
-shared_focus = {
-    id = SOV_prussian_russian_war_games
-    icon = GFX_goal_SOV_no_they_are_insane
-    prerequisite = {focus = SOV_russian_glory }
+# shared_focus = {
+#     id = SOV_prussian_russian_war_games
+#     icon = GFX_goal_SOV_no_they_are_insane
+#     prerequisite = {focus = SOV_russian_glory }
   
-	x = 1
-	y = 1
-    relative_position_id = SOV_russian_glory 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    mutually_exclusive = {
-        focus = SOV_prussian_ally
-    }
-    completion_reward = {
-     GER = {
-         country_event = Generic.2
-     }
-    }
-}
+# 	x = 1
+# 	y = 1
+#     relative_position_id = SOV_russian_glory 
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     mutually_exclusive = {
+#         focus = SOV_prussian_ally
+#     }
+#     completion_reward = {
+#      GER = {
+#          country_event = Generic.2
+#      }
+#     }
+# }
 shared_focus = {
     id = SOV_the_far_east
     icon = GFX_goal_SOV_curb_japanese_influence
-    prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
+    prerequisite = {focus = SOV_prussian_ally  }
   
-	x = 5
+	x = 4
 	y = 1
     relative_position_id = SOV_prussian_ally  
     cost = 7
@@ -2271,7 +2271,7 @@ shared_focus = {
     }
     completion_reward = {
         add_state_core = 537
-     create_wargoal = {
+     declare_war_on = {
          target = JAP
          type = puppet_wargoal_focus
      }
@@ -2282,9 +2282,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_austrians
     icon = GFX_goal_AUS_Centralised_Government
-	prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
+	prerequisite = {focus = SOV_prussian_ally  }
   
-	x = 1
+	x = 0
 	y = 1
     relative_position_id = SOV_prussian_ally  
     cost = 3
@@ -2417,7 +2417,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_the_southern_menace
     icon = GFX_goal_SOV_the_southern_menace 
-    prerequisite = {focus = SOV_prussian_ally focus = SOV_prussian_russian_war_games }
+    prerequisite = {focus = SOV_prussian_ally  }
   
 	x = -3
 	y = 1
