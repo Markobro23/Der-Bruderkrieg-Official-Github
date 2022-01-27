@@ -324,9 +324,19 @@ on_actions = {
             }
             if = {
                 limit = {
-                    tag = SOV
-                    FROM = {
-                        tag = JAP
+                    OR = {
+                        AND = {
+                            tag = SOV
+                            FROM = {
+                                tag = JAP
+                            }
+                        }
+                        AND = {
+                            tag = JAP
+                            FROM = {
+                                tag = SOV
+                            }
+                        }
                     }
                 }
                 hidden_effect = {

@@ -2250,6 +2250,39 @@ news_event = {
 	}
 }
 
+##pontic revolution
+news_event = {
+	id = SOV_lenin_tree_events.30
+	title = SOV_lenin_tree_events.30.t
+	desc = SOV_lenin_tree_events.30.d
+	picture = GFX_leninspeech
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_lenin_tree_events.30.a
+	
+	}
+}
+
+country_event = { #invasion of trabzon
+	id = SOV_lenin_tree_events.31
+	title = SOV_lenin_tree_events.31.t
+	desc = SOV_lenin_tree_events.31.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.31.a #oh no
+		ai_chance = { factor = 3 }
+		
+		TUR = {
+			declare_war_on = {
+				target = TRB
+				type = annex_everything
+			}
+		}
+	}
+}
+
 
 
 add_namespace = SOV_lenin_social_reforms_events
