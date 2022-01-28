@@ -1344,51 +1344,6 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = ITA_intervene_in_munitions_companies
-		icon = GFX_focus_generic_combined_arms
-		x = 2
-		y = 1
-		cost = 5
-		
-		
-		prerequisite = { focus = ITA_the_dawn_of_the_blueshirts }
-				relative_position_id = ITA_the_dawn_of_the_blueshirts
-
-		ai_will_do = {
-			factor = 500
-		}
-		completion_reward = {
-			swap_ideas = {
-				add_idea = ITA_mass_economic_instability_2
-				remove_idea = ITA_mass_economic_instability
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-		}
-	}
 	
 	shared_focus = {
 		id = ITA_battle_for_lands
@@ -1603,45 +1558,7 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = ITA_fund_southern_steelworks
-		icon = GFX_goal_GenericResourceExtraction
-		x = 1
-		y = 1
-		cost = 5
-		
-		
-		prerequisite = { focus = ITA_found_the_anic }
-		prerequisite = { focus = ITA_revamp_coal_industry_in_sardinia }
-		relative_position_id = ITA_found_the_anic
-		ai_will_do = {
-			factor = 500
-		}
-		completion_reward = {
-			remove_ideas = ITA_mass_economic_instability_2
-			add_resource = {
-				type = steel
-				amount = 4
-				state = 117
-			}
-			add_resource = {
-				type = steel
-				amount = 4
-				state = 882
-			}
-			add_resource = {
-				type = steel
-				amount = 4
-				state = 886
-			}
-			add_resource = {
-				type = steel
-				amount = 4
-				state = 880
-			}
-			
-		}
-	}
+	
 	
 	# shared_focus = {
 	# 	id = ITA_expand_industrial_complex
@@ -1746,7 +1663,45 @@ shared_focus = {
 				
 		}
 	}
-	
+	shared_focus = {
+		id = ITA_fund_southern_steelworks
+		icon = GFX_goal_GenericResourceExtraction
+		x = 1
+		y = 1
+		cost = 5
+		
+		
+		prerequisite = { focus = ITA_found_the_anic }
+		prerequisite = { focus = ITA_revamp_coal_industry_in_sardinia }
+		relative_position_id = ITA_found_the_anic
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			remove_ideas = ITA_mass_economic_instability_2
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 117
+			}
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 882
+			}
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 886
+			}
+			add_resource = {
+				type = steel
+				amount = 4
+				state = 880
+			}
+			
+		}
+	}
 	shared_focus = {
 		id = ITA_resources_in_ethiopia
 		icon = GFX_goal_AUS_reform_the_pakt
@@ -1927,7 +1882,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_the_raid_on_malta
 		icon = GFX_goal_ITA_raid_on_malta
-		S
+		
 		x = 0
 		y = 2
 		cost = 5
@@ -2092,7 +2047,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_discover_crete #mfw the italians are so primitive they haven't discovered Crete. I'm gonna blame the north's Aryan heritage for that
 		icon = GFX_goal_ITA_discover_crete #mfw the italians are so primitive they haven't discovered Crete. I'm gonna blame the north's Aryan heritage for that
-		r
+		
 		x = 0
 		y = 2
 		cost = 5
@@ -2418,6 +2373,52 @@ shared_focus = {
 			set_cosmetic_tag = ITA_italian_empire
 		}
 	}
+	shared_focus = {
+		id = ITA_intervene_in_munitions_companies
+		icon = GFX_focus_generic_combined_arms
+		x = 2
+		y = 1
+		cost = 5
+		
+		
+		prerequisite = { focus = ITA_the_dawn_of_the_blueshirts }
+				relative_position_id = ITA_the_dawn_of_the_blueshirts
+
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ITA_mass_economic_instability_2
+				remove_idea = ITA_mass_economic_instability
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	
 	
 	# shared_focus = {
 	# 	id = ITA_secure_the_kings_support

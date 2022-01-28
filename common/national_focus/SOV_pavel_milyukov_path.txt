@@ -1907,11 +1907,17 @@ shared_focus = {
 	y = 1
 	
 	available = {
+		ZHC = {
+			is_in_faction_with = SOV
+		}
 	}
 	bypass = {
 
 	}
 	prerequisite = { focus = SOV_hes_genghis_khan_reborn focus = SOV_annex_the_false_khan }
+	prerequisite = {
+		focus = SOV_curb_japanese_influence
+	}
 	relative_position_id = SOV_hes_genghis_khan_reborn
 	mutually_exclusive = {
 		focus = SOV_restoration_of_the_qing_dynasty
@@ -1925,8 +1931,15 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		CHI = {
-			country_event = russia.22
+		ZHC = {
+			annex_country = {
+				target = MAN
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = ANH
+				transfer_troops = yes
+			}
 		}
 	}
 	ai_will_do = {
@@ -2004,9 +2017,8 @@ shared_focus = {
 		ANH = {
 			country_event = { id = russia.22 }
 		}
-		create_wargoal = {
-			target = ZHC
-			type = topple_government
+		ZHC = {
+			country_event = { id = russia.22 }
 		}
 		add_threat = 2
 	}
@@ -2031,6 +2043,9 @@ shared_focus = {
 	  focus = SOV_contact_chiang_kai_shek
 	}
 	available = {
+		MAN = {
+			is_in_faction_with = SOV
+		}
 	}
 	bypass = {
 
@@ -2048,6 +2063,28 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		MAN = {
+			annex_country = {
+				target = ANH
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = ZHC
+				transfer_troops = yes
+			}
+			create_country_leader = {
+				name = "Pujie"
+				picture = "gfx/leaders/Pujie.dds"
+				ideology = despotic
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			add_popularity = {
+				neutrality = 0.25
+			}
+			
+		}
 	}
 	ai_will_do = {
 		factor = 200
