@@ -1896,7 +1896,7 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			has_completed_focus = AUS_emmerich_czermach
+			has_completed_focus = AUS_emmerich_czermach_focus
 		}
 	
 		traits = { armaments_organizer }
@@ -1924,7 +1924,7 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			has_completed_focus = AUS_karl_sietz
+			has_completed_focus = AUS_karl_sietz_focus
 		} 
 	
 		traits = { lieutenant_of_industry }
@@ -1956,7 +1956,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_karl_sietz_focus
 			}
 		
 			traits = { chamberlain_appeaser }
@@ -1970,7 +1970,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_emmerich_czermach_focus
 			}
 		
 			traits = { civilized_warfare_advocate }
@@ -1987,7 +1987,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_emmerich_czermach_focus
 			}
 		
 			traits = { cislethian_autonomist }
@@ -1998,10 +1998,10 @@ ideas = {
 		}
 		bruno_kreisky = {
 			allowed = {
-				original_tag = AUS
+				tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_karl_sietz_focus
 			}
 		
 			traits = { young_near_radical }
@@ -2013,12 +2013,12 @@ ideas = {
 	}
 
 	economic_minister = {
-		ignaz_seipel = {
+		ignaz_seipel2 = {
 			allowed = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_emmerich_czermach_focus
 			}
 		
 			traits = { banker }
@@ -2032,7 +2032,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_karl_sietz_focus
 			}
 		
 			traits = { banker }
@@ -2049,7 +2049,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_karl_sietz_focus
 			}
 		
 			traits = { union_organizer }
@@ -2063,7 +2063,7 @@ ideas = {
 				original_tag = AUS
 			}
 			available = {
-				always = yes
+				has_completed_focus = AUS_emmerich_czermach_focus
 			}
 		
 			traits = { national_connector }
@@ -2909,7 +2909,9 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { sincere_catholic  }
@@ -2928,7 +2930,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { banksterist }
@@ -2948,7 +2952,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { austerity_advocate }
@@ -2957,7 +2963,7 @@ economic_minister = {
 			factor = 0.5
 		}
 	}
-  }   
+  }    
   
    minister_of_foriegn_affairs = {
 	leopold_berchtold = {
@@ -2967,7 +2973,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { bumbling_noble }
@@ -2986,7 +2994,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { psychological_expert }
@@ -2999,16 +3009,33 @@ economic_minister = {
   
    minister_of_the_interior = {
 	vacant = {
-
+ 
 		
 		allowed = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			# NOT = {
+			# 	has_completed_focus = AUS_sign_a_new_constitution
+			# }
 		}
 		
 		traits = { vacant }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
+	wilhelm_miklas2 = {
+		
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			has_completed_focus = AUS_engelbert_dolfuss
+		}
+		
+		traits = { sincere_catholic  }
 
 		ai_will_do = {
 			factor = 0.5

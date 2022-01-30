@@ -489,7 +489,7 @@ shared_focus = {
     factor = 300
   }
   available = {
-    has_country_flag = absolutism
+    has_country_flag = absolutism_flag
   }
 
 
@@ -856,10 +856,10 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_CALL_REICHSRAT
-  icon = GFX_goal_AUS_call_a_reichstrat 
+  icon = GFX_goal_AUS_strengthen_the_diet 
   text = AUS_CALL_REICHSRAT
   prerequisite = { focus = AUS_sign_a_new_constitution }
-  x = 1
+  x = 0
   y = 1
   relative_position_id = AUS_sign_a_new_constitution
   cost = 6
@@ -868,6 +868,65 @@ shared_focus = {
   }
   available = {
     has_country_flag = vote_succesful_reichstrat_act
+  }
+
+  available_if_capitulated = yes
+  #search_filters = { FOCUS_FILTER_RESEARCH }
+
+  completion_reward = {
+    
+
+    swap_ideas = {
+      add_idea = Constitutionalism_2
+      remove_idea = Constitutionalism
+    }
+    add_popularity = {
+      ideology = democratic
+      popularity = 0.05
+    }
+
+    
+
+    #####gets event calling of the rechstart
+
+    #news_event = {
+     # id = austria.155
+     # days = 1
+   # }
+  }
+}
+# shared_focus = {
+#   id = AUS_strengthen_diet
+#   icon = GFX_goal_AUS_strengthen_the_diet
+#   text = AUS_strengthen_diet
+#   prerequisite = { focus = AUS_sign_a_new_constitution }
+#   x = -1
+#   y = 1
+#   relative_position_id = AUS_sign_a_new_constitution
+#   cost = 3
+#   ai_will_do = {
+#     factor = 200
+#   }
+
+#   available_if_capitulated = yes
+#   #search_filters = { FOCUS_FILTER_RESEARCH }
+
+#   completion_reward = {
+#     add_political_power = 75
+#   }
+# }
+
+shared_focus = {
+  id = AUS_FREE_AUSTRIA
+  icon = GFX_goal_AUS_a_free_austria
+  text = AUS_FREE_AUSTRIA
+  prerequisite = { focus = AUS_CALL_REICHSRAT }
+  x = 0
+  y = 1
+  relative_position_id = AUS_CALL_REICHSRAT
+  cost = 5
+  ai_will_do = {
+    factor = 200
   }
 
   available_if_capitulated = yes
@@ -883,64 +942,6 @@ shared_focus = {
 
     set_politics  = {
       ruling_party = democratic
-    }
-
-    
-
-    #####gets event calling of the rechstart
-
-    #news_event = {
-     # id = austria.155
-     # days = 1
-   # }
-  }
-}
-shared_focus = {
-  id = AUS_strengthen_diet
-  icon = GFX_goal_AUS_strengthen_the_diet
-  text = AUS_strengthen_diet
-  prerequisite = { focus = AUS_sign_a_new_constitution }
-  x = -1
-  y = 1
-  relative_position_id = AUS_sign_a_new_constitution
-  cost = 3
-  ai_will_do = {
-    factor = 200
-  }
-
-  available_if_capitulated = yes
-  #search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    add_political_power = 75
-  }
-}
-
-shared_focus = {
-  id = AUS_FREE_AUSTRIA
-  icon = GFX_goal_AUS_a_free_austria
-  text = AUS_FREE_AUSTRIA
-  prerequisite = { focus = AUS_CALL_REICHSRAT }
-  prerequisite = { focus = AUS_strengthen_diet }
-  x = -1
-  y = 1
-  relative_position_id = AUS_CALL_REICHSRAT
-  cost = 5
-  ai_will_do = {
-    factor = 200
-  }
-
-  available_if_capitulated = yes
-  #search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-    swap_ideas = {
-      add_idea = Constitutionalism_2
-      remove_idea = Constitutionalism
-    }
-    add_popularity = {
-      ideology = democratic
-      popularity = 0.05
     }
   }
 }
@@ -1107,6 +1108,17 @@ shared_focus = {
       }
       multiply_variable = {
         AUS_Polish_Support_stability_factor = 2
+      }
+
+      GLC = {
+        set_politics = {
+          ruling_party = democratic
+        }
+      }
+      CZE = {
+        set_politics = {
+          ruling_party = democratic
+        }
       }
     }
   }
@@ -2313,12 +2325,11 @@ shared_focus = {
 
 
 shared_focus = {
-  id = AUS_karl_sietz
+  id = AUS_karl_sietz_focus
   icon = GFX_goal_AUS_karl_sietz
-  text = AUS_karl_sietz
   prerequisite = { focus = AUS_FREE_AUSTRIA }
   mutually_exclusive = {
-    focus = AUS_emmerich_czermach
+    focus = AUS_emmerich_czermach_focus
   }
   x = 5
   y = 1
@@ -2333,14 +2344,21 @@ shared_focus = {
 
   completion_reward = {
     
-    show_ideas_tooltip = karl_sietz
-    custom_effect_tooltip = AUS_the_liberal_SDP_coalition_strengthens
+    add_ideas = karl_sietz
+    add_ideas = adolf_scharf
+    add_ideas = bruno_kreisky
+    add_ideas = georg_zimmerman
+    add_ideas = julius_deutsch
+    add_popularity = {
+        ideology = democratic_liberalism
+        popularity = 0.15
+      }
+      set_politics = {
+        ruling_party = democratic_liberalism
+      }
 
     hidden_effect = {
-      add_popularity = {
-        ideology = democratic_liberalism
-        popularity = 0.1
-      }
+      
     }
    }
 }
@@ -2351,10 +2369,10 @@ shared_focus = {
   id = AUS_civilian_economics
   icon = GFX_goal_AUS_fund_civilian_industry
   text = AUS_civilian_economics 
-  prerequisite = { focus = AUS_karl_sietz focus = AUS_karl_sietz }
+  prerequisite = { focus = AUS_karl_sietz_focus focus = AUS_karl_sietz_focus }
   x = 1
   y = 1
-  relative_position_id = AUS_karl_sietz
+  relative_position_id = AUS_karl_sietz_focus
   cost = 5
    ai_will_do = {
     factor = 100
@@ -2407,7 +2425,7 @@ shared_focus = {
     swap_ideas = {
       add_idea = AUS_austrian_school_of_economics_2
       remove_idea = AUS_austrian_school_of_economics
-    }
+    } 
 
    }
 }
@@ -2415,12 +2433,11 @@ shared_focus = {
 
 
 shared_focus = {
-  id = AUS_emmerich_czermach
+  id = AUS_emmerich_czermach_focus
   icon = GFX_goal_AUS_emmerich_czermach
-  text = AUS_emmerich_czermach
   prerequisite = { focus = AUS_FREE_AUSTRIA }
   mutually_exclusive = {
-    focus = AUS_karl_sietz
+    focus = AUS_karl_sietz_focus
   }
   available = {
     NOT = {
@@ -2440,8 +2457,11 @@ shared_focus = {
 
   completion_reward = {
     
-show_ideas_tooltip = emmerich_czermach
-custom_effect_tooltip = AUS_the_conservative_CSU_coalition_strenghthens
+add_ideas = emmerich_czermach
+add_ideas = ernst_streeruwitz
+add_ideas = max_hussarek_von_heinlein
+add_ideas = ignaz_seipel2
+add_ideas = michael_hainisch
    }
 }
 
@@ -2463,9 +2483,15 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    show_ideas_tooltip = engelbert_dolfuss
+    remove_ideas = wilhelm_miklas
+    add_ideas = engelbert_dolfuss
+
+    hidden_effect = {
+      add_ideas = wilhelm_miklas2
+    }
 
     custom_effect_tooltip = AUS_the_kaiserrist_coalition_CSU_strenghthens
+    
    }
 }
 
@@ -2519,11 +2545,11 @@ shared_focus = {
   id = AUS_lisence_military_industries
   icon = GFX_goal_AUS_military_industries
   text = AUS_lisence_military_industries
-  prerequisite = { focus = AUS_emmerich_czermach }
+  prerequisite = { focus = AUS_emmerich_czermach_focus }
 
   x = -1
   y = 1
-  relative_position_id = AUS_emmerich_czermach
+  relative_position_id = AUS_emmerich_czermach_focus
   cost = 5
    ai_will_do = {
     factor = 100
@@ -2589,8 +2615,8 @@ shared_focus = {
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
-		prerequisite = { focus = AUS_emmerich_czermach focus = AUS_karl_sietz }
-    relative_position_id = AUS_emmerich_czermach
+		prerequisite = { focus = AUS_emmerich_czermach_focus focus = AUS_karl_sietz_focus }
+    relative_position_id = AUS_emmerich_czermach_focus
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 		ai_will_do = {
 			factor = 1000
