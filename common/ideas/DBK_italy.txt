@@ -2210,6 +2210,24 @@ ideas = {
 		 		traits = { hawk }
 		 	}
 
+		 	ITA_renzo_montagna = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { ardent_armer  }
+		 	}
+
 		}
 
 		minister_of_the_interior = {
@@ -2250,7 +2268,9 @@ ideas = {
 		 		traits = { master_of_secret_service corrupt }
 		 	}
 
-		 	ITA_attilio_teruzzi = {
+		 	ITA_evola_intmin = {
+
+		 		name = ITA_julius_evola
 
 		 		#picture = generic_political_advisor_europe_1
 
@@ -2268,9 +2288,45 @@ ideas = {
 		 		traits = { colonial_administrator }
 		 	}
 
+		 	ITA_cesare_maria_de_vecchi = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { colonial_administrator }
+		 	}
+
 		}
 
 		economic_minister = {
+
+			ITA_tullio_tamburini = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { corrupt vampire_economist }
+		 	}
 
 			ITA_nicola_bombacci = {
 
@@ -2339,10 +2395,16 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Michele Bianchi"
-						ruling_only = yes
-					}
+		 			OR = {
+		 				has_country_leader = {
+							name = "Michele Bianchi"
+							ruling_only = yes
+						}
+						has_country_leader = {
+							name = "Attilio Teruzzi"
+							ruling_only = yes
+						}
+		 			}
 		 		}
 
 		 		traits = { union_organizer }
