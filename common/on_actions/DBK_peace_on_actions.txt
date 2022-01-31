@@ -327,12 +327,37 @@ on_actions = {
 					}
 					FROM = {
 						OR = { tag = GER is_in_faction_with = GER }
+				
 					}
 				}
-				GER = {
-					white_peace = SOV
+				if = {
+					limit = {
+						GER = {
+							is_puppet_of = AUS
+						}
+					}
+					AUS = {
+						white_peace = SOV
+					}
+					russia_loses_peace_deal = yes
 				}
-				news_event = prussian_expansion.6
+				else_if = {
+					limit = {
+						GER = {
+							is_puppet_of = FRA
+						}
+					}
+					FRA = {
+						white_peace = SOV
+					}
+					russia_loses_peace_to_france_deal = yes
+				}
+				else = {
+					GER = {
+						white_peace = SOV
+					}
+					news_event = prussian_expansion.6
+				}
 			}
 			if = {
 				limit = {
