@@ -512,6 +512,7 @@ country_event = {
 				can_join_factions = no
 			}
 		}
+		
 		add_threat = 3
 		multiply_variable = {
 			AUS_Nemetzi_dal_stability_factor = 2
@@ -638,7 +639,12 @@ country_event = {
 		  }
 		  set_country_flag = AUS_Giovane_Italia_to_Sixty_days_in_milan
 
-		  
+		  effect_tooltip = {
+			  swap_ideas = {
+				  add_idea = Sixty_Days_Milan
+				  remove_idea = Giovane_Italia_idea
+			  }
+		  }
 
 
 		  set_variable = {
@@ -994,7 +1000,12 @@ country_event = {
 
 
 		set_country_flag = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
-		custom_effect_tooltip = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = Bohemian_Outrage
+				add_idea = Autonomism
+			}
+		}
 		set_country_flag = AUS_high_polish_support_to_very_high_polish_support
 
 		subtract_from_variable = {
@@ -1108,6 +1119,13 @@ country_event = {
 		39 = {
 			add_core_of = HUN
 		}
+
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = Nemzeti_dal
+				add_idea = Autonomism
+			}
+		}
 		
 	}
 
@@ -1191,6 +1209,13 @@ country_event = {
 		}
 
 		set_country_flag = AUS_Giovane_Italia_to_Venetian_autonomy
+
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = Giovane_Italia_idea
+				add_idea = Autonomism_3
+			}
+		}
 
 		hidden_effect = {
 		159 = {
@@ -1807,7 +1832,7 @@ country_event = {
 		GPU = {
 			annex_country = {
 				target = HAN
-				transfer_troops = yes
+				transfer_troops = yes 
 			}
 		}
 
