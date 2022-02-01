@@ -497,7 +497,10 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_political_power = 40
+    add_popularity = {
+      ideology = neutrality
+      popularity = 0.05
+    }
   }
 }
 
@@ -667,6 +670,7 @@ shared_focus = {
 
   completion_reward = {
         add_ideas = Centralism
+
         multiply_variable = {
           AUS_Polish_Support_war_support_factor = 0
         }
@@ -686,6 +690,8 @@ shared_focus = {
         multiply_variable = {
           AUS_Polish_Support_war_support_factor_loc = 100
         }
+
+        
   }
 }
 
@@ -790,8 +796,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    add_war_support = 0.1
-    add_political_power = 75
+    add_country_leader_trait = austrian_caesar
   }
 }
 
@@ -817,7 +822,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {  
-    add_political_power = 100
+    add_political_power = -80
     remove_ideas = {
       Absolutism
     }
@@ -2466,9 +2471,8 @@ add_ideas = michael_hainisch
 }
 
 shared_focus = {
-  id = AUS_engelbert_dolfuss 
+  id = AUS_engelbert_dolfuss_focus
   icon = GFX_goal_AUS_engelbert_dolfuss
-  text = AUS_engelbert_dolfuss
   prerequisite = { focus = AUS_CENTRALISM }
 
    x = -1
@@ -2490,7 +2494,7 @@ shared_focus = {
       add_ideas = wilhelm_miklas2
     }
 
-    custom_effect_tooltip = AUS_the_kaiserrist_coalition_CSU_strenghthens
+    #custom_effect_tooltip = AUS_the_kaiserrist_coalition_CSU_strenghthens
     
    }
 }
@@ -2502,8 +2506,8 @@ shared_focus = {
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
-    relative_position_id = AUS_engelbert_dolfuss
-		prerequisite = { focus = AUS_engelbert_dolfuss }
+    relative_position_id = AUS_engelbert_dolfuss_focus
+		prerequisite = { focus = AUS_engelbert_dolfuss_focus }
 		#search_filters = { FOCUS_FILTER_POLITICAL }
     ai_will_do = {
       factor = 100

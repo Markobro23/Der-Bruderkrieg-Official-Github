@@ -439,11 +439,32 @@ country_event = {
 
 		
 		add_political_power = 50
-		set_country_flag = AUS_diet_dissolved
+		
 	}
 	option = {
+		set_country_flag = AUS_diet_dissolved
 		name = austriadietevents.4.b
-
+		hidden_effect = {
+          set_temp_variable = {new_pop = party_popularity@authoritarian_democratic}
+		
+            add_popularity = {
+              popularity = new_pop
+              ideology = neutrality
+            }
+      
+            set_temp_variable = {sub_new_pop = party_popularity@authoritarian_democratic}
+            multiply_temp_variable = {sub_new_pop = -1}
+      
+            add_popularity = {
+              popularity = sub_new_pop
+              ideology = authoritarian_democratic
+            }
+      
+            
+        }
+        set_politics = {
+            ruling_party = neutrality
+        }
 		
 		add_political_power = -100
 		add_stability = -0.1
