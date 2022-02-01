@@ -223,6 +223,142 @@ ROM_oil_boom_2 = {
 
 }
 
+	head_of_government = {
+
+		ROM_corneliu_zelea_codreanu = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				has_government = fascism
+			}
+
+			traits = { zealous_fanatic }
+
+		}
+
+		ROM_petre_bejan = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				NOT = { has_government = fascism }
+			}
+
+			traits = { planned_economy_proponent }
+
+		}
+
+	}
+
+	minister_of_the_interior = {
+
+		ROM_constantin_argetoianu = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = ultranationalism
+						has_government = communism
+					}
+				}
+			}
+
+			traits = { anti_fascist_agent anti_communist }
+
+		}
+
+		ROM_nichifor_crainic = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				has_government = fascism
+			}
+
+			traits = { propaganda_expert }
+
+		}
+
+	}
+
+	economic_minister = {
+
+		ROM_corneliu_georgescu = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				has_government = fascism
+			}
+
+			traits = { vampire_economist }
+
+		}
+
+		ROM_dinu_bratianu = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				always = yes
+			}
+
+			traits = { moderate_liberal }
+
+		}
+
+	}
+
+	industrial_minister = {
+
+		ROM_a_c_cuza = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				has_government = fascism
+			}
+
+			traits = { corporatist }
+
+		}
+
+		ROM_gherghe_tatarescu = {
+
+			allowed = {
+				original_tag = ROM
+			}
+
+			available = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+
+			traits = { rearmer }
+
+		}
+
+	}
+
 
 theorist = {
 
@@ -943,4 +1079,5 @@ ROM_SET = {
 	}
 }
 }
+
 }
