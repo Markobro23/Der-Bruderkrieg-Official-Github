@@ -1794,7 +1794,7 @@ shared_focus = {
 
 shared_focus = {
   id = GROSS_KAISERWERKE
-  icon = GFX_focus_generic_the_giant_wakes
+  icon = GFX_goal_AUS_gross_kaiserwerke
   text = GROSS_KAISERWERKE
   prerequisite = { focus = AUS_MODERNIZATION focus = AUS_IMPERIAL_MODERNIZATION }
   x = 2
@@ -3987,7 +3987,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_PREP_WAR
-  icon = GFX_focus_generic_the_giant_wakes
+  icon = GFX_goal_Death
   text = AUS_PREP_WAR
   #prerequisite = {focus = AUS_mil_infastructure_2}
  # prerequisite = { focus = AUS_mil_industry_2 }
@@ -4385,7 +4385,7 @@ shared_focus = {
 
   shared_focus = {
     id = AUS_BRAVE_NEW_EMPIRE
-    icon = GFX_focus_yug_pan_slavic_congress
+    icon = GFX_goal_Defense
     text = AUS_BRAVE_NEW_EMPIRE
     prerequisite = { focus = AUS_FOCUS_ON_SIZE }
     x = 0
@@ -4660,8 +4660,11 @@ shared_focus = {
   icon = GFX_Austrian_Navy
   text = AUS_BUILD_DOCKYARDS1
   prerequisite = { focus = AUS_PROJECT_Z }
+  prerequisite = {
+    focus = AUS_BUILD_DOCKYARDS3
+  }
   #prerequisite = {focus = AUS_BUILD_DOCKYARDS2}
-  x = 0
+  x = -2
   y = 2
   relative_position_id = AUS_PROJECT_Z
   cost = 5
@@ -4732,7 +4735,7 @@ shared_focus = {
   completion_reward = {
     103 = {
       add_building_construction = {
-          type = airfield 
+          type = air_base 
           level = 2
           instant_build = yes
       }
@@ -4936,7 +4939,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_ACES
-  icon = GFX_goal_generic_construction
+  icon = GFX_goal_generic_air_doctrine
   text = AUS_ACES
   prerequisite = { focus = AUS_STRAFING }
   x = 0
@@ -5009,7 +5012,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_ANTI_TROOP_BOMBS
-  icon = GFX_focus_wonderweapons
+  icon = GFX_goal_generic_air_naval_bomber
   text = AUS_ANTI_TROOP_BOMBS
   prerequisite = { focus = AUS_BOMBERS }
   x = 0
