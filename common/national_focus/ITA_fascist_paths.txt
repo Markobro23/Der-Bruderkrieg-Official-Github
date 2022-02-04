@@ -1032,7 +1032,7 @@ shared_focus = {
 		add_ideas = ITA_for_italia
 	}
 }
-
+ 
 shared_focus = {
 	id = ITA_the_italian_mess
 	icon = GFX_goal_ITA_the_italian_mess 
@@ -1070,6 +1070,25 @@ shared_focus = {
 		declare_war_on = {
 			target = LBA
 			type = puppet_wargoal_focus
+		}
+		add_threat = 3
+		ENG = {
+			add_opinion_modifier = {
+				target = ITA
+				modifier = protest_action
+			}
+		}
+		FRA = {
+			add_opinion_modifier = {
+				target = ITA
+				modifier = protest_action
+			}
+		}
+		TUR = {
+			add_opinion_modifier = {
+				target = ITA
+				modifier = protest_action
+			}
 		}
 		ITA = {
 			set_state_controller = 451
@@ -2575,7 +2594,7 @@ shared_focus = {
 	}
 	
 	shared_focus = {
-		id = ITA_italy_first
+		id = ITA_italy_first_dbk
 		icon = GFX_ITA_nationalism2
 		x = 1
 		y = 1
@@ -2849,9 +2868,9 @@ shared_focus = {
 		cost = 5
 		
 	
-		prerequisite = { focus = ITA_italy_first }
+		prerequisite = { focus = ITA_italy_first_dbk }
 		prerequisite = { focus = ITA_descendants_of_rome focus = ITA_amend_the_labour_laws }
-		relative_position_id = ITA_italy_first
+		relative_position_id = ITA_italy_first_dbk
 		
 		available = {
 			custom_trigger_tooltip = {
