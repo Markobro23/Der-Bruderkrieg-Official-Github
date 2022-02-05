@@ -2665,9 +2665,9 @@ shared_focus = {
 		}
 		completion_reward = {
 			ITA_decrease_party_stability_small = yes
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
 				name = land_doc_bonus
-				bonus = 0.5
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			}
@@ -5672,6 +5672,10 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
+		add_popularity = {
+			ideology = ROOT
+			popularity = 0.025
+		}
 		add_tech_bonus = {
 			bonus = 1
 			uses = 1
@@ -5988,11 +5992,12 @@ shared_focus = {
 	search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		add_tech_bonus = {
-			bonus = 1
-			uses = 1
-			category = land_doctrine
-		  }
+		add_doctrine_cost_reduction = {
+				name = land_doc_bonus
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
 	}
   }
 
