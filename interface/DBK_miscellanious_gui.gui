@@ -48,7 +48,6 @@ guiTypes = {
 			spriteType = "x"
 			position = { x = 0 y = 0 }
 			pdx_tooltip = "[GetFactionName]"
-      		clickable = no
 		} 
 	}
 
@@ -76,6 +75,44 @@ guiTypes = {
 			spriteType = "GFX_closebutton"
 			shortcut = "ESCAPE"
 		  } 
+		  instantTextboxType=  {
+			name = "Dual Leader position 2"
+			position = {
+				x = -1
+				y = 54
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "dropshadowdualleaderposition"
+			font = "hoi_36header"
+		}
+		instantTextboxType=  {
+			name = "Dual Leader position"
+			position = {
+				x = 0
+				y = 55
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "[GetDualLeaderPosition]"
+			font = "hoi_36header"
+		}
+
+		instantTextboxType=  {
+			name = "Dual Leader position desc"
+			position = {
+				x = 25
+				y = 400
+			}
+			maxWidth = 250
+			maxHeight = 110
+			format = center
+			text = "[GetDualLeaderPositionDesc]"
+			font = "hoi_18mbs"
+		}
+		
 
 		containerWindowType = {
 			name = "the leaders"

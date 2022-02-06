@@ -4,9 +4,61 @@ defined_text = {
 		trigger = {
 			ROOT = {
 				tag = ITA
+				has_country_leader = {
+					name = "Michele Bianchi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_Edmondo_Rossoni"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "GFX_MVSN_GUI_dannunzio"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_EugeneDebono"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Julius Evola"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_MVSN_GUI_evola"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Umberto II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_MVSN_GUI_evola"
 	}
 	text = {
 		trigger = {
@@ -227,9 +279,61 @@ defined_text = {
 		trigger = {
 			ROOT = {
 				tag = ITA
+				has_country_leader = {
+					name = "Michele Bianchi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Edmondo Rossoni"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "Gabrielle D'Annunzio"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Emilio De Bono"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Julius Evola"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Julius Evola"
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				tag = ITA
+				has_country_leader = {
+					name = "Umberto II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Julius Evola"
 	}
 	
 	text = {
@@ -434,5 +538,125 @@ defined_text = {
 	}
 	text =  {
 		localization_key = "Knute Wilson"
+	}
+}
+
+defined_text = {
+	name = GetDualLeaderPosition
+	text = {
+		trigger = {
+			tag = AUS
+		}
+		localization_key = "Reichskanzler"
+	}
+	text = {
+		trigger = {
+			tag = FRA
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			tag = GER
+		}
+		localization_key = "OKW Commander"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Tsar of Russia"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = SOV_rip_nick
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_leader = {
+				name = "Nicholas II"
+				ruling_only = yes
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			tag = ITA
+		}
+		localization_key = "Deputy Consul"
+	}
+}
+
+defined_text = {
+	name = GetDualLeaderPositionDesc
+	text = {
+		trigger = {
+			tag = AUS
+		}
+		localization_key = "Reichskanzler is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = FRA
+		}
+		localization_key = "Prime Minister is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = GER
+		}
+		localization_key = "OKW Commander is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II is the Head of Government in the [ROOT.GetName]"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Tsar of Russia is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_flag = SOV_rip_nick
+		}
+		localization_key = "Prime Minister is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = SOV
+			has_country_leader = {
+				name = "Nicholas II is the Head of Government in the [ROOT.GetName]"
+				ruling_only = yes
+			}
+		}
+		localization_key = "President is the Head of Government in the [ROOT.GetName]"
+	}
+	text = {
+		trigger = {
+			tag = ITA
+		}
+		localization_key = "Deputy Consul is the Head of Government in the [ROOT.GetName]"
 	}
 }
