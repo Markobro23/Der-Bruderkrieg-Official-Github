@@ -48,7 +48,6 @@ guiTypes = {
 			spriteType = "x"
 			position = { x = 0 y = 0 }
 			pdx_tooltip = "[GetFactionName]"
-      		clickable = no
 		} 
 	}
 
@@ -59,29 +58,67 @@ guiTypes = {
 			y = 136 
 		}
 		size = {
-			width = 500
-			height = 300
+			width = 300
+			height = 500
 		}
 		#movable = yes
 
 		background = {
 			name = "bg"
-			spriteType = "GFX_tiled_window"
+			spriteType = "GFX_HoGbg"
 		}
 
-		# buttonType = {
-		# 	name = "exit"
-		# 	position = {x=0 y=0}
-		# 	##Orientation = "UPPER_RIGHT"
-		# 	spriteType = "GFX_closebutton"
-		# 	shortcut = "ESCAPE"
-		#   } 
+		buttonType = {
+			name = "exit"
+			position = {x=0 y=0}
+			##Orientation = "UPPER_RIGHT"
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+		  } 
+		  instantTextboxType=  {
+			name = "Dual Leader position 2"
+			position = {
+				x = -1
+				y = 54
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "dropshadowdualleaderposition"
+			font = "hoi_36header"
+		}
+		instantTextboxType=  {
+			name = "Dual Leader position"
+			position = {
+				x = 0
+				y = 55
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "[GetDualLeaderPosition]"
+			font = "hoi_36header"
+		}
+
+		instantTextboxType=  {
+			name = "Dual Leader position desc"
+			position = {
+				x = 25
+				y = 400
+			}
+			maxWidth = 250
+			maxHeight = 110
+			format = center
+			text = "[GetDualLeaderPositionDesc]"
+			font = "hoi_18mbs"
+		}
+		
 
 		containerWindowType = {
 			name = "the leaders"
 			position = {
-				x = 168
-				y = 0
+				x = 72
+				y = 110
 			}
 
 			##leader of the NFP

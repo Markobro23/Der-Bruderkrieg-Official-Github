@@ -2791,7 +2791,7 @@ shared_focus = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure
-                        level = 6
+                        level = 3
                         instant_build = yes
                     }
                 }
@@ -2802,7 +2802,7 @@ shared_focus = {
 
                     add_building_construction = {
                         type = infrastructure
-                        level = 6
+                        level = 3
                         instant_build = yes
                     }
                 }
@@ -2812,7 +2812,7 @@ shared_focus = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure 
-                        level = 6
+                        level = 3
                         instant_build = yes
                     }
                 }
@@ -2822,7 +2822,7 @@ shared_focus = {
                     limit = { is_controlled_by = ROOT }
                     add_building_construction = {
                         type = infrastructure
-                        level = 6
+                        level = 3
                         instant_build = yes
                     }
                 }
@@ -4159,8 +4159,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 				uses = 1
 				category = air_doctrine
 			 }
@@ -4641,8 +4641,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 				uses = 1
 				category = land_doctrine
 			 }
@@ -5000,10 +5000,10 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 				category = land_doctrine
 				uses = 1
-				bonus = 1
 			}
 		}
 		ai_will_do = {
@@ -5232,8 +5232,8 @@ shared_focus = {
 
 		completion_reward = {
 			navy_experience = 25
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 				uses = 1
 				category = naval_doctrine
 			 }
@@ -5359,8 +5359,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-					add_tech_bonus = {
-		   bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 		   uses = 1
 		   category = naval_doctrine
 		}
@@ -6243,10 +6243,10 @@ shared_focus = {
 				bonus = 1
 				category = armor
 			}
-			add_tech_bonus = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
 				name = land_doctrine_bonus
 				uses = 1
-				bonus = 1
 				category = cat_mobile_warfare
 			}
 		}
@@ -6446,6 +6446,11 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
+			force_disable_resistance = {
+				clear = yes
+				occupier = GER
+				occcupied = SOV
+			}
 			add_ideas = GER_death_to_partisans_idea
 		}
 	}

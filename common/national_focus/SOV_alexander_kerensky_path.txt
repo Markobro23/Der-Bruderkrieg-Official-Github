@@ -601,7 +601,7 @@ shared_focus = {
 		icon = GFX_goal_generic_positive_trade_relations
 		#text = SOV_RED_AIRFORCE
 		prerequisite = { focus = SOV_kerenskys_dream }
-		x = 4
+		x = 3
 		y = 1
 		relative_position_id = SOV_kerenskys_dream
 
@@ -628,7 +628,7 @@ shared_focus = {
 		icon = GFX_focus_prc_agrarian_socialism
 		#text = SOV_RED_AIRFORCE
 		prerequisite = { focus = SOV_2_YEAR_PLAN }
-		x = -2
+		x = -1
 		y = 1
 		relative_position_id = SOV_2_YEAR_PLAN
 		cost = 5
@@ -674,7 +674,10 @@ shared_focus = {
 		icon = GFX_focus_generic_industry_1
 		#text = SOV_RED_AIRFORCE
 		prerequisite = { focus = SOV_COLONIZATION_INCENTIVE }
-		x = 0
+		prerequisite = {
+			focus = SOV_VIRGIN_LAND_INITIATIVE
+		}
+		x = 1
 		y = 1
 		relative_position_id = SOV_COLONIZATION_INCENTIVE
 		cost = 5
@@ -707,10 +710,13 @@ shared_focus = {
 		id = SOV_BEUREAU_INDUSTRIALIZATION
 		icon = GFX_focus_generic_socialist_science
 		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_FACTORIES_UPON_FARMS }
-		x = 0
+		prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
+		prerequisite = {
+			focus = SOV_WELFARE_ECONOMICS
+		}
+		x = 1
 		y = 1
-		relative_position_id = SOV_FACTORIES_UPON_FARMS
+		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
 		cost = 5
 		ai_will_do = {
 			factor = 25
@@ -720,20 +726,10 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-	206 = {
-	add_building_construction = {
-		type = arms_factory
-		level = 1
-		instant_build = yes
-}
-}
-217 = {
-	add_building_construction = {
-		type = industrial_complex
-		level = 1
-		instant_build = yes
-}
-}
+			swap_ideas  = {
+				add_idea = Industrializing_2
+				remove_idea = Industrializing
+			}
 		}
 	}
 
@@ -758,364 +754,362 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = SOV_INDUSTRY_SIBERIA
-		icon = GFX_goal_generic_construct_infrastructure
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
-		x = 0
-		y = 1
-		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
-		cost = 15
-		ai_will_do = {
-			factor = 25
-		}
+	# shared_focus = {
+	# 	id = SOV_INDUSTRY_SIBERIA
+	# 	icon = GFX_goal_generic_construct_infrastructure
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
+	# 	cost = 15
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
+	# 	completion_reward = {
 
-	579 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	572 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	653 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	403 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	571= {
-	add_extra_state_shared_building_slots = 2
-		}
-	580 = {
-	add_extra_state_shared_building_slots = 2
-		}
+	# 579 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 572 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 653 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 403 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 571= {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 580 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
 
-	578 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	569 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	568 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	567 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	566= {
-	add_extra_state_shared_building_slots = 2
-		}
-	580 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	564 = {
-	add_extra_state_shared_building_slots = 2
-		}
+	# 578 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 569 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 568 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 567 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 566= {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 580 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 564 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
 
-	516 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	644 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	408 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	655= {
-	add_extra_state_shared_building_slots = 2
-		}
-	562 = {
-	add_extra_state_shared_building_slots = 2
-		}
+	# 516 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 644 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 408 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 655= {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 562 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
 
-	574 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	565 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	561 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	657= {
-	add_extra_state_shared_building_slots = 2
-		}
-	560 = {
-	add_extra_state_shared_building_slots = 2
-	}
-	637 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	575 = {
-	add_extra_state_shared_building_slots = 2
-		}
-	}
-	}
+	# 574 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 565 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 561 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 657= {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 560 = {
+	# add_extra_state_shared_building_slots = 2
+	# }
+	# 637 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# 575 = {
+	# add_extra_state_shared_building_slots = 2
+	# 	}
+	# }
+	# }
 
-	shared_focus = {
-		id = SOV_RUSSIAN_RAILROADS
-		icon = GFX_focus_generic_rubber
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_INDUSTRY_SIBERIA }
-		x = 0
-		y = 1
-		relative_position_id = SOV_INDUSTRY_SIBERIA
-		cost = 15
-		ai_will_do = {
-			factor = 25
-		}
+	# shared_focus = {
+	# 	id = SOV_RUSSIAN_RAILROADS
+	# 	icon = GFX_focus_generic_rubber
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_INDUSTRY_SIBERIA }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = SOV_INDUSTRY_SIBERIA
+	# 	cost = 15
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-	completion_reward = {
+	# completion_reward = {
 
-	579 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	572 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	653 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	403 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	571= {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	580 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
+	# 579 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 572 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 653 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 403 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 571= {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 580 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
 
-	578 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	569 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	568 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	567 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	566= {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	580 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	564 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
+	# 578 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 569 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 568 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 567 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 566= {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 580 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 564 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
 
-	516 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	644 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	408 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	655= {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	562 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
+	# 516 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 644 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 408 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 655= {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 562 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
 
-	574 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	565 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	561 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	657= {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	560 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-	}
-	637 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-	575 = {
-	add_building_construction = { type = infrastructure level = 3 instant_build = yes }
-		}
-		}
-	}
+	# 574 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 565 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 561 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 657= {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 560 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# }
+	# 637 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 575 = {
+	# add_building_construction = { type = infrastructure level = 3 instant_build = yes }
+	# 	}
+	# 	}
+	# }
 
 	shared_focus = {
 		id = SOV_INTO_FUTURE
 		icon = GFX_focus_generic_industry_3
 		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_RUSSIAN_RAILROADS }
 	prerequisite = { focus = SOV_BEUREAU_INDUSTRIALIZATION }
-	prerequisite = { focus = SOV_WELFARE_ECONOMICS focus = SOV_FREE_MARKET_ECONOMY }
-		x = 1
-		y = 1
-		relative_position_id = SOV_RUSSIAN_RAILROADS
-		cost = 20
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-	swap_ideas = {
-		 remove_idea = Industrializing_3
-		 add_idea = Industrialized
-}
-		}
-	}
-
-	shared_focus = {
-		id = SOV_URBAN_INDUSTRY
-		icon = GFX_goal_generic_construct_civ_factory
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_2_YEAR_PLAN }
-		x = 2
-		y = 1
-		relative_position_id = SOV_2_YEAR_PLAN
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-	swap_ideas = {
-		 remove_idea = Industrializing
-		 add_idea = Industrializing_2
-}
-		}
-	}
-
-	shared_focus = {
-		id = SOV_ARMS_FACTORIES
-		icon = GFX_goal_generic_construct_mil_factory
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_URBAN_INDUSTRY }
-		x = 1
-		y = 1
-		relative_position_id = SOV_URBAN_INDUSTRY
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			219 = {
-			add_building_construction = {
-				type = arms_factory
-				level = 2
-				instant_build = yes
-		}
-		add_extra_state_shared_building_slots = 2
-		}
-		}
-	}
-
-	shared_focus = {
-		id = SOV_LAISSEZ_FAIRE
-		icon = GFX_goal_support_democracy
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_ARMS_FACTORIES }
-		mutually_exclusive = { focus = SOV_INDUSTRIAL_DEMOCRACY}
-		x = 0
-		y = 1
-		relative_position_id = SOV_ARMS_FACTORIES
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_ideas = Capitalism
-		}
-	}
-
-	shared_focus = {
-		id = SOV_FREE_MARKET_ECONOMY
-		icon = GFX_focus_usa_reestablish_the_gold_standard
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_LAISSEZ_FAIRE }
-		x = 0
-		y = 1
-		relative_position_id = SOV_LAISSEZ_FAIRE
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			swap_ideas = {
-				 remove_idea = Capitalism
-				 add_idea = Capitalism_2
-		}
-		}
-	}
-
-	shared_focus = {
-		id = SOV_JOBS_WORKERS
-		icon = GFX_focus_por_workers_of_iberia
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_URBAN_INDUSTRY }
+	prerequisite = { focus = SOV_FACTORIES_UPON_FARMS }
 		x = -1
 		y = 1
-		relative_position_id = SOV_URBAN_INDUSTRY
-		cost = 5
+		relative_position_id = SOV_BEUREAU_INDUSTRIALIZATION
+		cost = 15
 		ai_will_do = {
 			factor = 25
-		}
-		available = {
-			has_idea = Industrializing
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			swap_ideas = {
-			remove_idea = Industrializing_2
-			add_idea = Industrializing_3
+			swap_ideas  = {
+				add_idea = Industrializing_3
+				remove_idea = Industrializing_2
 			}
 		}
 	}
+
+	# shared_focus = {
+	# 	id = SOV_URBAN_INDUSTRY
+	# 	icon = GFX_goal_generic_construct_civ_factory
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_2_YEAR_PLAN }
+	# 	x = 2
+	# 	y = 1
+	# 	relative_position_id = SOV_2_YEAR_PLAN
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 				remove_idea = Industrializing
+	# 				add_idea = Industrializing_2
+	# 		}
+	# 	}
+	# }
+
+	# shared_focus = {
+	# 	id = SOV_ARMS_FACTORIES
+	# 	icon = GFX_goal_generic_construct_mil_factory
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_URBAN_INDUSTRY }
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = SOV_URBAN_INDUSTRY
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		219 = {
+	# 		add_building_construction = {
+	# 			type = arms_factory
+	# 			level = 2
+	# 			instant_build = yes
+	# 	}
+	# 	add_extra_state_shared_building_slots = 2
+	# 	}
+	# 	}
+	# }
+
+	# shared_focus = {
+	# 	id = SOV_LAISSEZ_FAIRE
+	# 	icon = GFX_goal_support_democracy
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_ARMS_FACTORIES }
+	# 	mutually_exclusive = { focus = SOV_INDUSTRIAL_DEMOCRACY}
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = SOV_ARMS_FACTORIES
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		add_ideas = Capitalism
+	# 	}
+	# }
+
+	# shared_focus = {
+	# 	id = SOV_FREE_MARKET_ECONOMY
+	# 	icon = GFX_focus_usa_reestablish_the_gold_standard
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_LAISSEZ_FAIRE }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = SOV_LAISSEZ_FAIRE
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 			 remove_idea = Capitalism
+	# 			 add_idea = Capitalism_2
+	# 	}
+	# 	}
+	# }
+
+	# shared_focus = {
+	# 	id = SOV_JOBS_WORKERS
+	# 	icon = GFX_focus_por_workers_of_iberia
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_2_YEAR_PLAN }
+	# 	x = 2
+	# 	y = 1
+	# 	relative_position_id = SOV_2_YEAR_PLAN
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
+	# 	available = {
+	# 		has_idea = Industrializing
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 		remove_idea = Industrializing_2
+	# 		add_idea = Industrializing_3
+	# 		}
+	# 	}
+	# }
 
 	shared_focus = {
 		id = SOV_INDUSTRIAL_DEMOCRACY
 		icon = GFX_focus_generic_the_giant_wakes
 		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_JOBS_WORKERS }
-		mutually_exclusive = { focus = SOV_LAISSEZ_FAIRE }
-		x = 0
+		prerequisite = { focus = SOV_2_YEAR_PLAN }
+		x = 2
 		y = 1
-		relative_position_id = SOV_JOBS_WORKERS
+		relative_position_id = SOV_2_YEAR_PLAN
 		cost = 5
 		ai_will_do = {
 			factor = 25
