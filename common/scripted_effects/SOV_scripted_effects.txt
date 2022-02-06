@@ -1314,7 +1314,6 @@ d_SOV_elections_completion_effect = {
 }
 
 SOV_elections_completion_effect = {
-	log = "joe"
 	if = {
 		limit = {
 			kerensky_wins_elections = yes
@@ -1324,7 +1323,6 @@ SOV_elections_completion_effect = {
 				has_country_flag = SOV_sided`_with_belogurov_campaign
 			}
 		}
-		log = "2"
 		complete_national_focus = SOV_trudoviks_reelected
 		add_popularity = {
 			ideology = socialism_democratic
@@ -1333,13 +1331,11 @@ SOV_elections_completion_effect = {
 		
 		else = {
 			hidden_effect = {
-				log = "wdwodjo"
 				if = {
 					limit = {
 						#is_ai = yes
 						has_country_flag = SOV_chose_lenin
 					}
-					log = "I hate this game"
 					complete_national_focus = SOV_menshevik_victory
 					remove_ideas = {
 						mikhail_bernatsky

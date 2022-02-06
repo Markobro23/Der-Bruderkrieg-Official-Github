@@ -45,15 +45,7 @@ Flag_Scripted_Map_Icons = {
 			else = {
 				set_country_flag = DBK_head_of_gov_mechanic_flag
 			}
-			if = {
-				limit = {
-				OR = { has_country_flag = open_national_missions_container }
-				}
-				clr_country_flag = open_national_missions_container
-			}
-			else = {
-				set_country_flag = open_national_missions_container
-			}
+			
 			log = "hi"
 		}
 	}
@@ -64,7 +56,7 @@ Flag_Scripted_Map_Icons = {
 
 	  window_name = "DBK_head_of_gov_container"
 	  visible = {
-		OR = { has_country_flag = open_national_missions_container }
+		OR = { has_country_flag = DBK_head_of_gov_mechanic_flag }
 	  }
 
 	 
@@ -72,6 +64,11 @@ Flag_Scripted_Map_Icons = {
 		LeaderPortrait = {
 			image = "[GetHeadofGovPortrait]"
 		}
+	  }
+	  effects = {
+		  exit_click = {
+			  clr_country_flag = DBK_head_of_gov_mechanic_flag
+		  }
 	  }
   }
 
@@ -99,7 +96,7 @@ Flag_Scripted_Map_Icons = {
 	  window_name = "SOV_national_missions_container"
 	  visible = {
 		  tag = SOV
-		OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+		OR = {  has_country_flag = open_national_missions_decisions_container }
 	  }
 
 	  effects = {
@@ -345,7 +342,7 @@ Flag_Scripted_Map_Icons = {
 	window_name = "ITA_national_missions_container"
 	visible = {
 		tag = ITA
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -445,7 +442,7 @@ Flag_Scripted_Map_Icons = {
 	window_name = "AUS_national_missions_container"
 	visible = {
 		tag = AUS
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -614,7 +611,7 @@ GER_national_missions_conatiner_scripted_gui = {
 	window_name = "GER_national_missions_container"
 	visible = {
 		tag = GER
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -743,7 +740,7 @@ FRA_national_missions_conatiner_scripted_gui = {
 	window_name = "FRA_national_missions_container"
 	visible = {
 		tag = FRA
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
