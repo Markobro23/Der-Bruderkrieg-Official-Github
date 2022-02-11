@@ -224,3 +224,38 @@ defined_text = {
     }
 
 }
+
+defined_text = {
+    name = GetRoyalismFocus
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_anti_royalism_goering
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = impurity
+    }
+    text = {
+        localization_key = GER_anti_royalism_goering
+    }
+}
