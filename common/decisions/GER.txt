@@ -1838,13 +1838,6 @@ GER_spartakus_hotspots = {
 			custom_effect_tooltip = GER_lower_spartakus_progress_5_every_state_not_crushed
 			#probably some kinda array loop shit that I am too tired to figure out rn
 			every_state = {
-				limit = { has_state_flag = GER_spartakus_rioting_inbound_state }
-				clr_state_flag = GER_spartakus_rioting_inbound_state
-				add_dynamic_modifier = {
-					modifier = GER_spartakus_riot_modifier 
-				}
-			}
-			every_state = {
 				if = {
 					limit = {
 						is_core_of = GER
@@ -1855,6 +1848,14 @@ GER_spartakus_hotspots = {
 				}
 			}
 			subtract_from_variable = { GER_anti_spartakus = GER_temp_spartakus_value }
+			every_state = {
+				limit = { has_state_flag = GER_spartakus_rioting_inbound_state }
+				clr_state_flag = GER_spartakus_rioting_inbound_state
+				add_dynamic_modifier = {
+					modifier = GER_spartakus_riot_modifier 
+				}
+			}
+			
 			
 		}
 		

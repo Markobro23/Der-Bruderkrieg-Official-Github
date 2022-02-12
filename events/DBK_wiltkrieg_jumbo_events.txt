@@ -1150,6 +1150,7 @@ country_event = {
 		ai_chance = {
 		
 			base = 5
+			modifier = { GER = { has_war_with = FRA } factor = 10000 }
 		}
 		hidden_effect = {
 			GER = {
@@ -1174,6 +1175,7 @@ country_event = {
 			country_event = { id = russian_inteverntion_in_europakrieg.5 days = 120 }
 		}
 		ai_chance = {factor = 95}
+		modifier = { GER = { has_war_with = FRA } factor = -95 }
 	}
 }
 
@@ -1226,7 +1228,7 @@ country_event = {
 		name = russian_inteverntion_in_europakrieg.5.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
 	
-		ai_chance = {base = 20 modifier = {} }
+		ai_chance = {base = 20 modifier = { GER = { has_war_with = FRA } factor = 10000 } } 
 		hidden_effect = {
 			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
@@ -1263,7 +1265,7 @@ country_event = {
 		name = russian_inteverntion_in_europakrieg.6.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
 	
-		ai_chance = {base = 75 modifier = {} }
+		ai_chance = {base = 75 modifier = { GER = { has_war_with = FRA } factor = 10000 } }
 		hidden_effect = {
 			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
