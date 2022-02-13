@@ -162,6 +162,105 @@ guiTypes = {
 			}
     }
   }
+  containerWindowType = {
+		name = "DBK_head_of_gov_container_diplo"
+		position = {
+			x = 540
+			y = 75 
+		}
+		size = {
+			width = 300
+			height = 500
+		}
+		#movable = yes
+
+		background = {
+			name = "bg"
+			spriteType = "GFX_HoGbg"
+		}
+
+		buttonType = {
+			name = "exit"
+			position = {x=0 y=0}
+			##Orientation = "UPPER_RIGHT"
+			spriteType = "GFX_closebutton"
+			shortcut = "ESCAPE"
+		  } 
+		  instantTextboxType=  {
+			name = "Dual Leader position 2"
+			position = {
+				x = -1
+				y = 54
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "dropshadowdualleaderposition"
+			font = "hoi_36header"
+		}
+		instantTextboxType=  {
+			name = "Dual Leader position"
+			position = {
+				x = 0
+				y = 55
+			}
+			maxWidth = 300
+			maxHeight = 110
+			format = center
+			text = "[FROM.GetDualLeaderPosition]"
+			font = "hoi_36header"
+		}
+
+		instantTextboxType=  {
+			name = "Dual Leader position desc"
+			position = {
+				x = 25
+				y = 400
+			}
+			maxWidth = 250
+			maxHeight = 110 
+			format = center
+			text = "[FROM.GetDualLeaderPositionDesc]"
+			font = "hoi_18mbs"
+		}
+		
+
+		containerWindowType = {
+			name = "the leaders"
+			position = {
+				x = 72
+				y = 110
+			}
+
+			##leader of the NFP
+			iconType = {
+				name = "LeaderPortrait"
+				position = {
+					x = 0
+					y = 30
+				}
+        spriteType = ""
+      }
+      iconType = {
+				name = "leader_leader_frame"
+				position = {
+					x = -8
+					y = 16
+				}
+				spriteType = "GFX_pol_leader_frame"
+			}
+      instantTextboxType = {
+				name = "leader_description"
+				position = { x = 0 y = 243 }
+				font = "hoi_18mbs"
+				text = "[FROM.GetDualLeaderDesc]"
+				maxWidth = 155
+				maxHeight = 20
+				format = center
+				vertical_alignment = center
+			}
+    }
+  }
 
   containerWindowType = {
 		name = "DB_party_popularity_number_container"
