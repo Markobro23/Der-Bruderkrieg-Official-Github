@@ -50,6 +50,33 @@ Flag_Scripted_Map_Icons = {
 		}
 	}
   }
+  DBK_head_of_gov_open_mechanic_diplo = {
+	 context_type = selected_country_context
+	parent_window_token = selected_country_view_diplomacy
+
+
+	  window_name = "DBK_head_of_gov_open_diplo"
+	  visible = {
+		  always = yes
+	  }
+	  effects = {
+		DBK_head_of_gov_open_button_diplo_click = {
+			ROOT = {
+				if = {
+					limit = {
+						has_country_flag = DBK_head_of_gov_mechanic_flag
+					}
+					clr_country_flag = DBK_head_of_gov_mechanic_flag
+				}
+				else = {
+					set_country_flag = DBK_head_of_gov_mechanic_flag
+				}
+			}
+			
+			log = "hi"
+		}
+	}
+  }
 
   DBK_head_of_gov_mechanic = {
 	  context_type = player_context
@@ -590,6 +617,7 @@ Flag_Scripted_Map_Icons = {
 		}
 	}
 }
+
 
  DBK_faction_icon_mechanic = { 
 	 parent_window_token = politics_tab
