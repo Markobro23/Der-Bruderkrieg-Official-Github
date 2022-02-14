@@ -601,6 +601,103 @@ defined_text = {
 		}
 		localization_key = "Deputy Consul"
 	}
+	
+	##Generics
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = "General Secretary"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_communism
+		}
+		localization_key = "General Secretary"
+	}
+	text = {
+		trigger = {
+			has_government = ultranationalism
+		}
+		localization_key = "Dictator"
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = "Dictator"
+	}
+	text = {
+		trigger = {
+			has_government = authoritarian_democratic
+			OR = {
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+			OR = {
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_liberalism
+			OR = {
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = socialism_democratic
+			OR = {
+				is_on_continent = south_america
+				is_on_continent = north_america
+			}
+		}
+		localization_key = "President"
+	}
+	
+	text = {
+		trigger = {
+			has_government = authoritarian_democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_liberalism
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = socialism_democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = "Despot"
+	}
 }
 
 defined_text = {
@@ -660,5 +757,10 @@ defined_text = {
 			original_tag = ITA
 		}
 		localization_key = "Deputy Consul is the Head of Government in the [ROOT.GetName]"
+	}
+
+	#GENERIC
+	text = {
+		localization_key = "[THIS.GetDualLeaderPosition] is the Head of Government in the [THIS.GetName]"
 	}
 }
