@@ -19,12 +19,9 @@ ROM_iron_guard_cat = {
 	
 		visible = {
 		  tag = ROM
-		  NOT = {
-			  has_global_flag = ROM_cancel_iron_guard_coup
-		  }
-		  NOT = {
-			  has_government = communism
-		  }
+			NOT = {
+				is_in_faction_with = SOV
+			}
 		} 
 	
 		cancel_if_not_visible = yes

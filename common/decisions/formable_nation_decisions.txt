@@ -629,6 +629,81 @@ form_balkan_category = {
 
 form_germany_category = {
 
+	form_ngc = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			OR = {
+				tag = GER
+				tag = HAN
+				tag = SAX
+			}
+		}
+
+		available = {
+			has_completed_focus = GER_bismarks_plan
+			controls_state = 188
+			controls_state = 763
+			controls_state = 5
+			controls_state = 85
+			controls_state = 86
+			controls_state = 63
+			controls_state = 64
+			controls_state = 65
+			controls_state = 62
+			controls_state = 949
+			controls_state = 950
+			controls_state = 68
+			controls_state = 60
+			controls_state = 65
+			controls_state = 59
+			controls_state = 56
+			controls_state = 817
+		}
+
+		visible = {
+			OR = {
+				tag = GER
+				tag = HAN
+				tag = SAX
+			}
+			NOT = { has_global_flag = form_ngc_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = ngc_united
+			# Germany
+			#custom_effect_tooltip = form_country_balkan_coring_states_tt
+			add_state_core = 188
+			add_state_core = 763
+			add_state_core = 5
+			add_state_core = 85
+			add_state_core = 86
+			add_state_core = 63
+			add_state_core = 64
+			add_state_core = 65
+			add_state_core = 62
+			add_state_core = 949 
+			add_state_core = 950
+			add_state_core = 68
+			add_state_core = 60
+			add_state_core = 59
+			add_state_core = 56
+			add_state_core = 817
+			hidden_effect = {
+				news_event = { id = prussian_expansion.3 hours = 6 }
+				set_global_flag = form_ngc_flag
+
+				add_threat = 10
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	}
+
 	form_germany = {
 
 		icon = generic_form_nation
@@ -766,80 +841,7 @@ form_germany_category = {
 
 form_ngc_category = {
 
-	form_ngc = {
-
-		icon = generic_form_nation
-
-		allowed = {
-			OR = {
-				tag = GER
-				tag = HAN
-				tag = SAX
-			}
-		}
-
-		available = {
-		
-			controls_state = 188
-			controls_state = 763
-			controls_state = 5
-			controls_state = 85
-			controls_state = 86
-			controls_state = 63
-			controls_state = 64
-			controls_state = 65
-			controls_state = 62
-			controls_state = 949
-			controls_state = 950
-			controls_state = 68
-			controls_state = 60
-			controls_state = 65
-			controls_state = 59
-			controls_state = 56
-			controls_state = 817
-		}
-
-		visible = {
-			OR = {
-				tag = GER
-				tag = HAN
-				tag = SAX
-			}
-			NOT = { has_global_flag = form_ngc_flag }
-		}
-
-		complete_effect = {
-			set_cosmetic_tag = ngc_united
-			# Germany
-			#custom_effect_tooltip = form_country_balkan_coring_states_tt
-			add_state_core = 188
-			add_state_core = 763
-			add_state_core = 5
-			add_state_core = 85
-			add_state_core = 86
-			add_state_core = 63
-			add_state_core = 64
-			add_state_core = 65
-			add_state_core = 62
-			add_state_core = 949 
-			add_state_core = 950
-			add_state_core = 68
-			add_state_core = 60
-			add_state_core = 59
-			add_state_core = 56
-			add_state_core = 817
-			hidden_effect = {
-				news_event = { id = prussian_expansion.3 hours = 6 }
-				set_global_flag = form_ngc_flag
-
-				add_threat = 10
-			}
-		}
-
-		ai_will_do = {
-			factor = 200
-		}
-	}
+	
 }
 
 
