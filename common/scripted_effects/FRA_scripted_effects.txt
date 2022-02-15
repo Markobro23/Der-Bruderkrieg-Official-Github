@@ -122,16 +122,21 @@ d_frarevolt = {
 
 
 belgian_elections_effect = {
-  set_temp_variable =   {
-    temp_degrelle_win_prob = global.degrelle_win_prob
+  if = {
+    limit = {
+      check_variable = {
+        var = FRA.belgian_influence
+        compare = greater_than_or_equals
+        value = ENG_belgian_influence
+      }
+    }
+    country_event = belgian_election_events.1
   }
-  subtract_from_variable = {temp_degrelle_win_prob = 100}
-  multiply_variable = {temp_degrelle_win_prob = -1}
+  else = {
+    country_event = belgian_election_events.3
+  }
 
-  random_list = {
-			var:global.degrelle_win_prob =  { country_event = belgian_election_events.1 }
-			var:temp_degrelle_win_prob = { country_event = belgian_election_events.3  }
-		}
+
 }
 
 france_give_state_strikes_effect = { 
