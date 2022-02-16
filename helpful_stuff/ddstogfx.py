@@ -20,11 +20,11 @@ for filename in files:
     
     # CODE FOR GFX
     
-    f.write("spriteType = {\n")
-    f.write(" " + "name =" + '"' + "GFX_" + filenamestorage + '"\n') 
-    f.write(" " + "texturefile = " + '"' + "gfx/leaders/Generic/" + filename + '"\n')
-    f.write("}\n")
-    f.write("\n")
+    # f.write("spriteType = {\n")
+    # f.write(" " + "name =" + '"' + "GFX_" + filenamestorage + '"\n') 
+    # f.write(" " + "texturefile = " + '"' + "gfx/leaders/Generic/" + filename + '"\n')
+    # f.write("}\n")
+    # f.write("\n")
 
     
 
@@ -42,16 +42,16 @@ for filename in files:
     # else:
     #     print("giannis")
 
-    # # CODE FOR FLAGS
-    # if "Arabia" in filename:
-    #     f.write("1 = {\n")
-    #     f.write(" " + " " + "set_country_flag =" + filenamestorage + "_flag\n") 
-    #     #f.write(" " + " " + "texturefile = " + '"' + "gfx/leaders/Generic/" + filename + '"')
-    #     f.write(" " + "}\n")
-    #     f.write("")
-    #     f.write("")
-    # else:
-    #     print("giannis")
+    # CODE FOR FLAGS
+    if "Asia" in filename:
+        f.write("1 = {\n")
+        f.write(" " + " " + "set_country_flag =" + filenamestorage + "_flag\n") 
+        #f.write(" " + " " + "texturefile = " + '"' + "gfx/leaders/Generic/" + filename + '"')
+        f.write(" " + "}\n")
+        f.write("")
+        f.write("")
+    else:
+        print("giannis")
    else:
        continue
 
