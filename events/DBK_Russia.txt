@@ -990,9 +990,13 @@ country_event = { #Russian Alignment?
 	option = {
 		name = SOV_return_of_the_tsar_path.19.a #Yeah boi
 		ai_chance = { factor = 5 }
+		ROOT = {
+			keep_current_politics = yes
+		}
 		SOV = {
 			puppet = ROOT
 		}
+		reset_government = yes
 		ROOT = {
 			save_global_event_target_as = RussianAllianceEmpireInviter
 		}

@@ -4391,3 +4391,61 @@ news_event = {
 		name = austria_foriegn_policy.9.a
 	}
 }
+
+country_event = {
+	id = austria_foriegn_policy.10
+	title = austria_foriegn_policy.10.t
+	desc = austria_foriegn_policy.10.d
+	picture = GFX_report_event_worried_french
+
+	is_triggered_only = yes
+
+	option = {
+		name = austria_foriegn_policy.10.a
+		ai_chance = { factor = 90 }
+		AUS = {
+			country_event = austria_foriegn_policy.11
+			add_to_faction = ROOT
+		}
+	}
+
+	option = {
+		name = austria_foriegn_policy.10.b
+		ai_chance = { factor = 0 }
+		AUS = { country_event = austria_foriegn_policy.12 }
+	}
+}
+
+# [Country] Accepts
+country_event = {
+	id = austria_foriegn_policy.11
+	title = austria_foriegn_policy.11.t
+	desc = austria_foriegn_policy.11.d
+	picture = GFX_report_event_soldiers_in_russia
+
+	is_triggered_only = yes
+
+	option = {
+		name = austria_foriegn_policy.11.a
+		effect_tooltip = {
+			add_to_faction = FROM
+		}
+	}
+}
+
+# [Country] Refuses
+country_event = {
+	id = austria_foriegn_policy.12
+	title = austria_foriegn_policy.12.t
+	desc = austria_foriegn_policy.12.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = {
+		name = austria_foriegn_policy.12.a
+		FROM = {
+			set_country_flag = refused_austrian_invite
+		}
+	}
+}

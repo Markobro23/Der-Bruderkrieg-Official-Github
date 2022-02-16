@@ -14,12 +14,12 @@ country_event = {
 		#unlock_decision_tooltip = FRA_imperial elections
 		#will be a 250 day mission 
 
-		hidden_effect = {
-			country_event = {
-				id = francestart.6
-				days = 2
-			}
-		}
+		# hidden_effect = {
+		# 	country_event = {
+		# 		id = francestart.6
+		# 		days = 2
+		# 	}
+		# }
 
 	}
 }
@@ -946,6 +946,48 @@ country_event = {
 			clr_country_flag = FRA_strikes_begin_two_weeks
 			country_event =  FRA_worker_strikes.6
 		}
+	}
+}
+
+country_event = {
+	id = FRA_worker_strikes.9
+	title = FRA_worker_strikes.9.t
+	desc = FRA_worker_strikes.9.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = france_strikes_modifier 
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = france_strikes_modifier 
+				}
+			}
+		}
+	}
+
+    option = {
+		name = FRA_worker_strikes.9.a
+		set_country_flag = FRA_strike_rioting_inbound_country
+		activate_mission = FRA_strike_riot_mission
+		random_owned_controlled_state = {
+			limit = { is_core_of = FRA }
+			set_state_flag = FRA_strike_rioting_inbound_state
+		} 
+		random_owned_controlled_state = {
+			limit = { is_core_of = FRA NOT = { has_state_flag = FRA_strike_rioting_inbound_state } }
+			set_state_flag = FRA_strike_rioting_inbound_state
+		}
+		hidden_effect = {
+			country_event = { id = FRA_worker_strikes.9 days = 35 }
+		}
+		
 	}
 }
 
