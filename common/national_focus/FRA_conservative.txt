@@ -37,7 +37,7 @@ focus_tree = {
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 21
+	x = 28
 	y = 9
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
@@ -1130,7 +1130,7 @@ focus_tree = {
     id = FRA_CONSERVATIVES_PREVAIL
     icon = GFX_goal_FRA_conservative_vic
     text = FRA_CONSERVATIVES_PREVAIL
-    x = 1
+    x = 0
     y = 0
     #relative_position_id = FRA_national_development_bureau
     cost = 1
@@ -2711,7 +2711,7 @@ shared_focus = {
 		icon = GFX_USA_trust_busting
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 22
+		x = 23
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -4550,80 +4550,12 @@ shared_focus = {
 # 		}
 # 	}
 
-# 	shared_focus = {
-# 		id = FRA_INVITE_BALKANS
-# 		icon = GFX_Diplo_Balkans
-# 		text = FRA_INVITE_BALKANS
-# 		prerequisite = { focus = FRA_invite_the_benelux }
-# 		x = -1
-# 		y = 1
-# 		relative_position_id = FRA_invite_the_benelux
-# 		cost = 5
-# 		ai_will_do = {
-# 			factor = 20
-# 		}
 
-# 		available_if_capitulated = yes
-# 		#search_filters = { FOCUS_FILTER_RESEARCH }
-
-# 		completion_reward = {
-# 			YUG = {country_event = { id =france.17 days = 5}}
-# 			BUL = {country_event = { id =france.17 days = 5}}
-# 			ROM = {country_event = { id =france.17 days = 5}}
-# 			GRE = {country_event = { id =france.17 days = 5}}
-# 			ALB = {country_event = { id =france.17 days = 5}}
-# 		}
-# 	}
 
 	
 
 	
 
-# 	shared_focus = {
-# 		id = FRA_PREVENT_EXPANSIONISM
-# 		icon = GFX_goal_generic_fortify_city
-# 		text = FRA_PREVENT_EXPANSIONISM
-# 		prerequisite = { focus = FRA_invite_the_benelux }
-# 		prerequisite = {
-# 			 focus = FRA_INVITE_BALKANS
-# 		}
-# 		prerequisite = { focus = FRA_invite_the_sc}
-# 		x = -1
-# 		y = 1
-# 		relative_position_id = FRA_INVITE_BALKANS
-# 		cost = 5
-# 		ai_will_do = {
-# 			factor = 20
-# 		}
-
-# 		available_if_capitulated = yes
-# 		#search_filters = { FOCUS_FILTER_RESEARCH }
-
-# 		completion_reward = {
-# 			set_faction_name = "Pax Europa"
-# 		}
-# 	}
-
-# 	shared_focus = {
-# 		id = FRA_PEACE_IN_TIME
-# 		icon = GFX_goal_molotov_ribbentrop_pact
-# 		text = FRA_PEACE_IN_TIME
-# 		prerequisite = { focus = FRA_PREVENT_EXPANSIONISM }
-# 		x = 0
-# 		y = 1
-# 		relative_position_id = FRA_PREVENT_EXPANSIONISM
-# 		cost = 5
-# 		ai_will_do = {
-# 			factor = 20
-# 		}
-
-# 		available_if_capitulated = yes
-# 		#search_filters = { FOCUS_FILTER_RESEARCH }
-
-# 		completion_reward = {
-# 			add_stability = 0.15
-# 		}
-# 	}
 
 	
 	
@@ -4648,7 +4580,7 @@ shared_focus = {
 			icon = GFX_goal_SOV_eastern_balkan_industry
 			prerequisite = {focus = FRA_the_strikers_hit }
 			relative_position_id = FRA_the_strikers_hit
-			x = 12
+			x = 10
 			y = 1
 			cost = 1
 			available_if_capitulated = yes
@@ -5314,7 +5246,7 @@ instant_build = yes
 			
 			
 		
-			x = 12
+			x = -9
 			y = 1
 			
 			
@@ -5338,6 +5270,7 @@ instant_build = yes
 			prerequisite = {
 				focus = FRA_the_strikers_hit
 			}
+			relative_position_id =  FRA_the_strikers_hit
 		
 			bypass = {
 				
@@ -5363,7 +5296,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = 4
+			x = -3
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5453,7 +5386,7 @@ instant_build = yes
 			id = FRA_REESTABLISH_EMPIRE
 			icon = GFX_goal_French_Empire
 			text = FRA_REESTABLISH_EMPIRE
-			x = -1
+			x = 1
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			prerequisite = {
@@ -5517,7 +5450,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
-			x = 1
+			x = 3
 			y = 1
 			cost = 4
 			available_if_capitulated = yes
@@ -5711,7 +5644,7 @@ instant_build = yes
       icon = GFX_goal_Napoleonic_Wars
       text = FRA_RESTART_WARS
       prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
-      x = 4
+      x = 1
       y = 1
       relative_position_id = FRA_DANUBE_CAMPAIGN
       cost = 5
@@ -5752,10 +5685,10 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_in_pursuit_of_eternal_peace
-      icon = GFX_goal_FRA_kalterkrieg
-      x = -2
+      icon = GFX_goal_Internationalism
+      x = -3
       y = 1
-      cost = 10
+      cost = 0
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_RESTART_WARS }
       mutually_exclusive = {focus = FRA_flames_on_the_fields_of_allemagne }
@@ -5767,7 +5700,7 @@ instant_build = yes
         always = no
       }
       bypass = {
-        has_country_flag = france_austria_split_deal
+        has_global_flag = france_austria_split_deal
       }
       completion_reward = {
         
@@ -5779,7 +5712,7 @@ instant_build = yes
       icon = GFX_goal_FRA_kalterkrieg
       x = 2
       y = 1
-      cost = 10
+      cost = 0
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_RESTART_WARS }
       mutually_exclusive = {focus = FRA_in_pursuit_of_eternal_peace }
@@ -5791,7 +5724,7 @@ instant_build = yes
         always = no
       }
       bypass = {
-        has_country_flag = AUS_FRA_alliance_falls_apart
+        has_global_flag = AUS_FRA_alliance_falls_apart
       }
       completion_reward = {
         
@@ -5834,7 +5767,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_spurned_by_the_german_fools
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_USA_comeout_ye_black_and_tans
       x = -1
       y = 1
       cost = 10
@@ -5851,12 +5784,15 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_prepare_for_the_british_struggle
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_Naval_assistance
       x = 1
       y = 1
       cost = 10
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_flames_on_the_fields_of_allemagne }
+	  prerequisite = {
+		  focus = FRA_demand_control_of_the_dutch_rhine
+	  }
       relative_position_id = FRA_flames_on_the_fields_of_allemagne
       ai_will_do = {
         factor = 2000
@@ -5868,7 +5804,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_total_economic_shutdown
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_Economic_Downturn
       x = 0
       y = 2
       cost = 10
@@ -5880,7 +5816,9 @@ instant_build = yes
         factor = 2000
       }
       completion_reward = {
-        add_ideas = FRA_shutdown_french_trade
+        ENG = { add_ideas = FRA_shutdown_french_trade }
+		FRA = { add_ideas = FRA_shutdown_french_trade }
+		AUS = { add_ideas = FRA_shutdown_french_trade }
       }
     }
 
@@ -5974,8 +5912,8 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_collaborate_with_russia
-      icon = GFX_goal_Finishaustria
-      text = FRA_TAKING_OUT_THE_SGC
+      icon = GFX_goal_SOV_consolidating_power
+      text = FRA_collaborate_with_russia
       prerequisite = { focus = FRA_TAKING_OUT_THE_SGC }
       mutually_exclusive = { focus = FRA_accomplish_what_bonaparte_could_not }
       x = -1
@@ -5994,15 +5932,15 @@ instant_build = yes
     
       completion_reward = {
         white_peace = SOV
+	  }
     }
 
     shared_focus = {
       id = FRA_accomplish_what_bonaparte_could_not
-      icon = GFX_goal_Finishaustria
-      text = FRA_TAKING_OUT_THE_SGC
+      icon = GFX_goal_SOV_expand_the_russian_sphere
       prerequisite = { focus = FRA_TAKING_OUT_THE_SGC }
       mutually_exclusive = { focus = FRA_collaborate_with_russia }
-      x = -1
+      x = 1
       y = 1
       relative_position_id = FRA_TAKING_OUT_THE_SGC
       cost = 10
@@ -6022,6 +5960,7 @@ instant_build = yes
             type = puppet_wargoal_focus
           }
         }
+	  }
     }
 
     shared_focus = {
@@ -6065,7 +6004,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_strengthen_english_collaboration_governments
-      icon = GFX_goal_Blitz_The_Islands
+      icon = GFX_goal_SOV_promoting_loyal_officers
       prerequisite = { focus = FRA_invade_britain }
       mutually_exclusive = { focus = FRA_reverse_normandy }
       x = 1
@@ -6096,7 +6035,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_reverse_normandy
-      icon = GFX_goal_Blitz_The_Islands
+      icon = GFX_focus_attack_britain
       prerequisite = { focus = FRA_invade_britain }
       mutually_exclusive = { focus = FRA_strengthen_english_collaboration_governments }
       x = -1
@@ -6156,7 +6095,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_pursuing_iberian_unification
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_USA_invest_in_iberian_industries
       x = 1
       y = 1
       cost = 10
@@ -6197,7 +6136,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_free_and_open_borders
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_USA_an_old_idea
       x = 0
       y = 1
       cost = 10
@@ -6259,6 +6198,25 @@ instant_build = yes
           }
           country_event = { id = french_post_victory_tree.5 hours = 3 }
         }
+		if = {
+			limit = {
+				NOT = {
+					has_idea = FRA_european_customs_union
+				}
+			}
+			effect_tooltip = {
+				LUX = {
+					country_event = { id = french_post_victory_tree.5 hours = 3 }
+				}
+				BEL = {
+					country_event = { id = french_post_victory_tree.5 hours = 3 }
+				}
+				FGD = {
+					country_event = { id = french_post_victory_tree.5 hours = 3 }
+				}
+				
+			}
+		}
         news_event = { id = french_post_victory_tree.7 days = 15 }
       }
     }
@@ -6268,7 +6226,7 @@ instant_build = yes
       icon = GFX_goal_Napoleonic_Superpower
       text = FRA_NAPOLEONIC_SUPERPOWER
       prerequisite = { focus =  FRA_collaborate_with_russia focus = FRA_accomplish_what_bonaparte_could_not focus = FRA_strengthen_english_collaboration_governments focus = FRA_reverse_normandy focus = FRA_unify_the_continental_system }
-      x = 1
+      x = 3
       y = 1
       relative_position_id = FRA_unify_the_continental_system
       cost = 10
@@ -6359,7 +6317,7 @@ instant_build = yes
 			text = FRA_MANEGO_CAMPAIGN
 			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
 			x = 0
-			y = 2
+			y = 1
 			relative_position_id = FRA_DEMAND_WEST_ITALY
 			cost = 5
 			ai_will_do = {
@@ -6448,7 +6406,7 @@ instant_build = yes
 				id = FRA_the_french_imperium
 				icon = GFX_goal_AUS_sign_a_new_constitution
 				text = FRA_the_french_imperium
-				x = 9
+				x = 7
 				y = 1
 				cost = 2
 				ai_will_do = {
