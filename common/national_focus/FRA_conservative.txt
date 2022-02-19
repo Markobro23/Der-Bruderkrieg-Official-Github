@@ -5923,15 +5923,18 @@ instant_build = yes
       ai_will_do = {
         factor = 2000
       }
-      available = {
-        has_war_with = SOV
-      }
     
       available_if_capitulated = yes
       #search_filters = { FOCUS_FILTER_RESEARCH }
     
       completion_reward = {
-        white_peace = SOV
+        if = {
+		limit = {
+			has_war_with = SOV
+		}
+		white_peace = SOV
+	}
+	SOV = { country_event = { id = generic.5 hours = 3 }
 	  }
     }
 
