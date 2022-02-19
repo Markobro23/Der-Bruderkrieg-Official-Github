@@ -5705,6 +5705,98 @@ instant_build = yes
 		}
 			}
 		}
+
+    shared_focus = {
+      id = FRA_RESTART_WARS 
+      icon = GFX_goal_Napoleonic_Wars
+      text = FRA_RESTART_WARS
+      prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
+      x = 4
+      y = 1
+      relative_position_id = FRA_DANUBE_CAMPAIGN
+      cost = 5
+      ai_will_do = {
+        factor = 20000
+      }
+    
+      bypass = {
+        
+        OR = {
+          GER = {
+            is_puppet = yes
+          }
+          GER = {
+            exists = no
+          }
+        }
+      }
+
+      available = {
+        has_war_with = GER
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        #######Declares war on the UK and Prussia gets event the Next Napoleonic War
+        add_ideas = FRA_danube_campaign
+
+        
+    
+        hidden_effect = {
+          #news_event = {id = napoleanfrance.23}
+        }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_in_pursuit_of_eternal_peace
+      icon = GFX_goal_FRA_kalterkrieg
+      x = -2
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_RESTART_WARS }
+      mutually_exclusive = {focus = FRA_flames_on_the_fields_of_allemagne }
+      relative_position_id = FRA_RESTART_WARS
+      ai_will_do = {
+        factor = 2000
+      }
+      available = {
+        always = no
+      }
+      bypass = {
+        has_country_flag = france_austria_split_deal
+      }
+      completion_reward = {
+        
+      }
+    }
+
+    shared_focus = {
+      id = FRA_flames_on_the_fields_of_allemagne
+      icon = GFX_goal_FRA_kalterkrieg
+      x = 2
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_RESTART_WARS }
+      mutually_exclusive = {focus = FRA_in_pursuit_of_eternal_peace }
+      relative_position_id = FRA_RESTART_WARS
+      ai_will_do = {
+        factor = 2000
+      }
+      available = {
+        always = no
+      }
+      bypass = {
+        has_country_flag = AUS_FRA_alliance_falls_apart
+      }
+      completion_reward = {
+        
+      }
+    }
 		
 		shared_focus = {
 			id = FRA_kalterkrieg
@@ -5713,9 +5805,8 @@ instant_build = yes
 			y = 1
 			cost = 10
 			available_if_capitulated = yes
-			prerequisite = {  focus = FRA_RESTART_WARS }
-			mutually_exclusive = {focus = FRA_TAKING_OUT_THE_SGC}
-			relative_position_id = FRA_RESTART_WARS
+			prerequisite = {  focus = FRA_in_pursuit_of_eternal_peace }
+			relative_position_id = FRA_in_pursuit_of_eternal_peace
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5740,6 +5831,479 @@ instant_build = yes
 				add_ideas = FRA_kalterkrieg_idea
 			}
 		}
+
+    shared_focus = {
+      id = FRA_spurned_by_the_german_fools
+      icon = GFX_goal_FRA_kalterkrieg
+      x = -1
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_flames_on_the_fields_of_allemagne }
+      relative_position_id = FRA_flames_on_the_fields_of_allemagne
+      ai_will_do = {
+        factor = 2000
+      }
+      completion_reward = {
+        add_ideas = FRA_rejected_german_abitions
+      }
+    }
+
+    shared_focus = {
+      id = FRA_prepare_for_the_british_struggle
+      icon = GFX_goal_FRA_kalterkrieg
+      x = 1
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_flames_on_the_fields_of_allemagne }
+      relative_position_id = FRA_flames_on_the_fields_of_allemagne
+      ai_will_do = {
+        factor = 2000
+      }
+      completion_reward = {
+        add_ideas = FRA_british_struggle
+      }
+    }
+
+    shared_focus = {
+      id = FRA_total_economic_shutdown
+      icon = GFX_goal_FRA_kalterkrieg
+      x = 0
+      y = 2
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_spurned_by_the_german_fools }
+      prerequisite = { focus = FRA_prepare_for_the_british_struggle }
+      relative_position_id = FRA_flames_on_the_fields_of_allemagne
+      ai_will_do = {
+        factor = 2000
+      }
+      completion_reward = {
+        add_ideas = FRA_shutdown_french_trade
+      }
+    }
+
+    shared_focus = {
+      id = FRA_TAKING_OUT_THE_SGC
+      icon = GFX_goal_Finishaustria
+      text = FRA_TAKING_OUT_THE_SGC
+      prerequisite = { focus = FRA_spurned_by_the_german_fools }
+      x = -1
+      y = 1
+      relative_position_id = FRA_spurned_by_the_german_fools
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+      available = {
+        NOT = {
+          has_war_with = GER
+        }
+        OR = {
+          has_army_manpower = {
+          size > 999999
+          }
+          date > 1942.1.1
+        }
+      }
+      bypass = {
+        OR = {
+          NOT = {
+            country_exists = AUS
+          }
+          FRA = {
+            has_war_with = AUS
+          }
+          AUS = {
+            OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+          }
+        }
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        if = {
+          limit = {
+            is_in_faction_with = AUS
+          }
+          leave_faction = yes
+          create_faction = "Continental Alliance"
+          if = {
+            limit = {
+              POR = {
+                is_in_faction_with = AUS
+              }
+            }
+            POR = {
+              leave_faction = yes
+            }
+            add_to_faction = POR
+          }
+          if = {
+            limit = {
+              BEL = {
+                is_in_faction_with = AUS
+              }
+            }
+            BEL = {
+              leave_faction = yes
+            }
+            add_to_faction = BEL
+          }
+          if = {
+            limit = {
+              HOL = {
+                is_in_faction_with = AUS
+              }
+            }
+            HOL = {
+              leave_faction = yes
+            }
+            add_to_faction = HOL
+          }
+        }
+        create_wargoal = {
+          target = AUS
+          type = topple_government
+          }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_collaborate_with_russia
+      icon = GFX_goal_Finishaustria
+      text = FRA_TAKING_OUT_THE_SGC
+      prerequisite = { focus = FRA_TAKING_OUT_THE_SGC }
+      mutually_exclusive = { focus = FRA_accomplish_what_bonaparte_could_not }
+      x = -1
+      y = 1
+      relative_position_id = FRA_TAKING_OUT_THE_SGC
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+      available = {
+        has_war_with = SOV
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        white_peace = SOV
+    }
+
+    shared_focus = {
+      id = FRA_accomplish_what_bonaparte_could_not
+      icon = GFX_goal_Finishaustria
+      text = FRA_TAKING_OUT_THE_SGC
+      prerequisite = { focus = FRA_TAKING_OUT_THE_SGC }
+      mutually_exclusive = { focus = FRA_collaborate_with_russia }
+      x = -1
+      y = 1
+      relative_position_id = FRA_TAKING_OUT_THE_SGC
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        add_ideas = FRA_beyond_bonaparte
+        if = {
+          limit = { NOT = { has_war_with = SOV } }
+          create_wargoal = {
+            target = SOV
+            type = puppet_wargoal_focus
+          }
+        }
+    }
+
+    shared_focus = {
+      id = FRA_invade_britain 
+      icon = GFX_goal_Blitz_The_Islands
+      text = FRA_invade_britain
+      prerequisite = { focus = FRA_prepare_for_the_british_struggle }
+      x = 1
+      y = 1
+      relative_position_id = FRA_prepare_for_the_british_struggle
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      bypass = {
+        
+        
+      }
+      available = {
+        OR = {
+          has_army_manpower = {
+          size > 1499999
+          }
+          date > 1942.9.1
+        }
+      }
+
+      
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        create_wargoal = {
+          target = ENG
+          type = topple_government
+        }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_strengthen_english_collaboration_governments
+      icon = GFX_goal_Blitz_The_Islands
+      prerequisite = { focus = FRA_invade_britain }
+      mutually_exclusive = { focus = FRA_reverse_normandy }
+      x = 1
+      y = 1
+      relative_position_id = FRA_invade_britain
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      bypass = {
+        
+        
+      }
+      available = {
+        ENG = {
+          is_subject_of = FRA
+        }
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+       #dunno tbh
+      }
+    }
+
+    shared_focus = {
+      id = FRA_reverse_normandy
+      icon = GFX_goal_Blitz_The_Islands
+      prerequisite = { focus = FRA_invade_britain }
+      mutually_exclusive = { focus = FRA_strengthen_english_collaboration_governments }
+      x = -1
+      y = 1
+      relative_position_id = FRA_invade_britain
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      bypass = {
+        
+        
+      }
+      available = {
+        ENG = {
+          is_subject_of = FRA
+        }
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+       transfer_state = 127
+      }
+    }
+    shared_focus = {
+      id = FRA_bide_our_time 
+      icon = GFX_goal_FRA_bide_our_time
+      text = FRA_bide_our_time
+      prerequisite = { focus = FRA_kalterkrieg }
+      x = 0
+      y = 1
+      relative_position_id = FRA_kalterkrieg
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      bypass = {
+        
+        
+      }
+
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        swap_ideas=  {
+          add_idea = FRA_kalterkrieg_idea_2
+          remove_idea = FRA_kalterkrieg_idea
+        }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_pursuing_iberian_unification
+      icon = GFX_goal_FRA_kalterkrieg
+      x = 1
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_in_pursuit_of_eternal_peace }
+      relative_position_id = FRA_in_pursuit_of_eternal_peace
+      ai_will_do = {
+        factor = 2000
+      }
+      available = {
+        country_exists = POR
+        country_exists = SPR
+        OR = {
+          SPR = {
+            OR = {
+              is_in_faction_with = FRA
+              is_subject_of = FRA
+            }
+          }
+          POR = {
+            OR = {
+              is_in_faction_with = FRA
+              is_subject_of = FRA
+            }
+          }
+        }
+        NOT = {
+          OR = {
+            has_war_with = POR
+            has_war_with = SPR
+          }
+        }
+      }
+      completion_reward = {
+        country_event = { id = french_post_victory_tree.1 hours = 2 }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_free_and_open_borders
+      icon = GFX_goal_FRA_kalterkrieg
+      x = 0
+      y = 1
+      cost = 10
+      available_if_capitulated = yes
+      prerequisite = {  focus = FRA_pursuing_iberian_unification }
+      relative_position_id = FRA_pursuing_iberian_unification
+      ai_will_do = {
+        factor = 2000
+      }
+      completion_reward = {
+        set_country_flag = {
+          flag = FRA_formed_eu_focus
+          days = 180
+          value = 1
+        }
+        news_event = { id = french_post_victory_tree.4 days = 1 hours = 6 }
+        every_country = {
+          limit = {
+            OR = {
+              is_in_faction_with = FRA
+              is_subject_of = FRA
+            }
+            capital_scope = {
+              is_on_continent = europe
+            }
+          }
+          add_ideas = FRA_european_customs_union
+        }
+      }
+    }
+
+    shared_focus = {
+      id = FRA_unify_the_continental_system 
+      icon = GFX_goal_FRA_bide_our_time
+      prerequisite = { focus = FRA_free_and_open_borders }
+      prerequisite = { focus = FRA_bide_our_time }
+      x = -1
+      y = 1
+      relative_position_id = FRA_free_and_open_borders
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      available = {
+        NOT = {
+          has_country_flag = FRA_formed_eu_focus
+        }
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        every_country = {
+          limit = {
+            has_idea = FRA_european_customs_union
+            is_subject_of = FRA
+          }
+          country_event = { id = french_post_victory_tree.5 hours = 3 }
+        }
+        news_event = { id = french_post_victory_tree.7 days = 15 }
+      }
+    }
+    
+    shared_focus = {
+      id = FRA_NAPOLEONIC_SUPERPOWER
+      icon = GFX_goal_Napoleonic_Superpower
+      text = FRA_NAPOLEONIC_SUPERPOWER
+      prerequisite = { focus =  FRA_collaborate_with_russia focus = FRA_accomplish_what_bonaparte_could_not focus = FRA_strengthen_english_collaboration_governments focus = FRA_reverse_normandy focus = FRA_unify_the_continental_system }
+      x = 1
+      y = 1
+      relative_position_id = FRA_unify_the_continental_system
+      cost = 10
+      ai_will_do = {
+        factor = 2000
+      }
+    
+      available_if_capitulated = yes
+      #search_filters = { FOCUS_FILTER_RESEARCH }
+    
+      completion_reward = {
+        ######Make Bonapartist Ambition so fucking op
+    
+        if = {
+          limit = {
+            has_idea = Bonapartist_Ambition_2
+          }
+          swap_ideas = {
+            add_idea = Bonapartist_Ambition_3
+            remove_idea = Bonapartist_Ambition_2
+          }
+        }
+        else = {
+          swap_ideas = {
+            add_idea = Bonapartist_Ambition_2
+            remove_idea = Bonapartist_Ambition
+          }
+        }
+
+        # create_wargoal = {
+        #   target = SOV
+        #   type = topple_government
+        # }
+      }
+    }
 		
 		
 		shared_focus = {
@@ -5865,263 +6429,6 @@ instant_build = yes
 			completion_reward = {
 				##replace with unlock decision
 				unlock_decision_category_tooltip = FRA_danube_campaign
-			}
-		}
-		
-		
-		
-		
-		shared_focus = {
-			id = FRA_RESTART_WARS 
-			icon = GFX_goal_Napoleonic_Wars
-			text = FRA_RESTART_WARS
-			prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
-			x = 4
-			y = 1
-			relative_position_id = FRA_DANUBE_CAMPAIGN
-			cost = 5
-			ai_will_do = {
-				factor = 20000
-			}
-		
-			bypass = {
-				
-				OR = {
-					GER = {
-						is_puppet = yes
-					}
-					GER = {
-						exists = no
-					}
-				}
-			}
-
-			available = {
-				has_war_with = GER
-			}
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				#######Declares war on the UK and Prussia gets event the Next Napoleonic War
-				add_ideas = FRA_danube_campaign
-
-				
-		
-				hidden_effect = {
-					#news_event = {id = napoleanfrance.23}
-				}
-			}
-		}
-		
-		
-		
-		
-		shared_focus = {
-			id = FRA_TAKING_OUT_THE_SGC
-			icon = GFX_goal_Finishaustria
-			text = FRA_TAKING_OUT_THE_SGC
-			prerequisite = { focus = FRA_RESTART_WARS }
-			mutually_exclusive = {focus = FRA_kalterkrieg}
-			#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
-			x = 1
-			y = 1
-			relative_position_id = FRA_RESTART_WARS
-			cost = 10
-			ai_will_do = {
-				factor = 2000
-			}
-			available = {
-				NOT = {
-					has_war_with = GER
-				}
-				OR = {
-					has_army_manpower = {
-					size > 999999
-					}
-					date > 1942.1.1
-				}
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = AUS
-					}
-					FRA = {
-						has_war_with = AUS
-					}
-					AUS = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					}
-				}
-			}
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				if = {
-					limit = {
-						is_in_faction_with = AUS
-					}
-					leave_faction = yes
-					create_faction = "Continental Alliance"
-					if = {
-						limit = {
-							POR = {
-								is_in_faction_with = AUS
-							}
-						}
-						POR = {
-							leave_faction = yes
-						}
-						add_to_faction = POR
-					}
-					if = {
-						limit = {
-							BEL = {
-								is_in_faction_with = AUS
-							}
-						}
-						BEL = {
-							leave_faction = yes
-						}
-						add_to_faction = BEL
-					}
-					if = {
-						limit = {
-							HOL = {
-								is_in_faction_with = AUS
-							}
-						}
-						HOL = {
-							leave_faction = yes
-						}
-						add_to_faction = HOL
-					}
-				}
-				create_wargoal = {
-					target = AUS
-					type = topple_government
-				  }
-			}
-		}
-
-		shared_focus = {
-			id = FRA_invade_britain 
-			icon = GFX_goal_Blitz_The_Islands
-			text = FRA_invade_britain
-			prerequisite = { focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
-			x = 0
-			y = 1
-			relative_position_id = FRA_TAKING_OUT_THE_SGC
-			mutually_exclusive = {
-				focus = FRA_bide_our_time
-			}
-			cost = 10
-			ai_will_do = {
-				factor = 2000
-			}
-		
-			bypass = {
-				
-				
-			}
-			available = {
-				OR = {
-					has_army_manpower = {
-					size > 1499999
-					}
-					date > 1942.9.1
-				}
-			}
-
-			
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				create_wargoal = {
-					target = ENG
-					type = topple_government
-				}
-			}
-		}
-		shared_focus = {
-			id = FRA_bide_our_time 
-			icon = GFX_goal_FRA_bide_our_time
-			text = FRA_bide_our_time
-			prerequisite = { focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
-			x = -2
-			y = 1
-			relative_position_id = FRA_TAKING_OUT_THE_SGC
-			cost = 10
-			ai_will_do = {
-				factor = 2000
-			}
-		
-			bypass = {
-				
-				
-			}
-			mutually_exclusive = {
-				focus = FRA_invade_britain
-			}
-
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				swap_ideas=  {
-					add_idea = FRA_kalterkrieg_idea_2
-					remove_idea = FRA_kalterkrieg_idea
-				}
-			}
-		}
-
-		
-		shared_focus = {
-			id = FRA_NAPOLEONIC_SUPERPOWER
-			icon = GFX_goal_Napoleonic_Superpower
-			text = FRA_NAPOLEONIC_SUPERPOWER
-			prerequisite = {focus = FRA_invade_britain focus = FRA_bide_our_time }
-			x = -1
-			y = 1
-			relative_position_id = FRA_invade_britain
-			cost = 10
-			ai_will_do = {
-				factor = 2000
-			}
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				######Make Bonapartist Ambition so fucking op
-		
-				if = {
-					limit = {
-						has_idea = Bonapartist_Ambition_2
-					}
-					swap_ideas = {
-						add_idea = Bonapartist_Ambition_3
-						remove_idea = Bonapartist_Ambition_2
-					}
-				}
-				else = {
-					swap_ideas = {
-						add_idea = Bonapartist_Ambition_2
-						remove_idea = Bonapartist_Ambition
-					}
-				}
-
-				# create_wargoal = {
-				# 	target = SOV
-				# 	type = topple_government
-				# }
 			}
 		}
 		
