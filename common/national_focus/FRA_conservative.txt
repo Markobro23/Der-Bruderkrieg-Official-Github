@@ -5709,13 +5709,13 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_kalterkrieg
 			icon = GFX_goal_FRA_kalterkrieg
-			x = 0
-			y = 2
+			x = -1
+			y = 1
 			cost = 10
 			available_if_capitulated = yes
 			prerequisite = {  focus = FRA_RESTART_WARS }
 			mutually_exclusive = {focus = FRA_TAKING_OUT_THE_SGC}
-			relative_position_id = FRA_ils_ne_passeront_pas
+			relative_position_id = FRA_RESTART_WARS
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5876,7 +5876,7 @@ instant_build = yes
 			icon = GFX_goal_Napoleonic_Wars
 			text = FRA_RESTART_WARS
 			prerequisite = { focus = FRA_DANUBE_CAMPAIGN focus = FRA_ils_ne_passeront_pas }
-			x = 1
+			x = 4
 			y = 1
 			relative_position_id = FRA_DANUBE_CAMPAIGN
 			cost = 5
@@ -5925,7 +5925,7 @@ instant_build = yes
 			prerequisite = { focus = FRA_RESTART_WARS }
 			mutually_exclusive = {focus = FRA_kalterkrieg}
 			#prerequisite = { focus = FRA_MANEGO_CAMPAIGN }
-			x = -1
+			x = 1
 			y = 1
 			relative_position_id = FRA_RESTART_WARS
 			cost = 10
@@ -6054,7 +6054,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_bide_our_time
 			text = FRA_bide_our_time
 			prerequisite = { focus = FRA_TAKING_OUT_THE_SGC focus = FRA_kalterkrieg }
-			x = 2
+			x = -2
 			y = 1
 			relative_position_id = FRA_TAKING_OUT_THE_SGC
 			cost = 10
@@ -6088,7 +6088,7 @@ instant_build = yes
 			icon = GFX_goal_Napoleonic_Superpower
 			text = FRA_NAPOLEONIC_SUPERPOWER
 			prerequisite = {focus = FRA_invade_britain focus = FRA_bide_our_time }
-			x = 1
+			x = -1
 			y = 1
 			relative_position_id = FRA_invade_britain
 			cost = 10
@@ -6172,7 +6172,7 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = -2
+				x = 6
 				y = 1
 				cost = 2
 				ai_will_do = {
@@ -6407,14 +6407,14 @@ instant_build = yes
 				id = FRA_ruhr_development
 				icon = GFX_goal_FRA_ruhr_development
 				text = FRA_ruhr_development
-				x = -1
+				x = 0
 				y = 1
 				cost = 5
 				ai_will_do = {
 					factor = 20
 				}
-				prerequisite = {focus = FRA_the_chaotic_westfalen}
-				relative_position_id = FRA_the_chaotic_westfalen
+				prerequisite = {focus = FRA_mobilization_of_the_rhine_guard }
+				relative_position_id = FRA_mobilization_of_the_rhine_guard 
 		
 				available_if_capitulated = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6489,7 +6489,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_mobilization_of_the_rhine_guard
 			text = FRA_mobilization_of_the_rhine_guard
 			x = 1
-			y = 2
+			y = 1
 			cost = 5
 			ai_will_do = {
 				factor = 20
@@ -6585,14 +6585,14 @@ instant_build = yes
 				id = FRA_the_luxemburg_colony
 				icon = GFX_goal_invadeluxembourg
 				text = FRA_the_luxemburg_colony
-				x = 7
+				x = -1
 				y = 1
 				cost = 5
 				ai_will_do = {
 					factor = 20
 				}
-				prerequisite = {focus = FRA_the_french_imperium}
-				relative_position_id = FRA_the_french_imperium
+				prerequisite = {focus = FRA_the_chaotic_westfalen}
+				relative_position_id = FRA_the_chaotic_westfalen
 		
 				available_if_capitulated = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6642,7 +6642,7 @@ instant_build = yes
 				mutually_exclusive = {
 					focus = FRA_a_peaceful_offer
 				}
-				x = 1
+				x = -2
 				y = 1
 				relative_position_id = FRA_the_french_imperium
 				cost = 2.5
@@ -6706,7 +6706,7 @@ instant_build = yes
 				}
 				
 			
-				x = 3
+				x = 0
 				y = 1
 				relative_position_id = FRA_the_french_imperium
 				cost = 3
@@ -6748,7 +6748,7 @@ instant_build = yes
 				}
 				
 			
-				x = 5
+				x = 2
 				y = 1
 				relative_position_id = FRA_the_french_imperium
 				cost = 3

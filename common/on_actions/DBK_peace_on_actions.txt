@@ -1034,6 +1034,26 @@ on_actions = {
                     }
                 }
                 argentina_loses_peace_deal = yes
+            }	
+			if = {
+                limit = {
+                    ROOT = { tag = ARG }
+                    FROM = {
+						tag = URG
+					}
+                }
+                URG = {
+					white_peace = ARG
+				}
+				ARG = {
+					add_popularity = {
+						ideology = democratic_communism
+						popularity = 0.5
+					}
+					set_politics = {
+						ruling_party = democratic_communism
+					}
+				}
             }		
 		}
 		##brazil

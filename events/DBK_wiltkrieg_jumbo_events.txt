@@ -1832,7 +1832,7 @@ country_event = {
 			}
 
 		}
-	}
+	} 
 }
 ##For prussia
 country_event = {
@@ -1871,6 +1871,121 @@ news_event = {
 	}
 }
 
+##Invite France?
+country_event = {
+	id = second_treaty_of_vienna.4
+	title = second_treaty_of_vienna.4.t
+	desc = second_treaty_of_vienna.4.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = second_treaty_of_vienna.4.a	
+		FRA = {
+			country_event = {
+				id = second_treaty_of_vienna.6
+			}
+		}
+		set_global_flag = france_austria_split_deal
+		hidden_effect = {
+			AUS = {
+				log = "this work?"
+				country_event = {
+					id = second_treaty_of_vienna.1
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = second_treaty_of_vienna.4.b	
+		FRA = {
+			country_event = {
+				id = second_treaty_of_vienna.5
+			}
+		}
+		hidden_effect = {
+			AUS = {
+				country_event = {
+					id = second_treaty_of_vienna.1
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+##Austria rejects us!
+country_event = {
+	id = second_treaty_of_vienna.5
+	title = second_treaty_of_vienna.5.t
+	desc = second_treaty_of_vienna.5.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = second_treaty_of_vienna.5.a	
+		set_global_flag = AUS_FRA_alliance_falls_apart
+		diplomatic_relation = {
+			country = AUS
+			relation = guarantee
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = guarantee
+				active = no
+			}
+		}
+
+		diplomatic_relation = {
+			country = AUS
+			relation = non_aggression_pact
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+
+		diplomatic_relation = {
+			country = AUS
+			relation = military_access
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = military_access
+				active = no
+			}
+		}
+	}
+}
+
+##For france
+country_event = {
+	id = second_treaty_of_vienna.6
+	title = second_treaty_of_vienna.6.t
+	desc = second_treaty_of_vienna.6.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+
+
+	option = {
+		name = second_treaty_of_vienna.6.a
+		
+	}
+}
 
 
 add_namespace = post_wiltkrieg_trials
@@ -1911,7 +2026,10 @@ country_event = {
 		
 		set_country_flag = goering_bye
 		GER = {
-			kill_country_leader = yes
+			add_popularity = {
+				ideology = ultranationalism
+				popularity = -0.5
+			}
 		}
 		#news_event = { id = post_wiltkrieg_trials.3 }
 	}
