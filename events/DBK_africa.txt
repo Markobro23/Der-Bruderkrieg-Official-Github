@@ -81,3 +81,143 @@ add_namespace = north_africa_events
 
 ###East african events
 add_namespace = ethiopean_somali_conflict
+
+add_namespace = african_independence_conflicts
+
+###you're independent from FEA now! You're screwed
+country_event = {
+	id = african_independence_conflicts.1
+	title = african_independence_conflicts.1.t
+	desc = african_independence_conflicts.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = { #for freedom!
+		name = african_independence_conflicts.1.a
+		if = {
+			limit = {
+				country_exists = FEA
+			}
+			every_state = {
+				limit = { is_core_of = ROOT is_core_of = FEA }
+				remove_core_of = FEA
+				add_claim_by = FEA
+			}
+			FEA = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		FRA = {
+			country_event = { id = african_independence_conflicts.2 hours = 6 }
+		}
+	}
+}
+
+###French notification that some colonies are being naughty
+country_event = {
+	id = african_independence_conflicts.2
+	title = african_independence_conflicts.2.t
+	desc = african_independence_conflicts.2.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = { #We will crush them
+		name = african_independence_conflicts.2.a
+		if = {
+			limit = {
+				any_other_country = {
+					is_subject_of = ROOT
+					has_war_with = FROM
+				}
+			}
+			random_country = {
+				limit = { has_war_with = FROM is_subject_of = ROOT }
+				ROOT = {
+					add_to_war = {
+						target_alliance = PREV
+						enemy = FROM
+					}
+				}
+			}
+			else = {
+				declare_war_on = {
+					target = FROM
+					type = annex_everything
+				}
+			}
+		}
+	}
+	option = { #Support our colonial government, but don't intervene directly
+		name = african_independence_conflicts.2.b
+		trigger = {
+			any_other_country = {
+				is_subject_of = ROOT
+				has_war_with = FROM
+			}
+			has_equipment = {
+				infantry_equipment > 249
+			}
+		}
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = -250
+		}
+		random_country = {
+			limit = { has_war_with = FROM is_subject_of = ROOT }
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"French Reinforcements\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
+					owner = THIS
+					count = 2
+				}
+			}
+		}
+	}
+	option = { #Let the colonial government deal with it
+		name = african_independence_conflicts.2.c
+		trigger = {
+			any_other_country = {
+				is_subject_of = ROOT
+				has_war_with = FROM
+			}
+		}
+	}
+}
+
+###you're independent from FWA now! You're screwed
+country_event = {
+	id = african_independence_conflicts.3
+	title = african_independence_conflicts.1.t
+	desc = african_independence_conflicts.1.d
+	picture = GFX_report_event_election_vote
+	
+	is_triggered_only = yes
+	
+	option = { #for freedom!
+		name = african_independence_conflicts.1.a
+		if = {
+			limit = {
+				country_exists = FWA
+			}
+			every_state = {
+				limit = { is_core_of = ROOT is_core_of = FWA }
+				remove_core_of = FWA
+				add_claim_by = FWA
+			}
+			FWA = {
+				declare_war_on = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		FRA = {
+			country_event = { id = african_independence_conflicts.2 hours = 6 }
+		}
+	}
+}
