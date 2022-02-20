@@ -139,7 +139,7 @@ country_event = {
 				limit = { has_war_with = FROM is_subject_of = ROOT }
 				ROOT = {
 					add_to_war = {
-						target_alliance = PREV
+						targeted_alliance = PREV
 						enemy = FROM
 					}
 				}
@@ -170,10 +170,28 @@ country_event = {
 		random_country = {
 			limit = { has_war_with = FROM is_subject_of = ROOT }
 			random_owned_controlled_state = {
-				create_unit = {
-					division = "name = \"French Reinforcements\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
-					owner = THIS
-					count = 2
+				limit = {
+					impassable = no
+				}
+				if = {
+					limit = {
+						OWNER = { tag = FWA }
+					}
+					create_unit = {
+						division = "name = \"French Reinforcements\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
+						owner = FWA
+						count = 2
+					}
+				}
+				if = {
+					limit = {
+						OWNER = { tag = FEA }
+					}
+					create_unit = {
+						division = "name = \"French Reinforcements\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
+						owner = FEA
+						count = 2
+					}
 				}
 			}
 		}
