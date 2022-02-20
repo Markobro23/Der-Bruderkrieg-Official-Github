@@ -5709,7 +5709,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_flames_on_the_fields_of_allemagne
-      icon = GFX_goal_FRA_kalterkrieg
+      icon = GFX_goal_FRA_flames_on_the_fields_of_allemagne
       x = 2
       y = 1
       cost = 0
@@ -5929,14 +5929,15 @@ instant_build = yes
     
       completion_reward = {
         if = {
-		limit = {
-			has_war_with = SOV
+			limit = {
+				has_war_with = SOV
+			}
+			white_peace = SOV
+			}
+			SOV = { country_event = { id = generic.5 hours = 3 }
+			}
 		}
-		white_peace = SOV
 	}
-	SOV = { country_event = { id = generic.5 hours = 3 }
-	  }
-    }
 
     shared_focus = {
       id = FRA_accomplish_what_bonaparte_could_not
@@ -6173,7 +6174,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_unify_the_continental_system 
-      icon = GFX_goal_FRA_bide_our_time
+      icon = GFX_goal_FRA_unify_continental_system
       prerequisite = { focus = FRA_free_and_open_borders }
       prerequisite = { focus = FRA_bide_our_time }
       x = -1
