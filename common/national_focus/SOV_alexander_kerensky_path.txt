@@ -1453,7 +1453,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 2000
 	}
-
+ 
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -1560,7 +1560,6 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	completion_reward = {
-		add_political_power = 100
 		remove_ideas = SOV_political_divide_2
 		add_popularity = {
 			ideology = ROOT
@@ -1734,7 +1733,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_capturing_tsertelli
-	cost = 3
+	cost = 8
 	ai_will_do = {
 		factor = 2000
 	}
@@ -1748,6 +1747,12 @@ shared_focus = {
 		
 		add_political_power = -50
 		custom_effect_tooltip = SOV_a_democracy_only_in_name_tt
+
+		hidden_effect = {
+			remove_dynamic_modifier = {
+				modifier = SOV_peoples_support_for_current_regime_modifier
+			}
+		}
 		
 		
 		hidden_effect = {

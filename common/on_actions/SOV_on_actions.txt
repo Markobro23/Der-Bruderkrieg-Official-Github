@@ -216,6 +216,15 @@ on_actions = {
                 }
                 SOV_calculate_political_support_modifier = yes
             }
+            if = {
+                limit = {
+                    OR = { has_idea = SOV_freedom_reforms has_idea = SOV_freedom_reforms_2 }
+                }
+                add_to_variable = {
+                    SOV_peoples_support_for_current_regime = 0.5
+                }
+                SOV_calculate_political_support_modifier = yes
+            }
         }
     }
     # on_weekly_SOV = {

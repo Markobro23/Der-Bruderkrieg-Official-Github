@@ -733,3 +733,44 @@ UK_attlee_decisions = {
 UK_benett_eden_decisions = {
 	
 }
+
+
+
+weltkrieg_decisions = {
+	ENG_complete_mobilization = {
+
+		priority = 10
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 25
+
+		fire_only_once = yes 
+
+		activation = {
+			tag = ENG
+			has_country_flag = ENG_activation_complete_mobilization_flag
+		}
+
+		visible = {
+			has_idea = SOV_the_mobilized_forces
+		} 
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			remove_ideas = SOV_the_mobilized_forces
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+			add_war_support = 0.15
+		}
+	}
+}

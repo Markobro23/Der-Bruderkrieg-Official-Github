@@ -3367,8 +3367,12 @@ defined_text = {
 		trigger = {
 			has_government = authoritarian_democratic
 			OR = {
-				is_on_continent = south_america
-				is_on_continent = north_america
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
 			}
 		}
 		localization_key = "President"
@@ -3377,8 +3381,12 @@ defined_text = {
 		trigger = {
 			has_government = democratic
 			OR = {
-				is_on_continent = south_america
-				is_on_continent = north_america
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
 			}
 		}
 		localization_key = "President"
@@ -3387,8 +3395,12 @@ defined_text = {
 		trigger = {
 			has_government = democratic_liberalism
 			OR = {
-				is_on_continent = south_america
-				is_on_continent = north_america
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
 			}
 		}
 		localization_key = "President"
@@ -3397,8 +3409,12 @@ defined_text = {
 		trigger = {
 			has_government = socialism_democratic
 			OR = {
-				is_on_continent = south_america
-				is_on_continent = north_america
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
 			}
 		}
 		localization_key = "President"
@@ -3442,19 +3458,19 @@ defined_text = {
 		trigger = {
 			original_tag = AUS
 		}
-		localization_key = "Reichskanzler is the Head of Government in the [ROOT.GetName]"
+		localization_key = "Reichskanzler is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
 			original_tag = FRA
 		}
-		localization_key = "Prime Minister is the Head of Government in the [ROOT.GetName]"
+		localization_key = "Prime Minister is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
 			original_tag = GER
 		}
-		localization_key = "OKW Commander is the Head of Government in the [ROOT.GetName]"
+		localization_key = "OKW Commander is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
@@ -3464,35 +3480,35 @@ defined_text = {
 			}
 			NOT = {
 				has_country_leader = {
-					name = "Nicholas II is the Head of Government in the [ROOT.GetName]"
+					name = "Nicholas II is the Head of Government in the [THIS.GetName]"
 					ruling_only = yes
 				}
 			}
 		}
-		localization_key = "Tsar of Russia is the Head of Government in the [ROOT.GetName]"
+		localization_key = "Tsar of Russia is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
 			original_tag = SOV
 			has_country_flag = SOV_rip_nick
 		}
-		localization_key = "Prime Minister is the Head of Government in the [ROOT.GetName]"
+		localization_key = "Prime Minister is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
 			original_tag = SOV
 			has_country_leader = {
-				name = "Nicholas II is the Head of Government in the [ROOT.GetName]"
+				name = "Nicholas II is the Head of Government in the [THIS.GetName]"
 				ruling_only = yes
 			}
 		}
-		localization_key = "President is the Head of Government in the [ROOT.GetName]"
+		localization_key = "President is the Head of Government in the [THIS.GetName]"
 	}
 	text = {
 		trigger = {
 			original_tag = ITA
 		}
-		localization_key = "Deputy Consul is the Head of Government in the [ROOT.GetName]"
+		localization_key = "Deputy Consul is the Head of Government in the [THIS.GetName]"
 	}
 
 	#GENERIC
