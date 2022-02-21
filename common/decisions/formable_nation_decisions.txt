@@ -1385,24 +1385,30 @@ form_greece_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = controls_non_occupied_greece
-				all_of_scopes = {
-					array = ROOT.core_states
-					OR = {
-						is_owned_by = ROOT
-						is_controlled_by = ROOT
-					}
-				}
+				#athens
+				owns_state = 828
+				owns_state = 186
+				owns_state = 47
+				owns_state = 832
+				owns_state = 830
+				#Thessaly
+				owns_state = 826
+				owns_state = 825
+				owns_state = 731
+				#Ionia
+				owns_state = 831
+				owns_state = 185
 			}
 		}
 
 		complete_effect = {
 			news_event = { id = DBK_formablenations.4 }
 			every_country = {
-				limit = { OR = { controls_state = 187 controls_state = 164 controls_state = 182 } NOT = { has_country_flag = demanded_greek_lands_return } }
+				limit = { OR = { controls_state = 187 controls_state = 164 controls_state = 182 controls_state = 827 controls_state = 1124 controls_state = 1121 } NOT = { OR = { has_country_flag = demanded_greek_lands_return has_war_with = ROOT } } }
 				country_event = { id = DBK_formablenations.5 hours = 3 }
 				set_country_flag = demanded_greek_lands_return
 			}
-			set_cosmetic_tag = GRE
+			set_cosmetic_tag = united_greece
 			add_state_core = 987
 			add_state_core = 1052
 			add_state_core = 829

@@ -198,7 +198,10 @@ on_actions = {
             if = {
                 limit = {
                     has_country_flag = SOV_elections_are_over
-                    has_idea = SOV_political_divide
+			OR = {
+				has_idea = SOV_political_divide_2
+				has_idea = SOV_political_divide
+			}
                 }
                 add_to_variable = {
                     SOV_peoples_support_for_current_regime = -2
