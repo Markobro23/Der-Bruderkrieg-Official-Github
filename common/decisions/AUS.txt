@@ -6189,7 +6189,7 @@ AUS_colonial_rebellions = {
 
 	AUS_sponsor_cameroon_revolt = {
 
-		icon = generic_prepare_for_civil_war
+		icon = generic_prepare_civil_war
 
 		visible = {
 			OR = {
@@ -6229,7 +6229,6 @@ AUS_colonial_rebellions = {
 			}
 			hidden_effect = {
 				CMR = {
-					load_oob = "FRE_civil_war"
 					country_event = { id = african_independence_conflicts.1 hours = 6 }
 				}
 				every_state = {
@@ -6240,7 +6239,7 @@ AUS_colonial_rebellions = {
 				}
 				773 = {
 					create_unit = {
-						division = "name = \"Front Révolutionnaire\" division_template = \"Militia Division\" start_experience_factor = 0.2"
+						division = "name = \"Front Révolutionnaire\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
 						owner = CMR
 						count = 3
 					}
@@ -6296,7 +6295,7 @@ AUS_colonial_rebellions = {
 
 	AUS_wassouloo_revolt = {
 
-		icon = generic_prepare_for_civil_war
+		icon = generic_prepare_civil_war
 
 		visible = {
 			OR = {
@@ -6334,8 +6333,7 @@ AUS_colonial_rebellions = {
 				WAS = {
 					add_ideas = limited_conscription
 					add_manpower = 7500
-					load_oob = "FRE_civil_war"
-					country_event = { id = african_independence_conflicts.1 hours = 6 }
+					country_event = { id = african_independence_conflicts.3 hours = 6 }
 				}
 				every_state = {
 					limit = { is_core_of = WAS }
@@ -6345,7 +6343,7 @@ AUS_colonial_rebellions = {
 				}
 				780 = {
 					create_unit = {
-						division = "name = \"Front Révolutionnaire\" division_template = \"Militia Division\" start_experience_factor = 0.2"
+						division = "name = \"Front Révolutionnaire\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
 						owner = WAS
 						count = 2
 					}
