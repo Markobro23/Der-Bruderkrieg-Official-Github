@@ -47,11 +47,15 @@ country_event = { #first event, bar riots
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 
 	option = {
+		if = {
+			limit = {
+				has_country_flag = SOV_sided_with_kerensky_campaign
+			}
+			SOV_kerensky_level_down_duma_small_decision = yes
+		}
 		name = SOV_starting_events.4.a
 		add_manpower = -5
 		add_stability = -0.02
@@ -65,14 +69,18 @@ country_event = { #sixth event, ukraine burns
 	#picture = GFX_hitlerartisteventpic
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 	option = {
 		name = SOV_starting_events.5.a
+		if = {
+			limit = {
+				has_country_flag = SOV_sided_with_kerensky_campaign
+			}
+			SOV_kerensky_level_down_duma_small_decision = yes
+		}
 		#an idea that reduces stability and monthly pop growth because of the vandalization of fields? Otherwise this works
 		add_stability = -0.05
-		SOV_kerensky_level_down_duma_small_decision = yes
+		
 		ai_chance = { factor = 1}
 	}
 }
@@ -83,18 +91,21 @@ country_event = { #second event, bombing in Kiev
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 	option = {
 		name = SOV_starting_events.6.a
+		if = {
+			limit = {
+				has_country_flag = SOV_sided_with_kerensky_campaign
+			}
+			SOV_kerensky_level_down_duma_small_decision = yes
+		}
 		193 = {
 			damage_building = {
 				type = infrastructure
 				damage = 1.5
 			}
 		}
-		SOV_kerensky_level_down_duma_small_decision = yes
 		ai_chance = { factor = 1}
 	}
 }
@@ -105,11 +116,15 @@ country_event = { #third event, weapon shipment stolen
 	#picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 	option = {
 		name = SOV_starting_events.7.a
+		if = {
+			limit = {
+				has_country_flag = SOV_sided_with_kerensky_campaign
+			}
+			SOV_kerensky_level_down_duma_small_decision = yes
+		}
 		add_equipment_to_stockpile = {
 			type = infantry_equipment
 			amount = -100
@@ -125,11 +140,15 @@ country_event = { #fourth event, police brutality
 	#picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 	option = {
 		name = SOV_starting_events.8.a
+		if = {
+			limit = {
+				has_country_flag = SOV_sided_with_kerensky_campaign
+			}
+			SOV_kerensky_level_down_duma_small_decision = yes
+		}
 		add_political_power = -15
 		hidden_effect = { country_event = { id = SOV_starting_events.9 days = 5 } }
 		ai_chance = { factor = 1}
@@ -142,17 +161,19 @@ country_event = { #fifth event, police brutality protests turn violent
 	picture = GFX_report_event_generic_riot
 	is_triggered_only = yes
 
-	trigger = {
-		has_country_flag = SOV_sided_with_kerensky_campaign
-	}
+	
 	option = {
 		name = SOV_starting_events.8.a
+		if = {
+		limit = {
+			has_country_flag = SOV_sided_with_kerensky_campaign
+		}}
+		SOV_kerensky_level_down_duma_small_decision = yes
 		add_stability = -0.05
 		add_popularity = {
 			ideology = ROOT
 			popularity = -0.03
 		}
-		SOV_kerensky_level_down_duma_small_decision = yes
 		ai_chance = { factor = 1}
 	}
 }
