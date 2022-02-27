@@ -2159,17 +2159,20 @@ d_ottoman_federaralisation_peace_deal = {
 
 
 france_beats_the_uk = {
-    ENG = {
-        release = SCO
-        release = WLS
-        release = IRE
-    }
     FRA = {
-        puppet = SCO
-        puppet = WLS
+	puppet = RAJ
+	annex_country = {
+		target = ENG
+		transfer_troops = no
+	}
+        release_puppet = SCO
+        release_puppet = WLS
         puppet = IRE
-        puppet = ENG
-        puppet = RAJ
+        release_puppet = ENG
+	every_state = {
+		limit = { is_core_of = ENG OR = { is_core_of = WLS is_core_of = SCO is_core_of = IRE } }
+		remove_core_of = ENG
+	}
 
         annex_country = {
             target = SCA
