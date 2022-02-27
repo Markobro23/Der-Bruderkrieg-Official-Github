@@ -2661,7 +2661,20 @@ shared_focus = {
 		y = 2
 	}
 	available = {
-		has_completed_focus = USA_the_happy_warrior
+		OR = {
+			has_completed_focus = USA_the_happy_warrior
+			has_completed_focus = USA_the_great_pacifican
+		}
+		OR = {
+			has_country_leader = {
+				name = "Alfred Smith"
+				ruling_only = yes
+			}
+			has_country_leader = {
+				name = "Earl Warren"
+				ruling_only = yes
+			}
+		}
 	}
 	
 	completion_reward = {
@@ -3449,6 +3462,10 @@ shared_focus = {
 	}
 	available = {
 		has_completed_focus = USA_new_moral_society
+		has_country_leader = {
+			name = "William Gibbs McAdoo"
+			ruling_only = yes
+		}
 	}
 	
 	completion_reward = {

@@ -3017,11 +3017,14 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.2.a
 		add_ideas = USA_political_uproar
-		create_country_leader = {
-			name = "William Gibbs McAdoo"
-			desc = ""
-			picture = "gfx/leaders/WilliamMcadoo.dds"
-			ideology = democratic_conservative
+		set_politics = {
+			ruling_party = authoritarian_democratic
+		}
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.1
+			}
 		}
 	}
 }
