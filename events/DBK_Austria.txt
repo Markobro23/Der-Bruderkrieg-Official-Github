@@ -4555,3 +4555,48 @@ country_event = { #the great european game
 		unlock_decision_category_tooltip = AUS_FRA_great_european_game
 	}
 }
+
+
+country_event = { #the european accords
+	id = austria_post_victory_tree.5
+	title = austria_post_victory_tree.5.t
+	desc = austria_post_victory_tree.5.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #great!
+		name = austria_post_victory_tree.5.a
+
+		hidden_effect = {
+			country_event = {
+				id = austria_post_victory_tree.6
+				hours = 7
+			}
+		}
+	}
+}
+
+country_event = { #Karl gets bombed
+	id = austria_post_victory_tree.6
+	title = austria_post_victory_tree.6.t
+	desc = austria_post_victory_tree.6.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #shizz!
+		name = austria_post_victory_tree.6.a
+		create_country_leader = {
+			name = "Otto I"
+			desc = ""
+			picture = "gfx/leaders/Otto.dds"
+			expire = "1965.1.1"
+			ideology = democratic_conservative
+			traits = {
+				#
+				
+			}
+		}
+	}
+}

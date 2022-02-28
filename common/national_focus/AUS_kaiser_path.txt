@@ -7731,6 +7731,9 @@ shared_focus = {
   ai_will_do = {
     factor = 200
   }
+   available = {
+    has_completed_focus = AUS_FEDERALISM
+  }
 
   available = {
     FRA = {
@@ -7765,6 +7768,9 @@ shared_focus = {
   cost = 3
   ai_will_do = {
     factor = 200
+  }
+  available = {
+    has_completed_focus = AUS_CENTRALISM
   }
 
   available_if_capitulated = yes
@@ -7919,7 +7925,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
+    country_event = austria_post_victory_tree.5
 
    }
 }
@@ -7940,7 +7946,48 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    
-   }
+    if = {
+      limit = {
+        has_completed_focus = AUS_ABSOLUTISM
+      }
+      every_owned_state = {
+        limit = {
+          OR = {
+            is_core_of = HUN
+            is_core_of = CZE
+            is_core_of = ITF
+            is_core_of = GLC
+            is_core_of = CRO
+          }
+        }
+        add_dynamic_modifier = {
+          modifier = under_the_kaisers_thumb_state_modifier
+          days = 720
+        }
+      }
+    }  
+    else = {
+      annex_country = {
+        target = HUN
+        transfer_troops = yes
+      }
+      annex_country = {
+        target = CZE
+        transfer_troops = yes
+      }
+      annex_country = {
+        target = ITF
+        transfer_troops = yes
+      }
+      annex_country = {
+        target = GLC
+        transfer_troops = yes
+      }
+      annex_country = {
+        target = CRO
+        transfer_troops = yes
+      }
+    }
+  }
 }
 
