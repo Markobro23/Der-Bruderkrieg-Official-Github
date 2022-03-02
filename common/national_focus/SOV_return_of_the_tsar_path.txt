@@ -969,14 +969,26 @@ shared_focus = {
         
     }
     completion_reward = {
-        SER = {
-            add_opinion_modifier = {
-                modifier = medium_increase 
-                target = SOV
+        ROM = {
+            country_event = SOV_return_of_the_tsar_path.19
+        }
+        BUL = {
+            country_event = SOV_return_of_the_tsar_path.19
+        }
+        if = {
+            limit = {
+                SER = {
+                    exists = yes
+                }
+                has_global_flag = form_serbia_flag
             }
-            add_timed_idea = {
-                idea = SOV_financial_support
-                days = 90
+            SER = {
+                country_event = SOV_return_of_the_tsar_path.19
+            }
+        }
+        else = {
+            YUG = {
+                country_event = SOV_return_of_the_tsar_path.19
             }
         }
     }
@@ -1131,7 +1143,7 @@ shared_focus = {
                 }
             }
             SER = {
-                country_event = { id = SOV_return_of_the_tsar_path.19 hours = 3 }
+                country_event = { id = russia.22 hours = 3 }
             }
         }
          if = {
@@ -1141,7 +1153,7 @@ shared_focus = {
                 }
             }
             YUG = {
-                country_event = { id = SOV_return_of_the_tsar_path.19 hours = 3 }
+                country_event = { id = russia.22 hours = 3 }
             }
         }
     }
@@ -1187,7 +1199,7 @@ shared_focus = {
 #                 target = SOV
 #                 modifier = large_increase
 #             }
-#             country_event = { id = SOV_return_of_the_tsar_path.19 hours = 3 }
+#             country_event = { id = russia.22 hours = 3 }
 #         }
 #         BUL = {
 #             add_opinion_modifier = {
@@ -1382,7 +1394,7 @@ shared_focus = {
 #         }
 
 #         BUL = {
-#             country_event =SOV_return_of_the_tsar_path.19
+#             country_event =russia.22
 #         }
 #     }
 # }
@@ -1411,7 +1423,7 @@ shared_focus = {
 #                 target = SOV
 #                 modifier = large_increase
 #             }
-#             country_event = { id = SOV_return_of_the_tsar_path.19 hours = 3 }
+#             country_event = { id = russia.22 hours = 3 }
 #         }
 #         ROM = {
 #             add_opinion_modifier = {
@@ -1617,7 +1629,7 @@ shared_focus = {
         }
 
         ROM = {
-            country_event = SOV_return_of_the_tsar_path.19
+            country_event = russia.22
         }
     }
 }
@@ -2176,7 +2188,7 @@ shared_focus = {
     completion_reward = {
      add_war_support = 0.05
      MAN = {
-         country_event = SOV_return_of_the_tsar_path.19
+         country_event = russia.22
      }
      if = {
          limit = {
@@ -2185,7 +2197,7 @@ shared_focus = {
              }
          }
          KUL = {
-             country_event = SOV_return_of_the_tsar_path.19
+             country_event = russia.22
 
          }
      }
@@ -2196,7 +2208,7 @@ shared_focus = {
              }
          }
          ETR = {
-             country_event = SOV_return_of_the_tsar_path.19
+             country_event = russia.22
 
          }
      }
@@ -2207,7 +2219,7 @@ shared_focus = {
              }
          }
          NRX = {
-             country_event = SOV_return_of_the_tsar_path.19
+             country_event = russia.22
 
          }
      }
@@ -2264,7 +2276,7 @@ shared_focus = {
     }
     completion_reward = {
         MON = {
-            country_event = SOV_return_of_the_tsar_path.19
+            country_event = russia.22
         }
     }
 }
