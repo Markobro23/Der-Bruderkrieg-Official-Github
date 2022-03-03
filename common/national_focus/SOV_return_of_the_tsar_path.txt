@@ -1026,8 +1026,14 @@ shared_focus = {
 shared_focus = {
     id = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice
     icon = GFX_goal_generic_army_artillery2 
-	prerequisite = {focus = SOV_Regionalized_Defense }
-	x = 0
+	prerequisite = {focus = SOV_Repair_Romanian_Relations  }
+    prerequisite = {
+        focus = SOV_Repair_Bulgarian_Relations
+    }
+    prerequisite = {
+        focus = SOV_Regionalized_Defense
+    }
+	x = -1
 	y = 1
     relative_position_id = SOV_Regionalized_Defense 
     cost = 4
@@ -1038,17 +1044,27 @@ shared_focus = {
     available = {
         
     }
+    bypass = {
+        NOT = {
+            has_dlc = "Together for Victory"
+        }
+    }
     completion_reward = {
-        add_timed_idea = {
-            idea = SOV_foreign_investment_idea
-            days = 90
-        }
-        SER = {
-            add_timed_idea = {
-                idea = SOV_russian_investments
-                days = 180
-            }
-        }
+       SOV = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       SER = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       YUG = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       BUL = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       ROM = {
+           add_to_tech_sharing_group = slavic_research
+       }
     }
 }
 shared_focus = {
@@ -1161,8 +1177,8 @@ shared_focus = {
 shared_focus = {
     id = SOV_The_Issue_Southern_Dobruja
     icon = GFX_goal_GovernmentIcon 
-   prerequisite = {focus =  SOV_Romanian_Military_Training focus = SOV_Arsenal_AD_Aid focus = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice }
-	x = 2
+   prerequisite = {focus =  SOV_Romanian_Military_Training focus = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice }
+	x = 1
 	y = 1
     relative_position_id =  SOV_Romanian_Military_Training 
     cost = 2
@@ -1315,34 +1331,34 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = SOV_Arsenal_AD_Aid
-    icon = GFX_focus_eng_concessions_to_the_trade_unions 
-    prerequisite = {focus = SOV_Repair_Bulgarian_Relations}
-	x = 0
-	y = 1
-    relative_position_id = SOV_Repair_Bulgarian_Relations
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
+# shared_focus = {
+#     id = SOV_Arsenal_AD_Aid
+#     icon = GFX_focus_eng_concessions_to_the_trade_unions 
+#     prerequisite = {focus = SOV_Repair_Bulgarian_Relations}
+# 	x = 0
+# 	y = 1
+#     relative_position_id = SOV_Repair_Bulgarian_Relations
+#     cost = 4
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     available = {
         
-    }
-    completion_reward = {
-        add_timed_idea = {
-            idea = SOV_foreign_investment_idea
-            days = 90
-        }
-        BUL = {
-            add_timed_idea = {
-                idea = SOV_russian_investments
-                days = 180
-            }
-        }
-    }
-}
+#     }
+#     completion_reward = {
+#         add_timed_idea = {
+#             idea = SOV_foreign_investment_idea
+#             days = 90
+#         }
+#         BUL = {
+#             add_timed_idea = {
+#                 idea = SOV_russian_investments
+#                 days = 180
+#             }
+#         }
+#     }
+# }
 # shared_focus = {
 #     id = SOV_Eastern_Balkan_Defense
 #     icon = GFX_goal_FRA_military_domination 
@@ -1465,8 +1481,14 @@ shared_focus = {
 shared_focus = {
     id = SOV_Romanian_Military_Training
     icon = GFX_goal_SOV_promoting_loyal_officers 
-    prerequisite = {focus = SOV_Repair_Romanian_Relations}
-	x = 0
+    prerequisite = {focus = SOV_Repair_Romanian_Relations  }
+    prerequisite = {
+        focus = SOV_Repair_Bulgarian_Relations
+    }
+    prerequisite = {
+        focus = SOV_Regionalized_Defense
+    }
+	x = 1
 	y = 1
     relative_position_id = SOV_Repair_Romanian_Relations
     cost = 4
@@ -1481,6 +1503,15 @@ shared_focus = {
         add_political_power = 50
         army_experience = 15
         ROM = {
+            army_experience = 25
+        }
+        BUL = {
+            army_experience = 25
+        }
+        YUG = {
+            army_experience = 25
+        }
+        SER = {
             army_experience = 25
         }
     }
@@ -2560,20 +2591,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-     341 = {
-        add_building_construction = {
-            type = infrastructure
-            level = 2
-            }
-        
-        add_building_construction = {
-            type = industrial_complex
-            level = 2
-            }
-      }
-     
+        TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }
     }
-}
+}   
 # shared_focus = {
 #     id = SOV_the_turks_and_armenians
 #     icon = GFX_goal_SOV_annex_western_armenia
