@@ -2648,11 +2648,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
-	prerequisite = {
-		focus = USA_lets_stand_against_extremism
-		focus = USA_the_detroit_conference
-	}
-	relative_position_id = USA_lets_stand_against_extremism
+	
 	offset = {
 		trigger = {
 			has_focus_tree = usa_long_new_deal_tree
@@ -2697,6 +2693,11 @@ shared_focus = {
 		focus = USA_lets_stand_against_extremism
 	}
 	relative_position_id = USA_lets_stand_against_extremism
+	allow_branch = {
+		NOT = {
+			has_focus_tree = usa_long_new_deal_tree
+		}
+	}
 	
 	completion_reward = {
 		country_event = USA_generic_foriegn_policy_tree.1
@@ -3050,6 +3051,7 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = USA_lets_stand_against_extremism
+		focus = USA_the_detroit_conference
 	}
 	relative_position_id = USA_lets_stand_against_extremism
 	
