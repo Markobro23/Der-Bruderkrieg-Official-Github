@@ -941,10 +941,24 @@ shared_focus = {
     }
     completion_reward = {
         SER = {
-            add_opinion_modifier = {
-                modifier = medium_increase 
-                target = SOV
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
             }
+        }
+        YUG = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+        ROM = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+        BUL = {
             add_timed_idea = {
                 idea = SOV_financial_support
                 days = 90
@@ -1140,18 +1154,7 @@ shared_focus = {
         
     }
     completion_reward = {
-        every_owned_state = {
-        	limit = { any_neighbor_state = { is_owned_by = AUS } }
-        	add_building_construction = {
-        		type = bunker
-        		level = 5
-        		instant_build = yes
-        		province = {
-        			all_provinces = yes
-        			limit_to_border = yes
-        		} 
-        	}
-        }
+       
 	    if = {
             limit = {
                 SER = {
@@ -1160,6 +1163,18 @@ shared_focus = {
             }
             SER = {
                 country_event = { id = russia.22 hours = 3 }
+                every_owned_state = {
+                    limit = { any_neighbor_state = { is_owned_by = AUS } }
+                    add_building_construction = {
+                        type = bunker
+                        level = 5
+                        instant_build = yes
+                        province = {
+                            all_provinces = yes
+                            limit_to_border = yes
+                        } 
+                    }
+                }
             }
         }
          if = {
@@ -1170,6 +1185,18 @@ shared_focus = {
             }
             YUG = {
                 country_event = { id = russia.22 hours = 3 }
+                every_owned_state = {
+                    limit = { any_neighbor_state = { is_owned_by = AUS } }
+                    add_building_construction = {
+                        type = bunker
+                        level = 5
+                        instant_build = yes
+                        province = {
+                            all_provinces = yes
+                            limit_to_border = yes
+                        } 
+                    }
+                }
             }
         }
     }
@@ -1319,15 +1346,8 @@ shared_focus = {
     }
     completion_reward = {
         BUL = {
-            add_opinion_modifier = {
-                target = SOV
-                modifier = medium_increase
-            }
-        }
-        diplomatic_relation = {
-            country = BUL
-            relation = non_aggression_pact
-            active = yes
+            remove_ideas = BUL_ethnic_tensions
+            country_event = russia.22
         }
     }
 }
@@ -1466,16 +1486,13 @@ shared_focus = {
     }
     completion_reward = {
         ROM = {
-            add_opinion_modifier = {
-                target = SOV
-                modifier = medium_increase
+            swap_ideas = {
+                add_idea = ROM_romanian_nationalism_2
+                remove_idea = ROM_romanian_nationalism
             }
+            country_event = russia.22
         }
-        diplomatic_relation = {
-            country = ROM
-            relation = non_aggression_pact
-            active = yes
-        }
+       
     }
 }
 shared_focus = {
@@ -1500,19 +1517,68 @@ shared_focus = {
         
     }
     completion_reward = {
-        add_political_power = 50
-        army_experience = 15
+        army_experience = 25
         ROM = {
-            army_experience = 25
+            army_experience = 15
         }
         BUL = {
-            army_experience = 25
+            army_experience = 15
         }
         YUG = {
-            army_experience = 25
+            army_experience = 15
         }
-        SER = {
-            army_experience = 25
+        # SER = {
+        #     army_experience = 15
+        # }
+
+        create_production_license = {
+            target = ROM
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = BUL
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = YUG
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+
+        create_production_license = {
+            target = ROM
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = BUL
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = YUG
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
         }
     }
 }
@@ -1536,9 +1602,9 @@ shared_focus = {
     }
     completion_reward = {
         BUL = {
-            add_opinion_modifier = {
-                target = SOV
-                modifier = ENG_imperial_trade
+           add_timed_idea = {
+                idea = SOV_industrial_assistance_2
+                days = 180
             }
         }
         211 = {
@@ -1636,32 +1702,18 @@ shared_focus = {
         
     }
     completion_reward = {
-        211 = {
-            add_extra_state_shared_building_slots = 2
-            add_building_construction = {
-                type = dockyard
-                level = 2
-                instant_build = yes
-            }
-        }
-        77 = {
-            add_extra_state_shared_building_slots = 1
-            add_building_construction = {
-                type = industrial_complex
-                level = 1
-                instant_build = yes
-            }
-        }
+        
         BUL = {
-            add_timed_idea = {
-                idea = SOV_industrial_assistance_2
-                days = 180
-            }
+            remove_ideas = Agrarianism
+        }
+        ROM = {
+            remove_ideas = ROM_Agrarianism
+        }
+        YUG = {
+            remove_ideas = Agrarianism
         }
 
-        ROM = {
-            country_event = russia.22
-        }
+       
     }
 }
 # shared_focus = {
@@ -2059,27 +2111,9 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        SOV = {
-            
-            every_owned_state = {
-                limit = {
-                    any_neighbor_state = {
-                        is_controlled_by = TUR
-                    }
-                }
-                add_building_construction = {
-                    type = bunker
-                    level = 3
-                    instant_build = yes
-                    province = {
-                        all_provinces = yes
-                        limit_to_border = yes
-                    }
-                }
-            }
-        }
-        PER = {
-            
+        unlock_decision_category_tooltip = SOV_Integration_of_Trapezountos
+        set_country_flag = integration_of_trapezountos_descion_cat_unlock
+        TRB = {
             every_owned_state = {
                 limit = {
                     any_neighbor_state = {
@@ -2547,10 +2581,48 @@ shared_focus = {
         factor = 10000
     }
     completion_reward = {
-     create_wargoal = {
-         target = TUR
-         type = puppet_wargoal_focus
-     }
+        TUR = {
+            add_opinion_modifier = {
+                target = SOV
+                modifier = orthodox_resistance_campaign
+            }
+            add_war_support = -0.05
+        }
+        1041 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        349 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        353 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        352 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        350 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        341 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        948 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
     }
 }
 
