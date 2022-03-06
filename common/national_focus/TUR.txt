@@ -18,7 +18,7 @@ focus_tree = {
 
 shared_focus = {
 	  id = TUR_TANZIMAT_FOCUS
-	  icon = unkown
+	  icon = GFX_goal_Cabinet
 	  #prerequisite = { focus = ITA_industrial_effort_2 }
 	  x = 24
 	  y = 0
@@ -38,7 +38,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_REVERSE_TANZIMAT
-	  icon = unkown
+	  icon = GFX_goal_USA_comeout_ye_black_and_tans
 	  prerequisite = { focus = TUR_TANZIMAT_FOCUS }
 	  x = -2
 	  y = 1
@@ -69,7 +69,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_ISLAMIC_SUPREMACY
-	  icon = unkown
+	  icon = GFX_goal_SOV_russias_new_savior
 	  prerequisite = { focus = TUR_REVERSE_TANZIMAT }
 	  x = -1
 	  y = 1
@@ -92,7 +92,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_DEATH_TO_INFIDELS
-	  icon = unkown
+	  icon = GFX_goal_Death
 	  prerequisite = { focus = TUR_ISLAMIC_SUPREMACY }
 	  x = 0
 	  y = 1
@@ -115,7 +115,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_REFORM_JANISERRIES
-	  icon = unkown
+	  icon = GFX_goal_SOV_a_new_russian_army
 	  prerequisite = { focus = TUR_DEATH_TO_INFIDELS }
 	  x = 0
 	  y = 1
@@ -139,7 +139,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_TRADITIONALISM
-	  icon = unkown
+	  icon = GFX_goal_SOV_protect_the_ottoman_border
 	  prerequisite = { focus = TUR_REVERSE_TANZIMAT }
 	  x = 1
 	  y = 1
@@ -182,7 +182,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_POWER_TO_AMIRS
-	  icon = unkown
+	  icon = GFX_focus_RAJ_indian_gentlemen_offcers
 	  prerequisite = { focus = TUR_NEO_FEUDALISM }
 	  x = 0
 	  y = 1
@@ -205,7 +205,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_GOD_SAVE_EMPIRE
-	  icon = unkown
+	  icon = GFX_Ottoman_Caliphate
 	  prerequisite = { focus = TUR_POWER_TO_AMIRS }
 	  prerequisite = { focus = TUR_REFORM_JANISERRIES }
 	  x = -1
@@ -234,7 +234,8 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_CONTINUE_TANZIMAT
-	  icon = unkown
+    icon = GFX_goal_USA_some_acceptance
+
 	  prerequisite = { focus = TUR_TANZIMAT_FOCUS }
 	  x = 2
 	  y = 1
@@ -320,13 +321,13 @@ shared_focus = {
 	    add_idea = Tanzimat_6
 	    remove_idea = Tanzimat_5
 	  }
-	  }
+	  } 
 	}
 
 
 	shared_focus = {
 	  id = TUR_REFORMISM
-	  icon = unkown
+	  icon = GFX_focus_eng_concessions_to_the_trade_unions
 	  prerequisite = { focus = TUR_CONTINUE_TANZIMAT }
 	  x = 1
 	  y = 1
@@ -348,7 +349,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_ABOLISH_FEUDALISM
-	  icon = GFX_goal_USA_some_acceptance
+    icon = GFX_goal_USA_farm_modernization
 	  prerequisite = { focus = TUR_REFORMISM }
 	  x = 0
 	  y = 1
@@ -376,7 +377,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_POWER_TO_OFFICIALS
-	  icon = GFX_goal_Cabinet
+    icon = GFX_goal_SOV_demand_constantinople
 	  prerequisite = { focus = TUR_ABOLISH_FEUDALISM }
 	  x = 0
 	  y = 1
@@ -399,7 +400,7 @@ shared_focus = {
 
 	shared_focus = {
 	  id = TUR_REFORM_SAVE_EMPIRE
-	  icon = unkown
+    icon = GFX_goal_FRA_fraternite
 	  prerequisite = { focus = TUR_POWER_TO_OFFICIALS }
 	  prerequisite = { focus = TUR_HIRE_PROFESSIONAL_OFFICERS }
 	  x = -1
@@ -429,6 +430,10 @@ shared_focus = {
     cost = 10
     ai_will_do = {
       factor = 1
+    }
+
+    allow_branch = {
+      always = no
     }
 
     available_if_capitulated = yes
