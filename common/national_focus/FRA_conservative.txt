@@ -1244,7 +1244,7 @@ focus_tree = {
   
   shared_focus = {
 	id = FRA_AUTOCRACY
-	icon = GFX_goal_FRA_autocracy
+	icon = GFX_goal_FRA_imperial_glory
 	text = FRA_AUTOCRACY
 	prerequisite = { focus = FRA_RESTORE_1852}
 	x = 0
@@ -1284,7 +1284,7 @@ focus_tree = {
 	x = -1
 	y = 1
 	relative_position_id = FRA_AUTOCRACY
-	cost = 2
+	cost = 6
 	ai_will_do = {
 		factor = 9000 
 	}
@@ -1317,7 +1317,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = FRA_AUTOCRACY
-	cost = 2
+	cost = 6
 	ai_will_do = {
 		factor = 2000
 	}
@@ -2155,7 +2155,7 @@ shared_focus = {
     icon = GFX_focus_focus_fra_fascist_threat
     text = FRA_CAGOULE_CABINET
 		prerequisite = { focus = FRA_FASCIST_VIC }
-    x = 1
+    x = 0
     y = 1
     relative_position_id = FRA_FASCIST_VIC
     cost = 3
@@ -2212,37 +2212,37 @@ shared_focus = {
     }
   }
 
-	shared_focus = {
-    id = FRA_END_CONSTITUTIONALISM
-    icon = GFX_goal_FRA_end_constitutionalism
-    text = FRA_END_CONSTITUTIONALISM
-	prerequisite = { focus = FRA_CAGOULE_CABINET }
+# 	shared_focus = {
+#     id = FRA_END_CONSTITUTIONALISM
+#     icon = GFX_goal_FRA_end_constitutionalism
+#     text = FRA_END_CONSTITUTIONALISM
+# 	prerequisite = { focus = FRA_CAGOULE_CABINET }
 	
-    x = 0
-    y = 1
-    relative_position_id = FRA_CAGOULE_CABINET
-    cost = 3
-    ai_will_do = {
-      factor = 2000
-    }
+#     x = 0
+#     y = 1
+#     relative_position_id = FRA_CAGOULE_CABINET
+#     cost = 3
+#     ai_will_do = {
+#       factor = 2000
+#     }
 
-    available_if_capitulated = yes
-    #search_filters = { FOCUS_FILTER_RESEARCH }
+#     available_if_capitulated = yes
+#     #search_filters = { FOCUS_FILTER_RESEARCH }
 
-    completion_reward = {
+#     completion_reward = {
       
-		add_political_power = 100
+# 		add_political_power = 100
 
 			
-    }
-  }
+#     }
+#   }
 
   shared_focus = {
     id = FRA_movement_francaise
     icon = GFX_goal_Generic_Ultranationalist_Monarchy
     text = FRA_movement_francaise
 		prerequisite = { focus = FRA_FASCIST_VIC focus = FRA_LE_EMPEROR }
-    x = -1
+    x = -2
     y = 1
     relative_position_id = FRA_FASCIST_VIC
     cost = 3
@@ -2299,43 +2299,43 @@ shared_focus = {
 
     }
   }
-  shared_focus = {
-    id = FRA_national_syndicalism
-    icon = GFX_goal_Integralism
-    text = FRA_national_syndicalism
-		prerequisite = { focus = FRA_movement_francaise }
-    x = 0
-    y = 1
-    relative_position_id = FRA_movement_francaise
-    cost = 3
-    ai_will_do = {
-      factor = 2000
-    }
+#   shared_focus = {
+#     id = FRA_national_syndicalism
+#     icon = GFX_goal_Integralism
+#     text = FRA_national_syndicalism
+# 		prerequisite = { focus = FRA_movement_francaise }
+#     x = 0
+#     y = 1
+#     relative_position_id = FRA_movement_francaise
+#     cost = 3
+#     ai_will_do = {
+#       factor = 2000
+#     }
 
-    available_if_capitulated = yes
-    #search_filters = { FOCUS_FILTER_RESEARCH }
+#     available_if_capitulated = yes
+#     #search_filters = { FOCUS_FILTER_RESEARCH }
 
 	
 
 
-    completion_reward = {
-		add_ideas = National_Syndicalism
+#     completion_reward = {
+# 		add_ideas = National_Syndicalism
 	
-    }
-  }
+#     }
+#   }
 
 	shared_focus = {
     id = FRA_VIVE_LE_FRANCE
     icon = GFX_goal_FRA_vive_la_france
     text = FRA_VIVE_LE_FRANCE
-		prerequisite = { focus = FRA_END_CONSTITUTIONALISM focus = FRA_national_syndicalism }
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_movement_francaise }
 		#prerequisite = {focus = FRA_IMPERIAL_GLORY}
 		mutually_exclusive = {
 			focus = FRA_PIETY
 		}
-    x = -1
+    x = 3
     y = 1
-    relative_position_id = FRA_END_CONSTITUTIONALISM
+    relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
     cost = 3
     ai_will_do = {
       factor = 2000
@@ -2368,7 +2368,7 @@ shared_focus = {
 
 	shared_focus = {
     id = FRA_GARDE_DE_FRATIRNITE
-    icon = GFX_focus_focus_fra_national_resistance_council
+    icon = GFX_goal_FRA_autocracy
     text = FRA_GARDE_DE_FRATIRNITE
 		prerequisite = { focus = FRA_VIVE_LE_FRANCE }
     x = -1
@@ -2416,6 +2416,7 @@ shared_focus = {
 		add_ideas = Path_of_Agression
 		news_event = napoleanfrance.30
 		set_country_flag = path_of_aggresssion_flag
+		unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
 		
 	}
 }
@@ -2423,32 +2424,32 @@ shared_focus = {
 	######Doctrinaire
 
 
-	shared_focus = {
-		id = FRA_LEGACY_OF_CHARLEGMEGNE
-		icon = GFX_goal_FRA_legacy_of_charlegemgne
-		text = FRA_LEGACY_OF_CHARLEGMEGNE
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
+	# shared_focus = {
+	# 	id = FRA_LEGACY_OF_CHARLEGMEGNE
+	# 	icon = GFX_goal_FRA_legacy_of_charlegemgne
+	# 	text = FRA_LEGACY_OF_CHARLEGMEGNE
+	# 	prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
 		
-		x = -1
-		y = 1
-		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
+	# 	x = -1
+	# 	y = 1
+	# 	relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			swap_ideas = {
-				add_idea = Rex_Regnat_2
-				remove_idea = Rex_Regnat
-			}
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 			add_idea = Rex_Regnat_2
+	# 			remove_idea = Rex_Regnat
+	# 		}
 
 			
-		}
-	}
+	# 	}
+	# }
 
 	# shared_focus = {
 	# 	id = FRA_THE_ISSUE_OF_THE_POPULAR_FRONT
@@ -2586,36 +2587,36 @@ shared_focus = {
 	
 
 
-	shared_focus = {
-		id = FRA_IMPERIAL_GLORY
-		icon = GFX_goal_FRA_imperial_glory
-		text = FRA_IMPERIAL_GLORY
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
+	# shared_focus = {
+	# 	id = FRA_IMPERIAL_GLORY
+	# 	icon = GFX_goal_FRA_imperial_glory
+	# 	text = FRA_IMPERIAL_GLORY
+	# 	prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM }
 		
-		x = 1
-		y = 1
-		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
-		cost = 5
-		ai_will_do = {
-			factor = 20
-		}
+	# 	x = 1
+	# 	y = 1
+	# 	relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_RESEARCH }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-		completion_reward = {
-			unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
-		}
-	}
+	# 	completion_reward = {
+	# 		unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
+	# 	}
+	# }
 
 	shared_focus = {
 		id = FRA_PIETY
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
-		prerequisite = { focus = FRA_IMPERIAL_GLORY focus = FRA_national_syndicalism focus = FRA_LEGACY_OF_CHARLEGMEGNE }  
-		x = -1
+		prerequisite = { focus = FRA_movement_francaise focus = FRA_BONAPARTIST_ABSOLUTISM }  
+		x = -3
 		y = 1
-		relative_position_id = FRA_IMPERIAL_GLORY
+		relative_position_id = FRA_movement_francaise
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2865,15 +2866,13 @@ shared_focus = {
 		text = FRA_LAISEZE_FAIRE
 		#prerequisite = { focus = FRA_MILITARY_GOVERNMENT focus = FRA_NOBLE_RULE }
 		
-		prerequisite = {
-			focus = FRA_LEGACY_OF_CHARLEGMEGNE
-			focus = FRA_IMPERIAL_GLORY
-			focus = FRA_national_syndicalism
-		}
-
-		x = -3	
+		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }
+		
+		x = -5
 		y = 1
-		relative_position_id = FRA_LEGACY_OF_CHARLEGMEGNE
+		relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
+
+	
 		cost = 1
 		ai_will_do = {
 			factor = 20
@@ -3092,11 +3091,11 @@ shared_focus = {
 		id = FRA_french_nationalist_propoganda
 		icon = GFX_goal_nationalist_propoganda_movement
 		text = FRA_french_nationalist_propoganda
-		prerequisite = { focus = FRA_END_CONSTITUTIONALISM }
+		prerequisite = { focus = FRA_CAGOULE_CABINET }
 
 		x = 3
 		y = 1
-		relative_position_id = FRA_END_CONSTITUTIONALISM
+		relative_position_id = FRA_CAGOULE_CABINET
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -3682,13 +3681,8 @@ shared_focus = {
 
 			news_event = napoleanfrance.28
 
-			if = {
-				limit = {
-					has_completed_focus = FRA_movement_francaise
-					
-				}
-				unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
-			}
+		
+			unlock_decision_category_tooltip = FRA_stir_up_war_sentiments
 			set_country_flag = chose_napoleon_over_petain
 
 			add_country_leader_trait = napoleon_ancestor
