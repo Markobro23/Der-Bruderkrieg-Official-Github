@@ -1234,10 +1234,13 @@ country_event = {
 
 	option = {
 		name = russia.22.a
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 90 modifier = {
+			add = -1000
+			is_in_faction = yes
+		} }
 		SOV = {
 			country_event = russia.20
-			add_to_faction = ROOT
+			add_to_faction = ROOT 
 		}
 	}
 
