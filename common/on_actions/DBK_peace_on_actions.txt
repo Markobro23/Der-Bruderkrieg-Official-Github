@@ -183,9 +183,9 @@ on_actions = {
 							tag = GRE
 						}
 					}
-					ATH = {
+					GRE = {
 						annex_country = {
-							target = GRE
+							target = ATH
 							transfer_troops = no
 						}
 					}
@@ -201,9 +201,9 @@ on_actions = {
 							tag = ATH
 						}
 					}
-					GRE = {
+					ATH = {
 						annex_country = {
-							target = ATH
+							target = GRE
 							transfer_troops = no
 						}
 					}
@@ -218,6 +218,9 @@ on_actions = {
 						FROM = {
 							tag = JNE
 						}
+					}
+					JNE = {
+						white_peace = HOL
 					}
 					JNE = {
 						transfer_state = 7
@@ -316,6 +319,9 @@ on_actions = {
 							tag = FRA
 						}
 					}
+					AUS = {
+						is_subject = no
+					}
 				}
 				prussia_loses_peace_deal = yes
 				log = "2nd europa ends: [GetDateText]"
@@ -327,9 +333,37 @@ on_actions = {
 					}
 					FROM = {
 						OR = { tag = GER is_in_faction_with = GER }
+				
 					}
 				}
-				russia_loses_to_prussia_deal = yes
+				if = {
+					limit = {
+						GER = {
+							is_puppet_of = AUS
+						}
+					}
+					AUS = {
+						white_peace = SOV
+					}
+					russia_loses_peace_deal = yes
+				}
+				else_if = {
+					limit = {
+						GER = {
+							is_puppet_of = FRA
+						}
+					}
+					FRA = {
+						white_peace = SOV
+					}
+					russia_loses_peace_to_france_deal = yes
+				}
+				else = {
+					GER = {
+						white_peace = SOV
+					}
+					news_event = prussian_expansion.6
+				}
 			}
 			if = {
 				limit = {
@@ -461,6 +495,20 @@ on_actions = {
 				}
 				france_beats_netherlands_commie = yes
 			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = ENG
+					}
+					FROM = {
+						tag = FRA
+					}
+				}
+				FRA = {
+					white_peace = ENG
+				}
+				france_beats_the_uk = yes
+			}
 
 			
 			
@@ -479,7 +527,10 @@ on_actions = {
 					FROM = { OR = { tag = GER is_in_faction_with = GER } }
 				}
 				log = "2nd europa ends for france: [GetDateText]"
-				france_loses_peace_deal = yes
+				GER = {
+					white_peace = FRA
+				}
+				news_event = prussian_expansion.5
 			}
 			if = {
 				limit = {
@@ -654,7 +705,21 @@ on_actions = {
 							is_puppet_of = GER
 						}
 					}
-					russia_loses_to_prussia_deal = yes
+					GER = {
+						white_peace = SOV
+					}
+					news_event = prussian_expansion.6
+				}
+				else_if = {
+					limit = {
+						AUS = {
+							is_puppet_of = FRA
+						}
+					}
+					FRA = {
+						white_peace = SOV
+					}
+					russia_loses_peace_to_france_deal = yes
 				}
 				else = {
 					russia_loses_peace_deal = yes	
@@ -675,7 +740,10 @@ on_actions = {
 							is_puppet_of = GER
 						}
 					}
-					russia_loses_to_prussia_deal = yes
+					GER = {
+						white_peace = SOV
+					}
+					news_event = prussian_expansion.6
 				}
 				else = {
 					russia_loses_peace_to_france_deal =  yes
@@ -991,6 +1059,26 @@ on_actions = {
                     }
                 }
                 argentina_loses_peace_deal = yes
+            }	
+			if = {
+                limit = {
+                    ROOT = { tag = ARG }
+                    FROM = {
+						tag = URG
+					}
+                }
+                URG = {
+					white_peace = ARG
+				}
+				ARG = {
+					add_popularity = {
+						ideology = democratic_communism
+						popularity = 0.5
+					}
+					set_politics = {
+						ruling_party = democratic_communism
+					}
+				}
             }		
 		}
 		##brazil

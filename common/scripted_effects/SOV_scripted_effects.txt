@@ -1195,7 +1195,6 @@ SOV_level_up_duma_small_decision = {
 	}
 }
 
-
 SOV_kerensky_level_up_duma_small_decision = {
 
 	add_to_variable = {
@@ -1223,6 +1222,30 @@ SOV_kerensky_level_up_duma_small_decision = {
 		}
 		}
 	}
+}
+
+
+SOV_kerensky_level_down_duma_small_decision  = {
+
+	add_to_variable = {
+		tooltip = SOV_decrease_kerenskys_support_by_1
+		kerensky_support = 3
+	}
+	
+
+	add_to_variable = {
+		tooltip = SOV_increase_pavels_support_by_1
+		pavel_support = 1
+	}
+add_to_variable = {
+	tooltip = SOV_increase_lenins_support_by_1
+	lenin_support = 1
+}
+add_to_variable = {
+tooltip = SOV_increase_tsars_support_by_1
+	tsar_support = 1
+}
+
 }
 
 SOV_pavel_level_up_duma_small_decision = {
@@ -1309,7 +1332,9 @@ SOV_tsar_level_up_duma_small_decision = {
 	}
 }
 
-
+d_SOV_elections_completion_effect = {
+	SOV_elections_completion_effect = yes
+}
 
 SOV_elections_completion_effect = {
 	if = {
@@ -1319,7 +1344,6 @@ SOV_elections_completion_effect = {
 				has_country_flag = SOV_chose_lenin
 				has_country_flag = SOV_sided_with_pavel_campaign
 				has_country_flag = SOV_sided_with_belogurov_campaign
-
 			}
 		}
 		complete_national_focus = SOV_trudoviks_reelected
@@ -1327,86 +1351,89 @@ SOV_elections_completion_effect = {
 			ideology = socialism_democratic
 			popularity = 0.1
 		}
-		hidden_effect = {
-            if = {
-                limit = {
-					is_ai = yes
-                    has_country_flag = SOV_chose_lenin
-                }
-				complete_national_focus = SOV_menshevik_victory
-				remove_ideas = {
-					mikhail_bernatsky
-					aleksandr_konovalov
-					aleksandr_konovalov_two
-					mikhail_tereshchenko
-					sergey_salazkin
-					aleksey_nikitin
+		
+		else = {
+			hidden_effect = {
+				if = {
+					limit = {
+						#is_ai = yes
+						has_country_flag = SOV_chose_lenin
+					}
+					complete_national_focus = SOV_menshevik_victory
+					remove_ideas = {
+						mikhail_bernatsky
+						aleksandr_konovalov
+						aleksandr_konovalov_two
+						mikhail_tereshchenko
+						sergey_salazkin
+						aleksey_nikitin
+					}
+					add_popularity = {
+						ideology = socialism_democratic
+						popularity = -0.1
+					}
+					set_politics = {
+						ruling_party = communism
+					}
+					add_popularity = {
+						ideology = communism
+						popularity = 0.15
+					}
 				}
-				add_popularity = {
-					ideology = socialism_democratic
-					popularity = -0.1
+				if = {
+					limit = {
+						is_ai = yes
+						has_country_flag = SOV_sided_with_pavel_campaign
+					}
+					complete_national_focus = SOV_cdp_elected
+					remove_ideas = {
+						mikhail_bernatsky
+						aleksandr_konovalov
+						aleksandr_konovalov_two
+						mikhail_tereshchenko
+						sergey_salazkin
+						aleksey_nikitin
+					}
+					add_popularity = {
+						ideology = socialism_democratic
+						popularity = -0.1
+					}
+					set_politics = {
+						ruling_party = democratic_liberalism
+					}
+					add_popularity = {
+						ideology = democratic_liberalism
+						popularity = 0.15
+					}
 				}
-				set_politics = {
-					ruling_party = communism
+				if = {
+					limit = {
+						is_ai = yes
+						has_country_flag = SOV_sided_with_belogurov_campaign
+					}
+					complete_national_focus = SOV_union_of_russian_peoples_elected
+					remove_ideas = {
+						mikhail_bernatsky
+						aleksandr_konovalov
+						aleksandr_konovalov_two
+						mikhail_tereshchenko
+						sergey_salazkin
+						aleksey_nikitin
+					}
+					add_popularity = {
+						ideology = socialism_democratic
+						popularity = -0.1
+					}
+					set_politics = {
+						ruling_party = democratic
+					}
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.1
+					}
 				}
-				add_popularity = {
-					ideology = communism
-					popularity = 0.15
-				}
-            }
-			if = {
-                limit = {
-					is_ai = yes
-                    has_country_flag = SOV_sided_with_pavel_campaign
-                }
-				complete_national_focus = SOV_cdp_elected
-				remove_ideas = {
-					mikhail_bernatsky
-					aleksandr_konovalov
-					aleksandr_konovalov_two
-					mikhail_tereshchenko
-					sergey_salazkin
-					aleksey_nikitin
-				}
-				add_popularity = {
-					ideology = socialism_democratic
-					popularity = -0.1
-				}
-				set_politics = {
-					ruling_party = democratic_liberalism
-				}
-				add_popularity = {
-					ideology = democratic_liberalism
-					popularity = 0.15
-				}
-            }
-			if = {
-                limit = {
-					is_ai = yes
-                    has_country_flag = SOV_sided_with_belogurov_campaign
-                }
-				complete_national_focus = SOV_union_of_russian_peoples_elected
-				remove_ideas = {
-					mikhail_bernatsky
-					aleksandr_konovalov
-					aleksandr_konovalov_two
-					mikhail_tereshchenko
-					sergey_salazkin
-					aleksey_nikitin
-				}
-				add_popularity = {
-					ideology = socialism_democratic
-					popularity = -0.1
-				}
-				set_politics = {
-					ruling_party = democratic
-				}
-				add_popularity = {
-					ideology = democratic
-					popularity = 0.1
-				}
-            }
-        }
+			}
+		}
 	}
 	if = {
 		limit = {

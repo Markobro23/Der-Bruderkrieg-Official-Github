@@ -142,7 +142,84 @@ ideas = {
    
 	AUS_a_collapsing_empire_idea = {
 
-		}
+	}
+	 Bohemian_Outrage_idea = {
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        political_power_factor = -0.10
+        stability_factor = -0.1
+        war_support_factor = -0.1
+      }
+    }
+
+    Nemetzi_dal_idea = {
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        conscription_factor = -0.2
+        stability_factor = -0.2
+      }
+    }
+
+    Giovane_Italia_idea = {
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        consumer_goods_factor = 0.10
+        war_support_factor = -0.1
+        political_power_factor = -0.15
+      }
+    }
+
+    Croat_Support_idea = {
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        political_power_gain = -0.2
+        stability_factor = 0.05
+        war_support_factor = 0.05
+        conscription = 0.015
+        army_org_factor = 0.08
+      }
+	}
+
 
 		AUS_stagnant_economic_growth = {
 
@@ -163,8 +240,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = 0.1
 				production_speed_buildings_factor = -0.1
-				industrial_capacity_factory = -0.1
-				stability_factor = -0.05
+				industrial_capacity_factory = -0.15
       		}
 		}
 		AUS_stagnant_economic_growth_2 = {
@@ -184,7 +260,7 @@ ideas = {
 			}
 
 			modifier = {
-				consumer_goods_factor = 0.05
+				consumer_goods_factor = 0.1
 				production_speed_buildings_factor = -0.05
 				industrial_capacity_factory = -0.05
       		}
@@ -570,9 +646,11 @@ ideas = {
 			}
 
 			modifier = {
-				stability_factor = 0.15
-				war_support_factor = 0.05
+				resistance_growth = -0.25
+				stability_factor = 0.05
+				#war_support_factor = 0.05
 				political_power_factor = 0.1
+				local_resources_factor = 0.2
 			}
 		}
 
@@ -1825,13 +1903,37 @@ ideas = {
 			  }
 		}
 
+        AUS_eastern_front_focus = {
+			allowed = {
+				always = no
+			}
+		
+			removal_cost = -1
+
+			cancel = {
+				NOT = {
+					has_war_with = SOV
+				}
+			}
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.1 
+				defence_bonus_against = 0.1
+			  }
+		}
 
 
 
 
 
-
-
+		AUS_european_peace_and_cooperation = {
+			modifier = {
+				research_speed_factor = 0.3
+				stability_factor = 0.15
+				justify_war_goal_time = -0.5
+			}
+		}
 
 
 
@@ -1847,42 +1949,77 @@ ideas = {
   }
   hidden_ideas = {
 	  AUS_silesian_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = GER
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_bavarian_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = GER
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_danubian_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = ROM
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_galician_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = SOV
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_westfalen_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = FGD
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_venetian_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = FGD
 			attack_bonus_against = 0.1 
 		  }
 	  }
 	  AUS_serbian_offensive = {
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
 		targeted_modifier = {
 			tag = YUG
 			attack_bonus_against = 0.1 
@@ -1896,7 +2033,7 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			has_completed_focus = AUS_emmerich_czermach
+			has_completed_focus = AUS_emmerich_czermach_focus
 		}
 	
 		traits = { armaments_organizer }
@@ -1910,7 +2047,7 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			has_completed_focus = AUS_engelbert_dolfuss
+			has_completed_focus = AUS_engelbert_dolfuss_focus
 		}
 	
 		traits = { corporatist }
@@ -1924,7 +2061,7 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			has_completed_focus = AUS_karl_sietz
+			has_completed_focus = AUS_karl_sietz_focus
 		} 
 	
 		traits = { lieutenant_of_industry }
@@ -1933,22 +2070,146 @@ ideas = {
 			factor = 0.5
 		}
 	}
-	karl_renner = {
-		allowed = {
-			original_tag = AUS
-			
+	#karl_renner = {
+	#	allowed = {
+	#		original_tag = AUS
+	#		
+	#	}
+	#	available = {
+	#		always = no
+	#	}
+	#
+	#	traits = { workers_man }
+	#
+	#	ai_will_do = {
+	#		factor = 0.5
+	#	}
+	#}
+  }
+
+	minister_of_foriegn_affairs = {
+		adolf_scharf = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_karl_sietz_focus
+			}
+		
+			traits = { chamberlain_appeaser }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
 		}
-		available = {
-			always = no
-		}
-	
-		traits = { workers_man }
-	
-		ai_will_do = {
-			factor = 0.5
+		ernst_streeruwitz = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_emmerich_czermach_focus
+			}
+		
+			traits = { civilized_warfare_advocate }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
 		}
 	}
-  }
+
+	minister_of_the_interior = {
+		max_hussarek_von_heinlein = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_emmerich_czermach_focus
+			}
+		
+			traits = { cislethian_autonomist }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		bruno_kreisky = {
+			allowed = {
+				tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_karl_sietz_focus
+			}
+		
+			traits = { young_near_radical }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+	}
+
+	economic_minister = {
+		ignaz_seipel2 = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_emmerich_czermach_focus
+			}
+		
+			traits = { banker }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		georg_zimmerman = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_karl_sietz_focus
+			}
+		
+			traits = { banker }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+	}
+
+	industrial_minister = {
+		julius_deutsch = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_karl_sietz_focus
+			}
+		
+			traits = { union_organizer }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		michael_hainisch = {
+			allowed = {
+				original_tag = AUS
+			}
+			available = {
+				has_completed_focus = AUS_emmerich_czermach_focus
+			}
+		
+			traits = { national_connector }
+		
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+	}
 
 # 	political_advisor = {
 
@@ -2785,7 +3046,9 @@ ideas = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { sincere_catholic  }
@@ -2804,7 +3067,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { banksterist }
@@ -2824,7 +3089,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { austerity_advocate }
@@ -2833,7 +3100,7 @@ economic_minister = {
 			factor = 0.5
 		}
 	}
-  }   
+  }    
   
    minister_of_foriegn_affairs = {
 	leopold_berchtold = {
@@ -2843,7 +3110,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { bumbling_noble }
@@ -2862,7 +3131,9 @@ economic_minister = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			NOT = {
+				has_completed_focus = AUS_sign_a_new_constitution
+			}
 		}
 		
 		traits = { psychological_expert }
@@ -2875,16 +3146,33 @@ economic_minister = {
   
    minister_of_the_interior = {
 	vacant = {
-
+ 
 		
 		allowed = {
 			original_tag = AUS
 		}
 		available = {
-			always = yes
+			# NOT = {
+			# 	has_completed_focus = AUS_sign_a_new_constitution
+			# }
 		}
 		
 		traits = { vacant }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
+	wilhelm_miklas2 = {
+		
+		allowed = {
+			original_tag = AUS
+		}
+		available = {
+			has_completed_focus = AUS_engelbert_dolfuss_focus
+		}
+		
+		traits = { sincere_catholic  }
 
 		ai_will_do = {
 			factor = 0.5

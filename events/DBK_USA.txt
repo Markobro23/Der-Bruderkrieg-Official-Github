@@ -1617,6 +1617,21 @@ country_event = {
 	}
 }
 
+##long scandal
+country_event = {
+	id = USA_long_events.24
+	title = USA_long_events.24.t
+	desc = USA_long_events.24.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_long_events.24.a
+	
+	}
+}
+
 
 
 
@@ -3002,11 +3017,14 @@ country_event = {
 	option = {
 		name = USA_mcadoo_tree.2.a
 		add_ideas = USA_political_uproar
-		create_country_leader = {
-			name = "William Gibbs McAdoo"
-			desc = ""
-			picture = "gfx/leaders/WilliamMcadoo.dds"
-			ideology = democratic_conservative
+		set_politics = {
+			ruling_party = authoritarian_democratic
+		}
+		hidden_effect = {
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.1
+			}
 		}
 	}
 }
@@ -3281,6 +3299,7 @@ country_event = {
 }
 
 
+
 add_namespace = USA_warren_tree
 #interniro
 country_event = {
@@ -3372,6 +3391,45 @@ country_event = {
 		name = USA_warren_tree.6.a	
 	}
 }
+
+
+add_namespace = USA_generic_foriegn_policy_tree
+
+##The british situation
+country_event = {
+	id = USA_generic_foriegn_policy_tree.1
+	title = USA_generic_foriegn_policy_tree.1.t
+	desc = USA_generic_foriegn_policy_tree.1.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.1.a	
+	}
+}
+
+
+##bring them to the table
+country_event = {
+	id = USA_generic_foriegn_policy_tree.2
+	title = USA_generic_foriegn_policy_tree.2.t
+	desc = USA_generic_foriegn_policy_tree.2.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.2.a	
+	}
+	option = {
+		name = USA_generic_foriegn_policy_tree.2.b	
+	}
+	option = {
+		name = USA_generic_foriegn_policy_tree.2.c	
+	}
+}
+
+
+
 ########
 ###AI###
 ########

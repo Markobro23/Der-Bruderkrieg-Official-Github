@@ -1135,7 +1135,7 @@ shared_focus = {
 shared_focus = {
     id = USA_the_detroit_conference
     icon = GFX_goal_Generic_Blue_Democracy
-    x = 5
+    x = 9
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -1154,7 +1154,7 @@ shared_focus = {
 shared_focus = {
     id = USA_establishing_the_dc_pact
     icon = GFX_goal_USA_dc_pact
-    x = 0
+    x = -4
     y = 1
     cost = 2
     available_if_capitulated = yes
@@ -1282,7 +1282,8 @@ shared_focus = {
         focus = USA_invest_in_france
 
     }
-    relative_position_id = USA_french_american_holdings
+    relative_position_id = USA_french_american_holdings 
+	
     ai_will_do = {
         factor = 1000
     }
@@ -1351,7 +1352,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        set_variable = { IRA_ability_to_revolt = 0 }
+        set_variable = { IRA_ability_to_revolt = 0 } 
 		country_event = USA_long_events.19
     }
 }
@@ -1741,8 +1742,18 @@ shared_focus = {
     available_if_capitulated = yes
     prerequisite = {
         focus = USA_lead_to_a_better_world
-
+		focus = USA_lets_stand_against_extremism
     }
+	offset = {
+		trigger = {
+			OR = {
+				has_focus_tree = usa_smith_presidency_tree
+				has_focus_tree = USA_warren_presidency_tree
+			}
+		}
+		x = 25
+		y = -1
+	}
     relative_position_id = USA_lead_to_a_better_world
     ai_will_do = {
         factor = 1000
@@ -2650,3 +2661,7 @@ shared_focus = {
 
     }
 }
+
+
+
+

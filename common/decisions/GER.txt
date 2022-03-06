@@ -835,28 +835,28 @@ GER_ss_waffen_cat = {
 }
 
 GER_westfalen_guerilla = {
-	spawn_divisions = {
-		icon =  generic_construction
+	# spawn_divisions = {
+	# 	icon =  generic_construction
 
-		available = {
-			tag = GER
-			has_completed_focus = GER_a_failed_state
-			has_war_with = FGD
-		}
+	# 	available = {
+	# 		tag = GER
+	# 		has_completed_focus = GER_a_failed_state
+	# 		has_war_with = FGD
+	# 	}
 
-		visible = {
-			has_completed_focus = GER_a_failed_state
-		}
+	# 	visible = {
+	# 		has_completed_focus = GER_a_failed_state
+	# 	}
 
-		fire_only_once = no
+	# 	fire_only_once = no
 
-		cost = 50
-		days_remove = 1
+	# 	cost = 50
+	# 	days_remove = 1
 
-		remove_effect = {
-			load_oob = "GER_westfalen"			
-		}	
-	}
+	# 	remove_effect = {
+	# 		load_oob = "GER_westfalen"			
+	# 	}	
+	# }
 	damage_infrastructure = {
 		icon =  generic_construction
 
@@ -1051,7 +1051,7 @@ GER_french_resistance = {
 			has_completed_focus = GER_form_the_okf
 		}
  
-		fire_only_once = no
+		fire_only_once = yes
 
 		cost = 50
 		days_remove = 15
@@ -1081,7 +1081,7 @@ GER_french_resistance = {
 			has_completed_focus = GER_cagoule_loyalty
 		}
  
-		fire_only_once = no
+		fire_only_once = yes
 
 		cost = 50
 		days_remove = 15
@@ -1138,7 +1138,7 @@ GER_austrian_resistance = {
 			has_completed_focus = GER_support_ethnic_militias
 		}
  
-		fire_only_once = no
+		fire_only_once = yes
 
 		cost = 50
 		days_remove = 15
@@ -1188,7 +1188,7 @@ GER_austrian_resistance = {
 			has_completed_focus = GER_central_control
 		}
  
-		fire_only_once = no
+		fire_only_once = yes
 
 		cost = 50
 		days_remove = 15
@@ -1203,6 +1203,7 @@ GER_austrian_resistance = {
 			GER = { add_state_core =  958}
 			GER = { add_state_core =  75}
 			GER = { add_state_core =  74}
+			GER = { add_state_core =  39}
 		}
 	}
 
@@ -1389,6 +1390,12 @@ GER_anti_spartakus_category = {
 			NOT = {
 				has_country_flag = GER_spartakus_crushed
 			}
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				NOT = { has_country_flag = GER_AI_Dont_Launch_Spartakus }
+			}
 		}
 		priority = 100
 		activation = {	has_completed_focus = GER_consolidating_power	}
@@ -1397,35 +1404,12 @@ GER_anti_spartakus_category = {
 		cancel_if_not_visible = yes
 		fire_only_once = yes
 		timeout_effect = {
-			country_event = germangame.1
+			country_event = germangame.5
 		}
 		
 	}
 	
-	GER_sponsor_far_right_paramilitaries = {
-
-		icon = generic_prepare_civil_war
-
-		cost = 30
-		days_re_enable = 80
-		fire_only_once = no
-
-		ai_will_do = {
-			factor = 1000
-		}
-
-		complete_effect = {
-			add_to_variable = { var = GER_anti_spartakus value = 5 }
-			add_stability = -0.02
-			clamp_variable = {
-				var = GER_anti_spartakus
-				min = 0
-				max = 100
-			}
-		}
-
-	}
-
+	
 	GER_bribe_weapons_dealers = {
 
 		icon = ger_mefo_bills
@@ -1459,42 +1443,7 @@ GER_anti_spartakus_category = {
 
 	}
 
-	GER_target_spartakus_printings = {
-
-		icon = eng_trade_unions_demand
-
-		cost = 20
-
-		fire_only_once = no
-
-		ai_will_do = {
-			factor = 1000
-		}
-
-		
-
-		available = {
-			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
-			check_variable = { GER_anti_spartakus > 10 } }
-			has_equipment = {
-				infantry_equipment > 50
-			}
-		}
-
-		complete_effect = {
-			add_to_variable = { var = GER_anti_spartakus value = 5 }
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = -50
-			}
-			clamp_variable = {
-				var = GER_anti_spartakus
-				min = 0
-				max = 100
-			}
-		}
-
-	}
+	
 
 	GER_break_up_strikers = {
 
@@ -1761,7 +1710,64 @@ GER_anti_spartakus_category = {
 
 	}
 
-	
+	###WAR RECOVERY
+	GER_recover_from_civil_war = {
+
+		icon = generic_civil_support
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		cost = 50
+		days_remove = 25
+
+		visible = {
+			OR = {
+				has_idea = GER_legacy_of_the_civil_war
+				has_idea = GER_legacy_of_the_civil_war_2
+				has_idea = GER_legacy_of_the_civil_war_3
+				has_idea = GER_legacy_of_the_civil_war_4
+			}
+			has_war = no
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_idea = GER_legacy_of_the_civil_war
+				}
+				swap_ideas = {
+					add_idea = GER_legacy_of_the_civil_war_2
+					remove_idea = GER_legacy_of_the_civil_war
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = GER_legacy_of_the_civil_war_2
+				}
+				swap_ideas = {
+					add_idea = GER_legacy_of_the_civil_war_3
+					remove_idea = GER_legacy_of_the_civil_war_2
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = GER_legacy_of_the_civil_war_3
+				}
+				swap_ideas = {
+					add_idea = GER_legacy_of_the_civil_war_4
+					remove_idea = GER_legacy_of_the_civil_war_3
+				}
+			}
+			else = {
+				remove_ideas = GER_legacy_of_the_civil_war_4
+			}
+		}
+
+	}
  
 }
 
@@ -1837,13 +1843,6 @@ GER_spartakus_hotspots = {
 			custom_effect_tooltip = GER_lower_spartakus_progress_5_every_state_not_crushed
 			#probably some kinda array loop shit that I am too tired to figure out rn
 			every_state = {
-				limit = { has_state_flag = GER_spartakus_rioting_inbound_state }
-				clr_state_flag = GER_spartakus_rioting_inbound_state
-				add_dynamic_modifier = {
-					modifier = GER_spartakus_riot_modifier 
-				}
-			}
-			every_state = {
 				if = {
 					limit = {
 						is_core_of = GER
@@ -1854,6 +1853,14 @@ GER_spartakus_hotspots = {
 				}
 			}
 			subtract_from_variable = { GER_anti_spartakus = GER_temp_spartakus_value }
+			every_state = {
+				limit = { has_state_flag = GER_spartakus_rioting_inbound_state }
+				clr_state_flag = GER_spartakus_rioting_inbound_state
+				add_dynamic_modifier = {
+					modifier = GER_spartakus_riot_modifier 
+				}
+			}
+			
 			
 		}
 		
@@ -2082,7 +2089,7 @@ GER_industrial_expansion = {
 				is_owned_by = GER
 			}
 		}
-		cost = 50
+		cost = 35
 		days_remove = 100
 		ai_will_do = {
 			factor = 1

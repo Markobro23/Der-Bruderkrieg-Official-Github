@@ -1,21 +1,24 @@
 ##asia
-asia_dont_spam_divisions = {
+dont_spam_divisions = {
 	allowed = {
-		capital_scope = { is_on_continent = asia }
-		OR = {
-			NOT = {
+		is_minor = yes
+		#personally I think a check on number of owned states would be a better framework, since usually countries that aren't involved are only like 1-2 states
+		#also why did you do the OR = { } and all of those NOT checks instead of just reversing it :skull:
+		NOT = {
+			OR = {
 				tag = AIG
-			}
-			NOT = {
 				tag = RAJ
-			}
-			NOT = {
+				tag = ITA
 				tag = JAP
+				tag = TUR
+				tag = PER
+				tag = PBC
+				tag = ARG
 			}
 		}
 	}
 	enable = {
-		check_variable = { var = num_divisions value = 10 compare = greater_than_or_equals }
+		check_variable = { var = num_divisions value = 13 compare = greater_than_or_equals }
 	}
 
 	ai_strategy = {

@@ -9,7 +9,7 @@ news_event = {
 	is_triggered_only = yes
 	#fire_only_once = yes
 	major = yes
-
+ 
 
 
 	option = { 
@@ -309,8 +309,6 @@ news_event = {
 	#fire_only_once = yes
 	major = yes
 
-
-
 	option = { 
 		name = prussian_expansion.3.a
 		if = {
@@ -337,6 +335,48 @@ news_event = {
 	option = { 
 		name = prussian_expansion.4.a
 		
+	}
+}
+
+##treaty of westphalia
+news_event = {
+	id = prussian_expansion.5
+	title = prussian_expansion.5.t
+	desc = prussian_expansion.5.d
+	picture = GFX_formingofthengc
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	option = { 
+		name = prussian_expansion.5.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			france_loses_peace_deal = yes
+		}
+	}
+}
+
+##treaty of minsk
+news_event = {
+	id = prussian_expansion.6
+	title = prussian_expansion.6.t
+	desc = prussian_expansion.6.d
+	picture = GFX_formingofthengc
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+	option = { 
+		name = prussian_expansion.6.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			russia_loses_to_prussia_deal = yes
+		}
 	}
 }
 
@@ -854,7 +894,7 @@ country_event = {
 		name = british_inteverntion_in_prussian_expansion.1.b
 		add_opinion_modifier = {
 			target = HAN
-			modifier = abandoned_czechs
+			modifier = abandoned_czechs 
 		}
 		add_political_power = 100
 		ai_chance = {factor = 100}
@@ -871,6 +911,11 @@ country_event = {
 	option = {
 		name = british_inteverntion_in_prussian_expansion.2.a
 		set_country_flag = ENG_chose_intervention_against_prussia
+		ENG = {
+			activate_mission = ENG_complete_mobilization
+			set_country_flag = ENG_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 	
 		ai_chance = {
 			modifier = {
@@ -1063,12 +1108,7 @@ country_event = {
 	option = {
 		name = british_inteverntion_in_prussian_expansion.8.a
 		ai_chance = {factor = 30}
-		GER = {
-			create_wargoal = {
-				target = ENG
-				type = annex_everything
-			}
-		}
+		
 	}
 
 }
@@ -1110,6 +1150,7 @@ country_event = {
 		ai_chance = {
 		
 			base = 5
+			modifier = { GER = { has_war_with = FRA } factor = 10000 }
 		}
 		hidden_effect = {
 			GER = {
@@ -1134,6 +1175,7 @@ country_event = {
 			country_event = { id = russian_inteverntion_in_europakrieg.5 days = 120 }
 		}
 		ai_chance = {factor = 95}
+		modifier = { GER = { has_war_with = FRA } factor = -95 }
 	}
 }
 
@@ -1186,7 +1228,7 @@ country_event = {
 		name = russian_inteverntion_in_europakrieg.5.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
 	
-		ai_chance = {base = 20 modifier = {} }
+		ai_chance = {base = 20 modifier = { GER = { has_war_with = FRA } factor = 10000 } } 
 		hidden_effect = {
 			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
@@ -1223,7 +1265,7 @@ country_event = {
 		name = russian_inteverntion_in_europakrieg.6.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
 	
-		ai_chance = {base = 75 modifier = {} }
+		ai_chance = {base = 75 modifier = { GER = { has_war_with = FRA } factor = 10000 } }
 		hidden_effect = {
 			GER = {
 				country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
@@ -1790,7 +1832,7 @@ country_event = {
 			}
 
 		}
-	}
+	} 
 }
 ##For prussia
 country_event = {
@@ -1829,6 +1871,121 @@ news_event = {
 	}
 }
 
+##Invite France?
+country_event = {
+	id = second_treaty_of_vienna.4
+	title = second_treaty_of_vienna.4.t
+	desc = second_treaty_of_vienna.4.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = second_treaty_of_vienna.4.a	
+		FRA = {
+			country_event = {
+				id = second_treaty_of_vienna.6
+			}
+		}
+		set_global_flag = france_austria_split_deal
+		hidden_effect = {
+			AUS = {
+				log = "this work?"
+				country_event = {
+					id = second_treaty_of_vienna.1
+					days = 3
+				}
+			}
+		}
+	}
+	option = {
+		name = second_treaty_of_vienna.4.b	
+		FRA = {
+			country_event = {
+				id = second_treaty_of_vienna.5
+			}
+		}
+		hidden_effect = {
+			AUS = {
+				country_event = {
+					id = second_treaty_of_vienna.1
+					days = 3
+				}
+			}
+		}
+	}
+}
+
+##Austria rejects us!
+country_event = {
+	id = second_treaty_of_vienna.5
+	title = second_treaty_of_vienna.5.t
+	desc = second_treaty_of_vienna.5.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = second_treaty_of_vienna.5.a	
+		set_global_flag = AUS_FRA_alliance_falls_apart
+		diplomatic_relation = {
+			country = AUS
+			relation = guarantee
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = guarantee
+				active = no
+			}
+		}
+
+		diplomatic_relation = {
+			country = AUS
+			relation = non_aggression_pact
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = non_aggression_pact
+				active = no
+			}
+		}
+
+		diplomatic_relation = {
+			country = AUS
+			relation = military_access
+			active = no
+		}
+		AUS = {
+			diplomatic_relation = {
+				country = FRA
+				relation = military_access
+				active = no
+			}
+		}
+	}
+}
+
+##For france
+country_event = {
+	id = second_treaty_of_vienna.6
+	title = second_treaty_of_vienna.6.t
+	desc = second_treaty_of_vienna.6.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+
+
+
+
+	option = {
+		name = second_treaty_of_vienna.6.a
+		
+	}
+}
 
 
 add_namespace = post_wiltkrieg_trials
@@ -1869,9 +2026,12 @@ country_event = {
 		
 		set_country_flag = goering_bye
 		GER = {
-			kill_country_leader = yes
+			add_popularity = {
+				ideology = ultranationalism
+				popularity = -0.5
+			}
 		}
-		news_event = { id = post_wiltkrieg_trials.3 }
+		#news_event = { id = post_wiltkrieg_trials.3 }
 	}
 }
 

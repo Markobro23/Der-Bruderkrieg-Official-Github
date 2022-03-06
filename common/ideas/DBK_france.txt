@@ -270,6 +270,8 @@ ideas = {
 				war_support_factor = -0.25
 				army_org_factor = -0.1
 				training_time_army_factor = 0.25
+				industrial_capacity_factory = -0.5
+				consumer_goods_factor = 0.1
 			}
 		
 		}
@@ -294,6 +296,7 @@ ideas = {
 				conscription = -0.005
 				army_org_factor = -0.1
 				training_time_army_factor = 0.25
+				industrial_capacity_factory = -0.25
 			}
 			
 		}
@@ -316,6 +319,8 @@ ideas = {
 
 			modifier = {
 				war_support_factor = -0.25
+				industrial_capacity_factory = -0.25
+				consumer_goods_factor = 0.1
 			}
 			
 		}
@@ -1929,6 +1934,8 @@ ideas = {
 			}
 		}
 
+	
+
 		FRA_kalterkrieg_idea = {
 			modifier = {
 				research_speed_factor = 0.3
@@ -1968,7 +1975,160 @@ ideas = {
 			}
 		}
 
+		FRA_rejected_german_abitions = {
+			allowed = {
+			always = yes
+			}
 
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+			cancel = {
+			}
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				air_attack_factor = 0.1
+			}
+		}
+
+		FRA_british_struggle = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+			cancel = {
+			}
+
+			modifier = {
+				industrial_capacity_dockyard = 0.1
+				naval_coordination = 0.15
+			}
+		}
+
+		FRA_shutdown_french_trade = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+			cancel = {
+			}
+
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+
+		FRA_european_customs_union = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			cancel = {
+				NOT = {
+					OR = {
+						is_subject_of = FRA
+						is_in_faction_with = FRA
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				overlord_trade_cost_factor = -0.2
+				faction_trade_opinion_factor = 0.25
+			}
+		}
+
+		FRA_beyond_bonaparte = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			cancel = {
+				SOV = {
+					OR = {
+						is_subject_of = FRA
+						exists = no
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = SOV
+				attack_bonus_against = 0.1
+			}
+		}
+
+		FRA_english_occupation = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_cost = 0.1
+				weekly_manpower = -200
+			}
+		}
+
+		FRA_english_occupation_2 = {
+			allowed = {
+			always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_cost = 0.1
+				weekly_manpower = -200
+				resistance_damage_to_garrison = 0.15
+			}
+		}
 
 	}
 

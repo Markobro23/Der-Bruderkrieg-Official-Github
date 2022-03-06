@@ -2,16 +2,68 @@ defined_text = {
 	name = GetHeadofGovPortrait
 	text = {
 		trigger = {
-			ROOT = {
-				tag = ITA
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Michele Bianchi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_Edmondo_Rossoni"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "GFX_MVSN_GUI_dannunzio"
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = ENG
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_EugeneDebono"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Julius Evola"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_MVSN_GUI_evola"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Umberto II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_MVSN_GUI_evola"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ENG
 			}
 		}
 		localization_key = "GFX_edward_halifax"
@@ -19,8 +71,8 @@ defined_text = {
 
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_assembly_head_government
 			}
 		}
@@ -28,8 +80,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				NOT = {
 					has_completed_focus = FRA_assembly_head_government
 					has_completed_focus = FRA_movement_francaise
@@ -41,8 +93,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_movement_francaise
 			}
 		}
@@ -50,8 +102,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_CAGOULE_CABINET
 			}
 		}
@@ -61,21 +113,68 @@ defined_text = {
 	
 	text = {
 		trigger = {
-			ROOT = {
-				tag = SOV
+			THIS = {
+				original_tag = SOV
+			}
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "GFX_NicholasII"
 	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_leader = {
+				name = "Nicholas II"
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_Alexander_Belogurov"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_flag = SOV_rip_nick
+			has_country_leader = {
+				name = "Vladimir Lenin"
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_Lenin"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_flag = SOV_rip_nick
+			has_country_leader = {
+				name = "Alexander Kerensky"
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_Alexander_Kerensky"
+	}
 
 	text = {
 		trigger = {
-			ROOT = {
-				tag = AUS
+			THIS = {
+				original_tag = AUS
 				NOT = {
-					has_completed_focus = AUS_engelbert_dolfuss
-					has_completed_focus = AUS_karl_sietz
-					has_completed_focus = AUS_emmerich_czermach
+					has_completed_focus = AUS_engelbert_dolfuss_focus
+					has_completed_focus = AUS_karl_sietz_focus
+					has_completed_focus = AUS_emmerich_czermach_focus
 				}
 			}
 		}
@@ -83,24 +182,26 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_engelbert_dolfuss	
+			original_tag = AUS
+			THIS = {
+				has_completed_focus = AUS_engelbert_dolfuss_focus
 			}
 		}
 		localization_key = "GFX_Engelbert_Dolfuss"
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_karl_sietz	
+			original_tag = AUS
+			THIS = {
+				has_completed_focus = AUS_karl_sietz_focus	
 			}
 		}
 		localization_key = "GFX_Karl_Sietz"
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_emmerich_czermach	
+			THIS = {
+				has_completed_focus = AUS_emmerich_czermach_focus
 			}
 		}
 		localization_key = "GFX_Emmerich_Czermach"
@@ -108,7 +209,7 @@ defined_text = {
 
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "Hermann Goering"
 					ruling_only = yes
@@ -122,7 +223,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "Hermann Goering"
 					ruling_only = yes
@@ -134,18 +235,18 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "August von Mackensen"
 					ruling_only = yes
 				}
 			}
 		}
-		localization_key = "GFX_Von_Mackensen"
+		localization_key = "GFX_KurtVonSleicher"
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "Ernst Rohm"
 					ruling_only = yes
@@ -156,19 +257,1385 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
-					name = "Kurt von Scleicher"
+					name = "Kurt von Schleicher"
 					ruling_only = yes
 				}	
 			}
 		}
-		localization_key = "GFX_KurtVonSleicher"
+		localization_key = "GFX_Von_Mackensen"
 	}
 	
 
 	
-	
+
+	###GENERIC
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_8_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_8_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_16_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_16
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_14_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_14
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_17_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_17
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_3_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_9_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_9
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_8_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_5_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_8_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_4_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_navy_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_3_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_navy_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_5_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_navy_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_10_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_10
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_6_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_13_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_13
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_8_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_3_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_navy_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_5_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_navy_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_4_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Mixed_Generic_2_flag
+	}
+	localization_key = GFX_Portrait_Mixed_Generic_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_5_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_7_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_3_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_navy_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_4_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_navy_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Australia_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Australia_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_8_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_9_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_9
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_15_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_15
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_12_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_12
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_4_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_navy_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_4_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_4_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Mixed_Generic_1_flag
+	}
+	localization_key = GFX_Portrait_Mixed_Generic_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_4_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_3_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_navy_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_8_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_7_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_4_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_navy_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_5_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_11_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_11
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_America_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_1_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_1_flag
+	}
+	localization_key = GFX_Portrait_Africa_Generic_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_8_flag
+	}
+	localization_key = GFX_Portrait_Arabia_Generic_new_8
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_5_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_7_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_land_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_2_flag
+	}
+	localization_key = GFX_Portrait_Asia_Generic_navy_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_3_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_10_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_10
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_4_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_navy_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_5_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_Central_Asia_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_7_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_land_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_9_flag
+	}
+	localization_key = GFX_Portrait_Europe_Generic_new_9
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_7_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_land_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_6_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_7_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_land_new_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_4_flag
+	}
+	localization_key = GFX_Portrait_South_America_Generic_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_2_flag
+	}
+	localization_key = GFX_Portrait_India_Generic_new_2
+	}
+
+
+
 	text =  {
 		localization_key = "GFX_generic_lad"
 	}
@@ -178,25 +1645,86 @@ defined_text = {
 	name = GetDualLeaderDesc
 	text = {
 		trigger = {
-			ROOT = {
-				tag = ITA
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Michele Bianchi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Edmondo Rossoni"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "Gabrielle D'Annunzio"
 	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Emilio De Bono"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Julius Evola"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Julius Evola"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = ITA
+				has_country_leader = {
+					name = "Umberto II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Julius Evola"
+	}
 	
 	text = {
 		trigger = {
-			ROOT = {
-				tag = ENG
+			THIS = {
+				original_tag = ENG
 			}
 		}
 		localization_key = "Edward Halifax"
 	}
+
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = HAN
+			}
+		}
+		localization_key = "Alfred Hugenberg"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_assembly_head_government
 			}
 		}
@@ -204,8 +1732,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				NOT = {
 					has_completed_focus = FRA_assembly_head_government
 					has_completed_focus = FRA_movement_francaise
@@ -217,8 +1745,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_movement_francaise
 			}
 		}
@@ -226,8 +1754,8 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = FRA
+			THIS = {
+				original_tag = FRA
 				has_completed_focus = FRA_CAGOULE_CABINET
 			}
 		}
@@ -235,21 +1763,95 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				tag = SOV
+			THIS = {
+				original_tag = FGD
+				has_idea = FGD_charles_mangin
+			}
+		}
+		localization_key = "Charles Mangin"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = FGD
+				has_idea = FGD_konrad_adenauer
+			}
+		}
+		localization_key = "Konrad Adenauer"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = FGD
+				has_idea = FGD_reinhard_heydrich
+			}
+		}
+		localization_key = "Reinhard Heydrich"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
 			}
 		}
 		localization_key = "Nicholas II"
 	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_leader = {
+				name = "Nicholas II"
+				ruling_only = yes
+			}
+		}
+		localization_key = "Nikolai Belogurov"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_flag = SOV_rip_nick
+			has_country_leader = {
+				name = "Vladimir Lenin"
+				ruling_only = yes
+			}
+		}
+		localization_key = "Vladimir Lenin"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = SOV
+			}
+			has_country_flag = SOV_rip_nick
+			has_country_leader = {
+				name = "Alexander Kerensky"
+				ruling_only = yes
+			}
+		}
+		localization_key = "Alexander Kerensky"
+	}
 
 	text = {
 		trigger = {
-			ROOT = {
-				tag = AUS
+			THIS = {
+				original_tag = AUS
 				NOT = {
-					has_completed_focus = AUS_engelbert_dolfuss
-					has_completed_focus = AUS_karl_sietz
-					has_completed_focus = AUS_emmerich_czermach
+					has_completed_focus = AUS_engelbert_dolfuss_focus
+					has_completed_focus = AUS_karl_sietz_focus
+					has_completed_focus = AUS_emmerich_czermach_focus
 				}
 			}
 		}
@@ -257,31 +1859,90 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_engelbert_dolfuss	
+			THIS = {
+				has_completed_focus = AUS_engelbert_dolfuss_focus
 			}
 		}
 		localization_key = "Engelbert Dolfuss"
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_karl_sietz	
+			THIS = {
+				has_completed_focus = AUS_karl_sietz_focus
 			}
 		}
 		localization_key = "Karl Seitz"
 	}
 	text = {
 		trigger = {
-			ROOT = {
-				has_completed_focus = AUS_emmerich_czermach	
+			THIS = {
+				has_completed_focus = AUS_emmerich_czermach_focus	
 			}
 		}
-		localization_key = "Emmerich Czermach"
+		localization_key = "Emmerich Czermak"
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
+				tag = HES
+			}
+		}
+		localization_key = "Karl Külb"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BAD
+			}
+		}
+		localization_key = "Heinrich von Und zu Bodman"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = WUR
+			}
+		}
+		localization_key = "Eugen Bolz"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BOS
+			}
+		}
+		localization_key = "Stjepan Sarkotić"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = GPU
+				has_idea = GPU_franz_ferdinand_hog 
+			}
+		}
+		localization_key = "Franz Ferdinand"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = GPU
+				has_idea = GPU_gustav_ritter_von_kahr
+			}
+		}
+		localization_key = "Gustav Ritter von Kahr"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				original_tag = GPU
+				has_idea = GPU_gerd_von_rundstedt
+			}
+		}
+		localization_key = "Gerd von Rundstedt"
+	}
+	text = {
+		trigger = {
+			THIS = {
 				has_country_leader = {
 					name = "Hermann Goering"
 					ruling_only = yes
@@ -295,7 +1956,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "Hermann Goering"
 					ruling_only = yes
@@ -307,7 +1968,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "August von Mackensen"
 					ruling_only = yes
@@ -318,7 +1979,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
 					name = "Ernst Rohm"
 					ruling_only = yes
@@ -329,16 +1990,1874 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			ROOT = {
+			THIS = {
 				has_country_leader = {
-					name = "Kurt von Scleicher"
+					name = "Kurt von Schleicher"
 					ruling_only = yes
 				}	
 			}
 		}
-		localization_key = "Kurt Von Scleicher"
+		localization_key = "Kurt von Schleicher"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = AST
+				has_government = socialism_democratic
+			}
+		}
+		localization_key = "Carlo Lazzarini"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = JAP
+			}
+		}
+		localization_key = "Mitsumasa Yonai"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ROM
+				NOT = {
+					has_government = fascism
+				}
+			}
+		}
+		localization_key = "Petre Bejan"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ROM
+				has_government = fascism
+			}
+		}
+		localization_key = "Corneliu Zelea Codreanu"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BUL
+				has_government = authoritarian_democratic
+			}
+		}
+		localization_key = "Racho Petrov"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BUL
+				NOT = {
+					OR = {
+						has_government = fascism
+						has_government = ultranationalism
+						has_government = authoritarian_democratic
+					}
+				}
+			}
+		}
+		localization_key = "Dimitar Petkov"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BUL
+				OR = {
+					has_government = fascism
+					has_government = ultranationalism
+				}
+			}
+		}
+		localization_key = "Aleksandar Tsankov"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = GRE
+			}
+		}
+		localization_key = "Panagiotis Gargalidis"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = THS
+			}
+		}
+		localization_key = "Georgios Tsolakoglou"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ATH
+			}
+		}
+		localization_key = "Ioannis Metaxas"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ALB
+			}
+		}
+		localization_key = "Ahmet Zogu"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = YUG
+			}
+		}
+		localization_key = "Nikola Uzunović"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = DEN
+			}
+		}
+		localization_key = "Martin Andersen Nexø"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ICE
+			}
+		}
+		localization_key = "Erik Scavenius"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = NOR
+			}
+		}
+		localization_key = "Johan Ludwig Mowinckel"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = SWE
+			}
+		}
+		localization_key = "Axel Vennersten"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = POR
+			}
+		}
+		localization_key = "Alberto Monsaraz"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = SPR
+			}
+		}
+		localization_key = "Emilio Barrera"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = BEL
+			}
+		}
+		localization_key = "Georges Theunis"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = JNE
+			}
+		}
+		localization_key = "Paul de Groot"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = HOL
+			}
+		}
+		localization_key = "Hendrikus Colijn"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = DRA
+			}
+		}
+		localization_key = "S. Ramanathan"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = RAJ
+			}
+		}
+		localization_key = "Abul Kasem Fazlul Huq"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = AIG
+			}
+		}
+		localization_key = "Jayaprakash Narayan"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = INC
+			}
+		}
+		localization_key = "Hoosenally Rahimtoola"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = PAK
+			}
+		}
+		localization_key = "Abul A'la Maududi"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = KHA
+			}
+		}
+		localization_key = "Sher Singh"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = KAS
+			}
+		}
+		localization_key = "Sheikh Abdullah"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = OMA
+			}
+		}
+		localization_key = "Muhammad bin Abdullah al-Khalili"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = YEM
+			}
+		}
+		localization_key = "Yahya Muhammad Hamid ed-Din"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_4_flag
+	}
+	localization_key = "Mohammed Bamba"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_5_flag
+	}
+	localization_key = "Sheck Wes"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_6_flag
+	}
+	localization_key = "Tupac Shakur"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_2_flag
+	}
+	localization_key = "Calvin Broadus"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_6_flag
+	}
+	localization_key = "Andre Romelle"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_7_flag
+	}
+	localization_key = "Drake Graham"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_8_flag
+	}
+	localization_key = "Kanye West"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_5_flag
+	}
+	localization_key = "Tian Yazhu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_2_flag
+	}
+	localization_key = "Shakeel al-Sattar"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_2_flag
+	}
+	localization_key = "Elliot Moore"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_8_flag
+	}
+	localization_key = "Xuan Ning"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_3_flag
+	}
+	localization_key = "George Caldwell"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_1_flag
+	}
+	localization_key = "Lei Lin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_2_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_1_flag
+	}
+	localization_key = "Ding Zhihao"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_3_flag
+	}
+	localization_key = "Asghar el-Saad"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_2_flag
+	}
+	localization_key = "Johan Wick"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_3_flag
+	}
+	localization_key = "Xing Yimu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_16_flag
+	}
+	localization_key = "Michael Greer"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_1_flag
+	}
+	localization_key = "Alexander Jameson"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_14_flag
+	}
+	localization_key = "John Christian"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_17_flag
+	}
+	localization_key = "James Garappalo"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_2_flag
+	}
+	localization_key = "Daniel Jones"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_3_flag
+	}
+	localization_key = "Zachary Brave"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_4_flag
+	}
+	localization_key = "Aditya Choubal"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_9_flag
+	}
+	localization_key = "Mukesh Ambani"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_8_flag
+	}
+	localization_key = "Hrithik Roshan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_5_flag
+	}
+	localization_key = "Shah Rukh Khan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_5_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_4_flag
+	}
+	localization_key = "Aamir Khan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_3_flag
+	}
+	localization_key = "Esteban Zoido"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_2_flag
+	}
+	localization_key = "Salvador Navarro"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_4_flag
+	}
+	localization_key = "Mauricio Barrueco"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_1_flag
+	}
+	localization_key = "Joseph Kimball"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_8_flag
+	}
+	localization_key = "Odafe Oweh"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_3_flag
+	}
+	localization_key = "John Kitanga"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_2_flag
+	}
+	localization_key = "Kylien Mbappe"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_7_flag
+	}
+	localization_key = "Abdus Samad al-Habeeb"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_2_flag
+	}
+	localization_key = "Zainuddeen al-Hares"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_5_flag
+	}
+	localization_key = "Imanif Olanrewaju"
+
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_4_flag
+	}
+	localization_key = "Faaiq al-Abdul"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_3_flag
+	}
+	localization_key = "Basheer el-Lone"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_1_flag
+	}
+	localization_key = "Wu Qing"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_4_flag
+	}
+	localization_key = "Husni el-Fares"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_5_flag
+	}
+	localization_key = "John Smith"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_4_flag
+	}
+	localization_key = "Yi Shui"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_3_flag
+	}
+	localization_key = "Zhao Zhong"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_5_flag
+	}
+	localization_key = "Duan Jian"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_3_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_6_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_4_flag
+	}
+	localization_key = "Fang Yun"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_1_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_6_flag
+	}
+	localization_key = "Dai Qiu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_10_flag
+	}
+	localization_key = "Harry Lichark"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_1_flag
+	}
+	localization_key = "Makar Mahomes"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_5_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_7_flag
+	}
+	localization_key = "Pan Yu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_6_flag
+	}
+	localization_key = "Winston Johnson"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_13_flag
+	}
+	localization_key = "Brantley Payne"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_5_flag
+	}
+	localization_key = "Harry Potter"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_7_flag
+	}
+	localization_key = "Ronald Weasley"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_8_flag
+	}
+	localization_key = "Stewie Simms"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_3_flag
+	}
+	localization_key = "Salman Khan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_5_flag
+	}
+	localization_key = "Akshay Khumar"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_6_flag
+	}
+	localization_key = "Amitabh Bachan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_1_flag
+	}
+	localization_key = "Ranbir Kapoor"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_1_flag
+	}
+	localization_key = "Ranvir Singh"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_4_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Mixed_Generic_2_flag
+	}
+	localization_key = GFX_Portrait_Mixed_Generic_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_2_flag
+	}
+	localization_key = "Tomás Rodríguez"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_1_flag
+	}
+	localization_key = "Gonzalo Sáez"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_5_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_7_flag
+	}
+	localization_key = "Mhina Solarin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_3_flag
+	}
+	localization_key = "Jumaane Gbadamosi"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_4_flag
+	}
+	localization_key = "Henry Harris"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_4_flag
+	}
+	localization_key = "Lamar Jackson"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_3_flag
+	}
+	localization_key = "Abde Abe"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_3_flag
+	}
+	localization_key = "Jack Poole"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_4_flag
+	}
+	localization_key = "Jayden Harvey"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_5_flag
+	}
+	localization_key = "Fikri el-Obeid"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_3_flag
+	}
+	localization_key = "Matthew Hamilton"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_6_flag
+	}
+	localization_key = "Ding Qiang"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_5_flag
+	}
+	localization_key = "Lei Zhou"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Balkan_Generic_land_new_4_flag
+	}
+	localization_key = GFX_Portrait_Balkan_Generic_land_new_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_4_flag
+	}
+	localization_key = "Dylan Paisley"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_7_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_7
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_1_flag
+	}
+	localization_key = "Lutfi el-Saah"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_navy_new_2_flag
+	}
+	localization_key = "Kaamil el-Kazi"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_6_flag
+	}
+	localization_key = "Fred Turgler"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Australia_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Australia_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_8_flag
+	}
+	localization_key = "Peter Parker"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_9_flag
+	}
+	localization_key = "Edward Snowden"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_15_flag
+	}
+	localization_key = "Juan Fistbull"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_12_flag
+	}
+	localization_key = "Mike Oxlong"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_4_flag
+	}
+	localization_key = "Arjuna Patel"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_6_flag
+	}
+	localization_key = "Ryan Wood"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_3_flag
+	}
+	localization_key = "Imran Khan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_2_flag
+	}
+	localization_key = "Saif Ali"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_4_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_4_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_7_flag
+	}
+	localization_key = "Rishi Kapoor"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Mixed_Generic_1_flag
+	}
+	localization_key = GFX_Portrait_Mixed_Generic_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_4_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_3_flag
+	}
+	localization_key = "Joshua Lacasa"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_6_flag
+	}
+	localization_key = "Ian Campos"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_8_flag
+	}
+	localization_key = "Nicolás Fonseca"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_7_flag
+	}
+	localization_key = "Dídac Encarnación"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_navy_new_4_flag
+	}
+	localization_key = "Jel Jang"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_1_flag
+	}
+	localization_key = "Joseph R. Biden"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_1_flag
+	}
+	localization_key = "Thomas Brady"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_navy_2_flag
+	}
+	localization_key = "Peter Griffin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_6_flag
+	}
+	localization_key = "Ihaab al-Dar"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_navy_new_1_flag
+	}
+	localization_key = "Mawdood al-Pour"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_6_flag
+	}
+	localization_key = "Shaddaad el-Asmar"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_1_flag
+	}
+	localization_key = "Qiao Zexian"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_2_flag
+	}
+	localization_key = "Rasaun Wiggins"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_4_flag
+	}
+	localization_key = "Zhong Zan"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_3_flag
+	}
+	localization_key = "Teng Li"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_1_flag
+	}
+	localization_key = "Nashat el-Neman"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_2_flag
+	}
+	localization_key = "Wu Feng"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_2_flag
+	}
+	localization_key = "Fan Hai"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_3_flag
+	}
+	localization_key = "Yu Lin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_6_flag
+	}
+	localization_key = "Guo Yin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_1_flag
+	}
+	localization_key = "Mao Chin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_5_flag
+	}
+	localization_key = "Jeremy Jones"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_4_flag
+	}
+	localization_key = "Jonathan Allen"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_2_flag
+	}
+	localization_key = "Mark Andrews"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_11_flag
+	}
+	localization_key = "J.K. Dobbins"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_France_Generic_land_2_flag
+	}
+	localization_key = GFX_Portrait_France_Generic_land_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_new_5_flag
+	}
+	localization_key = "Peng Yong"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_3_flag
+	}
+	localization_key = "Hao Zhen-Kang"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_navy_new_2_flag
+	}
+	localization_key = "Sanjay Dutt"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_5_flag
+	}
+	localization_key = "Arshad Warsi"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_6_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_6
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_grey_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_grey_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_navy_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_land_3_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_land_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_1_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_navy_new_1_flag
+	}
+	localization_key = "Ezequiel Miralles"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_1_flag
+	}
+	localization_key = "Sushant Singh Rajput"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_1_flag
+	}
+	localization_key = "Felix Sánchez"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_3_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_3
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_6_flag
+	}
+	localization_key = "Jorge Ordóñez"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_land_new_1_flag
+	}
+	localization_key = "Abdalla Abdallah"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_3_flag
+	}
+	localization_key = "William Belicheck"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_land_new_5_flag
+	}
+	localization_key = "Fat'hi al-Nasser"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_America_Generic_land_6_flag
+	}
+	localization_key = "Nicholas H. Simpson"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_1_flag
+	}
+	localization_key = "Andrew Reid"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_3_flag
+	}
+	localization_key = "Sachin Tendulkar"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_3_flag
+	}
+	localization_key = "Paúl Pliego"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Africa_Generic_new_1_flag
+	}
+	localization_key = "Igbo James"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Arabia_Generic_new_8_flag
+	}
+	localization_key = "Abdul Azeez al-Nour"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_5_flag
+	}
+	localization_key = "Francisco Santángel"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_5_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_4_flag
+	}
+	localization_key = "Tang Ming"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_2_flag
+	}
+	localization_key = "Dai Wu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_land_new_7_flag
+	}
+	localization_key = "Zou Zhihao"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Asia_Generic_navy_new_2_flag
+	}
+	localization_key = "Wang Lingxin"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_land_6_flag
+	}
+	localization_key = "Liao Yu"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_land_new_2_flag
+	}
+	localization_key = "Bai Dong"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_4_flag
+	}
+	localization_key = "Peng Song"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_3_flag
+	}
+	localization_key = "David Krappenschitz"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Britain_Generic_navy_2_flag
+	}
+	localization_key = GFX_Portrait_Britain_Generic_navy_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_5_flag
+	}
+	localization_key = "Wei Long"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_10_flag
+	}
+	localization_key = "Justin Herbert"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_navy_new_4_flag
+	}
+	localization_key = "Joshua LeGrange"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_5_flag
+	}
+	localization_key = "William Cosby"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Central_Asia_Generic_new_6_flag
+	}
+	localization_key = "Hu Jian"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_land_new_7_flag
+	}
+	localization_key = "Weiss Harden"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Europe_Generic_new_9_flag
+	}
+	localization_key = "Nikola Jokic"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Germany_Generic_land_1_flag
+	}
+	localization_key = GFX_Portrait_Germany_Generic_land_1
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_German_Africa_Generic_land_5_flag
+	}
+	localization_key = GFX_Portrait_German_Africa_Generic_land_5
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_land_new_7_flag
+	}
+	localization_key = "Virhat Kohli"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Italy_Generic_land_green_2_flag
+	}
+	localization_key = GFX_Portrait_Italy_Generic_land_green_2
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Japan_Generic_land_4_flag
+	}
+	localization_key = GFX_Portrait_Japan_Generic_land_4
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_Russia_Generic_navy_1_flag
+	}
+	localization_key = GFX_Portrait_Russia_Generic_navy_1
+	}
+	text = { 
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_2_flag
+	}
+	localization_key = "Diego Alejandro Maroto"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_6_flag
+	}
+	localization_key = "Taymur Kashif"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_5_flag
+	}
+	localization_key = "Eustacio Luque"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_land_new_7_flag
+	}
+	localization_key = "Jeremías Dengra"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_South_America_Generic_new_4_flag
+	}
+	localization_key = "Alfonso Pozo"
+	}
+	text = {
+	trigger = {
+	has_country_flag =Portrait_India_Generic_new_2_flag
+	}
+	localization_key = "Damodardas Modi"
 	}
 	text =  {
 		localization_key = "Knute Wilson"
+	}
+}
+
+defined_text = {
+	name = GetDualLeaderPosition
+	text = {
+		trigger = {
+			original_tag = AUS
+		}
+		localization_key = "Reichskanzler"
+	}
+	text = {
+		trigger = {
+			original_tag = FRA
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			original_tag = GER
+		}
+		localization_key = "OKW Commander"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Tsar of Russia"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			has_country_flag = SOV_rip_nick
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			has_country_leader = {
+				name = "Nicholas II"
+				ruling_only = yes
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			original_tag = ITA
+		}
+		localization_key = "Deputy Consul"
+	}
+	
+	##Generics
+	text = {
+		trigger = {
+			has_government = communism
+		}
+		localization_key = "General Secretary"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_communism
+		}
+		localization_key = "General Secretary"
+	}
+	text = {
+		trigger = {
+			has_government = ultranationalism
+		}
+		localization_key = "Dictator"
+	}
+	text = {
+		trigger = {
+			has_government = fascism
+		}
+		localization_key = "Dictator"
+	}
+	text = {
+		trigger = {
+			has_government = authoritarian_democratic
+			OR = {
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+			OR = {
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_liberalism
+			OR = {
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+		localization_key = "President"
+	}
+	text = {
+		trigger = {
+			has_government = socialism_democratic
+			OR = {
+				capital_scope = {
+					is_on_continent = south_america
+				}
+				capital_scope = {
+					is_on_continent = north_america
+				}
+			}
+		}
+		localization_key = "President"
+	}
+	
+	text = {
+		trigger = {
+			has_government = authoritarian_democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = democratic_liberalism
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = socialism_democratic
+		}
+		localization_key = "Prime Minister"
+	}
+	text = {
+		trigger = {
+			has_government = neutrality
+		}
+		localization_key = "Despot"
+	}
+}
+
+defined_text = {
+	name = GetDualLeaderPositionDesc
+	text = {
+		trigger = {
+			original_tag = AUS
+		}
+		localization_key = "Reichskanzler is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = FRA
+		}
+		localization_key = "Prime Minister is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = GER
+		}
+		localization_key = "OKW Commander is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			NOT = {
+				has_country_flag = SOV_rip_nick
+			}
+			NOT = {
+				has_country_leader = {
+					name = "Nicholas II is the Head of Government in the [THIS.GetName]"
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "Tsar of Russia is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			has_country_flag = SOV_rip_nick
+		}
+		localization_key = "Prime Minister is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = SOV
+			has_country_leader = {
+				name = "Nicholas II is the Head of Government in the [THIS.GetName]"
+				ruling_only = yes
+			}
+		}
+		localization_key = "President is the Head of Government in the [THIS.GetName]"
+	}
+	text = {
+		trigger = {
+			original_tag = ITA
+		}
+		localization_key = "Deputy Consul is the Head of Government in the [THIS.GetName]"
+	}
+
+	#GENERIC
+	text = {
+		localization_key = "[THIS.GetDualLeaderPosition] is the Head of Government in the [THIS.GetName]"
 	}
 }

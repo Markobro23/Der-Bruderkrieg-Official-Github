@@ -45,16 +45,33 @@ Flag_Scripted_Map_Icons = {
 			else = {
 				set_country_flag = DBK_head_of_gov_mechanic_flag
 			}
-			if = {
-				limit = {
-				OR = { has_country_flag = open_national_missions_container }
-				}
-				clr_country_flag = open_national_missions_container
-			}
-			else = {
-				set_country_flag = open_national_missions_container
-			}
+			
 			log = "hi"
+		}
+	}
+  }
+  DBK_head_of_gov_open_mechanic_diplo = {
+	context_type = selected_country_context
+	parent_window_token = selected_country_view_diplomacy
+
+
+	window_name = "DBK_head_of_gov_open_diplo"
+	visible = {
+		always = yes
+	}
+	effects = {
+		DBK_head_of_gov_open_button_diplo_click = {
+			ROOT = {
+				if = {
+					limit = {
+						has_country_flag = DBK_head_of_gov_mechanic_diplo_flag
+					}
+					clr_country_flag = DBK_head_of_gov_mechanic_diplo_flag
+				}
+				else = {
+					set_country_flag = DBK_head_of_gov_mechanic_diplo_flag
+				}
+			}
 		}
 	}
   }
@@ -64,7 +81,7 @@ Flag_Scripted_Map_Icons = {
 
 	  window_name = "DBK_head_of_gov_container"
 	  visible = {
-		OR = { has_country_flag = open_national_missions_container }
+		OR = { has_country_flag = DBK_head_of_gov_mechanic_flag }
 	  }
 
 	 
@@ -73,7 +90,37 @@ Flag_Scripted_Map_Icons = {
 			image = "[GetHeadofGovPortrait]"
 		}
 	  }
+	  effects = {
+		  exit_click = {
+			  clr_country_flag = DBK_head_of_gov_mechanic_flag
+		  }
+	  }
   }
+  DBK_head_of_gov_mechanic_diplo = {
+	  context_type = selected_country_context
+	parent_window_token = selected_country_view_diplomacy
+
+
+
+	  window_name = "DBK_head_of_gov_container_diplo"
+	  visible = {
+		ROOT = {OR = { has_country_flag = DBK_head_of_gov_mechanic_diplo_flag } }
+	  }
+
+	 
+	  properties = {
+		LeaderPortrait = {
+			image = "[FROM.GetHeadofGovPortrait]"
+		}
+	  }
+	  effects = {
+		  exit_click = {
+			  ROOT ={ clr_country_flag = DBK_head_of_gov_mechanic_diplo_flag }
+		  }
+	  }
+  }
+
+  
 
   
 
@@ -99,7 +146,7 @@ Flag_Scripted_Map_Icons = {
 	  window_name = "SOV_national_missions_container"
 	  visible = {
 		  tag = SOV
-		OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+		OR = {  has_country_flag = open_national_missions_decisions_container }
 	  }
 
 	  effects = {
@@ -345,7 +392,7 @@ Flag_Scripted_Map_Icons = {
 	window_name = "ITA_national_missions_container"
 	visible = {
 		tag = ITA
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -445,7 +492,7 @@ Flag_Scripted_Map_Icons = {
 	window_name = "AUS_national_missions_container"
 	visible = {
 		tag = AUS
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -594,6 +641,7 @@ Flag_Scripted_Map_Icons = {
 	}
 }
 
+
  DBK_faction_icon_mechanic = { 
 	 parent_window_token = politics_tab
 	  context_type = player_context
@@ -614,7 +662,7 @@ GER_national_missions_conatiner_scripted_gui = {
 	window_name = "GER_national_missions_container"
 	visible = {
 		tag = GER
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -653,8 +701,8 @@ GER_national_missions_conatiner_scripted_gui = {
 		GER_national_mission_3_click = {
 			set_country_flag = GER_national_mission_3_click_flag
 			create_field_marshal = {
-				name = "Polarn"
-				picture = "Portrait_Germany_Walter_Model.dds"
+				name = "Polarn von Danzig"
+				picture = "gfx/leaders/Generic/Portrait_Germany_Generic_land_4.dds"
 				traits = { offensive_doctrine brilliant_strategist }
 				skill = 4
 				id = 10
@@ -743,7 +791,7 @@ FRA_national_missions_conatiner_scripted_gui = {
 	window_name = "FRA_national_missions_container"
 	visible = {
 		tag = FRA
-	OR = { has_country_flag = open_national_missions_container has_country_flag = open_national_missions_decisions_container }
+	OR = {  has_country_flag = open_national_missions_decisions_container }
 	}
 
 	effects = {
@@ -850,9 +898,25 @@ FRA_national_missions_conatiner_scripted_gui = {
 				industrial_complex > 5
 				arms_factory > 5
 			}
-			owns_state = 42
-			owns_state = 51
-			owns_state = 957
+			42.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
+				}
+			}
+			51.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
+				}
+			}
+			957.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
+				}
+			}
+			
 		}
 		FRA_national_mission_2_click_enabled = {
 			NOT = {

@@ -5439,7 +5439,7 @@ SOV_the_extermination_of_the_communists = {
 
 		fire_only_once = yes
 
-		cost = 30
+		cost = 0
 		days_remove = 50
 
 		modifier = {
@@ -5481,7 +5481,7 @@ SOV_the_extermination_of_the_communists = {
 
 		fire_only_once = yes
 
-		cost = 30
+		cost = 0
 		days_remove = 50
 
 
@@ -5520,7 +5520,7 @@ SOV_the_extermination_of_the_communists = {
 
 		fire_only_once = yes
 
-		cost = 30
+		cost = 0
 		days_remove = 50
 
 
@@ -8547,6 +8547,235 @@ SOV_peasant_coup_mongolia = {
 
 }
 
+SOV_lenin_chinese_intervention = {
+	SOV_increase_revolutionary_fervor_in_manchuria = {
+
+		cost = 25
+
+		fire_only_once = no
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			MAN = {
+				NOT = {
+					has_government = communism
+				}
+			}
+		}
+		days_remove = 30
+
+		visible = {
+			tag = SOV
+		}
+		modifier = {
+			political_power_gain = -0.1
+		}
+		remove_effect = {
+			MAN = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+				add_war_support = 0.05
+			}
+		}
+	}
+	SOV_fund_manchurian_communist_movement = {
+
+		cost = 35
+
+		fire_only_once = no
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 45
+
+		available = {
+			MAN = {
+				NOT = {
+					has_government = communism
+				}
+			}
+		}
+		modifier = {
+			industrial_capacity_factory = -0.05
+		}
+
+		visible = {
+			tag = SOV
+		}
+
+		remove_effect = {
+			MAN = {
+				add_popularity = {
+					ideology = communism
+					popularity = 0.1
+				}
+			}
+		}
+	}
+	SOV_manchurian_revolution = {
+
+		cost = 10
+		days_remove = 50
+
+		fire_only_once = yes
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			MAN = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			MAN = {
+				communism > 0.35
+			}
+		}
+	
+
+		visible = {
+			tag = SOV
+		}
+
+		remove_effect = {
+			MAN = {
+				create_country_leader = {
+					name = "Chen Duxiu"
+					picture = "gfx/leaders/ChenDuxiu.dds"
+					ideology = marxism_trotskyism
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+			}
+			SOV = {
+				add_to_faction = MAN
+			}
+			add_to_variable = {
+				tooltip = SOV_increase_japanese_anger_by_25
+				SOV_lenin_japanese_anger = 25
+			}
+		}
+	}
+	SOV_revolutionary_march_in_sakhalin = {
+
+		cost = 10
+		days_remove = 50
+
+		fire_only_once = yes
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			NOT = {
+				controls_state = 537
+			}
+		}
+	
+
+		visible = {
+			tag = SOV
+		}
+
+		remove_effect = {
+			add_state_core = 537
+			add_to_variable = {
+				tooltip = SOV_increase_japanese_anger_by_15
+				SOV_lenin_japanese_anger = 15
+			}
+		}
+	}
+	SOV_integrate_harbin_into_manchuria = {
+
+		cost = 10
+		days_remove = 50
+
+		fire_only_once = yes
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			ANH = {
+				exists = yes
+			}
+		}
+	
+
+		visible = {
+			tag = SOV
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = SOV_increase_japanese_anger_by_15
+				SOV_lenin_japanese_anger = 15
+			}
+			MAN = {
+				annex_country = {
+					target = ANH
+					transfer_troops = yes
+				}
+			}
+		}
+	}
+	JAP_war_with_SOV = {
+
+		cost = 0
+		days_remove = 25
+
+		fire_only_once = yes
+
+		icon = generic_prepare_civil_war
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			SOV = {
+				check_variable = {
+					SOV_lenin_japanese_anger > 75
+				}
+			}
+		}
+	
+
+		visible = {
+			tag = JAP
+		}
+
+		remove_effect = {
+			declare_war_on = {
+				target = SOV
+				type = topple_government
+			}
+		}
+	}
+}
+
 SOV_prussian_russian_industry = {
 	
 	SOV_constructing_border_infrastructure = {
@@ -10901,7 +11130,7 @@ SOV_election_verification = {
 
 SOV_transylvanian_rebel_contacts = {
 	
-	SOV_transylvanian_rebel_locate_leader = {
+	SOV_transylvanian_rebel_locate_leader = { 
 
 		available = {
 			command_power > 9
@@ -11054,7 +11283,7 @@ SOV_transylvanian_rebel_contacts = {
 		cost = 20
 
 		visible = {
-			has_completed_focus = SOV_Smuggle_Weapons
+			
 		}
 
 		available = {

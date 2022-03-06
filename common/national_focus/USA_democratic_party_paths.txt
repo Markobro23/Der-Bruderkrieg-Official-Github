@@ -5,7 +5,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 11 
+			add = 11
 			tag = USA
 		}
 	}
@@ -2640,16 +2640,37 @@ shared_focus = {
 ###smith FP
 shared_focus = {
 	id = USA_lets_stand_against_extremism
-	icon = GFX_goal_USA_lets_stand_against_extremism
-	x = 19
+	icon = GFX_goal_USA_the_american_dream_reborn
+	x = 27
 	y = 0
 	cost = 5
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 1000
 	}
+	
+	offset = {
+		trigger = {
+			has_focus_tree = usa_long_new_deal_tree
+		}
+		x = 10
+		y = 2
+	}
 	available = {
-		has_completed_focus = USA_the_happy_warrior
+		OR = {
+			has_completed_focus = USA_the_happy_warrior
+			has_completed_focus = USA_the_great_pacifican
+		}
+		OR = {
+			has_country_leader = {
+				name = "Alfred Smith"
+				ruling_only = yes
+			}
+			has_country_leader = {
+				name = "Earl Warren"
+				ruling_only = yes
+			}
+		}
 	}
 	
 	completion_reward = {
@@ -2659,7 +2680,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_the_british_situation
 	icon = GFX_goal_USA_the_british_situation
-	x = -3
+	x = -7
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2672,8 +2693,14 @@ shared_focus = {
 		focus = USA_lets_stand_against_extremism
 	}
 	relative_position_id = USA_lets_stand_against_extremism
+	allow_branch = {
+		NOT = {
+			has_focus_tree = usa_long_new_deal_tree
+		}
+	}
 	
 	completion_reward = {
+		country_event = USA_generic_foriegn_policy_tree.1
 	}
 }
 
@@ -2703,7 +2730,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_bring_them_to_the_table
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_Diplo_Britain
 	x = 2
 	y = 1
 	cost = 5
@@ -2722,140 +2749,141 @@ shared_focus = {
 	relative_position_id = USA_the_british_situation
 	
 	completion_reward = {
+		country_event = USA_generic_foriegn_policy_tree.2
 	}
 }
 
-shared_focus = {
-	id = USA_offer_them_nothing
-	icon = GFX_goal_USA_the_british_situation
-	x = -2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	mutually_exclusive = {
-		focus = USA_offer_the_return_of_jamaica
-		focus = USA_offer_business_concessions
-	}
-	prerequisite = {
-		focus = USA_bring_them_to_the_table
-	}
-	relative_position_id = USA_bring_them_to_the_table
+# shared_focus = {
+# 	id = USA_offer_them_nothing
+# 	icon = GFX_goal_USA_the_british_situation
+# 	x = -2
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
+# 	mutually_exclusive = {
+# 		focus = USA_offer_the_return_of_jamaica
+# 		focus = USA_offer_business_concessions
+# 	}
+# 	prerequisite = {
+# 		focus = USA_bring_them_to_the_table
+# 	}
+# 	relative_position_id = USA_bring_them_to_the_table
 	
-	completion_reward = {
-	}
-}
+# 	completion_reward = {
+# 	}
+# }
 
-shared_focus = {
-	id = USA_offer_business_concessions
-	icon = GFX_goal_USA_the_british_situation
-	x = 2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	mutually_exclusive = {
-		focus = USA_offer_the_return_of_jamaica
-		focus = USA_offer_them_nothing
-	}
-	prerequisite = {
-		focus = USA_bring_them_to_the_table
-	}
-	relative_position_id = USA_bring_them_to_the_table
+# shared_focus = {
+# 	id = USA_offer_business_concessions
+# 	icon = GFX_goal_USA_the_british_situation
+# 	x = 2
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
+# 	mutually_exclusive = {
+# 		focus = USA_offer_the_return_of_jamaica
+# 		focus = USA_offer_them_nothing
+# 	}
+# 	prerequisite = {
+# 		focus = USA_bring_them_to_the_table
+# 	}
+# 	relative_position_id = USA_bring_them_to_the_table
 	
-	completion_reward = {
-	}
-}
+# 	completion_reward = {
+# 	}
+# }
 
-shared_focus = {
-	id = USA_offer_the_return_of_jamaica
-	icon = GFX_goal_USA_the_british_situation
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	mutually_exclusive = {
-		focus = USA_offer_business_concessions
-		focus = USA_offer_them_nothing
-	}
-	prerequisite = {
-		focus = USA_bring_them_to_the_table
-	}
-	relative_position_id = USA_bring_them_to_the_table
+# shared_focus = {
+# 	id = USA_offer_the_return_of_jamaica
+# 	icon = GFX_goal_USA_the_british_situation
+# 	x = 0
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
+# 	mutually_exclusive = {
+# 		focus = USA_offer_business_concessions
+# 		focus = USA_offer_them_nothing
+# 	}
+# 	prerequisite = {
+# 		focus = USA_bring_them_to_the_table
+# 	}
+# 	relative_position_id = USA_bring_them_to_the_table
 	
-	completion_reward = {
-	}
-}
+# 	completion_reward = {
+# 	}
+# }
 
-shared_focus = {
-	id = USA_the_british_decline
-	icon = GFX_goal_USA_the_british_situation
-	x = -1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	prerequisite = {
-		focus = USA_offer_the_return_of_jamaica
-		focus = USA_offer_business_concessions
-		focus = USA_offer_them_nothing
-	}
-	mutually_exclusive = {
-		focus = USA_the_british_accept
-	}
-	relative_position_id = USA_offer_the_return_of_jamaica
+# shared_focus = {
+# 	id = USA_the_british_decline
+# 	icon = GFX_goal_USA_the_british_situation
+# 	x = -1
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
+# 	prerequisite = {
+# 		focus = USA_offer_the_return_of_jamaica
+# 		focus = USA_offer_business_concessions
+# 		focus = USA_offer_them_nothing
+# 	}
+# 	mutually_exclusive = {
+# 		focus = USA_the_british_accept
+# 	}
+# 	relative_position_id = USA_offer_the_return_of_jamaica
 	
-	completion_reward = {
-	}
-}
+# 	completion_reward = {
+# 	}
+# }
 
-shared_focus = {
-	id = USA_the_british_accept
-	icon = GFX_goal_USA_the_british_situation
-	x = 1
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	prerequisite = {
-		focus = USA_offer_the_return_of_jamaica
-		focus = USA_offer_business_concessions
-		focus = USA_offer_them_nothing
-	}
-	mutually_exclusive = {
-		focus = USA_the_british_decline
-	}
-	relative_position_id = USA_offer_the_return_of_jamaica
+# shared_focus = {
+# 	id = USA_the_british_accept
+# 	icon = GFX_goal_USA_the_british_situation
+# 	x = 1
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
+# 	prerequisite = {
+# 		focus = USA_offer_the_return_of_jamaica
+# 		focus = USA_offer_business_concessions
+# 		focus = USA_offer_them_nothing
+# 	}
+# 	mutually_exclusive = {
+# 		focus = USA_the_british_decline
+# 	}
+# 	relative_position_id = USA_offer_the_return_of_jamaica
 	
-	completion_reward = {
-	}
-}
+# 	completion_reward = {
+# 	}
+# }
 
 shared_focus = {
 	id = USA_demand_reparations
-	icon = GFX_goal_USA_the_british_situation
-	x = 0
+	icon = GFX_goal_Death
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2868,10 +2896,9 @@ shared_focus = {
 		focus = USA_forget_the_past
 	}
 	prerequisite = {
-		focus = USA_the_british_decline
-		focus = USA_the_british_accept
+		focus = USA_bring_them_to_the_table
 	}
-	relative_position_id = USA_the_british_decline
+	relative_position_id = USA_bring_them_to_the_table
 	
 	completion_reward = {
 	}
@@ -2879,8 +2906,8 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_forget_the_past
-	icon = GFX_goal_USA_the_british_situation
-	x = 0
+	icon = GFX_goal_Generic_British_Advisors
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2893,10 +2920,9 @@ shared_focus = {
 		focus = USA_demand_reparations
 	}
 	prerequisite = {
-		focus = USA_the_british_decline
-		focus = USA_the_british_accept
+		focus = USA_bring_them_to_the_table
 	}
-	relative_position_id = USA_the_british_accept
+	relative_position_id = USA_bring_them_to_the_table
 	
 	completion_reward = {
 	}
@@ -2905,7 +2931,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_renew_our_cold_war
 	icon = GFX_goal_USA_the_british_situation
-	x = -1
+	x = -2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2916,11 +2942,8 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = USA_demand_reparations
-		focus = USA_the_british_decline
 	}
-	mutually_exclusive = { 
-		focus = USA_bury_the_hatchet
-	}
+	
 	relative_position_id = USA_demand_reparations
 	
 	completion_reward = {
@@ -2929,7 +2952,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_manipulate_the_london_stock_exchange
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_Economic_Downturn
 	x = 0
 	y = 1
 	cost = 5
@@ -2950,7 +2973,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_embargo_the_commonwealths
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_USA_the_dying_lion
 	x = -2
 	y = 1
 	cost = 5
@@ -2971,7 +2994,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_expand_operations_in_canada
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_ISA_prepare_the_defences
 	x = 2
 	y = 1
 	cost = 5
@@ -2993,7 +3016,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_bury_the_hatchet
 	icon = GFX_goal_USA_the_british_situation
-	x = 0
+	x = 2
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3003,22 +3026,21 @@ shared_focus = {
 	available = {
 	}
 	prerequisite = {
-		focus = USA_demand_reparations
 		focus = USA_forget_the_past
 	}
-	mutually_exclusive = {
-		focus = USA_renew_our_cold_war
-	}
+
 	relative_position_id = USA_forget_the_past
 	
 	completion_reward = {
 	}
 }
 
-shared_focus = {
+
+
+shared_focus = { 
 	id = USA_the_far_east
-	icon = GFX_goal_USA_the_british_situation
-	x = 3
+	icon = GFX_goal_SOV_Naval_Arms_Race
+	x = 7
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3029,6 +3051,7 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = USA_lets_stand_against_extremism
+		focus = USA_the_detroit_conference
 	}
 	relative_position_id = USA_lets_stand_against_extremism
 	
@@ -3038,8 +3061,8 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_relations_with_the_bear
-	icon = GFX_goal_USA_the_british_situation
-	x = 2
+	icon = GFX_SOV_bears 
+	x = 4
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3059,7 +3082,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_send_a_delegate_to_the_royal_court
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_denouncing_the_tsar
 	x = -2
 	y = 1
 	cost = 5
@@ -3068,6 +3091,18 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Nikolai Belogurov"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Nicholas II"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_invite_their_president_to_seattle
@@ -3084,7 +3119,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_invite_their_president_to_seattle
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_the_paragon_of_honesty
 	x = 0
 	y = 1
 	cost = 5
@@ -3093,6 +3128,18 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Pavel Milyukov"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Alexander Kerensky"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_send_a_delegate_to_the_royal_court
@@ -3130,7 +3177,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_exchange_investments
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_support_small_bussinesses
 	x = 0
 	y = 1
 	cost = 5
@@ -3151,8 +3198,28 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_not_friends_but_acquaintances
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_a_democracy_only_in_name
 	x = 0
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_send_a_delegate_to_the_royal_court
+	}
+	relative_position_id = USA_send_a_delegate_to_the_royal_court
+	
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = USA_cultural_exchange_programs
+	icon = GFX_goal_SOV_promote_the_church
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3165,7 +3232,7 @@ shared_focus = {
 		focus = USA_not_friends_but_acquaintances
 		focus = USA_exchange_investments
 	}
-	relative_position_id = USA_exchange_investments
+	relative_position_id = USA_not_friends_but_acquaintances
 	
 	completion_reward = {
 	}
@@ -3173,7 +3240,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_detente_with_the_reds
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_Revolution
 	x = 2
 	y = 1
 	cost = 5
@@ -3182,6 +3249,14 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		SOV = {
+			OR = {
+				has_country_leader = {
+					name = "Vladimir Lenin"
+					ruling_only = yes
+				}
+			}
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_invite_their_president_to_seattle
@@ -3198,7 +3273,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_re_open_their_embassy
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_focus_eng_concessions_to_the_trade_unions
 	x = 0
 	y = 1
 	cost = 5
@@ -3219,7 +3294,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_quietly_take_refugees
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_russias_new_savior
 	x = 0
 	y = 1
 	cost = 5
@@ -3240,8 +3315,8 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_the_rising_sun
-	icon = GFX_goal_USA_the_british_situation
-	x = -2
+	icon = GFX_goal_SOV_watch_the_manchurian_front
+	x = -4
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3261,7 +3336,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_continue_relations_with_the_emperor
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_focus_jap_showa_restoration
 	x = -2
 	y = 1
 	cost = 5
@@ -3286,7 +3361,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_isolate_the_emperor
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_demand_japanese_lands
 	x = 0
 	y = 1
 	cost = 5
@@ -3307,7 +3382,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_cut_ties_with_japan
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_goal_SOV_curb_japanese_influence
 	x = 2
 	y = 1
 	cost = 5
@@ -3332,7 +3407,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_land_of_the_eastern_democracy
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_focus_jap_spiritual_mobilization
 	x = 0
 	y = 1
 	cost = 5
@@ -3357,7 +3432,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_invest_in_japanese_businesses
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_focus_jap_zaibatsu
 	x = 0
 	y = 1
 	cost = 5
@@ -3373,15 +3448,15 @@ shared_focus = {
 	relative_position_id = USA_land_of_the_eastern_democracy
 	
 	completion_reward = {
-	}
+	} 
 }
 
 ##mcaddo FP
 shared_focus = {
 	id = USA_the_return_of_wilsonianism
 	icon = GFX_goal_USA_the_return_of_wilsonianism
-	x = 35
-	y = 0
+	x = 27
+	y = 8
 	cost = 5
 	available_if_capitulated = yes
 	ai_will_do = {
@@ -3389,6 +3464,10 @@ shared_focus = {
 	}
 	available = {
 		has_completed_focus = USA_new_moral_society
+		has_country_leader = {
+			name = "William Gibbs McAdoo"
+			ruling_only = yes
+		}
 	}
 	
 	completion_reward = {
@@ -4045,3 +4124,14 @@ shared_focus = {
 		add_political_power = 100
 	}
 }
+
+
+
+
+
+
+
+
+
+###Aemy
+	

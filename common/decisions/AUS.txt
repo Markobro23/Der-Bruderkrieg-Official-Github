@@ -6100,3 +6100,257 @@ AUS_cult_of_karl_i = {
 	}
 
 }
+
+AUS_FRA_great_european_game = {
+	
+	FRA_increase_great_game_influence = {
+
+		allowed = {
+			tag = FRA
+		}
+
+		cost = 50
+
+		days_re_enable = 90
+
+		complete_effect = {
+			add_to_variable = { total_cold_war_influence = 1 }
+		}
+
+	}
+
+	AUS_increase_great_game_influence = {
+
+		allowed = {
+			tag = AUS
+		}
+
+		cost = 50
+
+		days_re_enable = 90
+
+		complete_effect = {
+			add_to_variable = { total_cold_war_influence = 1 }
+		}
+
+	}
+
+}
+
+AUS_colonial_rebellions = {
+	
+	AUS_foment_camerooni_tensions = {
+
+		icon = generic_industry
+
+		visible = {
+			OR = {
+				FRA = {
+					controls_state = 1055
+					controls_state = 773
+					owns_state = 1055
+					owns_state = 773
+				}
+				FEA = {
+					controls_state = 1055
+					controls_state = 773
+					owns_state = 1055
+					owns_state = 773
+				}
+			}
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 149
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = FRA
+						is_owned_by = FEA
+					}
+					is_core_of = CMR
+				}
+				add_dynamic_modifier = {
+					modifier = colonial_unrest_state_modifier
+				}
+			}
+		}
+
+	}
+
+	AUS_sponsor_cameroon_revolt = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			OR = {
+				FRA = {
+					controls_state = 1055
+					controls_state = 773
+					owns_state = 1055
+					owns_state = 773
+				}
+				FEA = {
+					controls_state = 1055
+					controls_state = 773
+					owns_state = 1055
+					owns_state = 773
+				}
+			}
+		}
+
+		available = {
+			773 = {
+				has_dynamic_modifier = {
+					modifier = colonial_unrest_state_modifier
+				}
+			}
+			has_equipment = {
+				infantry_equipment > 149
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		complete_effect = {
+			CMR = {
+				transfer_state = 773
+			}
+			hidden_effect = {
+				CMR = {
+					country_event = { id = african_independence_conflicts.1 hours = 6 }
+				}
+				every_state = {
+					limit = { is_core_of = CMR }
+					remove_dynamic_modifier = {
+						modifier = colonial_unrest_state_modifier
+					}
+				}
+				773 = {
+					create_unit = {
+						division = "name = \"Front Révolutionnaire\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
+						owner = CMR
+						count = 3
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_foment_wassouloo_tensions = {
+
+		icon = generic_industry
+
+		visible = {
+			OR = {
+				FRA = {
+					controls_state = 780
+					owns_state = 780
+				}
+				FWA = {
+					controls_state = 780
+					owns_state = 780
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 149
+			}
+		}
+
+		cost = 25
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_owned_by = FRA
+						is_owned_by = FWA
+					}
+					is_core_of = WAS
+				}
+				add_dynamic_modifier = {
+					modifier = colonial_unrest_state_modifier
+				}
+			}
+		}
+
+	}
+
+	AUS_wassouloo_revolt = {
+
+		icon = generic_prepare_civil_war
+
+		visible = {
+			OR = {
+				FRA = {
+					controls_state = 780
+					owns_state = 780
+				}
+				FWA = {
+					controls_state = 780
+					owns_state = 780
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		available = {
+			780 = {
+				has_dynamic_modifier = {
+					modifier = colonial_unrest_state_modifier
+				}
+			}
+			has_equipment = {
+				infantry_equipment > 149
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			WAS = {
+				transfer_state = 780
+			}
+			hidden_effect = {
+				WAS = {
+					add_ideas = limited_conscription
+					add_manpower = 7500
+					country_event = { id = african_independence_conflicts.3 hours = 6 }
+				}
+				every_state = {
+					limit = { is_core_of = WAS }
+					remove_dynamic_modifier = {
+						modifier = colonial_unrest_state_modifier
+					}
+				}
+				780 = {
+					create_unit = {
+						division = "name = \"Front Révolutionnaire\" division_template = \"Division Coloniale\" start_experience_factor = 0.2"
+						owner = WAS
+						count = 2
+					}
+				}
+			}
+		}
+
+	}
+
+}

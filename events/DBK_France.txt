@@ -14,12 +14,12 @@ country_event = {
 		#unlock_decision_tooltip = FRA_imperial elections
 		#will be a 250 day mission 
 
-		hidden_effect = {
-			country_event = {
-				id = francestart.6
-				days = 2
-			}
-		}
+		# hidden_effect = {
+		# 	country_event = {
+		# 		id = francestart.6
+		# 		days = 2
+		# 	}
+		# }
 
 	}
 }
@@ -946,6 +946,48 @@ country_event = {
 			clr_country_flag = FRA_strikes_begin_two_weeks
 			country_event =  FRA_worker_strikes.6
 		}
+	}
+}
+
+country_event = {
+	id = FRA_worker_strikes.9
+	title = FRA_worker_strikes.9.t
+	desc = FRA_worker_strikes.9.d
+	picture = report_event_spr_anarchists
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = france_strikes_modifier 
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = france_strikes_modifier 
+				}
+			}
+		}
+	}
+
+    option = {
+		name = FRA_worker_strikes.9.a
+		set_country_flag = FRA_strike_rioting_inbound_country
+		activate_mission = FRA_strike_riot_mission
+		random_owned_controlled_state = {
+			limit = { is_core_of = FRA }
+			set_state_flag = FRA_strike_rioting_inbound_state
+		} 
+		random_owned_controlled_state = {
+			limit = { is_core_of = FRA NOT = { has_state_flag = FRA_strike_rioting_inbound_state } }
+			set_state_flag = FRA_strike_rioting_inbound_state
+		}
+		hidden_effect = {
+			country_event = { id = FRA_worker_strikes.9 days = 35 }
+		}
+		
 	}
 }
 
@@ -2153,3 +2195,330 @@ news_event = {
 }
 
 
+#post victory tree events
+add_namespace = french_post_victory_tree
+
+###Iberian unification
+country_event = {
+	id = french_post_victory_tree.1
+	title = french_post_victory_tree.1.t
+	desc = french_post_victory_tree.1.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = { #we will choose Spain to lead
+		name = french_post_victory_tree.1.a
+		trigger = {
+			SPR = {
+				OR = {
+					is_in_faction_with = FRA
+					is_subject_of = FRA
+				}
+			}
+		}
+		SPR = {
+			country_event = { id = french_post_victory_tree.2 days = 18 }
+		}
+		POR = {
+			country_event = { id = french_post_victory_tree.3 days = 2 }
+		}
+	}
+	option = { #we will choose Portugal to lead
+		name = french_post_victory_tree.1.b
+		trigger = {
+			POR = {
+				OR = {
+					is_in_faction_with = FRA
+					is_subject_of = FRA
+				}
+			}
+		}
+		POR = {
+			country_event = { id = french_post_victory_tree.2 days = 18 }
+		}
+		SPR = {
+			country_event = { id = french_post_victory_tree.3 days = 2 }
+		}
+	}
+}
+
+country_event = { #you've been chosen to unite Iberia!
+	id = french_post_victory_tree.2
+	title = french_post_victory_tree.2.t
+	desc = french_post_victory_tree.2.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = { #pog champ
+		name = french_post_victory_tree.2.a
+		trigger = {
+			OR = {
+				POR = {
+					has_country_flag = accepted_iberian_unification
+				}
+				SPR = {
+					has_country_flag = accepted_iberian_unification
+				}
+			}
+		}
+		if = {
+			limit = {
+				tag = SPR
+			}
+			every_country = {
+				limit = { is_subject_of = POR }
+				SPR = {
+					puppet = PREV
+				}
+			}
+			annex_country = {
+				target = POR
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_core_of = POR }
+				add_core_of = SPR
+			}
+		}
+		if = {
+			limit = {
+				tag = POR
+			}
+			every_country = {
+				limit = { is_subject_of = SPR }
+				POR = {
+					puppet = PREV
+				}
+			}
+			annex_country = {
+				target = SPR
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_core_of = SPR }
+				add_core_of = POR
+			}
+		}
+	}
+	option = { #darn they didn't accept
+		name = french_post_victory_tree.2.b
+		trigger = {
+			OR = {
+				POR = {
+					has_country_flag = denied_iberian_unification
+				}
+				SPR = {
+					has_country_flag = denied_iberian_unification
+				}
+			}
+		}
+		if = {
+			limit = { tag = SPR }
+			every_state = {
+				limit = { is_core_of = POR }
+				add_core_of = SPR
+			}
+			create_wargoal = {
+				target = POR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = { tag = POR }
+			every_state = {
+				limit = { is_core_of = SPR }
+				add_core_of = POR
+			}
+			create_wargoal = {
+				target = SPR
+				type = annex_everything
+			}
+		}
+	}
+}
+
+country_event = { #you've been chosen to be annexed to unite Iberia!
+	id = french_post_victory_tree.3
+	title = french_post_victory_tree.3.t
+	desc = french_post_victory_tree.3.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = { #this is significantly less pog champ
+		name = french_post_victory_tree.3.a
+		set_country_flag = accepted_iberian_unification
+		if = {
+			limit = { tag = POR }
+			effect_tooltip = {
+				SPR = {
+					annex_country = {
+						target = POR
+					}
+				}
+			}
+		}
+		if = {
+			limit = { tag = SPR }
+			effect_tooltip = {
+				POR = {
+					annex_country = {
+						target = SPR
+					}
+				}
+			}
+		}
+	}
+	option = { #bruh wtf this sh*t stupid
+		name = french_post_victory_tree.3.b
+		set_country_flag = denied_iberian_unification
+		if = {
+			limit = { tag = POR }
+			effect_tooltip = {
+				SPR = {
+					create_wargoal = {
+						target = POR
+						type = annex_everything
+					}
+				}
+			}
+		}
+		if = {
+			limit = { tag = SPR }
+			effect_tooltip = {
+				POR = {
+					create_wargoal = {
+						target = SPR
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+}
+
+news_event = { #european customs union formation
+	id = french_post_victory_tree.4
+	title = french_post_victory_tree.4.t
+	desc = french_post_victory_tree.4.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { #Europe has become a more integrated and wealthy continent
+		name = french_post_victory_tree.4.a
+		trigger = {
+			OR = {
+				is_in_faction_with = FRA
+				is_subject_of = FRA
+				tag = FRA
+			}
+		}
+	}
+	option = { #the growing french threat
+		name = french_post_victory_tree.4.b
+		trigger = {
+			NOT = {
+				is_in_faction_with = FRA
+			}
+		}
+	}
+}
+
+country_event = { #France wants to vore you
+	id = french_post_victory_tree.5
+	title = french_post_victory_tree.5.t
+	desc = french_post_victory_tree.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = { #I was very tempted to make a joke I shouldn't have here, so you're lucky
+		name = french_post_victory_tree.5.a
+		ai_chance = {
+			factor = 3
+		}
+		FRA = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = ROOT
+				is_owned_by = FRA
+			}
+			add_claim_by = FRA
+			add_compliance = 25
+		}
+	}
+	option = { #bruh wtf this sh*t stupid
+		name = french_post_victory_tree.5.b
+		ai_chance = {
+			factor = 1
+		}
+		FRA = {
+			set_autonomy = {
+				target = ROOT
+				autonomous_state = autonomy_free
+			}
+			country_event = { id = french_post_victory_tree.6 hours = 3 random = 3 }
+		}
+	}
+}
+
+country_event = { #FROM don't wanna get vored
+	id = french_post_victory_tree.6
+	title = french_post_victory_tree.6.t
+	desc = french_post_victory_tree.6.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = { #well too bad broski
+		name = french_post_victory_tree.6.a
+		every_state = {
+			limit = {
+				is_core_of = FROM
+			}
+			add_claim_by = FRA
+		}
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+news_event = { #FRA unifies the continental system
+	id = french_post_victory_tree.7
+	title = french_post_victory_tree.7.t
+	desc = french_post_victory_tree.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { #Europe has become a more integrated and wealthy continent
+		name = french_post_victory_tree.7.a
+		trigger = {
+			OR = {
+				is_in_faction_with = FRA
+				is_subject_of = FRA
+				tag = FRA
+			}
+		}
+	}
+	option = { #the growing french threat
+		name = french_post_victory_tree.7.b
+		trigger = {
+			NOT = {
+				is_in_faction_with = FRA
+			}
+		}
+	}
+}

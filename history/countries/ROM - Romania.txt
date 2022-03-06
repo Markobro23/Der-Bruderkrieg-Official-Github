@@ -58,6 +58,11 @@ add_ideas = {
 	ROM_Agrarianism
 	ROM_romanian_nationalism
 	ROM_last_of_the_hollenherzens
+	ROM_petre_bejan
+	ROM_nicolae_petrescu_comnen
+	ROM_constantin_argetoianu
+	ROM_dinu_bratianu
+	ROM_gherghe_tatarescu
 }
 
 
@@ -199,31 +204,24 @@ set_convoys = 10
 }
 
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = democratic
 	last_election = "1933.12.20"
 	election_frequency = 48
 	elections_allowed = yes
 }
 set_popularities = {
-	fascism = 41
-	communism = 1
-	neutrality = 58
+	communism = 4
+	democratic_communism = 5
+	socialism_democratic = 9
+	democratic_liberalism = 11
+	democratic = 26
+	authoritarian_democratic = 10
+	neutrality = 5
+	fascism = 25
+	ultranationalism = 5
 }
 
-1939.1.1 = {
-	set_politics = {
-		ruling_party = neutrality
-		last_election = "1939.7.15"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-		democratic = 20
-		fascism = 35
-		communism = 2
-		neutrality = 43
-	}
-}
+
 
 create_country_leader = {
 	name = "Carol II"
@@ -232,9 +230,17 @@ create_country_leader = {
 	expire = "1965.1.1"
 	ideology = despotic
 	traits = {
-	inexperienced_monarch
-	dictator
-	staunch_monarchist
+	
+	}
+}
+create_country_leader = {
+	name = "Carol II"
+	desc = "POLITICS_GHEORGHE_TATARESCU_DESC"
+	picture = "gfx/leaders/CarolIPortrait.dds"
+	expire = "1965.1.1"
+	ideology = democratic_conservative
+	traits = {
+	
 	}
 }
 
@@ -249,16 +255,16 @@ create_country_leader = {
 	}
 }
 
-create_country_leader = {
-	name = "Armand Calinescu"
-	desc = "POLITICS_ARMAND_CALINESCU_DESC"
-	picture = "gfx/leaders/ROM/Portrait_Romania_Armand_Calinescu.dds"
-	expire = "1965.1.1"
-ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
+# create_country_leader = {
+# 	name = "Armand Calinescu"
+# 	desc = "POLITICS_ARMAND_CALINESCU_DESC"
+# 	picture = "gfx/leaders/ROM/Portrait_Romania_Armand_Calinescu.dds"
+# 	expire = "1965.1.1"
+# ideology = democratic_conservative
+# 	traits = {
+# 		#
+# 	}
+# }
 
 create_country_leader = {
 	name = "Octavian Goga"

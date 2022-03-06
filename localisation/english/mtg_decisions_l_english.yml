@@ -91,7 +91,6 @@
  USA_form_defensive_alliance_north_american_dominion:0 "Form the Anti-American Coalition"
  USA_join_defensive_alliance_north_american_dominion:0 "Join the Coalition"
  USA_congress:1 "Congress"
-
  USA_congress_desc:1 "The Hill has its own rules and ideas. We will have to work with them to make things happen, but there are ways to ensure that we have a sympathetic and supportive Congress to work with."
  USA_congress_senate_support_header:0 "§HSenate Support§!"
  USA_congress_house_support_header:0 "§HHouse Support§!"
@@ -122,7 +121,7 @@
  congress_low_support_trigger_tt:1 "Requires the support of at least §Y[?USA.quorum_low] Senators§! (current: [?USA.senators_support]) and §Y174 Representatives§! (current: [?USA.representatives_support])\n"
  congress_medium_support_trigger_tt:1 "Requires the support of at least §Y[?USA.quorum_medium] Senators§! (current: [?USA.senators_support]) and §Y218 Representatives§! (current: [?USA.representatives_support])\n"
  congress_high_support_trigger_tt:1 "Requires the support of at least §Y[?USA.quorum_high] Senators§! (current: [?USA.senators_support]) and §Y261 Representatives§! (current: [?USA.representatives_support])\n"
- USA_guns_for_the_anti_bolshevist_war:1 "Guns for the Anti-Bolshevist War"
+ USA_guns_for_the_anti_bolshevist_war:2 "Guns for the Anti-[GetSovietThreatNameAlt] War"
  USA_constitutional_convention:1 "Constitutional Convention"
  USA_permit_confederate_flags:1 "Permit Confederate Battle Standards"
  USA_secure_state_rights:1 "Enshrine State Rights"
@@ -183,7 +182,7 @@
  mtg_usa_house_large_opposition_tt:0 "Up to §Y100 Representatives§! will go into §ROpposition§!.\n"
  mtg_usa_senate_large_support_tt:0 "Up to §Y30 Senators§! will §GSupport§! the Government.\n"
  mtg_usa_house_large_support_tt:0 "Up to §Y125 Representatives§! will §GSupport§! the Government.\n"
- mtg_usa_anti_bolshevist_aid_tt:0 "Unlocks Decision: §YGuns for the Anti-Bolshevist War§!\nWhen decision is selected:\nSend §Y1000§! of §YInfantry Equipment§! to countries at war with the §YSoviet Union§!. Old ones go first."
+ mtg_usa_anti_bolshevist_aid_tt:1 "Unlocks Decision: §YGuns for the Anti-[GetSovietThreatNameAlt] War§!\nWhen decision is selected:\nSend §Y1000§! of §YInfantry Equipment§! to countries at war with §Y[SOV.GetNameDefCap]§!. Old ones go first."
  ENG_trade_unions_demand_minister_appointment_decision:0 "Appoint Trade Union Minister"
  ENG_trade_unions_demand_minister_appointment_decision_desc:0 "To fulfill the Trade Unions' demands, we will appoint their chosen representative to the cabinet."
  ENG_trade_unions_demand_minister_appointment_1:1 "Trade Unions Demand Minister Appointment"
@@ -317,6 +316,8 @@
  ENG_support_imperialist_coup_in_south_africa_mission_1:1 "Imperialist Uprising Imminent"
  ENG_support_imperialist_coup_in_south_africa_mission_1_desc:0 "Imperial loyalists are fomenting rebellion! If successful, they will plunge the country into civil war!"
  ENG_SAF_suppressed_coup:1 "South Africa suppressed the uprising.\n"
+ ENG_imperialist_civil_war:0 "An uprising has been encouraged.\n"
+ ENG_secure_the_dominions_backed_down_against_USA:0 "Backed down when confronted by the USA.\n"
  ENG_suppress_imperialist_coup_in_south_africa:1 "Suppress the Imperialist Uprising"
  ENG_suppress_imperialist_coup_in_south_africa_desc:1 "We will stamp out this reactionary rebellion wherever it rears its ugly head."
  ENG_support_imperialist_coup_in_south_africa_mission_2:2 "South African Uprising Suppressed"
@@ -401,6 +402,8 @@
  ENG_speech_against_germany:1 "Hold Anti-German Speech"
  ENG_speech_against_germany_desc:0 "As Mosley's popularity soars, so does the outlandish criticism he is bombarded with. To assuage fears that he merely wishes to force Hitlerism upon the British people, perhaps a grand and powerfully-formulated speech is required, in which Mosley distances himself in unmistaken terms from the Hitler's variety of fascism."
  ENG_speech_against_germany_tt:0 "§RShould stability drop below 50% during the Blackshirt Marches, a civil war will start!§!\n"
+ ENG_reconciliatory_speech:0 "Reconciliatory Speech"
+ ENG_reconciliatory_speech_desc:0 "In order to reduce increasing domestic political tensions, a speech with reconciliatory language may well be just what is required."
  ENG_the_mosley_plan:2 "Enact The Mosley Plan"
  ENG_the_mosley_plan_desc:0 "A bold restructuring of the economy, combined with ample propaganda and public investments, should galvanize the people in one great effort to repair the nation and kick-start our rearmament."
  ENG_imperial_conference_decision:0 "Imperial Conference"
@@ -604,154 +607,5 @@
  ENG_expected_decolonization:0 "Expected Decolonization"
  ENG_expected_decolonization_tt:0 "A coup attempt will be averted.\n"
  TUR_recall_ataturk_to_active_service:0 "Recall Atatürk to Active Service"
-
- SOV_army_reform_category:0 "Russian Army Reform"
- SOV_army_reform:0 "Russian Army Reform"
- SOV_army_reform_desc:0 "We must reform the army as it is in a terrible shape."
-
- form_balkan_category:0 "Balkan Dominance"
- form_balkan:0 "Form the Balkan Federation"
- form_balkan_desc:0 "Now that we dominate the Balkans, we are able to form the Balkan Union"
-
- 
-
- SOV_virgin_land:0 "The Virgin Land Initiatives"
- SOV_kazakhastan:0 "Develop Turkestan"
- SOV_siberia:0 "Develop Siberia"
- SOV_eastern:0 "Develop the Far East"
-
- AUS_stop_riots:0 "The Ongoing Riots"
- AUS_riots_1:0 "Appease the Rioters"
- AUS_riots_2:0 "Reduce Unemployment"
- AUS_riots_3:0 "Hand out Food Stamps"
-
- AUS_recovery:0 "Economic Recovery Plan"
- AUS_recovery_desc:0 "The Vienna Crash has hit our economy hard, the result of years of stagnant economic growth. Our industries have collapsed, consumer goods is at an all time high, and millions are unemployed. Our cheif economist has outlined the current situation of our economy below. \n\n A Look at the Factories - [Root.industrial_industrial_capacity_factory_get_text_scripted_loc] \n State of the Building Industry - [Root.industrial_production_speed_buildings_factor_get_text_scripted_loc] \n Status of Consumer Goods - [Root.industrial_consumer_goods_factor_get_text_scripted_loc]"
- AUS_recovery_1:0 "Reduce Inflation"
- AUS_recovery_2:0 "Relief for the Workers"
- AUS_recovery_3:0 "Boost the Weiner Bose"
-
- BEI_ENVOY_CATEGORY:0 "Envoys to the Warlords"
- CHI_ENVOY_CATEGORY:0 "Envoys to the Warlords"
-
- CHI_ENVOY_SHX:0 "Envoy to the Jin Clique"
- CHI_ENVOY_XSM:0 "Envoy to the Ma Clique"
- CHI_ENVOY_SIC:0 "Envoy to Sichuan"
- CHI_ENVOY_YUN:0 "Envoy to Yunnan"
- CHI_ENVOY_GXC:0 "Envoy to the Guanxi Clique"
-
- BEI_ENVOY_SHX:0 "Envoy to the Jin Clique"
- BEI_ENVOY_XSM:0 "Envoy to the Ma Clique"
- BEI_ENVOY_SIC:0 "Envoy to Sichuan"
- BEI_ENVOY_YUN:0 "Envoy to Yunnan"
- BEI_ENVOY_GXC:0 "Envoy to the Guanxi Clique"
-
- riots_stopped:0 "The Riots have stopped"
- stocks_recovered:0 "The economy has recovered"
-
-
- AUS_RIOTS_TEXT:0 "[Riotstext]"
- AUS_INDUSTRIAL_TEXT:0 "[?AUS.industrial_stuff]"
-
- AUS_RIOTS_TEXT_1:0 "§RVerge of Collapse§!"
- AUS_RIOTS_TEXT_2:0 "§RVery Angry§!"
- AUS_RIOTS_TEXT_3:0 "§YAngry§!"
- AUS_RIOTS_TEXT_4:0 "Neutral"
- AUS_RIOTS_TEXT_5:0 "§GPassive§!"
- riots_modifier:0 "Riots in the Streets"
-
-
- industrial_industrial_capacity_factory_get_text:0 "[Root.industrial_industrial_capacity_factory_get_text_scripted_loc]"
- industrial_production_speed_buildings_factor_get_text:0 "[Root.industrial_production_speed_buildings_factor_get_text_scripted_loc]"
- industrial_consumer_goods_factor_get_text:0 "[Root.industrial_consumer_goods_factor_get_text_scripted_loc]"
-
- 
-
-
- AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_1:0 "§RMass Unemployment§!"
- AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_2:0 "§YShortage of Workers§!"
- AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_3:0 "§YA Work in Progress§!"
- AUS_INDUSTRIAL_PRODUCTION_EFFECT_LOC_4:0 "§GA Functioning Assembly Line§!"
-
- AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_1:0 "§RObliterated Construction Industry§!"
- AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_2:0 "§RDestroyed Construction Industry§!"
- AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_3:0 "§YRecovering Construction Industry§!"
- AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_4:0 "§YSmall-Scale Infrastructure Development§!"
- AUS_INDUSTRIAL_BUILDING_SPEED_EFFECT_LOC_5:0 "§GNormal Infrastructure Development§!"
-
- AUS_INDUSTRIAL_CONSUMER_GOODS_EFFECT_LOC_1:0 "§RAll Time High§!"
-AUS_INDUSTRIAL_CONSUMER_GOODS_EFFECT_LOC_2:0 "§RVery High§!"
- AUS_INDUSTRIAL_CONSUMER_GOODS_EFFECT_LOC_3:0 "§YHigh§!"
- AUS_INDUSTRIAL_CONSUMER_GOODS_EFFECT_LOC_4:0 "§YMedium§!"
- AUS_INDUSTRIAL_CONSUMER_GOODS_EFFECT_LOC_5:0 "§GNeutral§!"
-
- BUL_support_the_unions:0 "Support the Unions"
- BUL_install_corporate_law:0 "Institute Corporate law"
- BUL_empower_working_class:0 "Empower the Working Class"
- BUL_tax_wealthy:0 "Tax the Wealthy"
-
- BUL_solve_macedonia:0 "Solve the Macedonian Problem"
- BUL_hold_talks_with_macedonia:0 "Hold talks with Macedonia"
- BUL_macedonian_autonomy:0 "Macedonian Autonomy"
-
- BUL_tsar_boris_abdicates:0 "Tsar Boris Abdicates"
- BUL_democratic_coup:0 "Democratic Coup"
- BUL_launch_farmers_revolt:0 "Launch the Farmer's Revolt"
-
- FRA_solve_countryside_problem:0 "Solve the Countryside Problem"
- FRA_solve_countryside_problem_desc:0 "France's countryside is underdeveloped and impoverished. It has little to no infrastructure, making it difficult for our building companies to construct factories and produce local jobs. \n §RThe French Government must solve this problem to move forward industrially§!"
-
-
- FRA_european_dominance:0 "European Dominance"
- FRA_dominate_FROM:0 "Attack [From.GetName]"
-
- TUR_arab_tension:0 "Arab Tension"
- TUR_arab_tension_desc:0 "The Arabs suck ass \n They currently have a mood of [GetArabTensionMood]"
-
- TUR_arab_tension_text_1:0 "Neutral"
- TUR_arab_tension_text_2:0 "§GMildy Pacified§!"
- TUR_arab_tension_text_3:0 "§GPacified§!"
- TUR_arab_tension_text_4:0 "§GPartially Intigrated§!"
- TUR_arab_tension_text_5:0 "§GAlmost Intigrated§!"
- TUR_arab_tension_text_6:0 "§GFully Intigrated§!"
-
- TUR_arab_tension_text_7:0 "§RMildy Angry§!"
- TUR_arab_tension_text_8:0 "§RAngry§!"
- TUR_arab_tension_text_9:0 "§RClose to Revolting§!"
- TUR_arab_tension_text_10:0 "§RPlanning the Revolt§!"
- TUR_arab_tension_text_11:0 "§RFull Revolution!§!"
-
- COL_trade_influence_category_col:0 "Trade in Colombia"
- COL_trade_influence_category_eng:0 "Trade in Colombia"
- COL_trade_influence_category_fra:0 "Trade in Colombia"
-
- COL_trade_influence_category_col_desc:0 "There are tons of trade in Colombia. \n[ENG.GetNameDefCap] has [?ENG.eng_influence_in_colombia|+0] §HTrade Influence Points§!s \n [FRA.GetNameDefCap] has [?FRA.fra_influence_in_colombia|+0] §HTrade Influence Points§! \n"
- COL_trade_influence_category_fra_desc:0 "There are tons of trade in Colombia. \n[ENG.GetNameDefCap] has [?ENG.eng_influence_in_colombia|+0] §HTrade Influence Points§!s \n [FRA.GetNameDefCap] has [?FRA.fra_influence_in_colombia|+0] §HTrade Influence Points§! \n"
- COL_trade_influence_category_eng_desc:0 "There are tons of trade in Colombia. \n[ENG.GetNameDefCap] has [?ENG.eng_influence_in_colombia|+0] §HTrade Influence Points§!s \n [FRA.GetNameDefCap] has [?FRA.fra_influence_in_colombia|+0] §HTrade Influence Points§! \n"
-
-
- PAR_influence_category_bra:0 "Problems with Paraguay"
- PAR_influence_category_col:0 "Problems with Paraguay"
- PAR_influence_category_par:0 "Problems with Paraguay"
-
- PAR_influence_category_bra_desc:0 "There are tons of problems in Paraguay. \n[BRA.GetNameDefCap] has [?BRA.bra_influence_in_paraguay|+0] §HDiplo Influence Points§!s \n [COL.GetNameDefCap] has [?COL.col_influence_in_paraguay|+0] §HDiplo Influence Points§! \n"
- PAR_influence_category_par_desc:0 "There are tons of problems in Paraguay. \n[BRA.GetNameDefCap] has [?BRA.bra_influence_in_paraguay|+0] §HDiplo Influence Points§!s \n [COL.GetNameDefCap] has [?COL.col_influence_in_paraguay|+0] §HDiplo Influence Points§! \n"
- PAR_influence_category_col_desc:0 "There are tons of problems in Paraguay. \n[BRA.GetNameDefCap] has [?BRA.bra_influence_in_paraguay|+0] §HDiplo Influence Points§!s \n [COL.GetNameDefCap] has [?COL.col_influence_in_paraguay|+0] §HDiplo Influence Points§! \n"
-
-
- country_influence_speicific_value_text:0 "[?THIS.colonial_influence_var]"
-
-
- AUS_intervention_india_descision_category:0 "Intervention in India"
- AUS_intervention_india_FROM:0 "Secure §G[From.GetName]§!"
-
-
- 
-
-
- Karl_mood_sucks:0 "§RFUCKING WORTHLESS§!"
- Karl_mood_bad:0 "§RDreadful§!" 
- Karl_mood_ok:0 "§YPassable§!"
- Karl_mood_good:0 "§GAdequate§!"
- Karl_mood_best:0 "§GBlessed§!"
- 
+ TUR_recall_ataturk_to_active_service_desc:0 "Mustafa Kemal Atatürk, Turkey's first field marshal, played an absolutely pivotal role in securing our independence in the National Campaign. He has one of the sharpest military minds on the continent, and destiny has made it necessary to call upon the Father of the Turks to personally lead our troops to victory once again."
+ gateway_to_europe_hol_tt:0 "Gains 5 points of trade influence"

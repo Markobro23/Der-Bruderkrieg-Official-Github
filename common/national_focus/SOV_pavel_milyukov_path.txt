@@ -394,7 +394,7 @@ shared_focus = {
 		y = 0
 	}
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cost = 2
@@ -429,7 +429,7 @@ shared_focus = {
 	cost = 2
 	prerequisite = { focus = SOV_pavels_army_reforms }
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cancel_if_invalid = yes
@@ -460,7 +460,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -490,7 +490,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -521,7 +521,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_reorganizing_the_officer_corps }
 	prerequisite = { focus = SOV_reorganizing_the_infantry }
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cancel_if_invalid = yes
@@ -552,7 +552,7 @@ shared_focus = {
 
 	}
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 	cost = 2
 	prerequisite = { focus = SOV_continuing_the_reforms }
@@ -584,7 +584,7 @@ shared_focus = {
 
 	}
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 	cost = 2
 	prerequisite = { focus = SOV_continuing_the_reforms }
@@ -616,7 +616,7 @@ shared_focus = {
 
 	}
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cost = 2
@@ -654,7 +654,7 @@ shared_focus = {
 	cost = 2
 	prerequisite = { focus = SOV_promoting_skilled_officers }
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cancel_if_invalid = yes
@@ -688,7 +688,7 @@ shared_focus = {
 	cost = 2
 	prerequisite = { focus = SOV_hierarchy_of_skill focus = SOV_hierarchy_of_loyalty }
 	ai_will_do = {
-		factor = 30
+		factor = 95
 	}
 
 	cancel_if_invalid = yes
@@ -1907,11 +1907,17 @@ shared_focus = {
 	y = 1
 	
 	available = {
+		ZHC = {
+			is_in_faction_with = SOV
+		}
 	}
 	bypass = {
 
 	}
 	prerequisite = { focus = SOV_hes_genghis_khan_reborn focus = SOV_annex_the_false_khan }
+	prerequisite = {
+		focus = SOV_curb_japanese_influence
+	}
 	relative_position_id = SOV_hes_genghis_khan_reborn
 	mutually_exclusive = {
 		focus = SOV_restoration_of_the_qing_dynasty
@@ -1925,8 +1931,15 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		CHI = {
-			country_event = russia.22
+		ZHC = {
+			annex_country = {
+				target = MAN
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = ANH
+				transfer_troops = yes
+			}
 		}
 	}
 	ai_will_do = {
@@ -2004,9 +2017,8 @@ shared_focus = {
 		ANH = {
 			country_event = { id = russia.22 }
 		}
-		create_wargoal = {
-			target = ZHC
-			type = topple_government
+		ZHC = {
+			country_event = { id = russia.22 }
 		}
 		add_threat = 2
 	}
@@ -2031,6 +2043,9 @@ shared_focus = {
 	  focus = SOV_contact_chiang_kai_shek
 	}
 	available = {
+		MAN = {
+			is_in_faction_with = SOV
+		}
 	}
 	bypass = {
 
@@ -2048,6 +2063,28 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		MAN = {
+			annex_country = {
+				target = ANH
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = ZHC
+				transfer_troops = yes
+			}
+			create_country_leader = {
+				name = "Pujie"
+				picture = "gfx/leaders/Pujie.dds"
+				ideology = despotic
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			add_popularity = {
+				neutrality = 0.25
+			}
+			
+		}
 	}
 	ai_will_do = {
 		factor = 200
@@ -2261,7 +2298,7 @@ shared_focus = {
 		
 # 		USA = {
 # 			country_event =  SOV_Second_Rus_Jap_War_Events.1
-# 		}
+# 		} 
 # 	}
 # 	ai_will_do = {
 # 		factor = 200

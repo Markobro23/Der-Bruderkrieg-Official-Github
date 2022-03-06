@@ -9,7 +9,7 @@ austria_loses_peace_deal = {
             }
         }
         AUS = {
-            dismantle_faction = yes
+            dismantle_faction = yes 
         }
         AUS = {country_event = wiltkrieg.2}
         GER = {country_event = wiltkrieg.3}
@@ -49,7 +49,7 @@ prussia_russia_wins_states = {
         }
     }
     else = {
-        every_country = {
+        random_country = {
             limit = {
                 is_in_faction_with = AUS
             }
@@ -58,6 +58,9 @@ prussia_russia_wins_states = {
         event_target:new_pakt_faction_leader = {
             set_faction_leader = yes
         }
+    }
+    AUS = {
+        leave_faction = yes
     }
     SOV = {
         white_peace = AUS
@@ -100,6 +103,7 @@ prussia_russia_wins_states = {
        transfer_state = 102
        transfer_state = 72
        transfer_state = 777
+       transfer_state = 39
     }
 
     GER = { add_state_core = 69 }
@@ -128,7 +132,7 @@ prussia_russia_wins_states = {
         transfer_state = 155
         transfer_state = 43
         transfer_state = 664
-        transfer_state = 39
+        
         transfer_state = 804
         transfer_state = 73
     }
@@ -196,6 +200,7 @@ prussia_wins_states = {
        transfer_state = 820
        transfer_state = 102
        transfer_state = 777
+       transfer_state = 39
     }
 
     GER = { add_state_core = 69 }
@@ -230,7 +235,6 @@ hungary_states = {
         transfer_state = 155
         transfer_state = 43
         transfer_state = 664
-        transfer_state = 39
         transfer_state = 804
         transfer_state = 73
         set_cosmetic_tag = prussian_rk
@@ -246,6 +250,7 @@ polish_states = {
         transfer_state = 72
         transfer_state = 88
         transfer_state = 951
+        transfer_state = 89
         set_cosmetic_tag = prussian_rk
     }
 
@@ -255,11 +260,6 @@ polish_states = {
     
 }
 
-ukrainian_states = {
-    UKR = {
-        transfer_state = 89
-    }
-}
 
 italian_states = {
     ITA = {
@@ -417,9 +417,27 @@ prussia_loses_peace_deal = {
             }
             set_global_flag = france_austria_split_deal
         }
-       AUS = { country_event = second_treaty_of_vienna.1 }
-       ITA = {
-        set_faction_leader = yes
+       AUS = { country_event = second_treaty_of_vienna.4 }
+       if = {
+           limit = {
+               ITA = {
+                   is_in_faction_with = GER
+               }
+           }
+           ITA = {
+                set_faction_leader = yes
+            }
+       }
+       else = {
+           random_country = {
+               limit = {
+                   is_in_faction_with = GER
+                   NOT = {
+                       tag = GER
+                   }
+               }
+               set_faction_leader = yes
+           }
        }
        GER = {
            leave_faction = yes
@@ -487,7 +505,12 @@ italy_loses_to_austria_peace_deal = {
     }
     SCI = {
         set_cosmetic_tag = ITA_two_sicilies
+        set_politics = {
+            ruling_party = neutrality
+        }
     }
+    
+    
 }
 france_loses_to_austria_peace_deal = {
     FRA = {
@@ -722,8 +745,26 @@ france_beats_prussia_peace_deal = {
             }
             set_global_flag = france_austria_split_deal
         }
-    ITA = {
+    if = {
+        limit = {
+            ITA = {
+                is_in_faction_with = GER
+            }
+        }
+        ITA = {
         set_faction_leader = yes
+       }
+    }
+    else = {
+           random_country = {
+               limit = {
+                   is_in_faction_with = GER
+                   NOT = {
+                       tag = GER
+                   }
+               }
+               set_faction_leader = yes
+           }
        }
     FRA = { white_peace = GER  set_country_flag = FRA_has_beaten_prussia }
 
@@ -1216,7 +1257,7 @@ russia_beats_ottoman_peace_deal = {
     }
     release = SYR
     release = PAL
-    release = LEB
+    #release = LEB
     release = SAU
     release = IRQ
     release = JOR
@@ -1239,8 +1280,8 @@ russia_beats_ottoman_peace_deal = {
     }
     SOV = {
         puppet = SYR
-        puppet = ISR
-        puppet = LEB
+        #puppet = ISR
+        #puppet = LEB
         puppet = IRQ
         puppet = JOR
         puppet = HEJ
@@ -1452,9 +1493,6 @@ austria_beats_serbia_peace_deal = {
 }
 
 russia_loses_peace_deal = {
-    AUS = {
-        white_peace = SOV
-    }
     UKR = {
         add_state_core = 93
         add_state_core = 137
@@ -1741,7 +1779,7 @@ russia_loses_peace_to_france_deal = {
         limit = {
             has_global_flag = austria_defeated
         }
-        france_beats_austria = yes
+        france_beats_austria = yes 
     }
     
     
@@ -1910,7 +1948,7 @@ russia_xinjiang_peace_deals = {
     if = {
         limit = {
             has_country_leader = {
-                name = "Vladmir Lenin"
+                name = "Vladimir Lenin"
                 ruling_only = yes
             }
         }
@@ -2117,4 +2155,126 @@ d_ottoman_federaralisation_peace_deal = {
     puppet = LEB
     puppet = IRQ
     puppet = JOR
+}
+
+
+france_beats_the_uk = {
+    FRA = { 
+        add_ideas = FRA_english_occupation
+	puppet = RAJ
+	annex_country = {
+		target = ENG
+		transfer_troops = no
+	}
+        release_puppet = SCO
+        release_puppet = WLS
+        puppet = IRE
+        release_puppet = ENG
+	every_state = {
+		limit = { is_core_of = ENG OR = { is_core_of = WLS is_core_of = SCO is_core_of = IRE } }
+		remove_core_of = ENG
+	}
+	IRE = { set_cosmetic_tag = IRE_FRA }
+        annex_country = {
+            target = SCA
+            transfer_troops = no
+        }
+
+        transfer_state = 659
+        transfer_state = 658
+        transfer_state = 964
+    }
+    if = {
+        limit = {
+            FEA = {
+                exists = yes
+            }
+        }
+        FEA = {
+            annex_country = {
+                target = SUD
+                transfer_troops = no
+            }
+            transfer_state = 548
+            transfer_state = 1056
+            transfer_state = 768
+	    transfer_state = 770
+	    transfer_state = 1070
+	    transfer_state = 1071
+            transfer_state = 769
+            transfer_state = 1063
+            transfer_state = 1050
+            transfer_state = 1021
+            transfer_state = 1019
+            transfer_state = 1045
+            transfer_state = 771
+            transfer_state = 885
+            transfer_state = 1062
+
+            annex_country = {
+                target = ZIM
+                transfer_troops = no
+            }
+            annex_country = {
+                target = BOT
+                transfer_troops = no
+            }
+            annex_country = {
+                target = SAF
+                transfer_troops = no
+            }
+            
+        }
+        FWA = {
+            transfer_state = 274
+            transfer_state = 701
+            annex_country = {
+                target = NGA
+                transfer_troops = no
+            }
+        }
+
+    }
+    else = {
+        FRA = {
+            annex_country = {
+                target = SUD
+                transfer_troops = no
+            }
+            transfer_state = 548
+            transfer_state = 1056
+            transfer_state = 768
+	    transfer_state = 770
+	    transfer_state = 1070
+	    transfer_state = 1071
+            transfer_state = 769
+            transfer_state = 1063
+            transfer_state = 1050
+            transfer_state = 1021
+            transfer_state = 1019
+            transfer_state = 1045
+            transfer_state = 771
+            transfer_state = 885
+            transfer_state = 1062
+
+            annex_country = {
+                target = ZIM
+                transfer_troops = no
+            }
+            annex_country = {
+                target = BOT
+                transfer_troops = no
+            }
+            annex_country = {
+                target = SAF
+                transfer_troops = no
+            }
+            transfer_state = 274
+            transfer_state = 701
+            annex_country = {
+                target = NGA
+                transfer_troops = no
+            }
+        }
+    }
 }

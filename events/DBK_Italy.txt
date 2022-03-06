@@ -945,17 +945,17 @@ country_event = {
 	fire_only_once = yes  
 	is_triggered_only = yes 
 
-	option = { 
-		name = ITA_evola_coup_events.1.a 
-		ai_chance = { factor = 90 } 
-		# set_country_flag = ITA_active_the_geracha_elections
-		# unlock_decision_category_tooltip = ITA_the_kings_men
-		# set_country_flag = ITA_chose_benito_kings_men
-		# activate_mission = ITA_gerarchi_elections
-		# custom_effect_tooltip = ITA_we_will_play_as_benito
-		complete_national_focus = ITA_continue_cianos_rule
+	# option = { 
+	# 	name = ITA_evola_coup_events.1.a 
+	# 	ai_chance = { factor = 90 } 
+	# 	# set_country_flag = ITA_active_the_geracha_elections
+	# 	# unlock_decision_category_tooltip = ITA_the_kings_men
+	# 	# set_country_flag = ITA_chose_benito_kings_men
+	# 	# activate_mission = ITA_gerarchi_elections 
+	# 	# custom_effect_tooltip = ITA_we_will_play_as_benito
+	# 	complete_national_focus = ITA_continue_cianos_rule
 
-	}
+	# }
 	option = { 
 		name = ITA_evola_coup_events.1.b 
 		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
@@ -966,7 +966,11 @@ country_event = {
 		# custom_effect_tooltip = ITA_we_will_play_as_evola
 
 				complete_national_focus = ITA_roccos_conspiracy
-
+		add_ideas = ITA_constanzo_ciano
+		add_ideas = ITA_galeazzo_ciano
+		add_ideas = ITA_guido_guidi
+		add_ideas = ITA_carlo_alberto_biggini
+		add_ideas = ITA_ferruccio_lantini
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.c 
@@ -974,11 +978,15 @@ country_event = {
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
-		# activate_mission = ITA_gerarchi_elections
+		# activate_mission = ITA_gerarchi_elections 
 		# custom_effect_tooltip = ITA_we_will_play_as_evola
 
 				complete_national_focus = ITA_the_dawn_of_the_blueshirts
-
+		add_ideas = ITA_attilio_teruzzi_hog
+		add_ideas = ITA_renzo_montagna
+		add_ideas = ITA_cesare_maria_de_vecchi
+		add_ideas = ITA_tullio_tamburini
+		add_ideas = ITA_renato_ricci
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.e
@@ -990,6 +998,11 @@ country_event = {
 		# custom_effect_tooltip = ITA_we_will_play_as_evola
 
 				complete_national_focus = ITA_evolas_regime
+				add_ideas = ITA_julius_evola
+				add_ideas = ITA_dino_grandi
+				add_ideas = ITA_evola_intmin
+				add_ideas = ITA_augusto_turati
+				add_ideas = ITA_ferruccio_lantini
 
 	}
 }
@@ -1047,7 +1060,7 @@ country_event = {
 }
 
 ##dannnunzio's speech...
-country_event = {
+country_event = { 
 	id = ITA_evola_coup_events.5 
 	title = ITA_evola_coup_events.5.t 
 	desc = ITA_evola_coup_events.5.d
@@ -1060,10 +1073,54 @@ country_event = {
 		name = ITA_evola_coup_events.5.a 
 		ai_chance = { factor = 90 } 
 		#kill_country_leader = yes
-		hidden_effect = { set_cosmetic_tag = ITA_provisional_government }
-		set_country_flag = ITA_italys_destiny_unlock
+		hidden_effect ={ country_event = ITA_evola_coup_events.6 }
+	}
+	option = { 
+		name = ITA_evola_coup_events.5.b
+		ai_chance = { factor = 90 } 
+		#kill_country_leader = yes
+		hidden_effect ={ country_event = ITA_evola_coup_events.7 }
 	}
 }
+
+country_event = { 
+	id = ITA_evola_coup_events.6 
+	title = ITA_evola_coup_events.6.t 
+	desc = ITA_evola_coup_events.6.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_coup_events.6.a 
+		ai_chance = { factor = 90 } 
+		#kill_country_leader = yes
+		country_event = ITA_evola_coup_events.1
+		set_country_flag = bianchi_in_hospital
+		hidden_effect ={ country_event = ITA_evola_coup_events.1 }
+		add_political_power = -100
+	}
+}
+country_event = { 
+	id = ITA_evola_coup_events.7 
+	title = ITA_evola_coup_events.7.t 
+	desc = ITA_evola_coup_events.7.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_evola_coup_events.7.a 
+		ai_chance = { factor = 90 } 
+		#kill_country_leader = yes
+		add_political_power = 40
+		add_war_support = 0.025
+		complete_national_focus = ITA_continue_cianos_rule
+	}
+}
+
 
 ###FOCUS TREE STUFF
 

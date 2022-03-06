@@ -629,6 +629,81 @@ form_balkan_category = {
 
 form_germany_category = {
 
+	form_ngc = {
+
+		icon = generic_form_nation
+
+		allowed = {
+			OR = {
+				tag = GER
+				tag = HAN
+				tag = SAX
+			}
+		}
+
+		available = {
+			has_completed_focus = GER_bismarks_plan
+			controls_state = 188
+			controls_state = 763
+			controls_state = 5
+			controls_state = 85
+			controls_state = 86
+			controls_state = 63
+			controls_state = 64
+			controls_state = 65
+			controls_state = 62
+			controls_state = 949
+			controls_state = 950
+			controls_state = 68
+			controls_state = 60
+			controls_state = 65
+			controls_state = 59
+			controls_state = 56
+			controls_state = 817
+		}
+
+		visible = {
+			OR = {
+				tag = GER
+				tag = HAN
+				tag = SAX
+			}
+			NOT = { has_global_flag = form_ngc_flag }
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = ngc_united
+			# Germany
+			#custom_effect_tooltip = form_country_balkan_coring_states_tt
+			add_state_core = 188
+			add_state_core = 763
+			add_state_core = 5
+			add_state_core = 85
+			add_state_core = 86
+			add_state_core = 63
+			add_state_core = 64
+			add_state_core = 65
+			add_state_core = 62
+			add_state_core = 949 
+			add_state_core = 950
+			add_state_core = 68
+			add_state_core = 60
+			add_state_core = 59
+			add_state_core = 56
+			add_state_core = 817
+			hidden_effect = {
+				news_event = { id = prussian_expansion.3 hours = 6 }
+				set_global_flag = form_ngc_flag
+
+				add_threat = 10
+			}
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	}
+
 	form_germany = {
 
 		icon = generic_form_nation
@@ -766,80 +841,7 @@ form_germany_category = {
 
 form_ngc_category = {
 
-	form_ngc = {
-
-		icon = generic_form_nation
-
-		allowed = {
-			OR = {
-				tag = GER
-				tag = HAN
-				tag = SAX
-			}
-		}
-
-		available = {
-		
-			controls_state = 188
-			controls_state = 763
-			controls_state = 5
-			controls_state = 85
-			controls_state = 86
-			controls_state = 63
-			controls_state = 64
-			controls_state = 65
-			controls_state = 62
-			controls_state = 949
-			controls_state = 950
-			controls_state = 68
-			controls_state = 60
-			controls_state = 65
-			controls_state = 59
-			controls_state = 56
-			controls_state = 817
-		}
-
-		visible = {
-			OR = {
-				tag = GER
-				tag = HAN
-				tag = SAX
-			}
-			NOT = { has_global_flag = form_ngc_flag }
-		}
-
-		complete_effect = {
-			set_cosmetic_tag = ngc_united
-			# Germany
-			#custom_effect_tooltip = form_country_balkan_coring_states_tt
-			add_state_core = 188
-			add_state_core = 763
-			add_state_core = 5
-			add_state_core = 85
-			add_state_core = 86
-			add_state_core = 63
-			add_state_core = 64
-			add_state_core = 65
-			add_state_core = 62
-			add_state_core = 949 
-			add_state_core = 950
-			add_state_core = 68
-			add_state_core = 60
-			add_state_core = 59
-			add_state_core = 56
-			add_state_core = 817
-			hidden_effect = {
-				news_event = { id = prussian_expansion.3 hours = 6 }
-				set_global_flag = form_ngc_flag
-
-				add_threat = 10
-			}
-		}
-
-		ai_will_do = {
-			factor = 200
-		}
-	}
+	
 }
 
 
@@ -1033,6 +1035,18 @@ form_serbia_category = {
 			add_state_core = 105
 			add_state_core = 808
 			add_state_core = 821
+			GER = {
+				remove_ideas = Serbian_Civil_War
+				remove_ideas = Serbian_Civil_War_2
+			}
+			AUS = {
+				remove_ideas = Serbian_Civil_War
+				remove_ideas = Serbian_Civil_War_2
+			}
+			SOV = {
+				remove_ideas = Serbian_Civil_War
+				remove_ideas = Serbian_Civil_War_2
+			}
 		}
 
 	
@@ -1159,6 +1173,7 @@ form_india_category = {
 				add_state_core = 320
 			}
 			if = { limit = { tag = RAJ } set_cosmetic_tag = british_raj } else = { set_cosmetic_tag = united_india }
+			white_peace = ENG
 		}
 
 		available = {
@@ -1371,24 +1386,30 @@ form_greece_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = controls_non_occupied_greece
-				all_of_scopes = {
-					array = ROOT.core_states
-					OR = {
-						is_owned_by = ROOT
-						is_controlled_by = ROOT
-					}
-				}
+				#athens
+				owns_state = 828
+				owns_state = 186
+				owns_state = 47
+				owns_state = 832
+				owns_state = 830
+				#Thessaly
+				owns_state = 826
+				owns_state = 825
+				owns_state = 731
+				#Ionia
+				owns_state = 831
+				owns_state = 185
 			}
 		}
 
 		complete_effect = {
 			news_event = { id = DBK_formablenations.4 }
 			every_country = {
-				limit = { OR = { controls_state = 187 controls_state = 164 controls_state = 182 } NOT = { has_country_flag = demanded_greek_lands_return } }
+				limit = { OR = { controls_state = 187 controls_state = 164 controls_state = 182 controls_state = 827 controls_state = 1124 controls_state = 1121 } NOT = { OR = { has_country_flag = demanded_greek_lands_return has_war_with = ROOT } } }
 				country_event = { id = DBK_formablenations.5 hours = 3 }
 				set_country_flag = demanded_greek_lands_return
 			}
-			set_cosmetic_tag = GRE
+			set_cosmetic_tag = united_greece
 			add_state_core = 987
 			add_state_core = 1052
 			add_state_core = 829

@@ -7,6 +7,11 @@ on_actions = {
 			ITA = { set_variable = { var = iron_guard_chance value = 40 } }
 			ITA = {
 				set_variable = { ITA_NFP_party_stability = 75 }
+				clamp_variable = {
+					var = ITA_NFP_party_stability
+					min = 0
+					max = 100
+				}
 				ITA_calc_party_stability_var = yes
 				#set_country_flag = ITA_mussolini_in_power
 				add_dynamic_modifier = {

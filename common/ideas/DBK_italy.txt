@@ -378,8 +378,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				consumer_goods_factor = 0.1
-				political_power_gain = -0.05
+				consumer_goods_factor = -0.05
 			}
 		}
 
@@ -487,10 +486,8 @@ ideas = {
 
       modifier = {
 		communism_drift = 0.05
-		
-		stability_weekly = -0.005
-		
-		industrial_capacity_factory = -0.05
+		industrial_capacity_factory = -0.15
+		production_speed_buildings_factor = -0.1
 
       }
     }
@@ -510,10 +507,8 @@ ideas = {
   
 		modifier = {
 		  communism_drift = 0.03
-		  
-		  stability_weekly = -0.0025
-		  
-		  industrial_capacity_factory = -0.05
+		industrial_capacity_factory = -0.075
+		production_speed_buildings_factor = -0.05
   
 		}
 	  }
@@ -556,8 +551,8 @@ ideas = {
   
 		modifier = {
 	      consumer_goods_factor = 0.1
-		  production_speed_buildings_factor = -0.1
-		  industrial_capacity_factory = -0.05
+		  production_factory_start_efficiency_factor = -0.15
+		  production_lack_of_resource_penalty_factor = 0.1
   
 		}
 	  }
@@ -577,8 +572,8 @@ ideas = {
   
 		modifier = {
 	    consumer_goods_factor = 0.05
-		production_speed_buildings_factor = -0.05
-		  industrial_capacity_factory = -0.05
+		pproduction_factory_start_efficiency_factor = -0.5
+		  production_lack_of_resource_penalty_factor = 0.05
   
 		}
 	  }
@@ -2083,6 +2078,360 @@ ideas = {
 
 		}
 
+		head_of_government = {
+			ITA_julius_evola = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Julius Evola"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { staunch_monarchist }
+		 	}
+			ITA_michele_bianchi = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { syndicalist }
+		 	}
+			ITA_constanzo_ciano = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { ex_admiral }
+		 	}
+			ITA_attilio_teruzzi_hog = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { colonial_administrator }
+		 	}
+
+		}
+
+		minister_of_foriegn_affairs = {
+
+			ITA_achille_starace = { 
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { violent_bellicist }
+		 	}
+
+		 	ITA_galeazzo_ciano = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { appeaser }
+		 	}
+
+		 	ITA_dino_grandi = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Julius Evola"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { hawk }
+		 	}
+
+		 	ITA_renzo_montagna = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		} 
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { ardent_armer  }
+		 	}
+
+		}
+
+		minister_of_the_interior = {
+
+			ITA_alessandro_pavolini_idea = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { propaganda_expert }
+		 	}
+
+		 	ITA_guido_guidi = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { master_of_secret_service corrupt }
+		 	}
+
+		 	ITA_evola_intmin = {
+
+		 		name = ITA_julius_evola
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Julius Evola"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { colonial_administrator }
+		 	}
+
+		 	ITA_cesare_maria_de_vecchi = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { colonial_administrator }
+		 	}
+
+		}
+
+		economic_minister = {
+
+			ITA_tullio_tamburini = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { corrupt vampire_economist }
+		 	}
+
+			ITA_nicola_bombacci = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { friend_of_the_unions }
+		 	}
+
+		 	ITA_carlo_alberto_biggini = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { corporatist }
+		 	}
+
+		 	ITA_augusto_turati = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_country_leader = {
+						name = "Julius Evola"
+						ruling_only = yes
+					}
+		 		}
+
+		 		traits = { agricultural_reformer }
+		 	}
+
+		}
+
+		industrial_minister = {
+
+			ITA_renato_ricci = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			OR = {
+		 				has_country_leader = {
+							name = "Michele Bianchi"
+							ruling_only = yes
+						}
+						has_country_leader = {
+							name = "Attilio Teruzzi"
+							ruling_only = yes
+						}
+		 			}
+		 		}
+
+		 		traits = { union_organizer }
+		 	}
+
+		 	ITA_ferruccio_lantini = {
+
+		 		#picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			OR = {
+		 				has_country_leader = {
+							name = "Costanzo Ciano"
+							ruling_only = yes
+						}
+						has_country_leader = {
+							name = "Julius Evola"
+							ruling_only = yes
+						}
+		 			}
+		 		}
+
+		 		traits = { export_advocate }
+		 	}
+
+		}
+
 		# political_advisor = {
 		# 	amadeo_bordiga = {
 
@@ -2244,7 +2593,7 @@ ideas = {
 		# 			original_tag = "ITA"
 		# 		}
 
-		# 		picture = generic_political_advisor_europe_1
+		# 		#picture = generic_political_advisor_europe_1
 
 		# 		traits = { ideological_crusader }
 
@@ -2301,7 +2650,7 @@ ideas = {
 		# 			original_tag = "ITA"
 		# 		}
 
-		# 		picture = generic_political_advisor_europe_1
+		# 		#picture = generic_political_advisor_europe_1
 
 		# 		traits = { captain_of_industry }
 

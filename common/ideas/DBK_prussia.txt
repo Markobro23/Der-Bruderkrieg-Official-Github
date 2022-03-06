@@ -5,7 +5,7 @@ ideas = {
     Firece_Revanchism = {
 
       allowed = {
-        always = no
+        always = no 
       }
 
       allowed_civil_war = {
@@ -99,13 +99,102 @@ ideas = {
       removal_cost = -1
 
       modifier = {
-        stability_factor = -0.2
+        production_factory_max_efficiency_factor = -0.1
+		production_factory_efficiency_gain_factor = -0.1
+		stability_factor = -0.2
         war_support_factor  = -0.15
         communism_drift = 0.03
 		democratic_communism_drift = 0.03
         political_power_gain = -0.25
       }
     }
+
+	GER_legacy_of_the_civil_war = {
+		allowed = {
+			always = no
+		}
+			cancel = {
+		is_subject = yes
+	}
+		allowed_civil_war = { 
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			stability_factor = -0.2
+			war_support_factor = -0.15
+			army_morale_factor = -0.15
+			
+		}
+	}
+
+
+
+
+	GER_legacy_of_the_civil_war_2 = {
+		allowed = {
+			always = no
+		}
+			cancel = {
+		is_subject = yes
+	}
+		allowed_civil_war = { 
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			stability_factor = -0.2
+			war_support_factor = -0.1
+			army_morale_factor = -0.1
+			
+		}
+	}
+
+	GER_legacy_of_the_civil_war_3 = {
+		allowed = {
+			always = no
+		}
+			cancel = {
+		is_subject = yes
+	}
+		allowed_civil_war = { 
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			stability_factor = -0.15
+			war_support_factor = -0.1
+			army_morale_factor = -0.1
+			
+		}
+	}
+
+	GER_legacy_of_the_civil_war_4 = {
+		allowed = {
+			always = no
+		}
+			cancel = {
+		is_subject = yes
+	}
+		allowed_civil_war = { 
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			stability_factor = -0.1
+			war_support_factor = -0.05
+			army_morale_factor = -0.05
+			
+		}
+	}
 	
 
 		Prussian_Glory = {
@@ -2592,22 +2681,7 @@ ideas = {
 			political_power_gain = 0.1
 		}
 	}
-	GER_querfont_idea = {
-		name = GER_querfront_modifier
-		allowed = {
-			always = no
-		}
-		allowed_civil_war = {
-			always = yes
-		}
-		 cancel = {
-			is_subject = yes
-		}
-		removal_cost = -1
-		modifier = {
-			political_power_gain = 0.1
-		}
-	}
+
 	GER_querfont_idea_GER_a_real_union = {
 		name = GER_querfront_modifier
 		allowed = {
@@ -2782,6 +2856,23 @@ ideas = {
 			factor = 0.5
 		}
 	}
+
+	paul_von_hindenburg = {
+
+		
+		allowed = {
+			original_tag = GER
+		}
+		available = {
+			always = yes
+		}
+		
+		traits = { centrist_nationalist }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
   }
 
   economic_minister = {
@@ -2801,6 +2892,21 @@ ideas = {
 			factor = 0.5
 		}
 	}
+	kuno_von_westarp = {
+		
+		allowed = {
+			original_tag = GER
+		}
+		available = {
+			always = yes
+		}
+		
+		traits = { protectionist }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
   }
 
   minister_of_the_interior = {
@@ -2815,6 +2921,22 @@ ideas = {
 		}
 		
 		traits = { terrorizer }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
+	max_wallraf = {
+
+		
+		allowed = {
+			original_tag = GER
+		}
+		available = {
+			always = yes
+		}
+		
+		traits = { union_crusher }
 
 		ai_will_do = {
 			factor = 0.5
@@ -2858,6 +2980,22 @@ ideas = {
 			factor = 0.5
 		}
 	}
+
+	alfred_von_tirpitz = {
+		
+		allowed = {
+			original_tag = GER
+		}
+		available = {
+			always = yes
+		}
+		
+		traits = { total_war_advocate }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
   }   
 
    industrial_minister = {
@@ -2872,6 +3010,22 @@ ideas = {
 		}
 		
 		traits = { industrial_fortifier }
+
+		ai_will_do = {
+			factor = 0.5
+		}
+	}
+	siegfried_von_kardorff = {
+
+		
+		allowed = {
+			original_tag = GER
+		}
+		available = {
+			always = yes
+		}
+		
+		traits = { captain_of_industry }
 
 		ai_will_do = {
 			factor = 0.5

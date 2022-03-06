@@ -2,6 +2,9 @@
 import argparse
 import re
 
+###
+##RUN: py "helpful_stuff\focusgfxshine.py" "interface\goals.gfx" "interface\goals_shine.gfx"
+###
 #############################
 ###
 ### HoI 4 Focus GFX entry generator by Yard1, originally for Equestria at War mod
@@ -25,8 +28,8 @@ import re
 ###
 #############################
 
-goals = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals.gfx")
-goals_shine = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals_shine.gfx")
+goals = open(r"C:\Users\Arj\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals.gfx")
+goals_shine = open(r"C:\Users\Arj\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\interface\goals_shine.gfx")
 
 def get_shine_def(name, path):
     return """	SpriteType = {

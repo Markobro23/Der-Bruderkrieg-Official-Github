@@ -2218,16 +2218,10 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        330 = {
-            add_building_construction = {
-                type = bunker
-                level = 4
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
-            }
+        unlock_decision_category_tooltip = SOV_lenin_chinese_intervention
+        add_to_variable = {
+            
+            SOV_lenin_japanese_anger = 25
         }
     }
 }
@@ -2382,15 +2376,21 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        230 = {
-            add_building_construction = {
-                type = bunker
-                level = 4
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
+        TRB = {
+            set_politics = {
+                ruling_party = communism
+            }
+            create_country_leader = {
+                name = "Nikos Zachariadis"
+                picture = "gfx/leaders/NikosZacharaidas.dds"
+                ideology = marxism_trotskyism
+            }
+        }
+        news_event = SOV_lenin_tree_events.30
+        hidden_effect = {
+            country_event = {
+                id = SOV_lenin_tree_events.31
+                days = 7
             }
         }
     }

@@ -32,7 +32,28 @@ FRA_worker_strikes = {
 		}
 		
 	}
+	priority = 300
 }
+FRA_strike_hotspots = {
+	icon = army_reform
+	allowed = {
+    tag = FRA
+	}
+
+	#scripted_gui = france_strikes_scripted_gui
+
+  visible_when_empty = yes
+
+	visible = {
+		has_country_flag = FRA_lyon_strike_start
+		NOT = {
+			has_country_flag = FRA_the_strikes_crushed
+		}
+		
+	}
+	priority = 300
+}
+
 
 
 
@@ -169,9 +190,8 @@ FRA_stir_up_war_sentiments = {
 	}
 	visible = {
 		OR = {
-			has_completed_focus = FRA_IMPERIAL_GLORY
-			has_completed_focus = FRA_VIVE_LE_FRANCE
 			has_completed_focus = FRA_NAPOLEON
+			has_completed_focus = FRA_PATH_AGGRESSION
 		}
 	}
 }
