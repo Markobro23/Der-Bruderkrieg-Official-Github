@@ -3418,13 +3418,82 @@ country_event = {
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.a	
+		name = USA_generic_foriegn_policy_tree.2.a	#business concessions
+		set_global_flag = USA_Offered_Business_Concessions
 	}
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.b	
+		name = USA_generic_foriegn_policy_tree.2.b	#jamaica
+				set_global_flag = USA_Offered_Jamaica
 	}
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.c	
+		name = USA_generic_foriegn_policy_tree.2.c	#nothing
+		set_global_flag = USA_Offered_Nothing
+	}
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.3
+	title = USA_generic_foriegn_policy_tree.3.t
+	desc = USA_generic_foriegn_policy_tree.3.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.3.a	
+		if = {
+			limit = {
+				has_global_flag = USA_Offered_Business_Concessions
+			}
+			###
+		}
+		if = {
+			limit = {
+				has_global_flag = USA_Offered_Jamaica
+			}
+			###
+		}
+		USA = {
+			country_event = {
+				id = USA_generic_foriegn_policy_tree.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = USA_generic_foriegn_policy_tree.3.b	
+		USA = {
+			country_event = {
+				id = USA_generic_foriegn_policy_tree.5
+				days = 1
+			}
+		}
+	}
+	
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.4
+	title = USA_generic_foriegn_policy_tree.4.t
+	desc = USA_generic_foriegn_policy_tree.4.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.4.a	
+		set_country_flag = ENG_Accepts_USA_Conference
+	}
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.5
+	title = USA_generic_foriegn_policy_tree.5.t
+	desc = USA_generic_foriegn_policy_tree.5.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.5.a
+		set_country_flag = ENG_Denies_USA_Conference
 	}
 }
 
