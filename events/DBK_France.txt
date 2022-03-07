@@ -551,6 +551,16 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.210.a #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = FRA_NATIONALISM_PATH
+					option = FRA_LIBERTY_PATH
+				}
+			}
+		}
 		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
@@ -563,6 +573,16 @@ country_event = {
 	}
 	option = { # This option will give the war goal
 		name = france.210.b #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = FRA_POWER_PATH
+					option = FRA_LIBERTY_PATH
+				}
+			}
+		}
 		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
@@ -601,6 +621,23 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.212.a #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_POWER_PATH
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_NATIONALISM_PATH
+				}
+			}
+		}
 		unlock_national_focus = FRA_DOCTRINAIRE_LEFT
 		ai_chance = {
 			factor = 1000
@@ -608,6 +645,16 @@ country_event = {
 }
 option = { # This option will give the war goal
 		name = france.212.b #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_LIBERTY_PATH
+				}
+			}
+		}
 		unlock_national_focus = FRA_DOCTRINAIRE_RIGHT
 		ai_chance = {
 			factor = 1500

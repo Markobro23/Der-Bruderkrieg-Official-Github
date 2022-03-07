@@ -48,9 +48,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-   ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
@@ -396,9 +413,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_rlsdp
@@ -639,9 +673,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
@@ -892,10 +943,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+		}
+	}
+}
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
     }

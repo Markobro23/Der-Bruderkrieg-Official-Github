@@ -958,7 +958,22 @@ country_event = {
 	# }
 	option = { 
 		name = ITA_evola_coup_events.1.b 
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -974,7 +989,22 @@ country_event = {
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.c 
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -990,7 +1020,22 @@ country_event = {
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.e
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -1071,13 +1116,41 @@ country_event = {
 
 	option = { 
 		name = ITA_evola_coup_events.5.a 
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH 
+					option = ITA_BIANCHIS_BROTHERHOOD_PATH
+				}
+			}
+		}
 		#kill_country_leader = yes
 		hidden_effect ={ country_event = ITA_evola_coup_events.6 }
 	}
 	option = { 
 		name = ITA_evola_coup_events.5.b
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		#kill_country_leader = yes
 		hidden_effect ={ country_event = ITA_evola_coup_events.7 }
 	}
@@ -1573,17 +1646,66 @@ country_event = {
 
 	option = { 
 		name = ITA_fascist_tree_events.1.a 
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		complete_national_focus = ITA_de_vecchi_seizes_the_power
 	}
 	option = { 
 		name = ITA_fascist_tree_events.1.b 
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		complete_national_focus = ITA_roccos_conspiracy
 	}
 	option = { 
 		name = ITA_fascist_tree_events.1.c
-		ai_chance = { factor = 90 } 		
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}	
 		complete_national_focus = ITA_the_dawn_of_the_blueshirts
 
 	}

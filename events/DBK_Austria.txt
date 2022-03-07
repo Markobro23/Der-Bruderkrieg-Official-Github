@@ -171,6 +171,16 @@ country_event = {
 
     option = {
         name = DBK_austria_start.11.a
+	ai_chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			has_game_rule = {
+				rule = DBK_AUSTRIAN_PATH
+				option = AUS_FEDERALIST_PATH
+			}
+		}
+	}
         set_country_flag = absolutism_flag
 
         hidden_effect = {
@@ -181,6 +191,16 @@ country_event = {
 
     option = {
         name = DBK_austria_start.11.b
+	ai_chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			has_game_rule = {
+				rule = DBK_AUSTRIAN_PATH
+				option = AUS_ABSOLUTIST_PATH
+			}
+		}
+	}
         set_country_flag = reform
         hidden_effect = {
             news_event = {id = austria.150 days = 2}
