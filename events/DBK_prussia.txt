@@ -42,10 +42,22 @@ add_namespace = germany
 
 	option = { # This option will give the war goal
 		name = GER_goering_internal_stabilization.3.a #needs to be localized
-		ai_chance = { factor = 50 modifier = {
-			add = 50000
-			has_country_flag = GER_go_down_sa_path
-		} } #this factor means the AI will almost always pick this one
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_GOERING_RADICAL_PATH
+					}
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
+				}
+			} 
+		}
 		set_country_flag = chose_wermacht
 
 		
@@ -53,10 +65,22 @@ add_namespace = germany
 
 	option = { # Last chance to backout! Click this option and literally nothing happens
 		name = GER_goering_internal_stabilization.3.b #needs to be localized
-		ai_chance = { factor = 50 modifier = {
-			add = 50000
-			has_country_flag = GER_go_down_freikorps_path
-		} } #AI will NOT do
+		ai_chance = { 
+			factor = 50 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_GOERING_REFORMIST_PATH
+					}
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
+				}
+			} 
+		}
 		set_country_flag = chose_sa
 	}
 }
