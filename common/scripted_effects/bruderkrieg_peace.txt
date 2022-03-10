@@ -2290,11 +2290,21 @@ prussia_beats_the_uk = {
         release_puppet = WLS
         puppet = IRE
         release_puppet = ENG
+
+        SCO = {
+        set_cosmetic_tag = prussian_rk
+        }
+        WLS = {
+        set_cosmetic_tag = prussian_rk
+        }
+        ENG = {
+        set_cosmetic_tag = prussian_rk
+        }
 	every_state = {
 		limit = { is_core_of = ENG OR = { is_core_of = WLS is_core_of = SCO is_core_of = IRE } }
 		remove_core_of = ENG
 	}
-	IRE = { set_cosmetic_tag = IRE_GER }
+	IRE = { set_cosmetic_tag = IRE_GER         set_cosmetic_tag = prussian_rk }
         annex_country = {
             target = SCA
             transfer_troops = no
@@ -2343,6 +2353,28 @@ prussia_beats_the_uk = {
             annex_country = {
                 target = NGA
                 transfer_troops = no
+            }
+        }
+
+        if = {
+            limit = {
+                ITA = {
+                    is_in_faction_with = GER
+                }
+            }
+            ITA = {
+                annex_country = {
+                    target = EGY
+                    transfer_troops = yes
+                }
+            }
+        }
+        else = {
+             GER = {
+                annex_country = {
+                    target = EGY
+                    transfer_troops = yes
+                }
             }
         }
     
