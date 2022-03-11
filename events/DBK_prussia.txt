@@ -830,7 +830,16 @@ add_namespace = militia_revolts
 	option = {
 		name = militia_revolts.3.a
 		remove_ideas = GER_Clash_Of_The_Militias
-		ai_chance = { factor = 1000 }
+		ai_chance = { 
+			factor = 1000 
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_PRUSSIAN_PATH 
+					option = GER_REVERSE_THE_REVOLUTION_PATH
+				}
+			}
+		}
 		remove_ideas = Mackensen_Reforms
 			FRE = {
 				transfer_state = 188
@@ -1172,7 +1181,16 @@ add_namespace = militia_revolts
 	
 		option = {
 			name = militia_revolts.6.a
-			ai_chance = { factor = 1000 }
+			ai_chance = { 
+				factor = 1000 
+				modifier = {
+					factor = 0
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
+				} 
+			}
 				remove_ideas = GER_Clash_Of_The_Militias
 				SAR = {
 					transfer_state = 61
