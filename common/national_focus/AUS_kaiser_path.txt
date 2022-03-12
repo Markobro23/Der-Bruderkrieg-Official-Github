@@ -3448,14 +3448,14 @@ shared_focus = {
   }
   bypass = {
     NOT = {
-      OR = {
-        9.owner = {
-        is_in_faction_with = AUS
-        }
-        9.owner = {
-          is_puppet_of = AUS
-        }
-      }
+      9 = {
+		OWNER = {
+			OR = {
+				is_subject_of = AUS
+				is_in_faction_with = AUS
+			}
+		}
+	}
     }
   }
   completion_reward = {
