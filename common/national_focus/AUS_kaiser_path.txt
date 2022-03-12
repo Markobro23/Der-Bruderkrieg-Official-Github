@@ -7302,8 +7302,23 @@ shared_focus = {
     factor = 200
   }
   available = {
-    GER = {
-      is_puppet_of = AUS
+    OR = {
+      GER = {
+        is_puppet_of = AUS
+      }
+      GER = {
+        is_puppet_of = FRA
+      }
+      GER = {
+        exists = no
+      }
+      GER = {
+        OVERLORD = {
+          NOT = {
+            has_war_with = AUS
+          }
+        }
+      }
     }
   }
 
@@ -7328,6 +7343,13 @@ shared_focus = {
   cost = 3
   ai_will_do = {
     factor = 200
+  }
+  bypass = {
+    NOT = {
+      GER = {
+        is_puppet_of = AUS
+      }
+    }
   }
 
   available_if_capitulated = yes
@@ -7808,7 +7830,7 @@ shared_focus = {
     factor = 200
   }
   available = {
-    has_completed_focus = AUS_CENTRALISM
+    OR = { has_completed_focus = AUS_CENTRALISM has_completed_focus = AUS_FEDERALISM }
   }
 
   available_if_capitulated = yes
