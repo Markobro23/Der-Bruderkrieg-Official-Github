@@ -2783,7 +2783,243 @@ shared_focus = {
 
 
 
+shared_focus = {
+    id = SOV_a_new_dawn_for_the_slavic_race
+    icon = GFX_goal_SOV_a_new_dawn_for_the_slavic_race
+	prerequisite = {focus = SOV_the_tsaritsyn_conference }
+    prerequisite = {
+        focus = SOV_russian_glory
+    }
+	x = 4
+	y = 1
+    relative_position_id = SOV_the_tsaritsyn_conference 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
 
+shared_focus = {
+    id = SOV_pursue_slavic_unity
+    icon = GFX_goal_SOV_pursue_slavic_unity
+	prerequisite = {focus = SOV_a_new_dawn_for_the_slavic_race }
+ 
+	x = -2
+	y = 1
+    relative_position_id = SOV_a_new_dawn_for_the_slavic_race 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    # mutually_exclusive = {
+    #     focus = SOV_advance_into_europe
+    # }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_unite_the_balkans
+    icon = GFX_goal_SOV_unite_the_balkans
+	prerequisite = {focus = SOV_pursue_slavic_unity }
+ 
+	x = -1
+	y = 1
+    relative_position_id = SOV_pursue_slavic_unity 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_unite_central_asia
+    icon = GFX_goal_SOV_unite_central_asia
+	prerequisite = {focus = SOV_unite_the_balkans }
+ 
+	x = 0
+	y = 1
+    relative_position_id = SOV_unite_the_balkans 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_unite_the_polish_states
+    icon = GFX_goal_SOV_unite_the_polish_states
+	prerequisite = {focus = SOV_pursue_slavic_unity }
+ 
+	x = 1
+	y = 1
+    relative_position_id = SOV_pursue_slavic_unity 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_unite_the_far_east
+    icon = GFX_goal_SOV_unite_the_far_east
+	prerequisite = {focus = SOV_unite_the_polish_states }
+ 
+	x = 0
+	y = 1
+    relative_position_id = SOV_unite_the_polish_states 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_eurasian_superstate
+    icon = GFX_goal_SOV_the_eurasian_superstate
+	prerequisite = {focus = SOV_unite_central_asia }
+    prerequisite = {
+        focus = SOV_unite_the_far_east
+    }
+ 
+	x = 1
+	y = 1
+    relative_position_id = SOV_unite_central_asia 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = SOV_advance_into_europe
+    icon = GFX_goal_SOV_advance_into_europe
+	prerequisite = {focus = SOV_a_new_dawn_for_the_slavic_race }
+ 
+	x = 2
+	y = 1
+    relative_position_id = SOV_a_new_dawn_for_the_slavic_race 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    # mutually_exclusive = {
+    #     focus = SOV_pursue_slavic_unity
+    # }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_the_rightful_owners_of_konigsberg
+    icon = GFX_goal_SOV_the_rightful_owners_of_konigsberg
+	prerequisite = {focus = SOV_advance_into_europe }
+ 
+	x = -1
+	y = 1
+    relative_position_id = SOV_advance_into_europe 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_end_the_german_menace
+    icon = GFX_goal_SOV_end_the_german_menace
+	prerequisite = {focus = SOV_the_rightful_owners_of_konigsberg }
+ 
+	x = 0
+	y = 1
+    relative_position_id = SOV_the_rightful_owners_of_konigsberg 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_remembering_tilsit
+    icon = GFX_goal_SOV_remembering_tilsit
+	prerequisite = {focus = SOV_advance_into_europe }
+ 
+	x = 1
+	y = 1
+    relative_position_id = SOV_advance_into_europe 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_play_the_uno_reverse_card_on_napoleon
+    icon = GFX_goal_SOV_play_the_uno_reverse_card_on_napoleon
+	prerequisite = {focus = SOV_remembering_tilsit }
+ 
+	x = 0
+	y = 1
+    relative_position_id = SOV_remembering_tilsit 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = SOV_obliterate_the_british_hegemony
+    icon = GFX_goal_SOV_obliterate_the_british_hegemony
+	prerequisite = {focus = SOV_end_the_german_menace }
+    prerequisite = {
+        focus = SOV_play_the_uno_reverse_card_on_napoleon
+    }
+ 
+	x = 1
+	y = 1
+    relative_position_id = SOV_end_the_german_menace 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+        
+    }
+}
 
 
 
