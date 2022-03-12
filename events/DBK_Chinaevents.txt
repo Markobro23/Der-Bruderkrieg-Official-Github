@@ -570,7 +570,78 @@ country_event = {
  	}
 }
 
-
+country_event = { #puyi flees to Russian Manchuria
+ 	id = peoples_great_qing_expansion.8
+ 	title = peoples_great_qing_expansion.8.t
+ 	desc = peoples_great_qing_expansion.8.d
+ 	is_triggered_only = yes
+ 	
+ 	option = { #claim the mandate of heaven to try and win over the royalists
+ 		name = peoples_great_qing_expansion.8.a
+		PRC_puyi = { set_nationality = MAN }
+		add_country_leader_role = {
+			character = PRC_mao_zedong 
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism_trotskyism
+				expire = "1965.1.1"
+			}
+		}
+		#hidden_effect = {
+			MAN = {
+				add_country_leader_role = {
+					character = PRC_puyi 
+					promote_leader = yes
+					country_leader = {
+						ideology = despotic
+						expire = "1965.1.1"
+					}
+				}
+			}
+		#}
+		add_stability = -0.1
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_political_power = 50
+ 	}
+ 	option = { #abandon monarchism, it sucks anyways
+ 		name = peoples_great_qing_expansion.8.b
+		PRC_puyi = { set_nationality = MAN }
+		add_country_leader_role = {
+			character = PRC_mao_zedong 
+			promote_leader = yes
+			country_leader = {
+				ideology = marxism_trotskyism
+				expire = "1965.1.1"
+			}
+		}
+		#hidden_effect = {
+			MAN = {
+				add_country_leader_role = {
+					character = PRC_puyi 
+					promote_leader = yes
+					country_leader = {
+						ideology = despotic
+						expire = "1965.1.1"
+					}
+				}
+			}
+		#}
+		add_war_support = 0.1
+		set_cosmetic_tag = PRC_not_qing
+		add_popularity = {
+			ideology = communism
+			popularity = -0.1
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.1
+		}
+		add_political_power = -100
+ 	}
+}
 
 
 
