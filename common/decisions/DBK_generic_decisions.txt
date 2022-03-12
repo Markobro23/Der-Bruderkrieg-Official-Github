@@ -30,6 +30,80 @@ political_actions = {
 
 	}
 
+	prepare_resistance_cells = {
+
+		icon = generic_industry
+
+		state_target = yes
+
+		visible = {
+			has_war = no
+		}
+
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				any_neighbor_state = {
+					NOT = {
+						is_owned_by = ROOT
+					}
+				}
+				state = 159
+			}
+		}
+
+		cost = 25
+
+		days_remove = 90
+
+		fire_only_once = yes
+
+		remove_effect = {
+			FROM = {
+				set_state_flag = prepared_for_resistance_cells
+				custom_effect_tooltip = can_launch_cells_while_at_war
+			}
+		}
+
+	}
+
+	launch_resistance_cell_in_FROM = {
+
+		icon = border_war
+
+		state_target = yes
+
+		visible = {
+			has_war = yes
+		}
+
+		target_trigger = {
+			FROM = {
+				is_owned_by = ROOT
+				NOT = {
+					is_controlled_by = ROOT
+				}
+				has_state_flag = prepared_for_resistance_cells
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		remove_effect = {
+			FROM = {
+				add_resistance = 5
+				add_dynamic_modifier = {
+					modifier = ITA_resistance_cells
+					days = 90
+				}
+				clr_state_flag = prepared_for_resistance_cells
+			}
+		}
+
+	}
+
 	promote_irredentism = {
 
 		icon = generic_civil_support
