@@ -5441,6 +5441,130 @@ instant_build = yes
 				}
 			}
 		}
+
+		shared_focus = {
+			id = FRA_DEMAND_WEST_ITALY
+			icon = GFX_goal_Demand_Italia
+			text = FRA_DEMAND_WEST_ITALY
+			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
+			x = -1
+			y = 1
+			relative_position_id = FRA_ANTI_AUSTRIAN_PACT
+			cost = 5
+			ai_will_do = {
+				factor = 20
+			}
+			bypass = {
+				OR = {
+					NOT = {
+						country_exists = ITA
+					}
+					FRA = {
+						has_war_with = ITA
+					}
+					ITA = {
+						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+					}
+				}
+			}
+		
+			available_if_capitulated = yes
+			#search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				#ITA = {country_event = {id = napoleanfrance.10}}
+				158 = {
+					add_core_of = FRA
+				}
+				157 = {
+					add_core_of = FRA
+				}
+				891 = {
+					add_core_of = FRA
+				}
+				add_threat = 3
+			}
+		}
+
+		
+		shared_focus = {
+			id = FRA_MANEGO_CAMPAIGN
+			icon = GFX_goal_Monego_Campaign
+			text = FRA_MANEGO_CAMPAIGN
+			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
+			x = 0
+			y = 1
+			relative_position_id = FRA_DEMAND_WEST_ITALY
+			cost = 5
+			ai_will_do = {
+				factor = 2000
+			}
+			bypass = {
+				OR = {
+					NOT = {
+						country_exists = ITA
+					}
+					
+					ITA = {
+						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
+					}
+				}
+			}
+			available = {
+				has_war_with = ITA
+			}
+		
+			available_if_capitulated = yes 
+			#search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				add_ideas = {
+					FRA_manego_campaign
+				}
+			}
+		}
+		
+		shared_focus = {
+			id = FRA_DANUBE_CAMPAIGN
+			icon = GFX_goal_Danubian_Regions
+			text = FRA_DANUBE_CAMPAIGN
+			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
+			x = 1
+			y = 2
+			relative_position_id = FRA_ANTI_AUSTRIAN_PACT
+			cost = 2
+			ai_will_do = {
+				factor = 2000
+				modifier = {
+					add = 10000
+					has_war_with = GER
+				}
+			}
+			available = {
+				has_war_with = GER
+			}
+			bypass = {
+				OR = {
+					NOT = {
+						country_exists = GER
+					}
+					GER = {
+						is_in_faction_with = FRA
+					}
+					GER = {
+						is_puppet_of = FRA
+					}
+				}
+			}
+		
+			available_if_capitulated = yes
+			#search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				##replace with unlock decision
+				unlock_decision_category_tooltip = FRA_danube_campaign
+			}
+		}
 		
 		#Focus for Law on the Country in Danger
 		shared_focus = {
@@ -6281,134 +6405,6 @@ instant_build = yes
     }
 		
 		
-		shared_focus = {
-			id = FRA_DEMAND_WEST_ITALY
-			icon = GFX_goal_Demand_Italia
-			text = FRA_DEMAND_WEST_ITALY
-			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
-			x = -1
-			y = 1
-			relative_position_id = FRA_ANTI_AUSTRIAN_PACT
-			cost = 5
-			ai_will_do = {
-				factor = 20
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = ITA
-					}
-					FRA = {
-						has_war_with = ITA
-					}
-					ITA = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					}
-				}
-			}
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				#ITA = {country_event = {id = napoleanfrance.10}}
-				158 = {
-					add_core_of = FRA
-				}
-				157 = {
-					add_core_of = FRA
-				}
-				891 = {
-					add_core_of = FRA
-				}
-				add_threat = 3
-			}
-		}
-		
-		
-		
-		
-		shared_focus = {
-			id = FRA_MANEGO_CAMPAIGN
-			icon = GFX_goal_Monego_Campaign
-			text = FRA_MANEGO_CAMPAIGN
-			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
-			x = 0
-			y = 1
-			relative_position_id = FRA_DEMAND_WEST_ITALY
-			cost = 5
-			ai_will_do = {
-				factor = 2000
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = ITA
-					}
-					
-					ITA = {
-						OR  = { is_in_faction_with = FRA  is_puppet_of = FRA }                          
-					}
-				}
-			}
-			available = {
-				has_war_with = ITA
-			}
-		
-			available_if_capitulated = yes 
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				add_ideas = {
-					FRA_manego_campaign
-				}
-			}
-		}
-		
-		shared_focus = {
-			id = FRA_DANUBE_CAMPAIGN
-			icon = GFX_goal_Danubian_Regions
-			text = FRA_DANUBE_CAMPAIGN
-			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
-			x = 1
-			y = 2
-			relative_position_id = FRA_ANTI_AUSTRIAN_PACT
-			cost = 2
-			ai_will_do = {
-				factor = 2000
-				modifier = {
-					add = 10000
-					has_war_with = GER
-				}
-			}
-			available = {
-				has_war_with = GER
-			}
-			bypass = {
-				OR = {
-					NOT = {
-						country_exists = GER
-					}
-					GER = {
-						is_in_faction_with = FRA
-					}
-					GER = {
-						is_puppet_of = FRA
-					}
-				}
-			}
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				##replace with unlock decision
-				unlock_decision_category_tooltip = FRA_danube_campaign
-			}
-		}
-		
-		
-		
 		
 		
 		
@@ -6686,6 +6682,46 @@ instant_build = yes
 		
 		
 		shared_focus = {
+			id = FRA_mobilization_of_the_rhine_guard
+			icon = GFX_goal_FRA_mobilization_of_the_rhine_guard
+			text = FRA_mobilization_of_the_rhine_guard
+			x = 1
+			y = 1
+			cost = 5
+			ai_will_do = {
+				factor = 20
+			}
+			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
+			relative_position_id = FRA_reinforcing_neue_code_napoleon
+		
+			available_if_capitulated = yes
+			#search_filters = { FOCUS_FILTER_RESEARCH }
+		
+			completion_reward = {
+				FGD = {
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+						create_unit = {
+							division = "name = \"King's Guard Division 1\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+						
+							owner = FGD
+						}
+					}
+					
+		  }
+		 
+		  
+		
+			}
+		}
+
+	shared_focus = {
 				id = FRA_ruhr_development
 				icon = GFX_goal_FRA_ruhr_development
 				text = FRA_ruhr_development
@@ -6766,45 +6802,7 @@ instant_build = yes
 			  		}
 				}
 		}
-		shared_focus = {
-			id = FRA_mobilization_of_the_rhine_guard
-			icon = GFX_goal_FRA_mobilization_of_the_rhine_guard
-			text = FRA_mobilization_of_the_rhine_guard
-			x = 1
-			y = 1
-			cost = 5
-			ai_will_do = {
-				factor = 20
-			}
-			prerequisite = {focus = FRA_reinforcing_neue_code_napoleon}
-			relative_position_id = FRA_reinforcing_neue_code_napoleon
-		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				FGD = {
-					random_owned_controlled_state = {
-						add_building_construction = {
-							type = arms_factory
-							level = 1
-							instant_build = yes
-			
-						}
-						add_extra_state_shared_building_slots = 1
-						create_unit = {
-							division = "name = \"King's Guard Division 1\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
-						
-							owner = FGD
-						}
-					}
-					
-		  }
-		 
-		  
-		
-			}
-		}
+
 		# shared_focus = {
 		# 	id = FRA_the_school_of_research
 		# 	icon = GFX_goal_FRA_school_of_research
