@@ -3,11 +3,11 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10
+			add = 1000
 			tag = SOV
 		}
 	} 
-	default = no
+	default = yes
     shared_focus = SOV_the_return_of_the_tsar
     shared_focus = SOV_expand_the_russian_sphere
     shared_focus = SOV_the_baltic_situation
@@ -481,40 +481,46 @@ shared_focus = {
         country_event = SOV_return_of_the_tsar_path.4
     }
 }
-shared_focus = {
-    id = SOV_propose_the_draft
-    icon = GFX_goal_SOV_continuing_the_reforms
-	prerequisite = {focus = SOV_draft_a_new_constitution}
-	x = -1
-	y = 1
-    relative_position_id = SOV_draft_a_new_constitution
-    available = {
-        custom_trigger_tooltip = {
-            tooltip = SOV_constitutional_support_new_greater_than_75
+# shared_focus = {
+#     id = SOV_propose_the_draft
+#     icon = GFX_goal_SOV_continuing_the_reforms
+# 	prerequisite = {focus = SOV_draft_a_new_constitution}
+# 	x = -1
+# 	y = 1
+#     relative_position_id = SOV_draft_a_new_constitution
+#     available = {
+#         custom_trigger_tooltip = {
+#             tooltip = SOV_constitutional_support_new_greater_than_75
 
-            check_variable = {
-                SOV_current_support_for_tsars_constitution > 75
-            }
-        }
-    }
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        ###event for the tsars new constitution
-        add_stability = 0.1
-    }
-}
+#             check_variable = {
+#                 SOV_current_support_for_tsars_constitution > 75
+#             }
+#         }
+#     }
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         ###event for the tsars new constitution
+#         add_stability = 0.1
+#     }
+# }
 shared_focus = {
     id = SOV_embrace_tsar_lineage
     icon = GFX_goal_SOV_path_to_former_glory
-	prerequisite = {focus = SOV_propose_the_draft }
+	prerequisite = {focus = SOV_restore_the_empire }
+    prerequisite = {
+        focus = SOV_eastern_crackdown
+    }
+    prerequisite = {
+        focus = SOV_illegalize_leftist_press
+    }
     
-	x = 1
+	x = 2
 	y = 1
-    relative_position_id = SOV_propose_the_draft
+    relative_position_id = SOV_restore_the_empire
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
@@ -562,16 +568,24 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        set_variable = { SOV_find_hideout_in_FROM_get_cost = 25 }
-        set_variable = { SOV_raid_hideout_in_FROM_get_cost = 20 }
-        unlock_decision_category_tooltip = SOV_the_extermination_of_the_communists
+        every_owned_state = {
+            limit = { is_in_array = { array = SOV.far_eastern_states value = THIS } }
+            add_dynamic_modifier = {
+                modifier = SOV_leftist_crackdown
+            }
+            damage_building = {
+                type = infrastructure
+                damage = 1
+            }
+        }
+        add_war_support = -0.05
         
     }
 }
 
 shared_focus = {
     id = SOV_illegalize_leftist_press
-    icon = GFX_goal_AUS_the_final_language_decree
+    icon = GFX_goal_SOV_arresting_lenin
 	prerequisite = {focus = SOV_the_left_menace}
 	x = 1
 	y = 1
@@ -587,34 +601,34 @@ shared_focus = {
         unlock_decision_tooltip = SOV_moderate_the_resch
     }
 }
-shared_focus = {
-    id = SOV_ban_leftist_parties
-    icon = GFX_goal_SOV_arresting_lenin
-	prerequisite = { focus = SOV_illegalize_leftist_press }
-    prerequisite = {
-        focus = SOV_eastern_crackdown
-    }
+# shared_focus = {
+#     id = SOV_ban_leftist_parties
+#     icon = GFX_goal_SOV_arresting_lenin
+# 	prerequisite = { focus = SOV_illegalize_leftist_press }
+#     prerequisite = {
+#         focus = SOV_eastern_crackdown
+#     }
   
-	x = -1
-	y = 1
-    relative_position_id = SOV_illegalize_leftist_press
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        SOV_increase_support_among_people_medium = yes
-        add_popularity = {
-            ideology = democratic_communism
-            popularity = -0.05
-        }
-        add_popularity = {
-            ideology = communism
-            popularity = -0.05
-        }
-    }
-}
+# 	x = -1
+# 	y = 1
+#     relative_position_id = SOV_illegalize_leftist_press
+#     cost = 3
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         SOV_increase_support_among_people_medium = yes
+#         add_popularity = {
+#             ideology = democratic_communism
+#             popularity = -0.05
+#         }
+#         add_popularity = {
+#             ideology = communism
+#             popularity = -0.05
+#         }
+#     }
+# }
 shared_focus = {
     id = SOV_russian_development
     icon = GFX_goal_SOV_centralization_reform
@@ -781,11 +795,13 @@ shared_focus = {
     id = SOV_restore_the_empire
     icon = GFX_goal_SOV_restore_the_empire
 	
-	prerequisite = {focus = SOV_embrace_tsar_lineage }
-	prerequisite = { focus = SOV_ban_leftist_parties }
-	x = 1
+	prerequisite = {focus = SOV_draft_a_new_constitution }
+    prerequisite = {
+        focus = SOV_the_left_menace
+    }
+	x = -1
 	y = 1
-    relative_position_id = SOV_embrace_tsar_lineage
+    relative_position_id = SOV_draft_a_new_constitution
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
