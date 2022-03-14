@@ -481,40 +481,44 @@ shared_focus = {
         country_event = SOV_return_of_the_tsar_path.4
     }
 }
-shared_focus = {
-    id = SOV_propose_the_draft
-    icon = GFX_goal_SOV_continuing_the_reforms
-	prerequisite = {focus = SOV_draft_a_new_constitution}
-	x = -1
-	y = 1
-    relative_position_id = SOV_draft_a_new_constitution
-    available = {
-        custom_trigger_tooltip = {
-            tooltip = SOV_constitutional_support_new_greater_than_75
+# shared_focus = {
+#     id = SOV_propose_the_draft
+#     icon = GFX_goal_SOV_continuing_the_reforms
+# 	prerequisite = {focus = SOV_draft_a_new_constitution}
+# 	x = -1
+# 	y = 1
+#     relative_position_id = SOV_draft_a_new_constitution
+#     available = {
+#         custom_trigger_tooltip = {
+#             tooltip = SOV_constitutional_support_new_greater_than_75
 
-            check_variable = {
-                SOV_current_support_for_tsars_constitution > 75
-            }
-        }
-    }
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        ###event for the tsars new constitution
-        add_stability = 0.1
-    }
-}
+#             check_variable = {
+#                 SOV_current_support_for_tsars_constitution > 75
+#             }
+#         }
+#     }
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         ###event for the tsars new constitution
+#         add_stability = 0.1
+#     }
+# }
 shared_focus = {
     id = SOV_embrace_tsar_lineage
     icon = GFX_goal_SOV_path_to_former_glory
-	prerequisite = {focus = SOV_propose_the_draft }
-    
-	x = 1
+	
+
+    prerequisite = {focus = SOV_draft_a_new_constitution }
+    prerequisite = {
+        focus = SOV_the_left_menace
+    }
+	x = -1
 	y = 1
-    relative_position_id = SOV_propose_the_draft
+    relative_position_id = SOV_draft_a_new_constitution
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
@@ -562,16 +566,24 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        set_variable = { SOV_find_hideout_in_FROM_get_cost = 25 }
-        set_variable = { SOV_raid_hideout_in_FROM_get_cost = 20 }
-        unlock_decision_category_tooltip = SOV_the_extermination_of_the_communists
+        every_owned_state = {
+            limit = { is_in_array = { array = SOV.far_eastern_states value = THIS } }
+            add_dynamic_modifier = {
+                modifier = SOV_leftist_crackdown
+            }
+            damage_building = {
+                type = infrastructure
+                damage = 1
+            }
+        }
+        add_war_support = -0.05
         
     }
 }
 
 shared_focus = {
     id = SOV_illegalize_leftist_press
-    icon = GFX_goal_AUS_the_final_language_decree
+    icon = GFX_goal_SOV_arresting_lenin
 	prerequisite = {focus = SOV_the_left_menace}
 	x = 1
 	y = 1
@@ -587,34 +599,34 @@ shared_focus = {
         unlock_decision_tooltip = SOV_moderate_the_resch
     }
 }
-shared_focus = {
-    id = SOV_ban_leftist_parties
-    icon = GFX_goal_SOV_arresting_lenin
-	prerequisite = { focus = SOV_illegalize_leftist_press }
-    prerequisite = {
-        focus = SOV_eastern_crackdown
-    }
+# shared_focus = {
+#     id = SOV_ban_leftist_parties
+#     icon = GFX_goal_SOV_arresting_lenin
+# 	prerequisite = { focus = SOV_illegalize_leftist_press }
+#     prerequisite = {
+#         focus = SOV_eastern_crackdown
+#     }
   
-	x = -1
-	y = 1
-    relative_position_id = SOV_illegalize_leftist_press
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        SOV_increase_support_among_people_medium = yes
-        add_popularity = {
-            ideology = democratic_communism
-            popularity = -0.05
-        }
-        add_popularity = {
-            ideology = communism
-            popularity = -0.05
-        }
-    }
-}
+# 	x = -1
+# 	y = 1
+#     relative_position_id = SOV_illegalize_leftist_press
+#     cost = 3
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         SOV_increase_support_among_people_medium = yes
+#         add_popularity = {
+#             ideology = democratic_communism
+#             popularity = -0.05
+#         }
+#         add_popularity = {
+#             ideology = communism
+#             popularity = -0.05
+#         }
+#     }
+# }
 shared_focus = {
     id = SOV_russian_development
     icon = GFX_goal_SOV_centralization_reform
@@ -782,8 +794,14 @@ shared_focus = {
     icon = GFX_goal_SOV_restore_the_empire
 	
 	prerequisite = {focus = SOV_embrace_tsar_lineage }
-	prerequisite = { focus = SOV_ban_leftist_parties }
-	x = 1
+    prerequisite = {
+        focus = SOV_eastern_crackdown
+    }
+    prerequisite = {
+        focus = SOV_illegalize_leftist_press
+    }
+    
+	x = 2
 	y = 1
     relative_position_id = SOV_embrace_tsar_lineage
     cost = 4
@@ -2785,7 +2803,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_new_dawn_for_the_slavic_race
-    icon = GFX_goal_SOV_a_new_dawn_for_the_slavic_race
+    icon = GFX_goal_SOV_consolidating_power
 	prerequisite = {focus = SOV_the_tsaritsyn_conference }
     prerequisite = {
         focus = SOV_russian_glory
@@ -2799,19 +2817,30 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        
+        add_war_support = 0.1
+        every_country = {
+            limit = {
+                is_in_faction_with = SOV
+            }
+            add_political_power = 50
+            add_war_support = 0.05
+            add_stability = 0.05
+            add_autonomy_score = {
+                value = -50
+            }
+        }
     }
 }
 
 shared_focus = {
     id = SOV_pursue_slavic_unity
-    icon = GFX_goal_SOV_pursue_slavic_unity
+    icon = GFX_goal_SOV_denouncing_the_tsar
 	prerequisite = {focus = SOV_a_new_dawn_for_the_slavic_race }
  
 	x = -2
 	y = 1
     relative_position_id = SOV_a_new_dawn_for_the_slavic_race 
-    cost = 2
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -2820,89 +2849,111 @@ shared_focus = {
     #     focus = SOV_advance_into_europe
     # }
     completion_reward = {
-        
+        set_cosmetic_tag = slavic_federation
+        add_ideas = SOV_slavic_unity
     }
 }
 shared_focus = {
     id = SOV_unite_the_balkans
-    icon = GFX_goal_SOV_unite_the_balkans
+    icon = GFX_goal_SOV_unite_balkans
 	prerequisite = {focus = SOV_pursue_slavic_unity }
  
 	x = -1
 	y = 1
     relative_position_id = SOV_pursue_slavic_unity 
-    cost = 2
+    cost = 9
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        every_country = {
-            limit = { OR = { tag = BUL tag = ROM tag = YUG tag = SER } exists = yes }
+        ROM = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        YUG = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        BUL = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        SER = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
     }
 }
 shared_focus = {
     id = SOV_unite_central_asia
-    icon = GFX_goal_SOV_unite_central_asia
+    icon = GFX_goal_SOV_continue_intervention_in_east_turkestan
 	prerequisite = {focus = SOV_unite_the_balkans }
  
 	x = 0
 	y = 1
     relative_position_id = SOV_unite_the_balkans 
-    cost = 2
+     cost = 9
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        every_country = {
-            limit = { OR = { tag = AFG tag = ETR tag = NRX tag = SIK } exists = yes }
+        ETR = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        NRX = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        KUL = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        AFG = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
     }
 }
 shared_focus = {
     id = SOV_unite_the_polish_states
-    icon = GFX_goal_SOV_unite_the_polish_states
+    icon = GFX_goal_SOV_collectivize_polish_farms
 	prerequisite = {focus = SOV_pursue_slavic_unity }
  
 	x = 1
 	y = 1
     relative_position_id = SOV_pursue_slavic_unity 
-    cost = 2
+     cost = 9
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        GLC = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+       
     }
 }
 shared_focus = {
     id = SOV_unite_the_far_east
-    icon = GFX_goal_SOV_unite_the_far_east
+    icon = GFX_goal_SOV_watch_the_manchurian_front
 	prerequisite = {focus = SOV_unite_the_polish_states }
  
 	x = 0
 	y = 1
     relative_position_id = SOV_unite_the_polish_states 
-    cost = 2
+     cost = 9
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        every_country = {
-            limit = { OR = { tag = MON tag = MAN } exists = yes }
+        MAN = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        MON = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
     }
 }
 shared_focus = {
     id = SOV_the_eurasian_superstate
-    icon = GFX_goal_SOV_the_eurasian_superstate
+    icon = GFX_goal_SOV_defender_of_eurasian_freedom
 	prerequisite = {focus = SOV_unite_central_asia }
     prerequisite = {
         focus = SOV_unite_the_far_east
@@ -2911,25 +2962,26 @@ shared_focus = {
 	x = 1
 	y = 1
     relative_position_id = SOV_unite_central_asia 
-    cost = 2
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
+        set_cosmetic_tag = united_eurasia
         
     }
 }
 
 shared_focus = {
     id = SOV_advance_into_europe
-    icon = GFX_goal_SOV_advance_into_europe
+    icon = GFX_goal_AUS_the_remnants_of_prussia
 	prerequisite = {focus = SOV_a_new_dawn_for_the_slavic_race }
  
 	x = 2
 	y = 1
     relative_position_id = SOV_a_new_dawn_for_the_slavic_race 
-    cost = 2
+    cost = 6
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
@@ -2938,95 +2990,113 @@ shared_focus = {
     #     focus = SOV_pursue_slavic_unity
     # }
     completion_reward = {
-        
+        add_ideas = Path_of_Agression
     }
 }
 shared_focus = {
     id = SOV_the_rightful_owners_of_konigsberg
-    icon = GFX_goal_SOV_the_rightful_owners_of_konigsberg
+    icon = GFX_ITA_purchase_small_arms
 	prerequisite = {focus = SOV_advance_into_europe }
  
 	x = -1
 	y = 1
     relative_position_id = SOV_advance_into_europe 
-    cost = 2
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        add_state_core = 763
+        add_state_core = 188
+        add_state_core = 5
+        add_threat = 5
     }
 }
 shared_focus = {
     id = SOV_end_the_german_menace
-    icon = GFX_goal_SOV_end_the_german_menace
+    icon = GFX_goal_stabprussia
 	prerequisite = {focus = SOV_the_rightful_owners_of_konigsberg }
  
 	x = 0
 	y = 1
     relative_position_id = SOV_the_rightful_owners_of_konigsberg 
-    cost = 2
+    cost = 10
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        create_wargoal = {
+            target = GER
+            type = annex_everything
+        }
     }
 }
 shared_focus = {
     id = SOV_remembering_tilsit
-    icon = GFX_goal_SOV_remembering_tilsit
+    icon = GFX_goal_AUS_end_the_napoleonic_era
 	prerequisite = {focus = SOV_advance_into_europe }
  
 	x = 1
 	y = 1
     relative_position_id = SOV_advance_into_europe 
-    cost = 2
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        swap_ideas = {
+            add_idea = Path_of_Agression_SOV_2
+            remove_idea = Path_of_Agression
+        }
     }
 }
 shared_focus = {
     id = SOV_play_the_uno_reverse_card_on_napoleon
-    icon = GFX_goal_SOV_play_the_uno_reverse_card_on_napoleon
+    icon = GFX_goal_FRA_rule_of_the_franks
 	prerequisite = {focus = SOV_remembering_tilsit }
  
 	x = 0
 	y = 1
     relative_position_id = SOV_remembering_tilsit 
-    cost = 2
+    cost = 10
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        create_wargoal = {
+            target = FRA
+            type = annex_everything
+        }
     }
 }
 shared_focus = {
     id = SOV_obliterate_the_british_hegemony
-    icon = GFX_goal_SOV_obliterate_the_british_hegemony
+    icon = GFX_focus_attack_britain
 	prerequisite = {focus = SOV_end_the_german_menace }
     prerequisite = {
         focus = SOV_play_the_uno_reverse_card_on_napoleon
+    }
+    available = {
+        has_completed_focus = SOV_the_eurasian_superstate
     }
  
 	x = 1
 	y = 1
     relative_position_id = SOV_end_the_german_menace 
-    cost = 2
+    cost = 10
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        
+        create_wargoal = {
+            target = ENG
+            type = annex_everything
+        }
     }
 }
 

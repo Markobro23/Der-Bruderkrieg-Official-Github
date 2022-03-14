@@ -1,9 +1,9 @@
 characters={
-	MEX_Álvaro_obregón={
+	MEX_alvaro_obregón={
 		name="Álvaro Obregón"
 		portraits={
 			civilian={
-				large="gfx/leaders/Obgregon.dds"
+				large="gfx/leaders/MEX/Obgregon.dds"
 			}
 		}
 		country_leader={
@@ -56,7 +56,7 @@ characters={
 			id=-1
 		}
 	}
-	MEX_hernán_laborde={
+	MEX_hernan_laborde={
 		name="Hernán Laborde"
 		portraits={
 			civilian={
@@ -70,74 +70,21 @@ characters={
 			id=-1
 		}
 	}
-	MEX_lázaro_cárdenas={
+	MEX_lazaro_cardenas={
 		name="Lázaro Cárdenas"
 		portraits={
-			army={
+			civilian={
+				large="gfx/leaders/MEX/Portrait_Mexico_Lazaro_Cardenas.dds"
 				small="gfx/interface/ideas/idea_MEX_lazaro_cardenas.dds"
 			}
-			army={
-				large="gfx/leaders/MEX/Portrait_Mexico_Lazaro_Cardenas.dds"
-			}
-		}
-		field_marshal={
-			traits={ politically_connected }
-			skill=3
-			attack_skill=3
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=712
 		}
 	}
-	MEX_heliodoro_charis={
-		name="Heliodoro Charis"
+	MEX_gildardo_magana={
+		name=MEX_gildardo_magana
 		portraits={
 			army={
-				small="GFX_portrait_mex_heliodoro_charis_small"
-			}
-			army={
-				large="GFX_portrait_mex_heliodoro_charis"
-			}
-		}
-		corps_commander={
-			traits={ infantry_officer }
-			skill=3
-			attack_skill=4
-			defense_skill=2
-			planning_skill=2
-			logistics_skill=2
-			legacy_id=700
-		}
-	}
-	MEX_luis_farell={
-		name="Luis Farell"
-		portraits={
-			army={
-				small="GFX_portrait_mex_luis_farell_small"
-			}
-			army={
-				large="GFX_portrait_mex_luis_farell"
-			}
-		}
-		corps_commander={
-			traits={ war_hero }
-			skill=3
-			attack_skill=4
-			defense_skill=1
-			planning_skill=2
-			logistics_skill=3
-			legacy_id=701
-		}
-	}
-	MEX_gildardo_magaña={
-		name="Gildardo Magaña"
-		portraits={
-			army={
-				small="GFX_portrait_mex_gildardo_magana_small"
-			}
-			army={
-				large="GFX_portrait_mex_gildardo_magana"
+				large="GFX_portrait_MEX_gildardo_magana"
+				small=GFX_portrait_MEX_gildardo_magana_small
 			}
 		}
 		corps_commander={
@@ -150,16 +97,28 @@ characters={
 			legacy_id=702
 		}
 	}
-	MEX_manuel_pérez_treviño={
-		name="Manuel Pérez Treviño"
+
+	MEX_manuel_perez_trevino={
+		name=MEX_manuel_perez_trevino
 		portraits={
 			army={
-				small="GFX_portrait_mex_manuel_perez_trevino_small"
-			}
-			army={
-				large="GFX_portrait_mex_manuel_perez_trevino"
+				large="GFX_portrait_MEX_manuel_perez_trevino"
+				small=GFX_portrait_MEX_manuel_perez_trevino_small
 			}
 		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = MEX_manuel_perez_trevino
+			ledger = army
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				superior_firepower_expert
+			}
+		}
+
 		corps_commander={
 			traits={ career_officer }
 			skill=3
@@ -170,16 +129,34 @@ characters={
 			legacy_id=703
 		}
 	}
-	MEX_abelardo_l._rodríguez={
-		name="Abelardo L. Rodríguez"
+
+	MEX_abelardo_rodriguez={
+		name=MEX_abelardo_rodriguez
 		portraits={
-			army={
-				small="GFX_portrait_mex_abelardo_rodriguez_small"
+			civilian={
+				large="gfx/leaders/MEX/Portrait_MEX_Pablo_Abelardo_Rodriguez.png"
 			}
 			army={
-				large="GFX_portrait_mex_abelardo_rodriguez"
+				large="gfx/leaders/MEX/Portrait_MEX_Pablo_Abelardo_Rodriguez.png"
+				small="GFX_portrait_MEX_abelardo_rodriguez_small"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = MEX_abelardo_rodriguez
+			ledger = army
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
 		corps_commander={
 			traits={ politically_connected }
 			skill=3
@@ -190,16 +167,19 @@ characters={
 			legacy_id=704
 		}
 	}
-	MEX_manuel_Ávila_camacho={
-		name="Manuel Ávila Camacho"
+
+	MEX_manuel_avila_camacho={
+		name=MEX_manuel_avila_camacho
 		portraits={
-			army={
-				small="GFX_portrait_mex_avila_military_small"
+			civilian={
+				large="gfx/leaders/MEX/Portrait_Mexico_Manuel_Avila_Camacho.png"
 			}
 			army={
-				large="GFX_portrait_mex_avila_military"
+				large="gfx/leaders/MEX/Portrait_Mexico_Manuel_Avila_Camacho.png"
+				small=GFX_portrait_MEX_manuel_avila_camacho_small 
 			}
 		}
+
 		corps_commander={
 			traits={ politically_connected }
 			skill=3
@@ -210,36 +190,63 @@ characters={
 			legacy_id=705
 		}
 	}
-	MEX_othón_p._blanco_núñez_de_cáceres={
-		name="Othón P. Blanco Núñez de Cáceres"
+
+	MEX_othon_blanco={
+		name=MEX_othon_blanco
 		portraits={
 			army={
-				small="GFX_portrait_mex_othon_blanco_small"
-			}
-			army={
-				large="GFX_portrait_mex_othon_blanco"
+				large="gfx/leaders/MEX/Portrait_MEX_Othon_Blanco_KR.png"
+				small="GFX_idea_MEX_othon_blanco"
 			}
 		}
-		navy_leader={
-			traits={ old_guard_navy }
-			skill=2
-			attack_skill=1
-			defense_skill=1
-			maneuvering_skill=1
-			coordination_skill=1
-			legacy_id=706
+		advisor={
+			slot = navy_chief
+			idea_token = MEX_othon_blanco
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				navy_fleet_logistics_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
+		navy_leader = {
+			traits = { old_guard superior_tactician }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
 		}
 	}
-	MEX_heriberto_jara_corona={
-		name="Heriberto Jara Corona"
+
+	MEX_heriberto_corona={
+		name=MEX_heriberto_corona
 		portraits={
 			army={
-				small="GFX_portrait_mex_heriberto_corona_small"
-			}
-			army={
-				large="GFX_portrait_mex_heriberto_corona"
+				large="GFX_portrait_MEX_heriberto_corona"
+				small="GFX_portrait_MEX_heriberto_corona_small"
 			}
 		}
+		advisor={
+			slot = navy_chief
+			idea_token = MEX_heriberto_corona
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				navy_chief_decisive_battle_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
 		navy_leader={
 			traits={ navy_media_personality }
 			skill=1
@@ -250,73 +257,299 @@ characters={
 			legacy_id=707
 		}
 	}
-	MEX_vicente_corona={
-		name="Vicente Corona"
+	MEX_enrique_estrada={
+		name=MEX_enrique_estrada
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+			army={
+				small="GFX_idea_generic_political_advisor_south_america_1"
 			}
 		}
-		country_leader={
-			ideology=syndicalism
-			traits={ dealbroker }
-			expire="1954.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = MEX_enrique_estrada
+			ledger = army
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				military_theorist
+			}
 		}
 	}
-	MEX_martín_pimentel={
-		name="Martín Pimentel"
+
+	MEX_agustin_olachea={
+		name=MEX_agustin_olachea
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				small="GFX_idea_generic_air_europe_3"
 			}
 		}
-		country_leader={
-			ideology=liberal_socialism
-			traits={ quartermaster_general captain_of_industry }
-			expire="1954.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = MEX_agustin_olachea
+			ledger = air
+			allowed = {
+				original_tag = MEX
+			}
+			
+			traits = {
+				air_warfare_theorist
+			}
 		}
 	}
-	MEX_valeriano_zuloaga={
-		name="Valeriano Zuloaga"
+
+
+	### ARMY CHIEFS ###
+
+	
+
+	MEX_matias_santos_ramos={
+		name=MEX_matias_santos_ramos
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				small=GFX_portrait_MEX_matias_santos_ramos_small
 			}
 		}
-		country_leader={
-			ideology=classical_liberalism
-			traits={ efficient_budgeter eager_collaborator }
-			expire="1955.1.1.12"
-			id=-1
+		advisor={
+			slot = army_chief
+			idea_token = MEX_matias_santos_ramos
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
-	MEX_lázaro_cervantes={
-		name="Lázaro Cervantes"
+
+	MEX_gilberto_limon={
+		name= "Gilberto R. Limón"
 		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_8"
+			army={
+				small=GFX_portrait_MEX_gilberto_limon_small
 			}
 		}
-		country_leader={
-			ideology=nationalist_autocrat
-			traits={ reluctant_interventionist }
-			expire="1955.1.1.12"
-			id=-1
+		advisor={
+			slot = army_chief
+			idea_token = MEX_gilberto_limon
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
-	MEX_valentín_zaragoza={
-		name="Valentín Zaragoza"
+
+	
+
+
+	### NAVY CHIEFS ###
+
+	# Corona up there
+
+	# Blanco up there
+
+
+	### AIR CHIEFS ###
+
+	MEX_antonio_cardenas_rodriguez={
+		name=MEX_antonio_cardenas_rodriguez
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			army={
+				small="GFX_idea_MEX_antonio_cardenas_rodriguez"
 			}
 		}
-		country_leader={
-			ideology=ultranationalist
-			expire="1955.1.1.12"
-			id=-1
+		advisor={
+			slot = air_chief
+			idea_token = MEX_antonio_cardenas_rodriguez
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				air_air_combat_training_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	MEX_luis_farell={
+		name=MEX_luis_farell
+		portraits={
+			army={
+				small="GFX_portrait_MEX_luis_farell_small"
+				large="GFX_portrait_MEX_luis_farell"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = MEX_luis_farell
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				air_chief_ground_support_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### MILITARY HIGH COMMAND ###
+
+	# Rodríguez up there
+
+	MEX_jesus_garza_siller={
+		name=MEX_jesus_garza_siller
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = MEX_jesus_garza_siller
+			ledger = air
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				air_strategic_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	MEX_pablo_macias={
+		name= "Pablo Macías Valenzuela"
+		portraits={
+			army={
+				small=GFX_portrait_MEX_pablo_macias_small
+				large="gfx/leaders/MEX/Portrait_MEX_Pablo_Macias_Valenzuela.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = MEX_pablo_macias
+			ledger = army
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			traits = { career_officer politically_connected infantry_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+
+	MEX_jose_gonzalo_escobar={
+		name=MEX_jose_gonzalo_escobar
+		portraits={
+			army={
+				small=GFX_portrait_MEX_jose_gonzalo_escobar_small
+				large = "GFX_portrait_MEX_jose_gonzalo_escobar" #Can become unit leader
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = MEX_jose_gonzalo_escobar
+			ledger = army
+			allowed = {
+				original_tag = MEX
+				has_dlc = "Man the Guns"
+			}
+			traits = {
+				army_cavalry_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+		
+	MEX_hector_meixueiro={
+		name=MEX_hector_meixueiro
+		portraits={
+			army={
+				small=GFX_portrait_MEX_hector_meixueiro_small
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = MEX_hector_meixueiro
+			ledger = navy
+			allowed = {
+				original_tag = MEX
+			}
+			traits = {
+				navy_naval_air_defense_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	MEX_manuel_zermeno_araico = {
+		name = "Manuel Zermeño Araico"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MEX/Portrait_MEX_Zermeno_Araico.png"
+			}
+		}
+		navy_leader = {
+			traits = { blockade_runner }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	MEX_maximino_avila_camacho = {
+		name = "Maximino Ávila Camacho"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MEX/Portrait_MEX_Maximino_Avila_Camacho.png"
+			}
+		}
+		corps_commander = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
 }

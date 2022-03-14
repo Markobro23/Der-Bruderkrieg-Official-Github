@@ -2870,10 +2870,12 @@ political_actions = {
 			has_completed_focus = SOV_conservative_lobbying
 		}
 
+		icon = generic_political_rally
+
 
 		fire_only_once = no
 
-		cost = 40
+		cost = 20
 		days_remove = 60
 
 
@@ -2906,6 +2908,8 @@ political_actions = {
 			
 		}
 
+		icon = generic_political_rally
+
 		visible = {
 			has_completed_focus = SOV_conservative_lobbying
 		} 
@@ -2913,7 +2917,7 @@ political_actions = {
 
 		fire_only_once = no
 
-		cost = 50
+		cost = 30
 		days_remove = 100
 
 		days_re_enable = 15
@@ -5461,10 +5465,10 @@ SOV_the_extermination_of_the_communists = {
 				ideology = communism
 				popularity = -0.07
 			}
-			add_to_variable = {
-				SOV_commie_extermination_progress = 10
-				tooltip = SOV_increase_commie_extermination_progress_by_10
-			}	
+			# add_to_variable = {
+			# 	SOV_commie_extermination_progress = 10
+			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
+			# }	
 		}
 
 		
@@ -5500,10 +5504,10 @@ SOV_the_extermination_of_the_communists = {
 				ideology = democratic_communism
 				popularity = -0.07
 			}
-			add_to_variable = {
-				SOV_commie_extermination_progress = 10
-				tooltip = SOV_increase_commie_extermination_progress_by_10
-			}	
+			# add_to_variable = {
+			# 	SOV_commie_extermination_progress = 10
+			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
+			# }	
 		}
 
 		
@@ -5548,97 +5552,97 @@ SOV_the_extermination_of_the_communists = {
 
 
 
-	SOV_find_hideout_in_FROM = {
-		days_remove = 20
-		fire_only_once = yes
+	# SOV_find_hideout_in_FROM = {
+	# 	days_remove = 20
+	# 	fire_only_once = yes
 
-		target_array = SOV.far_eastern_states
-		target_trigger = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		visible = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		visible = {
-			has_completed_focus = SOV_eastern_crackdown
-		}
-		available = {
-			has_completed_focus = SOV_eastern_crackdown
-		}
-		on_map_mode = map_and_decisions_view
+	# 	target_array = SOV.far_eastern_states
+	# 	target_trigger = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	visible = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	visible = {
+	# 		has_completed_focus = SOV_eastern_crackdown
+	# 	}
+	# 	available = {
+	# 		has_completed_focus = SOV_eastern_crackdown
+	# 	}
+	# 	on_map_mode = map_and_decisions_view
 
-		cost = SOV.SOV_find_hideout_in_FROM_get_cost
-		state_target = yes
-		remove_effect = {
-			FROM = {
-				set_state_flag = SOV_hideout_found_state_flag
-			}
-			custom_effect_tooltip = SOV_we_will_locate_the_hideout_in_the_state_and_can_raid_it
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
-					}
-				}
-				set_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+	# 	cost = SOV.SOV_find_hideout_in_FROM_get_cost
+	# 	state_target = yes
+	# 	remove_effect = {
+	# 		FROM = {
+	# 			set_state_flag = SOV_hideout_found_state_flag
+	# 		}
+	# 		custom_effect_tooltip = SOV_we_will_locate_the_hideout_in_the_state_and_can_raid_it
+	# 		if = {
+	# 			limit = {
+	# 				NOT = {
+	# 					has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+	# 				}
+	# 			}
+	# 			set_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
 
-			}
-		}
-	}
-	SOV_blank_1 = {
-		available = {
-			always = no
-		}
+	# 		}
+	# 	}
+	# }
+	# SOV_blank_1 = {
+	# 	available = {
+	# 		always = no
+	# 	}
 		
-	}
+	# }
 
-	SOV_raid_hideout_in_FROM = {
-		days_remove = 20
-		fire_only_once = no
+	# SOV_raid_hideout_in_FROM = {
+	# 	days_remove = 20
+	# 	fire_only_once = no
 
-		visible = {
-			FROM = {
-				has_state_flag = SOV_hideout_found_state_flag
-				NOT = {
-					has_state_flag = SOV_hideout_raid_success_state_flag
-				}
-			}
-		}
-		cost = SOV.SOV_raid_hideout_in_FROM_get_cost
-		target_array = SOV.far_eastern_states
-		target_root_trigger = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		state_target = yes
-		remove_effect = {
-			FROM = {
-				save_global_event_target_as = SOV_western_hideout_state_target
-			}
-			random_list = {
-				75 = {
-					country_event = SOV_commie_hideout_raids.1
-				}
-				25 = {
-					country_event = SOV_commie_hideout_raids.2
-				}
-			}
-		}
-	}
+	# 	visible = {
+	# 		FROM = {
+	# 			has_state_flag = SOV_hideout_found_state_flag
+	# 			NOT = {
+	# 				has_state_flag = SOV_hideout_raid_success_state_flag
+	# 			}
+	# 		}
+	# 	}
+	# 	cost = SOV.SOV_raid_hideout_in_FROM_get_cost
+	# 	target_array = SOV.far_eastern_states
+	# 	target_root_trigger = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	state_target = yes
+	# 	remove_effect = {
+	# 		FROM = {
+	# 			save_global_event_target_as = SOV_western_hideout_state_target
+	# 		}
+	# 		random_list = {
+	# 			75 = {
+	# 				country_event = SOV_commie_hideout_raids.1
+	# 			}
+	# 			25 = {
+	# 				country_event = SOV_commie_hideout_raids.2
+	# 			}
+	# 		}
+	# 	}
+	# }
 
 	
 }

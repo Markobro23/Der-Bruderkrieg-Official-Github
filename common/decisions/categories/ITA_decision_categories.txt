@@ -217,3 +217,32 @@ ITA_the_mercenaries = {
 	}
 	priority = 200
 }
+
+ITA_portugese_corporatists = {
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		has_completed_focus = ITA_fortify_west_coast
+		has_country_leader = {
+			name = "Costanzo Ciano"
+		}
+	}
+}
+
+ITA_portugese_syndaclists = {
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		has_completed_focus = ITA_fortify_west_coast
+		OR = {
+			has_country_leader = {
+				name = "Michele Bianchi"
+			}
+			has_country_leader = {
+				name = "Attilio Teruzzi"
+			}
+		}
+	}
+}
