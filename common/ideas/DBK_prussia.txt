@@ -79,6 +79,67 @@ ideas = {
 
       }
     }
+
+    Mackensen_Reforms_2 = {
+
+    	name = Mackensen_Reforms
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = ultranationalism
+		  }
+	  }
+
+	  
+
+      removal_cost = -1
+
+      modifier = {
+        army_org_factor = 0.2
+        army_attack_factor = 0.15
+        army_defence_factor = 0.05
+
+      }
+    }
+
+    GER_pure_radicalism_rohm = {
+
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+	   cancel = {
+		  NOT = {
+		  	has_government = ultranationalism
+		  }
+	  }
+
+	  
+
+      removal_cost = -1
+
+      modifier = {
+        conscription_factor = 0.1
+        training_time_factor = -0.1
+        army_attack_factor = 0.1
+        party_popularity_stability_factor = 0.1
+
+      }
+    }
+
     Revolutionary_Treason = {
 
       allowed = {
