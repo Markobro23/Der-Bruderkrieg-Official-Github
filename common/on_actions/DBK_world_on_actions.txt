@@ -2,8 +2,10 @@ on_actions = {
 	on_startup = {
 		effect = {
 			#load in tree alert
-			every_country = {
-				limit = { OR = { tag = SOV tag = USA } }
+			SOV = {
+				country_event = { id = lore_dump.1 }
+			}
+			USA = {
 				country_event = { id = lore_dump.1 }
 			}
 			every_country = {
