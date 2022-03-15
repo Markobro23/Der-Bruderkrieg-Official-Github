@@ -1,6 +1,11 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			#load in tree alert
+			every_country = {
+				limit = { OR = { tag = SOV tag = USA } }
+				country_event = { id = lore_dump.1 }
+			}
 			every_country = {
 				head_of_gov_setup = yes
 			}
