@@ -9,12 +9,34 @@ focus_tree = {
 		y = 4000
 	}
 
+
+	focus = {
+		id = USA_USES_LOAD_IN_TREES
+		icon = GFX_goal_CMI_police_state
+		#prerequisite = {focus = SOV_military_crackdowns}
+		x = 0
+		y = 0
+		#relative_position_id = SOV_military_crackdowns
+		cost = 0.5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			always = no
+		}
+		
+		completion_reward = {
+			
+		}
+	}
+
 	focus = {
 		id = USA_the_end_of_the_first_four
 		icon = GFX_goal_USA_end_of_the_first_four
 		#prerequisite = { focus = USA_longs_campaign_speech }
 		x = 0
-		y = 0
+		y = 1
 		#relative_position_id = USA_longs_campaign_speech
 		cost = 2
 		ai_will_do = {
