@@ -3281,15 +3281,15 @@ country_event = {
 		name = austria_military_events.4.a
 		ai_chance = { factor = 100 } #this factor me	ans the AI will almost always pick this one
 		set_country_flag = franz_ferdinand_stays
-		unlock_national_focus = AUS_reinforce_the_sgc_garrison
+		set_country_flag= AUS_reinforce_the_sgc_garrison_flag
 		unlock_decision_category_tooltip = AUS_managing_bavaria_court_factionalism
 	}
 	option = { 
 		name = austria_military_events.4.b
 		ai_chance = { factor = 100 } 
-		unlock_national_focus = AUS_recalling_franz_ferdinand
 		AUS = { release = GPU }
-		
+		set_country_flag= AUS_recalling_franz_ferdinand_flag
+
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 				add_popularity = {
@@ -3636,6 +3636,8 @@ country_event = {
 			}
 		}
 		GPU = {
+			remove_ideas = GPU_court_factionalism
+			remove_ideas = GPU_garrisson_state
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -3673,6 +3675,7 @@ country_event = {
 					#
 				}
 			}
+			
 			}
 
 		}
@@ -3723,6 +3726,8 @@ country_event = {
 			}
 		}
 		GPU = {
+			remove_ideas = GPU_court_factionalism
+			remove_ideas = GPU_garrisson_state
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
