@@ -3356,9 +3356,41 @@ country_event = {
 }
 
 
+###making franz leader
+country_event = {
+	id = austria_military_events.7
+	title = austria_military_events.7.t
+	desc = austria_military_events.7.d 
+	is_triggered_only = yes 
 
+	option = { 
+		name = austria_military_events.7.a
+		ai_chance = { factor = 100 } 
+		GPU = {
+			add_country_leader_role = {
+				character = GPU_franz_ferdinand
+				promote_leader = yes
+				country_leader = {
+					ideology = authoritarian_democrat
+					expire = "1965.1.1"
+				}
+			}
+			country_event = { id = austria_military_events.8 hours = 3 }
+		}
+	}	
+}
 
+country_event = {
+	id = austria_military_events.8
+	title = austria_military_events.8.t
+	desc = austria_military_events.8.d 
+	is_triggered_only = yes 
 
+	option = { 
+		name = austria_military_events.8.a #zamn
+		ai_chance = { factor = 100 } 
+	}	
+}
 
 
 

@@ -2996,6 +2996,24 @@ AUS_managing_bavaria_court_factionalism = {
 			
 		}
 	}
+
+	AUS_franz_rule_secured = {
+		icon = generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_court_influence_over_60
+				check_variable = { court_influence_var > 60 }
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = { id = austria_military_events.7 hours = 1 }
+		}
+	}
 	
 }
 
