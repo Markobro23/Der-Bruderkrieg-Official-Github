@@ -3630,14 +3630,32 @@ country_event = {
 		ai_chance = { factor = 1}
 		AUS = {
 			add_war_support = -0.1
-			release = GPU
+			set_autonomy = {
+				target = GPU
+				autonomous_state = autonomy_free
+			}
+		}
+		GPU = {
+			annex_country = {
+				target = BAD
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = WUR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = HES
+				transfer_troops = yes
+			}
+		}
+		country_event = {
+			id = southgermanconfederationcoup.2
+			days = 2
 		}
 		hidden_effect = {
 			GPU = {
-				country_event = {
-					id = southgermanconfederationcoup.2
-					days = 2
-				}
+				
 			add_popularity = {
 				popularity = 0.25
 				ideology = neutrality
@@ -3671,10 +3689,14 @@ country_event = {
 	option = {
 		name = southgermanconfederationcoup.2.a
 		ai_chance = { factor = 1}
+		GPU = {
+			leave_faction = yes
+		}
 		declare_war_on = {
 			target = GPU
 			type = puppet_wargoal_focus
 		}
+		
 	}
 	option = {
 		name = southgermanconfederationcoup.2.b
@@ -3695,14 +3717,32 @@ country_event = {
 		ai_chance = { factor = 1}
 		AUS = {
 			add_war_support = -0.1
-			release = GPU
+			set_autonomy = {
+				target = GPU
+				autonomous_state = autonomy_free
+			}
 		}
-		hidden_effect = {
-			GPU = {
-				country_event = {
+		GPU = {
+			annex_country = {
+				target = BAD
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = WUR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = HES
+				transfer_troops = yes
+			}
+		}
+		country_event = {
 					id = southgermanconfederationcoup.2
 					days = 2
 				}
+		hidden_effect = {
+			GPU = {
+				
 			add_popularity = {
 				popularity = 0.25
 				ideology = fascism
@@ -3742,17 +3782,26 @@ country_event = {
 		}
 		set_country_flag = SGC_court_opposition_crushed
 		hidden_effect = {
-			 
-		create_country_leader = {
-			name = "Franz Ferdinand"
-			desc = "FRANZ_FERDINAND_DESC"
-			picture = "gfx/leaders/FranzFerdinandPortrait.dds"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat
-			traits = {
-				#
+			GPU = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.3
+				}
+				set_politics = {
+					ruling_party = neutrality
+				}
+				create_country_leader = {
+					name = "Franz Ferdinand"
+					desc = "FRANZ_FERDINAND_DESC"
+					picture = "gfx/leaders/FranzFerdinandPortrait.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						#
+					}
+				}
 			}
-		}
+		
 		}
 	}
 }

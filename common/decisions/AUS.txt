@@ -2748,7 +2748,9 @@ AUS_managing_bavaria_court_factionalism = {
 	
 		visible = {
 		tag = AUS
-		
+		NOT = {
+			has_country_flag = SGC_court_opposition_crushed
+		}
 		} 
 	
 		cancel_if_not_visible = yes
@@ -3002,8 +3004,8 @@ AUS_managing_bavaria_court_factionalism = {
 
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = AUS_court_influence_over_60
-				check_variable = { court_influence_var > 60 }
+				tooltip = AUS_court_influence_over_70
+				check_variable = { court_influence_var > 69 }
 			}
 		}
 		fire_only_once = yes
@@ -3011,7 +3013,7 @@ AUS_managing_bavaria_court_factionalism = {
 			factor = 100
 		}
 		complete_effect = {
-			country_event = { id = austria_military_events.7 hours = 1 }
+			country_event = { id = southgermanconfederationcoup.5 hours = 1 }
 		}
 	}
 	
