@@ -1,9 +1,9 @@
 characters={
-	IRE_Éamon_de_valera={
+	IRE_eamon_de_valera={
 		name="Éamon de Valera"
 		portraits={
 			civilian={
-				large="gfx/leaders/IRE/Portrait_Ireland_Eamon_de_Valera.dds"
+				large="gfx/leaders/IRE/Portrait_Ireland_Eamon_de_Valera_kr.png"
 			}
 		}
 		country_leader={
@@ -13,11 +13,11 @@ characters={
 			id=-1
 		}
 	}
-	IRE_sir_nevil_macready={
-		name="Sir Nevil Macready"
+	IRE_nevil_macready={
+		name="Nevil Macready"
 		portraits={
 			civilian={
-				large="gfx/leaders/Sir_Nevil_Macready.dds"
+				large="gfx/leaders/IRE/Sir_Nevil_Macready.dds"
 			}
 		}
 		country_leader={
@@ -31,7 +31,7 @@ characters={
 		name="James Larkin"
 		portraits={
 			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+				large="gfx/leaders/IRE/Portrait_Ireland_Jim_Larkin.png"
 			}
 		}
 		country_leader={
@@ -73,74 +73,119 @@ characters={
 			logistics_skill=2
 			legacy_id=-1
 		}
-	}
-	IRE_peter_mulcahy={
-		name="Peter Mulcahy"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_8"
-			}
-		}
-		country_leader={
-			ideology=centralism
-			expire="1950.1.1.12"
-			id=-1
-		}
-	}
-	IRE_thomas_kelly={
-		name="Thomas Kelly"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=centrism
-			traits={ eager_collaborator }
-			expire="1943.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = IRE_michael_joe_costello
+			ledger = army
+				allowed = {
+					original_tag = IRE
+				}
+				
+				traits = {
+					military_theorist
+				}
 		}
 	}
-	IRE_daniel_connolly={
-		name="Daniel Connolly"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_5"
-			}
+	IRE_richard_james_mulcahy={
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = IRE_richard_james_mulcahy
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=despotic
-			traits={ compassionate_gentleman }
-			expire="1951.1.1.12"
-			id=-1
+		field_marshal = {
+			traits = { trait_cautious brilliant_strategist organizer logistics_wizard }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		name="Richard James Mulcahy"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_5"
+				large="gfx/leaders/IRE/Portrait_Ireland_Richard_Mulcahy.png"
+			}
 		}
 	}
-	IRE_ernes_connolly={
-		name="Ernes Connolly"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_6"
-			}
+	IRE_dan_mckenna={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = IRE_dan_mckenna
+			ledger = army
+				allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					army_regrouping_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=fascism_ideology
-			traits={ hawk armaments_organizer }
-			expire="1944.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { trickster urban_assault_specialist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		name="Daniel McKenna"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+				large="gfx/leaders/IRE/Portrait_Ireland_Daniel_McKenna.png"
+			}
 		}
 	}
-	IRE_denis_plunket={
-		name="Denis Plunket"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
+	IRE_s_muiris={
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = IRE_s_muiris
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					navy_chief_decisive_battle_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=racial_nationalism
-			traits={ fortification_engineer tenacious_negotiator }
-			expire="1952.1.1.12"
-			id=-1
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+		name="Seamus O'Muiris"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_3"
+				large="gfx/leaders/IRE/Portrait_Ireland_Seamus_O_Muiris.png"
+			}
 		}
 	}
 }
