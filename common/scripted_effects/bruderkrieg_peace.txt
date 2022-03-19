@@ -1258,10 +1258,16 @@ russia_beats_ottoman_peace_deal = {
     release = SYR
     release = PAL
     #release = LEB
-    release = SAU
+    
     release = IRQ
     release = JOR
-    release = HEJ
+    SAU = {
+        annex_country = {
+            target = HEJ
+            transfer_troops = yes
+        }
+        transfer_state = 876
+    }
     release = TUR
     TUR = {
         set_cosmetic_tag = russian_occupied_ottomans
@@ -1284,7 +1290,6 @@ russia_beats_ottoman_peace_deal = {
         #puppet = LEB
         puppet = IRQ
         puppet = JOR
-        puppet = HEJ
         puppet = TUR
         puppet = BYZ
     }
