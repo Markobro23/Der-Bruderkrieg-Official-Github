@@ -682,10 +682,29 @@ country_event = {
 		hidden_effect = {
 			news_event = francestart.8
 		}
-}
+	}
 }
 
+#first war
 
+country_event = {
+	id = france.214
+	title = france.214.t
+	desc = france.214.d
+	picture = GFX_report_event_generic_rifles
+
+	fire_only_once = yes 
+	is_triggered_only = yes
+
+	option = { # This option will give the anti war goal
+		name = france.214.a #needs to be localized
+		add_timed_idea = {
+			idea = FRA_first_war
+			days = 90
+		}
+		set_country_flag = FRA_first_war_declared
+	}
+}
 
 
 add_namespace = france_policy_tree_events

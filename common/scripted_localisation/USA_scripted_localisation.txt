@@ -1,6 +1,37 @@
 
 
+defined_text = {
+	name = GetAmericanElectionGUItt
+	text = {
+		trigger = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
+			NOT = {
+				has_country_flag = USA_1936_elections_over
+			}
+		}
+		localization_key = USA_american_election_gui_allowed_tt
+	}
+	text = {
+		localization_key = USA_american_election_gui_tt_blocked
+	}
+}
 
+defined_text = {
+	name = GetAmericanElectionGUIDate
+
+	text = {
+		trigger = {
+			has_country_flag = USA_1936_elections_over
+		}
+		localization_key = USA_next_election_1940
+	}
+	text = {
+		localization_key = USA_next_election_1936
+	}
+}
 
 
 defined_text = {

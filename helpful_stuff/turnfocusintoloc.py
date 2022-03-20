@@ -5,7 +5,7 @@ import sys
 
 myFile = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\common\national_focus\SOV_return_of_the_tsar_path.txt") ##file path
 #myFile = open("common\national_focus\USA_warren_path.txt") ##file path")
-substring = "id ="
+substring = "id =" 
 substring2 = "relative"
 substring3 = "SOV_" ##put your country tag here
 
