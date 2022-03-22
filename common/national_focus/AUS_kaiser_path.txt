@@ -2082,6 +2082,78 @@ shared_focus = {
 }
 
 shared_focus = {
+  id = AUS_industrializing_ostafrika
+  icon = GFX_focus_generic_africa_factory
+  x = 5
+  y = 1
+  cost = 8
+  available_if_capitulated = yes
+  prerequisite = { focus = AUS_form_the_ork }
+  relative_position_id = AUS_form_the_ork
+
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  available = {
+      1064 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+      547 = {
+        CONTROLLER = {
+          OR = {
+            tag = AUS
+            is_subject_of = AUS
+          }
+        }
+      }
+    }
+  completion_reward = {
+    1064 = {
+              add_building_construction = {
+                  type = arms_factory
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 3
+    }
+    547 = {
+              add_building_construction = {
+                  type = industrial_complex
+                  level = 1
+                  instant_build = yes
+
+              }
+               add_building_construction = {
+                  type = infrastructure
+                  level = 1
+                  instant_build = yes
+
+              }
+              add_extra_state_shared_building_slots = 2
+    }
+  }
+}
+
+shared_focus = {
 	id = AUS_expansion_of_togo_operations
 	icon = GFX_goal_generic_positive_trade_relations
 	relative_position_id = AUS_initiate_a_trial_run_in_togo
@@ -2106,6 +2178,10 @@ shared_focus = {
       if = {
         limit = { OR = { has_full_control_of_state = 777 } } 
         unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
+      }
+      if = {
+        limit = { OR = { has_full_control_of_state = 777 } } 
+        unlock_decision_tooltip = AUS_develop_togo_rubber_deposits
       }
 	}
 }
@@ -2169,41 +2245,14 @@ shared_focus = {
 	cost = 5
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_initiate_a_trial_run_in_togo }
+  prerequisite = { focus = AUS_industrializing_ostafrika }
 	#search_filters = { FOCUS_FILTER_INDUSTRY } 
 	ai_will_do = {
 		factor = 1
 	}
 	completion_reward = {
         unlock_decision_tooltip = AUS_develop_nairobi_steel_deposits
-	}
-}
-
-shared_focus = {
-	id = AUS_rubber_prospects
-	icon = GFX_focus_generic_rubber
-	cost = 5
-	available_if_capitulated = yes
-	relative_position_id = AUS_expansion_of_togo_operations
-	x = 0
-	y = 1
-	prerequisite = { 
-		focus = AUS_expansion_of_togo_operations 
-	}
-	prerequisite = { 
-		focus = AUS_exploitation_of_ostafrika 
-	}
-	#search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-	completion_reward = {
-		if = {
-        limit = { OR = { has_full_control_of_state = 777 } } 
-        unlock_decision_tooltip = AUS_develop_togo_rubber_deposits
-      }
-
         unlock_decision_tooltip = AUS_develop_nairobi_rubber_deposits
-         
 	}
 }
 
@@ -2211,10 +2260,11 @@ shared_focus = {
 	id = AUS_oil_prospects_in_ostafrika
 	icon = GFX_goal_generic_oil_refinery
 	x = -1
-	y = 3
-	cost = 5
+	y = 1
+	cost = 2
 	available_if_capitulated = yes
 	prerequisite = { focus = AUS_exploitation_of_ostafrika }
+  prerequisite = { focus = AUS_expansion_of_togo_operations }
 	relative_position_id = AUS_exploitation_of_ostafrika
 	
 	#search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -2229,11 +2279,196 @@ shared_focus = {
 }
 
 shared_focus = {
+  id = AUS_oppose_italy_in_horn
+  icon = GFX_goal_FRA_hold_back_the_duce
+  relative_position_id = AUS_industrializing_ostafrika
+  x = 3
+  y = 1
+  cost = 5
+  prerequisite = { focus = AUS_industrializing_ostafrika }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+      give_guarantee = DRV
+  }
+}
+
+shared_focus = {
+  id = AUS_sarkotics_proposal
+  icon = GFX_goal_generic_intelligence_exchange
+  relative_position_id = AUS_industrializing_ostafrika
+  x = 0
+  y = 1
+  cost = 5
+  prerequisite = { focus = AUS_industrializing_ostafrika }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+      country_event = { id = austria.206 hours = 2 }
+  }
+}
+
+shared_focus = {
+  id = AUS_secure_osterfrika
+  icon = GFX_goal_generic_political_pressure
+  relative_position_id = AUS_sarkotics_proposal
+  x = -1
+  y = 1
+  cost = 5
+  prerequisite = { focus = AUS_sarkotics_proposal }
+  mutually_exclusive = { focus = AUS_osterfrikan_dominions }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+      ORA = {
+        remove_ideas = ORA_ethnic_unrest
+      }
+  }
+}
+
+shared_focus = {
+  id = AUS_osterfrikan_dominions
+  icon = GFX_goal_USA_an_old_idea
+  relative_position_id = AUS_sarkotics_proposal
+  x = 1
+  y = 1
+  cost = 5
+
+  available = {
+    has_war = no
+  }
+
+  prerequisite = { focus = AUS_sarkotics_proposal }
+  mutually_exclusive = { focus = AUS_secure_osterfrika }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+    ORA = {
+      release = KEN
+      release = TZN
+    }
+    if = {
+      limit = {
+        has_dlc = "Together for Victory"
+      }
+      set_autonomy = {
+        target = KEN
+        autonomous_state = autonomy_dominion
+      }
+      set_autonomy = {
+        target = TZN
+        autonomous_state = autonomy_dominion
+      }
+      else = {
+        puppet = KEN
+        puppet = TZN
+      }
+    }
+    if = {
+      limit = { DRV = { is_guaranteed_by = AUS exists = yes NOT = { is_in_faction_with = AUS } } }
+      DRV = {
+        country_event = { id = generic.5 hours = 2 }
+      }
+    }
+  }
+}
+
+shared_focus = {
+  id = AUS_direct_control
+  icon = GFX_goal_Generic_Ultranationalist_Monarchy
+  relative_position_id = AUS_secure_osterfrika
+  x = -1
+  y = 1
+  cost = 10
+  prerequisite = { focus = AUS_secure_osterfrika }
+  mutually_exclusive = { focus = AUS_replace_sarkotic }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+      annex_country = {
+        target = ORA
+        transfer_troops = yes
+      }
+  }
+}
+
+shared_focus = {
+  id = AUS_replace_sarkotic
+  icon = GFX_ITA_purchase_small_arms
+  relative_position_id = AUS_osterfrikan_dominions
+  x = -1
+  y = 1
+  cost = 5
+
+  available = {
+    OR = {
+      ORA = {
+        is_subject_of = AUS
+      }
+      AND = {
+        TZN = {
+          is_subject_of = AUS
+        }
+        KEN = {
+          is_subject_of = AUS
+        }
+      }
+    }
+  }
+
+  prerequisite = { focus = AUS_secure_osterfrika focus = AUS_osterfrikan_dominions }
+  mutually_exclusive = { focus = AUS_direct_control }
+  #search_filters = { FOCUS_FILTER_INDUSTRY } 
+  ai_will_do = {
+    factor = 1
+  }
+  completion_reward = {
+    if = {
+      limit = { country_exists = ORA }
+      effect_tooltip = {
+        ORA = {
+          add_country_leader_role = {
+            character = ORA_alexander_von_falkenhausen
+            promote_leader = yes
+            country_leader = {
+              ideology = despotic
+              expire = "1965.1.1"
+            }
+          }
+        }
+      }
+      ORA = {
+        country_event = { id = austria.207 hours = 1 }
+      }
+      else = {
+        TZN = {
+          add_ideas = ORA_local_rule
+        }
+        KEN = {
+          add_ideas = ORA_local_rule
+        }
+        country_event = { id = austria.208 hours = 2 }
+      }
+    }
+  }
+}
+
+shared_focus = {
 	id = AUS_minding_the_italian_border
 	icon = GFX_goal_generic_construct_military
 	cost = 5
-	prerequisite = { focus = AUS_exploitation_of_ostafrika }
-	relative_position_id = AUS_exploitation_of_ostafrika
+	prerequisite = { focus = AUS_oppose_italy_in_horn }
+	relative_position_id = AUS_oppose_italy_in_horn
 	x = 0
 	y = 1
 	ai_will_do = {
@@ -2283,82 +2518,6 @@ shared_focus = {
     }
   }
 }
-
-
-shared_focus = {
-	id = AUS_industrializing_ostafrika
-	icon = GFX_focus_generic_africa_factory
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_minding_the_italian_border }
-	relative_position_id = AUS_minding_the_italian_border
-
-	#search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 1
-	}
-  available = {
-      1064 = {
-        CONTROLLER = {
-          OR = {
-            tag = AUS
-            is_subject_of = AUS
-          }
-        }
-      }
-      547 = {
-        CONTROLLER = {
-          OR = {
-            tag = AUS
-            is_subject_of = AUS
-          }
-        }
-      }
-    }
-	completion_reward = {
-		1064 = {
-              add_building_construction = {
-                  type = arms_factory
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_building_construction = {
-                  type = industrial_complex
-                  level = 1
-                  instant_build = yes
-
-              }
-               add_building_construction = {
-                  type = infrastructure
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_extra_state_shared_building_slots = 3
-    }
-    547 = {
-              add_building_construction = {
-                  type = industrial_complex
-                  level = 1
-                  instant_build = yes
-
-              }
-               add_building_construction = {
-                  type = infrastructure
-                  level = 1
-                  instant_build = yes
-
-              }
-              add_extra_state_shared_building_slots = 2
-    }
-	}
-}
-
-
-
 
 
 shared_focus = {
