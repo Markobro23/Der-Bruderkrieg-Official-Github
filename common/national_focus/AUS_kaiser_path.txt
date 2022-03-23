@@ -454,7 +454,7 @@ shared_focus = {
 		 focus = AUS_a_collapsing_empire
 	 }
 
-	  x = 0
+	  x = -2
 	  y = 1
 	  relative_position_id = AUS_a_collapsing_empire
 	  cost = 2
@@ -1366,7 +1366,7 @@ shared_focus = {
   id = AUS_recover_from_black_monday
   icon = GFX_goal_deregulate_the_banking_industury
   text = AUS_recover_from_black_monday
-  x = 44
+  x = 51
   y = 0
   cost = 1
 
@@ -1406,7 +1406,7 @@ shared_focus = {
   icon = GFX_goal_generic_construction
   text = AUS_BOOST_ECONOMY
   prerequisite = { focus = AUS_recover_from_black_monday }
-  x = -5
+  x = 0
   y = 1
   relative_position_id = AUS_recover_from_black_monday
   cost = 5 
@@ -1853,11 +1853,11 @@ shared_focus = {
   shared_focus = {
     id = AUS_form_the_ork
     icon = GFX_goal_GenericResourceExtraction
-    relative_position_id = AUS_recover_from_black_monday
+    relative_position_id = AUS_the_next_bruderkrieg_is_coming
     prerequisite = {
-      focus = AUS_recover_from_black_monday
+      focus = AUS_the_next_bruderkrieg_is_coming
     }
-    x = 5
+    x = 18
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1874,7 +1874,7 @@ shared_focus = {
     id = AUS_sponsor_voestalpine
     icon = GFX_goal_USA_economic_reform_plan
     relative_position_id = AUS_form_the_ork
-    x = -3
+    x = 6
     y = 1
     cost = 10
     available_if_capitulated = yes
@@ -2048,7 +2048,7 @@ shared_focus = {
 	id = AUS_initiate_a_trial_run_in_togo
 	icon = GFX_goal_generic_position_armies
 	relative_position_id = AUS_form_the_ork
-	x = 2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2084,7 +2084,7 @@ shared_focus = {
 shared_focus = {
   id = AUS_industrializing_ostafrika
   icon = GFX_focus_generic_africa_factory
-  x = 5
+  x = -2
   y = 1
   cost = 8
   available_if_capitulated = yes
@@ -2157,7 +2157,7 @@ shared_focus = {
 	id = AUS_expansion_of_togo_operations
 	icon = GFX_goal_generic_positive_trade_relations
 	relative_position_id = AUS_initiate_a_trial_run_in_togo
-	x = -1
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2240,7 +2240,7 @@ shared_focus = {
 	id = AUS_exploitation_of_ostafrika
 	icon = GFX_focus_generic_africa_infrastructure
 	relative_position_id = AUS_initiate_a_trial_run_in_togo
-	x = 1
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2259,7 +2259,7 @@ shared_focus = {
 shared_focus = {
 	id = AUS_oil_prospects_in_ostafrika
 	icon = GFX_goal_generic_oil_refinery
-	x = -1
+	x = 1
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
@@ -2282,7 +2282,7 @@ shared_focus = {
   id = AUS_oppose_italy_in_horn
   icon = GFX_goal_FRA_hold_back_the_duce
   relative_position_id = AUS_industrializing_ostafrika
-  x = 3
+  x = -3
   y = 1
   cost = 5
   prerequisite = { focus = AUS_industrializing_ostafrika }
@@ -2291,7 +2291,9 @@ shared_focus = {
     factor = 1
   }
   completion_reward = {
-      give_guarantee = DRV
+      AUS = {
+        country_event = austria.22
+      }
   }
 }
 
@@ -3311,7 +3313,7 @@ shared_focus = {
   icon = GFX_goal_AUS_denounce_the_treaty_of_vienna
   text = AUS_denounce_the_treaty_of_vienna
   #prerequisite = { focus = AUS_KAISER_SPEECH }
-  x = 22
+  x = 20
   y = 0
   #relative_position_id = AUS_announce_the_kaiser_speech
   
@@ -5907,7 +5909,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    GRE = {country_event = austria_foriegn_policy.10}
+    GRE = {country_event = austria_foriegn_policy.10 }
   }
 }
 shared_focus = {
@@ -7943,7 +7945,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_peace_with_france
-  icon = GFX_goal_FRA_vive_la_france
+  icon = GFX_goal_AUS_peace_with_france
   text = AUS_peace_with_france
   prerequisite = { focus = AUS_stabilizing_europe } 
   mutually_exclusive = {
@@ -8059,7 +8061,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_foment_colonial_rebellions
-  icon = GFX_goal_USA_the_question_of_the_negro
+  icon = GFX_goal_AUS_ferment_colonial_rebellions
   prerequisite = { focus = AUS_the_coldest_night } 
   x = 1
   y = 1
@@ -8080,7 +8082,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_ensure_londons_loyalty
-  icon = GFX_focus_chi_british_cooperation
+  icon = GFX_goal_AUS_ensure_londons_loyalty
   prerequisite = { focus = AUS_foment_colonial_rebellions } 
   prerequisite = { focus = AUS_restore_the_hannoverian_monarchy }
   x = -1
@@ -8134,7 +8136,7 @@ shared_focus = {
 
 shared_focus = {
   id = AUS_the_european_accords
-  icon = GFX_goal_SOV_continuing_the_reforms
+  icon = GFX_goal_AUS_the_european_accords
   text = AUS_the_european_accords
   prerequisite = { focus = AUS_sending_out_otto }
   prerequisite = { focus = AUS_restore_the_hannoverian_monarchy }
