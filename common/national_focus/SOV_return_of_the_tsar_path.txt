@@ -819,7 +819,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_tsar_for_the_hundreds
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_stripping_his_powers_further
 	
 	prerequisite = {
         focus = SOV_restore_the_empire
@@ -843,7 +843,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_tsar_for_them_all
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_a_new_dawn_for_russia
 	
 	prerequisite = {
         focus = SOV_restore_the_empire
@@ -867,7 +867,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_new_perspective
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_bonapartist_absolutism
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_the_hundreds
@@ -888,7 +888,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_the_progroms
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_USA_comeout_ye_black_and_tans
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_the_hundreds
@@ -913,7 +913,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_orthodox_law
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_focus_GRE_an_orthodox_state
 	
 	prerequisite = {
         focus = SOV_a_new_perspective
@@ -930,14 +930,14 @@ shared_focus = {
     completion_reward = {
         swap_ideas = {
         	remove_idea = SOV_varovskism_1
-        	add_idea = SOV_varovskism_3
+        	add_idea = SOV_varovskism_2
         }
     }
 }
 
 shared_focus = {
     id = SOV_illegalize_ukrainian
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_launch_a_campaign_of_slander
 	
 	prerequisite = {
         focus = SOV_the_progroms
@@ -966,7 +966,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_varovski_russia
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_Generic_Ultranationalist_Monarchy
 	
 	prerequisite = {
         focus = SOV_orthodox_law
@@ -995,16 +995,14 @@ shared_focus = {
                 expire = "1965.1.1"
             }
         }
-        swap_ideas = {
-       		remove_idea = SOV_varovskism_3
-       		add_idea = SOV_varovskism_4
-        }
+        
+        set_cosmetic_tag = holy_russian_empire
     }
 }
 
 shared_focus = {
     id = SOV_a_modern_tsar
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_fraternite
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_them_all
@@ -1029,7 +1027,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_restoration_of_the_nobility
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_restore_the_constitution_to_1852
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_them_all
@@ -1052,7 +1050,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_oblast_leadership_elections
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_USA_an_old_idea
 	
 	prerequisite = {
         focus = SOV_restoration_of_the_nobility
@@ -1076,7 +1074,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_equal_rights
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_continuous_boost_freedom
 	
 	prerequisite = {
         focus = SOV_a_modern_tsar
@@ -1106,7 +1104,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_popular_tsardom
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_urp_elected
 	
 	prerequisite = {
         focus = SOV_oblast_leadership_elections
@@ -1126,6 +1124,18 @@ shared_focus = {
     completion_reward = {
         
         add_political_power = 150
+        set_cosmetic_tag = royal_russian_republic
+        set_politics = {
+            ruling_party = democratic_liberalism
+        }
+        add_country_leader_role = {
+            character = SOV_kirill_i 
+            promote_leader = yes
+            country_leader = {
+                ideology = democratic_liberalism
+                expire = "1965.1.1"
+            }
+        }
 
         ##country event for nicky dying
     }
