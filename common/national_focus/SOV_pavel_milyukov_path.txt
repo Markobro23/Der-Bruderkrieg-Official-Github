@@ -1548,7 +1548,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_demand_constantinople
 	x = 1
 	y = 1
-	
+	 
 	available = {
 	}
 	bypass = {
@@ -1578,6 +1578,24 @@ shared_focus = {
 			}
 		}
 	}
+}
+
+shared_focus = {
+    id = SOV_pavel_east_african_expidition
+    icon = GFX_goal_SOV_alliance_with_ethiopia
+	prerequisite = {focus = SOV_expand_sebastopol focus = SOV_the_occupation_of_tehran }
+	x = -1
+	y = 1
+    relative_position_id = SOV_expand_sebastopol 
+    cost = 4.5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+ 
+    completion_reward = {
+        unlock_decision_category_tooltip = SOV_east_africa_ambitions
+    }
 }
 
 

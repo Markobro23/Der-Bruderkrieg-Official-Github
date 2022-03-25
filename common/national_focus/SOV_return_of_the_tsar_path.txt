@@ -988,7 +988,7 @@ shared_focus = {
             ruling_party = fascism
         }
         add_country_leader_role = {
-            character = SOV_nicholas_ii 
+            character = SOV_kirill_i 
             promote_leader = yes
             country_leader = {
                 ideology = fascism_ideology
@@ -2802,9 +2802,7 @@ shared_focus = {
 	x = -1
 	y = 1
     relative_position_id = SOV_prussian_ally 
-    mutually_exclusive = {
-        focus = SOV_polish_preperations
-    }
+    
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
@@ -2856,8 +2854,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_polish_preperations
-    icon = GFX_goal_SOV_fortify_polish_border
+    id = SOV_tsar_east_african_expidition
+    icon = GFX_goal_SOV_alliance_with_ethiopia
 	prerequisite = {focus = SOV_prussian_ally }
 	x = 1
 	y = 1
@@ -2867,27 +2865,9 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
-    mutually_exclusive = {
-        focus = SOV_high_altitude_combat_trainings
-    }
+ 
     completion_reward = {
-        every_owned_state = {
-            limit = {
-                is_core_of = POL
-                any_neighbor_state = {
-                    is_owned_by = AUS
-                }
-            }
-            add_building_construction = {
-                type = bunker
-                level = 3
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
-            }
-        }
+        unlock_decision_category_tooltip = SOV_east_africa_ambitions
     }
 }
 
@@ -2895,9 +2875,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_operation_third_rome
     icon = GFX_goal_ITA_the_greatest_threat
-    prerequisite = {focus = SOV_polish_preperations focus = SOV_high_altitude_combat_trainings }
+    prerequisite = {focus = SOV_tsar_east_african_expidition focus = SOV_high_altitude_combat_trainings }
 
-    relative_position_id = SOV_polish_preperations
+    relative_position_id = SOV_tsar_east_african_expidition
     x = -1
     y= 1
     cost = 2
