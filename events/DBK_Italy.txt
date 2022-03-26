@@ -616,7 +616,33 @@ news_event = {
 	}
 }
 
+country_event = { #coup in portugal
+	id = italy.530
+	title = italy.530.t
+	desc = italy.530.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
 
+	option = { 
+		name = italy.530.a 
+		ai_chance = { factor = 90 } 
+		if = {
+			limit = {
+				ITA = {
+					has_government = fascism
+				}
+			}
+			start_civil_war = {
+				ideology = fascism
+			}
+			else = {
+				start_civil_war = {
+					ideology = ultranationalism
+				}
+			}
+		}
+	}
+}
 
 add_namespace = ITA_starting_tree_events
 ##the italian mess
