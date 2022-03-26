@@ -2411,7 +2411,7 @@ country_event = {
 }
 
 
-##contacting chile
+##contacting PBC
 country_event = {
 	id = USA_argentinian_events.3
 	title = USA_argentinian_events.3.t
@@ -2453,7 +2453,7 @@ country_event = {
 	}
 }
 
-##chile accept[s
+##PBC accept[s
 country_event = {
 	id = USA_argentinian_events.5
 	title = USA_argentinian_events.5.t
@@ -2465,11 +2465,23 @@ country_event = {
 	option = {
 		name = USA_argentinian_events.5.a
         
-		set_country_flag = USA_chile_accepts_support
+		set_country_flag = USA_PBC_accepts_support
+		for_each_scope_loop = {
+			array = PBC.faction_members 
+			USA = {
+				add_to_faction = PREV
+			}
+		}
+		PBC = {
+			dismantle_faction = yes
+		}
+		USA = {
+			add_to_faction = PBC
+		}
 	}
 }
 
-##chile acceptps
+##PBC acceptps
 country_event = {
 	id = USA_argentinian_events.6
 	title = USA_argentinian_events.6.t
@@ -2481,30 +2493,15 @@ country_event = {
 	option = {
 		name = USA_argentinian_events.6.a
         
-		set_country_flag = USA_chile_accepts_support
-	}
-}
-
-##chile denies
-country_event = {
-	id = USA_argentinian_events.7
-	title = USA_argentinian_events.7.t
-	desc = USA_argentinian_events.7.d
-    #picture = 
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = USA_argentinian_events.7.a
-        
 		USA = {
 			add_opinion_modifier = {
-				target = CHL
+				target = PBC
 				modifier = small_decrease
 			}
 		}
 	}
 }
+
 
 
 ###SMITH
