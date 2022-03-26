@@ -819,7 +819,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_a_tsar_for_the_hundreds
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_stripping_his_powers_further
 	
 	prerequisite = {
         focus = SOV_restore_the_empire
@@ -831,21 +831,19 @@ shared_focus = {
     mutually_exclusive = {
     	focus = SOV_a_tsar_for_them_all
     }
-    cost = 4
+    cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -50
-        add_stability = -0.1
-        add_war_support = -0.05
+        custom_effect_tooltip = SOV_a_tsar_for_the_hundreds_tt
     }
 }
 
 shared_focus = {
     id = SOV_a_tsar_for_them_all
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_a_new_dawn_for_russia
 	
 	prerequisite = {
         focus = SOV_restore_the_empire
@@ -857,21 +855,19 @@ shared_focus = {
     mutually_exclusive = {
     	focus = SOV_a_tsar_for_the_hundreds
     }
-    cost = 4
+    cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -25
-        add_stability = 0.05
-        add_war_support = -0.1
+        custom_effect_tooltip = SOV_a_tsar_for_them_all_tt
     }
 }
 
 shared_focus = {
     id = SOV_a_new_perspective
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_bonapartist_absolutism
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_the_hundreds
@@ -886,22 +882,13 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_stability = 0.1
-        add_popularity = {
-        	ideology = fascism
-        	popularity = 0.05
-        }
-        add_popularity = {
-        	ideology = neutrality
-        	popularity = 0.05
-        }
         add_ideas = SOV_varovskism_1
     }
 }
 
 shared_focus = {
     id = SOV_the_progroms
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_USA_comeout_ye_black_and_tans
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_the_hundreds
@@ -916,84 +903,17 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_stability = -0.15
-        add_political_power = -50
-        add_war_support = -0.1
+  
+        country_event = SOV_return_of_the_tsar_path.26
     }
 }
 
-shared_focus = {
-    id = SOV_russian_ukraine
-    icon = GFX_goal_SOV_restore_the_empire
-	
-	prerequisite = {
-        focus = SOV_the_progroms
-    }
-    
-	x = 0
-	y = 1
-    relative_position_id = SOV_the_progroms
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-    	effect_tooltip = {
-    		every_state = {
-	        	limit = { 
-	        		is_owned_by = SOV is_controlled_by = SOV is_core_of = UKR 
-	        		free_building_slots = {
-	        			building = infrastructure
-	        			size > 3
-	        			include_locked = yes
-	        		}
-	        	}
-	        	add_building_construction = {
-	        		type = infrastructure
-	        		level = 2
-	        		instant_build = yes
-	        	}
-	        }
-    	}
-        every_state = {
-        	limit = { 
-        		is_owned_by = SOV is_controlled_by = SOV is_core_of = UKR 
-        		free_building_slots = {
-        			building = infrastructure
-        			size > 2
-        			include_locked = yes
-        		}
-        	}
-        	add_building_construction = {
-        		type = infrastructure
-        		level = 1
-        		instant_build = yes
-        	}
-        }
-        hidden_effect = {
-        	every_state = {
-	        	limit = { 
-	        		is_owned_by = SOV is_controlled_by = SOV is_core_of = UKR 
-	        		free_building_slots = {
-	        			building = infrastructure
-	        			size > 2
-	        			include_locked = yes
-	        		}
-	        	}
-	        	add_building_construction = {
-	        		type = infrastructure
-	        		level = 1
-	        		instant_build = yes
-	        	}
-	        }
-        }
-    }
-}
+
+
 
 shared_focus = {
-    id = SOV_varovski_media
-    icon = GFX_goal_SOV_restore_the_empire
+    id = SOV_orthodox_law
+    icon = GFX_focus_GRE_an_orthodox_state
 	
 	prerequisite = {
         focus = SOV_a_new_perspective
@@ -1008,7 +928,6 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -25
         swap_ideas = {
         	remove_idea = SOV_varovskism_1
         	add_idea = SOV_varovskism_2
@@ -1017,56 +936,37 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_orthodox_law
-    icon = GFX_goal_SOV_restore_the_empire
+    id = SOV_illegalize_ukrainian
+    icon = GFX_goal_SOV_launch_a_campaign_of_slander
 	
 	prerequisite = {
-        focus = SOV_varovski_media
+        focus = SOV_the_progroms
     }
     
 	x = 0
 	y = 1
-    relative_position_id = SOV_varovski_media
+    relative_position_id = SOV_the_progroms
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -50
-        swap_ideas = {
-        	remove_idea = SOV_varovskism_2
-        	add_idea = SOV_varovskism_3
+    	every_owned_state = {
+            limit = {
+                is_core_of = UKR
+            }
+            add_dynamic_modifier = {
+                modifier = SOV_crushed_ukranian_resistance
+                days = 400
+            }
         }
     }
 }
 
 shared_focus = {
-    id = SOV_illegalize_ukrainian
-    icon = GFX_goal_SOV_restore_the_empire
-	
-	prerequisite = {
-        focus = SOV_russian_ukraine
-    }
-    
-	x = 0
-	y = 1
-    relative_position_id = SOV_russian_ukraine
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-    	add_stability = -0.2
-    	add_war_support = -0.2
-    	add_political_power = -75
-    }
-}
-
-shared_focus = {
     id = SOV_varovski_russia
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_Generic_Ultranationalist_Monarchy
 	
 	prerequisite = {
         focus = SOV_orthodox_law
@@ -1084,17 +984,25 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = 100
-        swap_ideas = {
-       		remove_idea = SOV_varovskism_3
-       		add_idea = SOV_varovskism_4
+        set_politics = {
+            ruling_party = fascism
         }
+        add_country_leader_role = {
+            character = SOV_kirill_i 
+            promote_leader = yes
+            country_leader = {
+                ideology = fascism_ideology
+                expire = "1965.1.1"
+            }
+        }
+        
+        set_cosmetic_tag = holy_russian_empire
     }
 }
 
 shared_focus = {
     id = SOV_a_modern_tsar
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_fraternite
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_them_all
@@ -1109,36 +1017,17 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = 25
-        add_stability = 0.1
+        add_trait = {
+            character = SOV_nicholas_ii
+            trait = modern_tsar
+        }
     }
 }
 
-shared_focus = {
-    id = SOV_equal_rights
-    icon = GFX_goal_SOV_restore_the_empire
-	
-	prerequisite = {
-        focus = SOV_a_modern_tsar
-    }
-    
-	x = 0
-	y = 1
-    relative_position_id = SOV_a_modern_tsar
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        add_political_power = -50
-        add_stability = 0.1
-    }
-}
 
 shared_focus = {
     id = SOV_restoration_of_the_nobility
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_FRA_restore_the_constitution_to_1852
 	
 	prerequisite = {
         focus = SOV_a_tsar_for_them_all
@@ -1153,15 +1042,15 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -25
-        add_stability = -0.1
-        add_war_support = 0.05
+     add_ideas = SOV_localized_elections
     }
 }
 
+
+
 shared_focus = {
-    id = SOV_limited_nobility_power
-    icon = GFX_goal_SOV_restore_the_empire
+    id = SOV_oblast_leadership_elections
+    icon = GFX_goal_USA_an_old_idea
 	
 	prerequisite = {
         focus = SOV_restoration_of_the_nobility
@@ -1176,65 +1065,52 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = -50
-        add_stability = 0.15
+        swap_ideas = {
+        	remove_idea = SOV_localized_elections
+        	add_idea = SOV_localized_elections_2
+        }
     }
 }
 
 shared_focus = {
-    id = SOV_oblast_leadership_elections
-    icon = GFX_goal_SOV_restore_the_empire
+    id = SOV_equal_rights
+    icon = GFX_goal_continuous_boost_freedom
 	
 	prerequisite = {
-        focus = SOV_limited_nobility_power
+        focus = SOV_a_modern_tsar
     }
     
 	x = 0
 	y = 1
-    relative_position_id = SOV_limited_nobility_power
+    relative_position_id = SOV_a_modern_tsar
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = 50
-        add_ideas = SOV_localized_elections
-    }
-}
-
-shared_focus = {
-    id = SOV_re_legalize_leftist_media
-    icon = GFX_goal_SOV_restore_the_empire
-	
-	prerequisite = {
-        focus = SOV_equal_rights
-    }
-    
-	x = 0
-	y = 1
-    relative_position_id = SOV_equal_rights
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        add_political_power = 75
-        add_stability = -0.15
-        add_war_support = 0.05
+        
+        every_owned_state = {
+            limit = {
+                is_core_of = UKR
+            }
+            add_dynamic_modifier = {
+                modifier = SOV_minority_rights_in_states
+                days = 600
+            }
+        }
     }
 }
 
 shared_focus = {
     id = SOV_a_popular_tsardom
-    icon = GFX_goal_SOV_restore_the_empire
+    icon = GFX_goal_SOV_urp_elected
 	
 	prerequisite = {
         focus = SOV_oblast_leadership_elections
     }
     prerequisite = {
-    	focus = SOV_re_legalize_leftist_media
+    	focus = SOV_equal_rights
     }
     
 	x = 1
@@ -1246,12 +1122,22 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        add_political_power = 200
-        add_stability = 0.1
-        swap_ideas = {
-        	remove_idea = SOV_localized_elections
-        	add_idea = SOV_localized_elections_2
+        
+        add_political_power = 150
+        set_cosmetic_tag = royal_russian_republic
+        set_politics = {
+            ruling_party = democratic_liberalism
         }
+        add_country_leader_role = {
+            character = SOV_kirill_i 
+            promote_leader = yes
+            country_leader = {
+                ideology = democratic_liberalism
+                expire = "1965.1.1"
+            }
+        }
+
+        ##country event for nicky dying
     }
 }
 
@@ -2916,9 +2802,7 @@ shared_focus = {
 	x = -1
 	y = 1
     relative_position_id = SOV_prussian_ally 
-    mutually_exclusive = {
-        focus = SOV_polish_preperations
-    }
+    
     cost = 4
     available_if_capitulated = yes
     ai_will_do = {
@@ -2970,8 +2854,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = SOV_polish_preperations
-    icon = GFX_goal_SOV_fortify_polish_border
+    id = SOV_tsar_east_african_expidition
+    icon = GFX_goal_SOV_alliance_with_ethiopia
 	prerequisite = {focus = SOV_prussian_ally }
 	x = 1
 	y = 1
@@ -2981,27 +2865,9 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
-    mutually_exclusive = {
-        focus = SOV_high_altitude_combat_trainings
-    }
+ 
     completion_reward = {
-        every_owned_state = {
-            limit = {
-                is_core_of = POL
-                any_neighbor_state = {
-                    is_owned_by = AUS
-                }
-            }
-            add_building_construction = {
-                type = bunker
-                level = 3
-                instant_build = yes
-                province = {
-                    all_provinces = yes
-                    limit_to_border = yes
-                }
-            }
-        }
+        unlock_decision_category_tooltip = SOV_east_africa_ambitions
     }
 }
 
@@ -3009,9 +2875,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_operation_third_rome
     icon = GFX_goal_ITA_the_greatest_threat
-    prerequisite = {focus = SOV_polish_preperations focus = SOV_high_altitude_combat_trainings }
+    prerequisite = {focus = SOV_tsar_east_african_expidition focus = SOV_high_altitude_combat_trainings }
 
-    relative_position_id = SOV_polish_preperations
+    relative_position_id = SOV_tsar_east_african_expidition
     x = -1
     y= 1
     cost = 2

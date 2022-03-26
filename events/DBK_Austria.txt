@@ -3194,6 +3194,112 @@ country_event = {
 	}	
 }
 
+##ORA stuff
+country_event = {
+	id = austria.206
+	title = austria.206.t
+	desc = austria.206.d
+	
+	is_triggered_only = yes 
+
+	option = { 
+		name = austria.206.a
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0.5
+				has_completed_focus = AUS_FEDERALISM
+			}
+		} 
+		complete_national_focus = AUS_secure_osterfrika
+	}
+
+	option = { 
+		name = austria.206.b
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0.5
+				has_completed_focus = AUS_CENTRALISM
+			}
+		} 
+		complete_national_focus = AUS_osterfrikan_dominions
+	}	
+}
+
+#skarwhatever forced to resign, falkenhausen promoted
+country_event = {
+	id = austria.207
+	title = austria.207.t
+	desc = austria.207.d
+	
+	is_triggered_only = yes 
+
+	option = { #one last dinner before you go?
+		name = austria.207.a
+		ORA_stjepan_sarkotić = { set_nationality = AUS }
+		add_country_leader_role = {
+			character = ORA_alexander_von_falkenhausen 
+			promote_leader = yes
+			country_leader = {
+				ideology = despotic
+				expire = "1965.1.1"
+				traits = {
+					retired_officer
+				}
+			}
+		}
+		#hidden_effect = {
+			AUS = {
+				add_corps_commander_role = {
+					character = ORA_stjepan_sarkotić 
+					skill = 3
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				country_event = { id = austria.208 hours = 1 }
+			}
+		#}
+	}
+}
+
+country_event = {
+	id = austria.208
+	title = austria.208.t
+	desc = {
+		text = austria.208.d
+		trigger = {
+			country_exists = ORA
+		}
+	}
+	desc = {
+		text = austria.208.d2
+		trigger = {
+			ORA = {
+				exists = no
+			}
+		}
+	}
+	
+	is_triggered_only = yes 
+
+	option = { #welcome back to military service
+		name = austria.208.a
+		effect_tooltip = {
+			add_corps_commander_role = {
+				character = ORA_stjepan_sarkotić 
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 3
+			}
+		}
+	}
+}
+
 add_namespace = austria_military_events
 
 ###Prussia our greatest enemy
@@ -3635,9 +3741,18 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
+		BAD_berthold_i = { set_nationality = GPU }
+		HES_heinrich_von_vietinghoff = { set_nationality = GPU }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
+			
+			if = {
+				limit = {
+					has_character_id = BAD_berthold_i
+				}
+				log = "BAD_berthold_i JOEOQO"
+			}
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -3666,9 +3781,9 @@ country_event = {
 				ruling_party = neutrality
 			}
 			create_country_leader = {
-				name = "Rupprecht, Duke of Bavaria"
+				name = "Rupprecht I"
 				desc = ""
-				picture = "gfx/leaders/Prince_Ruprect.dds"
+				picture = "gfx/leaders/AUS/Ruppercht.dds"
 				expire = "1965.1.1"
 				ideology = despotic
 				traits = {
@@ -3728,6 +3843,8 @@ country_event = {
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
+			recruit_character = BAD_berthold_i 
+			recruit_character = HES_heinrich_von_vietinghoff
 			annex_country = {
 				target = BAD
 				transfer_troops = yes

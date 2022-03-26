@@ -11627,3 +11627,221 @@ SOV_crushing_turan_sympathies = {
 	}
 
 }
+
+
+SOV_east_africa_ambitions = {
+	# Diplomacy Decisions
+	SOV_invite_ethiopia_to_faction = {
+		days_remove = 35
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			ETH = {
+				NOT = {
+					is_in_faction_with = SOV
+				}
+			}
+		}
+
+		remove_effect = {
+			ETH = {
+				country_event = russia.22
+			}
+		}
+	}
+
+	
+	# Sagallo Decisions  
+	SOV_the_sagallo_administration = {
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+		}
+
+		days_remove = 40
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			release = DJI
+
+			DJI = {
+				set_politics = {
+					ruling_party = neutrality
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.45
+				}
+
+				add_country_leader_role = {
+					character = SOV_markian_popov 
+					promote_leader = yes
+					country_leader = {
+						ideology = despotic
+						expire = "1965.1.1"
+					}
+				}
+			}
+		}
+	}  
+	SOV_sagallo_infrastructrue = {
+
+		icon = eng_trade_unions_demand
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI =  {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 4
+                    instant_build = yes
+                }
+			}
+		}
+	}
+	SOV_sagallo_civs = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI=  {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+
+			}
+		}
+	}
+	SOV_sagallo_mils = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI =  {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+
+			}
+		}
+	}
+	SOV_sagallo_war_propoganda_campaign = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 70
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		modifier = {
+
+		}
+		remove_effect = {
+			DJI = {
+				add_war_support  = 0.1
+			}
+		}
+    }
+}

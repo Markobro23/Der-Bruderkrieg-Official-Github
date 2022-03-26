@@ -2939,9 +2939,362 @@ ITA_the_mercenaries = {
 }
 
 ITA_portugese_corporatists = {
+	
+	ITA_spread_claims_corporatist_unity = {
+
+		cost = 25
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		days_re_enable = 40
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_5_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 5 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_sponsor_far_right_movements_corp = {
+
+		cost = 40
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		days_re_enable = 40
+
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_10_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 10 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_POR_alternative_to_leftism_corporate = {
+
+		cost = 50
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		fire_only_once = yes
+
+		modifier = {
+			consumer_goods_factor = 0.1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_10_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 10 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_denounce_decadency_of_POR_king_corp = {
+
+		name = ITA_denounce_decadency_of_POR_king
+
+		cost = 30
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_re_enable = 60
+
+		complete_effect = {
+			custom_effect_tooltip = ITA_5_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 5 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_trigger_POR_civil_war_corp = {
+
+		name = ITA_trigger_POR_civil_war
+
+		fire_only_once = yes
+
+		available = {
+			has_war_with = POR
+			custom_trigger_tooltip = {
+				tooltip = ITA_POR_coup_100_ready
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			POR = {
+				country_event = { id = italy.530 hours = 2 random = 2}
+			}
+		}
+
+	}
 
 }
 
 ITA_portugese_syndaclists = {
-  
+
+	ITA_spread_claims_syndicalist_unity = {
+
+		cost = 25
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		days_re_enable = 40
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_5_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 5 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = ultranationalism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_sponsor_far_right_syndicalists = {
+
+		cost = 40
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		days_re_enable = 40
+
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_10_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 10 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = ultranationalism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_propose_POR_united_labor_movements = {
+
+		cost = 50
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_remove = 30
+
+		fire_only_once = yes
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			political_power_cost = 0.1
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = ITA_10_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 10 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = ultranationalism
+					popularity = 0.02
+				}
+				add_popularity = {
+					ideology = democratic_communism
+					popularity = -0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_denounce_decadency_of_POR_king_synd = {
+
+		name = ITA_denounce_decadency_of_POR_king
+
+		cost = 30
+
+		visible = {
+			NOT = {
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		days_re_enable = 60
+
+		complete_effect = {
+			custom_effect_tooltip = ITA_5_progress_coup_ready
+			add_to_variable = { portugese_coup_progress = 5 }
+			clamp_variable = {
+				var = portugese_coup_progress
+				min = 0
+				max = 100
+			}
+			POR = {
+				add_popularity = {
+					ideology = ultranationalism
+					popularity = 0.02
+				}
+			}
+		}
+
+	}
+
+	ITA_trigger_POR_civil_war_synd = {
+
+		name = ITA_trigger_POR_civil_war
+
+		fire_only_once = yes
+
+		available = {
+			has_war_with = POR
+			custom_trigger_tooltip = {
+				tooltip = ITA_POR_coup_100_ready
+				check_variable = {
+					portugese_coup_progress = 100
+				}
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			POR = {
+				country_event = { id = italy.530 hours = 2 random = 2}
+			}
+		}
+
+	}
+
 }
