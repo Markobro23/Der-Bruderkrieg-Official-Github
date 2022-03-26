@@ -2,6 +2,8 @@ on_actions = {
     on_startup = {
         effect = {
 
+			
+
 			FRA = { 
 				country_event = {	id = belgian_election_events.5 days = 47 }
 			}
@@ -128,6 +130,19 @@ on_actions = {
 		}
 	}
 	
+	on_offer_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = BEL
+					}
+					is_in_faction_with = FRA
+				}
+				FRA = { country_event = { id = belgian_election_events.7 days = 5 } }
+			}
+		}
+	}
 
 	on_weekly_FRA = {
 		effect = {
