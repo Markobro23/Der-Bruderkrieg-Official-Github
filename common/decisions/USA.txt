@@ -2790,3 +2790,37 @@ USA_mexico_rebels = {
 
 
 
+
+
+USA_ANC_ENG_rabaul_volcano_collapse_cat = {
+	ANC_incoming_oceanic_revolt = {
+
+    priority = 10
+
+    icon = generic_ignite_civil_war
+
+    available = {
+      hidden_trigger = { always = no }
+    }
+
+    days_mission_timeout = 50 
+
+    fire_only_once = yes 
+
+    activation = {
+    	ANC = { has_idea = ANC_massive_polynesian_resistance }
+    }
+
+    visible = {
+      OR = { tag = ANC tag = USA tag = ENG }
+    } 
+
+    cancel_if_not_visible = yes
+
+    is_good = yes
+
+    timeout_effect = {
+      ANC_oceanic_collpase_effect = yes
+    }
+  }
+}

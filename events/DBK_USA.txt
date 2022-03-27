@@ -1819,6 +1819,159 @@ country_event = {
 	}
 }
 
+add_namespace = USA_rabaul_volcano_explosion
+
+##ANC - Rabaul
+country_event = {
+	id = USA_rabaul_volcano_explosion.1
+	title = USA_rabaul_volcano_explosion.1.t
+	desc = USA_rabaul_volcano_explosion.1.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.1.a
+        611 = {
+			add_dynamic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		USA = {
+			country_event = { id = USA_rabaul_volcano_explosion.2 days = 1 }
+		}
+	}
+}
+
+##USA - Rabaul
+country_event = {
+	id = USA_rabaul_volcano_explosion.2
+	title = USA_rabaul_volcano_explosion.2.t
+	desc = USA_rabaul_volcano_explosion.2.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.2.a
+		ANC = {
+			set_capital = {
+				state = 669
+			}
+		}
+		country_event = { id = USA_rabaul_volcano_explosion.3 hours = 3 }
+	}
+}
+
+##USA - Response
+country_event = {
+	id = USA_rabaul_volcano_explosion.3
+	title = USA_rabaul_volcano_explosion.3.t
+	desc = USA_rabaul_volcano_explosion.3.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.3.a
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -5000
+			producer = USA
+		}
+		add_manpower = -10000
+		add_political_power = -25
+
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.4
+				days = 7
+			}
+		}
+	}
+	option = {
+		name = USA_rabaul_volcano_explosion.3.b
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -1000
+			producer = USA
+		}
+		add_manpower = -2000
+		add_political_power = -10
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.5
+				days = 7
+			}
+		}
+	}
+	option = {
+		name = USA_rabaul_volcano_explosion.3.c
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.6
+				days = 7
+			}
+		}
+	}
+}
+
+##rabaul evac. success
+country_event = {
+	id = USA_rabaul_volcano_explosion.4
+	title = USA_rabaul_volcano_explosion.4.t
+	desc = USA_rabaul_volcano_explosion.4.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.4.a
+        611 = {
+			remove_dyanmic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_polynesian_support }
+	}
+}
+country_event = {
+	id = USA_rabaul_volcano_explosion.5
+	title = USA_rabaul_volcano_explosion.5.t
+	desc = USA_rabaul_volcano_explosion.5.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.5.a
+        611 = {
+			remove_dyanmic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_ghost_of_rabaul days = 700 }
+	}
+}
+country_event = {
+	id = USA_rabaul_volcano_explosion.6
+	title = USA_rabaul_volcano_explosion.6.t
+	desc = USA_rabaul_volcano_explosion.6.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.6.a
+        611 = {
+			remove_dyanmic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_massive_polynesian_resistance }
+	}
+}
+
 add_namespace = USA_flavor_events
 ###Golden Gate Bridge
 news_event = {
