@@ -6,6 +6,10 @@ country_event = { #changing to natcorp
 	desc = sweden.1.d
 	is_triggered_only = yes
 
+	trigger = {
+		has_government = neutrality
+	}
+
 	option = {
 		name = sweden.1.a ##Dismiss sven hedin
 			set_temp_variable = { current_neutrality_temp = party_popularity@neutrality }
@@ -24,6 +28,7 @@ country_event = { #changing to natcorp
 			    }
 			  }
 			}
+			hidden_effect = { set_cosmetic_tag = SWE_grand_kingdom }
 			set_politics = {
 				ruling_party = fascism
 				elections_allowed = no
