@@ -1,0 +1,23 @@
+on_actions = { 
+	on_startup = {
+        effect = {
+            if = {
+                limit = {
+                    has_dlc = "Man the Guns"
+                }
+                #Khuzestan oil concession
+                PER = {
+                    give_resource_rights = { receiver = ENG state = 413 }
+                }
+                #Kuwaiti oil concession
+                TUR = {
+                    give_resource_rights = { receiver = ENG state = 656 }
+                }
+                #Gambela Condominium
+                ETH = {
+                    give_resource_rights = { receiver = ENG state = 1066 }
+                }
+            }
+        }
+    }
+}
