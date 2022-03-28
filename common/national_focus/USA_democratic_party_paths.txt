@@ -3177,26 +3177,6 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = USA_exchange_investments
-	icon = GFX_goal_support_small_bussinesses
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
-	prerequisite = {
-		focus = USA_invite_their_president_to_seattle
-	}
-	relative_position_id = USA_invite_their_president_to_seattle
-	
-	completion_reward = {
-	}
-}
 
 shared_focus = {
 	id = USA_not_friends_but_acquaintances
@@ -3221,7 +3201,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_cultural_exchange_programs
 	icon = GFX_goal_SOV_promote_the_church
-	x = 1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3231,10 +3211,30 @@ shared_focus = {
 	available = {
 	}
 	prerequisite = {
-		focus = USA_not_friends_but_acquaintances
-		focus = USA_exchange_investments
+		focus = USA_invite_their_president_to_seattle
 	}
-	relative_position_id = USA_not_friends_but_acquaintances
+	relative_position_id = USA_invite_their_president_to_seattle
+	
+	completion_reward = {
+	}
+}
+shared_focus = {
+	id = USA_the_washington_pact
+	icon = GFX_goal_SOV_republic_victorious
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	prerequisite = {
+		focus = USA_cultural_exchange_programs
+		focus = USA_not_friends_but_acquaintances
+	}
+	relative_position_id = USA_cultural_exchange_programs
 	
 	completion_reward = {
 	}

@@ -1938,6 +1938,18 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = central_american_collapse.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+
+		for_each_loop = {
+				array = controlled_states
+				value = controlled_state
+			
+				CEN = {
+					delete_unit = {
+						state = var:controlled_state
+						disband = yes # or no
+					}
+				}    
+			}
 		
 		GUA = {
 			add_state_core = 313
@@ -2001,6 +2013,7 @@ country_event = {
 
 		CEN = {
 			set_cosmetic_tag = central_american_army
+			
 			random_owned_controlled_state = {
 				create_unit = {
 					division = "name = \"UFC Mercenary Division 1\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
@@ -2011,6 +2024,13 @@ country_event = {
 			random_owned_controlled_state = {
 				create_unit = {
 					division = "name = \"UFC Mercenary Division 2\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"UFC Mercenary Division 3\" division_template = \"Militaristas\" start_experience_factor = 0.5 start_equipment_factor = 1"
 
 					owner = PREV
 				}
@@ -2228,5 +2248,10 @@ country_event = {
 
   option = {
   	name = lore_dump.1.a
+
+	  hidden_effect = {
+		  USA_dustbowl_states_setup = yes
+		  FRA_congo_modifiers_effect = yes
+	  }
   }
  }

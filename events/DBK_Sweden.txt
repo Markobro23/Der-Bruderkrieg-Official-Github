@@ -1,0 +1,103 @@
+add_namespace = sweden
+
+country_event = { #changing to natcorp
+	id = sweden.1
+	title = sweden.1.t
+	desc = sweden.1.d
+	is_triggered_only = yes
+
+	trigger = {
+		has_government = neutrality
+	}
+
+	option = {
+		name = sweden.1.a ##Dismiss sven hedin
+			set_temp_variable = { current_neutrality_temp = party_popularity@neutrality }
+			multiply_temp_variable = { current_neutrality_temp = 0.6 }
+			add_popularity = {
+				ideology = fascism
+				popularity = current_neutrality_temp
+			}
+			add_country_leader_role = {
+			  Character = SWE_gustav_v
+			  Promote_leader = yes
+			  Country_leader = {
+				ideology = monarchist_fascism
+			    expire = “1965.1.1.1”
+			    traits = {
+			    }
+			  }
+			}
+			hidden_effect = { set_cosmetic_tag = SWE_grand_kingdom }
+			set_politics = {
+				ruling_party = fascism
+				elections_allowed = no
+			}
+			every_other_country = {
+				limit = {
+					capital_scope = {
+						is_on_continent = europe
+					}
+				}
+				news_event = { id = sweden.2 }
+			}
+			ai_chance = {
+				factor = 250
+			}
+		}
+	option = {
+		name = sweden.1.b ##keep Sven Hedin
+		add_stability = -0.05
+		add_popularity = {
+			ideology = ROOT
+			popularity = -0.08
+		}
+		add_timed_idea = { idea = strikes_1 days = 90 }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+news_event = { #Gustav's Self-coup
+	id = sweden.2
+	title = sweden.2.t
+	desc = sweden.2.d
+	is_triggered_only = yes
+
+	option = {
+		name = sweden.2.a #nice
+		trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = {
+		name = sweden.2.b #a new ally for Prussia
+		trigger = {
+			OR = {
+				tag = AUS
+				is_in_faction_with = AUS
+				tag = FRA
+				is_in_faction_with = FRA
+			}
+		}
+	}
+	option = {
+		name = sweden.2.c #the falling of dem cockracy
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = AUS
+					tag = FRA
+					is_in_faction_with = GER
+					is_in_faction_with = AUS
+					is_in_faction_with = FRA
+				}
+			}
+		}
+	}
+}

@@ -2010,6 +2010,141 @@ country_event = {
 
 }
 
+##france demands disbanding of Belgian Colonial Society
+country_event = {
+	id = belgian_election_events.7
+	title = belgian_election_events.7.t
+	desc = belgian_election_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgian_election_events.7.a
+		BEL = { country_event = belgian_election_events.8 }
+		add_political_power = -15
+	}
+	option = {
+		name = belgian_election_events.7.b
+		FEA = {
+			add_stability = -0.03
+			add_war_support = -0.03
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.8
+	title = belgian_election_events.8.t
+	desc = belgian_election_events.8.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.8.a
+		ai_chance = {
+			factor = 10000
+		}
+		FRA = {
+			country_event = belgian_election_events.9
+		}
+	}
+	option = {
+		name = belgian_election_events.8.b
+		FRA = {
+			country_event = belgian_election_events.10
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.9
+	title = belgian_election_events.9.t
+	desc = belgian_election_events.9.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.9.a
+		##lets goo
+		539 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		772 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		796 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		773 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1046 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1055 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1060 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		660 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1061 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		538 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		295 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		718 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.10
+	title = belgian_election_events.10.t
+	desc = belgian_election_events.10.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.10.a
+		##fuckers
+
+	}
+}
+
 add_namespace = brussells_conference
 
 ##Introducing the Brussells Conference
