@@ -1971,6 +1971,84 @@ country_event = {
 		ANC = { add_ideas = ANC_massive_polynesian_resistance }
 	}
 }
+#The Free Ocenaic State Forms
+country_event = {
+	id = USA_rabaul_volcano_explosion.7
+	title = USA_rabaul_volcano_explosion.7.t
+	desc = USA_rabaul_volcano_explosion.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		ROOT = {
+  			611 = {
+   				 transfer_state_to = PNG
+  			}
+		}
+		name = USA_rabaul_volcano_explosion.7.a 
+	}
+}
+#George Van Horn Moseley Defects to British
+country_event = {
+	id = USA_rabaul_volcano_explosion.8
+	title = USA_rabaul_volcano_explosion.8.t
+	desc = USA_rabaul_volcano_explosion.8.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		ROOT = {
+  			673 = {
+   				 transfer_state_to = BOC
+  			}
+		}
+		name = USA_rabaul_volcano_explosion.8.a 
+	}
+}
+#The Oceanic Civil War
+country_event = {
+	id = USA_rabaul_volcano_explosion.9
+	title = USA_rabaul_volcano_explosion.9.t
+	desc = USA_rabaul_volcano_explosion.9.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	PNG = {
+		declare_war_on = {
+    		target = BOC
+    		type = annex_everything
+		}
+		declare_war_on = {
+    		target = ANC
+    		type = annex_everything
+		}
+	}	
+	BOC = {
+		declare_war_on = {
+    		target = PNG
+    		type = annex_everything
+		}
+		declare_war_on = {
+    		target = ANC
+    		type = annex_everything
+		}
+	}	
+	ANC = {
+		declare_war_on = {
+    		target = PNG
+    		type = annex_everything
+		}
+		declare_war_on = {
+    		target = BOC
+    		type = annex_everything
+		}
+	}	
+	name = USA_rabaul_volcano_explosion.9.a 
+	}
+}
 
 add_namespace = USA_flavor_events
 ###Golden Gate Bridge
