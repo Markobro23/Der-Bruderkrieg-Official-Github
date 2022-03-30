@@ -1987,6 +1987,12 @@ country_event = {
   			}
 		}
 		name = USA_rabaul_volcano_explosion.7.a 
+				hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.8
+				days = 7
+			}
+		}
 	}
 }
 #George Van Horn Moseley Defects to British
@@ -2004,7 +2010,13 @@ country_event = {
    				 transfer_state_to = BOC
   			}
 		}
-		name = USA_rabaul_volcano_explosion.8.a 
+		name = USA_rabaul_volcano_explosion.8.a
+				hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.9
+				days = 7
+			}
+		} 
 	}
 }
 #The Oceanic Civil War
@@ -2016,37 +2028,38 @@ country_event = {
 	
 	is_triggered_only = yes
 	
-	PNG = {
-		declare_war_on = {
-    		target = BOC
-    		type = annex_everything
-		}
-		declare_war_on = {
-    		target = ANC
-    		type = annex_everything
-		}
-	}	
-	BOC = {
-		declare_war_on = {
-    		target = PNG
-    		type = annex_everything
-		}
-		declare_war_on = {
-    		target = ANC
-    		type = annex_everything
-		}
-	}	
-	ANC = {
-		declare_war_on = {
-    		target = PNG
-    		type = annex_everything
-		}
-		declare_war_on = {
-    		target = BOC
-    		type = annex_everything
-		}
-	}	
-	name = USA_rabaul_volcano_explosion.9.a 
+	option = {
+		PNG = {
+			declare_war_on = {
+    			target = BOC
+    			type = annex_everything
+			}
+			declare_war_on = {
+    			target = ANC
+    			type = annex_everything
+			}
+		}	
+		BOC = {
+			declare_war_on = {
+   		 		target = PNG
+   		 		type = annex_everything
+			}
+			declare_war_on = {
+    			target = ANC
+    			type = annex_everything
+			}
+		}	
+		ANC = {
+			declare_war_on = {
+    			target = PNG
+    			type = annex_everything
+			}
+			declare_war_on = {
+    			target = BOC
+    			type = annex_everything
+			}
+		}	
+		name = USA_rabaul_volcano_explosion.9.a 	
 	}
 }
 
