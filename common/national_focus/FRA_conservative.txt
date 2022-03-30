@@ -38,7 +38,7 @@ focus_tree = {
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
 	x = 18
-	y = 12
+	y = 13
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
     #relative_position_id = FRA_BUILD_INDUSTRY
@@ -5046,7 +5046,9 @@ instant_build = yes
 					remove_ideas = FEA_overstretched_colonial_empire
 				}
 			}
-		}	
+		}
+		
+	
 
 	
 
@@ -5796,6 +5798,9 @@ instant_build = yes
       bypass = {
         has_global_flag = france_austria_split_deal
       }
+	  mutually_exclusive = {
+		focus = FRA_across_the_sea
+	  }
       completion_reward = {
         
       }
@@ -5810,6 +5815,9 @@ instant_build = yes
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_RESTART_WARS }
       mutually_exclusive = {focus = FRA_in_pursuit_of_eternal_peace }
+	  mutually_exclusive = {
+		focus = FRA_across_the_sea
+	  }
       relative_position_id = FRA_RESTART_WARS
       ai_will_do = {
         factor = 2000
@@ -6393,6 +6401,13 @@ instant_build = yes
             
         relative_position_id = FRA_the_western_bases
 
+		mutually_exclusive = {
+			focus = FRA_flames_on_the_fields_of_allemagne
+		}
+		mutually_exclusive = {
+			focus = FRA_in_pursuit_of_eternal_peace
+		}
+
         available = {
         	NOT = {
         		owns_state = 16
@@ -6630,34 +6645,7 @@ instant_build = yes
         }
     }
 
-    shared_focus = {
-    	id = FRA_retake_the_homeland
-    	icon = GFX_goal_Napoleonic_Wars
-        x = 0
-        y = 1
-        cost = 5
-        available_if_capitulated = yes
-        prerequisite = { focus = FRA_prepare_the_returning_fleet }
-        relative_position_id = FRA_prepare_the_returning_fleet
 
-        available = {
-        	any_owned_state = {
-        		is_on_continent = africa
-        	}
-        }
-
-        completion_reward = {
-        	random_country = {
-        		limit = { owns_state = 16 }
-        		FRA = {
-        			declare_war_on = {
-        				target = PREV
-        				type = annex_everything
-        			}
-        		}
-        	}
-        }
-    }
 		
 	shared_focus = {
     	id = FRA_la_resistance
@@ -6666,8 +6654,8 @@ instant_build = yes
         y = 1
         cost = 5
         available_if_capitulated = yes
-        prerequisite = { focus = FRA_retake_the_homeland }
-        relative_position_id = FRA_retake_the_homeland
+        prerequisite = { focus = FRA_prepare_the_returning_fleet }
+        relative_position_id = FRA_prepare_the_returning_fleet
 
         available = {
         	any_owned_state = {
@@ -6711,8 +6699,8 @@ instant_build = yes
         y = 1
         cost = 5
         available_if_capitulated = yes
-        prerequisite = { focus = FRA_retake_the_homeland }
-        relative_position_id = FRA_retake_the_homeland
+        prerequisite = { focus = FRA_prepare_the_returning_fleet }
+        relative_position_id = FRA_prepare_the_returning_fleet
 
         available = {
         	any_controlled_state = {
@@ -6737,28 +6725,28 @@ instant_build = yes
         }
     }
 
-    shared_focus = {
-    	id = FRA_la_resistance
+	shared_focus = {
+    	id = FRA_napoleon_returns_once_again
     	icon = GFX_goal_Napoleonic_Wars
-        x = 0
-        y = 2
+        x = 1
+        y = 1
         cost = 5
         available_if_capitulated = yes
         prerequisite = { focus = FRA_la_resistance focus = FRA_jour_de_retour }
-        relative_position_id = FRA_retake_the_homeland
+        relative_position_id = FRA_la_resistance
 
         available = {
-        	16 = {
-        		is_fully_controlled_by = FRA
-        	}
+        	##owns all french core states
         }
 
         completion_reward = {
-        	set_capital = 16
-        	add_political_power = 100
-        	add_war_support = 0.1
+			drop_cosmetic_tag = yes
+			add_political_power = 100
+			add_war_support = 0.1
         }
     }
+
+
 		
 		
 		#######
