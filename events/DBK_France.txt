@@ -2145,6 +2145,87 @@ country_event = {
 	}
 }
 
+##Congo revolt - FEA
+country_event = {
+	id = belgian_election_events.11
+	title = belgian_election_events.11.t
+	desc = belgian_election_events.11.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.11.a
+		release = COG
+		declare_war_on = {
+			target = COG
+			type = civil_war
+		}
+
+		hidden_effect = {
+			COG = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 100
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+		} 
+		##i got hoooooes calling on a young phone i be ballin like a mfing pro
+
+		FRA = {
+			country_event = belgian_election_events.12
+		}
+		if = {
+			limit = {
+				OR = {
+					295 = {
+						has_dynamic_modifier = {
+							modifier = belgian_colonial_society_modifier
+						}
+					}
+					FEA = {
+						has_idea = FEA_overstretched_colonial_empire
+					}
+				}
+			}
+			GER = {
+				country_event = belgian_election_events.13
+			}
+		}
+	}
+}
+
+## Congo Revolt - FRA
+country_event = {
+	id = belgian_election_events.12
+	title = belgian_election_events.12.t
+	desc = belgian_election_events.12.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.12.a
+	}
+}
+
+## Congo Revolt - GER Accept Support
+country_event = {
+	id = belgian_election_events.13
+	title = belgian_election_events.13.t
+	desc = belgian_election_events.13.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.13.a
+	}
+}
+
 add_namespace = brussells_conference
 
 ##Introducing the Brussells Conference
