@@ -1,0 +1,24 @@
+add_namespace = SAF_boer_revolt
+
+#Give state to the Boers
+country_event = {
+	id = SAF_boer_revolt.1
+	title = SAF_boer_revolt.1.t
+	desc = SAF_boer_revolt.1.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = SAF_boer_revolt.1.a
+		ROOT = {
+			275 = {
+				transfer_state_to = BOE
+			}
+		}
+        declare_war_on = {
+            target = BOE
+            type = annex_everything
+        }
+	}
+}
