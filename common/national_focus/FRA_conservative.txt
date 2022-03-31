@@ -37,8 +37,8 @@ focus_tree = {
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 28
-	y = 9
+	x = 18
+	y = 13
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
     #relative_position_id = FRA_BUILD_INDUSTRY
@@ -2714,7 +2714,7 @@ shared_focus = {
 		icon = GFX_USA_trust_busting
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 23
+		x = 20
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -4583,6 +4583,9 @@ shared_focus = {
 			ai_will_do = {
 				factor = 1
 			}
+			allow_branch = {
+				always = no
+			}
 			available = {
 				OR = { has_country_flag = FRA_the_strikes_crushed AND = { NOT = { has_idea = FRA_national_strikes } has_country_flag = FRA_strikes_have_gone_national } }
 
@@ -4614,13 +4617,13 @@ shared_focus = {
 
 		shared_focus = {
 			id = FRA_division_coloniale_de_africa
-			icon = GFX_focus_generic_military_academy
-			x = 7
+			icon = GFX_goal_FRA_division_coloniale
+			x = 12
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_national_development_bureau }
-			relative_position_id = FRA_national_development_bureau
+			prerequisite = { focus = FRA_FRANCE_ALONE }
+			relative_position_id = FRA_FRANCE_ALONE
 			ai_will_do = {
 				factor = 1
 			}
@@ -4902,7 +4905,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_transsaharian_railroad
-			icon = GFX_goal_generic_construct_infrastructure
+			icon = GFX_goal_FRA_trans_saharan_railroad
 			x = -2
 			y = 1
 			cost = 5
@@ -4934,7 +4937,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_intensify_exploitation
-			icon = GFX_goal_generic_production
+			icon = GFX_goal_FRA_intensify_exploitation
 			x = 0
 			y = 1
 			cost = 5
@@ -4964,7 +4967,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_the_union_plan
-			icon = GFX_goal_generic_major_alliance
+			icon = GFX_goal_FRA_the_union_plan
 			x = 2
 			y = 1
 			cost = 5
@@ -4982,7 +4985,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_the_second_france
-			icon = GFX_focus_fra_french_union
+			icon = GFX_goal_FRA_the_second_france
 			x = 0
 			y = 1
 			cost = 5
@@ -5027,59 +5030,31 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_the_western_bases
-			icon = GFX_focus_generic_industry_3
-			x = 0
+			icon = GFX_goal_FRA_strengthen_the_sub_saharan_administration
+			x =-1 
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_the_second_france }
-			relative_position_id = FRA_the_second_france
+			prerequisite = { focus = FRA_algerian_oilfields focus = FRA_indochinese_rubber }
+			
+			relative_position_id = FRA_algerian_oilfields
 			ai_will_do = {
 				factor = 1
 			}
 			completion_reward = {
-				272={
-	 
-
-	 add_extra_state_shared_building_slots = 1
-	 add_building_construction = {
-	 type = industrial_complex
-	 level = 1
-	 instant_build = yes
-	 }
-
-	 #set_state_flag = 272
-	 }
-	  272={
-	 if = {
-		limit = {
-			free_building_slots = {
-			building = arms_factory
-			size > 0
-			include_locked = yes
-			}
-	   }
-	 add_extra_state_shared_building_slots = 1
-	 add_building_construction = {
-	 type = arms_factory
-	 level = 1
-	 instant_build = yes
-	 }
-
-	 }
-
-	 
-
-	 #set_state_flag = 272
-	 }
+				FEA = {
+					remove_ideas = FEA_overstretched_colonial_empire
+				}
 			}
 		}
+		
+	
 
 	
 
 		shared_focus = {
 			id = FRA_saharan_mineral_deposits
-			icon = GFX_goal_generic_construction2
+			icon = GFX_goal_FRA_saharan_mineral_deposits
 			x = 0
 			y = 1
 			cost = 5
@@ -5105,7 +5080,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_algerian_oilfields
-			icon = GFX_goal_generic_oil_refinery
+			icon = GFX_goal_FRA_algerian_oil
 			x = 0
 			y = 1
 			cost = 5
@@ -5126,14 +5101,15 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_indochinese_rubber
-			icon = GFX_focus_generic_rubber
-			x =-1 
+			icon = GFX_goal_FRA_indochinese_rubber
+			
+
+			x = 0
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_algerian_oilfields focus = FRA_the_western_bases }
-			
-			relative_position_id = FRA_algerian_oilfields
+			prerequisite = { focus = FRA_the_second_france }
+			relative_position_id = FRA_the_second_france
 			ai_will_do = {
 				factor = 1
 			}
@@ -5148,7 +5124,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_violette_proposal
-			icon = GFX_goal_generic_intelligence_exchange
+			icon = GFX_goal_FRA_the_abbas_proposal
 			x = 0
 			y = 1
 			cost = 5
@@ -5165,7 +5141,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_break_piednoir_supremacy
-			icon = GFX_focus_renounce_the_treaty_of_trianon
+			icon = GFX_goal_FRA_pied_nore_supermacy
 			x = 0
 			y = 1
 			cost = 10
@@ -5186,7 +5162,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_fulfilling_the_rights_of_man
-			icon = GFX_focus_generic_the_giant_wakes
+			icon = GFX_goal_FRA_fullfilling_the_rights_of_man
 			x = 0
 			y = 1
 			cost = 12
@@ -5242,7 +5218,7 @@ instant_build = yes
 			
 			
 		
-			x = -9
+			x = 0
 			y = 1
 			
 			
@@ -5292,7 +5268,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = -3
+			x = -10
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5382,7 +5358,7 @@ instant_build = yes
 			id = FRA_REESTABLISH_EMPIRE
 			icon = GFX_goal_French_Empire
 			text = FRA_REESTABLISH_EMPIRE
-			x = 1
+			x = -6
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			prerequisite = {
@@ -5570,7 +5546,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
-			x = 3
+			x = -4
 			y = 1
 			cost = 4
 			available_if_capitulated = yes
@@ -5822,6 +5798,9 @@ instant_build = yes
       bypass = {
         has_global_flag = france_austria_split_deal
       }
+	  mutually_exclusive = {
+		focus = FRA_across_the_sea
+	  }
       completion_reward = {
         
       }
@@ -5836,6 +5815,9 @@ instant_build = yes
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_RESTART_WARS }
       mutually_exclusive = {focus = FRA_in_pursuit_of_eternal_peace }
+	  mutually_exclusive = {
+		focus = FRA_across_the_sea
+	  }
       relative_position_id = FRA_RESTART_WARS
       ai_will_do = {
         factor = 2000
@@ -6408,9 +6390,363 @@ instant_build = yes
 		
 		
 		
+	shared_focus = {
+    	id = FRA_across_the_sea
+    	icon = GFX_goal_Napoleonic_Wars
+        x =-5
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_the_western_bases focus = FRA_RESTART_WARS }
+            
+        relative_position_id = FRA_the_western_bases
+
+		mutually_exclusive = {
+			focus = FRA_flames_on_the_fields_of_allemagne
+		}
+		mutually_exclusive = {
+			focus = FRA_in_pursuit_of_eternal_peace
+		}
+
+        available = {
+        	NOT = {
+        		owns_state = 16
+        	}
+        }
+
+        completion_reward = {
+        	add_war_support = 0.1
+        }
+    }	
+
+    shared_focus = {
+    	id = FRA_consolidate_colonial_governments
+    	icon = GFX_goal_Napoleonic_Wars
+        x = -1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_across_the_sea }
+            
+        relative_position_id = FRA_across_the_sea
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	every_state = {
+        		limit = { NOT = { is_core_of = FRA } is_on_continent = africa is_owned_by = FRA is_controlled_by = FRA }
+        		add_compliance = 25
+        	}
+        	if = {
+        		limit = {
+        			has_completed_focus = FRA_fulfilling_the_rights_of_man
+        		}
+        		random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+        	}
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_call_upon_loyal_frenchmen
+    	icon = GFX_goal_Napoleonic_Wars
+        x = 1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_across_the_sea }
+            
+        relative_position_id = FRA_across_the_sea
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	add_ideas = FRA_loyal_french
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_return_ism
+    	icon = GFX_goal_Napoleonic_Wars
+        x = 1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_call_upon_loyal_frenchmen }
+            
+        relative_position_id = FRA_call_upon_loyal_frenchmen
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	swap_ideas = {
+        		remove_idea = FRA_loyal_french
+        		add_idea = FRA_loyal_french_return
+        	}
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_utilize_fleeing_industrialists
+    	icon = GFX_goal_Napoleonic_Wars
+        x = -1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_call_upon_loyal_frenchmen }
+        prerequisite = { focus = FRA_consolidate_colonial_governments }
+        relative_position_id = FRA_call_upon_loyal_frenchmen
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_our_temporary_paris
+    	icon = GFX_goal_Napoleonic_Wars
+        x = -1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_consolidate_colonial_governments }
+        relative_position_id = FRA_consolidate_colonial_governments
+
+        bypass = {
+        	capital_scope = {
+        		NOT = {
+        			is_on_continent = africa
+        		}
+        	}
+        }
+
+        completion_reward = {
+        	capital_scope = {
+				add_extra_state_shared_building_slots = 4
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_prepare_the_returning_fleet
+    	icon = GFX_goal_Napoleonic_Wars
+        x = 0
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_return_ism }
+        prerequisite = { focus = FRA_utilize_fleeing_industrialists }
+        prerequisite = { focus = FRA_our_temporary_paris }
+        relative_position_id = FRA_utilize_fleeing_industrialists
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+        	swap_ideas = {
+        		add_idea = FRA_loyal_french_return_fleet
+        		remove_idea = FRA_loyal_french_return
+        	}
+        }
+    }
+
+
 		
-		
-		
+	shared_focus = {
+    	id = FRA_la_resistance
+    	icon = GFX_goal_Napoleonic_Wars
+        x = -1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_prepare_the_returning_fleet }
+        relative_position_id = FRA_prepare_the_returning_fleet
+
+        available = {
+        	any_owned_state = {
+        		is_on_continent = africa
+        	}
+        }
+
+        completion_reward = {
+        	swap_ideas = {
+        		remove_idea = FRA_loyal_french_return_fleet
+        		add_idea = FRA_loyal_french_return_fleet_resistance
+        	}
+        	every_state = { #I bet the tooltip for this is gonna look terrible lmao
+        		limit = { is_core_of = FRA NOT = { is_owned_by = FRA } OWNER = { NOT = { OR = { is_in_faction_with = FRA is_subject_of = FRA } } } }
+        		if = {
+        			limit = {
+        				arms_factory > 0
+        			}
+        			damage_building = {
+        				type = arms_factory
+        				damage = 0.75
+        			}
+        		}
+        		if = {
+        			limit = {
+        				industrial_complex > 0
+        			}
+        			damage_building = {
+        				type = industrial_complex
+        				damage = 0.75
+        			}
+        		}
+        	}
+        }
+    }
+
+    shared_focus = {
+    	id = FRA_jour_de_retour
+    	icon = GFX_goal_Napoleonic_Wars
+        x = 1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_prepare_the_returning_fleet }
+        relative_position_id = FRA_prepare_the_returning_fleet
+
+        available = {
+        	any_controlled_state = {
+        		is_on_continent = europe
+        		is_core_of = FRA
+        	}
+        }
+
+        completion_reward = {
+        	random_state = {
+        		limit = {
+        			is_on_continent = europe
+        			is_core_of = FRA
+        			is_controlled_by = FRA
+        		}
+        		create_unit = {
+				    division = "name = \"Division de la Libération\" division_template = \"Division d'Infanterie\" start_experience_factor = 0.2 start_equipment_factor = 0.75"
+				    owner = FRA
+				    count = 3
+				}
+        	}
+        }
+    }
+
+	shared_focus = {
+    	id = FRA_napoleon_returns_once_again
+    	icon = GFX_goal_Napoleonic_Wars
+        x = 1
+        y = 1
+        cost = 5
+        available_if_capitulated = yes
+        prerequisite = { focus = FRA_la_resistance focus = FRA_jour_de_retour }
+        relative_position_id = FRA_la_resistance
+
+        available = {
+        	##owns all french core states
+        }
+
+        completion_reward = {
+			drop_cosmetic_tag = yes
+			add_political_power = 100
+			add_war_support = 0.1
+        }
+    }
+
+
 		
 		
 		#######
@@ -6419,7 +6755,7 @@ instant_build = yes
 				id = FRA_the_french_imperium
 				icon = GFX_goal_AUS_sign_a_new_constitution
 				text = FRA_the_french_imperium
-				x = 7
+				x = 0
 				y = 1
 				cost = 2
 				ai_will_do = {
@@ -6457,9 +6793,9 @@ instant_build = yes
 					factor = 200
 				}
 				prerequisite = {
-					focus = FRA_the_french_imperium
+					focus = FRA_FRANCE_ALONE
 				}
-				relative_position_id = FRA_the_french_imperium
+				relative_position_id = FRA_FRANCE_ALONE
 				
 				#prerequisite = {focus = FRA_the_french_imperium}
 				#relative_position_id = FRA_the_french_imperium
@@ -7275,6 +7611,7 @@ instant_build = yes
 													OR = {
 														is_controlled_by = GER
 														is_controlled_by = HAN
+														is_controlled_by = OLD
 														is_controlled_by = FGD
 											
 													}
@@ -7301,6 +7638,7 @@ instant_build = yes
 													OR = {
 														is_controlled_by = GER
 														is_controlled_by = HAN
+														is_controlled_by = OLD
 														is_controlled_by = FGD
 											
 													}
