@@ -2312,7 +2312,129 @@ weltkrieg_decisions = {
 		}
 	
 		remove_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = AIG
+				}
+				GER = {
+					add_to_faction = PREV
+				}
+			}
 			add_to_faction = AIG
+		}
+	}
+
+	GER_congo_revolt = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_war_with = FEA
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 5
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			FEA = {
+				country_event = belgian_election_events.11
+			}
+		}
+	}
+
+	GER_boer_revolt = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_war_with = SAF
+		}
+
+		visible = {
+			has_war_with = ENG
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 5
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SAF = {
+				country_event = SAF_boer_revolt.1
+			}
+		}
+	}
+
+	GER_integrate_wfr = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			WFR = {
+				exists = yes
+			}	
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			annex_country = {
+				target = WFR
+				transfer_troops = yes
+			}
 		}
 	}
 }
