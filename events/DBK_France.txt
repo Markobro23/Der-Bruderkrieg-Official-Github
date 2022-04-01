@@ -706,6 +706,23 @@ country_event = {
 	}
 }
 
+country_event = { #exile
+	id = france.215
+	title = france.215.t
+	desc = france.215.d
+	picture = GFX_report_event_generic_rifles
+
+	is_triggered_only = yes
+
+	option = { # 
+		name = france.215.a #needs to be localized
+		set_cosmetic_tag = FRA_FREE
+		declare_war_on = {
+			target = GER
+			type = topple_government
+		}
+	}
+}
 
 add_namespace = france_policy_tree_events
 

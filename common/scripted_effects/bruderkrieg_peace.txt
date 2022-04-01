@@ -674,16 +674,16 @@ france_loses_peace_deal = {
             puppet = BEL
         }
         white_peace = FRA
-        puppet = FRA
-        if = {
-            limit = {
-                has_dlc = "Together for Victory"
-            }
-            set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
-        }
-        else = {
-            set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
-        }
+        #puppet = FRA
+        #if = {
+        #    limit = {
+        #        has_dlc = "Together for Victory"
+        #    }
+        #    set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        #}
+        #else = {
+        #    set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
+        #}
         
     }
     BEL = {
@@ -734,7 +734,21 @@ france_loses_peace_deal = {
     FRA = {
         release = OCC
         release = COR
-        set_cosmetic_tag = RAU_France
+        #set_cosmetic_tag = RAU_France
+	if = {
+		limit = { country_exists = FWA }
+		annex_country = {
+			target = FWA
+			transfer_troops = yes
+		}
+	}
+	if = {
+		limit = { country_exists = FEA }
+		annex_country = {
+			target = FEA
+			transfer_troops = yes
+		}
+	}
     }
     HOL = {
        drop_cosmetic_tag = yes 
@@ -744,7 +758,9 @@ france_loses_peace_deal = {
         puppet = COR
         puppet = HOL
     }
-    
+    FRA = {
+		country_event = { id = france.215 hours = 3 }
+	}
 }
 
 france_beats_prussia_peace_deal = {
