@@ -758,8 +758,14 @@ france_loses_peace_deal = {
         puppet = COR
         puppet = HOL
     }
+	every_state = {
+		limit = { is_owned_by = FRA is_on_continent = europe }
+		GER = {
+			transfer_state = PREV
+		}
+	}
     FRA = {
-		country_event = { id = france.215 hours = 3 }
+		news_event = { id = france.215 hours = 3 }
 	}
 }
 
