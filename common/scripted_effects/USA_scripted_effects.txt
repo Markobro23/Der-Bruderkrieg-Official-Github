@@ -284,6 +284,10 @@ USA_electoral_vars_setup = {
 		
 }
 
+d_USA_election_timeout_effect = {
+	USA_election_timeout_effect = yes
+}
+
 USA_election_timeout_effect = {
 	if = { 
 		limit = {
@@ -306,6 +310,7 @@ USA_election_timeout_effect = {
 	}
 	else = {
 		country_event = { id = USA_electoral_standoff.1  days = 1}
+		log = "Electoral Standoff"
 	}
 	set_country_flag = USA_elections_over
 }
