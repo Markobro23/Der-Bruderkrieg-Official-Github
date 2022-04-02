@@ -1874,7 +1874,7 @@ shared_focus = {
 	relative_position_id = SOV_great_beacon_democracy
 	x = 4
 	y = 1
-	cost = 4
+	cost = 7
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
@@ -2128,12 +2128,18 @@ shared_focus = {
 	relative_position_id = SOV_counter_japanese_imperialism
 	x = 1
 	y = 1
-	cost = 5
+	cost = 10
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	ai_will_do = {
 		factor = 1000
+	}
+	available = {
+		date > 1938.6.1
+		has_army_size = {
+			size > 799999
+		}
 	}
 	completion_reward = {
   		create_wargoal = {
@@ -2296,7 +2302,10 @@ shared_focus = {
 		TUR = {
 			exists = yes
 		}
-		date > 1938.6.1
+		date > 1939.1.1
+		has_army_manpower = {
+			size > 999999
+		}
 	}
   
 	ai_will_do = {

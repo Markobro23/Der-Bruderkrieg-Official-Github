@@ -6409,13 +6409,12 @@ instant_build = yes
 		}
 
         available = {
-        	NOT = {
-        		owns_state = 16
-        	}
-        }
+        	has_global_flag = prussia_has_beaten_france
+        } 
 
         completion_reward = {
-        	add_war_support = 0.1
+        	add_war_support = 0.05
+			add_political_power = 50
         }
     }	
 
@@ -6744,9 +6743,8 @@ instant_build = yes
 
         completion_reward = {
 			drop_cosmetic_tag = yes
-			add_political_power = 100
-			add_war_support = 0.1
-        }
+			custom_effect_tooltip = FRA_napoleon_returns_once_again_tt		        
+		}
     }
 
 

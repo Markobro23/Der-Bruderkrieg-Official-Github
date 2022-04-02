@@ -134,6 +134,26 @@ on_actions = {
                     }
                     tag = FRA
                 }
+            
+                hidden_effect = {
+                    if = { 
+                        limit = { 
+                            FRA = { NOT = { has_country_flag = fire_prussian_war_event_once }  }
+                        } 
+                        news_event = french_inteverntion_in_prussian_expansion.10
+                    }
+                    FRA = {
+                        set_country_flag = fire_prussian_war_event_once
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        tag = FRA
+                    }
+                    tag = GER
+                }
                 hidden_effect = {
                     news_event = french_inteverntion_in_prussian_expansion.10
                 }
