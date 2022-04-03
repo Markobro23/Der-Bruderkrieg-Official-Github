@@ -3058,6 +3058,16 @@ shared_focus = {
 	relative_position_id = USA_lets_stand_against_extremism
 	
 	completion_reward = {
+		unlock_decision_category_tooltip = USA_generic_foreign_far_east_decisions
+	
+		hidden_effect = {
+			JAP = {
+				country_event = {
+					id = JAP_taishos_will.1
+					days = 3
+				}
+			}
+		}
 	}
 }
 
@@ -3365,6 +3375,9 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		JAP = {
+			has_goverment = authoritarian_democratic
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_land_of_the_eastern_democracy
@@ -3376,6 +3389,7 @@ shared_focus = {
 	relative_position_id = USA_the_rising_sun
 	
 	completion_reward = {
+	
 	}
 }
 
@@ -3431,6 +3445,9 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		JAP = {
+			has_goverment = fascism
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_land_of_the_eastern_democracy
@@ -3442,6 +3459,9 @@ shared_focus = {
 	relative_position_id = USA_the_rising_sun
 	
 	completion_reward = {
+		JAP = {
+			remove_ideas = JAP_meiji_constitution
+		}
 	}
 }
 shared_focus = {
@@ -3523,6 +3543,9 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
+		JAP = {
+			has_goverment = democratic_liberalism
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_cut_ties_with_japan
@@ -3555,6 +3578,9 @@ shared_focus = {
 	relative_position_id = USA_land_of_the_eastern_democracy
 	
 	completion_reward = {
+		JAP = {
+			remove_ideas = JAP_showa_depression
+		}
 	} 
 }
 shared_focus = {
@@ -3817,6 +3843,30 @@ shared_focus = {
 				target = USA
 			}
 			add_ideas = USA_american_investors
+		}
+	}
+}
+shared_focus = {
+	id = USA_send_in_troops_to_europe
+	icon = GFX_goal_USA_invest_in_iberian_industries
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	relative_position_id = USA_invest_in_iberian_industries
+	prerequisite = { focus = USA_invest_in_iberian_industries }
+	prerequisite = {
+		focus = USA_joint_embargo_pf_prussia
+	}
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	completion_reward = {
+		create_wargoal = {
+			target = GER
+			type = topple_government
 		}
 	}
 }

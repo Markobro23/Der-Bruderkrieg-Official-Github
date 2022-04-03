@@ -12,9 +12,15 @@ defined_text = {
     }
     text = {
         trigger = {
-            has_country_leader = {
-                name = "August von Mackensen"
-                ruling_only = yes
+            OR = {
+                has_country_leader = {
+                    name = "August von Mackensen"
+                    ruling_only = yes
+                }
+                has_country_leader = {
+                    name = "Wilhelm I"
+                    ruling_only = yes
+                }
             }
         }
         localization_key = "von Mackensen"
@@ -36,6 +42,9 @@ defined_text = {
             }
         }
         localization_key = "Rohm"
+    }
+    text = {
+        localization_key = "[GER.GetLeader]"
     }
 }
 

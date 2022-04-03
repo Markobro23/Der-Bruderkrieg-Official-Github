@@ -3791,6 +3791,43 @@ country_event = {
 	}
 }
 
+# FIlipino Issue
+country_event = {
+	id = USA_generic_foriegn_policy_tree.7
+	title = USA_generic_foriegn_policy_tree.7.t
+	desc = USA_generic_foriegn_policy_tree.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = { #free
+		name = USA_generic_foriegn_policy_tree.7.a
+		set_autonomy = {
+			target = PHI
+			autonomous_state =  autonomy_puppet
+		}
+		PHI = { remove_ideas = PHI_filipino_rebels add_ideas = PHI_a_filipino_national_identity }
+	}
+	option = { #crack down
+		name = USA_generic_foriegn_policy_tree.7.b
+	
+		PHI = { 
+			add_ideas = PHI_national_military_government 
+
+			swap_ideas = {
+				add_idea = PHI_filipino_rebels_2
+				remove_idea = PHI_filipino_rebels
+			}
+		}
+	}
+	option = { #status quo
+		name = USA_generic_foriegn_policy_tree.7.c
+	
+		PHI = { 
+			set_country_flag = PHI_status_quo_continued
+		}
+	}
+}
+
 
 
 ########
