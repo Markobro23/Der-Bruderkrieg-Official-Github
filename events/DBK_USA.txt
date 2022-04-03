@@ -3763,6 +3763,36 @@ country_event = {
 
 
 
+
+## Russian Event Chain
+country_event = {
+	id = USA_generic_foriegn_policy_tree.6
+	title = USA_generic_foriegn_policy_tree.6.t
+	desc = USA_generic_foriegn_policy_tree.6.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.6.a
+		USA = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+			}
+			add_ideas = SOV_russian_investments
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_increase
+			}
+			add_ideas = USA_american_investors
+		}
+	}
+}
+
+
+
 ########
 ###AI###
 ########
