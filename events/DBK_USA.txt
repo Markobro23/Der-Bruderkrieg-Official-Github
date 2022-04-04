@@ -3763,6 +3763,73 @@ country_event = {
 
 
 
+
+## Russian Event Chain
+country_event = {
+	id = USA_generic_foriegn_policy_tree.6
+	title = USA_generic_foriegn_policy_tree.6.t
+	desc = USA_generic_foriegn_policy_tree.6.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.6.a
+		USA = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+			}
+			add_ideas = SOV_russian_investments
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_increase
+			}
+			add_ideas = USA_american_investors
+		}
+	}
+}
+
+# FIlipino Issue
+country_event = {
+	id = USA_generic_foriegn_policy_tree.7
+	title = USA_generic_foriegn_policy_tree.7.t
+	desc = USA_generic_foriegn_policy_tree.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = { #free
+		name = USA_generic_foriegn_policy_tree.7.a
+		set_autonomy = {
+			target = PHI
+			autonomous_state =  autonomy_puppet
+		}
+		PHI = { remove_ideas = PHI_filipino_rebels add_ideas = PHI_a_filipino_national_identity }
+	}
+	option = { #crack down
+		name = USA_generic_foriegn_policy_tree.7.b
+	
+		PHI = { 
+			add_ideas = PHI_national_military_government 
+
+			swap_ideas = {
+				add_idea = PHI_filipino_rebels_2
+				remove_idea = PHI_filipino_rebels
+			}
+		}
+	}
+	option = { #status quo
+		name = USA_generic_foriegn_policy_tree.7.c
+	
+		PHI = { 
+			set_country_flag = PHI_status_quo_continued
+		}
+	}
+}
+
+
+
 ########
 ###AI###
 ########

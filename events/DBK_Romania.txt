@@ -1,0 +1,174 @@
+add_namespace = romania_iron_guard_coup
+##iron guard repulsed
+country_event = {
+	id = romania_iron_guard_coup.1 
+	title = romania_iron_guard_coup.1.t
+	desc = romania_iron_guard_coup.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.2 }
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.1
+		}
+		if = {
+			limit = {
+				ROM = {
+					NOT = { is_in_faction_with = SOV is_in_faction = yes }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						SOV = {
+							has_country_leader = {
+								name = "Alexander Kerensky"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Pavel Milyukov"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							has_country_leader = {
+								name = "Nikolai Belogurov"
+								ruling_only = yes
+							}
+						}
+						SOV = {
+							is_faction_leader = yes
+						}
+					}
+				}
+				SOV = {
+					country_event = {
+						id = generic.2
+						days = 20
+					}
+				}
+			}
+			else = {
+				GER = {
+					country_event = {
+						id = generic.2
+						days = 20
+					}
+				}
+			}
+		}
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.2 
+	title = romania_iron_guard_coup.2.t
+	desc = romania_iron_guard_coup.2.d
+	picture = GFX_news_event_romanian_soldiers
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+##iron guard success
+country_event = {
+	id = romania_iron_guard_coup.3 
+	title = romania_iron_guard_coup.3.t
+	desc = romania_iron_guard_coup.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.4 }
+		if = {
+			limit = {
+				ROM = {
+					is_in_faction_with = SOV
+				}
+			}
+			leave_faction = yes
+		}
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.3
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		GER = {
+			country_event = {
+				id = generic.2
+				days = 20
+			}
+		}
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.4 
+	title = romania_iron_guard_coup.4.t
+	desc = romania_iron_guard_coup.4.d
+	picture = GFX_news_event_romanian_soldiers
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.4.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##iron guard success
+country_event = {
+	id = romania_iron_guard_coup.5 
+	title = romania_iron_guard_coup.5.t
+	desc = romania_iron_guard_coup.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		news_event = {id = romania_iron_guard_coup.2 }
+	}
+} 
+
+news_event = {
+	id = romania_iron_guard_coup.6 
+	title = romania_iron_guard_coup.6.t
+	desc = romania_iron_guard_coup.6.d
+	picture = GFX_report_event_vienna_award_hungary
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}

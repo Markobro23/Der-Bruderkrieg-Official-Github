@@ -1607,7 +1607,7 @@ SOV_foreign_investment_idea = {
 	removal_cost = -1
 
 	modifier = {
-		consumer_goods_factor = 0.1
+		consumer_goods_factor = -0.05
 	}
 }
 
@@ -1622,6 +1622,25 @@ SOV_russian_investments = {
 		infantry_equipment = {
 			build_cost_ic = -0.1 instant = yes
 		}
+	}
+}
+
+SOV_russian_investments_2 = {
+	allowed = {
+		always = no
+	}
+
+	removal_cost = -1
+
+	equipment_bonus = {
+		infantry_equipment = {
+			build_cost_ic = -0.1 instant = yes
+		}
+	}
+
+	modifier = {
+		MONTHLY_POPULATION = 0.1
+		industrial_capacity_factory = 0.05
 	}
 }
 

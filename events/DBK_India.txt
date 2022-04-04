@@ -1,0 +1,111 @@
+add_namespace = indian_civil_war
+##indian united front
+news_event = {
+	id = indian_civil_war.1 
+	title = indian_civil_war.1.t
+	desc = indian_civil_war.1.d
+	picture = GFX_indiaunitedfront
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+##AIPG goes revanchist
+news_event = {
+	id = indian_civil_war.2 
+	title = indian_civil_war.2.t
+	desc = indian_civil_war.2.d
+	picture = GFX_dehliaxis
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+}
+
+news_event = {
+	id = indian_civil_war.3 
+	title = indian_civil_war.3.t
+	desc = indian_civil_war.3.d
+	picture = GFX_howrahincident
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+ 
+}
+
+country_event = {
+	id = indian_civil_war.4
+	title = indian_civil_war.4.t
+	desc = indian_civil_war.4.d 
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = indian_civil_war.4.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		RAJ = {
+			declare_war_on = {  target = AIG type = annex_everything }	
+		}
+		DRA = {
+			add_to_war = {
+				targeted_alliance = AIG
+				enemy = RAJ
+				hostility_reason = asked_to_join
+			}
+		}
+		KAS = {
+			add_to_war = {
+				targeted_alliance = AIG
+				enemy = RAJ
+				hostility_reason = asked_to_join
+			}
+		}
+		KHA = {
+			add_to_war = {
+				targeted_alliance = AIG
+				enemy = RAJ
+				hostility_reason = asked_to_join
+			}
+		}
+		INC = {
+			add_to_war = {
+				targeted_alliance = AIG
+				enemy = RAJ
+				hostility_reason = asked_to_join
+			}
+		}
+		PAK = {
+			add_to_war = {
+				targeted_alliance = AIG
+				enemy = RAJ
+				hostility_reason = asked_to_join
+			}
+		}
+		
+		add_threat = 5
+	}
+
+}

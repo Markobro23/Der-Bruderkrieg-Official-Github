@@ -118,3 +118,86 @@ country_event = { #greece united, wants islands back from UK
 		}
 	}
 }
+
+news_event = { #south chinese confederacy
+	id = DBK_formablenations.6
+	title = DBK_formablenations.6.t
+	desc = DBK_formablenations.6.d
+	is_triggered_only = yes
+	major = yes
+
+
+	option = {
+		name = DBK_formablenations.6.a
+	}
+}
+
+news_event = { #south chinese republic
+	id = DBK_formablenations.7
+	title = DBK_formablenations.7.t
+	desc = DBK_formablenations.7.d
+	is_triggered_only = yes
+	major = yes
+
+
+	option = {
+		name = DBK_formablenations.7.a
+	}
+}
+
+news_event = { #brazil united
+	id = DBK_formablenations.8
+	title = DBK_formablenations.8.t
+	desc = {
+		trigger = {
+			FROM = {
+				tag = UBR
+			}
+		}
+		text = DBK_formablenations.8.d1
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = SRB
+			}
+		}
+		text = DBK_formablenations.8.d2
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = BRE
+			}
+		}
+		text = DBK_formablenations.8.d3
+	}
+	desc = {
+		trigger = {
+			FROM = {
+				tag = BRS
+			}
+		}
+		text = DBK_formablenations.8.d4
+	}
+	is_triggered_only = yes
+	major = yes
+
+
+	option = {
+		name = DBK_formablenations.8.a
+		trigger = {
+			FROM = {
+				has_government = ROOT
+			}
+		}
+	}
+	option = {
+		name = DBK_formablenations.8.b
+		trigger = {
+			FROM = {
+				NOT = { has_government = ROOT }
+			}
+		}
+	}
+}
