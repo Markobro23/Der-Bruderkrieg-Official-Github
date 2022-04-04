@@ -4,6 +4,153 @@ on_actions = {
 			SWE = {
 				country_event = { id = sweden.1 days = 490 random = 8000 }
 			}
-        	}
+        }
+    }
+
+    on_state_control_changed = {
+    	effect = {
+    		if = {
+    			limit = { #fall of vienna
+    				tag = GER
+    				FROM.FROM = {
+    					state = 4
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.1 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #fall of budapest
+    				tag = GER
+    				FROM.FROM = {
+    					state = 43
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.3 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = {
+    				NOT = {
+    					OR = {
+    						is_in_faction_with = AUS
+    						tag = AUS
+    					}
+    				}
+    				FROM.FROM = {
+    					state = 43
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.4 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Munich
+    				tag = GER
+    				FROM.FROM = {
+    					state = 52
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.5 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Munich
+    				NOT = {
+    					OR = {
+    						is_in_faction_with = AUS
+    						tag = AUS
+    					}
+    				}
+    				FROM.FROM = {
+    					state = 52
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.6 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Berlin
+    				tag = FRA
+    				FROM.FROM = {
+    					state = 64
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.7 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Berlin
+    				tag = AUS
+    				FROM.FROM = {
+    					state = 64
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.8 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Berlin
+    				NOT = {
+    					OR = {
+    						tag = FRA
+    						tag = AUS
+    					}
+    				}
+    				FROM.FROM = {
+    					state = 64
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.9 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Paris
+    				NOT = {
+    					tag = FRA
+    				}
+    				FROM.FROM = {
+    					state = 16
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.9 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Moscow
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 219
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.13 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Volgograd
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 217
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.15 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #Vladivostok
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 408
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.12 hours = 3 random = 9 }
+    		}
+    		if = {
+    			limit = { #St Petersburg
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 195
+    				}
+    			}
+    			news_event = { id = DBK_fall_of_city.13 hours = 3 random = 9 }
+    		}
     	}
+    }
 }
