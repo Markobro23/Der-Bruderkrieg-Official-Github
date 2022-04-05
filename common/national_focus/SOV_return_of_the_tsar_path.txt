@@ -1350,9 +1350,32 @@ shared_focus = {
                 country_event = SOV_return_of_the_tsar_path.19
             }
         }
-        else = {
+        else_if = {
+            limit = {
+                YUG = {
+                    exists = yes
+                }
+                has_global_flag = form_serbia_flag
+            }
             YUG = {
                 country_event = SOV_return_of_the_tsar_path.19
+            }
+        }
+        else = {
+            if = {
+                limit = {
+                    NOT = {
+                        OBS = {
+                            exists = yes
+                        }
+                        has_global_flag = form_serbia_flag
+                    }
+                }
+                effect_tooltip = {
+                    YUG = {
+                        country_event = SOV_return_of_the_tsar_path.19
+                    }
+                }
             }
         }
     }

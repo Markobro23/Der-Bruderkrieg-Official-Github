@@ -445,6 +445,76 @@ on_actions = {
 			SWE = {
 				country_event = { id = sweden.1 days = 490 random = 8000 }
 			}
+
+			random_list = {
+				30 = {
+					set_global_flag = BRS_scripted_victory
+				}
+				30 = {
+					set_global_flag = BRE_scripted_victory
+				}
+				30 = {
+					set_global_flag = UBR_scripted_victory
+				}
+				10 = {
+					set_global_flag = SRB_scripted_victory
+				}
+			}
+
+			if = {
+				limit = {
+					has_global_flag = BRS_scripted_victory
+				}
+				log = "BRS_scripted_victory"
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_nerf
+				}
+				BRS = {
+					add_ideas = brazil_buff
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = UBR_scripted_victory
+				}
+				log = "UBR_scripted_victory"
+				BRS = {
+					add_ideas = brazil_nerf
+				}
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_buff
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = SRB_scripted_victory
+				}
+				log = "SRB_scripted_victory"
+				BRS = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_nerf
+				}
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_buff
+				}
+			}
         }
     }
 

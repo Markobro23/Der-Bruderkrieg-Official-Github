@@ -3110,6 +3110,13 @@ shared_focus = {
 			}
 			date > 1938.1.1
 		}
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			has_war = no
+		}
 	}
 	completion_reward = {
 		declare_war_on = { target = SAX type = annex_everything }		
@@ -3134,6 +3141,13 @@ shared_focus = {
 			size > 499999
 			}
 			date > 1938.1.1
+		}
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			has_war = no
 		}
 	}
 	
@@ -4086,6 +4100,17 @@ shared_focus = {
 	available = {
 		has_global_flag = operation_walross_blockade
 		
+		hidden_trigger = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				OR = {
+					has_global_flag = austria_defeated
+					has_global_flag = prussia_has_beaten_france
+				}
+			}
+		}
 	}
 
 	mutually_exclusive = {
