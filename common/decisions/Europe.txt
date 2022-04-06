@@ -1,0 +1,180 @@
+end_european_wars = {
+	end_the_serbian_civil_war = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_global_flag = form_serbia_flag
+			}
+			date > 1938.1.1
+		}
+		
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			SER = {
+				white_peace = OBS
+			}
+			YUG = {
+				white_peace = OBS
+			}
+			SER = {
+				white_peace = YUG
+			}
+
+			if = {
+				limit = {
+					check_variable = {
+						var = SER.surrender_progress 
+						value = YUG.surrender_progress
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = OBS.surrender_progress 
+						value = YUG.surrender_progress
+						compare = greater_than_or_equals
+					}
+				}
+				YUG = {
+					annex_country = {
+						target = SER
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = OBS
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = MNT
+						transfer_troops = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = SER.surrender_progress 
+						value = OBS.surrender_progress
+						compare = greater_than_or_equals
+					}
+					check_variable = {
+						var = YUG.surrender_progress 
+						value = OBS.surrender_progress
+						compare = greater_than
+					}
+				}
+				OBS = {
+					annex_country = {
+						target = SER
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = YUG
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = MNT
+						transfer_troops = yes
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = OBS.surrender_progress 
+						value = SER.surrender_progress
+						compare = greater_than
+					}
+					check_variable = {
+						var = YUG.surrender_progress 
+						value = SER.surrender_progress
+						compare = greater_than
+					}
+				}
+				SER = {
+					annex_country = {
+						target = OBS
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = YUG
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = MNT
+						transfer_troops = yes
+					}
+				}
+			}
+
+			
+		}
+	}
+	end_the_dutch_civil_war = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				JNE = {
+					exists = yes
+				}
+				HOL = {
+					capital_scope = {
+						is_on_continent = europe
+					}
+				}
+			}
+			date > 1937.6.1
+		}
+		
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			JNE = {
+				white_peace = HOL
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = JNE.surrender_progress 
+						value = HOL.surrender_progress
+						compare = greater_than_or_equals
+					}
+				}
+				HOL = {
+					annex_country = {
+						target = JNE
+						transfer_troops = no
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						var = HOL.surrender_progress 
+						value = JNE.surrender_progress
+						compare = greater_than
+					}
+				}
+				JNE = {
+					transfer_state = 7
+					transfer_state = 35
+					transfer_state = 36
+					add_state_core = 7
+					add_state_core = 35
+					add_state_core = 36
+				}
+				HOL = {
+					transfer_state = 309
+					transfer_state = 966
+					transfer_state = 695
+					set_cosmetic_tag = dutch_govenrment_in_exile
+				}
+			}
+		}		
+	}
+}
