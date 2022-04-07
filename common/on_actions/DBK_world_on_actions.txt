@@ -727,6 +727,26 @@ on_actions = {
     			news_event = { id = DBK_fall_of_city.15 hours = 3 random = 9 }
 				set_global_flag = volgagrad_has_fallen
     		}
+
+			if = {
+    			limit = { #prague
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = AUS
+						tag = CZE
+    				}
+    				FROM.FROM = {
+    					state = 9
+    				}
+					NOT = {
+						has_global_flag = prague_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.16 hours = 3 random = 9 }
+				set_global_flag = prague_has_fallen
+    		}
+
+			
     		
     		
     	}
