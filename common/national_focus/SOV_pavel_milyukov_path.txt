@@ -1550,7 +1550,18 @@ shared_focus = {
 	y = 1
 	 
 	available = {
-	}
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = JAP
+            }
+        }
+    }
 	bypass = {
 
 	}
@@ -1564,6 +1575,7 @@ shared_focus = {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
+	
 
 	completion_reward = {
 		TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }
@@ -2336,7 +2348,18 @@ shared_focus = {
 	y = 1
 	
 	available = {
-	}
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = TUR
+            }
+        }
+    }
 	bypass = {
 
 	}

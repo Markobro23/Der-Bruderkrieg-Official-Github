@@ -2247,9 +2247,7 @@ country_event = {
 	desc = ITA_papal_events.1.d
 	#picture = GFX_report_event_election_vote
 
-	trigger = {
-		has_country_flag = ITA_fire_papal_states_event
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
 
   option = {
@@ -2258,10 +2256,35 @@ country_event = {
 		target = PAP
 		type = annex_everything
 	}
+	ai_chance = {
+		factor = 100000
+	}
   }
   option = {
 	name = ITA_papal_events.1.b
+	ai_chance = {
+		factor = 1
+	}
   }
+}
+
+##move capital to rome
+country_event = {
+	id = ITA_papal_events.2
+	title = ITA_papal_events.2.t
+	desc = ITA_papal_events.2.d
+	#picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+  option = {
+	name = ITA_papal_events.2.a
+	set_capital = {
+		state = 2
+	}
+  }
+
 }
 
 add_namespace = ITA_debug_events

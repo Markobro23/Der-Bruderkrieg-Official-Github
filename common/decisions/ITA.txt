@@ -3298,3 +3298,82 @@ ITA_portugese_syndaclists = {
 	}
 
 }
+
+weltkrieg_decisions = {
+  ITA_annex_papacy = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = ITA
+		}
+
+		available = {
+      PAP = {
+        exists = yes
+      }
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+      country_event = {
+        id = ITA_papal_events.1
+        days = 2
+      }
+		}
+	}
+  ITA_move_capital_to_rome = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = ITA
+		}
+
+		available = {
+      owns_state = 2
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+      country_event = {
+        id = ITA_papal_events.2
+        days = 2
+      }
+		}
+	}
+}

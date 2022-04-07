@@ -1330,7 +1330,7 @@ shared_focus = {
         factor = 1000
     }
     available = {
-        
+        date > 1939.1.1
     }
     completion_reward = {
         ROM = {
@@ -2795,6 +2795,19 @@ shared_focus = {
     ai_will_do = {
         factor = 10000
     }
+    available = {
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = TUR
+            }
+        }
+    }
     completion_reward = {
         add_state_core = 537
      declare_war_on = {
@@ -3025,6 +3038,19 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
+    }
+    available = {
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = JAP
+            }
+        }
     }
     completion_reward = {
         TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }

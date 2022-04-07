@@ -2306,7 +2306,19 @@ shared_focus = {
 		has_army_manpower = {
 			size > 999999
 		}
+		if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = JAP
+            }
+        }
 	}
+
   
 	ai_will_do = {
 		factor = 1000
