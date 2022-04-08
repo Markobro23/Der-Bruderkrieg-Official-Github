@@ -63,7 +63,7 @@ Flag_Scripted_Map_Icons = {
 		DBK_head_of_gov_open_button_diplo_click = {
 			ROOT = {
 				if = {
-					limit = {
+					limit = { 
 						has_country_flag = DBK_head_of_gov_mechanic_diplo_flag
 					}
 					clr_country_flag = DBK_head_of_gov_mechanic_diplo_flag
@@ -71,6 +71,16 @@ Flag_Scripted_Map_Icons = {
 				else = {
 					set_country_flag = DBK_head_of_gov_mechanic_diplo_flag
 				}
+			}
+			if = {
+				limit = {
+					FROM = {
+						capital_scope = {
+							is_on_continent = africa
+						}
+					}
+				}
+				clr_country_flag = DBK_head_of_gov_mechanic_diplo_flag
 			}
 		}
 	}
