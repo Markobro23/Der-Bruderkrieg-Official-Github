@@ -117,7 +117,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_pietro_badoglio.dds"
-				large="gfx/leaders/ITA/Portrait_Italy_Pietro_Badoglio.dds"
+				large="gfx/leaders/ITA/Portrait_SRD_Pietro_Badoglio.png"
 			}
 		}
 		advisor={
@@ -135,7 +135,7 @@ characters={
 			}
 		}
 		field_marshal={
-			traits={ old_guard inflexible_strategist politically_connected defensive_doctrine }
+			traits={ old_guard inflexible_strategist politically_connected defensive_doctrine organizer }
 			skill=3
 			attack_skill=3
 			defense_skill=4
@@ -149,7 +149,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_emilio_de_bono.dds"
-				large="gfx/leaders/ITA/portrait_italy_emilio_de_bono.dds"
+				large="gfx/leaders/ITA/Portrait_ITA_Emilio_De_Bono.png"
 			}
 		}
 		advisor={
@@ -212,7 +212,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_giovanni_messe.dds"
-				large="gfx/leaders/ITA/Portrait_Italy_Giovanni_Messe.dds"
+				large="gfx/leaders/ITA/Portrait_SIC_Giovanni_Messe.png"
 			}
 		}
 		advisor={
@@ -228,7 +228,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ armor_officer war_hero }
+			traits={ armor_officer war_hero organizer trait_mountaineer }
 			skill=4
 			attack_skill=4
 			defense_skill=3
@@ -242,9 +242,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_sebastiano_visconti_prasca.dds"
-			}
-			army={
-				large="gfx/leaders/ITA/Portrait_Italy_Sebastiano_Visconti_Prasca.dds"
+				large="gfx/leaders/ITA/Portrait_ITA_Sebastiano_Visconti_Prasca.png"
 			}
 		}
 		corps_commander={
@@ -261,8 +259,6 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_ubaldo_soddu.dds"
-			}
-			army={
 				large="gfx/leaders/ITA/Portrait_Italy_Ubaldo_Soddu.dds"
 			}
 		}
@@ -281,7 +277,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_italo_balbo.dds"
-				large="gfx/leaders/ITA/portrait_italy_italo_balbo.dds"
+				large="gfx/leaders/ITA/Portrait_ITA_Italo_Balbo.png"
 			}
 		}
 		advisor={
@@ -313,7 +309,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_radolfo_graziani.dds"
-				large="gfx/leaders/ITA/portrait_italy_radolfo_graziani.dds"
+				large="gfx/leaders/ITA/Portrait_ITA_Rodolfo_Graziani.png"
 			}
 		}
 		advisor={
@@ -345,7 +341,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_inigo_campioni.dds"
-				large="gfx/leaders/ITA/Portrait_Italy_Inigo_Campioni.dds"
+				large="gfx/leaders/ITA/Portrait_SRI_Inigo_Campioni.png"
 			}
 		}
 		advisor={
@@ -397,7 +393,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_carlo_bergamini.dds"
-				large="gfx/leaders/ITA/Portrait_Italy_Carlo_Bergamini.dds"
+				large="gfx/leaders/ITA/Portrait_ITA_Carlo_Bergamini.png"
 			}
 		}
 		advisor={	
@@ -430,7 +426,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_ITA_angelo_iachino.dds"
-				large="gfx/leaders/ITA/Portrait_Italy_Angelo_Iachino.dds"
+				large="gfx/leaders/ITA/Portrait_SRD_Angelo_Iachino.png"
 			}
 		}
 		advisor={
@@ -444,12 +440,12 @@ characters={
 				traits = { naval_theorist }
 		}
 		navy_leader={
-			traits={ bold navy_career_officer superior_tactician spotter }
-			skill=2
+			traits={ bold navy_career_officer superior_tactician spotter fleet_protector }
+			skill=3
 			attack_skill=2
-			defense_skill=1
+			defense_skill=2
 			maneuvering_skill=3
-			coordination_skill=1
+			coordination_skill=3
 			legacy_id=-1
 		}
 	}
@@ -457,7 +453,7 @@ characters={
 		name= "Ferdinando Umberto Filippo Abalberto"
 		portraits={
 			army={
-				large="gfx/leaders/ITA/portrait_ITA_ferdinando_adalberto.dds"
+				large="gfx/leaders/ITA/Portrait_SRD_Prince_Adalberto.png"
 				small="gfx/interface/ideas/idea_ITA_ferdinando_adalberto.dds"
 			}
 		}
@@ -861,6 +857,150 @@ characters={
 			skill = 1
 			attack_skill = 1
 			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ITA_edmondo_rossoni = {
+		name = "Edmondo Rossoni"
+		portraits = {
+			army = {
+				large="gfx/leaders/ITA/Portrait_SRI_Edmondo_Rossoni.png"
+			}
+		}
+		field_marshal = {
+			traits = { career_officer organisational_leader organizer politically_connected }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}
+	ITA_alessandro_pirzio_biroli = {
+		name = "Alessandro Pirzio Biroli"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_SIC_Alessandro_Pirzio_Biroli.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious brilliant_strategist organizer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	ITA_carlo_geloso = {
+		name = "Carlo Geloso"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_SIC_Carlo_Geloso.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected trait_reckless infantry_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	ITA_giuseppe_valle = {
+		name = "Giuseppe Valle"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_SRD_Giuseppe_Valle.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer commando war_hero }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	ITA_pietro_pintor = {
+		name = "Pietro Pintor"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_SRD_Pietro_Pintor.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious trait_engineer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	ITA_ettore_bastico = {
+		name = "Ettore Bastico"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_ITA_Ettore_Bastico.png"
+			}
+		}
+		corps_commander = {
+			traits = { trickster career_officer war_hero }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	ITA_annibale_bergonzoli = {
+		name = "Annibale Bergonzoli"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_ITA_Annibale_Bergonzoli.png"
+			}
+		}
+		corps_commander = {
+			traits = { war_hero brilliant_strategist }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 3
+		}
+	}
+	ITA_alberto_pariani = {
+		name = "Alberto Pariani"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_ITA_Alberto_Pariani.png"
+			}
+		}
+		corps_commander = {
+			traits = { organizer trait_mountaineer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	ITA_italo_gariboldi = {
+		name = "Italo Gariboldi"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ITA/Portrait_ITA_Italo_Gariboldi.png"
+			}
+		}
+		corps_commander = {
+			traits = { hill_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
 		}
