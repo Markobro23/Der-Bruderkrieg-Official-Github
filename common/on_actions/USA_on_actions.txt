@@ -2,6 +2,12 @@ on_actions = {
     on_startup = {
         effect = {
 
+            ANC = {
+                country_event = {
+                    id = USA_rabaul_volcano_explosion.1
+                    days = 495
+                }
+            }
             ##dnc
             # USA = {
             #     country_event = { id = USA_democratic_national_convention.1 days = 154}
@@ -19,7 +25,6 @@ on_actions = {
                 USA_sphere_initial = yes
                 USA_electoral_vars_setup = yes
 
-                country_event = { id = USA_long_events.1  days = 385 }
             }
 
             ##avacdos from mexico
@@ -591,6 +596,18 @@ on_actions = {
                         MEX_rebel_resistance = MEX_add_monthly_resistance_var
                     }
                 }
+            }
+        }
+    }
+
+    on_ruling_party_change = {
+        effect = {
+            if = {
+                limit = {
+                    tag = USA
+                    has_government = ultranationalism
+                }
+                set_cosmetic_tag = prussian_rk
             }
         }
     }

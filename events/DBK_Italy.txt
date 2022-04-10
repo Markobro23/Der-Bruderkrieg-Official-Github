@@ -616,7 +616,33 @@ news_event = {
 	}
 }
 
+country_event = { #coup in portugal
+	id = italy.530
+	title = italy.530.t
+	desc = italy.530.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
 
+	option = { 
+		name = italy.530.a 
+		ai_chance = { factor = 90 } 
+		if = {
+			limit = {
+				ITA = {
+					has_government = fascism
+				}
+			}
+			start_civil_war = {
+				ideology = fascism
+			}
+			else = {
+				start_civil_war = {
+					ideology = ultranationalism
+				}
+			}
+		}
+	}
+}
 
 add_namespace = ITA_starting_tree_events
 ##the italian mess
@@ -958,7 +984,22 @@ country_event = {
 	# }
 	option = { 
 		name = ITA_evola_coup_events.1.b 
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -971,10 +1012,31 @@ country_event = {
 		add_ideas = ITA_guido_guidi
 		add_ideas = ITA_carlo_alberto_biggini
 		add_ideas = ITA_ferruccio_lantini
+		hidden_effect = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.25
+					}
+				}
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.c 
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -987,10 +1049,32 @@ country_event = {
 		add_ideas = ITA_cesare_maria_de_vecchi
 		add_ideas = ITA_tullio_tamburini
 		add_ideas = ITA_renato_ricci
+				add_ideas = ITA_renato_ricci
+				hidden_effect = {
+					add_popularity = {
+						ideology = ultranationalism
+						popularity = 0.05
+					}
+				}
 	}
 	option = { 
 		name = ITA_evola_coup_events.1.e
-		ai_chance = { factor = 90 modifier = { add = 1000 has_country_flag = ITA_go_down_evola } } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+				}
+			}
+		}
 		# set_country_flag = ITA_active_the_geracha_elections
 		# unlock_decision_category_tooltip = ITA_the_kings_men
 		# set_country_flag = ITA_chose_evola_kings_men
@@ -1003,6 +1087,13 @@ country_event = {
 				add_ideas = ITA_evola_intmin
 				add_ideas = ITA_augusto_turati
 				add_ideas = ITA_ferruccio_lantini
+
+				hidden_effect = {
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.25
+					}
+				}
 
 	}
 }
@@ -1071,13 +1162,41 @@ country_event = {
 
 	option = { 
 		name = ITA_evola_coup_events.5.a 
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH 
+					option = ITA_BIANCHIS_BROTHERHOOD_PATH
+				}
+			}
+		}
 		#kill_country_leader = yes
 		hidden_effect ={ country_event = ITA_evola_coup_events.6 }
 	}
 	option = { 
 		name = ITA_evola_coup_events.5.b
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		#kill_country_leader = yes
 		hidden_effect ={ country_event = ITA_evola_coup_events.7 }
 	}
@@ -1573,17 +1692,66 @@ country_event = {
 
 	option = { 
 		name = ITA_fascist_tree_events.1.a 
-		ai_chance = { factor = 90 } 
-		complete_national_focus = ITA_de_vecchi_seizes_the_power
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
+		complete_national_focus = ITA_evolas_regime
 	}
 	option = { 
 		name = ITA_fascist_tree_events.1.b 
-		ai_chance = { factor = 90 } 
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}
 		complete_national_focus = ITA_roccos_conspiracy
 	}
 	option = { 
 		name = ITA_fascist_tree_events.1.c
-		ai_chance = { factor = 90 } 		
+		ai_chance = { 
+			factor = 90 
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_CIANOS_CORPORATISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH 
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
+		}	
 		complete_national_focus = ITA_the_dawn_of_the_blueshirts
 
 	}
@@ -2099,9 +2267,7 @@ country_event = {
 	desc = ITA_papal_events.1.d
 	#picture = GFX_report_event_election_vote
 
-	trigger = {
-		has_country_flag = ITA_fire_papal_states_event
-	}
+	is_triggered_only = yes
 	fire_only_once = yes
 
   option = {
@@ -2110,10 +2276,35 @@ country_event = {
 		target = PAP
 		type = annex_everything
 	}
+	ai_chance = {
+		factor = 100000
+	}
   }
   option = {
 	name = ITA_papal_events.1.b
+	ai_chance = {
+		factor = 1
+	}
   }
+}
+
+##move capital to rome
+country_event = {
+	id = ITA_papal_events.2
+	title = ITA_papal_events.2.t
+	desc = ITA_papal_events.2.d
+	#picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+  option = {
+	name = ITA_papal_events.2.a
+	set_capital = {
+		state = 2
+	}
+  }
+
 }
 
 add_namespace = ITA_debug_events

@@ -1,0 +1,41 @@
+add_namespace = SAF_boer_revolt
+
+#Give state to the Boers
+country_event = {
+	id = SAF_boer_revolt.1
+	title = SAF_boer_revolt.1.t
+	desc = SAF_boer_revolt.1.d
+	#picture = 
+
+	is_triggered_only = yes
+
+	option = {
+		name = SAF_boer_revolt.1.a
+		ROOT = {
+			275 = {
+				transfer_state_to = BOE
+			}
+		}
+        declare_war_on = {
+            target = BOE
+            type = annex_everything
+        }
+	}
+} 
+
+#Global event for Boers
+news_event = {
+	id = SAF_boer_revolt.2 
+	title = SAF_boer_revolt.2.t
+	desc = SAF_boer_revolt.2.d
+	picture = GFX_alexanderthemad
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = SAF_boer_revolt.2.a 
+		ai_chance = { factor = 100 } 
+	}
+}

@@ -2748,7 +2748,9 @@ AUS_managing_bavaria_court_factionalism = {
 	
 		visible = {
 		tag = AUS
-		
+		NOT = {
+			has_country_flag = SGC_court_opposition_crushed
+		}
 		} 
 	
 		cancel_if_not_visible = yes
@@ -2994,6 +2996,24 @@ AUS_managing_bavaria_court_factionalism = {
 		}
 		complete_effect = {
 			
+		}
+	}
+
+	AUS_franz_rule_secured = {
+		icon = generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_court_influence_over_70
+				check_variable = { court_influence_var > 69 }
+			}
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = { id = southgermanconfederationcoup.5 hours = 1 }
 		}
 	}
 	
@@ -3251,6 +3271,9 @@ AUS_foritfying_against_the_fbc = {
 						}
 						OWNER = {
 							tag = HES
+						}
+						OWNER = {
+							tag = NAS
 						}
 					}
 				}
@@ -5181,7 +5204,7 @@ AUS_prospect_for_resources = {
 		}
 
 		available = {
-			has_completed_focus = AUS_rubber_prospects
+			has_completed_focus = AUS_exploitation_of_ostafrika
 			num_of_civilian_factories_available_for_projects > 2
 			1064 = {
 		        CONTROLLER = {
@@ -5251,7 +5274,7 @@ AUS_prospect_for_resources = {
 		}
 
 		available = {
-			has_completed_focus = AUS_rubber_prospects
+			has_completed_focus = AUS_expansion_of_togo_operations
 			num_of_civilian_factories_available_for_projects > 2
 			777 = {
 		        CONTROLLER = {

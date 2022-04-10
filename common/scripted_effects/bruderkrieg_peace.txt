@@ -86,6 +86,7 @@ prussia_russia_wins_states = {
         annex_country =  { target = WUR transfer_troops = no }
         annex_country =  { target = HES transfer_troops = no }
         annex_country =  { target = BAD transfer_troops = no }
+        annex_country =  { target = NAS transfer_troops = no }
     }
     GER = {
        transfer_state = 69
@@ -183,6 +184,7 @@ prussia_wins_states = {
             annex_country =  { target = WUR transfer_troops = no }
             annex_country =  { target = HES transfer_troops = no }
             annex_country =  { target = BAD transfer_troops = no }
+            annex_country =  { target = NAS transfer_troops = no }
         }
     }
     GER = {
@@ -424,7 +426,7 @@ prussia_loses_peace_deal = {
                    is_in_faction_with = GER
                }
            }
-           ITA = {
+           ITA = { 
                 set_faction_leader = yes
             }
        }
@@ -501,12 +503,22 @@ italy_loses_to_austria_peace_deal = {
     }
     ITA = {
         set_cosmetic_tag = ITA_central_italy
+        every_country = {
+            limit = { has_war_with = ITA }
+            white_peace = ITA
+        }
         release = SCI
     }
     SCI = {
         set_cosmetic_tag = ITA_two_sicilies
         set_politics = {
             ruling_party = neutrality
+        }
+        set_popularities = {
+            communism = 10
+            democratic_communism = 10
+            socialism_democratic = 10
+            neutrality = 70
         }
     }
     
@@ -662,16 +674,16 @@ france_loses_peace_deal = {
             puppet = BEL
         }
         white_peace = FRA
-        puppet = FRA
-        if = {
-            limit = {
-                has_dlc = "Together for Victory"
-            }
-            set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
-        }
-        else = {
-            set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
-        }
+        #puppet = FRA
+        #if = {
+        #    limit = {
+        #        has_dlc = "Together for Victory"
+        #    }
+        #    set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        #}
+        #else = {
+        #    set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
+        #}
         
     }
     BEL = {
@@ -722,7 +734,21 @@ france_loses_peace_deal = {
     FRA = {
         release = OCC
         release = COR
-        set_cosmetic_tag = RAU_France
+        #set_cosmetic_tag = RAU_France
+	if = {
+		limit = { country_exists = FWA }
+		annex_country = {
+			target = FWA
+			transfer_troops = yes
+		}
+	}
+	if = {
+		limit = { country_exists = FEA }
+		annex_country = {
+			target = FEA
+			transfer_troops = yes
+		}
+	}
     }
     HOL = {
        drop_cosmetic_tag = yes 
@@ -732,7 +758,15 @@ france_loses_peace_deal = {
         puppet = COR
         puppet = HOL
     }
-    
+	every_state = {
+		limit = { is_owned_by = FRA is_on_continent = europe }
+		GER = {
+			transfer_state = PREV
+		}
+	}
+    FRA = {
+		news_event = { id = france.215 hours = 3 }
+	}
 }
 
 france_beats_prussia_peace_deal = {
@@ -1258,10 +1292,16 @@ russia_beats_ottoman_peace_deal = {
     release = SYR
     release = PAL
     #release = LEB
-    release = SAU
+    
     release = IRQ
     release = JOR
-    release = HEJ
+    SAU = {
+        annex_country = {
+            target = HEJ
+            transfer_troops = yes
+        }
+        transfer_state = 876
+    }
     release = TUR
     TUR = {
         set_cosmetic_tag = russian_occupied_ottomans
@@ -1284,7 +1324,6 @@ russia_beats_ottoman_peace_deal = {
         #puppet = LEB
         puppet = IRQ
         puppet = JOR
-        puppet = HEJ
         puppet = TUR
         puppet = BYZ
     }
@@ -1572,9 +1611,13 @@ russia_loses_peace_deal = {
             }
         }
         GLC = { transfer_state = 91 }
+        POL = { transfer_state = 92 }
+        POL = { transfer_state = 90 }
     }
     else = {
         AUS = { transfer_state = 91 }
+        AUS = { transfer_state = 92 }
+        AUS = { transfer_state = 90 }
     }
 
     if = {
@@ -1802,7 +1845,7 @@ russia_loses_to_prussia_deal = {
         transfer_state = 1025
         add_state_core = 1025
     }
-    LIT = {
+    LIT = { 
         add_state_core = 190
         add_state_core = 11
         add_state_core = 784
@@ -2278,3 +2321,113 @@ france_beats_the_uk = {
         }
     }
 }
+
+prussia_beats_the_uk = {
+    GER = { 
+	puppet = RAJ
+	annex_country = {
+		target = ENG
+		transfer_troops = no
+	}
+        release_puppet = SCO
+        release_puppet = WLS
+        puppet = IRE
+        release_puppet = ENG
+
+        SCO = {
+        set_cosmetic_tag = prussian_rk
+        }
+        WLS = {
+        set_cosmetic_tag = prussian_rk
+        }
+        ENG = {
+        set_cosmetic_tag = prussian_rk
+        }
+	every_state = {
+		limit = { is_core_of = ENG OR = { is_core_of = WLS is_core_of = SCO is_core_of = IRE } }
+		remove_core_of = ENG
+	}
+	IRE = { set_cosmetic_tag = IRE_GER         set_cosmetic_tag = prussian_rk }
+        annex_country = {
+            target = SCA
+            transfer_troops = no
+        }
+
+        transfer_state = 659
+        transfer_state = 658
+        transfer_state = 964
+    }
+    
+        GER = {
+            annex_country = {
+                target = SUD
+                transfer_troops = no
+            }
+            transfer_state = 548
+            transfer_state = 1056
+            transfer_state = 768
+	    transfer_state = 770
+	    transfer_state = 1070
+	    transfer_state = 1071
+            transfer_state = 769
+            transfer_state = 1063
+            transfer_state = 1050
+            transfer_state = 1021
+            transfer_state = 1019
+            transfer_state = 1045
+            transfer_state = 771
+            transfer_state = 885
+            transfer_state = 1062
+
+            annex_country = {
+                target = ZIM
+                transfer_troops = no
+            }
+            annex_country = {
+                target = BOT
+                transfer_troops = no
+            }
+            annex_country = {
+                target = SAF
+                transfer_troops = no
+            }
+            transfer_state = 274
+            transfer_state = 701
+            annex_country = {
+                target = NGA
+                transfer_troops = no
+            }
+        }
+
+        if = {
+            limit = {
+                ITA = {
+                    is_in_faction_with = GER
+                }
+            }
+            ITA = {
+                annex_country = {
+                    target = EGY
+                    transfer_troops = yes
+                }
+            }
+        }
+        else = {
+             GER = {
+                annex_country = {
+                    target = EGY
+                    transfer_troops = yes
+                }
+            }
+        }
+    
+}
+
+AUS_reconquers_SGC = {
+    AUS = {
+        puppet = GPU
+    }
+    GPU = { add_ideas = GPU_garrisson_state }
+    set_country_flag = SGC_court_opposition_crushed
+}
+

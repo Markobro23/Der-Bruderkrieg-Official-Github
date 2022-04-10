@@ -1,10 +1,22 @@
 characters={
-	YUC_long_yun={
+	YUN_long_yun={
 		name="Long Yun"
 		portraits={
 			civilian={
-				large="gfx/leaders/long_yun.dds"
+				large="gfx/leaders/YUC/long_yun.dds"
 			}
+			army = {
+				small=GFX_portrait_YUN_long_yun_small
+				large="gfx/leaders/YUC/Portrait_Yunnan_Long_Yun.png"
+			}
+		}
+		field_marshal = {
+			traits = { infantry_officer brilliant_strategist trickster war_hero }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
 		}
 		country_leader={
 			ideology=reactionary_autocrat
@@ -13,235 +25,381 @@ characters={
 			id=-1
 		}
 	}
-	YUC_wang_lei={
-		name="Wang lei"
+
+	YUN_lu_han={
+		name=YUN_lu_han
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_asia_generic_land_5.dds"
-			}
-			army={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_5.dds"
+				small=GFX_portrait_YUN_lu_han_small
+				large="gfx/leaders/YUC/Portrait_Yunnan_Lu_Han.png"
 			}
 		}
+		advisor={
+			slot = air_chief
+			idea_token = YUN_lu_han
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				air_chief_night_operations_2
+			}
+				cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+
 		corps_commander={
-			traits={ defensive_doctrine organisational_leader }
-			skill=2
-			attack_skill=1
-			defense_skill=3
-			planning_skill=2
-			logistics_skill=1
-			legacy_id=-1
-		}
-	}
-	YUC_wu_zhang={
-		name="Wu Zhang"
-		portraits={
-			army={
-				
-			}
-			army={
-				large="gfx/leaders/gfx/leaders/Portrait_Asia_Generic_warlord1"
-			}
-		}
-		corps_commander={
-			skill=2
-			attack_skill=3
-			defense_skill=3
-			planning_skill=2
-			logistics_skill=2
-			legacy_id=-1
-		}
-	}
-	YUC_zhang_wei={
-		name="Zhang Wei"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_asia_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_1.dds"
-			}
-		}
-		corps_commander={
-			traits={ organisational_leader }
-			skill=2
-			attack_skill=2
-			defense_skill=1
-			planning_skill=1
-			logistics_skill=1
-			legacy_id=-1
-		}
-	}
-	YUC_zhang_zuolin={
-		name="Zhang Zuolin"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_asia_generic_land_8.dds"
-			}
-			army={
-				large="gfx/leaders/Asia/portrait_asia_generic_land_8.dds"
-			}
-		}
-		corps_commander={
-			traits={ organisational_leader }
-			skill=4
-			attack_skill=3
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=-1
-		}
-	}
-	YUC_zhang_yong={
-		name="Zhang Yong"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_asia_generic_land_3.dds"
-			}
-			army={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_3.dds"
-			}
-		}
-		corps_commander={
-			traits={ organisational_leader }
-			skill=2
-			attack_skill=1
+			traits = { career_officer }
+			skill=3
+			attack_skill=4
 			defense_skill=2
 			planning_skill=1
-			logistics_skill=2
+			logistics_skill=3
 			legacy_id=-1
 		}
 	}
-	YUC_li_jie={
-		name="Li Jie"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_asia_generic_land_4.dds"
-			}
-			army={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_land_4.dds"
-			}
-		}
-		corps_commander={
-			traits={ organisational_leader }
-			skill=2
-			attack_skill=1
-			defense_skill=2
-			planning_skill=1
-			logistics_skill=2
-			legacy_id=-1
-		}
-	}
-	YUC_jonas_white={
-		name="Jonas White"
+
+	YUN_mao_dong={
+		name=YUN_mao_dong
 		portraits={
 			civilian={
-				large="GFX_portrait_asia_generic_4"
+				large=GFX_portrait_YUN_mao_dong
 			}
 		}
 		country_leader={
-			ideology=centralism
-			traits={ friend_of_the_unions }
-			expire="1944.1.1.12"
+			ideology=democratic_conservative
+			traits={ editor financial_expert }
+			expire="1956.1.1.12"
 			id=-1
 		}
 	}
-	YUC_marcus_wilson={
-		name="Marcus Wilson"
+	
+	YUN_cheng_peng={
+		name=YUN_cheng_peng
 		portraits={
 			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_1.dds"
+				large=GFX_portrait_YUN_cheng_peng
 			}
 		}
 		country_leader={
-			ideology=radical_socialism
-			traits={ fortification_engineer eager_collaborator }
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	YUC_jonas_wilson={
-		name="Jonas Wilson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=market_socialism
-			traits={ quartermaster_general }
-			expire="1948.1.1.12"
-			id=-1
-		}
-	}
-	YUC_alex_white={
-		name="Alex White"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=neoliberalism
-			traits={ smooth_talking_charmer }
+			ideology=anarcho_communism
 			expire="1951.1.1.12"
 			id=-1
 		}
 	}
-	YUC_bob_jones={
-		name="Bob Jones"
+
+	YUN_hsia_wu={
+		name=YUN_hsia_wu
 		portraits={
 			civilian={
-				large="GFX_portrait_asia_generic_4"
+				large=GFX_portrait_YUN_hsia_wu
 			}
 		}
 		country_leader={
-			ideology=liberal_conservatism
-			traits={ war_industrialist captain_of_industry }
-			expire="1953.1.1.12"
+			ideology=fascism_ideology
+			expire="1946.1.1.12"
 			id=-1
 		}
 	}
-	YUC_peter_jones={
-		name="Peter Jones"
+
+
+	### THEORISTS ###
+
+	# Claire Lee Chennault is in shared file
+
+	YUN_pan_tian={
+		name=YUN_pan_tian
 		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+			army={
+				small="GFX_idea_generic_army_asia_1"
 			}
 		}
-		country_leader={
-			ideology=iliberal_democrat
-			traits={ eager_collaborator editor }
-			expire="1955.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = YUN_pan_tian
+			ledger = army
+			allowed = {
+				original_tag = YUC
+			}
+			
+			traits = {
+				military_theorist
+			}
 		}
 	}
-	YUC_alexander_taylor={
-		name="Alexander Taylor"
+
+	YUN_zhu_hu={
+		name=YUN_zhu_hu
 		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+			army={
+				small="GFX_idea_generic_air_asia_2"
 			}
 		}
-		country_leader={
-			ideology=esotheric_pharaohnism
-			traits={ smooth_talking_charmer compassionate_gentleman }
-			expire="1942.1.1.12"
-			id=-1
+		advisor={
+			cost = 100	
+			slot = theorist
+			idea_token = YUN_zhu_hu
+			ledger = air
+			allowed = {
+				original_tag = YUC
+			}
+			
+			traits = {
+				air_warfare_theorist
+			}
 		}
 	}
-	YUC_jim_evans={
-		name="Jim Evans"
+
+	YUN_liao_fang={
+		name=YUN_liao_fang
 		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+			army={
+				small="GFX_idea_generic_navy_asia_1"
 			}
 		}
-		country_leader={
-			ideology=national_syndicalism
-			traits={ tenacious_negotiator quartermaster_general }
-			expire="1944.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = YUN_liao_fang
+			ledger = navy
+			allowed = {
+				original_tag = YUC
+			}
+			
+			traits = {
+				naval_theorist
+			}
+		}
+	}
+
+
+	### ARMY CHIEFS ###
+
+	# Alexander von Falkenhausen in shared file
+
+	YUN_li_jiang={
+		name=YUN_li_jiang
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_4"
+			}
+		}
+		advisor={		
+			slot = army_chief
+			idea_token = YUN_li_jiang
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	YUN_zhang_wu={
+		name=YUN_zhang_wu
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_1"
+			}
+		}
+		advisor={	
+			slot = army_chief
+			idea_token = YUN_zhang_wu
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### NAVY CHIEFS ###
+
+	YUN_chen_zhao={
+		name=YUN_chen_zhao
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_1"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = YUN_chen_zhao
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	YUN_huang_dong={
+		name=YUN_huang_dong
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_asia_3"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = YUN_huang_dong
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				navy_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### AIR CHIEFS ###
+
+	# Claire Lee Chennault is in shared file
+
+	# Lu Han is up there in this file along with other Country Leaders and Unit Leaders
+
+	YUN_liu_zhao={
+		name=YUN_liu_zhao
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_3"
+			}
+		}
+		advisor={
+			slot = air_chief
+			idea_token = YUN_liu_zhao
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				air_chief_safety_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+
+	### MILITARY HIGH COMMAND ###
+
+	YUN_liang_peng={
+		name=YUN_liang_peng
+		portraits={
+			army={
+				small="GFX_idea_generic_air_asia_1"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = YUN_liang_peng
+			ledger = air
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				air_strategic_bombing_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	YUN_hu_wei={
+		name=YUN_hu_wei
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_5"
+			}
+		}
+		advisor={		
+			slot = high_command
+			idea_token = YUN_hu_wei
+			ledger = army
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+
+	YUN_luo_sun={
+		name=YUN_luo_sun
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_3"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = YUN_luo_sun
+			ledger = army
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	
+	YUC_wang_jiang={
+		name=YUN_wang_jiang
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_2"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = YUC_wang_jiang
+			ledger = army
+			allowed = {
+				original_tag = YUC
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }

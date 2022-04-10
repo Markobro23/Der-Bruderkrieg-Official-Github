@@ -23,10 +23,14 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ENG_Goering.2.a
-		
-
+		effect_tooltip = {
+			activate_mission = ENG_HAN_withdrawal_mission
+		}
 		GER = {
 			country_event = ENG_Goering.5
+		}
+		HAN = {
+			country_event = { id = ENG_Goering.7 hours = 6 }
 		}
 
 		ai_chance = {
@@ -67,33 +71,216 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ENG_Goering.5.a
-		ENG = {
-			diplomatic_relation = {
-				country = HAN
-				relation = guarantee
-				active = no
-			}
-		}
-		GER = {
-			create_wargoal = {
-				target = HAN
-				type = annex_everything
-			}
-		}
-		add_threat = 5
-		add_timed_idea = {
-			idea = GER_pact_with_britain
-			days = 200
-		}		
+		set_global_flag = UK_is_a_pussy
+		activate_mission = ENG_HAN_withdrawal_mission
 		hidden_effect = {
-			news_event = ENG_Goering.3
+			ENG = {
+				activate_mission = ENG_HAN_withdrawal_mission
+			}
+			HAN = {
+				activate_mission = ENG_HAN_withdrawal_mission
+			}
 		}
-
 		ai_chance = {
 			factor = 1000
 		}
 	}
 
+}
+
+country_event = { #Britain said no to our gamer suggestion
+	id = ENG_Goering.6
+	title = ENG_Goering.6.t
+	desc = ENG_Goering.6.d
+	is_triggered_only = yes
+	option = {
+		name = ENG_Goering.6.a #:( fuck you too I guess
+		create_wargoal = {
+			target = HAN
+			type = annex_everything
+		}
+	}
+}
+
+country_event = { #Britain gonna withdraw
+	id = ENG_Goering.7
+	title = ENG_Goering.7.t
+	desc = ENG_Goering.7.d
+	is_triggered_only = yes
+	option = {
+		name = ENG_Goering.7.a #Noooo senpaiiii
+		effect_tooltip = {
+			activate_mission = ENG_HAN_withdrawal_mission
+		}
+		annex_country = {
+			target = OLD
+			transfer_troops = yes
+		}
+	}
+}
+
+country_event = { #Expedition Force encounters delays while withdrawing
+	id = ENG_Goering.8
+	title = ENG_Goering.8.t
+	desc = ENG_Goering.8.d
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = 5
+			}
+		}
+	}
+
+	option = {
+		name = ENG_Goering.8.a #Oh no. Anyways
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = HAN
+			}
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = 5
+			}
+		}
+	}
+	option = {
+		name = ENG_Goering.8.b #Coping and seething rn
+		trigger = {
+			tag = GER
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = 5
+			}
+		}
+	}
+}
+
+country_event = { #Britain speeds up withdrawal
+	id = ENG_Goering.9
+	title = ENG_Goering.9.t
+	desc = ENG_Goering.9.d
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -7
+			}
+		}
+	}
+
+	option = {
+		name = ENG_Goering.9.a #Ahhhhhhhh
+		trigger = {
+			tag = HAN
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -7
+			}
+		}
+	}
+	option = {
+		name = ENG_Goering.9.b #EBIC
+		trigger = {
+			tag = GER
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -7
+			}
+		}
+	}
+}
+
+country_event = { #Prussia do a little threatening
+	id = ENG_Goering.10
+	title = ENG_Goering.10.t
+	desc = ENG_Goering.10.d
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -5
+			}
+		}
+	}
+
+	option = {
+		name = ENG_Goering.10.a #Oh no
+		trigger = {
+			OR = {
+				tag = ENG
+				tag = HAN
+			}
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -5
+			}
+		}
+	}
+	option = {
+		name = ENG_Goering.10.b #Top 10 Anime Gamer Moments
+		trigger = {
+			tag = GER
+		}
+		effect_tooltip = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -5
+			}
+		}
+	}
+}
+
+country_event = { #Hanover's sabotaged evacuation route
+	id = ENG_Goering.11
+	title = ENG_Goering.11.t
+	desc = ENG_Goering.11.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.11.a #screw them
+		every_country = {
+			limit = {
+				OR = {
+					tag = GER
+					tag = HAN
+					tag = ENG
+				}
+			}
+			country_event = { id = ENG_Goering.9 }
+		}
+		set_country_flag = ENG_done_with_HAN_sht
+	}
+	option = {
+		name = ENG_Goering.11.b #let's play into this
+		every_country = {
+			limit = {
+				OR = {
+					tag = GER
+					tag = HAN
+					tag = ENG
+				}
+			}
+			country_event = { id = ENG_Goering.8 }
+		}
+	}
 }
 
 news_event = {
@@ -104,6 +291,19 @@ news_event = {
 	major = yes
 	fire_only_once = no
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { tag = GER }
+				add_threat = 5
+				create_wargoal = {
+					target = HAN
+					type = annex_everything
+				}
+			}
+		}
+	}	
 
     option = {
 		name = ENG_Goering.3.a

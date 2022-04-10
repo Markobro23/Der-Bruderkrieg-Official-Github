@@ -5,7 +5,7 @@
 		factor = 0
 
 		modifier = {
-			add = 100
+			add = 11
 			tag = ITA
 		} 
 	}
@@ -2901,7 +2901,7 @@ shared_focus = {
 		}
 		x = -2
 		y = 1
-		cost = 0
+		cost = 5
 		
 		prerequisite = { 
 			focus = ITA_end_the_rivalry
@@ -2918,7 +2918,7 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
-
+			add_ideas = Generic_Attack_Focus
 		}
 	}
 
@@ -2931,7 +2931,7 @@ shared_focus = {
 		}
 		x = 2
 		y = 1
-		cost = 0
+		cost = 5
 		
 		prerequisite = { 
 			focus = ITA_end_the_rivalry
@@ -2947,7 +2947,7 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
-
+			add_ideas = Generic_Foritication_Idea
 		}
 	}
 
@@ -3095,18 +3095,8 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
-			every_owned_state = {
-				limit = { any_neighbor_state = { is_owned_by = AUS } }
-				add_building_construction = {
-					type = bunker
-					level = 3
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
-				}
-			}
+			set_country_flag = unlock_resistance_cells
+			unlock_decision_tooltip = prepare_resistance_cells
 		}
 	}
 
@@ -3147,11 +3137,12 @@ shared_focus = {
 		x = 0
 		y = 1
 		cost = 5
-		
+
 		prerequisite = { 
-			focus = ITA_contacts_with_young_italy
+			focus = ITA_invest_piedmont
 		}
-		relative_position_id = ITA_contacts_with_young_italy
+		relative_position_id = ITA_invest_piedmont
+		
 		available = {
 			is_in_faction = yes
 		}	
@@ -3181,6 +3172,18 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
+			every_owned_state = {
+				limit = { any_neighbor_state = { is_owned_by = AUS } }
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
 			every_owned_state = {
 				limit = { any_neighbor_state = { is_owned_by = FRA } }
 				add_building_construction = {
@@ -3216,38 +3219,7 @@ shared_focus = {
 			factor = 1000
 		}
 		completion_reward = {
-			158 = {
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = infrastructure
-					level = 4
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = arms_factory
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	shared_focus = {
-		id = ITA_fortify_west_coast
-		icon = GFX_goal_FRA_law_for_the_country_in_danger
-		x = 0
-		y = 1
-		cost = 5
 		
-		prerequisite = { 
-			focus = ITA_invest_piedmont
-		}
-		relative_position_id = ITA_invest_piedmont
-
-		ai_will_do = {
-			factor = 1000
-		}
-		completion_reward = {
 			every_owned_state = {
 				limit = { OR = { state = 158 state = 162 state = 2 state = 117 state = 115 state = 156 state = 114 } }
 				add_building_construction = {
@@ -3259,6 +3231,49 @@ shared_focus = {
 						limit_to_coastal = yes
 					}
 				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+				
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_fortify_west_coast
+		icon = GFX_focus_por_estado_novo
+		x = 0
+		y = 1
+		cost = 5
+	
+		
+		
+		prerequisite = { 
+			focus = ITA_contacts_with_young_italy
+		}
+		relative_position_id = ITA_contacts_with_young_italy
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_leader = {
+						name = "Costanzo Ciano"
+					}
+				}
+				unlock_decision_category_tooltip = ITA_portugese_corporatists
+			}
+			else = {
+				unlock_decision_category_tooltip = ITA_portugese_syndaclists
 			}
 		}
 	}
@@ -3311,7 +3326,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_a_route_through_romania
-		icon = GFX_goal_ITA_send_military_advisors
+		icon = GFX_focus_rom_preserve_romania
 		x = 0
 		y = 1
 		cost = 5

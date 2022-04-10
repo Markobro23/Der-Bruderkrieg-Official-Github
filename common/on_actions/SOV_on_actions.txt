@@ -316,22 +316,84 @@ on_actions = {
         }
     }
 
-    on_declare_war = {
+    on_war = {
         effect = {
             if = {
                 limit = {
                     tag = SOV
-                    FROM = {
-                        tag = TUR
+                    has_war_with = TUR
+                }
+                SOV = {
+                    country_event = { id = TUR_arab_revolt.1 days = 8 }
+                }
+            }
+            if = {
+                limit = {
+                    tag = TUR
+                    has_war_with = SOV
+                }
+                SOV = {
+                    country_event = { id = TUR_arab_revolt.1 days = 8 }
+                }
+            }
+            if = {
+                limit = {
+                    tag = SOV
+                    has_war_with = JAP
+                    has_war_with = AUS
+                }
+                BEI = {
+                    country_event = { id = china_in_the_world_war.1 days = 30 }
+                }
+            }
+            if = {
+                limit = {
+                    tag = AUS
+                    has_war_with = SOV
+                    SOV = {
+                        has_war_with = JAP
+                    }
+                }
+                BEI = {
+                    country_event = { id = china_in_the_world_war.1 days = 30 }
+                }
+            }
+            if = {
+                limit = {
+                    tag = JAP
+                    has_war_with = SOV
+                    SOV = {
+                        has_war_with = AUS
+                    }
+                }
+                BEI = {
+                    country_event = { id = china_in_the_world_war.1 days = 30 }
+                }
+            }
+        }
+    }
+
+    on_declare_war = {
+        effect = { 
+            if = {
+                limit = {
+                    OR = {
+                        AND = {
+                            tag = SOV
+                            FROM = {
+                                tag = TUR
+                            }
+                        }
+                        AND = {
+                            tag = TUR
+                            FROM = {
+                                tag = SOV
+                            }
+                        }
                     }
                 }
                 hidden_effect = {
                     news_event = russian_expansion.2
-
-                    SOV = {
-                        country_event = { id = TUR_arab_revolt.1 days = 8 }
-                        
-                    }
                 }
             }
             if = {
@@ -354,37 +416,28 @@ on_actions = {
                 hidden_effect = {
                     news_event = russian_expansion.1
 
-                    if = {
-                        limit = {
-                            SOV = {
-                                has_war_with = AUS
-                            }
-                        }
-                        BEI = {
-                            country_event = { id = china_in_the_world_war.1 days = 30 }
-                        }
-                    }
                 }
             }
             if = {
                 limit = {
-                    tag = SOV
-                    FROM = {
-                        tag = AUS
+                    OR = {
+                        AND = {
+                            tag = SOV
+                            FROM = {
+                                tag = AUS
+                            }
+                        }
+                        AND = {
+                            tag = AUS
+                            FROM = {
+                                tag = SOV
+                            }
+                        }
                     }
                 }
                 hidden_effect = {
                     news_event = russian_expansion.3
-                    if = {
-                        limit = {
-                            SOV = {
-                                has_war_with = JAP
-                            }
-                        }
-                        BEI = {
-                            country_event = { id = china_in_the_world_war.1 days = 30 }
-                        }
-                    }
+                    
                 }
             }
         }

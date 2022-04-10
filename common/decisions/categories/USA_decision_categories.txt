@@ -188,10 +188,10 @@ USA_decision_electoral_ai_borah = {
 
 USA_decision_electoral_ai_long = {
 	allowed = {
-		original_tag = COS
+		original_tag = PMO
 	}
 	visible = {
-		tag = COS
+		tag = PMO
 		NOT = {
 			has_country_flag = USA_1936_elections_over
 		}
@@ -216,6 +216,8 @@ USA_the_venezuelan_issue = {
 		tag = USA
 	}
 
+	priority = 10000
+
 	visible = {
 		has_completed_focus = USA_the_venezuelan_disaster
 		AND = {
@@ -237,4 +239,34 @@ USA_huey_longs_road_plan = {
 	visible = {
 		has_completed_focus = USA_new_roads
 	}
+}
+
+USA_ANC_ENG_rabaul_volcano_collapse_cat = {
+	allowed = {
+		OR = {
+			tag = USA
+			tag = ENG
+			tag = ANC
+		}
+	}
+
+	visible = {
+		ANC = {
+			has_idea = ANC_massive_polynesian_resistance
+		}
+	}
+
+	visible_when_empty = yes
+}
+
+USA_generic_foreign_far_east_decisions = {
+	allowed = {
+		tag = USA
+	}
+	visible = {
+		has_completed_focus = USA_the_far_east
+	}
+	visible_when_empty = yes
+
+	priority = 50
 }

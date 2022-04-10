@@ -143,6 +143,7 @@ country_event = {
 			set_politics = {
 				ruling_party = neutrality
 			}
+			remove_ideas = LIB_slavery_allegations
 		}
 	}
 }
@@ -437,9 +438,7 @@ country_event = {
 	
 	option = {
 		name = USA_republican_national_convention.2.a
-		hidden_effect = {
-		
-		}
+		set_country_flag = USA_the_warren_campaign_unlock
 	}
 }
 
@@ -1163,6 +1162,12 @@ news_event = {
 	option = {
 		name = USA_warren_victory.1.a
 		set_country_flag = USA_1936_elections_over
+		if = {
+			limit = {
+				tag = USA
+			}
+			load_focus_tree = USA_warren_presidency_tree
+		}
 	}
 }
 
@@ -1182,6 +1187,12 @@ country_event = {
 				has_completed_focus = USA_longs_campaign_speech
 			}
 			set_country_flag = USA_long_wins_elections
+			hidden_effect = {
+				country_event = {
+					id = USA_long_events.1
+					days = 75
+				}
+			}
 		}
 		if = {
 			limit = {
@@ -1191,6 +1202,18 @@ country_event = {
 			hidden_effect = {
 				news_event = {
 					id = USA_smith_victory.2
+					days = 75
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_completed_focus = USA_the_warren_campaign
+			}
+			set_country_flag = USA_borah_wins_elections
+			hidden_effect = {
+				news_event = {
+					id = USA_warren_victory.1
 					days = 75
 				}
 			}
@@ -1821,6 +1844,250 @@ country_event = {
 	}
 }
 
+add_namespace = USA_rabaul_volcano_explosion
+
+##ANC - Rabaul
+country_event = {
+	id = USA_rabaul_volcano_explosion.1
+	title = USA_rabaul_volcano_explosion.1.t
+	desc = USA_rabaul_volcano_explosion.1.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.1.a
+        611 = {
+			add_dynamic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		USA = {
+			country_event = { id = USA_rabaul_volcano_explosion.2 days = 1 }
+		}
+	}
+}
+
+##USA - Rabaul
+country_event = {
+	id = USA_rabaul_volcano_explosion.2
+	title = USA_rabaul_volcano_explosion.2.t
+	desc = USA_rabaul_volcano_explosion.2.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.2.a
+		ANC = {
+			set_capital = {
+				state = 669
+			}
+		}
+		country_event = { id = USA_rabaul_volcano_explosion.3 hours = 3 }
+	}
+}
+
+##USA - Response
+country_event = {
+	id = USA_rabaul_volcano_explosion.3
+	title = USA_rabaul_volcano_explosion.3.t
+	desc = USA_rabaul_volcano_explosion.3.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.3.a
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -5000
+			producer = USA
+		}
+		add_manpower = -10000
+		add_political_power = -25
+
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.4
+				days = 7
+			}
+		}
+	}
+	option = {
+		name = USA_rabaul_volcano_explosion.3.b
+		add_equipment_to_stockpile = {
+			type = support_equipment
+			amount = -1000
+			producer = USA
+		}
+		add_manpower = -2000
+		add_political_power = -10
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.5
+				days = 7
+			}
+		}
+	}
+	option = {
+		name = USA_rabaul_volcano_explosion.3.c
+		hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.6
+				days = 7
+			}
+		}
+	}
+}
+
+##rabaul evac. success
+country_event = {
+	id = USA_rabaul_volcano_explosion.4
+	title = USA_rabaul_volcano_explosion.4.t
+	desc = USA_rabaul_volcano_explosion.4.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.4.a
+        611 = {
+			remove_dynamic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_polynesian_support }
+	}
+}
+country_event = {
+	id = USA_rabaul_volcano_explosion.5
+	title = USA_rabaul_volcano_explosion.5.t
+	desc = USA_rabaul_volcano_explosion.5.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.5.a
+        611 = {
+			remove_dynamic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_ghost_of_rabaul days = 700 }
+	}
+}
+country_event = {
+	id = USA_rabaul_volcano_explosion.6
+	title = USA_rabaul_volcano_explosion.6.t
+	desc = USA_rabaul_volcano_explosion.6.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = USA_rabaul_volcano_explosion.6.a
+        611 = {
+			remove_dynamic_modifier = {
+				modifier = ANC_rabaul_volcano_eruption_modifier
+			}
+		}
+		ANC = { add_ideas = ANC_massive_polynesian_resistance }
+	}
+}
+#The Free Ocenaic State Forms
+country_event = {
+	id = USA_rabaul_volcano_explosion.7
+	title = USA_rabaul_volcano_explosion.7.t
+	desc = USA_rabaul_volcano_explosion.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		ROOT = {
+  			611 = {
+   				 transfer_state_to = PNG
+  			}
+		}
+		name = USA_rabaul_volcano_explosion.7.a 
+				hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.8
+				days = 7
+			}
+		}
+	}
+}
+#George Van Horn Moseley Defects to British
+country_event = {
+	id = USA_rabaul_volcano_explosion.8
+	title = USA_rabaul_volcano_explosion.8.t
+	desc = USA_rabaul_volcano_explosion.8.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		ROOT = {
+  			673 = {
+   				 transfer_state_to = BOC
+  			}
+		}
+		name = USA_rabaul_volcano_explosion.8.a
+				hidden_effect = {
+			country_event = {
+				id = USA_rabaul_volcano_explosion.9
+				days = 7
+			}
+		} 
+	}
+}
+#The Oceanic Civil War
+country_event = {
+	id = USA_rabaul_volcano_explosion.9
+	title = USA_rabaul_volcano_explosion.9.t
+	desc = USA_rabaul_volcano_explosion.9.d
+    #picture = 
+	
+	is_triggered_only = yes
+	
+	option = {
+		PNG = {
+			declare_war_on = {
+    			target = BOC
+    			type = annex_everything
+			}
+			declare_war_on = {
+    			target = ANC
+    			type = annex_everything
+			}
+		}	
+		BOC = {
+			declare_war_on = {
+   		 		target = PNG
+   		 		type = annex_everything
+			}
+			declare_war_on = {
+    			target = ANC
+    			type = annex_everything
+			}
+		}	
+		ANC = {
+			declare_war_on = {
+    			target = PNG
+    			type = annex_everything
+			}
+			declare_war_on = {
+    			target = BOC
+    			type = annex_everything
+			}
+		}	
+		name = USA_rabaul_volcano_explosion.9.a 	
+	}
+}
+
 add_namespace = USA_flavor_events
 ###Golden Gate Bridge
 news_event = {
@@ -2413,7 +2680,7 @@ country_event = {
 }
 
 
-##contacting chile
+##contacting PBC
 country_event = {
 	id = USA_argentinian_events.3
 	title = USA_argentinian_events.3.t
@@ -2455,7 +2722,7 @@ country_event = {
 	}
 }
 
-##chile accept[s
+##PBC accept[s
 country_event = {
 	id = USA_argentinian_events.5
 	title = USA_argentinian_events.5.t
@@ -2467,11 +2734,23 @@ country_event = {
 	option = {
 		name = USA_argentinian_events.5.a
         
-		set_country_flag = USA_chile_accepts_support
+		set_country_flag = USA_PBC_accepts_support
+		for_each_scope_loop = {
+			array = PBC.faction_members 
+			USA = {
+				add_to_faction = PREV
+			}
+		}
+		PBC = {
+			dismantle_faction = yes
+		}
+		USA = {
+			add_to_faction = PBC
+		}
 	}
 }
 
-##chile acceptps
+##PBC acceptps
 country_event = {
 	id = USA_argentinian_events.6
 	title = USA_argentinian_events.6.t
@@ -2483,30 +2762,15 @@ country_event = {
 	option = {
 		name = USA_argentinian_events.6.a
         
-		set_country_flag = USA_chile_accepts_support
-	}
-}
-
-##chile denies
-country_event = {
-	id = USA_argentinian_events.7
-	title = USA_argentinian_events.7.t
-	desc = USA_argentinian_events.7.d
-    #picture = 
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = USA_argentinian_events.7.a
-        
 		USA = {
 			add_opinion_modifier = {
-				target = CHL
+				target = PBC
 				modifier = small_decrease
 			}
 		}
 	}
 }
+
 
 
 ###SMITH
@@ -3418,13 +3682,149 @@ country_event = {
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.a	
+		name = USA_generic_foriegn_policy_tree.2.a	#business concessions
+		set_global_flag = USA_Offered_Business_Concessions
 	}
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.b	
+		name = USA_generic_foriegn_policy_tree.2.b	#jamaica
+				set_global_flag = USA_Offered_Jamaica
 	}
 	option = {
-		name = USA_generic_foriegn_policy_tree.2.c	
+		name = USA_generic_foriegn_policy_tree.2.c	#nothing
+		set_global_flag = USA_Offered_Nothing
+	}
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.3
+	title = USA_generic_foriegn_policy_tree.3.t
+	desc = USA_generic_foriegn_policy_tree.3.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.3.a	
+		if = {
+			limit = {
+				has_global_flag = USA_Offered_Business_Concessions
+			}
+			###
+		}
+		if = {
+			limit = {
+				has_global_flag = USA_Offered_Jamaica
+			}
+			###
+		}
+		USA = {
+			country_event = {
+				id = USA_generic_foriegn_policy_tree.4
+				days = 1
+			}
+		}
+	}
+	option = {
+		name = USA_generic_foriegn_policy_tree.3.b	
+		USA = {
+			country_event = {
+				id = USA_generic_foriegn_policy_tree.5
+				days = 1
+			}
+		}
+	}
+	
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.4
+	title = USA_generic_foriegn_policy_tree.4.t
+	desc = USA_generic_foriegn_policy_tree.4.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.4.a	
+		set_country_flag = ENG_Accepts_USA_Conference
+	}
+}
+
+country_event = {
+	id = USA_generic_foriegn_policy_tree.5
+	title = USA_generic_foriegn_policy_tree.5.t
+	desc = USA_generic_foriegn_policy_tree.5.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.5.a
+		set_country_flag = ENG_Denies_USA_Conference
+	}
+}
+
+
+
+
+## Russian Event Chain
+country_event = {
+	id = USA_generic_foriegn_policy_tree.6
+	title = USA_generic_foriegn_policy_tree.6.t
+	desc = USA_generic_foriegn_policy_tree.6.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.6.a
+		USA = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = large_increase
+			}
+			add_ideas = SOV_russian_investments
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = large_increase
+			}
+			add_ideas = USA_american_investors
+		}
+	}
+}
+
+# FIlipino Issue
+country_event = {
+	id = USA_generic_foriegn_policy_tree.7
+	title = USA_generic_foriegn_policy_tree.7.t
+	desc = USA_generic_foriegn_policy_tree.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = { #free
+		name = USA_generic_foriegn_policy_tree.7.a
+		set_autonomy = {
+			target = PHI
+			autonomous_state =  autonomy_puppet
+		}
+		PHI = { remove_ideas = PHI_filipino_rebels add_ideas = PHI_a_filipino_national_identity }
+	}
+	option = { #crack down
+		name = USA_generic_foriegn_policy_tree.7.b
+	
+		PHI = { 
+			add_ideas = PHI_national_military_government 
+
+			swap_ideas = {
+				add_idea = PHI_filipino_rebels_2
+				remove_idea = PHI_filipino_rebels
+			}
+		}
+	}
+	option = { #status quo
+		name = USA_generic_foriegn_policy_tree.7.c
+	
+		PHI = { 
+			set_country_flag = PHI_status_quo_continued
+		}
 	}
 }
 

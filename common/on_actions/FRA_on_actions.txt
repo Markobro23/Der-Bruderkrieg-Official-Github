@@ -2,6 +2,8 @@ on_actions = {
     on_startup = {
         effect = {
 
+			
+
 			FRA = { 
 				country_event = {	id = belgian_election_events.5 days = 47 }
 			}
@@ -115,7 +117,32 @@ on_actions = {
 
         }
 	}
+
+	on_declare_war = {
+		effect = {
+			if = {
+				limit = {
+					tag = FRA
+					NOT = { has_country_flag = FRA_first_war_declared }
+				}
+				country_event = { id = france.214 days = 1 hours = 12 random = 12 }
+			}
+		}
+	}
 	
+	on_offer_join_faction = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						tag = BEL
+					}
+					is_in_faction_with = FRA
+				}
+				FRA = { country_event = { id = belgian_election_events.7 days = 5 } }
+			}
+		}
+	}
 
 	on_weekly_FRA = {
 		effect = {

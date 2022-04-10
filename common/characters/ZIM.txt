@@ -3,7 +3,7 @@ characters={
 		name="Sir John Chancellor"
 		portraits={
 			civilian={
-				large="gfx/leaders/john_chancellor.dds"
+				large="gfx/leaders/ZIM/john_chancellor.dds"
 			}
 		}
 		country_leader={
@@ -13,113 +13,105 @@ characters={
 			id=-1
 		}
 	}
-	ZIM_kadungure_takawira={
-		name="Kadungure Takawira"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
+	ZIM_ernest_lucas_guest = {
+		name = "Ernest Lucas Guest"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ZIM/Portrait_ZIM_Ernest_Guest.png"
+				small="GFX_idea_generic_army_europe_1"
 			}
 		}
-		country_leader={
-			ideology=anarcho_communism
-			traits={ dealbroker longist_puppet }
-			expire="1950.1.1.12"
-			id=-1
+		field_marshal = {
+			traits = { infantry_officer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
+		}
+		advisor={
+			cost = 100
+			
+			slot = army_chief
+			idea_token = ZIM_ernest_lucas_guest
+			ledger = army
+				allowed = {
+					original_tag = ZIM
+				}
+				
+				traits = {
+					army_chief_old_guard
+				}
 		}
 	}
-	ZIM_gabriel_mapondera={
-		name="Gabriel Mapondera"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
-			}
+	ZIM_c_w_meredith={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = ZIM_c_w_meredith
+			ledger = air
+				allowed = {
+					original_tag = ZIM
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
 		}
-		country_leader={
-			ideology=radical_socialism
-			expire="1941.1.1.12"
-			id=-1
+		name="Charles Warburton Meredith"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
 		}
 	}
-	ZIM_kadungure_khumalo={
-		name="Kadungure Khumalo"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_2.dds"
+	ZIM_jock_thompson = {
+		name = "John de Lisle Thompson"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ZIM/Portrait_ZIM_Jock_Thompson.png"
 			}
 		}
-		country_leader={
-			ideology=liberal_socialism
-			traits={ armaments_organizer appeaser }
-			expire="1949.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { war_hero }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	ZIM_mqabuko_nkomo={
-		name="Mqabuko Nkomo"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_2.dds"
+	ZIM_william_eric_campbell_tait = {
+		name = "William Eric Campbell Tait"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ZIM/Portrait_Sir_William_Campbell_Tait.png"
+				small="GFX_idea_generic_navy_europe_3"
 			}
 		}
-		country_leader={
-			ideology=classical_liberalism
-			traits={ lead_court_artist appeaser }
-			expire="1956.1.1.12"
-			id=-1
-		}
-	}
-	ZIM_sekuru_khumalo={
-		name="Sekuru Khumalo"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
+		advisor={
+			slot = navy_chief
+			idea_token = ZIM_william_eric_campbell_tait
+			ledger = navy
+			allowed = {
+				original_tag = ZIM
+			}
+			traits = {
+				navy_chief_maneuver_2
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
-		country_leader={
-			ideology=liberal_conservatism
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	ZIM_mqabuko_muzorewa={
-		name="Mqabuko Muzorewa"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
-			}
-		}
-		country_leader={
-			ideology=oligarchic_republicanism
-			expire="1954.1.1.12"
-			id=-1
-		}
-	}
-	ZIM_sekuru_kaguvi={
-		name="Sekuru Kaguvi"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=clerical_fascism
-			traits={ compassionate_gentleman }
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	ZIM_mqabuko_dabengwa={
-		name="Mqabuko Dabengwa"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=national_syndicalism
-			traits={ smooth_talking_charmer }
-			expire="1953.1.1.12"
-			id=-1
+		navy_leader = {
+			traits = { old_guard fly_swatter cruiser_captain }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
 		}
 	}
 }

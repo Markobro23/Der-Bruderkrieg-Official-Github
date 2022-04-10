@@ -53,3 +53,24 @@ UK_benett_eden_decisions = {
 		has_country_flag = UK_chose_beckett_eden_coalition
 	}
 }
+
+UK_withdraw_from_hanover_cat = { #insert cat picture here
+	allowed = {
+		OR = {
+			tag = HAN
+			tag = GER
+			tag = ENG
+		}
+	}
+	visible = {
+		HAN = {
+			has_idea = HAN_anglo_expeditionary_force
+		}
+		has_global_flag = UK_is_a_pussy
+		NOT = {
+			GER = { has_war_with = HAN }
+		}
+	}
+
+	priority = 100000
+}

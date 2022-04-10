@@ -1129,6 +1129,88 @@ news_event = { #X submits to Russian Empire protection
 	}
 }
 
+country_event = { #Russia demands annexation
+	id = SOV_return_of_the_tsar_path.23
+	title = SOV_return_of_the_tsar_path.23.t
+	desc = SOV_return_of_the_tsar_path.23.d
+	picture = GFX_news_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { #we have no choice
+		name = SOV_return_of_the_tsar_path.23.a
+		effect_tooltip = {
+			FROM = {
+				annex_country = {
+					target = ROOT
+					transfer_troops = yes
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = SOV_return_of_the_tsar_path.24 hours = 3 random = 3 }
+		}
+	}
+	option = { #actually yes we do
+		name = SOV_return_of_the_tsar_path.23.b
+		effect_tooltip = {
+			FROM = {
+				create_wargoal = {
+					target = ROOT
+					type = annex_everything
+				}
+			}
+		}
+		FROM = {
+			country_event = { id = SOV_return_of_the_tsar_path.25 hours = 3 random = 3 }
+		}
+	}
+}
+
+country_event = { #FROM accepts annexation
+	id = SOV_return_of_the_tsar_path.24
+	title = SOV_return_of_the_tsar_path.24.t
+	desc = SOV_return_of_the_tsar_path.24.d
+	picture = GFX_news_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { #based
+		name = SOV_return_of_the_tsar_path.24.a
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}
+}
+
+country_event = { #FROM rejects annexation
+	id = SOV_return_of_the_tsar_path.25
+	title = SOV_return_of_the_tsar_path.25.t
+	desc = SOV_return_of_the_tsar_path.25.d
+	picture = GFX_news_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { #This amount of cringe can only be stopped by death
+		name = SOV_return_of_the_tsar_path.25.a
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+
+country_event = { #the pogroms
+	id = SOV_return_of_the_tsar_path.26
+	title = SOV_return_of_the_tsar_path.26.t
+	desc = SOV_return_of_the_tsar_path.26.d
+	picture = GFX_news_event_generic_sign_treaty2
+	is_triggered_only = yes
+	option = { #This amount of cringe can only be stopped by death
+		name = SOV_return_of_the_tsar_path.26.a
+		
+		add_stability = -0.05
+		add_war_support = -0.05
+        add_political_power = -50
+	}
+}
+
 ##commie hideout raids :bruh:
 add_namespace = SOV_commie_hideout_raids
 country_event = {
@@ -1234,16 +1316,19 @@ country_event = {
 
 	option = {
 		name = russia.22.a
-		ai_chance = { factor = 90 }
+		ai_chance = { factor = 90 modifier = {
+			add = -1000
+			is_in_faction = yes
+		} }
 		SOV = {
 			country_event = russia.20
-			add_to_faction = ROOT
+			add_to_faction = ROOT 
 		}
 	}
 
 	option = {
 		name = russia.22.b
-		ai_chance = { factor = 0 }
+		ai_chance = { factor = 1 modifier = { add = 1000 is_in_faction = yes } }
 		SOV = { country_event = russia.21 }
 	}
 }

@@ -551,6 +551,16 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.210.a #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_NATIONALISM_PATH
+				}
+			}
+		}
 		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
@@ -563,6 +573,16 @@ country_event = {
 	}
 	option = { # This option will give the war goal
 		name = france.210.b #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					option = FRA_POWER_PATH
+					rule = DBK_FRENCH_PATH 
+				}
+			}
+		}
 		set_country_flag = FRA_balancing_the_autocracy
 		unlock_decision_category_tooltip = FRA_balancing_the_autocracy
 
@@ -601,6 +621,23 @@ country_event = {
 
 	option = { # This option will give the war goal
 		name = france.212.a #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_POWER_PATH
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_NATIONALISM_PATH
+				}
+			}
+		}
 		unlock_national_focus = FRA_DOCTRINAIRE_LEFT
 		ai_chance = {
 			factor = 1000
@@ -608,6 +645,16 @@ country_event = {
 }
 option = { # This option will give the war goal
 		name = france.212.b #needs to be localized
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_FRENCH_PATH 
+					option = FRA_LIBERTY_PATH
+				}
+			}
+		}
 		unlock_national_focus = FRA_DOCTRINAIRE_RIGHT
 		ai_chance = {
 			factor = 1500
@@ -635,11 +682,80 @@ country_event = {
 		hidden_effect = {
 			news_event = francestart.8
 		}
+	}
 }
+
+#first war
+
+country_event = {
+	id = france.214
+	title = france.214.t
+	desc = france.214.d
+	picture = GFX_report_event_generic_rifles
+
+	fire_only_once = yes 
+	is_triggered_only = yes
+
+	option = { # This option will give the anti war goal
+		name = france.214.a #needs to be localized
+		add_timed_idea = {
+			idea = FRA_first_war
+			days = 90
+		}
+		set_country_flag = FRA_first_war_declared
+	}
 }
 
+news_event = { #exile
+	id = france.215
+	title = france.215.t
+	desc = france.215.d
+	picture = GFX_news_event_french_parade
 
+	is_triggered_only = yes
+	major = yes
 
+	option = { # 
+		trigger = {
+			OR = {
+				is_in_faction_with = FRA
+				is_subject_of = FRA
+				tag = FRA
+			}
+		}
+		name = france.215.a #needs to be localized
+		FRA = { set_cosmetic_tag = FRA_FREE }
+		declare_war_on = {
+			target = GER
+			type = topple_government
+		}
+	}
+	option = { # booya
+		trigger = {
+			OR = {
+				is_in_faction_with = GER
+				is_subject_of = GER
+				tag = GER
+			}
+		}
+		name = france.215.b #needs to be localized
+	}
+	option = { # the fall of an empire. Can they regain it?
+		trigger = {
+			NOT = {
+				OR = {
+					is_in_faction_with = FRA
+					is_subject_of = FRA
+					tag = FRA
+					is_in_faction_with = GER
+					is_subject_of = GER
+					tag = GER
+				}
+			}
+		}
+		name = france.215.c #needs to be localized
+	}
+}
 
 add_namespace = france_policy_tree_events
 
@@ -1942,6 +2058,222 @@ country_event = {
 		unlock_decision_category_tooltip = influencing_belgium
 	}
 
+}
+
+##france demands disbanding of Belgian Colonial Society
+country_event = {
+	id = belgian_election_events.7
+	title = belgian_election_events.7.t
+	desc = belgian_election_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = belgian_election_events.7.a
+		BEL = { country_event = belgian_election_events.8 }
+		add_political_power = -15
+	}
+	option = {
+		name = belgian_election_events.7.b
+		FEA = {
+			add_stability = -0.03
+			add_war_support = -0.03
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.8
+	title = belgian_election_events.8.t
+	desc = belgian_election_events.8.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.8.a
+		ai_chance = {
+			factor = 10000
+		}
+		FRA = {
+			country_event = belgian_election_events.9
+		}
+	}
+	option = {
+		name = belgian_election_events.8.b
+		FRA = {
+			country_event = belgian_election_events.10
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.9
+	title = belgian_election_events.9.t
+	desc = belgian_election_events.9.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.9.a
+		##lets goo
+		539 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		772 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		796 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		773 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1046 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1055 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1060 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		660 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		1061 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		538 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		295 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+		718 = {
+			remove_dynamic_modifier = {
+				modifier = belgian_colonial_society_modifier
+			}
+		}
+	}
+}
+country_event = {
+	id = belgian_election_events.10
+	title = belgian_election_events.10.t
+	desc = belgian_election_events.10.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.10.a
+		##fuckers
+
+	}
+}
+
+##Congo revolt - FEA
+country_event = {
+	id = belgian_election_events.11
+	title = belgian_election_events.11.t
+	desc = belgian_election_events.11.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.11.a
+		release = COG
+		declare_war_on = {
+			target = COG
+			type = civil_war
+		}
+
+		hidden_effect = {
+			COG = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 100
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+		} 
+		##i got hoooooes calling on a young phone i be ballin like a mfing pro
+
+		FRA = {
+			country_event = belgian_election_events.12
+		}
+		if = {
+			limit = {
+				OR = {
+					295 = {
+						has_dynamic_modifier = {
+							modifier = belgian_colonial_society_modifier
+						}
+					}
+					FEA = {
+						has_idea = FEA_overstretched_colonial_empire
+					}
+				}
+			}
+			GER = {
+				country_event = belgian_election_events.13
+			}
+		}
+	}
+}
+
+## Congo Revolt - FRA
+country_event = {
+	id = belgian_election_events.12
+	title = belgian_election_events.12.t
+	desc = belgian_election_events.12.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.12.a
+	}
+}
+
+## Congo Revolt - GER Accept Support
+country_event = {
+	id = belgian_election_events.13
+	title = belgian_election_events.13.t
+	desc = belgian_election_events.13.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = belgian_election_events.13.a
+	}
 }
 
 add_namespace = brussells_conference

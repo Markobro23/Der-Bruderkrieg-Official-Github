@@ -19,13 +19,32 @@ focus_tree = {
 
 }
 
+# shared_focus = {
+#     id = SOV_RUSSIA_USES_LOAD_IN_TREES
+#     icon = GFX_goal_CMI_police_state
+# 	#prerequisite = {focus = SOV_military_crackdowns}
+#     x = 2
+#     y = 0
+#     #relative_position_id = SOV_military_crackdowns
+#     cost = 0.5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     available = {
+#         always = no
+#     }
+    
+#     completion_reward = {
+        
+#     }
+# }
 shared_focus = {
     id = SOV_begin_the_duma_campaign
     icon = GFX_goal_SOV_duma_elections
-	#prerequisite = {focus = SOV_military_crackdowns}
+	#prerequisite = {focus = SOV_RUSSIA_USES_LOAD_IN_TREES}
     x = 2
     y = 0
-    #relative_position_id = SOV_military_crackdowns
     cost = 0.5
     available_if_capitulated = yes
     ai_will_do = {
@@ -33,7 +52,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        custom_effect_tooltip = SOV_begin_the_duma_campaign_tt
+        custom_effect_tooltip = election_gui_tt
         country_event = SOV_starting_events.1
     }
 }
@@ -48,9 +67,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-   ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
@@ -96,7 +132,7 @@ shared_focus = {
     icon = GFX_goal_SOV_favoring_lenin
 	#prerequisite = {focus = SOV_side_with_the_rlsdp}
     x = -10
-    y = 5
+    y = 6
     #relative_position_id = SOV_side_with_the_rlsdp
     cost = 1
     available_if_capitulated = yes
@@ -396,9 +432,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_rlsdp
@@ -428,7 +481,7 @@ shared_focus = {
     icon = GFX_goal_SOV_continiuing_kerenskys_rule
 	#prerequisite = {focus = SOV_side_with_the_trudoviks}
     x = -1
-    y = 5
+    y = 6
     #relative_position_id = SOV_side_with_the_trudoviks
     cost = 1
     available_if_capitulated = yes
@@ -639,9 +692,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_BELOGUROV_PATH
+			}
+		}
+	}
+}
 
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
@@ -665,7 +735,7 @@ shared_focus = {
     icon = GFX_goal_SOV_spreading_pavels_influence
 	#prerequisite = {focus = SOV_side_with_the_CDP}
     x = 7
-    y = 5
+    y = 6
     #relative_position_id = SOV_side_with_the_CDP
     cost = 1
     available_if_capitulated = yes
@@ -892,10 +962,26 @@ shared_focus = {
     relative_position_id = SOV_begin_the_duma_campaign
     cost = 1
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-
+ai_will_do = { 
+	factor = 90 
+	modifier = {
+		factor = 0
+		OR = {
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_LENIN_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_KERENSKY_PATH
+			}
+			has_game_rule = {
+				rule = DBK_RUSSIAN_PATH
+				option = SOV_PAVEL_PATH
+			}
+		}
+	}
+}
     mutually_exclusive = {
         focus = SOV_side_with_the_trudoviks
     }
@@ -917,7 +1003,7 @@ shared_focus = {
     icon = GFX_goal_SOV_a_long_way_to_go
 	#prerequisite = {focus = SOV_side_with  _the_URP}
     x = 14
-    y = 5
+    y = 6
     #relative_position_id = SOV_side_with_the_URP
     cost = 2
     available = {
@@ -1098,7 +1184,7 @@ shared_focus = {
     icon = GFX_goal_SOV_the_elections
 	#prerequisite = {focus = SOV_path_to_former_glory focus = SOV_path_to_liberal_society focus =  SOV_the_path_to_true_democracy focus = SOV_path_to_social_revolution }
     x = 2
-    y = 2
+    y = 3
     cost = 0
     available_if_capitulated = yes
     ai_will_do = {

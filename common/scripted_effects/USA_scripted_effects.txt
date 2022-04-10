@@ -284,8 +284,12 @@ USA_electoral_vars_setup = {
 		
 }
 
+d_USA_election_timeout_effect = {
+	USA_election_timeout_effect = yes
+}
+
 USA_election_timeout_effect = {
-	if = {
+	if = { 
 		limit = {
 			check_variable = { long_electoral > 266 }
 		}
@@ -306,6 +310,7 @@ USA_election_timeout_effect = {
 	}
 	else = {
 		country_event = { id = USA_electoral_standoff.1  days = 1}
+		log = "Electoral Standoff"
 	}
 	set_country_flag = USA_elections_over
 }
@@ -407,36 +412,66 @@ USA_sphere_initial = {
 	
 }
 
+
+
+d_USA_dustbowl_states_setup = {
+	USA_dustbowl_states_setup = yes
+}
+
+d_USA_dustbowl_remove = {
+	remove_ideas = USA_dust_bowl_3
+}
+
 USA_dustbowl_states_setup = {
 	375 = {
 		add_to_array = {
 			array = USA.dustbowl_states
 			value = THIS
 		}
+		add_dynamic_modifier = {
+			modifier =  USA_dust_bowl_state_modifier
+		}
+		log = "[THIS.GetName]"
 	}
 	374 = {
 		add_to_array = {
 			array = USA.dustbowl_states
 			value = THIS
 		}
+		add_dynamic_modifier = {
+			modifier =  USA_dust_bowl_state_modifier
+		}
+		log = "[THIS.GetName]"
 	}
 	383 = {
 		add_to_array = {
 			array = USA.dustbowl_states
 			value = THIS
 		}
+		add_dynamic_modifier = {
+			modifier =  USA_dust_bowl_state_modifier
+		}
+		log = "[THIS.GetName]"
 	}
 	384 = {
 		add_to_array = {
 			array = USA.dustbowl_states
 			value = THIS
 		}
+		add_dynamic_modifier = {
+			modifier =  USA_dust_bowl_state_modifier
+		}
+		log = "[THIS.GetName]"
 	}
 	382 = {
 		add_to_array = {
 			array = USA.dustbowl_states
 			value = THIS
 		}
+		add_dynamic_modifier = {
+			modifier =  USA_dust_bowl_state_modifier
+		}
+		log = "[THIS.GetName]"
 	}
 }
 
@@ -1007,4 +1042,17 @@ USA_warren_great_depression_loc = {
 	}
 
 	
+}
+
+
+ANC_oceanic_collpase_effect = {
+	PNG = {
+		transfer_state = 611
+	}
+	ANC = {
+		declare_war_on = {
+			target = PNG
+			type = civil_war
+		}
+	}
 }

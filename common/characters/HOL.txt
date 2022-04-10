@@ -1,28 +1,26 @@
 characters={
 	HOL_hendrikus_colijn={
-		name="Hendrikus Colijn"
+		name=HOL_hendrikus_colijn
 		portraits={
 			civilian={
-				large="gfx/leaders/Hendrikus_Colijn.dds"
+				large="GFX_portrait_holland_hendrikus_colijn"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_HENDRIKUS_COLJIN_DESC"
-			ideology=democratic_conservative
+			ideology=conservatism
 			traits={ strict_austerity_adherent }
 			expire="1965.1.1.1"
 			id=-1
 		}
 	}
 	HOL_anton_mussert={
-		name="Anton Mussert"
+		name=HOL_anton_mussert
 		portraits={
 			civilian={
 				large="GFX_portrait_hol_anton_mussert"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_ANTON_MUSSERT_DESC"
 			ideology=fascism_ideology
 			traits={ leider }
 			expire="1965.1.1.1"
@@ -30,42 +28,93 @@ characters={
 		}
 	}
 	HOL_lou_de_visser={
-		name="Lou de Visser"
+		name=HOL_lou_de_visser
 		portraits={
 			civilian={
 				large="GFX_portrait_HOL_lou_de_visser"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_LOU_DE_VISSER_DESC"
 			ideology=leninism
 			traits={ veteran_communist }
 			expire="1965.1.1.1"
 			id=-1
 		}
 	}
-	HOL_willem_schermerhorn={
-		name="Willem Schermerhorn"
+	HOL_dirk_jan_de_geer = {
+		name=HOL_dirk_jan_de_geer
+		country_leader={
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				defeatist
+			}
+		}
 		portraits={
+			civilian={
+				large="GFX_Portrait_Netherlands_Dirk_Jan_de_Geer"
+			}
+		}
+	}
+	HOL_pieter_sjoerds_gerbrandy = {
+		name=HOL_pieter_sjoerds_gerbrandy
+		country_leader={
+			expire = "1965.1.1"
+			ideology = conservatism
+			traits = {
+				little_churchill
+			}
+		}
+		portraits={
+			civilian={
+				large="GFX_portrait_HOL_pieter_sjoerds_gerbrandy"
+			}
+		}
+	}
+	HOL_wilhelmina = {
+		name=HOL_wilhelmina
+		gender = female 
+		country_leader={
+			expire = "1965.1.1"
+			ideology = centrism
+			traits = {
+				wilhelmina
+				disdain_for_politicians_1
+				queen_of_the_people
+			}
+		}
+		portraits={
+			civilian={
+				large="GFX_portrait_HOL_wilhelmina"
+			}
+		}
+	}
+	
+	HOL_willem_schermerhorn={
+		name=HOL_willem_schermerhorn
+		portraits={
+			army={
+				small="GFX_idea_HOL_willem_schermerhorn"
+			}
 			civilian={
 				large="GFX_portrait_hol_wim_schermerhorn"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_WIM_SCHERMERHORN_DESC"
 			ideology=centrism
 			expire="1965.1.1.1"
 			id=-1
 		}
 	}
 	HOL_izaak_reijnders={
-		name="Izaak Reijnders"
+		name=HOL_izaak_reijnders
 		portraits={
-			army={
-				small="GFX_portrait_hol_izaak_reijnders_small"
+			civilian={
+				large="gfx/leaders/HOL/Reijnders.dds"
 			}
 			army={
-				large="GFX_portrait_hol_izaak_reijnders"
+				large="gfx/leaders/HOL/Portrait_HOL_Izaak_Reijnders_KR.png"
+				small="GFX_idea_HOL_izaak_reijnders"
 			}
 		}
 		field_marshal={
@@ -77,15 +126,42 @@ characters={
 			logistics_skill=3
 			legacy_id=980
 		}
+		country_leader={
+			ideology=authoritarian_democrat
+			expire="1965.1.1.1"
+			id=-1
+		}
+		advisor={
+			slot = army_chief
+			idea_token = HOL_izaak_reijnders
+			allowed = {
+					original_tag = HOL
+				}
+				available = {
+					if = {
+						limit = {
+							has_dlc = "Man the Guns"
+						}
+						not = {
+							has_completed_focus = HOL_appoint_new_supreme_commander
+						}
+					}
+				}
+				traits = {
+					army_chief_maneuver_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
 	}
 	HOL_petrus_wilhelmus_best={
-		name="Petrus Wilhelmus Best"
+		name=HOL_petrus_wilhelmus_best
 		portraits={
 			army={
-				small="GFX_portrait_hol_petrus_wilhelmus_best_small"
-			}
-			army={
-				large="GFX_portrait_hol_petrus_wilhelmus_best"
+				large="gfx/leaders/HOL/Portrait_HOL_Petrus_Wilhelmus_Best_KR.png"
+				small="GFX_idea_HOL_petrus_wilhelmus_best"
 			}
 		}
 		corps_commander={
@@ -97,15 +173,27 @@ characters={
 			logistics_skill=3
 			legacy_id=-1
 		}
+		advisor={
+			slot = air_chief
+			idea_token = HOL_petrus_wilhelmus_best
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					air_chief_night_operations_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
 	}
 	HOL_godfried_van_voorst_tot_voorst={
-		name="Godfried van Voorst tot Voorst"
+		name=HOL_godfried_van_voorst_tot_voorst
 		portraits={
 			army={
-				small="GFX_portrait_hol_godfried_van_voorst_tot_voorst_small"
-			}
-			army={
-				large="GFX_portrait_hol_godfried_van_voorst_tot_voorst"
+				large="gfx/leaders/HOL/Portrait_HOL_Godfried_van_Voorst_tot_Voorst_KR.png"
+				small="GFX_idea_HOL_godfried_van_voorst_tot_voorst"
 			}
 		}
 		corps_commander={
@@ -117,35 +205,60 @@ characters={
 			logistics_skill=3
 			legacy_id=-1
 		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = HOL_godfried_van_voorst_tot_voorst
+			ledger = army
+				allowed = {
+					original_tag = HOL
+				}
+				
+				traits = {
+					military_theorist
+				}
+		}
 	}
 	HOL_johannes_theodorus_furstner={
-		name="Johannes Theodorus Furstner"
+		name=HOL_johannes_theodorus_furstner
 		portraits={
 			army={
-				small="GFX_portrait_hol_johannes_theodorus_furstner_small"
+				large="gfx/leaders/HOL/Portrait_HOL_Johannes_Furstner.png"
+				small="GFX_portrait_HOL_johannes_theodorus_furstner_small"
 			}
-			army={
-				large="GFX_portrait_hol_johannes_theodorus_furstner"
+			civilian={
+				small="GFX_portrait_HOL_johannes_theodorus_furstner_small"
 			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = HOL_johan_furstner
+			ledger = navy
+				allowed = {
+					original_tag = HOL
+				}
+				
+				traits = {
+					naval_theorist
+				}
 		}
 		navy_leader={
 			traits={ caustic_personality blockade_runner fly_swatter }
 			skill=3
 			attack_skill=2
 			defense_skill=3
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=2
 			legacy_id=-1
 		}
 	}
 	HOL_conrad_helfrich={
-		name="Conrad Helfrich"
+		name=HOL_conrad_helfrich
 		portraits={
 			army={
-				small="GFX_portrait_hol_conrad_helfrich_small"
-			}
-			army={
-				large="GFX_portrait_hol_conrad_helfrich"
+				large="gfx/leaders/HOL/Portrait_HOL_Conrad_Helfrich_KR.png"
+				small=GFX_portrait_HOL_conrad_helfrich_small
 			}
 		}
 		navy_leader={
@@ -153,19 +266,31 @@ characters={
 			skill=4
 			attack_skill=5
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=2
 			legacy_id=981
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = HOL_conrad_helfrich
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					navy_chief_commerce_raiding_3
+				}
+				cost = 200
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 	}
 	HOL_karel_doorman={
-		name="Karel Doorman"
+		name=HOL_karel_doorman
 		portraits={
 			army={
-				small="GFX_portrait_hol_karel_doorman_small"
-			}
-			army={
-				large="GFX_portrait_hol_karel_doorman"
+				large="gfx/leaders/HOL/Portrait_HOL_Karel_Doorman_KR.png"
+				small="GFX_idea_HOL_karel_doorman"
 			}
 		}
 		navy_leader={
@@ -173,78 +298,254 @@ characters={
 			skill=3
 			attack_skill=3
 			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=2
 			legacy_id=-1
 		}
+		advisor={
+			slot = navy_chief
+			idea_token = HOL_karel_doorman
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					navy_chief_decisive_battle_1
+				}
+				cost =  50
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+
 	}
-	HOL_mathias_scherpenhuijzen={
-		name="Mathias Scherpenhuijzen"
+	HOL_charles_douw_van_der_krap={
+		advisor={
+			slot = high_command
+			idea_token = HOL_charles_douw_van_der_krap
+			ledger = navy
+				allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					air_naval_strike_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=HOL_charles_douw_van_der_krap
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+			army={
+				small="GFX_idea_HOL_charles_douw_van_der_krap"
 			}
 		}
-		country_leader={
-			ideology=syndicalism
-			traits={ national_integralist }
-			expire="1945.1.1.12"
-			id=-1
-		}
 	}
-	HOL_laurens_bosch={
-		name="Laurens Bosch"
+	HOL_nico_van_straten={
+		advisor={
+			slot = high_command
+			idea_token = HOL_nico_van_straten
+			ledger = army
+				allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					army_cavalry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+
+		name=HOL_nico_van_straten
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				small="GFX_idea_HOL_nico_van_straten"
 			}
 		}
-		country_leader={
-			ideology=market_socialism
-			expire="1943.1.1.12"
-			id=-1
-		}
 	}
-	HOL_jan_migchelbrink={
-		name="Jan Migchelbrink"
+	HOL_hein_ter_poorten={
+		advisor={
+			slot = army_chief
+			idea_token = HOL_hein_ter_poorten
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					army_chief_morale_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		field_marshal = {
+			traits = { old_guard }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		name=HOL_hein_ter_poorten
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+			army={
+				large="gfx/leaders/HOL/Portrait_HOL_Hein_ter_Poorten_KR.png"
+				small="GFX_idea_HOL_hein_ter_poorten"
 			}
 		}
-		country_leader={
-			ideology=authoritarian_conservatism
-			traits={ war_industrialist }
-			expire="1956.1.1.12"
-			id=-1
-		}
 	}
-	HOL_bodo_van_der_bijl={
-		name="Bodo van der Bijl"
+	HOL_adrianus_rudolphus_van_den_bent={
+		advisor={
+			slot = high_command
+			idea_token = HOL_adrianus_rudolphus_van_den_bent
+			ledger = army
+				allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=HOL_adrianus_rudolphus_van_den_bent
 		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_5"
+			army={
+				small="GFX_idea_HOL_adrianus_rudolphus_van_den_bent"
 			}
 		}
-		country_leader={
-			ideology=nationalist_autocrat
-			traits={ fortification_engineer dealbroker }
-			expire="1953.1.1.12"
-			id=-1
-		}
 	}
-	HOL_bodo_hoogewerff={
-		name="Bodo Hoogewerff"
+	HOL_hendrik_van_oyen={
+		advisor={
+			slot = air_chief
+			idea_token = HOL_hendrik_van_oyen
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					air_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=HOL_hendrik_van_oyen
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			army={
+				small="GFX_idea_HOL_hendrik_van_oyen"
 			}
 		}
-		country_leader={
-			ideology=national_syndicalism
-			traits={ hawk armaments_organizer }
-			expire="1951.1.1.12"
-			id=-1
+	}
+	HOL_hendrik_seyffardt={
+		advisor={
+			slot = army_chief
+			idea_token = HOL_hendrik_seyffardt
+			allowed = {
+					original_tag = HOL
+					has_dlc = "Man the Guns"
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { old_guard politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		name=HOL_hendrik_seyffardt
+		portraits={
+			army={
+				small="GFX_idea_HOL_hendrik_seyffardt"
+				large="gfx/leaders/HOL/Portrait_HOL_Hendrik_Seyffardt.png"
+			}
+		}
+	}
+	HOL_henri_winkelman={
+		advisor={	
+			slot = army_chief
+			idea_token = HOL_henri_winkelman
+			allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		field_marshal = {
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		name=HOL_henri_winkelman
+		portraits={
+			army={
+				small="GFX_idea_HOL_henri_winkelman"
+				large="gfx/leaders/HOL/Portrait_HOL_Henri_Winkelman_KR.png"
+			}
+		}
+	}
+	HOL_maarten_belzer={
+		advisor={
+			slot = high_command
+			idea_token = HOL_maarten_belzer
+			ledger = army
+				allowed = {
+					original_tag = HOL
+				}
+				traits = {
+					army_concealment_1
+				}
+				cost =  50
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=HOL_maarten_belzer
+		portraits={
+			army={
+				small="GFX_idea_HOL_maarten_belzer"
+			}
+		}
+	}
+	HOL_marius_raaijmakers={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = HOL_marius_raaijmakers
+			ledger = air
+				allowed = {
+					original_tag = HOL
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
+		}
+		name=HOL_marius_raaijmakers
+		portraits={
+			army={
+				small="GFX_idea_HOL_marius_raaijmakers"
+			}
 		}
 	}
 }

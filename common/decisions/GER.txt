@@ -27,6 +27,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -72,6 +76,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -123,6 +131,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -162,6 +174,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -198,6 +214,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -233,6 +253,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -268,6 +292,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -318,6 +346,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -351,6 +383,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -387,6 +423,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -682,6 +722,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -717,6 +761,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
 				}
 			}
 		}
@@ -784,6 +832,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -819,6 +871,10 @@ GER_ss_waffen_cat = {
 				OR = {
 					has_country_flag = GER_go_down_sa_path
 					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
 				}
 			}
 		}
@@ -1394,12 +1450,12 @@ GER_anti_spartakus_category = {
 				limit = {
 					is_ai = yes
 				}
-				NOT = { has_country_flag = GER_AI_Dont_Launch_Spartakus }
+				always = no
 			}
-		}
+		} 
 		priority = 100
 		activation = {	has_completed_focus = GER_consolidating_power	}
-		days_mission_timeout = 300
+		days_mission_timeout = 500
 		selectable_mission = no
 		cancel_if_not_visible = yes
 		fire_only_once = yes
@@ -2151,6 +2207,9 @@ weltkrieg_decisions = {
 
 		available = {
 			has_completed_focus = GER_secure_the_baltic_front
+			SWE = {
+				has_government = fascism
+			}
 		}
 
 		visible = {
@@ -2253,7 +2312,129 @@ weltkrieg_decisions = {
 		}
 	
 		remove_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = AIG
+				}
+				GER = {
+					add_to_faction = PREV
+				}
+			}
 			add_to_faction = AIG
+		}
+	}
+
+	GER_congo_revolt = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_war_with = FEA
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 5
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			FEA = {
+				country_event = belgian_election_events.11
+			}
+		}
+	}
+
+	GER_boer_revolt = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_war_with = SAF
+		}
+
+		visible = {
+			has_war_with = ENG
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 5
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SAF = {
+				country_event = SAF_boer_revolt.1
+			}
+		}
+	}
+
+	GER_integrate_wfr = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			WFR = {
+				exists = yes
+			}	
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			annex_country = {
+				target = WFR
+				transfer_troops = yes
+			}
 		}
 	}
 }

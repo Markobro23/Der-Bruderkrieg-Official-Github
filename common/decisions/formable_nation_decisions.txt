@@ -638,6 +638,7 @@ form_germany_category = {
 				tag = GER
 				tag = HAN
 				tag = SAX
+				tag = OLD
 			}
 		}
 
@@ -660,6 +661,7 @@ form_germany_category = {
 			controls_state = 59
 			controls_state = 56
 			controls_state = 817
+			controls_state = 955
 		}
 
 		visible = {
@@ -667,6 +669,7 @@ form_germany_category = {
 				tag = GER
 				tag = HAN
 				tag = SAX
+				tag = OLD
 			}
 			NOT = { has_global_flag = form_ngc_flag }
 		}
@@ -691,6 +694,7 @@ form_germany_category = {
 			add_state_core = 59
 			add_state_core = 56
 			add_state_core = 817
+			add_state_core = 955
 			hidden_effect = {
 				news_event = { id = prussian_expansion.3 hours = 6 }
 				set_global_flag = form_ngc_flag
@@ -1061,7 +1065,7 @@ form_brazil_category = {
 		ai_will_do = { factor = 100 }
  
 		icon = generic_form_nation
-
+		fire_only_once = yes
 		
 		available = {
 			controls_state = 495 
@@ -1105,9 +1109,9 @@ form_brazil_category = {
 		}
 
 		complete_effect = {
-
-		set_cosmetic_tag = BRZ_unified
 		
+		set_cosmetic_tag = BRZ_unified
+		news_event = { id = DBK_formablenations.8 days = 1 }
 		remove_ideas = UBR_civilist_republic
 
 		}
@@ -1173,6 +1177,20 @@ form_india_category = {
 				add_state_core = 320
 			}
 			if = { limit = { tag = RAJ } set_cosmetic_tag = british_raj } else = { set_cosmetic_tag = united_india }
+			if = {
+				limit = {
+					GAK = {
+						exists = yes
+					}
+					tag = AIG
+				}
+				AIG = {
+					annex_country = {
+						target = GAK
+						transfer_troops = yes
+					}
+				}
+			}
 			white_peace = ENG
 		}
 

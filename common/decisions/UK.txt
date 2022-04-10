@@ -774,3 +774,343 @@ weltkrieg_decisions = {
 		}
 	}
 }
+
+UK_withdraw_from_hanover_cat = {
+	
+	ENG_HAN_withdrawal_mission = {
+
+		allowed = {
+			OR = {
+				tag = HAN
+				tag = GER
+				tag = ENG
+			}
+		}
+
+		activation = {
+			has_global_flag = UK_is_a_pussy
+		}
+
+		available = {
+			HAN = {
+				has_war_with = GER
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 35
+
+		timeout_effect = {
+			effect_tooltip = {
+				news_event = ENG_Goering.3
+				ENG = {
+					diplomatic_relation = {
+						country = HAN
+						relation = guarantee
+						active = no
+					}
+				}
+				GER = {
+					add_timed_idea = {
+						idea = GER_pact_with_britain
+						days = 200
+					}
+					add_threat = 5
+				}
+				HAN = {
+					remove_ideas = HAN_anglo_expeditionary_force
+				}
+			}
+			if = {
+				limit = { tag = GER }
+				hidden_effect = {
+					news_event = ENG_Goering.3
+					add_timed_idea = {
+						idea = GER_pact_with_britain
+						days = 200
+					}
+					add_threat = 5
+				}
+
+			}
+			if = {
+				limit = { tag = ENG }
+				hidden_effect = {
+					diplomatic_relation = {
+						country = HAN
+						relation = guarantee
+						active = no
+					}
+				}
+			}
+			if = {
+				limit = { tag = HAN }
+				hidden_effect = {
+					remove_ideas = HAN_anglo_expeditionary_force
+				}
+			}
+		}
+
+	}
+
+	GER_make_threatening_noises = {
+
+		allowed = {
+			tag = GER
+		}
+
+		fire_only_once = yes
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 7 }
+		}
+
+		cost = 10
+
+		available = {
+			has_war_support > 0.69
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+						tag = ENG
+					}
+				}
+				country_event = { id = ENG_Goering.10 }
+			}
+		}
+
+	}
+
+	GER_declare_war_on_HAN_anyways = {
+
+		allowed = {
+			tag = GER
+		}
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 4 }
+		}
+
+		cost = 50
+
+		available = {
+			strength_ratio = {
+				tag = HAN
+				ratio > 2
+			}
+			custom_trigger_tooltip = {
+				tooltip = GER_at_least_3_troops_hanover_border_state
+				OR = {
+					divisions_in_state = {
+						size > 2
+						state = 60
+					}
+					divisions_in_state = {
+						size > 2
+						state = 64
+					}
+					divisions_in_state = {
+						size > 2
+						state = 61
+					}
+					divisions_in_state = {
+						size > 2
+						state = 58
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			declare_war_on = {
+				target = HAN
+				type = annex_everything
+			}
+		}
+
+	}
+
+	ENG_speed_up_withdrawal = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 9 }
+		}
+
+		cost = 20
+
+		available = {
+			has_war_support < 0.6
+		}
+
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -7
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+					}
+				}
+				country_event = { id = ENG_Goering.9 }
+			}
+		}
+
+	}
+
+	ENG_slow_down_withdrawal = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 3 }
+		}
+
+		cost = 20
+
+		available = {
+			has_war_support > 0.3
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+						tag = ENG
+					}
+				}
+				country_event = { id = ENG_Goering.8 }
+			}
+		}
+
+	}
+
+	HAN_sabotage_evacuation_route = {
+
+		allowed = {
+			tag = HAN
+		}
+
+		days_re_enable = 10
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 15 }
+			ENG = {
+				NOT = {
+					has_country_flag = ENG_done_with_HAN_sht
+				}
+			}
+		}
+
+		cost = 25
+
+		complete_effect = {
+			if = {
+				limit = { check_variable = { HAN_poking_uk < 2 } }
+				every_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HAN
+							tag = ENG
+						}
+					}
+					country_event = { id = ENG_Goering.8 }
+				}
+				else = {
+					ENG = {
+						country_event = ENG_Goering.11
+					}
+				}
+			}
+			add_to_variable = { HAN_poking_uk = 1 }
+		}
+
+	}
+
+	HAN_support_defection_british_forces = {
+
+		allowed = {
+			tag = HAN
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 4 }
+			ENG = {
+				NOT = {
+					has_country_flag = ENG_done_with_HAN_sht
+				}
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			division_template = {
+				name = "British Expeditionary Force"
+				division_names_group = ENG_INF_01
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+			        infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+			        infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				    division = "name = \"British Expeditionary Force\" division_template = \"British Expeditionary Force\" start_experience_factor = 0.3"
+				    owner = HAN
+				}
+			}
+			add_to_variable = { HAN_poking_uk = 1 }
+		}
+
+	}
+
+}

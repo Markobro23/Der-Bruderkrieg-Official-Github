@@ -1,6 +1,13 @@
 on_actions = {
 	on_startup = {
 		effect = {
+			#load in tree alert
+			SOV = {
+				country_event = { id = lore_dump.1 }
+			}
+			USA = {
+				country_event = { id = lore_dump.1 }
+			}
 			every_country = {
 				head_of_gov_setup = yes
 			}
@@ -223,13 +230,13 @@ on_actions = {
 				load_oob = "Generic"
 				random_owned_controlled_state = {
 					create_unit = {
-						division = "name = \"Infantry Division 1\" division_template = \"Infantry\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+						division = "name = \"[THIS.GetName] Division 1\" division_template = \"Infantry\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
 							owner = PREV
 					}
             	}
 				random_owned_controlled_state = {
 					create_unit = {
-						division = "name = \"Infantry Division 1\" division_template = \"Infantry\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
+						division = "name = \"[THIS.GetName] Division 2\" division_template = \"Infantry\" start_experience_factor = 0.5 start_equipment_factor = 0.5"
 							owner = PREV
 					}
             	}
@@ -274,20 +281,14 @@ on_actions = {
 			}
 			
 
-			YUG = {country_event = {id = serbia_the_mad_king.1 days = 60 } }
+			YUG = {country_event = {id = serbia_the_mad_king.1 days = 260 } }
 			PER = {country_event = {id = persian_ottoman_war.1 days = 600}}
 			ARG = {
-				country_event = { 
-					id = invasion_uruguay.1 
-					days = 256 
-				}
+				
 	  		} 
 			
 			ARG = {	 
-				country_event = {
-					id = great_south_american_war.1
-					days = 700
-				}
+				
 			}
 
 			CEN = {	
@@ -439,6 +440,337 @@ on_actions = {
 
   }
 
+  on_startup = {
+		effect = {
+			SWE = {
+				country_event = { id = sweden.1 days = 490 random = 8000 }
+			}
+
+			random_list = {
+				30 = {
+					set_global_flag = BRS_scripted_victory
+				}
+				30 = {
+					set_global_flag = BRE_scripted_victory
+				}
+				30 = {
+					set_global_flag = UBR_scripted_victory
+				}
+				10 = {
+					set_global_flag = SRB_scripted_victory
+				}
+			}
+
+			if = {
+				limit = {
+					has_global_flag = BRS_scripted_victory
+				}
+				log = "BRS_scripted_victory"
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_nerf
+				}
+				BRS = {
+					add_ideas = brazil_buff
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = UBR_scripted_victory
+				}
+				log = "UBR_scripted_victory"
+				BRS = {
+					add_ideas = brazil_nerf
+				}
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_buff
+				}
+			}
+			if = {
+				limit = {
+					has_global_flag = SRB_scripted_victory
+				}
+				log = "SRB_scripted_victory"
+				BRS = {
+					add_ideas = brazil_nerf
+				}
+				UBR = {
+					add_ideas = brazil_nerf
+				}
+				BRE = {
+					add_ideas = brazil_nerf
+				}
+				SRB = {
+					add_ideas = brazil_buff
+				}
+			}
+        }
+    }
+
+    on_state_control_changed = {
+    	effect = {
+    		if = {
+    			limit = { #fall of vienna
+					has_global_flag = wiltkrieg
+    				tag = GER
+    				FROM.FROM = {
+    					state = 4
+    				}
+					NOT = {
+						has_global_flag = vienna_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.1 hours = 3 random = 9 }
+				set_global_flag = vienna_has_fallen
+    		}
+    		if = {
+    			limit = { #fall of budapest
+				has_global_flag = wiltkrieg
+    				tag = GER
+    				FROM.FROM = {
+    					state = 43
+    				}
+					NOT = {
+						has_global_flag = budapest_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.3 hours = 3 random = 9 }
+				set_global_flag = budapest_has_fallen
+    		}
+    		if = {
+    			limit = {
+    				NOT = {
+    					OR = {
+    						is_in_faction_with = AUS
+    						tag = AUS
+    					}
+    				}
+					has_global_flag = wiltkrieg
+    				FROM.FROM = {
+    					state = 43
+    				}
+					NOT = {
+						has_global_flag = budapest_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.4 hours = 3 random = 9 }
+				set_global_flag = budapest_has_fallen
+    		}
+    		if = {
+    			limit = { #Munich
+				has_global_flag = wiltkrieg
+    				tag = GER
+    				FROM.FROM = {
+    					state = 52
+    				}
+					NOT = {
+						has_global_flag = munich_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.5 hours = 3 random = 9 }
+				set_global_flag = munich_has_fallen
+    		}
+    		if = {
+    			limit = { #Munich
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					OR = {
+    						is_in_faction_with = AUS
+    						tag = AUS
+    					}
+    				}
+    				FROM.FROM = {
+    					state = 52
+    				}
+					NOT = {
+						has_global_flag = munich_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.6 hours = 3 random = 9 }
+				set_global_flag = munich_has_fallen
+    		}
+    		if = {
+    			limit = { #Berlin
+				has_global_flag = wiltkrieg
+    				tag = FRA
+    				FROM.FROM = {
+    					state = 64
+    				}
+					NOT = {
+						has_global_flag = berlin_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.7 hours = 3 random = 9 }
+				set_global_flag = berlin_has_fallen
+			}
+    		if = {
+    			limit = { #Berlin
+				has_global_flag = wiltkrieg
+    				tag = AUS
+    				FROM.FROM = {
+    					state = 64
+    				}
+					NOT = {
+						has_global_flag = berlin_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.8 hours = 3 random = 9 }
+				set_global_flag = berlin_has_fallen
+			}
+    		if = {
+    			limit = { #Berlin
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					OR = {
+    						tag = FRA
+    						tag = AUS
+    					}
+    				}
+    				FROM.FROM = {
+    					state = 64
+    				}
+					NOT = {
+						has_global_flag = berlin_has_fallen
+					} 
+    			}
+    			news_event = { id = DBK_fall_of_city.9 hours = 3 random = 9 }
+				set_global_flag = berlin_has_fallen
+			}
+    		if = {
+    			limit = { #Paris
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					tag = FRA
+    				}
+    				FROM.FROM = {
+    					state = 16
+    				}
+					NOT = {
+						has_global_flag = paris_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.11 hours = 3 random = 9 }
+				set_global_flag = paris_has_fallen
+    		}
+			if = {
+    			limit = { #Vladivostok
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 408
+    				}
+					NOT = {
+						has_global_flag = vladivostok_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.12 hours = 3 random = 9 }
+				set_global_flag = vladivostok_has_fallen
+    		}
+    		if = {
+    			limit = { #Moscow
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 219
+    				}
+					NOT = {
+						has_global_flag = moscow_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.13 hours = 3 random = 9 }
+				set_global_flag = moscow_has_fallen
+    		}
+			if = {
+    			limit = { #St Petersburg
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 195
+    				}
+					NOT = {
+						has_global_flag = petrograd_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.14 hours = 3 random = 9 }
+				set_global_flag = petrograd_has_fallen
+    		}
+    		if = {
+    			limit = { #Volgograd
+				has_global_flag = wiltkrieg
+    				NOT = {
+    					tag = SOV
+    				}
+    				FROM.FROM = {
+    					state = 217
+    				}
+					NOT = {
+						has_global_flag = volgagrad_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.15 hours = 3 random = 9 }
+				set_global_flag = volgagrad_has_fallen
+    		}
+
+			if = {
+    			limit = { #prague
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = AUS
+						tag = CZE
+    				}
+    				FROM.FROM = {
+    					state = 9
+    				}
+					NOT = {
+						has_global_flag = prague_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.16 hours = 3 random = 9 }
+				set_global_flag = prague_has_fallen
+    		}
+
+			if = {
+    			limit = { #prague
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = AUS
+						tag = GLC
+    				}
+    				FROM.FROM = {
+    					state = 1123
+    				}
+					NOT = {
+						has_global_flag = krakow_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.17 hours = 3 random = 9 }
+				set_global_flag = krakow_has_fallen
+    		}
+
+			
+
+			
+    		
+    		
+    	}
+    }
 
 
 

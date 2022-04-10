@@ -1758,6 +1758,14 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+	available = {
+		NOT = {
+			has_country_leader = {
+				name = "William Gibbs McAdoo"
+				ruling_only = yes
+			}
+		}
+	}
     completion_reward = {
         country_event = USA_long_events.20
     }
@@ -2013,7 +2021,13 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
+		hidden_effect = {
+			COL = { keep_current_politics = yes }
+		}
         puppet = COL
+		hidden_effect = {
+			COL = { reset_government = yes }
+		}
     }
 }
 
@@ -2170,7 +2184,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        PBC = { country_event = USA_argentinian_events.3 }
+        PBC = { country_event = USA_argentinian_events.4 }
     }
 }
 

@@ -171,6 +171,16 @@ country_event = {
 
     option = {
         name = DBK_austria_start.11.a
+	ai_chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			has_game_rule = {
+				rule = DBK_AUSTRIAN_PATH
+				option = AUS_FEDERALIST_PATH
+			}
+		}
+	}
         set_country_flag = absolutism_flag
 
         hidden_effect = {
@@ -181,6 +191,16 @@ country_event = {
 
     option = {
         name = DBK_austria_start.11.b
+	ai_chance = {
+		factor = 2
+		modifier = {
+			factor = 0
+			has_game_rule = {
+				rule = DBK_AUSTRIAN_PATH
+				option = AUS_ABSOLUTIST_PATH
+			}
+		}
+	}
         set_country_flag = reform
         hidden_effect = {
             news_event = {id = austria.150 days = 2}
@@ -640,10 +660,10 @@ country_event = {
 		  set_country_flag = AUS_Giovane_Italia_to_Sixty_days_in_milan
 
 		  effect_tooltip = {
-			  swap_ideas = {
-				  add_idea = Sixty_Days_Milan_idea
-				  remove_idea = Giovane_Italia_idea
-			  }
+			  #swap_ideas = {
+			#	  add_idea = Sixty_Days_Milan_idea
+			#	  remove_idea = Giovane_Italia_idea
+			 # }
 		  }
 
 
@@ -1121,10 +1141,10 @@ country_event = {
 		}
 
 		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = Nemzeti_dal
-				add_idea = Autonomism
-			}
+			#swap_ideas = {
+			#	remove_idea = Nemzeti_dal
+			#	add_idea = Autonomism
+			#}
 		}
 		
 	}
@@ -1330,6 +1350,13 @@ country_event = {
 			AUS = {
 				transfer_state = 810
 			}
+			capital_scope = {
+       			   create_unit = {
+         			   division = "name = \"Gemeinsame Armeebrigade\" division_template = \"Gemeinsame Armeebrigade\" start_experience_factor = 0.2"
+         			   count = 4
+       				     owner = CRO
+      			    }
+      	 		 }
 		}
 		
 	}
@@ -3167,6 +3194,112 @@ country_event = {
 	}	
 }
 
+##ORA stuff
+country_event = {
+	id = austria.206
+	title = austria.206.t
+	desc = austria.206.d
+	
+	is_triggered_only = yes 
+
+	option = { 
+		name = austria.206.a
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0.5
+				has_completed_focus = AUS_FEDERALISM
+			}
+		} 
+		complete_national_focus = AUS_secure_osterfrika
+	}
+
+	option = { 
+		name = austria.206.b
+		ai_chance = { 
+			factor = 100 
+			modifier = {
+				factor = 0.5
+				has_completed_focus = AUS_CENTRALISM
+			}
+		} 
+		complete_national_focus = AUS_osterfrikan_dominions
+	}	
+}
+
+#skarwhatever forced to resign, falkenhausen promoted
+country_event = {
+	id = austria.207
+	title = austria.207.t
+	desc = austria.207.d
+	
+	is_triggered_only = yes 
+
+	option = { #one last dinner before you go?
+		name = austria.207.a
+		ORA_stjepan_sarkotić = { set_nationality = AUS }
+		add_country_leader_role = {
+			character = ORA_alexander_von_falkenhausen 
+			promote_leader = yes
+			country_leader = {
+				ideology = despotic
+				expire = "1965.1.1"
+				traits = {
+					retired_officer
+				}
+			}
+		}
+		#hidden_effect = {
+			AUS = {
+				add_corps_commander_role = {
+					character = ORA_stjepan_sarkotić 
+					skill = 3
+					attack_skill = 2
+					defense_skill = 3
+					planning_skill = 3
+					logistics_skill = 3
+				}
+				country_event = { id = austria.208 hours = 1 }
+			}
+		#}
+	}
+}
+
+country_event = {
+	id = austria.208
+	title = austria.208.t
+	desc = {
+		text = austria.208.d
+		trigger = {
+			country_exists = ORA
+		}
+	}
+	desc = {
+		text = austria.208.d2
+		trigger = {
+			ORA = {
+				exists = no
+			}
+		}
+	}
+	
+	is_triggered_only = yes 
+
+	option = { #welcome back to military service
+		name = austria.208.a
+		effect_tooltip = {
+			add_corps_commander_role = {
+				character = ORA_stjepan_sarkotić 
+				skill = 3
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 3
+				logistics_skill = 3
+			}
+		}
+	}
+}
+
 add_namespace = austria_military_events
 
 ###Prussia our greatest enemy
@@ -3254,15 +3387,15 @@ country_event = {
 		name = austria_military_events.4.a
 		ai_chance = { factor = 100 } #this factor me	ans the AI will almost always pick this one
 		set_country_flag = franz_ferdinand_stays
-		unlock_national_focus = AUS_reinforce_the_sgc_garrison
+		set_country_flag= AUS_reinforce_the_sgc_garrison_flag
 		unlock_decision_category_tooltip = AUS_managing_bavaria_court_factionalism
 	}
 	option = { 
 		name = austria_military_events.4.b
 		ai_chance = { factor = 100 } 
-		unlock_national_focus = AUS_recalling_franz_ferdinand
 		AUS = { release = GPU }
-		
+		set_country_flag= AUS_recalling_franz_ferdinand_flag
+
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 				add_popularity = {
@@ -3329,9 +3462,41 @@ country_event = {
 }
 
 
+###making franz leader
+country_event = {
+	id = austria_military_events.7
+	title = austria_military_events.7.t
+	desc = austria_military_events.7.d 
+	is_triggered_only = yes 
 
+	option = { 
+		name = austria_military_events.7.a
+		ai_chance = { factor = 100 } 
+		GPU = {
+			add_country_leader_role = {
+				character = GPU_franz_ferdinand
+				promote_leader = yes
+				country_leader = {
+					ideology = authoritarian_democrat
+					expire = "1965.1.1"
+				}
+			}
+			country_event = { id = austria_military_events.8 hours = 3 }
+		}
+	}	
+}
 
+country_event = {
+	id = austria_military_events.8
+	title = austria_military_events.8.t
+	desc = austria_military_events.8.d 
+	is_triggered_only = yes 
 
+	option = { 
+		name = austria_military_events.8.a #zamn
+		ai_chance = { factor = 100 } 
+	}	
+}
 
 
 
@@ -3571,14 +3736,47 @@ country_event = {
 		ai_chance = { factor = 1}
 		AUS = {
 			add_war_support = -0.1
-			release = GPU
+			set_autonomy = {
+				target = GPU
+				autonomous_state = autonomy_free
+			}
+		}
+		BAD_berthold_i = { set_nationality = GPU }
+		HES_heinrich_von_vietinghoff = { set_nationality = GPU }
+		GPU = {
+			remove_ideas = GPU_court_factionalism
+			remove_ideas = GPU_garrisson_state
+			
+			if = {
+				limit = {
+					has_character_id = BAD_berthold_i
+				}
+				log = "BAD_berthold_i JOEOQO"
+			}
+			annex_country = {
+				target = BAD
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = WUR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = HES
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = NAS
+				transfer_troops = yes
+			}
+		}
+		country_event = {
+			id = southgermanconfederationcoup.2
+			days = 2
 		}
 		hidden_effect = {
 			GPU = {
-				country_event = {
-					id = southgermanconfederationcoup.2
-					days = 2
-				}
+				
 			add_popularity = {
 				popularity = 0.25
 				ideology = neutrality
@@ -3587,15 +3785,16 @@ country_event = {
 				ruling_party = neutrality
 			}
 			create_country_leader = {
-				name = "Rupprecht, Duke of Bavaria"
+				name = "Rupprecht I"
 				desc = ""
-				picture = "gfx/leaders/Prince_Ruprect.dds"
+				picture = "gfx/leaders/AUS/Ruppercht.dds"
 				expire = "1965.1.1"
 				ideology = despotic
 				traits = {
 					#
 				}
 			}
+			
 			}
 
 		}
@@ -3612,10 +3811,14 @@ country_event = {
 	option = {
 		name = southgermanconfederationcoup.2.a
 		ai_chance = { factor = 1}
+		GPU = {
+			leave_faction = yes
+		}
 		declare_war_on = {
 			target = GPU
 			type = puppet_wargoal_focus
 		}
+		
 	}
 	option = {
 		name = southgermanconfederationcoup.2.b
@@ -3636,14 +3839,40 @@ country_event = {
 		ai_chance = { factor = 1}
 		AUS = {
 			add_war_support = -0.1
-			release = GPU
+			set_autonomy = {
+				target = GPU
+				autonomous_state = autonomy_free
+			}
 		}
-		hidden_effect = {
-			GPU = {
-				country_event = {
+		GPU = {
+			remove_ideas = GPU_court_factionalism
+			remove_ideas = GPU_garrisson_state
+			recruit_character = BAD_berthold_i 
+			recruit_character = HES_heinrich_von_vietinghoff
+			annex_country = {
+				target = BAD
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = WUR
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = HES
+				transfer_troops = yes
+			}
+			annex_country = {
+				target = NAS
+				transfer_troops = yes
+			}
+		}
+		country_event = {
 					id = southgermanconfederationcoup.2
 					days = 2
 				}
+		hidden_effect = {
+			GPU = {
+				
 			add_popularity = {
 				popularity = 0.25
 				ideology = fascism
@@ -3683,17 +3912,26 @@ country_event = {
 		}
 		set_country_flag = SGC_court_opposition_crushed
 		hidden_effect = {
-			 
-		create_country_leader = {
-			name = "Franz Ferdinand"
-			desc = "FRANZ_FERDINAND_DESC"
-			picture = "gfx/leaders/FranzFerdinandPortrait.dds"
-			expire = "1965.1.1"
-			ideology = authoritarian_democrat
-			traits = {
-				#
+			GPU = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.3
+				}
+				set_politics = {
+					ruling_party = neutrality
+				}
+				create_country_leader = {
+					name = "Franz Ferdinand"
+					desc = "FRANZ_FERDINAND_DESC"
+					picture = "gfx/leaders/FranzFerdinandPortrait.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						#
+					}
+				}
 			}
-		}
+		
 		}
 	}
 }
@@ -4161,7 +4399,7 @@ country_event = {
 
 
 add_namespace = austria_foriegn_policy
-##Bosinan question
+##bosnian question
 country_event = {
 	id = austria_foriegn_policy.1
 	title = austria_foriegn_policy.1.t
@@ -4176,6 +4414,12 @@ country_event = {
 			target = BOS
 			transfer_troops = yes
 		}
+		BOS_dzafer_kulenovic = {
+			set_nationality = AUS
+		}
+		BOS_gojkomir_glogovac = {
+			set_nationality = AUS
+		}
 		trigger = {
 			has_completed_focus = AUS_ABSOLUTISM
 		}
@@ -4188,6 +4432,12 @@ country_event = {
 				transfer_troops = yes
 			}
 			set_cosmetic_tag = illyria
+		}
+		BOS_dzafer_kulenovic = {
+			set_nationality = CRO
+		}
+		BOS_gojkomir_glogovac = {
+			set_nationality = CRO
 		}
 		trigger = {
 			has_completed_focus = AUS_concessions_to_people

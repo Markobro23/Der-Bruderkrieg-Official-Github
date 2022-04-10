@@ -1,7 +1,21 @@
 GER_thugee_revolt_scripted_effect = {
 	GAK = {
-		transfer_state = 426
-		transfer_state = 884
+		if = {
+			limit = {
+				RAJ = {
+					owns_state = 426
+				}
+			}
+			transfer_state = 426
+		}
+		if = {
+			limit = {
+				RAJ = {
+					owns_state = 884
+				}
+			}
+			transfer_state = 884
+		}
 		every_owned_state = {
 			teleport_armies = {
 				limit = {
@@ -15,8 +29,8 @@ GER_thugee_revolt_scripted_effect = {
 	RAJ = {
 		transfer_units_fraction = {
 			target = GAK
-			size = 0.5
-			stockpile_ratio = 0.6
+			size = 0.15
+			stockpile_ratio = 0.3
 			army_ratio = 0.5
 		}
 		every_owned_state = {

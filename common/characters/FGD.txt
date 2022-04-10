@@ -1,6 +1,6 @@
 characters={
 	FGD_karl_josef_bonaparte={
-		name="Napoleon, Military-Emperor"
+		name="Napoleon"
 		portraits={
 			civilian={
 				large="gfx/leaders/NapoleonVIPortrait.dds"
@@ -14,17 +14,15 @@ characters={
 			id=-1
 		}
 	}
-	FGD_enver_hoxha={
-		name="Enver Hoxha"
+	FGD_konrad_adenauer={
+		name= "Konrad Adenauer"
 		portraits={
 			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Konrad_Adenauer.dds"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_KING_ZOG_DESC"
-			ideology=stalinism
-			traits={ staunch_stalinist }
+			ideology=democratic_conservative
 			expire="1965.1.1.1"
 			id=-1
 		}
@@ -33,10 +31,8 @@ characters={
 		name="Charles De Gaulle"
 		portraits={
 			army={
-				
-			}
-			army={
 				large="gfx/leaders/CharlesDeGaullePortrait.dds"
+				small="GFX_idea_charles_de_gaulle"
 			}
 		}
 		field_marshal={
@@ -48,8 +44,24 @@ characters={
 			logistics_skill=2
 			legacy_id=-1
 		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = charles_de_gaulle
+			ledger = army
+			allowed = {
+				original_tag = FGD
+			}
+			
+			traits = {
+				blitzkrieg_theorist
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 	}
-	FGD_walter_krüger={
+	FGD_walter_kruger={
 		name="Walter Krüger"
 		portraits={
 			army={
@@ -66,22 +78,37 @@ characters={
 			logistics_skill=3
 			legacy_id=15
 		}
+		advisor={
+			slot = high_command
+			idea_token = FGD_walter_kruger
+			ledger = army
+			allowed = {
+				original_tag = FGD
+			}
+			traits = {
+				army_armored_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 	}
 	FGD_ewald_von_kleist={
 		name="Ewald von Kleist"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_GER_ewald_von_kleist.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Ewald_von_Kleist.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Ewald_Kleist_kr.png"
 			}
 		}
 		corps_commander={
-			traits={ trait_cautious armor_officer }
-			skill=2
-			attack_skill=2
-			defense_skill=1
-			planning_skill=2
-			logistics_skill=2
+			traits={ trait_cautious armor_officer skilled_staffer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 			legacy_id=8
 		}
 	}
@@ -90,9 +117,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_GER_gunter_lutjens.dds"
-			}
-			army={
-				large="gfx/leaders/GER/Portrait_Germany_Gunter_Lutjens.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Gunther_Lutjens_kr.png"
 			}
 		}
 		advisor={
@@ -163,6 +188,38 @@ characters={
 			ai_will_do = {
 				factor = 1.000
 			}
+		}
+	}
+	FGD_curt_haase = {
+		name = "Curt Haase"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Curt_Hasse.png"
+			}
+		}
+		corps_commander = {
+			traits = { trickster }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	FGD_josias = {
+		name = "Josias Georg Wilhelm Adolf"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_GEA_Prinz_Josias_Waldeck-Prymont.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_reckless infantry_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
 }

@@ -480,16 +480,24 @@ shared_focus = {
 		  add_stability= 0.05
 		  add_political_power = 100
 		  unlock_decision_category_tooltip = GER_anti_spartakus_category
-		  random_list = {
-			  80 = {
-				set_country_flag = GER_AI_Dont_Launch_Spartakus
-			  }
-			  20 = {
-				  
-			  }
-		  }
+		  
 		  hidden_effect = {
 			  country_event = { id = GER_goering_internal_stabilization.4 days = 2 }
+				random_list = {
+				80 = {
+					set_country_flag = GER_AI_Dont_Launch_Spartakus
+					if = {
+						limit = {
+							is_ai = yes
+						}
+						set_country_flag = GER_spartakus_crushed
+						remove_ideas = Revolutionary_Treason
+					}
+				}
+				20 = {
+					
+				}
+			}
 		  }
 		}
 		ai_will_do = {
@@ -638,6 +646,19 @@ shared_focus = {
 		}
 		ai_will_do = {
 			factor = 60
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_GOERING_REFORMIST_PATH
+					}
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
+				}
+			} 
 		}
 	}
 	
@@ -806,6 +827,19 @@ shared_focus = {
 		}
 		ai_will_do = {
 			factor = 60
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_GOERING_RADICAL_PATH
+					}
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
+				}
+			} 
 		}
 	}
 	
@@ -962,6 +996,19 @@ shared_focus = {
 			}
 			ai_will_do = {
 				factor = 60
+					modifier = {
+					factor = 0
+					OR = {
+						has_game_rule = {
+							rule = DBK_PRUSSIAN_PATH 
+							option = GER_GOERING_REFORMIST_PATH
+						}
+						has_game_rule = {
+							rule = DBK_PRUSSIAN_PATH 
+							option = GER_REVERSE_THE_REVOLUTION_PATH
+						}
+					}
+				} 
 			}
 			completion_reward = {
 				add_ideas = GER_The_Prussian_Worker
@@ -1216,7 +1263,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_endsieg
 			icon = GFX_goal_GER_endsieg
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_the_brownshirts_prussia
 			}
@@ -1239,7 +1286,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_inoculation
 			icon = GFX_goal_GER_inoculation
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_endsieg
 			}
@@ -1269,7 +1316,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_germs_under_our_feet
 			icon = GFX_goal_GER_the_germs_under_our_feet
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_inoculation
 			}
@@ -1305,7 +1352,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_pathogen_in_our_hands
 			icon = GFX_goal_GER_the_pathogen_in_our_hands
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_inoculation
 			}
@@ -1337,7 +1384,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_the_virus_in_our_lungs
 			icon = GFX_goal_GER_the_virus_in_our_lungs
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_germs_under_our_feet
 			}
@@ -1371,7 +1418,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_parasites_in_our_brain
 			icon = GFX_goal_GER_the_parasites_in_our_brain
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_germs_under_our_feet
 			}
@@ -1404,7 +1451,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_the_center_of_the_disease
 			icon = GFX_goal_GER_the_center_for_disease_control
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_the_virus_in_our_lungs
 			}
@@ -1438,7 +1485,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_our_sole_purpose
 			icon = GFX_goal_GER_our_sole_purpose
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_endsieg
 			}
@@ -1469,7 +1516,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_universal_service
 			icon = GFX_goal_GER_universal_conscription
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_our_sole_purpose
 			}
@@ -1502,7 +1549,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_child_labour
 			icon = GFX_goal_GER_child_labor
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_universal_service
 			}
@@ -1533,7 +1580,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_use_the_empire
 			icon = GFX_goal_GER_use_the_empire
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_our_sole_purpose
 			}
@@ -1568,7 +1615,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_eternal_vigilance
 			icon = GFX_goal_GER_eternal_vigil
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_use_the_empire
 			}
@@ -1630,7 +1677,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_kapitanprinzip
 			icon = GFX_goal_GER_kaptainprinzip
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_the_center_of_the_disease
 			}
@@ -1715,7 +1762,7 @@ shared_focus = {
 			relative_position_id = GER_the_last_hussars_prussia
 	
 	
-			cost = 1	
+			cost = 2	
 
 			available = {
 				custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
@@ -1786,7 +1833,7 @@ shared_focus = {
 			relative_position_id = GER_restoration_day
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1820,7 +1867,7 @@ shared_focus = {
 			relative_position_id = GER_wilhelm_the_uniter
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1850,7 +1897,7 @@ shared_focus = {
 			relative_position_id = GER_revive_1850_constitution
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1884,7 +1931,7 @@ shared_focus = {
 			relative_position_id = GER_restoration_day
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1919,7 +1966,7 @@ shared_focus = {
 			relative_position_id = GER_restoration_day
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1953,7 +2000,7 @@ shared_focus = {
 			relative_position_id = GER_eliminate_radicals
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -1993,7 +2040,7 @@ shared_focus = {
 			relative_position_id = GER_absolutist_resurgence
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -2023,7 +2070,7 @@ shared_focus = {
 			relative_position_id = GER_full_control
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -2058,7 +2105,7 @@ shared_focus = {
 			relative_position_id = GER_destroy_the_murder_factories
 	
 	
-			cost = 1	
+			cost = 2	
 			
 	
 			cancel_if_invalid = yes
@@ -2125,7 +2172,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_schleichers_final_plan
 			icon = GFX_goal_GER_sleichers_final_plan
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_the_businessmans_prussia
 			}
@@ -2150,7 +2197,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_a_real_union
 			icon = GFX_goal_GER_a_real_union
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_schleichers_final_plan
 			}
@@ -2177,7 +2224,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_no_more_proletarians
 			icon = GFX_goal_GER_no_more_prolit
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_schleichers_final_plan
 			}
@@ -2204,7 +2251,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_maintain_revolutionary_principles
 			icon = GFX_goal_GER_mantain_revolutionary_principles
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_a_real_union
 				focus = GER_no_more_proletarians
@@ -2232,7 +2279,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_for_god_and_kaiser
 			icon = GFX_goal_GER_for_crown_and_kaiser
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_a_real_union
 				focus = GER_no_more_proletarians
@@ -2261,7 +2308,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_maintain_the_nation_at_arms
 			icon = GFX_goal_GER_continue_the_nation_arms
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_maintain_revolutionary_principles
 				focus = GER_for_god_and_kaiser
@@ -2290,7 +2337,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_the_professional_core
 			icon = GFX_goal_GER_the_pro_core
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_maintain_revolutionary_principles
 				focus = GER_for_god_and_kaiser
@@ -2327,7 +2374,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_guard_the_emigres
 			icon = GFX_goal_GER_guard_the_emigrees
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_maintain_the_nation_at_arms
 				focus = GER_the_professional_core
@@ -2355,7 +2402,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_full_amnesty
 			icon = GFX_goal_GER_full_amensty
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_maintain_the_nation_at_arms
 				focus = GER_the_professional_core
@@ -2383,7 +2430,7 @@ shared_focus = {
 		shared_focus = {
 			id = GER_the_regency_debate
 			icon = GFX_goal_GER_the_regency_debate
-			cost = 5
+			cost = 2
 			prerequisite = {
 				focus = GER_guard_the_emigres
 				focus = GER_full_amnesty
@@ -2606,6 +2653,19 @@ shared_focus = {
 	}
     ai_will_do = {
         factor = 9
+        modifier = {
+			factor = 0
+			OR = {
+				has_game_rule = {
+					rule = DBK_PRUSSIAN_PATH 
+					option = GER_GOERING_RADICAL_PATH
+				}
+				has_game_rule = {
+					rule = DBK_PRUSSIAN_PATH 
+					option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+				}
+			}
+		} 
     }
 	available = {
 		NOT = {
@@ -3013,7 +3073,12 @@ shared_focus = {
 	}
 
 	completion_reward = {
-		add_political_power = 50
+		960 = {
+			set_demilitarized_zone = no
+		}
+		60 = {
+			set_demilitarized_zone = no
+		}
 		add_opinion_modifier = {
 			target = SAX
 			modifier = medium_decrease
@@ -3046,6 +3111,13 @@ shared_focus = {
 			}
 			date > 1938.1.1
 		}
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			has_war = no
+		}
 	}
 	completion_reward = {
 		declare_war_on = { target = SAX type = annex_everything }		
@@ -3070,6 +3142,13 @@ shared_focus = {
 			size > 499999
 			}
 			date > 1938.1.1
+		}
+
+		if = {
+			limit = {
+				is_ai = yes
+			}
+			has_war = no
 		}
 	}
 	
@@ -3301,18 +3380,15 @@ shared_focus = {
 		has_completed_focus = GER_breaking_the_chains
 	}
 	completion_reward = {
-		hidden_effect = {
-			add_state_core = 960
-			add_state_core = 57
-			add_state_core = 957
-			add_state_core = 51
-			add_state_core = 798
-			add_state_core = 955
-			add_state_core = 42
-			add_state_core = 959
-			add_state_core = 956
-			add_state_claim = 28
-		}
+		add_state_core = 960
+		add_state_core = 57
+		add_state_core = 957
+		add_state_core = 51
+		add_state_core = 798
+		add_state_core = 42
+		add_state_core = 959
+		add_state_core = 956
+		add_state_claim = 28
 		custom_effect_tooltip = GER_legacy_of_tilsit_tt
 	}
 }
@@ -4025,6 +4101,17 @@ shared_focus = {
 	available = {
 		has_global_flag = operation_walross_blockade
 		
+		hidden_trigger = {
+			if = {
+				limit = {
+					is_ai = yes
+				}
+				OR = {
+					has_global_flag = austria_defeated
+					has_global_flag = prussia_has_beaten_france
+				}
+			}
+		}
 	}
 
 	mutually_exclusive = {
@@ -4133,6 +4220,14 @@ shared_focus = {
 
 	available = {
 		has_completed_focus = GER_revoke_church_autonomy
+	}
+
+	available = {
+		RAJ = {
+			exists = yes
+			has_war_with = AIG
+		}
+		
 	}
 
 	completion_reward = {
@@ -5609,7 +5704,7 @@ shared_focus = {
 		icon = GFX_goal_GER_venerate_karl 
 		x = 29
 		y = 0
-		cost = 5
+		cost = 1
 	
 		available = { 
 			custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
@@ -5628,7 +5723,7 @@ shared_focus = {
 		icon = GFX_goal_GER_a_german_triumph 
 		x = -3
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_venerate_new_karl  }
 		relative_position_id = GER_venerate_new_karl
 		ai_will_do = {
@@ -6073,7 +6168,7 @@ shared_focus = {
 		icon = GFX_goal_GER_la_resistance 
 		x = -2
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_a_german_triumph }
 		relative_position_id = GER_a_german_triumph 
 		ai_will_do = {
@@ -6088,7 +6183,7 @@ shared_focus = {
 		icon = GFX_goal_GER_an_inherited_problem 
 		x = 2
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_a_german_triumph }
 		relative_position_id = GER_a_german_triumph
 		ai_will_do = {
@@ -6103,7 +6198,7 @@ shared_focus = {
 		icon = GFX_goal_GER_ethnic_militias 
 		x = 1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_an_inherited_problem }
 		relative_position_id = GER_an_inherited_problem
 		mutually_exclusive = { focus = GER_central_control }
@@ -6119,7 +6214,7 @@ shared_focus = {
 		icon = GFX_goal_GER_assert_central_control 
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_an_inherited_problem }
 		relative_position_id = GER_an_inherited_problem
 		mutually_exclusive = { focus = GER_support_ethnic_militias }
@@ -6135,7 +6230,7 @@ shared_focus = {
 		icon = GFX_goal_GER_deploy_the_orpo 
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_support_ethnic_militias focus = GER_central_control }
 		relative_position_id = GER_support_ethnic_militias
 		ai_will_do = {
@@ -6154,7 +6249,7 @@ shared_focus = {
 		icon = GFX_goal_GER_deploy_the_okf 
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_la_resistance }
 		relative_position_id = GER_la_resistance
 		mutually_exclusive = { focus = GER_cagoule_loyalty }
@@ -6170,7 +6265,7 @@ shared_focus = {
 		icon = GFX_goal_GER_gain_cagoule_loyalty 
 		x = 1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_la_resistance }
 		relative_position_id = GER_la_resistance
 		mutually_exclusive = { focus = GER_form_the_okf }
@@ -6186,7 +6281,7 @@ shared_focus = {
 		icon = GFX_goal_GER_staatpolezi 
 		x = -1
 		y = 1
-		cost = 5
+		cost = 3
 		prerequisite = { focus = GER_cagoule_loyalty focus = GER_form_the_okf }
 		relative_position_id = GER_cagoule_loyalty
 		ai_will_do = {
@@ -6206,7 +6301,7 @@ shared_focus = {
 		icon = GFX_goal_GER_von_das_slavs 
 		x = 3
 		y = 1
-		cost = 5
+		cost = 0
 		prerequisite = { focus = GER_venerate_new_karl }
 		relative_position_id = GER_venerate_new_karl
 		ai_will_do = {
@@ -6222,7 +6317,7 @@ shared_focus = {
 		icon = GFX_goal_GER_the_last_war
 		x = -1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
@@ -6238,7 +6333,7 @@ shared_focus = {
 		icon = GFX_goal_GER_prepare_for_the_struggle
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = { focus = GER_the_last_war }
 		relative_position_id = GER_the_last_war
 		ai_will_do = {
@@ -6257,7 +6352,7 @@ shared_focus = {
 		icon = GFX_goal_GER_the_greatest_war
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = { focus = GER_prepare_for_the_struggle }
 		relative_position_id = GER_prepare_for_the_struggle
 		ai_will_do = {
@@ -6278,7 +6373,7 @@ shared_focus = {
 		icon = GFX_goal_GER_our_theories_tested
 		x = 1
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
@@ -6321,7 +6416,7 @@ shared_focus = {
 		icon = GFX_goal_GER_surpass_winter
 		x = 0
 		y = 1
-		cost = 5
+		cost = 2
 		prerequisite = { focus = GER_winter_clothing }
 		relative_position_id = GER_winter_clothing
 		ai_will_do = {
@@ -6497,7 +6592,7 @@ shared_focus = {
 			force_disable_resistance = {
 				clear = yes
 				occupier = GER
-				occcupied = SOV
+				occupied = SOV
 			}
 			add_ideas = GER_death_to_partisans_idea
 		}

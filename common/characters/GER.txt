@@ -62,9 +62,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_GER_gerd_von_rundstedt.dds"
-			}
-			army={
-				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
 			}
 		}
 		field_marshal={
@@ -81,7 +79,7 @@ characters={
 			idea_token = gerd_von_rundstedt
 			ledger = army
 			allowed = {
-				original_tag = GER
+				original_tag = GPU
 			}
 			traits = {
 				army_regrouping_2
@@ -92,7 +90,7 @@ characters={
 			}
 		}
 	}
-	GER_günther_von_kluge={
+	GER_gunther_von_kluge={
 		name="Günther von Kluge"
 		portraits={
 			army={
@@ -110,6 +108,21 @@ characters={
 			planning_skill=2
 			logistics_skill=3
 			legacy_id=2
+		}
+		advisor={
+			slot = high_command
+			idea_token = GER_gunther_von_kluge
+			ledger = army
+			allowed = {
+				original_tag = GER
+			}
+			traits = {
+				army_artillery_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
+			}
 		}
 	}
 	GER_friedrich_paulus={
@@ -459,6 +472,21 @@ characters={
 				large="gfx/leaders/GER/Portrait_Germany_Gotthard_Heinrici.dds"
 			}
 		}
+		advisor={
+			slot = high_command
+			idea_token = GER_gotthard_heinrici
+			ledger = army
+			allowed = {
+				original_tag = GER
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		corps_commander={
 			traits={ trait_cautious infantry_officer trait_engineer }
 			skill=3
@@ -474,8 +502,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_portrait_ger_felix_steiner_small"
-			}
-			army={
 				large="GFX_portrait_ger_felix_steiner"
 			}
 		}
@@ -486,6 +512,21 @@ characters={
 			planning_skill=3
 			logistics_skill=2
 			legacy_id=35
+		}
+		advisor={
+			slot = high_command
+			idea_token = GER_felix_steiner
+			ledger = army
+			allowed = {
+				original_tag = GER
+			}
+			traits = {
+				army_regrouping_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 0.500
+			}
 		}
 	}
 	GER_karl_dönitz={
@@ -772,6 +813,118 @@ characters={
 			ai_will_do = {
 				factor = 1.000
 			}
+		}
+	}
+	GER_heinrich_kirchheim = {
+		name = "Heinrich Kirchheim"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Mittelafrika_Heinrich_Kircheim.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}
+	GER_lothar_von_arnauld_de_la_periere = {
+		name = "Lothar von Arnauld de la Perière"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Lothar_Arnauld_Periere_kr.png"
+			}
+		}
+		navy_leader = {
+			traits = { seawolf }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+	}
+	GER_rolf_carls = {
+		name = "Rolf Carls"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Rolf_Carls_kr.png"
+			}
+		}
+		navy_leader = {
+			traits = { old_guard_navy blockade_runner }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 4
+			coordination_skill = 2
+		}
+	}
+	GER_max_bastian = {
+		name = "Max Bastian"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_GER_Max_Bastian.png"
+			}
+		}
+		navy_leader = {
+			traits = { superior_tactician ironside }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
+	GER_willy_von_nordeck = {
+		name = "Willy von Nordeck"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_GER_Willy_von_Nordeck.png"
+			}
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+	}
+	GER_max_valentiner = {
+		name = "Max Valentiner"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Max_Valentiner_kr.png"
+			}
+		}
+		navy_leader = {
+			traits = { seawolf }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 3
+		}
+	}
+	GER_bernhard_rogge = {
+		name = "Bernhard Rogge"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Bernhard_Rogge_kr.png"
+			}
+		}
+		navy_leader = {
+			traits = { seawolf }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
 		}
 	}
 }

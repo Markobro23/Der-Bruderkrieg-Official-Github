@@ -3,7 +3,7 @@ characters={
 		name="Christian X"
 		portraits={
 			civilian={
-				large="gfx/leaders/ChristianXPortrait.dds"
+				large="gfx/leaders/DEN/ChristianXPortrait.dds"
 			}
 		}
 		country_leader={
@@ -12,8 +12,13 @@ characters={
 			expire="1965.1.1.1"
 			id=-1
 		}
+		country_leader={
+			ideology=democratic_conservative
+			expire="1965.1.1.1"
+			id=-1
+		}
 	}
-	ICE_sveinn_björnsson={
+	ICE_sveinn_bjornsson={
 		name="Sveinn Björnsson"
 		portraits={
 			civilian={
@@ -70,13 +75,41 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+				large="gfx/leaders/DEN/Portrait_Denmark_William_Prior.png"
 			}
 		}
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = DEN_wilhelm_prior
+			allowed = {
+					original_tag = ICE
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = DEN_william_wain_prior
+			ledger = army
+				allowed = {
+					original_tag = ICE
+				}
+				
+				traits = {
+					military_theorist
+				}
+		}
 		field_marshal={
-			traits={ trickster }
+			traits={ trickster trait_cautious defensive_doctrine }
 			skill=3
 			attack_skill=2
 			defense_skill=3
@@ -90,18 +123,31 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+				large="gfx/leaders/DEN/Portrait_Denmark_Hans_Rolsted.png"
 			}
 		}
-		corps_commander={
-			skill=2
-			attack_skill=2
-			defense_skill=1
-			planning_skill=2
-			logistics_skill=2
-			legacy_id=-1
+		advisor={
+			slot = high_command
+			idea_token = DEN_hans_a_rolsted
+			ledger = army
+				allowed = {
+					original_tag = ICE
+				}
+				traits = {
+					army_artillery_3
+				}
+				cost = 200
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { old_guard trickster }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 2
 		}
 	}
 	ICE_erik_leschly={
@@ -109,9 +155,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_3.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+				large="gfx/leaders/DEN/Portrait_Denmark_Erik_Leschly.png"
 			}
 		}
 		corps_commander={
@@ -124,23 +168,69 @@ characters={
 			legacy_id=-1
 		}
 	}
+	ICE_aage_af_glucksborg = {
+		name = "Aage af Glücksburg"
+		portraits = {
+			army = {
+				large="gfx/leaders/DEN/Portrait_Denmark_Prince_Aage.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	ICE_frode_lund_hvalkof = {
+		name = "Frode Lund Hvalkof"
+		portraits = {
+			army = {
+				large = "gfx/leaders/DEN/Portrait_Denmark_Frode_Lund_Hvalkof.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious trait_engineer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
 	ICE_hjalmar_rechnitzer={
 		name="Hjalmar Rechnitzer"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_navy_1.dds"
+				large="gfx/leaders/DEN/Portrait_Denmark_Hjalmar_Rechnitzer.png"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_1.dds"
-			}
+		}
+		advisor={
+			
+			slot = high_command
+			idea_token = DEN_hjalmar_rechnitzer
+			ledger = navy
+				allowed = {
+					original_tag = ICE
+				}
+				traits = {
+					navy_fleet_logistics_1
+				}
+				cost =  50
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 		navy_leader={
 			traits={ blockade_runner }
 			skill=2
-			attack_skill=1
+			attack_skill=2
 			defense_skill=2
 			maneuvering_skill=1
-			coordination_skill=1
+			coordination_skill=2
 			legacy_id=-1
 		}
 	}
@@ -149,72 +239,33 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_navy_2.dds"
+				large="gfx/leaders/DEN/Portrait_Denmark_Aage_Helgesen_Vedel.png"
 			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
-			}
+		}
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = DEN_aage_vedel
+			allowed = {
+					original_tag = ICE
+				}
+				traits = {
+					navy_anti_submarine_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
 		navy_leader={
 			traits={ lancer }
 			skill=2
-			attack_skill=2
-			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
+			attack_skill=1
+			defense_skill=1
+			maneuvering_skill=3
+			coordination_skill=2
 			legacy_id=-1
-		}
-	}
-	ICE_astrathur_aagesson={
-		name="Astrathur Aagesson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
-			}
-		}
-		country_leader={
-			ideology=marxism_trotskyism
-			traits={ national_integralist medical_crusaders }
-			expire="1953.1.1.12"
-			id=-1
-		}
-	}
-	ICE_björn_björnsson={
-		name="Björn Björnsson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=market_socialism
-			expire="1943.1.1.12"
-			id=-1
-		}
-	}
-	ICE_hjörtur_eggthorsson={
-		name="Hjörtur Eggthorsson"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_4"
-			}
-		}
-		country_leader={
-			ideology=despotic
-			expire="1949.1.1.12"
-			id=-1
-		}
-	}
-	ICE_vagn_eggthorsson={
-		name="Vagn Eggthorsson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=ultranationalist
-			expire="1955.1.1.12"
-			id=-1
 		}
 	}
 }

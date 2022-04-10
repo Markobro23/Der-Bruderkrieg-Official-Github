@@ -1,9 +1,9 @@
 characters={
-	IRE_Éamon_de_valera={
+	IRE_eamon_de_valera={
 		name="Éamon de Valera"
 		portraits={
 			civilian={
-				large="gfx/leaders/IRE/Portrait_Ireland_Eamon_de_Valera.dds"
+				large="gfx/leaders/IRE/Portrait_Ireland_Eamon_de_Valera_kr.png"
 			}
 		}
 		country_leader={
@@ -13,11 +13,11 @@ characters={
 			id=-1
 		}
 	}
-	IRE_sir_nevil_macready={
-		name="Sir Nevil Macready"
+	IRE_nevil_macready={
+		name="Nevil Macready"
 		portraits={
 			civilian={
-				large="gfx/leaders/Sir_Nevil_Macready.dds"
+				large="gfx/leaders/IRE/Sir_Nevil_Macready.dds"
 			}
 		}
 		country_leader={
@@ -31,7 +31,7 @@ characters={
 		name="James Larkin"
 		portraits={
 			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+				large="gfx/leaders/IRE/Portrait_Ireland_Jim_Larkin.png"
 			}
 		}
 		country_leader={
@@ -55,6 +55,40 @@ characters={
 			id=-1
 		}
 	}
+	IRE_alan_cunningham={
+		name="Alan Cunningham"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_ENG_alan_cunningham.dds"
+				large="gfx/leaders/ENG/Portrait_Britain_Alan_Cunningham.dds"
+			}
+		}
+		corps_commander={
+			skill=4
+			attack_skill=4
+			defense_skill=1
+			planning_skill=4
+			logistics_skill=4
+			legacy_id=-1
+		}
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = IRE_alan_cunningham
+			ledger = army
+				allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					army_artillery_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
 	IRE_michael_costello={
 		name="Michael Costello"
 		portraits={
@@ -73,74 +107,295 @@ characters={
 			logistics_skill=2
 			legacy_id=-1
 		}
-	}
-	IRE_peter_mulcahy={
-		name="Peter Mulcahy"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_8"
-			}
-		}
-		country_leader={
-			ideology=centralism
-			expire="1950.1.1.12"
-			id=-1
-		}
-	}
-	IRE_thomas_kelly={
-		name="Thomas Kelly"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=centrism
-			traits={ eager_collaborator }
-			expire="1943.1.1.12"
-			id=-1
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = IRE_michael_joe_costello
+			ledger = army
+				allowed = {
+					original_tag = IRE
+				}
+				
+				traits = {
+					military_theorist
+				}
 		}
 	}
-	IRE_daniel_connolly={
-		name="Daniel Connolly"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_5"
-			}
+	IRE_richard_james_mulcahy={
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = IRE_richard_james_mulcahy
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=despotic
-			traits={ compassionate_gentleman }
-			expire="1951.1.1.12"
-			id=-1
+		field_marshal = {
+			traits = { trait_cautious brilliant_strategist organizer logistics_wizard }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		name="Richard James Mulcahy"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_5"
+				large="gfx/leaders/IRE/Portrait_Ireland_Richard_Mulcahy.png"
+			}
 		}
 	}
-	IRE_ernes_connolly={
-		name="Ernes Connolly"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_6"
-			}
+	IRE_dan_mckenna={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = IRE_dan_mckenna
+			ledger = army
+				allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					army_regrouping_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=fascism_ideology
-			traits={ hawk armaments_organizer }
-			expire="1944.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { trickster urban_assault_specialist }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		name="Daniel McKenna"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+				large="gfx/leaders/IRE/Portrait_Ireland_Daniel_McKenna.png"
+			}
 		}
 	}
-	IRE_denis_plunket={
-		name="Denis Plunket"
+	IRE_s_muiris={
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = IRE_s_muiris
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					navy_chief_decisive_battle_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 3
+		}
+		name="Seamus O'Muiris"
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			army={
+				small="GFX_idea_generic_navy_europe_3"
+				large="gfx/leaders/IRE/Portrait_Ireland_Seamus_O_Muiris.png"
 			}
 		}
-		country_leader={
-			ideology=racial_nationalism
-			traits={ fortification_engineer tenacious_negotiator }
-			expire="1952.1.1.12"
-			id=-1
+	}
+	IRE_michael_brennan={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = IRE_michael_brennan
+			ledger = air
+				allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					air_bomber_interception_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="Michael Brennan"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_3"
+			}
+		}
+	}
+	IRE_h_t_green={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = IRE_h_t_green
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					air_chief_safety_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="H.T. Green"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
+		}
+	}
+	IRE_oscar_traynor={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = IRE_oscar_traynor
+			ledger = air
+				allowed = {
+					original_tag = IRE
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
+		}
+		name="Oscar Traynor"
+		portraits={
+			army={
+				small="GFX_idea_generic_political_advisor_europe_2"
+			}
+		}
+	}
+	IRE_p_a_mulcahy={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = IRE_p_a_mulcahy
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					air_chief_ground_support_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="P.A. Mulcahy"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
+		}
+	}
+	IRE_a_t_lawlor={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = IRE_a_t_lawlor
+			ledger = navy
+				allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					navy_fleet_logistics_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="A.T. Lawlor"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+			}
+		}
+	}
+	IRE_john_byrne={
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = IRE_john_byrne
+			allowed = {
+					original_tag = IRE
+				}
+				traits = {
+					navy_chief_naval_aviation_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="John O'Byrne"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_1"
+			}
+		}
+	}
+	IRE_hugo_macneill = {
+		name = "Hugo MacNeil"
+		portraits = {
+			army = {
+				large = "gfx/leaders/IRE/Portrait_Ireland_Hugo_MacNeill.png"
+			}
+		}
+		corps_commander = {
+			traits = { harsh_leader organizer thorough_planner }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	IRE_tom_barry = {
+		name = "Tom Barry"
+		portraits = {
+			army = {
+				large = "gfx/leaders/IRE/Portrait_Ireland_Tom_Barry.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer commando }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
 }

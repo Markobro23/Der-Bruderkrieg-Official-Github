@@ -1,0 +1,88 @@
+add_namespace = bolivian_revolution
+country_event = {
+	id = bolivian_revolution.1 
+	title = bolivian_revolution.1.t
+	desc = bolivian_revolution.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		
+		release = BOL
+		BOL = {
+			load_oob = BOL_1936
+		}
+		PBC = {
+			declare_war_on = {
+				target = BOL
+				type = civil_war
+			}
+		}
+
+		news_event = bolivian_revolution.2 
+
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.1.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+	}
+}
+ 
+news_event = {
+	id = bolivian_revolution.2 
+	title = bolivian_revolution.2.t
+	desc = bolivian_revolution.2.d
+	picture = GFX_centralamericancollapse
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##bolivian peace
+country_event = {
+	id = bolivian_revolution.3 
+	title = bolivian_revolution.3.t
+	desc = bolivian_revolution.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	
+	trigger = {
+		PBC = {
+			has_war_with = BOL
+		}
+		BOL = {
+			controls_state = 985
+		}
+		tag = PBC
+	}
+
+	immediate = { 	
+		BOL = {
+		white_peace = PBC
+		transfer_state = 993
+		transfer_state = 997
+		transfer_state = 977
+		transfer_state = 1014
+		transfer_state = 506
+		}
+	}
+
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = bolivian_revolution.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+
+	}
+}

@@ -50,7 +50,17 @@ scripted_gui = {
     }
     triggers = {
       USA_openelectionsbutton_click_enabled = {
-        
+        if = {
+          limit = {
+            is_ai = no
+          }
+          USA = {
+            OR = {
+              has_completed_focus = USA_1936_DNC
+              has_completed_focus = USA_1936_RNC
+            }
+          }
+        }
       }
     }
   }

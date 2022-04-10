@@ -536,6 +536,34 @@ ideas = {
 				}
 
 		}
+		Path_of_Agression_SOV_2 = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			cancel = {
+				is_subject = yes
+			}
+
+			modifier = {
+				justify_war_goal_time = -0.4
+				conscription = 0.005
+				}
+
+			targeted_modifier = {
+				tag = FRA
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+		}
 
 
 		Arbeitsbrigaden = {
@@ -1919,15 +1947,45 @@ ideas = {
 			targeted_modifier = {
 				tag = SOV
 				attack_bonus_against = 0.1 
-				defence_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			  }
 		}
 
+		ORA_ethnic_unrest = {
 
+			picture = ETH_ethnic_conflicts 
 
+			allowed = {
+				always = no
+			}
 
+			modifier = {
+				resistance_target = 0.1
+				conscription_factor = -0.1
+				stability_factor = -0.1
+				production_speed_buildings_factor = -0.1
+			}
+		}
+
+		ORA_local_rule = {
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_factor = 0.1
+				stability_factor = 0.1
+				production_speed_buildings_factor = 0.1
+			}
+		}
 
 		AUS_european_peace_and_cooperation = {
+
+			allowed = {
+				always = no
+			}
+
 			modifier = {
 				research_speed_factor = 0.3
 				stability_factor = 0.15

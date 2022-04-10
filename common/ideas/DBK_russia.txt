@@ -420,6 +420,24 @@ SOV_beacon_of_socialism = {
     political_power_gain = 0.1
   }
 }
+SOV_beacon_of_monarchism = {
+
+  allowed = {
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+
+  removal_cost = -1
+
+  modifier = {
+	army_morale_factor = 0.1
+    drift_defence_factor = 0.25
+    political_power_gain = 0.1
+  }
+}
+
 SOV_beacon_of_socialism_2 = {
 
 	allowed = {
@@ -1589,7 +1607,7 @@ SOV_foreign_investment_idea = {
 	removal_cost = -1
 
 	modifier = {
-		consumer_goods_factor = 0.1
+		consumer_goods_factor = -0.05
 	}
 }
 
@@ -1604,6 +1622,25 @@ SOV_russian_investments = {
 		infantry_equipment = {
 			build_cost_ic = -0.1 instant = yes
 		}
+	}
+}
+
+SOV_russian_investments_2 = {
+	allowed = {
+		always = no
+	}
+
+	removal_cost = -1
+
+	equipment_bonus = {
+		infantry_equipment = {
+			build_cost_ic = -0.1 instant = yes
+		}
+	}
+
+	modifier = {
+		MONTHLY_POPULATION = 0.1
+		industrial_capacity_factory = 0.05
 	}
 }
 
@@ -2040,6 +2077,28 @@ SOV_beacon_of_democracy_4 = {
 
 			}
 
+			SOV_slavic_unity = {
+
+				allowed = {
+					always = yes
+				}
+
+				allowed_civil_war = {
+					always = yes
+				}
+
+				removal_cost = -1
+
+				modifier = {
+					min_export = 0.25
+					autonomy_gain_trade = 0.5
+					autonomy_manpower_share = 0.5
+					overlord_trade_cost_factor = -0.25
+				}
+					
+
+			}
+
 			
 
 			Proliteriat = {
@@ -2437,6 +2496,101 @@ SOV_beacon_of_democracy_4 = {
 					stability_factor = -0.25
 				}
 			}
+
+		SOV_varovskism_1 = {
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				drift_defence_factor = 0.25
+			}
+		}
+
+		SOV_varovskism_2 = {
+
+			name = SOV_varovskism_1
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				drift_defence_factor = 0.25
+				army_org_factor = 0.15
+				industrial_capacity_factory = 0.1
+				stability_factor = 0.05
+			}
+		}
+
+		SOV_varovskism_3 = {
+
+			name = SOV_varovskism_1
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				drift_defence_factor = 0.25
+				army_org_factor = 0.15
+				resistance_target = -0.2
+			}
+		}
+
+		SOV_varovskism_4 = {
+
+			name = SOV_varovskism_1
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				war_support_factor = 0.25
+				political_power_gain = 1.1
+				stability_factor = 0.25
+				fascism_drift = 0.01
+				neutrality_drift = 0.01
+				justify_war_goal_time = -0.25
+			}
+		}
+
+		SOV_localized_elections = {
+
+			name = SOV_localized_elections
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				monthly_population = 0.15
+				surrender_limit = 0.2
+			}
+		}
+
+		SOV_localized_elections_2 = {
+
+			name = SOV_localized_elections
+
+			allowed = {
+				always = no
+			}
+
+			modifier = {
+				political_power_gain = 0.1
+				monthly_population = 0.15
+				surrender_limit = 0.2
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.1
+			}
+		}
   }
 
 	tank_manufacturer = {
@@ -3565,7 +3719,7 @@ SOV_beacon_of_democracy_4 = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {
@@ -3610,7 +3764,7 @@ economic_minister = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {
@@ -3695,7 +3849,7 @@ economic_minister = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {
@@ -3818,7 +3972,7 @@ economic_minister = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {
@@ -3863,7 +4017,7 @@ economic_minister = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {
@@ -3964,7 +4118,7 @@ economic_minister = {
 		available = {
 			OR = {
 			has_country_leader = {
-				name = "Nikolay Belogurov"
+				name = "Nikolai Belogurov"
 				ruling_only = yes
 			}
 			has_country_leader = {

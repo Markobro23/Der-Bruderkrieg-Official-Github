@@ -2870,10 +2870,12 @@ political_actions = {
 			has_completed_focus = SOV_conservative_lobbying
 		}
 
+		icon = generic_political_rally
+
 
 		fire_only_once = no
 
-		cost = 40
+		cost = 20
 		days_remove = 60
 
 
@@ -2906,6 +2908,8 @@ political_actions = {
 			
 		}
 
+		icon = generic_political_rally
+
 		visible = {
 			has_completed_focus = SOV_conservative_lobbying
 		} 
@@ -2913,7 +2917,7 @@ political_actions = {
 
 		fire_only_once = no
 
-		cost = 50
+		cost = 30
 		days_remove = 100
 
 		days_re_enable = 15
@@ -5189,7 +5193,7 @@ SOV_the_tsars_constitution = {
 
 		fire_only_once = no
 
-		cost = 15
+		cost = 10
 		days_remove = 30
 
 		modifier = {
@@ -5224,7 +5228,7 @@ SOV_the_tsars_constitution = {
 
 		fire_only_once = no
 
-		cost = 25
+		cost = 15
 		days_remove = 40
 
 		modifier = {
@@ -5259,7 +5263,7 @@ SOV_the_tsars_constitution = {
 
 		fire_only_once = yes
 
-		cost = 25
+		cost = 15
 		days_remove = 40
 
 		modifier = {
@@ -5297,7 +5301,7 @@ SOV_the_tsars_constitution = {
 
 		fire_only_once = yes
 
-		cost = 30
+		cost = 10
 		days_remove = 50
 
 		modifier = {
@@ -5334,7 +5338,7 @@ SOV_the_tsars_constitution = {
 
 		fire_only_once = yes
 
-		cost = 60
+		cost = 30
 		days_remove = 100
 
 		modifier = {
@@ -5461,10 +5465,10 @@ SOV_the_extermination_of_the_communists = {
 				ideology = communism
 				popularity = -0.07
 			}
-			add_to_variable = {
-				SOV_commie_extermination_progress = 10
-				tooltip = SOV_increase_commie_extermination_progress_by_10
-			}	
+			# add_to_variable = {
+			# 	SOV_commie_extermination_progress = 10
+			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
+			# }	
 		}
 
 		
@@ -5500,10 +5504,10 @@ SOV_the_extermination_of_the_communists = {
 				ideology = democratic_communism
 				popularity = -0.07
 			}
-			add_to_variable = {
-				SOV_commie_extermination_progress = 10
-				tooltip = SOV_increase_commie_extermination_progress_by_10
-			}	
+			# add_to_variable = {
+			# 	SOV_commie_extermination_progress = 10
+			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
+			# }	
 		}
 
 		
@@ -5548,97 +5552,97 @@ SOV_the_extermination_of_the_communists = {
 
 
 
-	SOV_find_hideout_in_FROM = {
-		days_remove = 20
-		fire_only_once = yes
+	# SOV_find_hideout_in_FROM = {
+	# 	days_remove = 20
+	# 	fire_only_once = yes
 
-		target_array = SOV.far_eastern_states
-		target_trigger = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		visible = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		visible = {
-			has_completed_focus = SOV_eastern_crackdown
-		}
-		available = {
-			has_completed_focus = SOV_eastern_crackdown
-		}
-		on_map_mode = map_and_decisions_view
+	# 	target_array = SOV.far_eastern_states
+	# 	target_trigger = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	visible = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	visible = {
+	# 		has_completed_focus = SOV_eastern_crackdown
+	# 	}
+	# 	available = {
+	# 		has_completed_focus = SOV_eastern_crackdown
+	# 	}
+	# 	on_map_mode = map_and_decisions_view
 
-		cost = SOV.SOV_find_hideout_in_FROM_get_cost
-		state_target = yes
-		remove_effect = {
-			FROM = {
-				set_state_flag = SOV_hideout_found_state_flag
-			}
-			custom_effect_tooltip = SOV_we_will_locate_the_hideout_in_the_state_and_can_raid_it
-			if = {
-				limit = {
-					NOT = {
-						has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
-					}
-				}
-				set_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+	# 	cost = SOV.SOV_find_hideout_in_FROM_get_cost
+	# 	state_target = yes
+	# 	remove_effect = {
+	# 		FROM = {
+	# 			set_state_flag = SOV_hideout_found_state_flag
+	# 		}
+	# 		custom_effect_tooltip = SOV_we_will_locate_the_hideout_in_the_state_and_can_raid_it
+	# 		if = {
+	# 			limit = {
+	# 				NOT = {
+	# 					has_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
+	# 				}
+	# 			}
+	# 			set_country_flag = SOV_set_this_flag_for_visibility_hideout_flag
 
-			}
-		}
-	}
-	SOV_blank_1 = {
-		available = {
-			always = no
-		}
+	# 		}
+	# 	}
+	# }
+	# SOV_blank_1 = {
+	# 	available = {
+	# 		always = no
+	# 	}
 		
-	}
+	# }
 
-	SOV_raid_hideout_in_FROM = {
-		days_remove = 20
-		fire_only_once = no
+	# SOV_raid_hideout_in_FROM = {
+	# 	days_remove = 20
+	# 	fire_only_once = no
 
-		visible = {
-			FROM = {
-				has_state_flag = SOV_hideout_found_state_flag
-				NOT = {
-					has_state_flag = SOV_hideout_raid_success_state_flag
-				}
-			}
-		}
-		cost = SOV.SOV_raid_hideout_in_FROM_get_cost
-		target_array = SOV.far_eastern_states
-		target_root_trigger = {
-			FROM = { 
-				is_in_array = {
-					array = SOV.far_eastern_states
-					value = THIS
-				}
-			}
-		}
-		state_target = yes
-		remove_effect = {
-			FROM = {
-				save_global_event_target_as = SOV_western_hideout_state_target
-			}
-			random_list = {
-				75 = {
-					country_event = SOV_commie_hideout_raids.1
-				}
-				25 = {
-					country_event = SOV_commie_hideout_raids.2
-				}
-			}
-		}
-	}
+	# 	visible = {
+	# 		FROM = {
+	# 			has_state_flag = SOV_hideout_found_state_flag
+	# 			NOT = {
+	# 				has_state_flag = SOV_hideout_raid_success_state_flag
+	# 			}
+	# 		}
+	# 	}
+	# 	cost = SOV.SOV_raid_hideout_in_FROM_get_cost
+	# 	target_array = SOV.far_eastern_states
+	# 	target_root_trigger = {
+	# 		FROM = { 
+	# 			is_in_array = {
+	# 				array = SOV.far_eastern_states
+	# 				value = THIS
+	# 			}
+	# 		}
+	# 	}
+	# 	state_target = yes
+	# 	remove_effect = {
+	# 		FROM = {
+	# 			save_global_event_target_as = SOV_western_hideout_state_target
+	# 		}
+	# 		random_list = {
+	# 			75 = {
+	# 				country_event = SOV_commie_hideout_raids.1
+	# 			}
+	# 			25 = {
+	# 				country_event = SOV_commie_hideout_raids.2
+	# 			}
+	# 		}
+	# 	}
+	# }
 
 	
 }
@@ -9559,32 +9563,32 @@ SOV_siberian_development = {
 
 	}
 
-	SOV_repaving_siberias_roads = {
+	# SOV_repaving_siberias_roads = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 25
+	# 	cost = 25
 
-		days_remove = 30
+	# 	days_remove = 30
 
-		modifier = {
-			production_speed_buildings_factor = -0.1
-		}
+	# 	modifier = {
+	# 		production_speed_buildings_factor = -0.1
+	# 	}
 
-		remove_effect = {
-			every_state = {
-				limit = { is_owned_by = SOV
-					OR = { state = 569 state = 578 state = 571 state = 577 state = 403 state = 580 state = 653 state = 572 state = 579 state = 579 state = 580 state = 583 state = 590 state = 588 state = 40 state = 570 state = 654 }
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
+	# 	remove_effect = {
+	# 		every_state = {
+	# 			limit = { is_owned_by = SOV
+	# 				OR = { state = 569 state = 578 state = 571 state = 577 state = 403 state = 580 state = 653 state = 572 state = 579 state = 579 state = 580 state = 583 state = 590 state = 588 state = 40 state = 570 state = 654 }
+	# 			}
+	# 			add_building_construction = {
+	# 				type = infrastructure
+	# 				level = 1
+	# 				instant_build = yes
+	# 			}
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	SOV_baku_yekaterinburg_pipeline = {
 
@@ -9604,29 +9608,29 @@ SOV_siberian_development = {
 		remove_effect = {
 			add_resource = {
 				type = oil
-				amount = 229
-				state = 1 #replace with actual id later
+				amount = 9
+				state = 653 #replace with actual id later
 			}
 		}
 
 	}
 
-	SOV_researching_highways = {
+	# SOV_researching_highways = {
 
-		icon = generic_research
+	# 	icon = generic_research
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 90
+	# 	days_remove = 90
 
-		modifier = {
-			production_speed_infrastructure_factor = 0.1
-			research_speed_factor = -0.025
-		}
+	# 	modifier = {
+	# 		production_speed_infrastructure_factor = 0.1
+	# 		research_speed_factor = -0.025
+	# 	}
 
-	}
+	# }
 
 	SOV_inviting_american_highway_investors = {
 
@@ -9645,69 +9649,69 @@ SOV_siberian_development = {
 
 	}
 
-	SOV_hiring_infrastructure_engineers = {
+	# SOV_hiring_infrastructure_engineers = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 180
+	# 	days_remove = 180
 
-		modifier = {
-			production_speed_infrastructure_factor = 0.1
-		}
+	# 	modifier = {
+	# 		production_speed_infrastructure_factor = 0.1
+	# 	}
 
-	}
+	# }
 
-	SOV_founding_trans_siberian_highway = {
+	# SOV_founding_trans_siberian_highway = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 50
+	# 	days_remove = 50
 
-		modifier = {
-			production_speed_buildings_factor = -0.2
-		}
+	# 	modifier = {
+	# 		production_speed_buildings_factor = -0.2
+	# 	}
 
-		remove_effect = {
-			every_state = {
-				limit = { is_owned_by = SOV Or = { state = 403 state = 571 state = 570 state = 569 state = 568 state = 567 state = 566 state = 564 state = 563 state = 561 state = 560 } }
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
+	# 	remove_effect = {
+	# 		every_state = {
+	# 			limit = { is_owned_by = SOV Or = { state = 403 state = 571 state = 570 state = 569 state = 568 state = 567 state = 566 state = 564 state = 563 state = 561 state = 560 } }
+	# 			add_building_construction = {
+	# 				type = infrastructure
+	# 				level = 2
+	# 				instant_build = yes
+	# 			}
+	# 		}
+	# 	}
 
-	}
+	# }
 
-	SOV_first_siberian_highways = {
+	# SOV_first_siberian_highways = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 50
+	# 	days_remove = 50
 
-		modifier = {
-			production_speed_buildings_factor = -0.1
-		}
+	# 	modifier = {
+	# 		production_speed_buildings_factor = -0.1
+	# 	}
 
-		remove_effect = {
-			every_state = {
-				limit = { is_owned_by = SOV OR = { state = 569 state = 578 state = 571 state = 577 state = 403 state = 580 state = 653 state = 572 state = 579 state = 579 state = 580 state = 583 state = 590 state = 588 state = 40 state = 570 state = 654 } }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
+	# 	remove_effect = {
+	# 		every_state = {
+	# 			limit = { is_owned_by = SOV OR = { state = 569 state = 578 state = 571 state = 577 state = 403 state = 580 state = 653 state = 572 state = 579 state = 579 state = 580 state = 583 state = 590 state = 588 state = 40 state = 570 state = 654 } }
+	# 			add_building_construction = {
+	# 				type = infrastructure
+	# 				level = 1
+	# 				instant_build = yes
+	# 			}
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	SOV_yekaterinburg_omsk_highway = {
 
@@ -9734,30 +9738,30 @@ SOV_siberian_development = {
 
 	}
 
-	SOV_yekaterinburg_baku_highway = {
+	# SOV_yekaterinburg_baku_highway = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 50
+	# 	days_remove = 50
 
-		modifier = {
-			production_speed_buildings_factor = -0.1
-		}
+	# 	modifier = {
+	# 		production_speed_buildings_factor = -0.1
+	# 	}
 
-		remove_effect = {
-			every_state = {
-				limit = { is_owned_by = SOV Or = { state = 582 state = 402 state = 406 state = 236 state = 232 state = 229 } }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
+	# 	remove_effect = {
+	# 		every_state = {
+	# 			limit = { is_owned_by = SOV Or = { state = 582 state = 402 state = 406 state = 236 state = 232 state = 229 } }
+	# 			add_building_construction = {
+	# 				type = infrastructure
+	# 				level = 1
+	# 				instant_build = yes
+	# 			}
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	SOV_yekaterinburg_moscow_highway = {
 
@@ -9784,30 +9788,30 @@ SOV_siberian_development = {
 
 	}
 
-	SOV_yekaterinburg_irkutsk_highway = {
+		# SOV_yekaterinburg_irkutsk_highway = {
 
-		fire_only_once = yes
+		# 	fire_only_once = yes
 
-		cost = 50
+		# 	cost = 50
 
-		days_remove = 50
+		# 	days_remove = 50
 
-		modifier = {
-			production_speed_buildings_factor = -0.1
-		}
+		# 	modifier = {
+		# 		production_speed_buildings_factor = -0.1
+		# 	}
 
-		remove_effect = {
-			every_state = {
-				limit = { is_owned_by = SOV Or = { state = 582 state = 571 state = 590 state = 583 state = 570 state = 569 state = 568 state = 567 state = 566 } }
-				add_building_construction = {
-					type = infrastructure
-					level = 1
-					instant_build = yes
-				}
-			}
-		}
+		# 	remove_effect = {
+		# 		every_state = {
+		# 			limit = { is_owned_by = SOV Or = { state = 582 state = 571 state = 590 state = 583 state = 570 state = 569 state = 568 state = 567 state = 566 } }
+		# 			add_building_construction = {
+		# 				type = infrastructure
+		# 				level = 1
+		# 				instant_build = yes
+		# 			}
+		# 		}
+		# 	}
 
-	}
+		# }
 
 	SOV_lake_baikal_industrialization_project = {
 
@@ -10220,36 +10224,36 @@ SOV_european_development = {
 
 	}
 
-	SOV_invite_infrastructure_engineers = {
+	# SOV_invite_infrastructure_engineers = {
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 180
+	# 	days_remove = 180
 
-		modifier = {
-			production_speed_infrastructure_factor = 0.1
-		}
+	# 	modifier = {
+	# 		production_speed_infrastructure_factor = 0.1
+	# 	}
 
-	}
+	# }
 
-	SOV_inviting_european_investors = {
+	# SOV_inviting_european_investors = {
 
-		icon = ger_mefo_bills
+	# 	icon = ger_mefo_bills
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 90
+	# 	days_remove = 90
 
-		modifier = {
-			consumer_goods_factor = -0.05
-			production_speed_buildings_factor = 0.1
-		}
+	# 	modifier = {
+	# 		consumer_goods_factor = -0.05
+	# 		production_speed_buildings_factor = 0.1
+	# 	}
 
-	}
+	# }
 
 	SOV_industrialize_volga = {
 
@@ -10390,21 +10394,21 @@ SOV_european_development = {
 
 SOV_flourishing_oil_industry = {
 
-	SOV_inviting_pipeline_engineers = {
+	# SOV_inviting_pipeline_engineers = {
 
-		icon = oil
+	# 	icon = oil
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 25
+	# 	cost = 25
 
-		days_remove = 180
+	# 	days_remove = 180
 
-		modifier = {
-			production_speed_synthetic_refinery_factor = 0.1
-		}
+	# 	modifier = {
+	# 		production_speed_synthetic_refinery_factor = 0.1
+	# 	}
 
-	}
+	# }
 
 	SOV_russian_internal_pipeline_project = {
 
@@ -10418,6 +10422,7 @@ SOV_flourishing_oil_industry = {
 
 		modifier = {
 			local_resources_factor = 0.1
+			production_speed_synthetic_refinery_factor = 0.1
 		}
 
 	}
@@ -10490,37 +10495,37 @@ SOV_flourishing_oil_industry = {
 
 	}
 
-	SOV_inviting_oil_investors = {
+	# SOV_inviting_oil_investors = {
 
-		icon = oil
+	# 	icon = oil
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 50
+	# 	cost = 50
 
-		days_remove = 180
+	# 	days_remove = 180
 
-		complete_effect = {
-			random_owned_state = {
-				limit = { is_capital = yes }
-				add_resource = {
-					type = oil
-					amount = 3
-				}
-			}
-		}
+	# 	complete_effect = {
+	# 		random_owned_state = {
+	# 			limit = { is_capital = yes }
+	# 			add_resource = {
+	# 				type = oil
+	# 				amount = 3
+	# 			}
+	# 		}
+	# 	}
 
-		remove_effect = {
-			random_owned_state = {
-				limit = { is_capital = yes }
-				add_resource = {
-					type = oil
-					amount = -3
-				}
-			}
-		}
+	# 	remove_effect = {
+	# 		random_owned_state = {
+	# 			limit = { is_capital = yes }
+	# 			add_resource = {
+	# 				type = oil
+	# 				amount = -3
+	# 			}
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	SOV_rostov_oil_shipping_company = {
 
@@ -11621,4 +11626,225 @@ SOV_crushing_turan_sympathies = {
 
 	}
 
+}
+
+
+SOV_east_africa_ambitions = {
+	# Diplomacy Decisions
+	SOV_invite_ethiopia_to_faction = {
+		days_remove = 35
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		visible = {
+			ETH = {
+				NOT = {
+					is_in_faction_with = SOV
+				}
+			}
+		}
+
+		remove_effect = {
+			ETH = {
+				country_event = russia.22
+			}
+		}
+	}
+
+	
+	# Sagallo Decisions  
+	SOV_the_sagallo_administration = {
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+		}
+
+		days_remove = 40
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			release = DJI
+
+			DJI = {
+				set_politics = {
+					ruling_party = neutrality
+				}
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.45
+				}
+
+				add_country_leader_role = {
+					character = SOV_markian_popov 
+					promote_leader = yes
+					country_leader = {
+						ideology = despotic
+						expire = "1965.1.1"
+					}
+				}
+			}
+		}
+	}  
+	SOV_sagallo_infrastructrue = {
+
+		icon = eng_trade_unions_demand
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI =  {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 3
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+			}
+		}
+	}
+	SOV_sagallo_civs = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI=  {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 2
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+
+			}
+		}
+	}
+	SOV_sagallo_mils = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 25
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			DJI =  {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 2
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 2
+				}
+
+			}
+		}
+	}
+	SOV_sagallo_war_propoganda_campaign = {
+
+		icon = eng_trade_unions_demand
+
+
+
+
+		available = {
+			DJI = {
+				exists = yes
+			}
+		}
+
+		days_remove = 70
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		modifier = {
+
+		}
+		remove_effect = {
+			DJI = {
+				add_war_support  = 0.1
+			}
+		}
+    }
 }

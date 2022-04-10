@@ -3,7 +3,7 @@ characters={
 		name="Mohammed V"
 		portraits={
 			civilian={
-				large="gfx/leaders/Muhammed_5.dds"
+				large="gfx/leaders/MOR/Muhammed_5.dds"
 			}
 		}
 		country_leader={
@@ -12,113 +12,36 @@ characters={
 			id=-1
 		}
 	}
-	MOR_hicham_balafej={
-		name="Hicham Balafej"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
+	MOR_thani_el_glaui = {
+		name = "Thami El Glaoui"
+		portraits = {
+			army = {
+				large="gfx/leaders/MOR/Portrait_MOR_El_Glaui.png"
 			}
 		}
-		country_leader={
-			ideology=marxism_trotskyism
-			traits={ longist_puppet }
-			expire="1944.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { war_hero politically_connected trickster skilled_staffer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
-	MOR_fadil_benami={
-		name="Fadil Ben-Ami"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
+	NFA_pierre_boyer = {
+		name = "Pierre Boyer"
+		portraits = {
+			army = {
+				large="gfx/leaders/MOR/Portrait_NFA_Pierre_Boyer.png"
 			}
 		}
-		country_leader={
-			ideology=radical_socialism
-			traits={ smooth_talking_charmer editor }
-			expire="1947.1.1.12"
-			id=-1
-		}
-	}
-	MOR_jamal_muhammad={
-		name="Jamal Muhammad"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
-			}
-		}
-		country_leader={
-			ideology=market_socialism
-			expire="1950.1.1.12"
-			id=-1
-		}
-	}
-	MOR_azzeddine_ahmad={
-		name="Azzeddine Ahmad"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
-			}
-		}
-		country_leader={
-			ideology=civic_nationalism
-			traits={ ideological_crusader eager_collaborator }
-			expire="1953.1.1.12"
-			id=-1
-		}
-	}
-	MOR_khalid_alhassar={
-		name="Khalid Al-Hassar"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
-			}
-		}
-		country_leader={
-			ideology=christian_conservatism
-			expire="1956.1.1.12"
-			id=-1
-		}
-	}
-	MOR_ryan_abouzeid={
-		name="Ryan Abouzeid"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=iliberal_democrat
-			traits={ smooth_talking_charmer appeaser }
-			expire="1943.1.1.12"
-			id=-1
-		}
-	}
-	MOR_navid_karimi={
-		name="Navid Karimi"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=monarchist_fascism
-			traits={ quartermaster_general }
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	MOR_danyal_pinto={
-		name="Danyal Pinto"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=ultranationalist
-			expire="1949.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { cavalry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
 	MOR_aa2={
@@ -140,32 +63,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_generic_army_arab_2"
-			}
-		}
-	}
-	MOR_democratic_guy={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_democratic_guy
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					democratic_reformer 
-				}
-				do_effect  = {
-					not  = {
-						has_government  = democratic 
-					}
-				}
-				ai_will_do  = {
-					factor  = 0.000
-				}
-		}
-		name="MOR_democratic_guy"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_1"
 			}
 		}
 	}
@@ -271,42 +168,6 @@ characters={
 			}
 		}
 	}
-	MOR_pot={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_pot
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					prince_of_terror 
-				}
-		}
-		name="MOR_pot"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_2"
-			}
-		}
-	}
-	MOR_stc={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_stc
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					smooth_talking_charmer 
-				}
-		}
-		name="MOR_stc"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_3"
-			}
-		}
-	}
 	MOR_acd2={
 		advisor={
 			slot = army_chief
@@ -325,97 +186,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_generic_army_arab_1"
-			}
-		}
-	}
-	MOR_communist_guy={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_communist_guy
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					communist_revolutionary 
-				}
-				do_effect  = {
-					not  = {
-						has_government  = communism 
-					}
-				}
-				ai_will_do  = {
-					factor  = 0.000
-				}
-		}
-		name="MOR_communist_guy"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_3"
-			}
-		}
-	}
-	MOR_aco2={
-		advisor={
-			slot = army_chief
-			idea_token = MOR_aco2
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					army_chief_organizational_2 
-				}
-				ai_will_do  = {
-					factor  = 1.000
-				}
-		}
-		name="MOR_aco2"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_arab_2"
-			}
-		}
-	}
-	MOR_fascist_guy={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_fascist_guy
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					fascist_demagogue 
-				}
-				do_effect  = {
-					not  = {
-						has_government  = fascism 
-					}
-				}
-				ai_will_do  = {
-					factor  = 0.000
-				}
-		}
-		name="MOR_fascist_guy"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_2"
-			}
-		}
-	}
-	MOR_coi={
-		advisor={
-			slot = political_advisor
-			idea_token = MOR_coi
-			allowed  = {
-					original_tag  = MOR
-				}
-				traits  = {
-					captain_of_industry 
-				}
-		}
-		name="MOR_coi"
-		portraits={
-			army={
-				small="GFX_idea_generic_political_advisor_arab_1"
 			}
 		}
 	}
