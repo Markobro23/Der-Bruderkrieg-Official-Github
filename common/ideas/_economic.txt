@@ -184,6 +184,7 @@ ideas = {
 				OR = {
 					has_government = fascism
 					has_government = communism
+					has_government = ultranationalism
 					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
 					AND = {
 						has_war = yes
@@ -524,15 +525,13 @@ ideas = {
 				OR = { 
 					has_government = fascism
 					has_government = communism
+					has_government = ultranationalism
 				}
 				OR = {
 					has_idea = war_economy
 					has_idea = tot_economic_mobilisation
 				}
-				OR = {
-					NOT = {	tag = SOV }
-					NOT = { has_opinion_modifier = MR_pact }
-				}
+				
 
 				if = {
 					limit = {

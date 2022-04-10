@@ -961,6 +961,7 @@ add_namespace = militia_revolts
 								
 							}
 						}
+						load_focus_tree = generic_focus
 					}
 				}
 				GER = {
@@ -1287,6 +1288,7 @@ add_namespace = militia_revolts
 									
 								}
 							}
+							load_focus_tree = generic_focus
 						}
 					}
 					GER = {
@@ -1464,10 +1466,27 @@ add_namespace = militia_revolts
 				ai_chance = { factor = 1000 }
 				set_cosmetic_tag = GER
 				mark_focus_tree_layout_dirty = yes
-				swap_ideas = {
-					remove_idea = Mackensen_Reforms
-					add_idea = Mackensen_Reforms_2
+				
+				uncomplete_national_focus = { 
+					focus = GER_crush_the_freikorps 
+  					refund_political_power = no
 				}
+				uncomplete_national_focus = { 
+					focus = GER_negotiate_with_rohm 
+  					refund_political_power = no
+				}
+				uncomplete_national_focus = { 
+					focus = GER_retire_reactionary_officers 
+  					refund_political_power = no
+				}
+				uncomplete_national_focus = { 
+					focus = GER_the_nation_at_arms 
+  					refund_political_power = no
+				}
+				complete_national_focus = GER_crush_the_sa
+				complete_national_focus = GER_reintegrate_the_freikorps
+				complete_national_focus = GER_ensure_army_loyalty
+				complete_national_focus = GER_prussian_professionalism
 				hidden_effect = {
 					country_event = {
 						id = militia_revolts.8
@@ -1535,6 +1554,26 @@ add_namespace = militia_revolts
 						ai_chance = { factor = 1000 }
 						set_cosmetic_tag = rohms_prussia
 						add_ideas = GER_pure_radicalism_rohm
+						uncomplete_national_focus = { 
+							focus = GER_crush_the_sa
+							refund_political_power = no
+						}
+						uncomplete_national_focus = { 
+							focus = GER_reintegrate_the_freikorps
+							refund_political_power = no
+						}
+						uncomplete_national_focus = { 
+							focus = GER_ensure_army_loyalty
+							refund_political_power = no
+						}
+						uncomplete_national_focus = { 
+							focus = GER_prussian_professionalism
+							refund_political_power = no
+						}
+						complete_national_focus = GER_crush_the_freikorps
+						complete_national_focus = GER_negotiate_with_rohm
+						complete_national_focus = GER_retire_reactionary_officers
+						complete_national_focus = GER_the_nation_at_arms
 						hidden_effect = {
 							every_owned_state = {
 								create_unit = {
