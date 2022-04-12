@@ -3741,8 +3741,8 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
-		BAD_berthold_i = { set_nationality = GPU }
-		HES_heinrich_von_vietinghoff = { set_nationality = GPU }
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
@@ -3844,11 +3844,12 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
-			recruit_character = BAD_berthold_i 
-			recruit_character = HES_heinrich_von_vietinghoff
+			
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -4409,23 +4410,38 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
+		
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = AUS
+			}
+		}
 		annex_country = {
 			target = BOS
-			transfer_troops = yes
+			transfer_troops = yes	
 		}
-		BOS_alfred_jansa = {
-			set_nationality = AUS
-		}
-		BOS_gojkomir_glogovac = {
-			set_nationality = AUS
-		}
+		
 		trigger = {
 			has_completed_focus = AUS_ABSOLUTISM
 		}
 	}
 	option = {
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_dzafer_kulenovic = {
+				set_nationality = CRO
+			}
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = CRO
+			}
+		}
 		CRO = {
 			annex_country = {
 				target = BOS
@@ -4433,15 +4449,7 @@ country_event = {
 			}
 			set_cosmetic_tag = CRO_illyria
 		}
-		BOS_dzafer_kulenovic = {
-			set_nationality = CRO
-		}
-		BOS_alfred_jansa = {
-			set_nationality = AUS
-		}
-		BOS_gojkomir_glogovac = {
-			set_nationality = CRO
-		}
+		
 		trigger = {
 			has_completed_focus = AUS_concessions_to_people
 		}
