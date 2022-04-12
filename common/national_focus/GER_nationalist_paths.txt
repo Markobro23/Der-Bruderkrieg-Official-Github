@@ -123,7 +123,7 @@ focus_tree = {
 	shared_focus = GER_the_petty_kings
 	shared_focus = GER_venerate_new_karl
 
-	continuous_focus_position = { x = 12000 y = 1000 }
+	continuous_focus_position = { x = 500 y = 3000 }
 }
 shared_focus = {
 	id = GER_the_issue_of_the_militias
@@ -3100,7 +3100,7 @@ shared_focus = {
 	}
 	relative_position_id = GER_the_petty_kings
 	ai_will_do = {
-		factor = 60
+		factor = 6000
 	}
 	will_lead_to_war_with = SAX
 	available = {
@@ -3117,6 +3117,9 @@ shared_focus = {
 				is_ai = yes
 			}
 			has_war = no
+			NOT = {
+				has_country_flag = GER_overrun_saxony
+			}
 		}
 	}
 	completion_reward = {
@@ -3124,6 +3127,12 @@ shared_focus = {
 		add_threat = 5
 		hidden_effect = {
 			news_event = prussian_expansion.1
+		}
+
+		set_country_flag = {
+			flag = GER_dont_do_hannover_saxony_focus
+			value = 1
+			days = 5
 		}
 	}
 }
@@ -3149,6 +3158,9 @@ shared_focus = {
 				is_ai = yes
 			}
 			has_war = no
+			NOT = {
+				has_country_flag = GER_overrun_saxony
+			}
 		}
 	}
 	
@@ -3160,6 +3172,11 @@ shared_focus = {
 	will_lead_to_war_with = HAN
 	completion_reward = {
 		country_event = ENG_Goering.4
+		set_country_flag = {
+			flag = GER_dont_do_hannover_saxony_focus
+			value = 1
+			days = 5
+		}
 	}
 }
 shared_focus = {
