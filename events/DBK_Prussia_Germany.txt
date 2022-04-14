@@ -1955,21 +1955,21 @@ country_event = {
     }
 }
 
-add_namespace = germanyfaction
+add_namespace = GER_wiltkrieg_faction_events
 
 country_event = {
-	id = germanyfaction.17
-	title = germanyfaction.17.t
-	desc = germanyfaction.17.d
+	id = GER_wiltkrieg_faction_events.17
+	title = GER_wiltkrieg_faction_events.17.t
+	desc = GER_wiltkrieg_faction_events.17.d
 	picture = GFX_report_event_worried_french
 
 	is_triggered_only = yes
 
 	option = {
-		name = germanyfaction.17.a
-		ai_chance = { factor = 90 }
+		name = GER_wiltkrieg_faction_events.17.a
+		ai_chance = { factor = 1000 }
 		GER = {
-			country_event = germanyfaction.18
+			country_event = GER_wiltkrieg_faction_events.18
 			add_to_faction = ROOT
 		}
 		add_ai_strategy = {
@@ -1980,69 +1980,89 @@ country_event = {
 	}
 
 	option = {
-		name = germanyfaction.17.b
-		ai_chance = { factor = 10 }
-		GER = { country_event = germanyfaction.1 }
+		name = GER_wiltkrieg_faction_events.17.b
+		ai_chance = { factor = 1 }
+		GER = { country_event = GER_wiltkrieg_faction_events.1 }
 	}
 }
 
 # [Country] Accepts
 country_event = {
-	id = germanyfaction.18
-	title = germanyfaction.18.t
-	desc = germanyfaction.18.d
-	picture = GFX_report_event_soldiers_in_germanyfaction
+	id = GER_wiltkrieg_faction_events.18
+	title = GER_wiltkrieg_faction_events.18.t
+	desc = GER_wiltkrieg_faction_events.18.d
+	picture = GFX_report_event_soldiers_in_GER_wiltkrieg_faction_events
 
 	is_triggered_only = yes
 
 	option = {
-		name = germanyfaction.18.a
+		name = GER_wiltkrieg_faction_events.18.a
 		effect_tooltip = {
 			add_to_faction = FROM
 		}
 	}
 }
 
+news_event = {
+	id = GER_wiltkrieg_faction_events.20 
+	title = GER_wiltkrieg_faction_events.20.t
+	desc = GER_wiltkrieg_faction_events.20.d
+	picture = GFX_indiaunitedfront
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = GER_wiltkrieg_faction_events.20.a 
+		ai_chance = { factor = 100 }
+
+	}
+
+}
+
+
+
 # [Country] Refuses
 country_event = {
-	id = germanyfaction.19
-	title = germanyfaction.19.t
-	desc = germanyfaction.19.d
+	id = GER_wiltkrieg_faction_events.19
+	title = GER_wiltkrieg_faction_events.19.t
+	desc = GER_wiltkrieg_faction_events.19.d
 	picture = GFX_report_event_finnish_letter
 
 	is_triggered_only = yes
 
 	option = {
-		name = germanyfaction.19.a
+		name = GER_wiltkrieg_faction_events.19.a
 	}
 }
 
 
 country_event = {
-	id = germanyfaction.1
-	title = germanyfaction.1.t
-	desc = germanyfaction.1.d
+	id = GER_wiltkrieg_faction_events.1
+	title = GER_wiltkrieg_faction_events.1.t
+	desc = GER_wiltkrieg_faction_events.1.d
 	picture = GFX_report_event_finnish_letter
 
 	is_triggered_only = yes
 
 	option = {
-		name = germanyfaction.1.a
+		name = GER_wiltkrieg_faction_events.1.a
 		set_country_flag = goring
 		add_political_power = 100
 	}
 	option = {
-		name = germanyfaction.1.b
+		name = GER_wiltkrieg_faction_events.1.b
 		set_country_flag = luxemburg
 		add_political_power = 25
 	}
 	option = {
-		name = germanyfaction.1.c
+		name = GER_wiltkrieg_faction_events.1.c
 		set_country_flag = adenaur
 		add_political_power = 50
 	}
 	option = {
-		name = germanyfaction.1.d
+		name = GER_wiltkrieg_faction_events.1.d
 		set_country_flag = kaiser
 		add_political_power = -25
 	}
