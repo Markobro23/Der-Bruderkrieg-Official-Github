@@ -2297,8 +2297,65 @@ country_event = { #accept
 	option = {
 		name = SOV_lenin_tree_events.24.a #oh no
 		ai_chance = { factor = 3 }
+		FROM = {
+			if = {
+				limit = {
+					tag = BUL
+				}
+				set_popularities = {
+					communism = 35
+					democratic_communism = 8
+					democratic_liberalism = 5
+					democratic = 10
+					authoritarian_democratic = 27
+					neutrality = 5
+					fascism = 8
+					ultranationalism = 2
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+				keep_current_politics = yes
+			}
+			if = {
+				limit = {
+					tag = ROM
+				}
+				set_popularities = {
+					communism = 30
+					democratic_communism = 5
+					socialism_democratic = 9
+					democratic_liberalism = 11
+					authoritarian_democratic = 10
+					neutrality = 5
+					fascism = 25
+					ultranationalism = 5
+				}
+				set_politics = {
+					ruling_party = communism
+				}
+				keep_current_politics = yes
+			}
+			
+		}
 		SOV = {
 			puppet = FROM
+		}
+
+		if = {
+			limit = {
+				OR = {
+					FROM = {
+						tag = ROM
+					}
+					FROM = {
+						tag = BUL
+					}
+				}
+			}
+			FROM = {
+				reset_government = yes
+			}
 		}
 	}
 }
