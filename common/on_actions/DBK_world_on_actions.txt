@@ -220,7 +220,11 @@ on_actions = {
 	}
   on_startup = {
     effect = {
-		
+	293 = {
+		add_dynamic_modifier = {
+			modifier = YEM_arabic_resistance
+		}
+	}
 
       ##OOB missing
       every_country = {
@@ -727,6 +731,46 @@ on_actions = {
     			news_event = { id = DBK_fall_of_city.15 hours = 3 random = 9 }
 				set_global_flag = volgagrad_has_fallen
     		}
+
+			if = {
+    			limit = { #prague
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = AUS
+						tag = CZE
+    				}
+    				FROM.FROM = {
+    					state = 9
+    				}
+					NOT = {
+						has_global_flag = prague_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.16 hours = 3 random = 9 }
+				set_global_flag = prague_has_fallen
+    		}
+
+			if = {
+    			limit = { #prague
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = AUS
+						tag = GLC
+    				}
+    				FROM.FROM = {
+    					state = 1123
+    				}
+					NOT = {
+						has_global_flag = krakow_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.17 hours = 3 random = 9 }
+				set_global_flag = krakow_has_fallen
+    		}
+
+			
+
+			
     		
     		
     	}
