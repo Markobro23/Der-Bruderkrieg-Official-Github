@@ -1296,7 +1296,29 @@ country_event = {
 		# 	autonomy_state = autonomy_danubian_federation_member
       	# 	freedom_level = 0.2
 		# }
+		hidden_effect = {
+			CRO = {
+				set_politics = {
+				ruling_party = democratic
+				last_election = "1935.3.31"
+				election_frequency = 48
+				elections_allowed = no
+				}
+				set_popularities = {
+				democratic = 49
+				neutrality = 27
+				communism = 24
+				}
+				keep_current_politics = yes
+			}
+		}
 		release_puppet = CRO
+		
+		hidden_effect = {
+			CRO = {
+				reset_government = yes
+			}
+		}
 
 		AUS_fedor_dragojlov = {
 	      set_nationality = CRO
@@ -4160,8 +4182,24 @@ country_event = {
 		66 = {
 			add_core_of  = CZE
 		}
-		release = CZE
+		AUS = {
+			set_autonomy = {
+				target = CZE
+				autonomy_state = autonomy_free
+			}
+		}
 		CZE = {
+			set_cosmetic_tag = free_czech
+			create_country_leader = {
+				name = "Tomáš Garrigue Masaryk"
+				desc = "POLITICS_EDVARD_BENES_DESC"
+				picture = "gfx/leaders/masaryk.dds"
+				expire = "1965.1.1"
+				ideology = democratic_liberal
+				traits = {
+					#
+				}
+			}
 			set_politics = {
 				ruling_party = democratic_liberalism
 			}

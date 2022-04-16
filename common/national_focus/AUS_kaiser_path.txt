@@ -1068,8 +1068,39 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    hidden_effect = {
+      GLC = {
+        set_politics = {
+          ruling_party = democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          democratic = 95
+          neutrality = 1
+          socialism_democratic = 4
+        }
+        keep_current_politics = yes
+      }
+      CZE = {
+        set_politics = {
+          ruling_party = democratic_liberalism
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          democratic_liberalism = 95
+          neutrality = 1
+          socialism_democratic = 4
+        }
+        keep_current_politics = yes
+      }
+    }
     release_puppet = CZE
     release_puppet = GLC
+    
     AUS_alois_podhajsky = {
       set_nationality = CZE
     }
@@ -1123,14 +1154,10 @@ shared_focus = {
       }
 
       GLC = {
-        set_politics = {
-          ruling_party = democratic
-        }
+        reset_government = yes
       }
       CZE = {
-        set_politics = {
-          ruling_party = democratic
-        }
+        reset_government = yes
         capital_scope = {
           create_unit = {
             division = "name = \"Gemeinsame Armeebrigade\" division_template = \"Gemeinsame Armeebrigade\" start_experience_factor = 0.2"
@@ -1160,6 +1187,24 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = { 
+    hidden_effect = {
+      HUN = {
+        set_politics = {
+          ruling_party = socialism_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          socialism_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+    }
     release_puppet = HUN
     AUS_lajos_veress = {
       set_nationality = HUN
@@ -1185,6 +1230,7 @@ shared_focus = {
 
     hidden_effect = {
       HUN = {
+        reset_government = yes
         capital_scope = {
           create_unit = {
             division = "name = \"Gemeinsame Armeebrigade\" division_template = \"Gemeinsame Armeebrigade\" start_experience_factor = 0.2"
@@ -1214,6 +1260,23 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    hidden_effect = {
+      ITF = {
+        set_politics = {
+          ruling_party = socialism_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          socialism_democratic = 56
+          fascism = 35
+          neutrality = 6
+          communism = 3
+        }
+        keep_current_politics = yes
+      }
+    }
     release_puppet = ITF
     AUS_gabriele_nasci = {
       set_nationality = ITF
@@ -1224,6 +1287,7 @@ shared_focus = {
         transfer_state = 805
       }
       ITF = {
+        reset_government = yes
         capital_scope = {
           create_unit = {
             division = "name = \"Gemeinsame Armeebrigade\" division_template = \"Gemeinsame Armeebrigade\" start_experience_factor = 0.2"
