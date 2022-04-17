@@ -499,6 +499,45 @@ defined_text = {
         localization_key = GER_goering_economic_policy_tree_events_1_desc_goering
     }
 }
+
+# they made ready for war
+defined_text = {
+    name = GetGER_The_Prussian_Worker
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = "The Prussian Worker"
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = "The Prussian Corporate State"
+    }
+    text = {
+        localization_key = "The Prussian Worker"
+    }
+}
+
+
+
 # royalism
 defined_text = {
     name = GetRoyalismFocus
