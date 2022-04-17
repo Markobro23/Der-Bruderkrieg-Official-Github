@@ -151,6 +151,103 @@ country_event = {
 	
  }
 
+#Completing the National Revolution?
+country_event = {
+	id = GER_goering_internal_stabilization.6 
+	title = GER_goering_internal_stabilization.6.t
+	desc = GER_goering_internal_stabilization.6.d 
+	picture = GFX_volkischquestion
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.6.a
+		ai_chance = { factor = 1000 } 	
+		GER = {
+			
+			retire_country_leader = yes
+			set_cosmetic_tag = rohms_prussia
+			create_country_leader = {
+				name = "Ernst Rohm"
+				desc = ""
+				picture = "gfx/leaders/ErnstRohm.dds"
+				expire = "1965.1.1"
+				ideology = ultranationalist
+			}
+		}
+	}
+	option = { 
+		name = GER_goering_internal_stabilization.6.b
+		ai_chance = { factor = 1000 } 	
+	}
+}
+
+#The Good Old Days
+country_event = {
+	id = GER_goering_internal_stabilization.7 
+	title = GER_goering_internal_stabilization.7.t
+	desc = GER_goering_internal_stabilization.7.d 
+	picture = GFX_volkischquestion
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.7.a
+		ai_chance = { factor = 1000 } 	
+		
+		
+		set_politics=  {
+			ruling_party = neutrality
+		}
+		hidden_effect = {
+			country_event = {
+				id = GER_goering_internal_stabilization.8 
+				days = 1
+			}
+		}
+	}
+	option = { 
+		name = GER_goering_internal_stabilization.7.b
+		ai_chance = { factor = 1000 } 	
+	}
+}
+
+#An Official Request
+country_event = {
+	id = GER_goering_internal_stabilization.8 
+	title = GER_goering_internal_stabilization.8.t
+	desc = GER_goering_internal_stabilization.8.d 
+	picture = GFX_volkischquestion
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.8.a
+		ai_chance = { factor = 1000 } 	
+		##mack
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.5
+		}
+
+	}
+	option = { 
+		name = GER_goering_internal_stabilization.8.b
+		ai_chance = { factor = 1000 } 	
+		##kurt
+		retire_country_leader = yes
+
+		add_popularity = {
+			ideology = fascism
+			popularity = 0.5
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		
+	}
+}
+
 add_namespace = GER_goering_economic_policy_tree_events
 country_event = {
 	id = GER_goering_economic_policy_tree_events.1 # The Blade Forged
