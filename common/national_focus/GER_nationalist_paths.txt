@@ -192,11 +192,11 @@ shared_focus = {
 						set_country_flag = GER_go_down_goering_path
 						log = "GER_go_down_goering_path"
 					}
-					0 = { ##switch to 20 when balanced
+					20 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_sa_path
 						log = "GER_go_down_sa_path"
 					}
-					0 = { ##switch to 20 when balanced
+					20 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_freikorps_path
 						log = "GER_go_down_freikorps_path"
 					}
@@ -209,9 +209,39 @@ shared_focus = {
 	}
 }
 
+# shared_focus = {
+# 	id = GER_crush_the_freikorps
+# 	icon = GFX_goal_GER_crushthefreikorps
+# 	x = 1
+# 	y = 1
+# 	relative_position_id = GER_the_issue_of_the_militias
+	
+# 	available = {
+# 		has_country_flag = chose_sa
+# 	}
+# 	bypass = {
+
+# 	}
+
+# 	cost = 6
+# 	prerequisite = { focus = GER_the_issue_of_the_militias }
+# 	mutually_exclusive = { focus = GER_crush_the_sa }
+	
+
+# 	cancel_if_invalid = yes
+
+# 	completion_reward = {
+# 		add_ideas= GER_SA_Primacy
+# 		custom_effect_tooltip = GER_crush_the_freikorps_tt
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
+
 shared_focus = {
-	id = GER_crush_the_freikorps
-	icon = GFX_goal_GER_crushthefreikorps
+	id = GER_negotiate_with_rohm 
+	icon = GFX_goal_GER_negotiate_with_rohm
 	x = 1
 	y = 1
 	relative_position_id = GER_the_issue_of_the_militias
@@ -225,42 +255,13 @@ shared_focus = {
 
 	cost = 6
 	prerequisite = { focus = GER_the_issue_of_the_militias }
-	mutually_exclusive = { focus = GER_crush_the_sa }
+	mutually_exclusive = { focus = GER_reintegrate_the_freikorps }
 	
 
 	cancel_if_invalid = yes
 
 	completion_reward = {
 		add_ideas= GER_SA_Primacy
-		custom_effect_tooltip = GER_crush_the_freikorps_tt
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
-
-shared_focus = {
-	id = GER_negotiate_with_rohm 
-	icon = GFX_goal_GER_negotiate_with_rohm
-	x = 0
-	y = 1
-	relative_position_id = GER_crush_the_freikorps
-	
-	available = {
-	}
-	bypass = {
-
-	}
-
-	cost = 8
-	prerequisite = { focus = GER_crush_the_freikorps }
-	
-
-	cancel_if_invalid = yes
-
-	completion_reward = {
-		add_political_power = 75
-		add_stability = 0.05
 		add_to_variable = { var = ss_power value = 5  }
 		custom_effect_tooltip = GER_negotiate_with_rohm_tt
 	}
@@ -350,9 +351,40 @@ shared_focus = {
 	}
 }
 
+# shared_focus = {
+# 	id = GER_crush_the_sa
+# 	icon = GFX_goal_GER_crushthesa
+# 	x = -1
+# 	y = 1
+# 	relative_position_id = GER_the_issue_of_the_militias
+	
+# 	available = {
+# 		has_country_flag = chose_wermacht
+# 	}
+# 	bypass = {
+
+# 	}
+
+# 	cost = 6
+# 	prerequisite = { focus = GER_the_issue_of_the_militias }
+# 	mutually_exclusive = { focus = GER_crush_the_freikorps }
+	
+
+# 	cancel_if_invalid = yes
+
+# 	completion_reward = {
+# 		add_ideas= GER_Wehrmacht_Primacy
+# 		custom_effect_tooltip = GER_crush_the_sa_tt
+		
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
+
 shared_focus = {
-	id = GER_crush_the_sa
-	icon = GFX_goal_GER_crushthesa
+	id = GER_reintegrate_the_freikorps
+	icon = GFX_goal_GER_reintigrate_the_freikoprs
 	x = -1
 	y = 1
 	relative_position_id = GER_the_issue_of_the_militias
@@ -366,43 +398,13 @@ shared_focus = {
 
 	cost = 6
 	prerequisite = { focus = GER_the_issue_of_the_militias }
-	mutually_exclusive = { focus = GER_crush_the_freikorps }
+	mutually_exclusive = { focus = GER_negotiate_with_rohm }
 	
 
 	cancel_if_invalid = yes
 
 	completion_reward = {
 		add_ideas= GER_Wehrmacht_Primacy
-		custom_effect_tooltip = GER_crush_the_sa_tt
-		
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
-
-shared_focus = {
-	id = GER_reintegrate_the_freikorps
-	icon = GFX_goal_GER_reintigrate_the_freikoprs
-	x = 0
-	y = 1
-	relative_position_id = GER_crush_the_sa
-	
-	available = {
-	}
-	bypass = {
-
-	}
-
-	cost = 8
-	prerequisite = { focus = GER_crush_the_sa }
-	
-
-	cancel_if_invalid = yes
-
-	completion_reward = {
-		add_war_support= 0.05  
-		add_stability= 0.05
 		add_to_variable = { var = freikorps_power value = 5  }
 		custom_effect_tooltip = GER_reintegrate_the_freikorps_tt
 
@@ -1263,7 +1265,7 @@ shared_focus = {
 			id = GER_the_reichmarshalls_prussia
 			icon = GFX_goal_GER_thereichsmarshall_sprussia
 			x = -2
-			y = 8
+			y = 7
 			
 
 	
@@ -1308,7 +1310,7 @@ shared_focus = {
 			id = GER_the_brownshirts_prussia
 			icon = GFX_goal_GER_the_brownshirts_prussia
 			x = -8
-			y = 8
+			y = 7
 			
 
 	
@@ -1795,7 +1797,7 @@ shared_focus = {
 			id = GER_the_last_hussars_prussia
 			icon = GFX_goal_GER_the_old_guards_prussia
 			x = 7
-			y = 8 
+			y = 7 
 			
 			mutually_exclusive = {
 				focus = GER_the_brownshirts_prussia
@@ -2214,7 +2216,7 @@ shared_focus = {
 			id = GER_the_businessmans_prussia
 			icon = GFX_goal_GER_the_businessmans_prussia
 			x = 2
-			y = 8
+			y = 7
 			
 
 	
