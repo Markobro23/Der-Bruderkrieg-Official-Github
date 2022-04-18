@@ -136,7 +136,7 @@ focus_tree = {
 shared_focus = {
 	id = GER_the_berlin_rally
 	icon = GFX_goal_GER_the_berlin_rally
-	x = -6
+	x = -7
 	y = 0
 	
 	available = {
@@ -553,7 +553,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_aftermath_of_the_fuhrerdammerung
 		icon = GFX_goal_GER_aftermath_of_the_fuhreradammerung
-		x = 1
+		x = 0
 		y = 0
 		
 		available = {
@@ -586,38 +586,7 @@ shared_focus = {
 	
 	
 	
-	# shared_focus = {
-	# 	id = GER_the_iron_fist
-	# 	icon = GFX_goal_GER_theironfist
-	# 	x = -1
-	# 	y = 1
-	# 	relative_position_id = GER_aftermath_of_the_fuhrerdammerung
-		
-	# 	bypass = {
-
-	# 	}
-
-	# 	available = {
-	# 		NOT = {
-	# 			has_country_leader = {
-	# 				name = "Ernst Rohm"
-	# 			}
-	# 		}
-	# 	}
-
-	# 	cost = 0
-	# 	prerequisite = { focus = GER_aftermath_of_the_fuhrerdammerung }
-	# 	mutually_exclusive = { focus = GER_compromise_with_the_thule_society }
-		
-
-	# 	cancel_if_invalid = yes
-
-	# 	completion_reward = {
-	# 	}
-	# 	ai_will_do = {
-	# 		factor = 60
-	# 	}
-	# }
+	
 	
 	# shared_focus = {
 	# 	id = GER_compromise_with_the_thule_society
@@ -658,7 +627,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_revoke_church_autonomy
 		icon = GFX_goal_GER_reovechurch_officials
-		x = 1
+		x = 2
 		y = 1
 		relative_position_id = GER_aftermath_of_the_fuhrerdammerung
 		
@@ -676,7 +645,7 @@ shared_focus = {
 
 		}
 
-		cost = 4
+		cost = 10
 		prerequisite = { focus = GER_aftermath_of_the_fuhrerdammerung }
 		mutually_exclusive = {
 			focus = GER_outlaw_occultism
@@ -783,6 +752,13 @@ shared_focus = {
 		relative_position_id = GER_revoke_church_autonomy
 		
 		available = {
+			has_civil_war = no
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = ENG
+				has_war_with = SOV
+			}
 		}
 		bypass = {
 
@@ -795,6 +771,21 @@ shared_focus = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
+			if = {
+				limit = {
+					has_idea = GER_upset_army_2
+				}
+				remove_ideas = GER_upset_army_2
+			}
+			else_if = {
+				limit = { has_idea = GER_upset_army } 
+				
+			}
+			else = {
+				effect_tooltip = {
+					remove_ideas = GER_upset_army_2
+				}
+			}
 			unlock_decision_category_tooltip = GER_nordicist_decisions
 			
 		}
@@ -823,12 +814,7 @@ shared_focus = {
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			if = {
-				limit = {
-					has_idea = GER_upset_army_2
-				}
-				remove_ideas = GER_upset_army_2
-			}
+			unlock_decision_category_tooltip = anthrax_decisions
 			add_war_support = 0.1
 		}
 		ai_will_do = {
@@ -839,7 +825,7 @@ shared_focus = {
 	shared_focus = {
 		id = GER_outlaw_occultism
 		icon = GFX_goal_GER_outlawoccultists
-		x = -1
+		x = -2
 		y = 1 
 		relative_position_id = GER_the_iron_fist
 		
@@ -860,14 +846,14 @@ shared_focus = {
 			has_civil_war = no
 		}
 
-		cost = 4
+		cost = 10
 		prerequisite = { focus = GER_aftermath_of_the_fuhrerdammerung }
 		
 
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_ideas = GER_protestant_state
+			add_ideas = GER_protestant_state2
 		}
 		ai_will_do = {
 			factor = 60
@@ -889,8 +875,8 @@ shared_focus = {
 	
 	shared_focus = {
 		id = GER_concordat_of_potsdam
-		icon = GFX_goal_GER_concordatofpotsdam
-		x = -1
+		icon = GFX_goal_GER_theironfist
+		x = 0
 		y = 1
 		relative_position_id = GER_outlaw_occultism
 		
@@ -901,7 +887,7 @@ shared_focus = {
 
 		}
 
-		cost = 5
+		cost = 10
 		prerequisite = { focus = GER_outlaw_occultism }
 		
 
@@ -918,29 +904,92 @@ shared_focus = {
 	shared_focus = {
 		id = GER_breaking_the_networks
 		icon = GFX_goal_GER_breaktheirnetworks
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_concordat_of_potsdam
 		
 		available = {
 			has_civil_war = no
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = ENG
+				has_war_with = SOV
+			}
 		}
 		bypass = {
 
 		}
 
-		cost = 5
+		mutually_exclusive = {
+			focus = GER_the_iron_fist
+		}
+
+		cost = 8
 		prerequisite = { focus = GER_concordat_of_potsdam }
 		
 
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			add_stability = 0.1
-			add_political_power = 60
-			add_popularity = {
-				ideology = fascism
-				popularity = -0.05
+			swap_ideas = {
+				remove_idea = GER_protestant_state2
+				add_idea = GER_protestant_state3
+			}
+		}
+		ai_will_do = {
+			factor = 60
+		}
+	}
+	
+	shared_focus = {
+		id = GER_the_iron_fist
+		icon = GFX_goal_GER_concordatofpotsdam
+		x = 1
+		y = 1
+		relative_position_id = GER_concordat_of_potsdam
+		
+		bypass = {
+
+		}
+
+		available = {
+			has_civil_war = no
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = ENG
+				has_war_with = SOV
+			}
+		}
+
+		cost = 8
+		prerequisite = { focus = GER_concordat_of_potsdam }
+		mutually_exclusive = {
+			focus = GER_breaking_the_networks
+		}
+		
+
+		cancel_if_invalid = yes
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_dynamic_modifier = {
+					modifier = GER_church_benefits_modifier
+					days = 120
+				}
+			}
+			random_owned_controlled_state = {
+				add_dynamic_modifier = {
+					modifier = GER_church_benefits_modifier
+					days = 120
+				}
+			}
+			random_owned_controlled_state = {
+				add_dynamic_modifier = {
+					modifier = GER_church_benefits_modifier
+					days = 120
+				}
 			}
 		}
 		ai_will_do = {
@@ -951,28 +1000,35 @@ shared_focus = {
 	shared_focus = {
 		id = GER_an_end_to_the_cultists
 		icon = GFX_goal_GER_anendtothecultists
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = GER_breaking_the_networks
 		
 		available = {
 			has_civil_war = no
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+				has_war_with = ENG
+				has_war_with = SOV
+			}
+			date > 1941.1.1
 		}
 		bypass = {
 
 		}
 
-		cost = 3
-		prerequisite = { focus = GER_breaking_the_networks }
+		cost = 5
+		prerequisite = { focus = GER_breaking_the_networks 	focus = GER_the_iron_fist }
+		prerequisite = {
+		}
 		
 
 		cancel_if_invalid = yes
 
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = GER_protestant_state1
-				add_idea = GER_protestant_state2
-			}
+			unlock_decision_category_tooltip = atomwaffen_decisions
+			set_country_flag = unlock_atomwaffen_flag
 		}
 		ai_will_do = {
 			factor = 60
@@ -1207,7 +1263,7 @@ shared_focus = {
 			id = GER_the_reichmarshalls_prussia
 			icon = GFX_goal_GER_thereichsmarshall_sprussia
 			x = -2
-			y = 7
+			y = 8
 			
 
 	
@@ -1252,7 +1308,7 @@ shared_focus = {
 			id = GER_the_brownshirts_prussia
 			icon = GFX_goal_GER_the_brownshirts_prussia
 			x = -8
-			y = 7
+			y = 8
 			
 
 	
@@ -1739,7 +1795,7 @@ shared_focus = {
 			id = GER_the_last_hussars_prussia
 			icon = GFX_goal_GER_the_old_guards_prussia
 			x = 7
-			y = 7 
+			y = 8 
 			
 			mutually_exclusive = {
 				focus = GER_the_brownshirts_prussia
@@ -2158,7 +2214,7 @@ shared_focus = {
 			id = GER_the_businessmans_prussia
 			icon = GFX_goal_GER_the_businessmans_prussia
 			x = 2
-			y = 7
+			y = 8
 			
 
 	
