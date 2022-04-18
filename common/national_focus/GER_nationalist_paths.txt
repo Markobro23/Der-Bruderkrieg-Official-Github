@@ -117,7 +117,7 @@ focus_tree = {
 		}
 	}
 
-	shared_focus = GER_the_issue_of_the_militias
+	shared_focus = GER_the_berlin_rally
 	shared_focus = GER_goerings_industrial_plan
 	shared_focus = GER_the_petty_kings
 	shared_focus = GER_venerate_new_karl
@@ -132,9 +132,10 @@ focus_tree = {
 
 	continuous_focus_position = { x = 500 y = 3000 }
 }
+
 shared_focus = {
-	id = GER_the_issue_of_the_militias
-	icon = GFX_goal_GER_issueofthemilitias
+	id = GER_the_berlin_rally
+	icon = GFX_goal_GER_the_berlin_rally
 	x = -6
 	y = 0
 	
@@ -143,6 +144,36 @@ shared_focus = {
 	bypass = {
 
 	}
+
+	cost = 1
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+
+shared_focus = {
+	id = GER_the_issue_of_the_militias
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = GER_the_berlin_rally
+	}
+	relative_position_id = GER_the_berlin_rally
 
 	cost = 4
 	
