@@ -59,6 +59,7 @@ add_namespace = germany
 			} 
 		}
 		set_country_flag = chose_wermacht
+		unlock_decision_category_tooltip = GER_ss_waffen_cat
 
 		
 	}
@@ -82,6 +83,7 @@ add_namespace = germany
 			} 
 		}
 		set_country_flag = chose_sa
+	    unlock_decision_category_tooltip = GER_ss_waffen_cat
 	}
 }
 
@@ -143,14 +145,16 @@ country_event = {
 	option = { # Don't what it is supposed to do yet
 		name = GER_goering_internal_stabilization.5.a
 		ai_chance = { factor = 1000 } 
-		swap_ideas = {
-				remove_idea = GER_protestant_state
-				add_idea = GER_protestant_state1
-			}
+		add_stability = 0.1
+		add_political_power = 60
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.05
+		}
 	}
 	
  }
-
+ 
 #Completing the National Revolution?
 country_event = {
 	id = GER_goering_internal_stabilization.6 
@@ -162,7 +166,20 @@ country_event = {
 
 	option = { 
 		name = GER_goering_internal_stabilization.6.a
-		ai_chance = { factor = 1000 } 	
+		ai_chance = { 
+			factor = 1 
+	        modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
+					}
+				}
+			}
+		} 	
 		GER = {
 			
 			retire_country_leader = yes
@@ -175,10 +192,17 @@ country_event = {
 				ideology = ultranationalist
 			}
 		}
+		mark_focus_tree_layout_dirty = yes
 	}
 	option = { 
 		name = GER_goering_internal_stabilization.6.b
-		ai_chance = { factor = 1000 } 	
+		ai_chance = { 
+			factor = 1 
+			modifier = {
+			   add = 100000
+			   OR = { has_country_flag = GER_go_down_goering_path has_game_rule ={ rule = DBK_PRUSSIAN_PATH option = GER_GOERING_RADICAL_PATH } has_game_rule = { rule = DBK_PRUSSIAN_PATH option = GER_GOERING_REFORMIST_PATH } }
+		    }   
+		} 	
 	}
 }
 
@@ -193,12 +217,26 @@ country_event = {
 
 	option = { 
 		name = GER_goering_internal_stabilization.7.a
-		ai_chance = { factor = 1000 } 	
+		ai_chance = { 
+			factor = 1 
+	        modifier = {
+				add = 100000
+				OR = {
+					has_country_flag = GER_go_down_sa_path
+					has_country_flag = GER_go_down_freikorps_path
+					has_game_rule = {
+						rule = DBK_PRUSSIAN_PATH 
+						option = GER_REVERSE_THE_REVOLUTION_PATH
+					}
+				}
+			}
+		} 	 	
 		
 		
 		set_politics=  {
 			ruling_party = neutrality
 		}
+		mark_focus_tree_layout_dirty = yes
 		hidden_effect = {
 			country_event = {
 				id = GER_goering_internal_stabilization.8 
@@ -208,7 +246,13 @@ country_event = {
 	}
 	option = { 
 		name = GER_goering_internal_stabilization.7.b
-		ai_chance = { factor = 1000 } 	
+		ai_chance = { 
+		factor = 1 
+		modifier = {
+			add = 100000
+			OR = { has_country_flag = GER_go_down_goering_path has_game_rule ={ rule = DBK_PRUSSIAN_PATH option = GER_GOERING_RADICAL_PATH } has_game_rule = { rule = DBK_PRUSSIAN_PATH option = GER_GOERING_REFORMIST_PATH } }
+			}
+		}	
 	}
 }
 
@@ -247,6 +291,38 @@ country_event = {
 		
 	}
 }
+
+## Spartakus Crushed
+country_event = {
+	id = GER_goering_internal_stabilization.9 # The Blade Forged
+	title = GER_goering_internal_stabilization.9.t
+	desc = GER_goering_internal_stabilization.9.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.9.a
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_spartakus_crushed
+		remove_ideas = Revolutionary_Treason
+	}
+ }
+
+ country_event = {
+	id = GER_goering_internal_stabilization.10 # Berlin Rally
+	title = GER_goering_internal_stabilization.10.t
+	desc = GER_goering_internal_stabilization.10.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.10.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+ }
 
 add_namespace = GER_goering_economic_policy_tree_events
 country_event = {

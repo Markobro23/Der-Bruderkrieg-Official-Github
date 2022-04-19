@@ -12,7 +12,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 		}
 
@@ -58,7 +57,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 		}
 
@@ -110,7 +108,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 			has_country_flag = GER_flag_workplace_reforms
 		}
@@ -154,7 +151,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 		}
 
@@ -194,7 +190,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
 			has_country_flag = chose_sa
 		}
 
@@ -234,7 +229,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 		}
 
@@ -274,7 +268,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 		}
 
@@ -326,7 +319,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 			has_country_flag = GER_flag_pro_magnate_legislation
 		}
@@ -368,7 +360,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 		}
 
@@ -408,7 +399,6 @@ GER_ss_waffen_cat = {
 
 		available = {
 			tag = GER
-			has_completed_focus = GER_crush_the_sa
 			has_country_flag = chose_wermacht
 		}
 
@@ -449,11 +439,19 @@ GER_ss_waffen_cat = {
 			}
 		}
 		visible = {
-			NOT = {
-				has_completed_focus = GER_retire_reactionary_officers
+			set_temp_variable = {
+				ss_power_check = ss_power
+			}
+			add_to_temp_variable = {
+				ss_power_check = -50
+			}
+			check_variable = {
+				var = ss_power_check value = freikorps_power compare = greater_than_or_equals
 			}
 		}
-		activation = {	has_completed_focus = GER_crush_the_freikorps	}
+		activation = {
+			has_country_flag = chose_sa
+		}
 		days_mission_timeout = 250
 		is_good = no
 		selectable_mission = no
@@ -473,11 +471,19 @@ GER_ss_waffen_cat = {
 			}
 		}
 		visible = {
-			NOT = {
-				has_completed_focus = GER_ensure_army_loyalty
+			set_temp_variable = {
+				freikorps_power_check = freikorps_power
+			}
+			add_to_temp_variable = {
+				freikorps_power_check = -50
+			}
+			check_variable = {
+				var = freikorps_power_check value = ss_power compare = greater_than_or_equals
 			}
 		}
-		activation = {	has_completed_focus = GER_crush_the_sa	}
+		activation 	= {
+			has_country_flag = chose_wermacht
+		}
 		days_mission_timeout = 250
 		selectable_mission = no
 		cancel_if_not_visible = yes
@@ -676,8 +682,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
 		}
 
 		fire_only_once = yes
@@ -707,8 +712,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
 		}
 
 		fire_only_once = yes
@@ -717,17 +721,7 @@ GER_ss_waffen_cat = {
 		days_remove = 15
 		ai_will_do = {
 			factor = 0	
-			modifier = {
-				add = 100000
-				OR = {
-					has_country_flag = GER_go_down_sa_path
-					has_country_flag = GER_go_down_freikorps_path
-					has_game_rule = {
-						rule = DBK_PRUSSIAN_PATH 
-						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
-					}
-				}
-			}
+			
 		}
 
 		remove_effect = {
@@ -746,8 +740,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_sa
+			has_country_flag = chose_wermacht
 		}
 
 		fire_only_once = yes
@@ -756,17 +749,7 @@ GER_ss_waffen_cat = {
 		days_remove = 25
 		ai_will_do = {
 			factor = 0	
-			modifier = {
-				add = 100000
-				OR = {
-					has_country_flag = GER_go_down_sa_path
-					has_country_flag = GER_go_down_freikorps_path
-					has_game_rule = {
-						rule = DBK_PRUSSIAN_PATH 
-						option = GER_DOWN_WITH_THE_REACTIONARIES_PATH
-					}
-				}
-			}
+			
 		}
 
 		remove_effect = {
@@ -787,8 +770,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
 		}
 
 		fire_only_once = yes
@@ -797,13 +779,7 @@ GER_ss_waffen_cat = {
 		days_remove = 0
 		ai_will_do = {
 			factor = 0	
-			modifier = {
-				add = -100000
-				OR = {
-					has_country_flag = GER_go_down_sa_path
-					has_country_flag = GER_go_down_freikorps_path
-				}
-			}
+			
 		}
 
 		remove_effect = {
@@ -817,8 +793,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
 		}
 
 		fire_only_once = yes
@@ -827,17 +802,7 @@ GER_ss_waffen_cat = {
 		days_remove = 15
 		ai_will_do = {
 			factor = 0	
-			modifier = {
-				add = 100000
-				OR = {
-					has_country_flag = GER_go_down_sa_path
-					has_country_flag = GER_go_down_freikorps_path
-					has_game_rule = {
-						rule = DBK_PRUSSIAN_PATH 
-						option = GER_REVERSE_THE_REVOLUTION_PATH
-					}
-				}
-			}
+			
 		}
 
 		remove_effect = {
@@ -856,8 +821,7 @@ GER_ss_waffen_cat = {
 		}
 
 		visible = {
-			tag = GER
-			has_completed_focus = GER_crush_the_freikorps
+			has_country_flag = chose_sa
 		}
 
 		fire_only_once = yes
@@ -866,17 +830,7 @@ GER_ss_waffen_cat = {
 		days_remove = 25
 		ai_will_do = {
 			factor = 0	
-			modifier = {
-				add = 100000
-				OR = {
-					has_country_flag = GER_go_down_sa_path
-					has_country_flag = GER_go_down_freikorps_path
-					has_game_rule = {
-						rule = DBK_PRUSSIAN_PATH 
-						option = GER_REVERSE_THE_REVOLUTION_PATH
-					}
-				}
-			}
+			
 		}
 
 		remove_effect = {
@@ -1760,8 +1714,8 @@ GER_anti_spartakus_category = {
 		}
 
 		complete_effect = {
-			set_country_flag = GER_spartakus_crushed
-			remove_ideas = Revolutionary_Treason
+			country_event = GER_goering_internal_stabilization.9
+			
 		}
 
 	}
