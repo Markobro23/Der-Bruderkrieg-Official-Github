@@ -119,7 +119,7 @@ focus_tree = {
 
 	shared_focus = GER_the_berlin_rally
 	shared_focus = GER_goerings_industrial_plan
-	shared_focus = GER_the_petty_kings
+	shared_focus = GER_german_supremacy
 	shared_focus = GER_venerate_new_karl
 	shared_focus = GER_aftermath_of_the_fuhrerdammerung
 	shared_focus = GER_the_reichmarshalls_prussia
@@ -436,6 +436,10 @@ shared_focus = {
 			}
 
 		}
+		
+	}
+
+	select_effect = {
 		
 	}
 
@@ -1258,6 +1262,7 @@ shared_focus = {
 				has_civil_war = no
 			}
 			completion_reward = {
+				set_country_flag = unlock_anthrax_flag
 				country_event = GER_goering_economic_policy_tree_events.1
 			}
 		}
@@ -3137,12 +3142,51 @@ shared_focus = {
 ######################
 		#The Petty Kings Path#
 		######################
+
+shared_focus = {
+	id = GER_german_supremacy
+	icon = GFX_goal_GER_germansuperiorty
+	x = 17
+	y = 0
+	
+	available = {
+		OR = {
+			has_completed_focus = GER_the_reichmarshalls_prussia
+			has_completed_focus = GER_the_businessmans_prussia
+			has_completed_focus = GER_the_last_hussars_prussia
+			has_completed_focus = GER_the_brownshirts_prussia
+		}
+	}
+	bypass = {
+
+	}
+
+	cost = 5
+	
+
+	cancel_if_invalid = yes
+
+	completion_reward = {
+		swap_ideas= {
+			remove_idea = Firece_Revanchism
+			add_idea = Firece_Revanchism_2
+		   }
+		country_event = GER_goering_internal_stabilization.2
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
 shared_focus = {
 	id = GER_the_petty_kings
 	icon = GFX_goal_GER_the_petty_kings
 	cost = 2
-	x = 17
-	y = 0
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_german_supremacy
+	}
+	relative_position_id = GER_german_supremacy
 	
 	#relative_position_id = GER_rachekrieg
 	ai_will_do = {
@@ -3150,11 +3194,9 @@ shared_focus = {
 	}
 
 	available = {
-		OR = {
-			has_completed_focus = GER_the_reichmarshalls_prussia
-			has_completed_focus = GER_the_businessmans_prussia
-			has_completed_focus = GER_the_last_hussars_prussia
-			has_completed_focus = GER_the_brownshirts_prussia
+		has_army_manpower = {
+			size >  549999
+
 		}
 	}
 
@@ -3193,7 +3235,7 @@ shared_focus = {
 		
 		OR = {
 			has_army_manpower = {
-			size > 449999
+			size > 649999
 			}
 			date > 1938.1.1
 		}
@@ -3228,7 +3270,7 @@ shared_focus = {
 	available = {
 		OR = {
 			has_army_manpower = {
-			size > 499999
+			size > 699999
 			}
 			date > 1938.1.1
 		}
@@ -3283,172 +3325,144 @@ shared_focus = {
 }
 
 	
-shared_focus = {
-	id = GER_dolchstosslegende
-	icon = GFX_goal_GER_dochloslegende
-	x = 0
-	y = 1
-	relative_position_id = GER_bismarks_plan
+# shared_focus = {
+# 	id = GER_dolchstosslegende
+# 	icon = GFX_goal_GER_dochloslegende
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = GER_bismarks_plan
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 4
-	prerequisite = { focus = GER_bismarks_plan }
-	
-
-	cancel_if_invalid = yes
-
-	completion_reward = {
-		add_war_support= 0.05
-		add_political_power= 80
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
-
-shared_focus = {
-	id = GER_german_supremacy
-	icon = GFX_goal_GER_germansuperiorty
-	x = 0
-	y = 1
-	relative_position_id = GER_dolchstosslegende
-	
-	available = {
-	}
-	bypass = {
-
-	}
-
-	cost = 5
-	prerequisite = { focus = GER_dolchstosslegende }
+# 	cost = 4
+# 	prerequisite = { focus = GER_bismarks_plan }
 	
 
-	cancel_if_invalid = yes
+# 	cancel_if_invalid = yes
 
-	completion_reward = {
-		swap_ideas= {
-			remove_idea = Firece_Revanchism
-			add_idea = Firece_Revanchism_2
-		   }
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
+# 	completion_reward = {
+# 		add_war_support= 0.05
+# 		add_political_power= 80
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
 
-shared_focus = {
-	id = GER_anti_royalism
-	icon = GFX_goal_GER_antiroyalism
-	x = -1
-	y = 1
-	relative_position_id = GER_german_supremacy
+
+
+# shared_focus = {
+# 	id = GER_anti_royalism
+# 	icon = GFX_goal_GER_antiroyalism
+# 	x = -1
+# 	y = 1
+# 	relative_position_id = GER_german_supremacy
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 5
-	prerequisite = { focus = GER_german_supremacy }
-	
-
-	cancel_if_invalid = yes
-
-	completion_reward = {
-		add_ideas= GER_National_Revolution
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
-
-shared_focus = {
-	id = GER_not_one_traitor_left
-	icon = GFX_goal_GER_notonetraitor
-	x = 1
-	y = 1
-	relative_position_id = GER_german_supremacy
-	
-	available = {
-	}
-	bypass = {
-
-	}
-
-	cost = 5
-	prerequisite = { focus = GER_german_supremacy }
+# 	cost = 5
+# 	prerequisite = { focus = GER_german_supremacy }
 	
 
-	cancel_if_invalid = yes
+# 	cancel_if_invalid = yes
 
-	completion_reward = {
-		add_timed_idea = { idea = GER_death_to_traitors days = 120 }
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
+# 	completion_reward = {
+# 		add_ideas= GER_National_Revolution
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
 
-shared_focus = {
-	id = GER_schwert_und_schild
-	icon = GFX_goal_GER_schwertundschild
-	x = -1
-	y = 1
-	relative_position_id = GER_not_one_traitor_left
+# shared_focus = {
+# 	id = GER_not_one_traitor_left
+# 	icon = GFX_goal_GER_notonetraitor
+# 	x = 1
+# 	y = 1
+# 	relative_position_id = GER_german_supremacy
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 3.5
-	prerequisite = { focus = GER_not_one_traitor_left }
-	prerequisite = {
-		focus = GER_anti_royalism
-	}
-	#prerequisite = { focus = GER_reintegrate_the_freikorps }
+# 	cost = 5
+# 	prerequisite = { focus = GER_german_supremacy }
 	
 
-	cancel_if_invalid = yes
+# 	cancel_if_invalid = yes
 
-	completion_reward = {
+# 	completion_reward = {
+# 		add_timed_idea = { idea = GER_death_to_traitors days = 120 }
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
+
+# shared_focus = {
+# 	id = GER_schwert_und_schild
+# 	icon = GFX_goal_GER_schwertundschild
+# 	x = -1
+# 	y = 1
+# 	relative_position_id = GER_bismarks_plan
+	
+# 	available = {
+# 	}
+# 	bypass = {
+
+# 	}
+
+# 	cost = 3.5
+# 	prerequisite = { focus = GER_bismarks_plan }
+# 	prerequisite = {
+# 		focus = GER_anti_royalism
+# 	}
+# 	#prerequisite = { focus = GER_reintegrate_the_freikorps }
+	
+
+# 	cancel_if_invalid = yes
+
+# 	completion_reward = {
 			
-			swap_ideas = {
-				add_idea = GER_National_Revolution1
-				remove_idea = GER_National_Revolution
-			}
+# 			swap_ideas = {
+# 				add_idea = GER_National_Revolution1
+# 				remove_idea = GER_National_Revolution
+# 			}
 		
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
 
-shared_focus = {
-	id = GER_rachekrieg
+# shared_focus = {
+# 	id = GER_rachekrieg
 		
-	icon = GFX_goal_GER_rachkrieg
-	#prerequisite = {focus = GER_prussian_professionalism focus = GER_the_nation_at_arms }
-	#p#rerequisite = {focus = GER_an_end_to_the_cultists focus = GER_useful_madmen}
-	prerequisite = { focus = GER_schwert_und_schild }
-	relative_position_id = GER_schwert_und_schild
-	cost = 2
-	x = 0
-	y = 2
-	completion_reward = {
-		country_event = GER_goering_internal_stabilization.2
-	}
-	ai_will_do = {
-		factor = 60
-	}
-}
+# 	icon = GFX_goal_GER_rachkrieg
+# 	#prerequisite = {focus = GER_prussian_professionalism focus = GER_the_nation_at_arms }
+# 	#p#rerequisite = {focus = GER_an_end_to_the_cultists focus = GER_useful_madmen}
+# 	prerequisite = { focus = GER_schwert_und_schild }
+# 	relative_position_id = GER_schwert_und_schild
+# 	cost = 2
+# 	x = 0
+# 	y = 2
+# 	completion_reward = {
+# 		country_event = GER_goering_internal_stabilization.2
+# 	}
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# }
 
 
 #######################
@@ -3458,7 +3472,7 @@ shared_focus = {
 	id = GER_legacy_of_tilsit
 	icon = GFX_goal_GER_legacy_of_tilsit
 	cost = 3
-	x = -4
+	x = -5
 	y = 1
 	prerequisite = {
 		focus = GER_bismarks_plan
@@ -3481,12 +3495,58 @@ shared_focus = {
 		add_state_core = 956
 		add_state_claim = 28
 		custom_effect_tooltip = GER_legacy_of_tilsit_tt
+
+		every_state = {
+			limit = {
+				any_neighbor_state = {
+					OR = {
+						is_controlled_by = GER
+						THIS.owner = {
+							is_puppet_of = GER
+						}
+					} 
+					
+				}
+				owner = {
+					OR = {
+						tag = FRA
+						is_in_faction_with = FRA
+					}
+				}
+			}
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
 	}
 }
+# shared_focus = {
+# 	id = GER_der_wacht_am_rhein
+# 	icon = GFX_goal_GER_die_watch_en_rhine
+# 	cost = 4
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_legacy_of_tilsit
+# 	}
+# 	relative_position_id = GER_legacy_of_tilsit
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# 	completion_reward = {
+		
+# 	}
+# }
 shared_focus = {
-	id = GER_der_wacht_am_rhein
-	icon = GFX_goal_GER_die_watch_en_rhine
-	cost = 4
+	id = GER_a_failed_state
+	icon = GFX_goal_GER_fund_the_rhinehomefront
+	cost = 5
 	x = 0
 	y = 1
 	prerequisite = {
@@ -3497,63 +3557,12 @@ shared_focus = {
 		factor = 60
 	}
 	completion_reward = {
-		59 = {
-			add_building_construction = { type = bunker level = 2 instant_build = yes province = 6513 }
-			add_building_construction = { type = bunker level = 2 instant_build = yes province = 11493 }
-			add_building_construction = { type = bunker level = 2 instant_build = yes province = 3395 }
-		}
-	}
-}
-shared_focus = {
-	id = GER_a_failed_state
-	icon = GFX_goal_GER_fund_the_rhinehomefront
-	cost = 5
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_der_wacht_am_rhein
-	}
-	relative_position_id = GER_der_wacht_am_rhein
-	ai_will_do = {
-		factor = 60
-	}
-	completion_reward = {
 		custom_effect_tooltip = GER_a_failed_state_tt
+		unlock_decision_category_tooltip = GER_westfalen_guerilla
+		add_ideas = GER_fortbuster
 	}
 }
-shared_focus = {
-	id = GER_slaughter_the_jacobins
-	icon = GFX_goal_GER_slaughter_the_jacobins
-	cost = 5
-	x = -2
-	y = 1
-	prerequisite = {
-		focus = GER_a_failed_state
-	}
-	relative_position_id = GER_a_failed_state
-	ai_will_do = {
-		factor = 60
-	}
-	bypass = {
-		JNE = {
-			exists = no
-		}
-	}
-	available = {
-		JNE = {
-			exists = yes
-		}
-		HOL = {
-			exists = no
-		}
-	}
-	completion_reward = {
-		create_wargoal = {
-			target = JNE
-			type = topple_government
-		}
-	}
-}
+
 shared_focus = {
 	id = GER_coaxing_degrelle
 	icon = GFX_goal_GER_coaxing_degrelle
@@ -3564,9 +3573,9 @@ shared_focus = {
 		focus = GER_reviving_an_old_plan
 	}
 	prerequisite = {
-		focus = GER_slaughter_the_jacobins
+		focus = GER_a_failed_state
 	}
-	relative_position_id = GER_slaughter_the_jacobins
+	relative_position_id = GER_a_failed_state
 	available = {
 		BEL = {
 			has_government = democratic
@@ -3599,10 +3608,10 @@ shared_focus = {
 		focus = GER_coaxing_degrelle
 	} 
 	prerequisite = {
-		focus = GER_slaughter_the_jacobins
+		focus = GER_a_failed_state
 	}
 	will_lead_to_war_with = BEL
-	relative_position_id = GER_slaughter_the_jacobins
+	relative_position_id = GER_a_failed_state
 	ai_will_do = {
 		factor = 60
 	}
@@ -3622,96 +3631,130 @@ shared_focus = {
 	}
 }
 shared_focus = {
-	id = GER_exercising_the_army
-	icon = GFX_goal_GER_exercising_the_army
-	cost = 3
-	x = -1
+	id = GER_slaughter_the_jacobins
+	icon = GFX_goal_GER_slaughter_the_jacobins
+	cost = 5
+	x = 1
 	y = 1
 	prerequisite = {
-		focus = GER_reviving_an_old_plan
 		focus = GER_coaxing_degrelle
+	    focus = GER_reviving_an_old_plan
 	}
-	relative_position_id = GER_reviving_an_old_plan
+
+	relative_position_id = GER_coaxing_degrelle
 	ai_will_do = {
 		factor = 60
 	}
-	completion_reward = {
-		army_experience = 25
+	bypass = {
+		JNE = {
+			exists = no
+		}
 	}
-}
-shared_focus = {
-	id = GER_breaking_the_painleve_wall
-	icon = GFX_goal_GER_break_the_panlieve_wall
-	cost = 4
-	x = 2
-	y = 1
-	prerequisite = {
-		focus = GER_a_failed_state
-	}
-	relative_position_id = GER_a_failed_state
-	ai_will_do = {
-		factor = 60
+	available = {
+		JNE = {
+			exists = yes
+		}
+		HOL = {
+			exists = no
+		}
 	}
 	completion_reward = {
-		add_ideas = GER_fortbuster
-	}
-}
-shared_focus = {
-	id = GER_supporting_the_italians
-	icon = GFX_goal_GER_supporting_the_italians
-	cost = 4
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_breaking_the_painleve_wall
-	}
-	relative_position_id = GER_breaking_the_painleve_wall
-	ai_will_do = {
-		factor = 60
-	}
-	completion_reward = {
-		ITA = {
-			add_ideas = ITA_german_advisors
+		create_wargoal = {
+			target = JNE
+			type = topple_government
 		}
 	}
 }
-shared_focus = {
-	id = GER_preparing_the_luftwaffe
-	icon = GFX_goal_GER_preparing_the_luftwaffe
-	cost = 3
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_supporting_the_italians
-	}
-	relative_position_id = GER_supporting_the_italians
-	ai_will_do = {
-		factor = 60
-	}
-	completion_reward = {
-		add_equipment_to_stockpile = {
-			type = fighter_equipment_1
-			amount = 300
-		}
-		add_equipment_to_stockpile = {
-			type = tac_bomber_equipment_1
-			amount = 200
-		}
-		add_timed_idea = {
-			idea = GER_modernized_luftwaffe
-			days = 200
-		}  
-	}
-}
+# shared_focus = {
+# 	id = GER_exercising_the_army
+# 	icon = GFX_goal_GER_exercising_the_army
+# 	cost = 3
+# 	x = -1
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_reviving_an_old_plan
+# 		focus = GER_coaxing_degrelle
+# 	}
+# 	relative_position_id = GER_reviving_an_old_plan
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# 	completion_reward = {
+# 		army_experience = 25
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_breaking_the_painleve_wall
+# 	icon = GFX_goal_GER_break_the_panlieve_wall
+# 	cost = 4
+# 	x = 2
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_a_failed_state
+# 	}
+# 	relative_position_id = GER_a_failed_state
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# 	completion_reward = {
+		
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_supporting_the_italians
+# 	icon = GFX_goal_GER_supporting_the_italians
+# 	cost = 4
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_breaking_the_painleve_wall
+# 	}
+# 	relative_position_id = GER_breaking_the_painleve_wall
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# 	completion_reward = {
+# 		ITA = {
+# 			add_ideas = ITA_german_advisors
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_preparing_the_luftwaffe
+# 	icon = GFX_goal_GER_preparing_the_luftwaffe
+# 	cost = 3
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_supporting_the_italians
+# 	}
+# 	relative_position_id = GER_supporting_the_italians
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
+# 	completion_reward = {
+# 		add_equipment_to_stockpile = {
+# 			type = fighter_equipment_1
+# 			amount = 300
+# 		}
+# 		add_equipment_to_stockpile = {
+# 			type = tac_bomber_equipment_1
+# 			amount = 200
+# 		}
+# 		add_timed_idea = {
+# 			idea = GER_modernized_luftwaffe
+# 			days = 200
+# 		}  
+# 	}
+# }
 shared_focus = {
 	id = GER_unternehmen_attila
 	icon = GFX_goal_GER_operation_attilla
 	cost = 1
-	x = -2
+	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_preparing_the_luftwaffe
-		focus = GER_exercising_the_army
+		focus = GER_slaughter_the_jacobins
 	}
 	prerequisite = {
 		focus = GER_rachekrieg
@@ -3720,7 +3763,7 @@ shared_focus = {
 		has_war_with = FRA
 	}
 	will_lead_to_war_with = FRA
-	relative_position_id = GER_preparing_the_luftwaffe
+	relative_position_id = GER_slaughter_the_jacobins
 	ai_will_do = {
 		factor = 60 
 		modifier = {
@@ -3739,16 +3782,16 @@ shared_focus = {
 	id = GER_the_mosley_pact
 	icon = GFX_goal_GER_the_mosley_pact
 	cost = 5
-	x = 1
+	x = 3
 	y = 1
 	
-	relative_position_id = GER_unternehmen_attila
+	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
 		factor = 600
 	}
 
 	prerequisite = {
-		focus = GER_unternehmen_attila
+		focus = GER_bismarks_plan
 	}
 
 	mutually_exclusive = {
@@ -3757,6 +3800,7 @@ shared_focus = {
 
 	available = {
 		ENG = { has_country_flag = UK_chose_mosley }
+		has_war_with = FRA
 	}
 
 	completion_reward = {
@@ -3821,7 +3865,7 @@ shared_focus = {
 	id = GER_the_untersmensch_tyrants
 	icon = GFX_goal_GER_the_untermensch_tyrants
 	cost = 5
-	x = 4
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_bismarks_plan
@@ -3847,7 +3891,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_defending_to_the_last
 	icon = GFX_goal_GER_defending_to_the_last
-	cost = 4
+	cost = 8
 	x = -1
 	y = 1
 	mutually_exclusive = {
@@ -3861,13 +3905,23 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		add_ideas = GER_defending_the_fatherland
+		add_ideas = GER_defending_the_fatherland_2
+		950 = {
+			add_building_construction = { type = bunker level = 2 province = 6534 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 552 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 3510 instant_build = yes }
+		}
+		86 = {
+			add_building_construction = { type = bunker level = 2 province = 3460 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 9532 instant_build = yes }
+			add_building_construction = { type = bunker level = 2 province = 11588 instant_build = yes }
+		}
 	}
 } 
 shared_focus = {
 	id = GER_for_a_free_germany
 	icon = GFX_goal_GER_for_a_free_germany
-	cost = 4
+	cost = 8
 	x = 1
 	y = 1
 	mutually_exclusive = {
@@ -3881,14 +3935,31 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		add_ideas = GER_vorwarts
+		add_ideas = GER_vorwarts1
 	}
 }
 
+# shared_focus = {
+# 	id = GER_fortify_the_silesian_front
+# 	icon = GFX_goal_GER_fortify_the_silesian_front
+# 	cost = 6
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_defending_to_the_last
+# 	}
+# 	relative_position_id = GER_defending_to_the_last
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
+# 	completion_reward = {
+		
+# 	}
+# }
 shared_focus = {
-	id = GER_fortify_the_silesian_front
-	icon = GFX_goal_GER_fortify_the_silesian_front
-	cost = 6
+	id = GER_weaken_the_confederal_army
+	icon = GFX_goal_GER_weaken_the_confederal_army
+	cost = 3
 	x = 0
 	y = 1
 	prerequisite = {
@@ -3899,110 +3970,84 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		950 = {
-			add_building_construction = { type = bunker level = 2 province = 6534 instant_build = yes }
-			add_building_construction = { type = bunker level = 2 province = 552 instant_build = yes }
-			add_building_construction = { type = bunker level = 2 province = 3510 instant_build = yes }
-		}
-		86 = {
-			add_building_construction = { type = bunker level = 2 province = 3460 instant_build = yes }
-			add_building_construction = { type = bunker level = 2 province = 9532 instant_build = yes }
-			add_building_construction = { type = bunker level = 2 province = 11588 instant_build = yes }
-		}
-	}
-}
-shared_focus = {
-	id = GER_weaken_the_confederal_army
-	icon = GFX_goal_GER_weaken_the_confederal_army
-	cost = 3
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_fortify_the_silesian_front
-	}
-	relative_position_id = GER_fortify_the_silesian_front
-	ai_will_do = {
-		factor = 600
-	}
-	completion_reward = {
 		custom_effect_tooltip = GER_weaken_the_confederal_army_tt
 	}
 }
+# shared_focus = {
+# 	id = GER_alpenfestung
+# 	icon = GFX_goal_GER_alpefestung
+# 	cost = 4
+# 	x = 1
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_weaken_the_confederal_army
+# 	}
+# 	relative_position_id = GER_weaken_the_confederal_army
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
+# 	completion_reward = {
+# 		ITA = {
+# 			159 = {
+# 				add_building_construction = { type = bunker level = 2 province = 11587 instant_build = yes }
+# 				add_building_construction = { type = bunker level = 2 province = 11568 instant_build = yes }
+# 				add_building_construction = { type = bunker level = 2 province = 3776 instant_build = yes }	
+# 			}
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_ready_for_anything
+# 	icon = GFX_goal_GER_ready_for_anything
+# 	cost = 4
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_weaken_the_confederal_army
+# 	}
+# 	relative_position_id = GER_weaken_the_confederal_army
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
+# 	completion_reward = {
+# 		swap_ideas = {
+# 			add_idea = GER_defending_the_fatherland_2
+# 			remove_idea = GER_defending_the_fatherland
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_a_new_kind_of_war
+# 	icon = GFX_goal_GER_a_new_kind_of_war
+# 	cost = 6
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_for_a_free_germany
+# 	}
+# 	relative_position_id = GER_for_a_free_germany
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
+# 	completion_reward = {
+# 		add_tech_bonus = {
+# 			name = armor_bonus
+# 			uses = 2
+# 			bonus = 0.75
+# 			category = armor
+# 		}
+# 	}
+# }
 shared_focus = {
-	id = GER_alpenfestung
-	icon = GFX_goal_GER_alpefestung
-	cost = 4
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_weaken_the_confederal_army
-	}
-	relative_position_id = GER_weaken_the_confederal_army
-	ai_will_do = {
-		factor = 600
-	}
-	completion_reward = {
-		ITA = {
-			159 = {
-				add_building_construction = { type = bunker level = 2 province = 11587 instant_build = yes }
-				add_building_construction = { type = bunker level = 2 province = 11568 instant_build = yes }
-				add_building_construction = { type = bunker level = 2 province = 3776 instant_build = yes }	
-			}
-		}
-	}
-}
-shared_focus = {
-	id = GER_ready_for_anything
-	icon = GFX_goal_GER_ready_for_anything
-	cost = 4
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_alpenfestung
-	}
-	relative_position_id = GER_alpenfestung
-	ai_will_do = {
-		factor = 600
-	}
-	completion_reward = {
-		swap_ideas = {
-			add_idea = GER_defending_the_fatherland_2
-			remove_idea = GER_defending_the_fatherland
-		}
-	}
-}
-shared_focus = {
-	id = GER_a_new_kind_of_war
-	icon = GFX_goal_GER_a_new_kind_of_war
-	cost = 6
+	id = GER_austrian_sabotage
+	icon = GFX_goal_GER_unterhemmen_steigend
+	cost = 3
 	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_for_a_free_germany
 	}
 	relative_position_id = GER_for_a_free_germany
-	ai_will_do = {
-		factor = 600
-	}
-	completion_reward = {
-		add_tech_bonus = {
-			name = armor_bonus
-			uses = 2
-			bonus = 0.75
-			category = armor
-		}
-	}
-}
-shared_focus = {
-	id = GER_austrian_sabotage
-	icon = GFX_goal_GER_unterhemmen_steigend
-	cost = 3
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_a_new_kind_of_war
-	}
-	relative_position_id = GER_a_new_kind_of_war
 	ai_will_do = {
 		factor = 600
 	}
@@ -4018,6 +4063,7 @@ shared_focus = {
 	y = 1
 	prerequisite = {
 		focus = GER_austrian_sabotage
+		focus = GER_weaken_the_confederal_army
 	}
 	relative_position_id = GER_austrian_sabotage
 	ai_will_do = {
@@ -4031,41 +4077,40 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = GER_the_final_push
-	icon = GFX_goal_GER_the_final_push
-	cost = 4
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_unternehmen_steigend
-	}
-	relative_position_id = GER_unternehmen_steigend
-	ai_will_do = {
-		factor = 600
-	}
-	completion_reward = {
-		swap_ideas = {
-			remove_idea = GER_vorwarts
-			add_idea = GER_vorwarts1
-		}
-	}
-}
+# shared_focus = {
+# 	id = GER_the_final_push
+# 	icon = GFX_goal_GER_the_final_push
+# 	cost = 4
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_austrian_sabotage
+# 	}
+# 	relative_position_id = GER_austrian_sabotage
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
+# 	completion_reward = {
+# 		swap_ideas = {
+# 			remove_idea = GER_vorwarts
+# 			add_idea = GER_vorwarts1
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = GER_breaking_the_chains
 	icon = GFX_goal_GER_silesia_or_war
 	cost = 7
-	x = -1
+	x = 0
 	y = 1
 	prerequisite = {
-		focus = GER_ready_for_anything
-		focus = GER_the_final_push
+		focus = GER_unternehmen_steigend
 	}
 	prerequisite = {
 		focus = GER_rachekrieg
 	}
-	relative_position_id = GER_the_final_push
+	relative_position_id = GER_unternehmen_steigend
 	bypass = {
 		has_war_with = AUS
 	}
@@ -4090,108 +4135,107 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = GER_magyar_contracts
-	icon = GFX_goal_GER_magyar_contacts
-	cost = 4
-	x = -1
-	y = 1
-	prerequisite = {
-		focus = GER_breaking_the_chains
-	}
-	relative_position_id = GER_breaking_the_chains
-	bypass = {
-		OR = {
-			AUS = {
-				exists = no
-			}
-			AUS = {
-				is_puppet = yes
-			}
-		}
-	}
-	# ai_will_do = {
-	# 	factor = 600
-	# }
-	completion_reward = {
-		country_event = GER_austrian_ethnic_revolts.1
-	}
-}
-shared_focus = {
-	id = GER_forment_italian_revolt
-	icon = GFX_goal_GER_forment_the_italian_revolt
-	cost = 4
-	x = 1
-	y = 1
-	prerequisite = {
-		focus = GER_magyar_contracts
-	}
-	relative_position_id = GER_magyar_contracts
-	# ai_will_do = {
-	# 	factor = 600
-	# }
-	bypass = {
-		OR = {
-			AUS = {
-				exists = no
-			}
-			AUS = {
-				is_puppet = yes
-			}
-		}
-	}
-	completion_reward = {
-		country_event = GER_austrian_ethnic_revolts.2
-	}
-}
-shared_focus = {
-	id = GER_the_greater_german_revolt
-	icon = GFX_goal_GER_great_german_revolt
-	cost = 7
-	x = 0
-	y = 1
-	prerequisite = {
-		focus = GER_forment_italian_revolt
-	}
-	relative_position_id = GER_forment_italian_revolt
-	# ai_will_do = {
-	# 	factor = 600
-	# }
-	bypass = {
-		OR = {
-			AUS = {
-				exists = no
-			}
-			AUS = {
-				is_puppet = yes
-			}
-		}
-	}
-	completion_reward = {
-		country_event = GER_austrian_ethnic_revolts.3
+# shared_focus = {
+# 	id = GER_magyar_contracts
+# 	icon = GFX_goal_GER_magyar_contacts
+# 	cost = 4
+# 	x = -1
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_breaking_the_chains
+# 	}
+# 	relative_position_id = GER_breaking_the_chains
+# 	bypass = {
+# 		OR = {
+# 			AUS = {
+# 				exists = no
+# 			}
+# 			AUS = {
+# 				is_puppet = yes
+# 			}
+# 		}
+# 	}
+# 	# ai_will_do = {
+# 	# 	factor = 600
+# 	# }
+# 	completion_reward = {
+# 		country_event = GER_austrian_ethnic_revolts.1
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_forment_italian_revolt
+# 	icon = GFX_goal_GER_forment_the_italian_revolt
+# 	cost = 4
+# 	x = 1
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_magyar_contracts
+# 	}
+# 	relative_position_id = GER_magyar_contracts
+# 	# ai_will_do = {
+# 	# 	factor = 600
+# 	# }
+# 	bypass = {
+# 		OR = {
+# 			AUS = {
+# 				exists = no
+# 			}
+# 			AUS = {
+# 				is_puppet = yes
+# 			}
+# 		}
+# 	}
+# 	completion_reward = {
+# 		country_event = GER_austrian_ethnic_revolts.2
+# 	}
+# }
+# shared_focus = {
+# 	id = GER_the_greater_german_revolt
+# 	icon = GFX_goal_GER_great_german_revolt
+# 	cost = 7
+# 	x = 0
+# 	y = 1
+# 	prerequisite = {
+# 		focus = GER_forment_italian_revolt
+# 	}
+# 	relative_position_id = GER_forment_italian_revolt
+# 	# ai_will_do = {
+# 	# 	factor = 600
+# 	# }
+# 	bypass = {
+# 		OR = {
+# 			AUS = {
+# 				exists = no
+# 			}
+# 			AUS = {
+# 				is_puppet = yes
+# 			}
+# 		}
+# 	}
+# 	completion_reward = {
+# 		country_event = GER_austrian_ethnic_revolts.3
 		
-	}
-}
+# 	}
+# }
 
 shared_focus = {
 	id = GER_operation_walross
 	icon = GFX_goal_GER_operation_walross
 	cost = 5
-	x = 4
+	x = 6
 	y = 1
 	
-	relative_position_id = GER_unternehmen_attila
+	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
-		factor = 60
+		factor = 600
 	}
 
 	prerequisite = {
-		focus = GER_unternehmen_attila
-		focus = GER_breaking_the_chains
+		focus = GER_bismarks_plan
 	}
 	available = {
 		has_global_flag = operation_walross_blockade
-		
+		has_war_with = FRA
 		hidden_trigger = {
 			if = {
 				limit = {
@@ -4374,7 +4418,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_luftstreltkrafte_innovations
 		icon = GFX_GER_lukestrafe
-		x = 37
+		x = 38
 		y = 0
 		
 		available = {
@@ -4854,7 +4898,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_the_reichsheer_capabillities
 		icon = GFX_GER_reichsheer
-		x = 29
+		x = 30
 		y = 0
 		
 		available = {
@@ -5442,7 +5486,7 @@ shared_focus = {
 	shared_focus = { 
 		id = GER_preussische_reichsmarine
 		icon = GFX_GER_preussische_reichsmarine
-		x = 37
+		x = 38
 		y = 7
 		
 		available = {

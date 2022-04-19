@@ -439,8 +439,14 @@ GER_ss_waffen_cat = {
 			}
 		}
 		visible = {
-			NOT = {
-				has_completed_focus = GER_retire_reactionary_officers
+			set_temp_variable = {
+				ss_power_check = ss_power
+			}
+			add_to_temp_variable = {
+				ss_power_check = -50
+			}
+			check_variable = {
+				var = ss_power_check value = freikorps_power compare = greater_than_or_equals
 			}
 		}
 		activation = {
@@ -465,8 +471,14 @@ GER_ss_waffen_cat = {
 			}
 		}
 		visible = {
-			NOT = {
-				has_completed_focus = GER_ensure_army_loyalty
+			set_temp_variable = {
+				freikorps_power_check = freikorps_power
+			}
+			add_to_temp_variable = {
+				freikorps_power_check = -50
+			}
+			check_variable = {
+				var = freikorps_power_check value = ss_power compare = greater_than_or_equals
 			}
 		}
 		activation 	= {
