@@ -3828,6 +3828,78 @@ country_event = {
 	}
 }
 
+## Land of Eastern Democracy
+country_event = {
+	id = USA_generic_foriegn_policy_tree.8
+	title = USA_generic_foriegn_policy_tree.8.t
+	desc = USA_generic_foriegn_policy_tree.8.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.8.a
+
+	}
+}
+
+## continue relations with emperor
+country_event = {
+	id = USA_generic_foriegn_policy_tree.9
+	title = USA_generic_foriegn_policy_tree.9.t
+	desc = USA_generic_foriegn_policy_tree.9.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.9.a
+		JAP = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.4
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			JAP = {
+				remove_ideas = JAP_meiji_constitution
+			}
+			JAP = {
+				add_ideas = JAP_absolutism
+			}
+		}
+	}
+}
+
+## Hirohito Total Coup
+country_event = {
+	id = USA_generic_foriegn_policy_tree.10
+	title = USA_generic_foriegn_policy_tree.10.t
+	desc = USA_generic_foriegn_policy_tree.10.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.10.a
+		set_autonomy = {
+			target = JAP
+			autonomy_state = autonomy_satellite
+		}
+	}
+}
+
+## Hirohito In Exile
+country_event = {
+	id = USA_generic_foriegn_policy_tree.11
+	title = USA_generic_foriegn_policy_tree.11.t
+	desc = USA_generic_foriegn_policy_tree.11.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.11.a
+		## recuirt hirohito as field marshall
+	}
+}
 
 
 ########

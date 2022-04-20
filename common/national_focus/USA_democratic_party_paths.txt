@@ -3393,7 +3393,12 @@ shared_focus = {
 	relative_position_id = USA_the_rising_sun
 	
 	completion_reward = {
-	
+		JAP = {
+			swap_ideas = {
+				add_idea = JAP_meiji_constitution_2
+				remove_idea = JAP_meiji_constitution
+			}
+		}
 	}
 }
 
@@ -3415,12 +3420,13 @@ shared_focus = {
 	relative_position_id = USA_continue_relations_with_the_emperor
 	
 	completion_reward = {
+		country_event = USA_generic_foriegn_policy_tree.9
 	}
 }
 shared_focus = {
 	id = USA_chinese_interests
 	icon = GFX_focus_usa_focus_on_asia
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -3429,12 +3435,72 @@ shared_focus = {
 	}
 	available = {
 	}
+	mutually_exclusive = {
+		focus = USA_the_tokyo_gambit
+	}
 	prerequisite = {
 		focus = USA_isolate_the_emperor
 	}
 	relative_position_id = USA_isolate_the_emperor
 	
 	completion_reward = {
+		## Unlock East Asian Decisions
+	}
+}
+shared_focus = {
+	id = USA_the_tokyo_gambit
+	icon = GFX_goal_AUS_the_remnants_of_prussia
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+	}
+	mutually_exclusive = {
+		focus = USA_chinese_interests
+	}
+	prerequisite = {
+		focus = USA_isolate_the_emperor
+	}
+	relative_position_id = USA_isolate_the_emperor
+	
+	completion_reward = {
+		country_event = USA_generic_foriegn_policy_tree.10
+	}
+}
+shared_focus = {
+	id = USA_asssistance_against_russia
+	icon = GFX_focus_usa_focus_on_asia
+	x = -1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+		JAP = {
+			has_war_with = SOV
+		}
+	}
+	
+	prerequisite = {
+		focus = USA_the_tokyo_gambit
+		focus = USA_chinese_interests
+	}
+	relative_position_id = USA_the_tokyo_gambit
+	
+	completion_reward = {
+		JAP = {
+			country_event = Generic.2
+		}
+		create_wargoal = {
+			target = SOV
+			type = topple_government
+		}
 	}
 }
 
@@ -3561,6 +3627,7 @@ shared_focus = {
 	relative_position_id = USA_the_rising_sun
 	
 	completion_reward = {
+		country_event = USA_generic_foriegn_policy_tree.8
 	}
 }
 
