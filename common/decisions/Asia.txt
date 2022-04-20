@@ -26,6 +26,11 @@ AIG_worldbuilding_decisions = {
 				id = USA_flavor_events.2
 				days = 950
 			}
+			
+		}
+		fire_only_once = yes
+		days_remove = 620
+		remove_effect = {
 			add_popularity = {
 				ideology = socialism_democratic 
 				popularity = 0.3
@@ -33,13 +38,9 @@ AIG_worldbuilding_decisions = {
 			set_politics = {
 				ruling_party = socialism_democratic
 			}
-		}
-		fire_only_once = yes
-		days_remove = 620
-		remove_effect = {
 			create_faction = "Indian United Front"
-			news_event = indian_civil_war.1 
-			set_country_flag = indian_united_front
+			news_event = { id = indian_civil_war.1 days = 20 }
+			
 		}
 	
 	}
