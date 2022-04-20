@@ -204,6 +204,41 @@ if = {
 	}
 }
 
+### Puppet Status
+
+ENG = { if = {
+  limit = {
+    has_dlc = "Together for Victory"
+  }
+  
+  set_autonomy = {
+    target = EGY
+    autonomy_state = autonomy_dominion
+  }
+
+  else = {
+    puppet = EGY
+        }
+    }
+}
+
+ENG = { if = {
+  limit = {
+    has_dlc = "Together for Victory"
+  }
+  
+  set_autonomy = {
+    target = NGA
+    autonomy_state = autonomy_colony
+  }
+
+  else = {
+    puppet = NGA
+        }
+    }
+}
+
+
 puppet = IRE
 
 puppet = BOT

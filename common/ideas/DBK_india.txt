@@ -21,7 +21,7 @@ ideas = {
 			targeted_modifier = {
 				tag = RAJ
 				attack_bonus_against = 0.1
-				defence_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 
 		}
@@ -37,10 +37,9 @@ ideas = {
 			picture = ROM_Agrarianism
 
 			modifier = {
-				consumer_goods_factor = 0.15
-				conscription_factor = -0.25
-				industrial_capacity_factory = -0.5
-				industrial_capacity_dockyard = -0.9
+				consumer_goods_factor = 0.08
+				industrial_capacity_factory = -0.35
+				industrial_capacity_dockyard = -0.35
 				production_speed_buildings_factor = -0.25
 				trade_opinion_factor = -0.75
 			}
@@ -58,9 +57,8 @@ ideas = {
 			picture = raj_marginalized_muslim_community_angry
 
 			modifier = {
-				conscription_factor = -0.2
-				political_power_factor = -0.2
-				stability_factor = -0.1
+				conscription_factor = -0.15
+				army_morale_factor = -0.1
 			}
 
 		}
@@ -76,10 +74,8 @@ ideas = {
 			picture = generic_morale_bonus
 
 			modifier = {
-				political_power_gain = 0.3
-				trade_opinion_factor = 0.25
+				offensive_war_stability_factor = 0.15
 				non_core_manpower = 0.2
-				stability_factor = 0.1
 			}
 
 		}
@@ -98,8 +94,7 @@ ideas = {
 
 			modifier = {
 				political_power_factor = -0.2
-				war_support_factor = -0.2
-				stability_factor = -0.2
+				legitimacy_gain_factor = -0.15
 			}
 
 		}
@@ -116,11 +111,12 @@ ideas = {
 
 			modifier = {
 				army_org_factor = 0.1
-				army_attack_factor = 0.15
-				army_defence_factor = 0.15
-				land_doctrine_cost_factor = -0.1
-				army_armor_attack_factor = 0.1
-				army_armor_defence_factor = 0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+
+			research_bonus = {
+				land_doctrine = -0.1
 			}
 
 		}
@@ -176,8 +172,9 @@ ideas = {
 			picture = raj_marginalized_muslim_community_happy
 
 			modifier = {
-				war_support_factor = 0.1
 				conscription = 0.015
+				war_support_factor = 0.1
+				fascism_drift = 0.01
 			}
 
 		}
@@ -201,23 +198,8 @@ ideas = {
 
 		#dravida
 
-		DRA_most_confused_government_in_history = {
-
-			allowed = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			picture = Constitution_of_1927
-
-			modifier = {
-				stability_factor = -0.3
-				war_support_factor = -0.3
-				political_power_factor = -0.5
-			}
-
-		}
+		## DRA_most_confused_government_in_history in the ZZZ file
+		
 
 		DRA_unionist_opposition = {
 
@@ -230,11 +212,8 @@ ideas = {
 			picture = generic_disjointed_gov
 
 			modifier = {
-				conscription = -0.01
-				army_org_factor = -0.2
+				army_morale_factor = -0.2
 				consumer_goods_factor = 0.1
-				stability_factor = -0.1
-				war_support_factor = -0.2
 			}
 
 			targeted_modifier = {
@@ -262,7 +241,6 @@ ideas = {
 			picture = Constitution_of_1927
 
 			modifier = {
-				consumer_goods_factor = -0.02
 				production_speed_buildings_factor = 0.05
 				industrial_capacity_factory = 0.05
 				industrial_capacity_dockyard = 0.1
