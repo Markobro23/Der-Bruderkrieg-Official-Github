@@ -4484,48 +4484,9 @@ country_event = {
 	title = SOV_russian_collapse_leadup.1.t
 	desc = SOV_russian_collapse_leadup.1.d
 	#picture = GFX_hitlerartisteventpic
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = { 
-		if = {
-			limit = {
-				OR = {
-					has_government = communism
-					has_government = democratic_communism
-				}
-			}
-			has_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
-		}
-		if = {
-			limit = {
-				OR = {
-					has_government = socialism_democratic
-					has_government = democratic_liberalism
-				}
-			}
-			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 25 compare = less_than
-			} 
-			OR = {
-				has_idea = SOV_conservative_high_command
-				has_idea = SOV_conservative_high_command_2
-				has_idea = SOV_conservative_high_command_3
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_government = democratic
-				}
-			}
-			always = no
-			##fire_belogurov_collapse = yes
-		}
-		else = {
-			always = no
-		}
-		tag = SOV
-	}
+	
 	option = {
 		name = SOV_russian_collapse_leadup.1.a
 		ai_chance = { factor = 1}
