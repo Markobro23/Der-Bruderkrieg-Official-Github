@@ -3,7 +3,32 @@ characters={
 		name="Hristo Lukov"
 		portraits={
 			civilian={
-				large="GFX_Portrait_bulgaria_hristo_lukov"
+				large="gfx/leaders/BUL/Portrait_BUL_Hristo_Lukov_KR.png"
+			}
+			army = {
+				small = "GFX_idea_generic_army_europe_2"
+			}
+		}
+		corps_commander = {
+			traits = { hill_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = BUL_hristo_lukov
+			allowed = {
+				original_tag = BUL
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
 			}
 		}
 		country_leader={
@@ -17,7 +42,7 @@ characters={
 		name="Ferdinand I"
 		portraits={
 			civilian={
-				large="gfx/leaders/Tsar_Ferdinand_I.dds"
+				large="gfx/leaders/BUL/Tsar_Ferdinand_I.dds"
 			}
 		}
 		country_leader={
@@ -28,11 +53,34 @@ characters={
 			id=-1
 		}
 	}
+	BUL_boris_iii={
+		name="Boris Saxe-Coburg-Gotha"
+		portraits={
+			civilian={
+				large="gfx/leaders/BUL/Portrait_BUL_Boris.png"
+			}
+		}
+		country_leader={
+			#desc="POLITICS_BORIS_III_DESC"
+			ideology=authoritarian_democrat
+			#traits={ Greater_Bulgaria dictator staunch_monarchist }
+			expire="1965.1.1.1"
+			id=-1
+		}
+		field_marshal = {
+			traits = { infantry_officer politically_connected inspirational_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
 	BUL_georgi_dimitrov={
 		name="Georgi Dimitrov"
 		portraits={
 			civilian={
-				large="gfx/leaders/BUL/Portrait_Bulgaria_Georgi_Dimitrov.dds"
+				large="gfx/leaders/BUL/Portrait_BUL_Georgi_Dimitrov_KR.png"
 			}
 		}
 		country_leader={
@@ -56,112 +104,263 @@ characters={
 			id=-1
 		}
 	}
-	BUL_vasil_tenev_boydev={
-		name="Vasil Tenev Boydev"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+	BUL_teodosi_daskalov = {
+		name = "Teodosi Daskalov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Teodosi_Daskalov.png"
 			}
 		}
-		corps_commander={
-			traits={ armor_officer }
-			skill=3
-			attack_skill=2
-			defense_skill=3
-			planning_skill=2
-			logistics_skill=3
-			legacy_id=-1
+		field_marshal = {
+			traits = { career_officer skilled_staffer defensive_doctrine }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
-	BUL_georgi_nikolov_popov={
-		name="Georgi Nikolov Popov"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
+	BUL_nikola_nedev = {
+		name = "Nikola Nedev"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Nikola_Nedev.png"
 			}
 		}
-		field_marshal={
-			traits={ defensive_doctrine }
-			skill=4
-			attack_skill=2
-			defense_skill=4
-			planning_skill=3
-			logistics_skill=4
-			legacy_id=-1
+		corps_commander = {
+			traits = { career_officer fortress_buster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
-	BUL_stanislav_balabanov={
-		name="Stanislav Balabanov"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	BUL_asen_nikolov = {
+		name = "Asen Nikolov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Asen_Nikolov_KR.png"
 			}
 		}
-		country_leader={
-			ideology=liberal_socialism
-			expire="1954.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { harsh_leader trickster }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
 		}
 	}
-	BUL_ivan_georgiev={
-		name="Ivan Georgiev"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	BUL_pencho_zlatev = {
+		name = "Pencho Zlatev"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Pencho_Zlatev.png"
 			}
 		}
-		country_leader={
-			ideology=civic_nationalism
-			expire="1953.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { career_officer cavalry_leader combined_arms_expert }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
-	BUL_leonid_agura={
-		name="Leonid Agura"
-		portraits={
-			civilian={
-				large="GFX_Portrait_europe_generic_7"
+	BUL_rusi_rusev = {
+		name = "Rusi Hristov Rusev"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Rusi_Rusev.png"
 			}
 		}
-		country_leader={
-			ideology=social_conservatism
-			traits={ longist_puppet }
-			expire="1951.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { career_officer fortress_buster }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
-	BUL_stanislav_stoyanov={
-		name="Stanislav Stoyanov"
-		portraits={
-			civilian={
-				large="GFX_Portrait_europe_generic_7"
+	BUL_konstantin_lukash = {
+		name = "Konstantin Lukash"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Konstantin_Lukash_KR.png"
+				small = "GFX_idea_bul_konstantin_lukash"
 			}
 		}
-		country_leader={
-			ideology=despotic
-			traits={ charismatic_ego }
-			expire="1950.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { infantry_officer urban_assault_specialist }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = BUL_konstantin_lukash
+			allowed = {
+				original_tag = BUL
+			}
+			available = {
+				NOT = {
+					has_government = communism
+				}
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
-	BUL_atila_agura={
-		name="Atila Agura"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+	BUL_nikola_hadzhipetov = {
+		name = "Nikola Nikolov Hadzhipetkov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Nikola_Hadzhipetov_KR.png"
+				small = "GFX_idea_bul_nikola_hadzipetkov"
 			}
 		}
-		country_leader={
-			ideology=ultranationalist
-			traits={ retired_officer }
-			expire="1949.1.1.12"
-			id=-1
+		advisor = {
+			slot = army_chief
+			idea_token = BUL_nikola_hadzipetkov
+			allowed = {
+				original_tag = BUL
+			}
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist infantry_officer organizer trickster }
+			skill = 4
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 3
+			legacy_id = 1203
+		}
+	}
+	BUL_ivan_valkov = {
+		name = "Ivan Valkov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Ivan_Valkov.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard career_officer skilled_staffer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	BUL_nikola_nakov = {
+		name = "Nikola Nakov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Nikola_Nakov.png"
+				small = GFX_portrait_BUL_nikola_nakov_small
+			}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	BUL_kyril_sakskoburggotski = {
+		name = "Kyril Saxe-Coburg-Gotha"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Prince_Kyril.png"
+			}
+			civilian = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Prince_Kyril.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	BUL_ivan_variklechkov = {
+		name = "Ivan Variklechkov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Ivan_Variklechkov.png"
+				small = "GFX_idea_bul_ivan_variklechkov"
+			}
+		}
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = BUL_ivan_variklechkov
+			allowed = {
+				original_tag = BUL
+			}
+			traits = {
+				navy_chief_commerce_raiding_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	BUL_sava_ivanov = {
+		name = "Sava Ivanov"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BUL/Portrait_BUL_Sava_Ivanov.png"
+				small = "GFX_idea_bul_sava_ivanov"
+			}
+		}
+		advisor = {
+			cost = 100
+			slot = theorist
+			idea_token = BUL_sava_ivanov
+			ledger = navy
+			allowed = {
+				original_tag = BUL
+			}
+			
+			traits = {
+				naval_theorist
+			}
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
 	}
 }

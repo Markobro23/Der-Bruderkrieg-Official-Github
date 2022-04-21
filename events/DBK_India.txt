@@ -13,7 +13,12 @@ news_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = indian_civil_war.1.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+        if = {
+			limit = {
+				tag = AIG
+			}
+			set_country_flag = indian_united_front
+		}
 	}
 
 }

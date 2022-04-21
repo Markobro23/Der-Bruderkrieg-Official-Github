@@ -5,6 +5,8 @@ ideas = {
 				always = no
 			}
 
+			#picture = generic_war_preparation
+
 			allowed_civil_war = {
 				always = yes
 			}
@@ -86,6 +88,78 @@ ideas = {
 				stability_factor = -0.1
 			}
         }
+
+        GRE_international_greece = {
+            allowed = {
+				always = no
+			}
+
+			picture = generic_intel_bonus
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.1
+				trade_opinion_factor = 0.1
+				opinion_gain_monthly = 0.2
+			}
+        }
+
+        THS_greek_nationalists = {
+			
+			allowed = {
+				always = no
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				NOT = {
+					is_subject_of = BUL
+				}
+			}
+			
+			picture = generic_war_preparation
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = -0.1
+				production_speed_buildings_factor = -0.1
+			}
+		}
+
+		THS_south_slav_sympathies = {
+			
+			allowed = {
+				always = no
+			}
+
+			cancel = {
+				NOT = {
+					is_subject_of = BUL
+				}
+			}
+			
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			picture = generic_manpower_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				army_core_defence_factor = 0.05
+				conscription_factor = 0.05
+			}
+		}
     }
 
     head_of_government = {

@@ -1296,7 +1296,29 @@ country_event = {
 		# 	autonomy_state = autonomy_danubian_federation_member
       	# 	freedom_level = 0.2
 		# }
+		hidden_effect = {
+			CRO = {
+				set_politics = {
+				ruling_party = democratic
+				last_election = "1935.3.31"
+				election_frequency = 48
+				elections_allowed = no
+				}
+				set_popularities = {
+				democratic = 49
+				neutrality = 27
+				communism = 24
+				}
+				keep_current_politics = yes
+			}
+		}
 		release_puppet = CRO
+		
+		hidden_effect = {
+			CRO = {
+				reset_government = yes
+			}
+		}
 
 		AUS_fedor_dragojlov = {
 	      set_nationality = CRO
@@ -1304,16 +1326,16 @@ country_event = {
 	    AUS_vladimir_laxa = {
 	      set_nationality = CRO
 	    }
-	    AUS_mihajlo_lukić = {
+	    AUS_mihajlo_lukic = {
 	      set_nationality = CRO
 	    }
 	    AUS_slavko_kvaternik = {
 	      set_nationality = CRO
 	    }
-	    AUS_eduard_bonabunić = {
+	    AUS_eduard_bonabunic = {
 	      set_nationality = CRO
 	    }
-	    AUS_matija_Čanić = {
+	    AUS_matija_canic = {
 	      set_nationality = CRO
 	    }
 
@@ -3741,8 +3763,8 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
-		BAD_berthold_i = { set_nationality = GPU }
-		HES_heinrich_von_vietinghoff = { set_nationality = GPU }
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
@@ -3844,11 +3866,12 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
-			recruit_character = BAD_berthold_i 
-			recruit_character = HES_heinrich_von_vietinghoff
+			
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -4159,8 +4182,24 @@ country_event = {
 		66 = {
 			add_core_of  = CZE
 		}
-		release = CZE
+		AUS = {
+			set_autonomy = {
+				target = CZE
+				autonomy_state = autonomy_free
+			}
+		}
 		CZE = {
+			set_cosmetic_tag = free_czech
+			create_country_leader = {
+				name = "Tomáš Garrigue Masaryk"
+				desc = "POLITICS_EDVARD_BENES_DESC"
+				picture = "gfx/leaders/masaryk.dds"
+				expire = "1965.1.1"
+				ideology = democratic_liberal
+				traits = {
+					#
+				}
+			}
 			set_politics = {
 				ruling_party = democratic_liberalism
 			}
@@ -4409,36 +4448,46 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
+		
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = AUS
+			}
+		}
 		annex_country = {
 			target = BOS
-			transfer_troops = yes
+			transfer_troops = yes	
 		}
-		BOS_dzafer_kulenovic = {
-			set_nationality = AUS
-		}
-		BOS_gojkomir_glogovac = {
-			set_nationality = AUS
-		}
+		
 		trigger = {
 			has_completed_focus = AUS_ABSOLUTISM
 		}
 	}
 	option = {
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_dzafer_kulenovic = {
+				set_nationality = CRO
+			}
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = CRO
+			}
+		}
 		CRO = {
 			annex_country = {
 				target = BOS
 				transfer_troops = yes
 			}
-			set_cosmetic_tag = illyria
+			set_cosmetic_tag = CRO_illyria
 		}
-		BOS_dzafer_kulenovic = {
-			set_nationality = CRO
-		}
-		BOS_gojkomir_glogovac = {
-			set_nationality = CRO
-		}
+		
 		trigger = {
 			has_completed_focus = AUS_concessions_to_people
 		}

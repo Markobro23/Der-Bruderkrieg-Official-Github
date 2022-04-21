@@ -2833,11 +2833,51 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+        set_cosmetic_tag = SOV_lenin_ultra_communism
         swap_ideas = {
             add_idea = SOV_beacon_of_socialism_2
             remove_idea = SOV_beacon_of_socialism
         }
         SOV_increase_support_among_people_large = yes
+        if = {
+            limit = {
+                has_completed_focus = SOV_follow_trotskys_footsteps
+            }
+            every_country = {
+                limit = {
+                    is_puppet_of = SOV
+                }
+                SOV = {
+                    annex_country = {
+                        target = PREV
+                        transfer_troops = yes
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = { 
+                has_completed_focus = SOV_socialism_in_one_country
+            }
+            SOV = {
+
+            }
+        }
+        else = {
+            effect_tooltip = {
+                every_country = {
+                    limit = {
+                        is_puppet_of = SOV
+                    }
+                    SOV = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
+                    }
+                }
+            }
+        }
 	}
 	ai_will_do = {
 	}
