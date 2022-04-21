@@ -10,10 +10,10 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
-			factor = 1000
+			factor = 500
 		}
 		complete_effect = {
 			set_country_flag = AIG_chose_path
@@ -53,7 +53,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -76,7 +76,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -99,7 +99,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -121,7 +121,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -143,7 +143,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -168,7 +168,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 500
@@ -203,7 +203,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 			set_country_flag = AIG_doing_invasion_decision
@@ -230,7 +230,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 			set_country_flag = AIG_doing_invasion_decision
@@ -257,7 +257,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 			set_country_flag = AIG_doing_invasion_decision
@@ -283,7 +283,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 			set_country_flag = AIG_doing_invasion_decision
@@ -309,7 +309,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 			set_country_flag = AIG_doing_invasion_decision
@@ -333,7 +333,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		complete_effect = {
 		}
@@ -362,7 +362,7 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -426,7 +426,7 @@ AIG_worldbuilding_decisions = {
 			has_country_flag = indian_united_front
 		}
 		visible = {
-		
+		    tag = AIG
 		}
 		ai_will_do = {
 			factor = 1000
@@ -459,7 +459,194 @@ AIG_worldbuilding_decisions = {
 	}
 
 
-	##
+	##AIG reactions - Revanchist
+	PAK_new_mughal_empire = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_axis
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = PAK
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 12
+		days_re_enable = 0
+		remove_effect = {
+			set_politics = {
+				ruling_party = fascism
+				
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.45
+			}
+			set_cosmetic_tag = pak_mughal_empire
+			swap_ideas = {
+				add_idea = PAK_moth_eaten_pakistan_2
+				remove_idea = PAK_moth_eaten_pakistan
+			}
+		}
+	}
+
+	INC_reactionaries_win_elections = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_axis
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = INC
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 18
+		days_re_enable = 0
+		remove_effect = {
+			set_politics = {
+				ruling_party = authoritarian_democratic
+			}
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.45
+			}
+		}
+	}
+
+	DRA_anti_unionist_propaganda = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_axis
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = DRA
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 24
+		days_re_enable = 0
+		remove_effect = {
+			swap_ideas = {
+				add_idea = DRA_unionist_opposition_2
+				remove_idea = DRA_unionist_opposition
+			}
+			set_politics = {
+				ruling_party = democratic
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.45
+			}
+		}
+	}
+
+
+
+	##AIG reactions - Diplomatic
+	PAK_conservatives_win_election = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_united_front
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = PAK
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 12
+		days_re_enable = 0
+		remove_effect = {
+			set_politics = {
+				ruling_party = democratic
+				
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.45
+			}
+			swap_ideas = {
+				add_idea = PAK_moth_eaten_pakistan_2
+				remove_idea = PAK_moth_eaten_pakistan
+			}
+		}
+	}
+
+	INC_moderates_win_election = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_united_front
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = INC
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 18
+		days_re_enable = 0
+		remove_effect = {
+			
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+		}
+	}
+
+	DRA_pro_unionist_propaganda = {
+		icon = generic_nation
+		available = {
+			AIG = {
+				has_country_flag = indian_united_front
+				is_in_faction = yes
+			}
+		}
+		visible = {
+		   tag = DRA
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 24
+		days_re_enable = 0
+		remove_effect = {
+			swap_ideas = {
+				add_idea = DRA_unionist_opposition_2
+				remove_idea = DRA_unionist_opposition
+			}
+			set_politics = {
+				ruling_party = socialism_democratic
+			}
+			add_popularity = {
+				ideology = socialism_democratic
+				popularity = 0.45
+			}
+		}
+	}
 }
 
 
