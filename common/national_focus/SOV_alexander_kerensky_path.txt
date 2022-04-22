@@ -91,168 +91,167 @@ shared_focus = {
     } 
 }
 
-shared_focus = {
-    id = SOV_Suppression_of_Opposition
-    icon = GFX_goal_SOV_the_constitutionalists 
-	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
-	mutually_exclusive = { focus = SOV_Democratically_Fighting_Opposition }
-	x = -2
-	y = 1
-    relative_position_id = SOV_Kerenskys_Political_Campaign
-    cost = 0
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
-		always = no
-    }
-    completion_reward = {
-       # add_ideas = SOV_Suppression_of_Opposition
-    }
-}
-shared_focus = {
-    id = SOV_Suppressing_Anti_Menshevik_Newspapers
-    icon = GFX_goal_AUS_the_final_language_decree 
-	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = 1
-	y = 1
-    relative_position_id = SOV_Suppression_of_Opposition
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
+# shared_focus = {
+#     id = SOV_Suppression_of_Opposition
+#     icon = GFX_goal_SOV_the_constitutionalists 
+# 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
+# 	mutually_exclusive = { focus = SOV_Democratically_Fighting_Opposition }
+# 	x = -2
+# 	y = 1
+#     relative_position_id = SOV_Kerenskys_Political_Campaign
+#     cost = 0
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
+# 		always = no
+#     }
+#     completion_reward = {
+#        # add_ideas = SOV_Suppression_of_Opposition
+#     }
+# }
+# shared_focus = {
+#     id = SOV_Suppressing_Anti_Menshevik_Newspapers
+#     icon = GFX_goal_AUS_the_final_language_decree 
+# 	prerequisite = {focus = SOV_Suppression_of_Opposition}
+# 	x = 1
+# 	y = 1
+#     relative_position_id = SOV_Suppression_of_Opposition
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
         
-    }
-    completion_reward = {
-		SOV_increase_support_among_people_small = yes
-		add_timed_idea = {
-			idea = SOV_Restricted_Freedom_of_Press
-			days = 50
-		}
-    }
-}
+#     }
+#     completion_reward = {
+# 		SOV_increase_support_among_people_small = yes
+# 		add_timed_idea = {
+# 			idea = SOV_Restricted_Freedom_of_Press
+# 			days = 50
+# 		}
+#     }
+# }
 
-shared_focus = {
-    id = SOV_RightWing_Crackdown
-    icon = GFX_goal_SOV_second_battle_of_kreshnatchyk_street 
-	prerequisite = {focus = SOV_Suppression_of_Opposition}
-	x = -1
-	y = 1
-    relative_position_id = SOV_Suppression_of_Opposition
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
+# shared_focus = {
+#     id = SOV_RightWing_Crackdown
+#     icon = GFX_goal_SOV_second_battle_of_kreshnatchyk_street 
+# 	prerequisite = {focus = SOV_Suppression_of_Opposition}
+# 	x = -1
+# 	y = 1
+#     relative_position_id = SOV_Suppression_of_Opposition
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
         
-    }
-    completion_reward = {
-        SOV_increase_support_among_people_small = yes
-		add_timed_idea = {
-			idea = SOV_Right_Wing_Crackdown
-			days = 50
-		}
-    }
-}
+#     }
+#     completion_reward = {
+#         SOV_increase_support_among_people_small = yes
+# 		add_timed_idea = {
+# 			idea = SOV_Right_Wing_Crackdown
+# 			days = 50
+# 		}
+#     }
+# }
 
 shared_focus = {
     id = SOV_Menshevik_Dominance
     icon = GFX_goal_SOV_a_new_dawn_for_russia 
-	prerequisite = {
-		focus = SOV_Suppressing_Anti_Menshevik_Newspapers
-	}
-	prerequisite = {focus = SOV_RightWing_Crackdown}
-	x = 1
+	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
+	mutually_exclusive = { focus = SOV_Verifying_Election_Results }
+	x = -2
 	y = 1
-    relative_position_id = SOV_RightWing_Crackdown
-    cost = 2
+    relative_position_id = SOV_Kerenskys_Political_Campaign
+    cost = 6
     available_if_capitulated = yes
     ai_will_do = {
 		factor = 2000
 	}
     available = {
-        
+        has_country_flag = SOV_Suppression_of_Opposition
     }
     completion_reward = {
 	add_ideas = SOV_Trudovik_Political_Dominance 
     }
 }
+# shared_focus = {
+#     id = SOV_Democratically_Fighting_Opposition
+#     icon = GFX_goal_AUS_call_a_reichstrat 
+# 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
+# 	x = 2
+# 	y = 1
+# 	relative_position_id = SOV_Kerenskys_Political_Campaign
+# 	mutually_exclusive = { focus = SOV_Suppression_of_Opposition }
+#     cost = 0
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
+#         always = no
+#     }
+#     completion_reward = {
+#        # add_ideas = SOV_Democratically_Fighting_Opposition
+#     }
+# }
+# shared_focus = {
+#     id = SOV_Devaluing_Slander
+# 	icon = GFX_goal_AUS_reverse_the_language_laws
+# 	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
+# 	x = -1 
+# 	y = 1
+# 	relative_position_id = SOV_Democratically_Fighting_Opposition
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
+        
+#     }
+#     completion_reward = {
+#         add_popularity = {
+# 			ideology = authoritarian_democratic
+# 			popularity = -0.03
+# 		}
+# 		add_popularity = {
+# 			ideology = democratic_communism
+# 			popularity = -0.03
+# 		}
+# 		add_popularity = {
+# 			ideology = communism
+# 			popularity = -0.03
+# 		}
+# 		add_popularity = {
+# 			ideology = fascism
+# 			popularity = -0.03
+# 		}
+# 		add_popularity = {
+# 			ideology = ultranationalism
+# 			popularity = -0.03
+# 		}
+#     }
+# }
 shared_focus = {
-    id = SOV_Democratically_Fighting_Opposition
-    icon = GFX_goal_AUS_call_a_reichstrat 
+    id = SOV_Verifying_Election_Results
+    icon = GFX_goal_SOV_preperations 
 	prerequisite = {focus = SOV_Kerenskys_Political_Campaign}
 	x = 2
 	y = 1
 	relative_position_id = SOV_Kerenskys_Political_Campaign
-	mutually_exclusive = { focus = SOV_Suppression_of_Opposition }
-    cost = 0
+	mutually_exclusive = { focus = SOV_Menshevik_Dominance }
+    cost = 6
     available_if_capitulated = yes
     ai_will_do = {
 		factor = 2000
 	}
     available = {
-        always = no
-    }
-    completion_reward = {
-       # add_ideas = SOV_Democratically_Fighting_Opposition
-    }
-}
-shared_focus = {
-    id = SOV_Devaluing_Slander
-	icon = GFX_goal_AUS_reverse_the_language_laws
-	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
-	x = -1 
-	y = 1
-	relative_position_id = SOV_Democratically_Fighting_Opposition
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
-        
-    }
-    completion_reward = {
-        add_popularity = {
-			ideology = authoritarian_democratic
-			popularity = -0.03
-		}
-		add_popularity = {
-			ideology = democratic_communism
-			popularity = -0.03
-		}
-		add_popularity = {
-			ideology = communism
-			popularity = -0.03
-		}
-		add_popularity = {
-			ideology = fascism
-			popularity = -0.03
-		}
-		add_popularity = {
-			ideology = ultranationalism
-			popularity = -0.03
-		}
-    }
-}
-shared_focus = {
-    id = SOV_Verifying_Election_Results
-    icon = GFX_goal_SOV_preperations 
-	prerequisite = {focus = SOV_Democratically_Fighting_Opposition}
-	x = 1
-	y = 1
-	relative_position_id = SOV_Democratically_Fighting_Opposition
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
-        
+        has_country_flag = SOV_Democratically_Fighting_Opposition
     }
     completion_reward = {
 		unlock_decision_category_tooltip = SOV_election_verification
@@ -260,29 +259,29 @@ shared_focus = {
 }
 
 
-shared_focus = {
-    id = SOV_Paragon_of_Honesty
-    icon = GFX_goal_SOV_the_paragon_of_honesty 
-	prerequisite = {focus = SOV_Devaluing_Slander}
-	prerequisite = {focus = SOV_Verifying_Election_Results}
-	x = 1
-	y = 1
-	relative_position_id = SOV_Devaluing_Slander
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-		factor = 2000
-	}
-    available = {
+# shared_focus = {
+#     id = SOV_Paragon_of_Honesty
+#     icon = GFX_goal_SOV_the_paragon_of_honesty 
+# 	prerequisite = {focus = SOV_Devaluing_Slander}
+# 	prerequisite = {focus = SOV_Verifying_Election_Results}
+# 	x = 1
+# 	y = 1
+# 	relative_position_id = SOV_Devaluing_Slander
+#     cost = 2
+#     available_if_capitulated = yes
+#     ai_will_do = {
+# 		factor = 2000
+# 	}
+#     available = {
         
-    }
-    completion_reward = {
+#     }
+#     completion_reward = {
        
-		add_political_power = 120
-		add_country_leader_trait = leader_of_1905
-		SOV_increase_support_among_people_small = yes
-    }
-}
+# 		add_political_power = 120
+# 		add_country_leader_trait = leader_of_1905
+# 		SOV_increase_support_among_people_small = yes
+#     }
+# }
 
 
 shared_focus = {
@@ -292,7 +291,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_Menshevik_Dominance
-    cost = 3
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
 		factor = 2000
@@ -308,11 +307,11 @@ shared_focus = {
 shared_focus = {
     id = SOV_unify_the_duma
     icon = GFX_goal_hierarchy_of_skill 
-	prerequisite = {focus = SOV_Menshevik_Dominance focus = SOV_Paragon_of_Honesty }
+	prerequisite = {focus = SOV_Menshevik_Dominance focus = SOV_Verifying_Election_Results }
 	x = 3
 	y = 1
 	relative_position_id = SOV_Menshevik_Dominance
-    cost = 3
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
 		factor = 2000
@@ -349,7 +348,7 @@ shared_focus = {
     }
     completion_reward = {
 		SOV_increase_support_among_people_medium = yes
-        add_political_power = 100
+        add_country_leader_trait = leader_of_1905
     }
 }
 

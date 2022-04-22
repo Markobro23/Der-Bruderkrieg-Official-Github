@@ -1511,12 +1511,12 @@ country_event = { #the crossroads
 	option = {
 		name = SOV_kerensky_tree_events.7.a #Peace would be best
 		ai_chance = { factor = 1 }
-		complete_national_focus = SOV_Democratically_Fighting_Opposition
+		set_country_flag = SOV_Democratically_Fighting_Opposition
 	}
 	option = {
 		name = SOV_kerensky_tree_events.7.b #Nah fam
 		ai_chance = { factor = 1}
-		complete_national_focus = SOV_Suppression_of_Opposition
+		set_country_flag = SOV_Suppression_of_Opposition
 	}
 }
 
@@ -4491,7 +4491,12 @@ country_event = {
 		name = SOV_russian_collapse_leadup.1.a
 		ai_chance = { factor = 1}
 
-		country_event = SOV_russian_collapse_events.1
+		hidden_effect = {
+			country_event = {
+			   id = SOV_russian_collapse_events.1
+			   days = 3
+			}
+		}
 		set_global_flag = SOV_russian_collapse_flag
 		sound_effect = DBK_red_alert
 	}
