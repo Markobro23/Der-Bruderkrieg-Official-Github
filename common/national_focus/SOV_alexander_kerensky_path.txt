@@ -359,7 +359,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_kulak_revolt
 	text = SOV_pursue_economic_justice
 	x = 20
-	y = 6
+	y = 0
 	cost = 2
 	ai_will_do = {
 	  factor = 20
@@ -378,10 +378,10 @@ shared_focus = {
 	icon = GFX_goal_bulding_up_the_housing_industury
 	text = SOV_owners_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = 1
+	x = -2
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
-	cost = 3
+	cost = 5
 	ai_will_do = {
 	  factor = 20
 	}
@@ -391,6 +391,16 @@ shared_focus = {
   
 	completion_reward = {
 		add_ideas = GER_economic_reforms
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}	
 	}
   }
   
@@ -402,7 +412,7 @@ shared_focus = {
 	x = 0
 	y = 2
 	relative_position_id = SOV_owners_state
-	cost = 3
+	cost = 5
 	ai_will_do = {
 	  factor = 20
 	}
@@ -427,6 +437,16 @@ shared_focus = {
             }
             add_extra_state_shared_building_slots = 1
         }
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.11
+			}
+		}
 	}
   }
   
@@ -461,10 +481,10 @@ shared_focus = {
 	icon = GFX_goal_SOV_using_the_seperatists
 	text = SOV_workers_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = -2
+	x = 1
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
-	cost = 3
+	cost = 5
 	ai_will_do = {
 	  factor = 20
 	}
@@ -474,6 +494,17 @@ shared_focus = {
   
 	completion_reward = {
 		SOV_level_up_workers_idea = yes
+		
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
 	}
   }
   
@@ -485,7 +516,7 @@ shared_focus = {
 	x = -1
 	y = 1
 	relative_position_id = SOV_workers_state
-	cost = 3
+	cost = 4
 	ai_will_do = {
 	  factor = 20
 	}
@@ -494,7 +525,17 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	completion_reward = {
-	SOV_level_up_workers_idea = yes
+		SOV_level_up_workers_idea = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
 	}
   }
   
@@ -508,7 +549,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = SOV_workers_state
-	cost = 3
+	cost = 4
 	ai_will_do = {
 	  factor = 20
 	}
@@ -517,7 +558,17 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }   
   
 	completion_reward = {
-	SOV_level_up_workers_idea = yes
+		SOV_level_up_workers_idea = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
 	}
   }
   
@@ -551,7 +602,7 @@ shared_focus = {
 	x =1
 	y = 1
 	relative_position_id = SOV_establish_minimum_wage
-	cost = 3
+	cost = 4
 	ai_will_do = {
 	  factor = 20
 	}
@@ -561,10 +612,20 @@ shared_focus = {
   
 	completion_reward = {
 		SOV_increase_support_among_people_small = yes
-	add_popularity = {
-	  ideology = socialism_democratic
-	  popularity =  0.05
-	}
+		add_popularity = {
+		ideology = socialism_democratic
+		popularity =  0.05
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_kerenskys_dream
+					}
+				}
+				country_event = SOV_kerensky_tree_events.11
+			}
+		}
   
 	}
   }
@@ -579,7 +640,7 @@ shared_focus = {
 	prerequisite = {
 		focus = SOV_legalize_unions
 	}
-	x = -1
+	x = 2
 	y = 1
 	relative_position_id = SOV_nationalize_important_industries
 	cost = 6
@@ -600,7 +661,7 @@ shared_focus = {
 		icon = GFX_goal_generic_positive_trade_relations
 		#text = SOV_RED_AIRFORCE
 		x = 20
-		y = 0
+		y = 6
 
 
 		cost = 5
