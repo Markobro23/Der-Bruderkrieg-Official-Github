@@ -1774,7 +1774,7 @@ country_event = {
 	}
 	option = { 
 		name = ITA_fascist_tree_events.2.b 
-		ai_chance = { factor = 90 } 
+		ai_chance = { factor = 0 } 
 		ITA = { country_event = ITA_fascist_tree_events.4 }
 	}
 }
@@ -1921,6 +1921,72 @@ country_event = {
 		ai_chance = { factor = 0 } 
 	}
 }
+
+
+##the prussian italian tank treaty
+country_event = {
+	id = ITA_fascist_tree_events.11
+	title = ITA_fascist_tree_events.11.t
+	desc = ITA_fascist_tree_events.11.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.11.a 
+		ai_chance = { factor = 10 } 
+		effect_tooltip = {
+			ITA = {
+				add_ideas = ITA_german_advisors
+			}
+		}
+		ITA = {
+			country_event = ITA_fascist_tree_events.12
+		}
+	}
+	option = { 
+		name = ITA_fascist_tree_events.11.b 
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = ITA_fascist_tree_events.13
+		}
+	}
+}
+country_event = {
+	id = ITA_fascist_tree_events.12
+	title = ITA_fascist_tree_events.12.t
+	desc = ITA_fascist_tree_events.12.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.12.a 
+		ai_chance = { factor = 10 } 
+		ITA = {
+			add_ideas = ITA_german_advisors
+		}
+	}
+}
+country_event = {
+	id = ITA_fascist_tree_events.13
+	title = ITA_fascist_tree_events.13.t
+	desc = ITA_fascist_tree_events.13.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.13.a 
+		ai_chance = { factor = 10 } 
+
+	}
+	
+}
+
 
 add_namespace = ITA_mercenary_events
 
