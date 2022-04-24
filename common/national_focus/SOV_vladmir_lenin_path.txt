@@ -890,7 +890,6 @@ shared_focus = {
     id = SOV_lenins_economic_policy
     icon = GFX_goal_SOV_lenins_economic_policy
     prerequisite = { focus = SOV_uniting_the_parties_of_the_rsdlp  }
-    
     x = -5
     y = 1
     relative_position_id = SOV_uniting_the_parties_of_the_rsdlp
@@ -898,6 +897,12 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
         factor = 200
+        modifier = {
+            factor = 0
+            NOT = {
+                has_completed_focus = SOV_a_new_leftists_russia
+            }
+        }
     }
     completion_reward = {
         
@@ -906,6 +911,19 @@ shared_focus = {
 			category = industry
 			bonus = 1
 			uses = 1
+		}
+
+        custom_effect_tooltip = SOV_lenins_economic_policy_tt
+        
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
 		}
     }
 }
@@ -933,6 +951,17 @@ shared_focus = {
             technology = concentrated_industry2
             technology = concentrated_industry3
 		}
+
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
     }
 }
 
@@ -950,6 +979,16 @@ shared_focus = {
     }
     completion_reward = {
         add_ideas = limited_exports
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
         
     }
 }
@@ -968,6 +1007,16 @@ shared_focus = {
     }
     completion_reward = {
         SOV_level_up_lenin_economic_reforms = yes
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
         
     }
 }
@@ -991,6 +1040,16 @@ shared_focus = {
     completion_reward = {
         unlock_decision_category_tooltip = SOV_lenins_infra_plan
         add_political_power = 50
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
     }
 }
 
@@ -1013,7 +1072,16 @@ shared_focus = {
     completion_reward = {
         unlock_decision_category_tooltip = SOV_european_development
         add_political_power = 50
-        
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
     }
 }
 
@@ -1038,6 +1106,16 @@ shared_focus = {
         add_political_power = 75
         add_research_slot = 1
         unlock_decision_category_tooltip = SOV_flourishing_oil_industry
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.11
+			}
+		}
     }
 }
  
