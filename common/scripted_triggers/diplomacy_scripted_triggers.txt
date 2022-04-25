@@ -569,6 +569,13 @@ DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
 	if = {
 		limit = {
+			tag = GER
+			has_completed_focus = GER_push_for_worldwide_revolution
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
 			date > 1941.1.1
 		}
 		always = yes
