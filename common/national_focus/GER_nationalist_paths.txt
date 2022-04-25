@@ -3797,7 +3797,9 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		
+		SOV = {
+			country_event = { id = generic.27 hours = 3 }
+		}
 	}
 }
 shared_focus = {
@@ -3817,7 +3819,12 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		
+		every_other_country = {
+			limit = {
+				is_in_faction_with = GER
+			}
+			add_ideas = GER_syndicalist_system
+		}
 	}
 }
 shared_focus = {
@@ -3829,12 +3836,27 @@ shared_focus = {
 	prerequisite = {
 		focus = GER_focus_on_european_nationalism
 	}
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = black_hand_has_won_the_civil_war
+			SER = {
+				exists = yes
+			}
+			has_global_flag = form_serbia_flag
+			
+		}
+	}
 	relative_position_id = GER_focus_on_european_nationalism
 	ai_will_do = {
 		factor = 600
 	}
 	completion_reward = {
-		
+		SER = {
+			country_event = {
+				id = germanyfaction.17
+				days = 2
+			}
+		}
 	}
 }
 shared_focus = {
@@ -3847,11 +3869,20 @@ shared_focus = {
 		focus = GER_focus_on_european_nationalism
 	}
 	relative_position_id = GER_focus_on_european_nationalism
+	available = {
+		NOT = {
+			SWE = {
+				has_government = authoritarian_democratic 
+			}
+		}
+	}
 	ai_will_do = {
 		factor = 600
 	}
 	completion_reward = {
-		
+		SWE = {
+			country_event = sweden.1
+		}
 	}
 }
 shared_focus = {
@@ -3871,7 +3902,7 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		
+		unlock_decision_tooltip = GER_operation_margerethe_decision
 	}
 }
 shared_focus = {
@@ -3887,8 +3918,24 @@ shared_focus = {
 	ai_will_do = {
 		factor = 600
 	}
+	available = {
+		OR = {
+			has_war_with = AUS
+			has_war_with = FRA
+			has_war_with = SOV
+		}
+	}
 	completion_reward = {
-		
+		every_other_country = {
+			limit = {
+				is_in_faction_with = GER
+				has_idea = GER_syndicalist_system
+			}
+			swap_ideas = {
+				remove_idea = GER_syndicalist_system
+				add_idea = GER_syndicalist_system_2
+			}
+		}
 	}
 }
 
