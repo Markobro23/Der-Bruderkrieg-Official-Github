@@ -244,4 +244,44 @@ on_actions = {
         }
        }
     }
+
+    # Syndalicst System
+    on_offer_join_faction = {
+        effect = {
+            if = {
+                limit = {
+                    GER = {
+                        has_idea = GER_syndicalist_system
+                    }
+                    NOT = {
+                        has_idea = GER_syndicalist_system
+                        has_idea = GER_syndicalist_system_2
+                    }
+                }
+                add_ideas = GER_syndicalist_system
+            }
+            else_if = {
+                limit = {
+                    GER = {
+                        has_idea = GER_syndicalist_system_2
+                        NOT = {
+                            has_idea = GER_syndicalist_system_2
+                        }
+                    }
+                    if = {
+                        limit = {
+                            has_idea = GER_syndicalist_system
+                        }
+                        swap_ideas = {
+                            add_idea = GER_syndicalist_system_2
+                            remove_idea = GER_syndicalist_system
+                        }
+                    }
+                    else = {
+                        add_ideas = GER_syndicalist_system
+                    }
+                }
+            }
+        }
+    }
 }

@@ -2163,6 +2163,7 @@ weltkrieg_decisions = {
 			has_completed_focus = GER_secure_the_baltic_front
 			SWE = {
 				has_government = fascism
+				is_in_faction = no
 			}
 		}
 
@@ -2187,7 +2188,7 @@ weltkrieg_decisions = {
 		remove_effect = {
 			SWE = {
 				country_event = {
-					id = germanyfaction.17
+					id = GER_wiltkrieg_faction_events.17
 					days = 2
 				}
 			}
@@ -2249,6 +2250,7 @@ weltkrieg_decisions = {
 					ruling_only = yes
 				}
 			}
+			has_completed_focus = GER_middle_eastern_prospects
 		}
 
 		visible = {
@@ -2318,6 +2320,52 @@ weltkrieg_decisions = {
 			}
 		}
 	}
+	GER_the_congo_package = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_completed_focus = GER_the_great_african_revolutions
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 5
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			FEA = {
+				country_event = belgian_election_events.13
+			}
+			effect_tooltip = {
+				COG = {
+					every_owned_state = {
+						create_unit = {
+							division = "name = \"Congolese Jesuit Soldiers\" division_template = \"Congolese Advanced Militia\" start_experience_factor = 1 start_equipment_factor = 1"
+							owner = COG
+						}
+					}
+				}
+			}
+		}
+	}
 
 	GER_boer_revolt = {
 
@@ -2356,6 +2404,46 @@ weltkrieg_decisions = {
 		}
 	}
 
+	GER_argentina_support = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			has_war_with = USA
+			ARG = {
+				has_war_with = USA
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_ally_south_american_revolutionaries
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			ARG = {
+				country_event = GER_wiltkrieg_faction_events.17
+			}
+		}
+	}
+
 	GER_oman_revolt = {
 
 		icon = generic_army_support
@@ -2369,6 +2457,7 @@ weltkrieg_decisions = {
 			OMA = {
 				exists = yes
 			}
+			has_completed_focus = GER_middle_eastern_prospects
 		}
 
 		visible = {
@@ -2392,7 +2481,7 @@ weltkrieg_decisions = {
 		remove_effect = {
 			OMA = {
 				country_event = {
-					id = germanyfaction.17
+					id = GER_wiltkrieg_faction_events.17
 					days = 2
 				}
 			}
@@ -2448,7 +2537,7 @@ weltkrieg_decisions = {
 		}
 	}
 
-	GER_integrate_wfr = {
+	GER_operation_margerethe_decision = {
 
 		icon = generic_army_support
 	
@@ -2457,13 +2546,11 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-			WFR = {
-				exists = yes
-			}	
+			has_war_with = AUS
 		}
 
 		visible = {
-			has_war_with = FRA
+			has_completed_focus = GER_prepare_operation_margerethe
 		}
 
 		fire_only_once = yes
@@ -2481,10 +2568,7 @@ weltkrieg_decisions = {
 		}
 	
 		remove_effect = {
-			annex_country = {
-				target = WFR
-				transfer_troops = yes
-			}
+			country_event = GER_austrian_ethnic_revolts.1
 		}
 	}
 }

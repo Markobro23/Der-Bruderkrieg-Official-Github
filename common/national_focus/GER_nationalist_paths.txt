@@ -120,7 +120,6 @@ focus_tree = {
 	shared_focus = GER_the_berlin_rally
 	shared_focus = GER_goerings_industrial_plan
 	shared_focus = GER_german_supremacy
-	shared_focus = GER_venerate_new_karl
 	shared_focus = GER_aftermath_of_the_fuhrerdammerung
 	shared_focus = GER_the_reichmarshalls_prussia
 	shared_focus = GER_the_brownshirts_prussia
@@ -129,6 +128,11 @@ focus_tree = {
 	shared_focus = GER_the_reichsheer_capabillities
 	shared_focus = GER_preussische_reichsmarine
 	shared_focus = GER_luftstreltkrafte_innovations
+	shared_focus = GER_the_mosley_pact
+	shared_focus = GER_operation_walross
+	shared_focus = GER_a_german_triumph
+	shared_focus = GER_von_das_slavenvolk
+
 
 	continuous_focus_position = { x = 500 y = 3000 }
 }
@@ -3146,7 +3150,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_german_supremacy
 	icon = GFX_goal_GER_germansuperiorty
-	x = 17
+	x = 18
 	y = 0
 	
 	available = {
@@ -3778,21 +3782,284 @@ shared_focus = {
 	}
 }
 
+###stahlpakt tree
 shared_focus = {
-	id = GER_the_mosley_pact
-	icon = GFX_goal_GER_the_mosley_pact
+	id = GER_stahlpakt
+	icon = GFX_goal_GER_the_stahlpakt
 	cost = 5
-	x = 3
+	x = 5
 	y = 1
-	
+	prerequisite = {
+		focus = GER_bismarks_plan
+	}
 	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
 		factor = 600
 	}
-
-	prerequisite = {
-		focus = GER_bismarks_plan
+	completion_reward = {
+		SOV = {
+			country_event = { id = generic.27 hours = 3 }
+		}
 	}
+}
+shared_focus = {
+	id = GER_focus_on_european_nationalism
+	icon = GFX_goal_GER_focus_on_european_nationalism
+	cost = 5
+	x = -2
+	y = 1
+	prerequisite = {
+		focus = GER_stahlpakt
+	}
+	relative_position_id = GER_stahlpakt
+	mutually_exclusive = {
+		focus = GER_push_for_worldwide_revolution
+	}
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		GER = {
+			add_ideas = GER_syndicalist_system
+		}
+		every_other_country = {
+			limit = {
+				is_in_faction_with = GER
+			}
+			add_ideas = GER_syndicalist_system
+		}
+	}
+}
+shared_focus = {
+	id = GER_befriend_the_black_hand
+	icon = GFX_goal_GER_befriend_the_black_hand
+	cost = 5
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_focus_on_european_nationalism
+	}
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = black_hand_has_won_the_civil_war
+			SER = {
+				exists = yes
+			}
+			has_global_flag = form_serbia_flag
+			
+		}
+	}
+	relative_position_id = GER_focus_on_european_nationalism
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		SER = {
+			country_event = {
+				id = GER_wiltkrieg_faction_events.17
+				days = 2
+			}
+		}
+	}
+}
+shared_focus = {
+	id = GER_funding_gustavs_ambitions
+	icon = GFX_goal_GER_funding_gustavs_ambitions
+	cost = 5
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_focus_on_european_nationalism
+	}
+	relative_position_id = GER_focus_on_european_nationalism
+	available = {
+		NOT = {
+			SWE = {
+				has_government = authoritarian_democratic 
+			}
+		}
+	}
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		SWE = {
+			country_event = sweden.1
+		}
+	}
+}
+shared_focus = {
+	id = GER_prepare_operation_margerethe
+	icon = GFX_goal_GER_prep_operation_maragrethe
+	cost = 5
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_befriend_the_black_hand
+	}
+	prerequisite = {
+		focus = GER_funding_gustavs_ambitions
+	}
+	relative_position_id = GER_befriend_the_black_hand
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		unlock_decision_tooltip = GER_operation_margerethe_decision
+	}
+}
+shared_focus = {
+	id = GER_brothers_in_arms
+	icon = GFX_goal_GER_supporting_the_italians
+	cost = 7
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_prepare_operation_margerethe
+	}
+	relative_position_id = GER_prepare_operation_margerethe
+	ai_will_do = {
+		factor = 600
+	}
+	available = {
+		OR = {
+			has_war_with = AUS
+			has_war_with = FRA
+			has_war_with = SOV
+		}
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = GER_syndicalist_system
+			add_idea = GER_syndicalist_system_2
+		}
+		every_other_country = {
+			limit = {
+				is_in_faction_with = GER
+				has_idea = GER_syndicalist_system
+			}
+			swap_ideas = {
+				remove_idea = GER_syndicalist_system
+				add_idea = GER_syndicalist_system_2
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = GER_push_for_worldwide_revolution
+	icon = GFX_goal_GER_push_for_worldwide_revolution
+	cost = 5
+	x = 2
+	y = 1
+	prerequisite = {
+		focus = GER_stahlpakt
+	}
+	relative_position_id = GER_stahlpakt
+	ai_will_do = {
+		factor = 600
+	}
+	mutually_exclusive = {
+		focus = GER_focus_on_european_nationalism
+	}
+	completion_reward = {
+		add_ideas = GER_worldwide_revolution
+		
+	}
+}
+shared_focus = {
+	id = GER_the_great_african_revolutions
+	icon = GFX_goal_GER_the_great_african_revolutions
+	cost = 5
+	x = -1
+	y = 1
+	prerequisite = {
+		focus = GER_push_for_worldwide_revolution
+	}
+	relative_position_id = GER_push_for_worldwide_revolution
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		unlock_decision_tooltip = GER_congo_revolt
+		unlock_decision_tooltip = GER_the_congo_package
+		unlock_decision_tooltip = GER_boer_revolt
+	}
+}
+shared_focus = {
+	id = GER_middle_eastern_prospects
+	icon = GFX_goal_GER_middle_eastern_prospects
+	cost = 5
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_push_for_worldwide_revolution
+	}
+	relative_position_id = GER_push_for_worldwide_revolution
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		unlock_decision_tooltip = GER_invite_aipg
+		unlock_decision_tooltip = GER_oman_revolt
+	}
+}
+shared_focus = {
+	id = GER_ally_south_american_revolutionaries
+	icon = GFX_goal_GER_ally_south_american_revolutionaries
+	cost = 5
+	x = 1
+	y = 1
+	prerequisite = {
+		focus = GER_the_great_african_revolutions
+	}
+	prerequisite = {
+		focus = GER_middle_eastern_prospects
+	}
+	relative_position_id = GER_the_great_african_revolutions
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		unlock_decision_tooltip = GER_argentina_support
+	}
+}
+shared_focus = {
+	id = GER_eliminate_the_american_menace
+	icon = GFX_goal_GER_end_the_american_menace
+	cost = 7
+	x = 0
+	y = 1
+	prerequisite = {
+		focus = GER_ally_south_american_revolutionaries
+	}
+	relative_position_id = GER_ally_south_american_revolutionaries
+	available = {
+		custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+	}
+	ai_will_do = {
+		factor = 600
+	}
+	completion_reward = {
+		create_wargoal = {
+			target = USA
+			type = topple_government
+		}
+		custom_effect_tooltip = unlock_justify_war_goals_tt
+	}
+}
+
+shared_focus = {
+	id = GER_the_mosley_pact
+	icon = GFX_goal_GER_the_mosley_pact
+	cost = 5
+	x = 14
+	y = 10
+	
+	ai_will_do = {
+		factor = 600
+	}
+
 
 	mutually_exclusive = {
 		focus = GER_operation_walross
@@ -3917,7 +4184,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = GER_defending_to_the_last
-	icon = GFX_goal_GER_defending_to_the_last
+	icon = GFX_goal_GER_fortify_the_silesian_front
 	cost = 8
 	x = -1
 	y = 1
@@ -4249,17 +4516,15 @@ shared_focus = {
 	id = GER_operation_walross
 	icon = GFX_goal_GER_operation_walross
 	cost = 5
-	x = 6
-	y = 1
+	x = 17
+	y = 10
 	
-	relative_position_id = GER_bismarks_plan
 	ai_will_do = {
 		factor = 600
 	}
 
-	prerequisite = {
-		focus = GER_bismarks_plan
-	}
+
+	
 	available = {
 		has_global_flag = operation_walross_blockade
 		has_war_with = FRA
@@ -5855,36 +6120,37 @@ shared_focus = {
 		
 
 	
-	shared_focus = {
-		id = GER_venerate_new_karl
-		icon = GFX_goal_GER_venerate_karl 
-		x = 29
-		y = 7
-		cost = 1
+	# shared_focus = {
+	# 	id = GER_venerate_new_karl
+	# 	icon = GFX_goal_GER_venerate_karl 
+	# 	x = 29
+	# 	y = 7
+	# 	cost = 1
 	
-		available = { 
-			custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
-		}	
+	# 	available = { 
+	# 		custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+	# 	}	
 		
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			country_event = GER_goering_post_unification.1
-		}
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		country_event = GER_goering_post_unification.1
+	# 	}
 	
-	}
+	# }
 	shared_focus = {
 		id = GER_a_german_triumph
 		icon = GFX_goal_GER_a_german_triumph 
-		x = -3
-		y = 1
+		x = 24
+		y = 10
 		cost = 3
-		prerequisite = { focus = GER_venerate_new_karl  }
-		relative_position_id = GER_venerate_new_karl
 		ai_will_do = {
 			factor = 1 
 		}
+		available = { 
+			custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+		}	
 		completion_reward = {
 			add_ideas = GER_age_of_the_eagle
 
@@ -6455,14 +6721,15 @@ shared_focus = {
 	shared_focus = {
 		id = GER_von_das_slavenvolk
 		icon = GFX_goal_GER_von_das_slavs 
-		x = 3
-		y = 1
+		x = 31
+		y = 7
 		cost = 0
-		prerequisite = { focus = GER_venerate_new_karl }
-		relative_position_id = GER_venerate_new_karl
 		ai_will_do = {
 			factor = 1 
 		}
+		available = { 
+			custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+		}	
 		completion_reward = {
 			## No effect listed
 		}
