@@ -3911,7 +3911,7 @@ shared_focus = {
 shared_focus = {
 	id = GER_brothers_in_arms
 	icon = GFX_goal_GER_supporting_the_italians
-	cost = 5
+	cost = 7
 	x = 0
 	y = 1
 	prerequisite = {
@@ -3964,7 +3964,7 @@ shared_focus = {
 	}
 	completion_reward = {
 		add_ideas = GER_worldwide_revolution
-		custom_effect_tooltip = unlock_justify_war_goals_tt
+		
 	}
 }
 shared_focus = {
@@ -3982,6 +3982,8 @@ shared_focus = {
 	}
 	completion_reward = {
 		unlock_decision_tooltip = GER_congo_revolt
+		unlock_decision_tooltip = GER_the_congo_package
+		unlock_decision_tooltip = GER_boer_revolt
 	}
 }
 shared_focus = {
@@ -3998,6 +4000,7 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
+		unlock_decision_tooltip = GER_invite_aipg
 		unlock_decision_tooltip = GER_oman_revolt
 	}
 }
@@ -4024,13 +4027,16 @@ shared_focus = {
 shared_focus = {
 	id = GER_eliminate_the_american_menace
 	icon = GFX_goal_GER_end_the_american_menace
-	cost = 5
+	cost = 7
 	x = 0
 	y = 1
 	prerequisite = {
 		focus = GER_ally_south_american_revolutionaries
 	}
 	relative_position_id = GER_ally_south_american_revolutionaries
+	available = {
+		custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+	}
 	ai_will_do = {
 		factor = 600
 	}
@@ -4039,6 +4045,7 @@ shared_focus = {
 			target = USA
 			type = topple_government
 		}
+		custom_effect_tooltip = unlock_justify_war_goals_tt
 	}
 }
 
