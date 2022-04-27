@@ -18,7 +18,7 @@ focus_tree = {
 	shared_focus = FRA_ARMEE_FRANCAISE
 #	shared_focus = FRA_SPAIN_IS_BROKEN
 	shared_focus = FRA_the_strikers_hit
-	shared_focus = FRA_the_french_imperium
+	shared_focus = FRA_the_chaotic_westfalen
 	shared_focus = FRA_FRANCE_ALONE
 	shared_focus = FRA_GRANDE_MARINE
 	shared_focus = FRA_GRANDE_AIR
@@ -37,7 +37,7 @@ focus_tree = {
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 18
+	x = 14
 	y = 13
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
@@ -2714,7 +2714,7 @@ shared_focus = {
 		icon = GFX_USA_trust_busting
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 20
+		x = 24
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -4618,7 +4618,7 @@ shared_focus = {
 		shared_focus = {
 			id = FRA_division_coloniale_de_africa
 			icon = GFX_goal_FRA_division_coloniale
-			x = 12
+			x = 9
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4904,9 +4904,9 @@ instant_build = yes
 		}
 
 		shared_focus = {
-			id = FRA_transsaharian_railroad
+			id = FRA_the_dual_african_authorities
 			icon = GFX_goal_FRA_trans_saharan_railroad
-			x = -2
+			x = -4
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -4936,15 +4936,50 @@ instant_build = yes
 		}
 
 		shared_focus = {
-			id = FRA_intensify_exploitation
-			icon = GFX_goal_FRA_intensify_exploitation
-			x = 0
+			id = FRA_transsaharian_railroad
+			icon = GFX_goal_FRA_trans_saharan_railroad
+			x = 1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_division_coloniale_de_africa }
-			relative_position_id = FRA_division_coloniale_de_africa
-			mutually_exclusive = {focus = FRA_the_union_plan}
+			prerequisite = { focus = FRA_the_dual_african_authorities }
+			relative_position_id = FRA_the_dual_african_authorities
+			ai_will_do = {
+				factor = 100
+			}
+			mutually_exclusive = {
+				focus = FRA_the_union_plan
+			}
+			completion_reward = {
+				build_railway = {
+					level = 1
+					build_only_on_allied = yes
+					controller_priority = {
+						base = 1
+						
+						modifier = {
+						tag = FRA
+						add = 2
+						}
+					}
+					fallback = yes
+					path = { 1145 459 513 514 782 556 1057 779 10803 }
+					start_province = 1145
+					target_province = 10803
+				}
+			}
+		}
+
+		shared_focus = {
+			id = FRA_intensify_exploitation
+			icon = GFX_goal_FRA_intensify_exploitation
+			x = -1
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_the_second_france }
+			relative_position_id = FRA_the_second_france
+			mutually_exclusive = {focus = FRA_violette_proposal}
 			ai_will_do = {
 				factor = 100
 			}
@@ -4968,13 +5003,13 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_the_union_plan
 			icon = GFX_goal_FRA_the_union_plan
-			x = 2
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_division_coloniale_de_africa }
-			relative_position_id = FRA_division_coloniale_de_africa
-			mutually_exclusive = { focus = FRA_intensify_exploitation }
+			prerequisite = { focus = FRA_the_dual_african_authorities }
+			relative_position_id = FRA_the_dual_african_authorities
+			mutually_exclusive = { focus = FRA_transsaharian_railroad }
 			available = {
 				has_completed_focus = FRA_DOCTRINAIRE_LEFT
 			}
@@ -4993,8 +5028,8 @@ instant_build = yes
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_transsaharian_railroad }
-			relative_position_id = FRA_transsaharian_railroad
+			prerequisite = { focus = FRA_division_coloniale_de_africa }
+			relative_position_id = FRA_division_coloniale_de_africa
 			ai_will_do = {
 				factor = 100
 			}
@@ -5034,16 +5069,14 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_the_western_bases
 			icon = GFX_goal_FRA_strengthen_the_sub_saharan_administration
-			x =-1 
-			y = 1
+			x =0
+			y = 2
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_algerian_oilfields }
-			prerequisite = {
-				focus = FRA_indochinese_rubber
-			}
+			prerequisite = { focus = FRA_transsaharian_railroad }
 			
-			relative_position_id = FRA_algerian_oilfields
+			
+			relative_position_id = FRA_transsaharian_railroad
 			ai_will_do = {
 				factor = 100
 			}
@@ -5061,12 +5094,12 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_saharan_mineral_deposits
 			icon = GFX_goal_FRA_saharan_mineral_deposits
-			x = 0
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_intensify_exploitation }
-			relative_position_id = FRA_intensify_exploitation
+			prerequisite = { focus = FRA_transsaharian_railroad focus = FRA_the_union_plan }
+			relative_position_id = FRA_transsaharian_railroad
 			ai_will_do = {
 				factor = 100
 			}
@@ -5091,8 +5124,8 @@ instant_build = yes
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_saharan_mineral_deposits }
-			relative_position_id = FRA_saharan_mineral_deposits
+			prerequisite = { focus = FRA_intensify_exploitation }
+			relative_position_id = FRA_intensify_exploitation
 			ai_will_do = {
 				factor = 100
 			}
@@ -5108,35 +5141,125 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_indochinese_rubber
 			icon = GFX_goal_FRA_indochinese_rubber
-			
-
-			x = 0
+			x = 4
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_the_second_france }
-			relative_position_id = FRA_the_second_france
+			prerequisite = { focus = FRA_division_coloniale_de_africa }
+			relative_position_id = FRA_division_coloniale_de_africa
 			ai_will_do = {
 				factor = 100
 			}
 			completion_reward = {
 				add_resource= {
-	type = rubber
-	amount = 10
-	state = 741
-	}
+					type = rubber
+					amount = 10
+					state = 741
+				}
+			}
+		}
+		shared_focus = {
+			id = FRA_vietnamese_home_rule
+			icon = GFX_goal_FRA_vietnamese_home_rule
+			x = -1
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_indochinese_rubber }
+			relative_position_id = FRA_indochinese_rubber
+			mutually_exclusive = {
+				focus = FRA_crush_ho_chi_minh
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				FRA = {
+					set_autonomy = {
+						target = VIN
+						autonomous_state =  autonomy_dominion
+					}
+				}
+			}
+		}
+		shared_focus = {
+			id = FRA_complete_indochinese_federalization
+			icon = GFX_goal_FRA_complete_indochinese_federalization
+			x = 0
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_vietnamese_home_rule }
+			relative_position_id = FRA_vietnamese_home_rule
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				
+			}
+		}
+
+		shared_focus = {
+			id = FRA_crush_ho_chi_minh
+			icon = GFX_goal_FRA_crush_ho_chi_minh
+			x = 1
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_indochinese_rubber }
+			relative_position_id = FRA_indochinese_rubber
+			mutually_exclusive = {
+				focus = FRA_vietnamese_home_rule
+			}
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				
+			}
+		}
+		shared_focus = {
+			id = FRA_operation_ramayana
+			icon = GFX_goal_FRA_operation_ramayana
+			x = 0
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_crush_ho_chi_minh }
+			relative_position_id = FRA_crush_ho_chi_minh
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				
+			}
+		}
+		shared_focus = {
+			id = FRA_the_saigon_conference
+			icon = GFX_goal_FRA_the_saigon_conference
+			x = 1
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_complete_indochinese_federalization focus = FRA_operation_ramayana }
+			relative_position_id = FRA_complete_indochinese_federalization
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				
 			}
 		}
 
 		shared_focus = {
 			id = FRA_violette_proposal
 			icon = GFX_goal_FRA_the_abbas_proposal
-			x = 0
+			x = 1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_the_union_plan }
-			relative_position_id = FRA_the_union_plan
+			prerequisite = { focus = FRA_the_second_france }
+			relative_position_id = FRA_the_second_france
 			ai_will_do = {
 				factor = 100
 			}
@@ -5170,11 +5293,11 @@ instant_build = yes
 			id = FRA_fulfilling_the_rights_of_man
 			icon = GFX_goal_FRA_fullfilling_the_rights_of_man
 			x = 0
-			y = 1
+			y = 2
 			cost = 12
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_break_piednoir_supremacy }
-			relative_position_id = FRA_break_piednoir_supremacy
+			prerequisite = { focus = FRA_the_union_plan }
+			relative_position_id = FRA_the_union_plan
 			ai_will_do = {
 				factor = 1
 			}
@@ -6399,7 +6522,7 @@ instant_build = yes
 	shared_focus = {
     	id = FRA_across_the_sea
     	icon = GFX_goal_FRA_across_the_sea
-        x =-5
+        x =-3
         y = 1
         cost = 5
         available_if_capitulated = yes
@@ -6413,7 +6536,7 @@ instant_build = yes
 		mutually_exclusive = {
 			focus = FRA_in_pursuit_of_eternal_peace
 		}
-
+		
         available = {
         	has_global_flag = prussia_has_beaten_france
         } 
@@ -6793,16 +6916,13 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = 6
-				y = 1
+				x = 8
+				y = 0
 				cost = 2
 				ai_will_do = {
 					factor = 200
 				}
-				prerequisite = {
-					focus = FRA_FRANCE_ALONE
-				}
-				relative_position_id = FRA_FRANCE_ALONE
+				
 				
 				#prerequisite = {focus = FRA_the_french_imperium}
 				#relative_position_id = FRA_the_french_imperium
