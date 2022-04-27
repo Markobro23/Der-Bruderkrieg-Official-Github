@@ -5265,7 +5265,17 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				
+				VIN = {
+					remove_ideas = VIN_hochi_min_terrorists
+				}
+				hidden_effect = {
+					country_event = {
+						country_event = {
+							id = FRA_indochina_events.1
+							days = 1
+						}
+					}
+				}
 			}
 		}
 		shared_focus = {
@@ -5280,8 +5290,15 @@ instant_build = yes
 			ai_will_do = {
 				factor = 100
 			}
+			available = {
+				SIA = {
+					has_war_with = HVN
+				}
+			}
 			completion_reward = {
-				
+				SIA = {
+					country_event = FRA_indochina_events.3
+				}
 			}
 		}
 		shared_focus = {
@@ -5297,7 +5314,15 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				
+				if = {
+					limit = {
+						has_completed_focus = FRA_vietnamese_home_rule
+					}
+					country_event = FRA_indochina_events.6
+				}
+				else = {
+					country_event = FRA_indochina_events.7
+				}
 			}
 		}
 
