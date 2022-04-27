@@ -584,7 +584,7 @@ focus_tree = {
     text = FRA_GRANDE_MARINE
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
     x = 11
-    y = 0
+    y = 1
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
     ai_will_do = {
@@ -2714,7 +2714,7 @@ shared_focus = {
 		icon = GFX_USA_trust_busting
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 24
+		x = 21
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -4916,21 +4916,65 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				build_railway = {
-					level = 1
-					build_only_on_allied = yes
-					controller_priority = {
-						base = 1
-						
-						modifier = {
-						tag = FRA
-						add = 2
+				country_event = FRA_african_colonial_events.1
+
+				FEA = {
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+			
 						}
+						add_extra_state_shared_building_slots = 1
 					}
-					fallback = yes
-					path = { 1145 459 513 514 782 556 1057 779 10803 }
-					start_province = 1145
-					target_province = 10803
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+					}
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+					}
+				}
+				FWA = {
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+					}
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+					}
+					random_owned_controlled_state = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+			
+						}
+						add_extra_state_shared_building_slots = 1
+					}
 				}
 			}
 		}
@@ -4940,7 +4984,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_trans_saharan_railroad
 			x = 1
 			y = 1
-			cost = 5
+			cost = 7
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_dual_african_authorities }
 			relative_position_id = FRA_the_dual_african_authorities
@@ -4949,6 +4993,9 @@ instant_build = yes
 			}
 			mutually_exclusive = {
 				focus = FRA_the_union_plan
+			}
+			available = {
+				has_country_flag = FRA_will_construct_trans_saharan_railroad
 			}
 			completion_reward = {
 				build_railway = {
@@ -4989,14 +5036,7 @@ instant_build = yes
 					add_stability= 0.1
 					add_war_support = 0.1	
 				}
-				FWA = {
-					add_stability= 0.1
-					add_war_support = 0.1	
-				}
-				FEA = {
-					add_stability= 0.1
-					add_war_support = 0.1	
-				}
+				
 			}
 		}
 
@@ -5005,7 +5045,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_the_union_plan
 			x = -1
 			y = 1
-			cost = 5
+			cost = 12
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_dual_african_authorities }
 			relative_position_id = FRA_the_dual_african_authorities
@@ -5018,6 +5058,18 @@ instant_build = yes
 			}
 			completion_reward = {
 				add_stability= -0.05
+				every_state = {
+					limit = {
+						is_core_of = FWA
+					}
+					add_core_of = FRA
+				}
+				every_state = {
+					limit = {
+						is_core_of = FEA
+					}
+					add_core_of = FRA
+				}
 			}
 		}
 
@@ -5377,18 +5429,7 @@ instant_build = yes
 				factor = 1
 			}
 			completion_reward = {
-				every_state = {
-					limit = {
-						is_core_of = FWA
-					}
-					add_core_of = FRA
-				}
-				every_state = {
-					limit = {
-						is_core_of = FEA
-					}
-					add_core_of = FRA
-				}
+				
 				annex_country = {
 					target = FWA
 					transfer_troops = no
@@ -5472,7 +5513,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = -10
+			x = -8
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5505,8 +5546,8 @@ instant_build = yes
 			icon = GFX_focus_spa_unify_the_nationalist_front
 			text = FRA_reach_out_to_spain
 			prerequisite = { focus = FRA_ALLY_PORTUGAL }
-			x = 0 
-			y = 2
+			x = -1 
+			y = 1
 			relative_position_id = FRA_ALLY_PORTUGAL
 			cost = 5
 			ai_will_do = {
@@ -5534,29 +5575,7 @@ instant_build = yes
 			}
 		}
 		
-		shared_focus = {
-			id = FRA_portugese_shipbuilding
-			icon = GFX_DBK_generic_build_navy
-			text = FRA_portugese_shipbuilding
-			prerequisite = { focus = FRA_ALLY_PORTUGAL }
-			x = -1
-			y = 1
-			relative_position_id = FRA_ALLY_PORTUGAL
-			cost = 5
-			ai_will_do = {
-				factor = 20
-			}
-			available = {
-				is_in_faction_with = POR
-			}
 		
-			available_if_capitulated = yes
-			#search_filters = { FOCUS_FILTER_RESEARCH }
-		
-			completion_reward = {
-				
-			}
-		}
 
 		shared_focus = {
 			id = FRA_REESTABLISH_EMPIRE
