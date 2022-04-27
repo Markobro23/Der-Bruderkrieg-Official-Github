@@ -2692,25 +2692,6 @@ country_event = {
 
 }
 
-add_namespace = FRA_african_colonial_events
-country_event = {
-	id = FRA_african_colonial_events.1
-	title = FRA_african_colonial_events.1.t
-	desc = FRA_african_colonial_events.1.d
-	picture = GFX_report_event_soldiers_in_france
-
-	is_triggered_only = yes
-
-	option = {
-		name = FRA_african_colonial_events.1.a
-		set_country_flag = FRA_will_construct_trans_saharan_railroad
-	}
-	option = {
-		name = FRA_african_colonial_events.1.b
-		set_country_flag = FRA_will_do_union_plan
-	}
-
-}
 ##saigon
 country_event = {
 	id = FRA_indochina_events.6
@@ -2804,6 +2785,211 @@ country_event = {
 		}
 	}
 
+}
+
+add_namespace = FRA_african_colonial_events
+
+## Dual African Authorities
+country_event = {
+	id = FRA_african_colonial_events.1
+	title = FRA_african_colonial_events.1.t
+	desc = FRA_african_colonial_events.1.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.1.a
+		set_country_flag = FRA_will_construct_trans_saharan_railroad
+	}
+	option = {
+		name = FRA_african_colonial_events.1.b
+		set_country_flag = FRA_will_do_union_plan
+	}
+}
+
+## Abbas
+country_event = {
+	id = FRA_african_colonial_events.2
+	title = FRA_african_colonial_events.2.t
+	desc = FRA_african_colonial_events.2.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.2.a
+		add_stability = -0.05
+		add_manpower = 10000
+
+		MOR = {
+			every_owned_state = {
+				add_core_of = ALG
+			}
+		}
+
+		ALG = {
+			annex_country = {
+				target = MOR
+				transfer_troops = yes
+			}
+			transfer_state = 459
+			transfer_state = 1125
+			transfer_state = 460
+		}
+
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.3
+				days = 5
+			}
+		}
+	}
+}
+#Pied Noir Issue
+country_event = {
+	id = FRA_african_colonial_events.3
+	title = FRA_african_colonial_events.3.t
+	desc = FRA_african_colonial_events.3.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.3.a
+		add_ideas = FRA_pied_noor_reintegration
+		add_manpower = 10000
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.4
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = FRA_african_colonial_events.3.b
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		add_manpower = 2500
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.4
+				days = 3
+			}
+		}
+	}
+}
+
+##french civil code
+country_event = {
+	id = FRA_african_colonial_events.4
+	title = FRA_african_colonial_events.4.t
+	desc = FRA_african_colonial_events.4.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.4.a
+		add_ideas = FRA_anti_islamic_uproar
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.5
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = FRA_african_colonial_events.4.b
+		add_stability = 0.025
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.5
+				days = 3
+			}
+		}
+	}
+}
+
+##french civil code
+country_event = {
+	id = FRA_african_colonial_events.5
+	title = FRA_african_colonial_events.5.t
+	desc = FRA_african_colonial_events.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.5.a
+		ALG = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = algerian_tribal_land_modifier
+				}
+			}
+		}
+		set_country_flag = FRA_unlock_algerian_integration_focus
+		custom_effect_tooltip = FRA_we_will_complete_pre_integration_reforms
+	}
+	option = {
+		name = FRA_african_colonial_events.5.b
+		ALG = {
+			add_political_power = 50
+		}
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		custom_effect_tooltip = FRA_we_will_complete_pre_integration_reforms
+		set_country_flag = FRA_unlock_algerian_integration_focus
+	}
+}
+
+## successful integration
+country_event = {
+	id = FRA_african_colonial_events.6
+	title = FRA_african_colonial_events.6.t
+	desc = FRA_african_colonial_events.6.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.6.a
+		remove_ideas = FRA_anti_islamic_uproar
+		remove_ideas = FRA_pied_noor_reintegration
+	}
+}
+
+country_event = {
+	id = FRA_african_colonial_events.7
+	title = FRA_african_colonial_events.7.t
+	desc = FRA_african_colonial_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.7.a
+		remove_ideas = FRA_anti_islamic_uproar
+		remove_ideas = FRA_pied_noor_reintegration
+		FRA = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ALG
+				}
+				remove_core_of = FRA
+			}
+		}
+		add_stability = -0.1
+	}
 }
 
 #post victory tree events

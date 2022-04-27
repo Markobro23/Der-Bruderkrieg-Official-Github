@@ -5031,10 +5031,10 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				add_stability= 0.05
 				ALG = {
 					add_stability= 0.1
-					add_war_support = 0.1	
+					add_war_support = 0.1
+					set_cosmetic_tag = ALG_french_algeria	
 				}
 				
 			}
@@ -5183,10 +5183,10 @@ instant_build = yes
 			}
 			completion_reward = {
 				add_resource= {
-	type = oil
-	amount = 10
-	state = 460
-	}
+				type = oil
+				amount = 10
+				state = 460
+				}
 			}
 		}
 
@@ -5391,7 +5391,7 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				add_stability= -0.05  add_manpower= 50000
+				country_event = FRA_african_colonial_events.2
 			}
 		}
 
@@ -5407,11 +5407,38 @@ instant_build = yes
 			ai_will_do = {
 				factor = 100
 			}
+			available = {
+				has_country_flag = FRA_unlock_algerian_integration_focus
+			}
 			completion_reward = {
-				add_stability= -0.05  add_state_core= 459  add_state_core= 514  add_state_core= 513  add_state_core= 460
+				ALG = {
+					every_owned_state = {
+						add_core_of = FRA
+					}
+				}
 				annex_country = {
 					target = ALG
 					transfer_troops = no
+				}
+
+				if = {
+					limit = {
+						check_variable = {
+							var = FRA_messy_algerian_integration_increases
+							compare_to = greater_than_or_equals
+							value = 2
+						}
+					}
+					country_event = {
+						id = FRA_african_colonial_events.7
+						days = 3
+					}
+				}
+				else = {
+					country_event = {
+						id = FRA_african_colonial_events.6
+						days = 3
+					}
 				}
 			}
 		}
@@ -5425,6 +5452,14 @@ instant_build = yes
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_union_plan }
 			relative_position_id = FRA_the_union_plan
+			available = {
+				OR = {
+					has_war_with = GER
+					has_war_with = SOV
+					has_war_with = ENG
+					has_war_with = AUS
+				}
+			}
 			ai_will_do = {
 				factor = 1
 			}
@@ -6620,7 +6655,7 @@ instant_build = yes
         y = 1
         cost = 5
         available_if_capitulated = yes
-        prerequisite = { focus = FRA_the_western_bases focus = FRA_RESTART_WARS }
+        prerequisite = { focus = FRA_the_western_bases focus = FRA_RESTART_WARS focus = FRA_fulfilling_the_rights_of_man	 }
             
         relative_position_id = FRA_the_western_bases
 
@@ -7010,16 +7045,16 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = 8
-				y = 0
+				x = -12
+				y = 1
 				cost = 2
 				ai_will_do = {
 					factor = 200
 				}
 				
 				
-				#prerequisite = {focus = FRA_the_french_imperium}
-				#relative_position_id = FRA_the_french_imperium
+				prerequisite = {focus = FRA_FRANCE_ALONE }
+				relative_position_id = FRA_FRANCE_ALONE 
 		#
 				available_if_capitulated = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
