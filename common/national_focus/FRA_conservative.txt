@@ -5180,6 +5180,22 @@ instant_build = yes
 						autonomous_state =  autonomy_dominion
 					}
 				}
+				VIN = {
+					swap_ideas = {
+						remove_idea = VIN_hochi_min_terrorists
+						add_idea = VIN_hochi_min_terrorists_2
+					}
+					add_popularity = {
+						ideology = democratic
+						popularity = 0.25
+					}
+					set_politics = {
+						ruling_party = democratic
+					}
+					effect_tooltip = {
+						set_cosmetic_tag = VIN_french_puppet_democratic
+					}
+				}
 			}
 		}
 		shared_focus = {
@@ -5195,7 +5211,41 @@ instant_build = yes
 				factor = 100
 			}
 			completion_reward = {
-				
+				remove_ideas = VIN_hochi_min_terrorists_2
+				VIN = {
+					release = LAO
+				}
+				VIN = {
+					release = CAM
+				}
+				hidden_effect = {
+					LAO = {
+						keep_current_politics = yes
+					}
+					CAM = {
+						keep_current_politics = yes
+					}
+				}
+				FRA = {
+					set_autonomy = {
+						target = LAO
+						autonomous_state =  autonomy_dominion
+					}
+				}
+				FRA = {
+					set_autonomy = {
+						target = CAM
+						autonomous_state =  autonomy_dominion
+					}
+				}
+				hidden_effect = {
+					LAO = {
+						reset_government = yes
+					}
+					CAM = {
+						reset_government = yes
+					}
+				}
 			}
 		}
 
