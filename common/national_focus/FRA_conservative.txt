@@ -38,8 +38,8 @@ focus_tree = {
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 12
-	y = 11
+	x = 0
+	y = 10
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
     #relative_position_id = FRA_BUILD_INDUSTRY
@@ -59,7 +59,7 @@ focus_tree = {
   
 	shared_focus = {
 		id = FRA_open_military_academies
-		icon = GFX_focus_generic_commonwealth_build_infantry
+		icon = GFX_goal_FRA_fraternite
 		text = FRA_open_military_academies
 		prerequisite = { focus = FRA_NAPOLEON  focus = FRA_NAPOLEON}
 		x = 1
@@ -106,7 +106,7 @@ focus_tree = {
 
 	shared_focus = {
 		id = FRA_open_research_facilities
-		icon = GFX_goal_generic_consumer_goods
+		icon = GFX_goal_FRA_school_of_research
 		text = FRA_open_research_facilities
 		prerequisite = { focus = FRA_PATH_AGGRESSION focus = FRA_NAPOLEON }
 		x = -1
@@ -150,7 +150,7 @@ focus_tree = {
 	# }
 	shared_focus = {
 		id = FRA_expand_the_sorbonne_university
-		icon = GFX_focus_research
+		icon = GFX_goal_france_for_the_better
 		text = FRA_expand_the_sorbonne_university
 		prerequisite = { focus = FRA_open_military_academies
 					focus = FRA_open_research_facilities
@@ -590,8 +590,8 @@ focus_tree = {
    icon = GFX_French_Navy
     text = FRA_GRANDE_MARINE
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 10
-    y = 1
+    x = 8
+    y = 2
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
     ai_will_do = {
@@ -913,8 +913,8 @@ focus_tree = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 17
-    y = 0
+    x = 15
+    y = 2
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
     ai_will_do = {
@@ -1148,7 +1148,7 @@ focus_tree = {
     }
 
 	allow_branch = {
-		NOT = { has_global_flag = FRA_unlock_exile_tree }
+		NOT = { has_country_flag = FRA_unlock_exile_tree }
 	}
 		
 
@@ -6690,7 +6690,7 @@ instant_build = yes
         } 
 
 		allow_branch = {
-			has_global_flag = FRA_unlock_exile_tree
+			has_country_flag = FRA_unlock_exile_tree
 		}
 
         completion_reward = {
