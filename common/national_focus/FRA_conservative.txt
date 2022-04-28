@@ -13,15 +13,16 @@ focus_tree = {
 	}
 	continuous_focus_position = { x = 0 y = 5000 }
 
-	shared_focus = FRA_national_development_bureau
+	shared_focus = FRA_the_strikers_hit
 	shared_focus = FRA_CONSERVATIVES_PREVAIL
 	shared_focus = FRA_ARMEE_FRANCAISE
 #	shared_focus = FRA_SPAIN_IS_BROKEN
-	shared_focus = FRA_the_strikers_hit
+	shared_focus = FRA_division_coloniale_de_africa
 	shared_focus = FRA_the_chaotic_westfalen
 	shared_focus = FRA_FRANCE_ALONE
 	shared_focus = FRA_GRANDE_MARINE
 	shared_focus = FRA_GRANDE_AIR
+	shared_focus = FRA_across_the_sea
 	}
 
 
@@ -37,8 +38,8 @@ focus_tree = {
     text = FRA_ARMEE_FRANCAISE
 	#prerequisite = { focus = ITA_industrial_effort_2 }
 	# prerequisite = { focus = FRA_expand_the_sorbonne_university }
-	x = 14
-	y = 13
+	x = 12
+	y = 11
 	# relative_position_id = FRA_expand_the_sorbonne_university
    
     #relative_position_id = FRA_BUILD_INDUSTRY
@@ -60,11 +61,14 @@ focus_tree = {
 		id = FRA_open_military_academies
 		icon = GFX_focus_generic_commonwealth_build_infantry
 		text = FRA_open_military_academies
-		prerequisite = { focus = FRA_ARMEE_FRANCAISE }
-		x = -1
-		y = 2
-		relative_position_id = FRA_ARMEE_FRANCAISE
-		cost = 3
+		prerequisite = { focus = FRA_NAPOLEON  focus = FRA_NAPOLEON}
+		x = 1
+		y = 1
+		relative_position_id = FRA_NAPOLEON
+		mutually_exclusive = {
+			focus = FRA_open_research_facilities
+		}
+		cost = 5
 		ai_will_do = {
 			factor = 1
 		}
@@ -76,61 +80,43 @@ focus_tree = {
 			add_ideas = FRA_military_academies
 		}
 	}
-	shared_focus = {
-		id = FRA_teach_modern_warfare
-		icon = GFX_goal_generic_army_motorized
-		text = FRA_teach_modern_warfare
-		prerequisite = { focus = FRA_open_military_academies }
-		x = 0
-		y = 1
-		relative_position_id = FRA_open_military_academies
-		cost = 3
-		ai_will_do = {
-			factor = 1
-		}
+	# shared_focus = {
+	# 	id = FRA_teach_modern_warfare
+	# 	icon = GFX_goal_generic_army_motorized
+	# 	text = FRA_teach_modern_warfare
+	# 	prerequisite = { focus = FRA_open_military_academies }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = FRA_open_military_academies
+	# 	cost = 3
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-			swap_ideas = {
-				add_idea = FRA_military_academies_2
-				remove_idea = FRA_military_academies
-			}
-		 }
-	}
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 			add_idea = FRA_military_academies_2
+	# 			remove_idea = FRA_military_academies
+	# 		}
+	# 	 }
+	# }
 
 	shared_focus = {
 		id = FRA_open_research_facilities
 		icon = GFX_goal_generic_consumer_goods
 		text = FRA_open_research_facilities
-		prerequisite = { focus = FRA_ARMEE_FRANCAISE }
-		x = 1
-		y = 2
-		relative_position_id = FRA_ARMEE_FRANCAISE
-		cost = 3
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_ideas = FRA_research_facilities
-		}
-	}
-
-	shared_focus = {
-		id = FRA_intellegent_scientists_committee
-		icon = GFX_focus_research2
-		text = FRA_intellegent_scientists_committee
-		prerequisite = { focus = FRA_open_research_facilities }
-		x = 0
+		prerequisite = { focus = FRA_PATH_AGGRESSION focus = FRA_NAPOLEON }
+		x = -1
 		y = 1
-		relative_position_id = FRA_open_research_facilities
-		cost = 3
-		ai_will_do = { 
+		relative_position_id = FRA_PATH_AGGRESSION
+		mutually_exclusive = {
+			focus = FRA_open_military_academies
+		}
+		cost = 5
+		ai_will_do = {
 			factor = 1
 		}
 
@@ -141,17 +127,39 @@ focus_tree = {
 			add_research_slot = 1
 		}
 	}
+
+	# shared_focus = {
+	# 	id = FRA_intellegent_scientists_committee
+	# 	icon = GFX_focus_research2
+	# 	text = FRA_intellegent_scientists_committee
+	# 	prerequisite = { focus = FRA_open_research_facilities }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = FRA_open_research_facilities
+	# 	cost = 3
+	# 	ai_will_do = { 
+	# 		factor = 1
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		add_research_slot = 1
+	# 	}
+	# }
 	shared_focus = {
 		id = FRA_expand_the_sorbonne_university
 		icon = GFX_focus_research
 		text = FRA_expand_the_sorbonne_university
-		prerequisite = { focus = FRA_teach_modern_warfare }
+		prerequisite = { focus = FRA_open_military_academies
+					focus = FRA_open_research_facilities
+		}
 		prerequisite = {
-			focus = FRA_intellegent_scientists_committee
 		}
 		x = 1
 		y = 1
-		relative_position_id = FRA_teach_modern_warfare
+		relative_position_id = FRA_open_military_academies
 		cost = 5
 		ai_will_do = {
 		  factor = 1
@@ -183,16 +191,15 @@ focus_tree = {
 	id = FRA_a_new_french_army
 	icon = GFX_French_Army
 	text = FRA_a_new_french_army
-	prerequisite = { focus = FRA_expand_the_sorbonne_university }
 		prerequisite = {focus = FRA_MASTER_ARTILLERY focus = FRA_BRAVE_NEW_EMPIRE focus = FRA_MASTER_GUERRE_ECLAIR focus = FRA_MASTER_TACTICS }
 
-	x = -1
-	y = 2
-	relative_position_id = FRA_intellegent_scientists_committee
+	x = 3
+	y = 1
 	cost = 5
 	ai_will_do = {
 	  factor = 1
 	}
+	relative_position_id = FRA_MASTER_ARTILLERY
 
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -211,7 +218,7 @@ focus_tree = {
     text = FRA_FRENCH_ADVISORS
     prerequisite = { focus = FRA_ARMEE_FRANCAISE }
     mutually_exclusive = {focus = FRA_GERMAN_ADVISORS}
-    x = -3
+    x = -1
     y = 1
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
@@ -235,7 +242,7 @@ focus_tree = {
     text = FRA_GERMAN_ADVISORS
     prerequisite = { focus = FRA_ARMEE_FRANCAISE }
     mutually_exclusive = { focus = FRA_FRENCH_ADVISORS }
-    x = 3
+    x = 1
     y = 1
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 5
@@ -583,7 +590,7 @@ focus_tree = {
    icon = GFX_French_Navy
     text = FRA_GRANDE_MARINE
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 11
+    x = 10
     y = 1
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
@@ -906,7 +913,7 @@ focus_tree = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 19
+    x = 17
     y = 0
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
@@ -1140,7 +1147,9 @@ focus_tree = {
       factor = 20
     }
 
-		
+	allow_branch = {
+		NOT = { has_global_flag = FRA_unlock_exile_tree }
+	}
 		
 
 
@@ -2329,14 +2338,11 @@ shared_focus = {
     id = FRA_VIVE_LE_FRANCE
     icon = GFX_goal_FRA_vive_la_france
     text = FRA_VIVE_LE_FRANCE
-		prerequisite = { focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_movement_francaise focus = FRA_CAGOULE_CABINET }
-		#prerequisite = {focus = FRA_IMPERIAL_GLORY}
-		mutually_exclusive = {
-			focus = FRA_PIETY
-		}
-    x = 1
-    y = 1
-    relative_position_id = FRA_BONAPARTIST_ABSOLUTISM
+	prerequisite = { focus = FRA_the_strikers_hit } 
+	available = { OR =  { has_completed_focus = FRA_movement_francaise has_completed_focus = FRA_BONAPARTIST_ABSOLUTISM has_completed_focus = FRA_CAGOULE_CABINET }   } 
+	x = 2
+	y = 1
+	relative_position_id = FRA_the_strikers_hit
     cost = 3
     ai_will_do = {
       factor = 2000
@@ -2614,10 +2620,11 @@ shared_focus = {
 		id = FRA_PIETY 
 		icon = GFX_focus_por_concordat
 		text = FRA_PIETY
-		prerequisite = { focus = FRA_movement_francaise focus = FRA_BONAPARTIST_ABSOLUTISM focus = FRA_LAFAYETTE_DREAM }  
-		x = -5
+		prerequisite = { focus = FRA_the_strikers_hit }  
+		available = { OR =  { has_completed_focus = FRA_movement_francaise has_completed_focus = FRA_BONAPARTIST_ABSOLUTISM has_completed_focus = FRA_LAFAYETTE_DREAM }   }
+		x = -2
 		y = 1
-		relative_position_id = FRA_movement_francaise
+		relative_position_id = FRA_the_strikers_hit
 		cost = 5
 		ai_will_do = {
 			factor = 20
@@ -2715,7 +2722,7 @@ shared_focus = {
 		icon = GFX_USA_trust_busting
 		text = FRA_the_strikers_hit
 		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 21
+		x = 8
 		y = 0
 		cost = 2
 		ai_will_do = {
@@ -2729,7 +2736,7 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_RESEARCH }
 	
 		completion_reward = {
-			
+			unlock_decision_category_tooltip = FRA_worker_strikes
 		}
 	  }
 	
@@ -4618,14 +4625,24 @@ shared_focus = {
 		shared_focus = {
 			id = FRA_division_coloniale_de_africa
 			icon = GFX_goal_FRA_division_coloniale
-			x = 9
-			y = 1
+			x = 12
+			y = 6
 			cost = 5
 			available_if_capitulated = yes
-			prerequisite = { focus = FRA_FRANCE_ALONE }
-			relative_position_id = FRA_FRANCE_ALONE
+	
 			ai_will_do = {
 				factor = 100
+				modifier = {
+					add = -200
+					OR = {
+						NOT = {
+							has_completed_focus = FRA_PATH_AGGRESSION
+						}
+						NOT = {
+							has_completed_focus = FRA_NAPOLEON
+						}
+					}
+				}
 			}
 			completion_reward = {
 				unlock_decision_category_tooltip = FRA_colonial_investments_decision_cat
@@ -5500,7 +5517,7 @@ instant_build = yes
 			
 			
 		
-			x = 21
+			x = 24
 			y = 0
 			
 			
@@ -5550,7 +5567,7 @@ instant_build = yes
 			icon = GFX_focus_generic_befriend_portugal
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
-			x = -8
+			x = -4
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			cost = 5
@@ -5618,7 +5635,7 @@ instant_build = yes
 			id = FRA_REESTABLISH_EMPIRE
 			icon = GFX_goal_French_Empire
 			text = FRA_REESTABLISH_EMPIRE
-			x = -6
+			x = -2
 			y = 1
 			relative_position_id = FRA_FRANCE_ALONE
 			prerequisite = {
@@ -5806,7 +5823,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_law_on_the_country_in_danger
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
-			x = -4
+			x = 0
 			y = 1
 			cost = 4
 			available_if_capitulated = yes
@@ -6058,9 +6075,9 @@ instant_build = yes
       bypass = {
         has_global_flag = france_austria_split_deal
       }
-	  mutually_exclusive = {
-		focus = FRA_across_the_sea
-	  }
+	#   mutually_exclusive = {
+	# 	focus = FRA_across_the_sea
+	#   }
       completion_reward = {
         
       }
@@ -6075,9 +6092,9 @@ instant_build = yes
       available_if_capitulated = yes
       prerequisite = {  focus = FRA_RESTART_WARS }
       mutually_exclusive = {focus = FRA_in_pursuit_of_eternal_peace }
-	  mutually_exclusive = {
-		focus = FRA_across_the_sea
-	  }
+	#   mutually_exclusive = {
+	# 	focus = FRA_across_the_sea
+	#   }
       relative_position_id = FRA_RESTART_WARS
       ai_will_do = {
         factor = 2000
@@ -6653,24 +6670,28 @@ instant_build = yes
 	shared_focus = {
     	id = FRA_across_the_sea
     	icon = GFX_goal_FRA_across_the_sea
-        x =-3
-        y = 1
+        x =0
+        y = 0
         cost = 5
         available_if_capitulated = yes
-        prerequisite = { focus = FRA_the_western_bases focus = FRA_RESTART_WARS focus = FRA_fulfilling_the_rights_of_man	 }
+        # prerequisite = { focus = FRA_the_western_bases focus = FRA_RESTART_WARS focus = FRA_fulfilling_the_rights_of_man	 }
             
-        relative_position_id = FRA_the_western_bases
+        # relative_position_id = FRA_the_western_bases
 
-		mutually_exclusive = {
-			focus = FRA_flames_on_the_fields_of_allemagne
-		}
-		mutually_exclusive = {
-			focus = FRA_in_pursuit_of_eternal_peace
-		}
+		# mutually_exclusive = {
+		# 	focus = FRA_flames_on_the_fields_of_allemagne
+		# }
+		# mutually_exclusive = {
+		# 	focus = FRA_in_pursuit_of_eternal_peace
+		# }
 		
         available = {
         	has_global_flag = prussia_has_beaten_france
         } 
+
+		allow_branch = {
+			has_global_flag = FRA_unlock_exile_tree
+		}
 
         completion_reward = {
         	add_war_support = 0.05
@@ -7016,7 +7037,7 @@ instant_build = yes
 				id = FRA_the_french_imperium
 				icon = GFX_goal_AUS_sign_a_new_constitution
 				text = FRA_the_french_imperium
-				x = 0
+				x = 4
 				y = 1
 				cost = 2
 				ai_will_do = {
@@ -7047,11 +7068,22 @@ instant_build = yes
 				id = FRA_the_chaotic_westfalen
 				icon = GFX_goal_FRA_chaotic_westfalen
 				text = FRA_the_chaotic_westfalen
-				x = 10
+				x = 15
 				y = 0
 				cost = 2
 				ai_will_do = {
 					factor = 200
+					modifier = {
+						add = -200
+						OR = {
+							NOT = {
+								has_completed_focus = FRA_PATH_AGGRESSION
+							}
+							NOT = {
+								has_completed_focus = FRA_NAPOLEON
+							}
+						}
+					}
 				}
 				
 				
