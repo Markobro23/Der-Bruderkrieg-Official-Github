@@ -300,4 +300,57 @@ characters={
 			coordination_skill = 2
 		}
 	}
+	RAJ_william_slim={
+		name="William Slim"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_ENG_william_slim.dds"
+				large="gfx/leaders/RAJ/Portrait_RAJ_William_Slim.png"
+			}
+		}
+		corps_commander={
+			traits={ war_hero trickster }
+			skill=5
+			attack_skill=3
+			defense_skill=3
+			planning_skill=5
+			logistics_skill=5
+			legacy_id=-1
+		}
+	}
+	RAJ_archibald_wavell={
+		name="Archibald Wavell"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_ENG_archibald_wavell.dds"
+				large="gfx/leaders/RAJ/Portrait_RAJ_Archibald_Wavell.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = archibald_wavell
+			ledger = army
+			allowed = {
+				original_tag = RAJ
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		corps_commander={
+			traits={ career_officer }
+			skill=4
+			attack_skill=4
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=4
+			legacy_id=998
+		}
+	}
 }
