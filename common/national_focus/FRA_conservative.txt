@@ -5421,23 +5421,25 @@ instant_build = yes
 					transfer_troops = no
 				}
 
-				if = {
-					limit = {
-						check_variable = {
-							var = FRA_messy_algerian_integration_increases
-							compare_to = greater_than_or_equals
-							value = 2
+				hidden_effect = {
+					if = {
+						limit = {
+							check_variable = {
+								var = FRA_messy_algerian_integration_increases
+								compare_to = greater_than_or_equals
+								value = 2
+							}
+						}
+						country_event = {
+							id = FRA_african_colonial_events.7
+							days = 3
 						}
 					}
-					country_event = {
-						id = FRA_african_colonial_events.7
-						days = 3
-					}
-				}
-				else = {
-					country_event = {
-						id = FRA_african_colonial_events.6
-						days = 3
+					else = {
+						country_event = {
+							id = FRA_african_colonial_events.6
+							days = 3
+						}
 					}
 				}
 			}
