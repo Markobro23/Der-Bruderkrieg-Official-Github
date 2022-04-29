@@ -773,6 +773,9 @@ focus_tree = {
     icon = GFX_goal_generic_navy_cruiser
     text = FRA_NAVY_FUTURE
     prerequisite = { focus = FRA_GRANDE_MARINE }
+	prerequisite = {
+		focus = FRA_GRANDE_AIR
+	}
     x = 3
     y = 1
     relative_position_id = FRA_GRANDE_MARINE
@@ -859,6 +862,7 @@ focus_tree = {
     icon = GFX_goal_generic_air_naval_bomber
     text = FRA_NAVAL_AVIATION
     prerequisite = { focus = FRA_NAVY_FUTURE }
+
     x = 0
     y = 1
     relative_position_id = FRA_NAVY_FUTURE
@@ -913,7 +917,7 @@ focus_tree = {
     icon = GFX_goal_generic_build_airforce
     text = FRA_GRANDE_AIR
     #prerequisite = { focus = FRA_expand_the_sorbonne_university }
-    x = 15
+    x = 13
     y = 2
     relative_position_id = FRA_ARMEE_FRANCAISE
     cost = 3
@@ -936,7 +940,7 @@ focus_tree = {
     icon = GFX_goal_generic_air_production
     text = FRA_BUILD_FIELDS
     prerequisite = { focus = FRA_GRANDE_AIR }
-    x = 0
+    x = 2
     y = 1
     relative_position_id = FRA_GRANDE_AIR
     cost = 5
@@ -1195,12 +1199,12 @@ focus_tree = {
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		mutually_exclusive = {focus = FRA_DOCTRINAIRE_LEFT}
 		available = {
-			always = no
+			has_country_flag = FRA_DOCTRINAIRE_RIGHT_chosen
 		}
     x = 3
     y = 1
     relative_position_id = FRA_DOCTRINAIRE_VIC
-    cost = 0
+    cost = 3
     ai_will_do = {
       factor = 2000
     }
@@ -1452,7 +1456,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = FRA_LE_EMPEROR
-    cost = 3
+    cost = 6
     ai_will_do = {
       factor = 2000
     }
@@ -1514,13 +1518,13 @@ shared_focus = {
 		prerequisite = { focus = FRA_DOCTRINAIRE_VIC }
 		mutually_exclusive = {focus = FRA_DOCTRINAIRE_RIGHT}
 		available = {
-			always = no
+			has_country_flag = FRA_DOCTRINAIRE_LEFT_chosen
 		}
     x = -3
     y = 1
 	relative_position_id = FRA_DOCTRINAIRE_VIC
 	
-    cost = 0
+    cost = 3
     ai_will_do = {
       factor = 2000
     }
@@ -1655,22 +1659,11 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_popularity = {
-        ideology = neutrality
-        popularity = -0.05
-      }
-      add_popularity = {
-        ideology = fascism
-        popularity = -0.05
-      }
-      add_popularity = {
-        ideology = ultranationalism
-        popularity = -0.05
-      }
-      add_popularity = {
-        ideology = communism
-        popularity = -0.05
-      }
+      swap_ideas = {
+		  remove_idea = FRA_one_crown_no_king
+		  add_idea = FRA_one_crown_no_king_2
+	  }
+	  country_lock_all_division_template = yes
     }
   }
 
@@ -1679,7 +1672,7 @@ shared_focus = {
     icon = GFX_goal_FRA_rex_regnat_non_gubernat
     text = FRA_REX_REGNAT
 		prerequisite = { focus = FRA_no_room_for_tyrants }
-    x = 2
+    x = 0
     y = 1
     relative_position_id = FRA_no_room_for_tyrants
     cost = 5
@@ -1691,9 +1684,10 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_ideas = {
-				Rex_Regnat
-			}
+    swap_ideas = {
+			add_idea = FRA_one_crown_no_king_3
+			remove_idea = FRA_one_crown_no_king_2
+		}
 
 			add_popularity  = {
 				ideology = democratic
@@ -1709,12 +1703,13 @@ shared_focus = {
 	
 		prerequisite = {
 			focus = FRA_promoting_civil_rights
+			focus = FRA_support_small_business
 		}
 
-    x = -2
+    x = 0
     y = 2
     relative_position_id = FRA_REX_REGNAT
-    cost = 5
+    cost = 7.5
     ai_will_do = {
       factor = 2000
     }
@@ -1723,6 +1718,11 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
+		swap_ideas = {
+			add_idea = FRA_one_crown_no_king_4
+			remove_idea = FRA_one_crown_no_king_3
+		}
+		country_lock_all_division_template = no
       remove_country_leader_trait = inexperienced_monarch
     }
   }
@@ -1775,7 +1775,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = FRA_no_room_for_tyrants
 	
-	cost = 2
+	cost = 5
 	ai_will_do = {
 	  factor = 100
 	} 
@@ -1859,12 +1859,13 @@ shared_focus = {
 	prerequisite = {
 		focus = FRA_conservative_victory_in_elections
 	}
-	prerequisite = {
-		focus = FRA_LAISEZE_FAIRE
-	}
-    x = 0
+
+    x = -1
     y = 2
     relative_position_id = FRA_no_room_for_tyrants
+	mutually_exclusive = {
+		focus = FRA_support_small_business
+	}
     cost = 5
     ai_will_do = {
       factor = 2000
@@ -2168,7 +2169,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = FRA_FASCIST_VIC
-    cost = 3
+    cost = 6
     ai_will_do = {
       factor = 2000
     }
@@ -2255,7 +2256,7 @@ shared_focus = {
     x = -2
     y = 1
     relative_position_id = FRA_FASCIST_VIC
-    cost = 3
+    cost = 6
     ai_will_do = {
       factor = 2000
     }
@@ -2876,12 +2877,12 @@ shared_focus = {
 		
 		prerequisite = { focus = FRA_no_room_for_tyrants }
 		
-		x = 0
+		x = 2
 		y = 1
 		relative_position_id = FRA_no_room_for_tyrants
 
 	
-		cost = 1
+		cost = 5
 		ai_will_do = {
 			factor = 20
 		}
@@ -2938,26 +2939,29 @@ shared_focus = {
 	# 	}
 	# }
 
-	# shared_focus = {
-	# 	id = FRA_support_small_business
-	# 	icon = GFX_goal_support_small_bussinesses
-	# 	text = FRA_support_small_business
-	# 	prerequisite = { focus = FRA_deregulate_the_banking_industry}
-	# 	x = 2
-	# 	y = 1
-	# 	relative_position_id = FRA_deregulate_the_banking_industry
-	# 	cost = 5
-	# 	ai_will_do = {
-	# 		factor = 20
-	# 	} 
+	shared_focus = {
+		id = FRA_support_small_business
+		icon = GFX_goal_support_small_bussinesses
+		text = FRA_support_small_business
+		prerequisite = { focus = FRA_LAISEZE_FAIRE}
+		x = -1
+		y = 1
+		relative_position_id = FRA_LAISEZE_FAIRE
+		cost = 5
+		ai_will_do = {
+			factor = 20
+		} 
+		mutually_exclusive = {
+			focus = FRA_promoting_civil_rights
+		}
 
-	# 	available_if_capitulated = yes
-	# 	#search_filters = { FOCUS_FILTER_RESEARCH }
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	# 	completion_reward = {
-	# 		add_ideas = FRA_conservative_economic_reforms
-	# 	}
-	# }
+		completion_reward = {
+			add_ideas = FRA_conservative_economic_reforms
+		}
+	}
 
 	# shared_focus = {
 	# 	id = FRA_loosen_the_corporate_stranglehold
@@ -3112,6 +3116,7 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
+			remove_ideas = Haven_of_Refugees
 			add_ideas = FRA_national_propoganda_mil
 		}
 	}
@@ -5558,7 +5563,7 @@ instant_build = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				add_war_support = 0.1
+				add_war_support = 0.05
 			}
 		}
 		
