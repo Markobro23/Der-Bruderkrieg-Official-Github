@@ -805,7 +805,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-    option = {
+    option = { #crush the strikers
 		name = FRA_vienna_crash.1.a
 		hidden_effect = {
 			country_event = {
@@ -813,6 +813,16 @@ country_event = {
 				days = 2
 			} 
 		# 	set_country_flag = stocks_crash
+		}
+	}
+	option = { #negotiate with them
+		name = FRA_vienna_crash.1.b
+		hidden_effect = {
+			country_event = {
+				id = FRA_vienna_crash.2
+				days = 2
+			} 
+		 	set_country_flag = FRA_can_negotiate_with_strikers
 		}
 	}
 }
