@@ -1,19 +1,5 @@
 characters={
-	AIG_lord_linlithgow={
-		name="Lord Linlithgow"
-		portraits={
-			civilian={
-				large="gfx/leaders/RAJ/Portrait_British_Raj_Lord_Linlithgow.dds"
-			}
-		}
-		country_leader={
-			#desc="POLITICS_LORD_LINLITHGOW_DESC"
-			ideology=despotic
-			expire="1965.1.1.1"
-			id=-1
-		}
-	}
-	AIG_v._d._savarkar={
+	AIG_v_d_savarkar={
 		name="V. D. Savarkar"
 		portraits={
 			civilian={
@@ -31,24 +17,30 @@ characters={
 		name="Subhas Chandra Bose"
 		portraits={
 			civilian={
-				large="gfx/leaders/Subhas_Chandra_Bose.dds"
+				large="gfx/leaders/AIG/Subhas_Chandra_Bose.dds"
 			}
+		}
+		field_marshal = {
+			traits = { politically_connected offensive_doctrine }
+			skill = 4
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 2
 		}
 		country_leader={
 			#desc="POLITICS_P_KRISHNA_PILLAI_DESC"
-			ideology=marxism_trotskyism
+			ideology=marxism
 			expire="1965.1.1.1"
 			id=-1
 		}
+		gender = female
 	}
 	AIG_jawaharlal_nehru={
 		name="Jawaharlal Nehru"
 		portraits={
 			civilian={
-				small="_small"
-			}
-			civilian={
-				large=""
+
 			}
 		}
 		country_leader={
@@ -58,152 +50,53 @@ characters={
 			id=-1
 		}
 	}
-	AIG_noel_beresfordpeirse={
-		name="Noel Beresford-Peirse"
-		portraits={
-			army={
-				small="GFX_RAJ_noel_beresford_peirse_small"
-			}
-			army={
-				large="GFX_RAJ_noel_beresford_peirse"
+	AIF_rash_behari_bose = {
+		name = "Rash Behari Bose"
+		portraits = {
+			army = {
+				large = "gfx/leaders/AIG/Portrait_HND_Rash_Behari_Bose.png"
 			}
 		}
-		corps_commander={
-			traits={ armor_officer }
-			skill=3
-			attack_skill=3
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=1
-			legacy_id=-1
+		corps_commander = {
+			traits = { trait_reckless organizer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 	}
-	AIG_frank_messervy={
-		name="Frank Messervy"
-		portraits={
-			army={
-				small="GFX_RAJ_frank_messervy_small"
-			}
-			army={
-				large="GFX_RAJ_frank_messervy"
+	AIG_lakshmi_swaminathan = {
+		name = "Lakshmi Sahgal"
+		portraits = {
+			army = {
+				large = "gfx/leaders/AIG/Portrait_HND_Laskshmi_Sahgal.png"
+				small=GFX_portrait_RAJ_lakshmi_sahgal_small
 			}
 		}
-		corps_commander={
-			traits={ hill_fighter }
-			skill=3
-			attack_skill=2
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=-1
+		corps_commander = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
 		}
+		gender = female
 	}
-	AIG_douglas_gracey={
-		name="Douglas Gracey"
-		portraits={
-			army={
-				small="GFX_RAJ_douglas_gracey_small"
-			}
-			army={
-				large="GFX_RAJ_douglas_gracey"
+	AIG_prem_sahgal = {
+		name = "Prem Sahgal"
+		portraits = {
+			army = {
+				large = "gfx/leaders/AIG/Portrait_HND_Prem_Sahgal.png"
 			}
 		}
-		corps_commander={
-			traits={ desert_fox }
-			skill=3
-			attack_skill=1
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=-1
-		}
-	}
-	AIG_herbert_fitzherbert={
-		name="Herbert Fitzherbert"
-		portraits={
-			army={
-				small="GFX_RAJ_herbert_fitzherbert_small"
-			}
-			army={
-				large="GFX_RAJ_herbert_fitzherbert"
-			}
-		}
-		navy_leader={
-			traits={ old_guard_navy }
-			skill=2
-			attack_skill=2
-			defense_skill=2
-			maneuvering_skill=1
-			coordination_skill=1
-			legacy_id=-1
-		}
-	}
-	AIG_jim_roberts={
-		name="Jim Roberts"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_1.dds"
-			}
-		}
-		country_leader={
-			ideology=syndicalism
-			expire="1956.1.1.12"
-			id=-1
-		}
-	}
-	AIG_lucas_smith={
-		name="Lucas Smith"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=social_liberalism
-			traits={ charismatic_ego reluctant_interventionist }
-			expire="1955.1.1.12"
-			id=-1
-		}
-	}
-	AIG_john_smith={
-		name="John Smith"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=democratic_conservative
-			traits={ appeaser efficient_budgeter }
-			expire="1954.1.1.12"
-			id=-1
-		}
-	}
-	AIG_jonas_jones={
-		name="Jonas Jones"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=oligarchic_republicanism
-			expire="1953.1.1.12"
-			id=-1
-		}
-	}
-	AIG_bob_jones={
-		name="Bob Jones"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=racial_nationalism
-			traits={ financial_expert captain_of_industry }
-			expire="1951.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { war_hero trait_mountaineer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 	}
 }

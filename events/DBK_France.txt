@@ -638,7 +638,7 @@ country_event = {
 				}
 			}
 		}
-		unlock_national_focus = FRA_DOCTRINAIRE_LEFT
+		set_country_flag = FRA_DOCTRINAIRE_LEFT_chosen
 		ai_chance = {
 			factor = 1000
 		}
@@ -655,7 +655,7 @@ option = { # This option will give the war goal
 				}
 			}
 		}
-		unlock_national_focus = FRA_DOCTRINAIRE_RIGHT
+		set_country_flag = FRA_DOCTRINAIRE_RIGHT_chosen
 		ai_chance = {
 			factor = 1500
 		}
@@ -724,7 +724,7 @@ news_event = { #exile
 			}
 		}
 		name = france.215.a 
-		FRA = { set_cosmetic_tag = FRA_FREE }
+		FRA = { set_cosmetic_tag = FRA_FREE set_country_flag = FRA_unlock_exile_tree mark_focus_tree_layout_dirty = yes }
 		declare_war_on = {
 			target = GER
 			type = topple_government
@@ -773,6 +773,7 @@ country_event = {
 	option = { 
 		name = france_policy_tree_events.1.a 
 		ai_chance = { factor = 100 } 
+		add_ideas = FRA_deregulation
 		
 	}
 }
@@ -804,7 +805,7 @@ country_event = {
 
 	is_triggered_only = yes
 
-    option = {
+    option = { #crush the strikers
 		name = FRA_vienna_crash.1.a
 		hidden_effect = {
 			country_event = {
@@ -812,6 +813,16 @@ country_event = {
 				days = 2
 			} 
 		# 	set_country_flag = stocks_crash
+		}
+	}
+	option = { #negotiate with them
+		name = FRA_vienna_crash.1.b
+		add_timed_idea = {
+			idea = FRA_mantignon_agreements
+			days = 365
+		}
+		trigger = {
+			has_completed_focus = FRA_DOCTRINAIRE_LEFT
 		}
 	}
 }
@@ -2248,9 +2259,7 @@ country_event = {
 					}
 				}
 			}
-			GER = {
-				country_event = belgian_election_events.13
-			}
+			
 		}
 	}
 }
@@ -2280,6 +2289,12 @@ country_event = {
 
 	option = {
 		name = belgian_election_events.13.a
+		every_owned_state = {
+			create_unit = {
+				division = "name = \"Congolese Jesuit Soldiers\" division_template = \"Congolese Advanced Militia\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = COG
+			}
+		}
 	}
 }
 
@@ -2564,6 +2579,429 @@ news_event = {
 	}
 }
 
+add_namespace = FRA_indochina_events
+#Ho Chi Minh gets his ass out of nam
+country_event = {
+	id = FRA_indochina_events.1
+	title = FRA_indochina_events.1.t
+	desc = FRA_indochina_events.1.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.1.a
+		hidden_effect = {
+			country_event = {
+				id = FRA_indochina_events.2
+				days = 3
+			}
+		}
+	}
+}
+
+## Ho Chi Minh launches a revolt in siam
+country_event = {
+	id = FRA_indochina_events.2
+	title = FRA_indochina_events.2.t
+	desc = FRA_indochina_events.2.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.2.a
+		SIA = {
+			release = HVN
+			declare_war_on = {
+				target = HVN
+				type = civil_war
+			}
+		}
+	}
+}
+
+## France sends offer of autonomy
+country_event = {
+	id = FRA_indochina_events.3
+	title = FRA_indochina_events.3.t
+	desc = FRA_indochina_events.3.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.3.a
+		FRA = {
+			country_event = FRA_indochina_events.4
+		}
+	}
+	option = {
+		name = FRA_indochina_events.3.b
+		FRA = {
+			country_event = FRA_indochina_events.5
+		}
+	}
+}
+
+country_event = {
+	id = FRA_indochina_events.4
+	title = FRA_indochina_events.4.t
+	desc = FRA_indochina_events.4.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.4.a
+		hidden_effect = {
+			SIA = {
+				keep_current_politics = yes
+			}
+		}
+		FRA = {
+			set_autonomy = {
+				target = SIA
+				autonomous_state =  autonomy_dominion
+			}
+		}
+		hidden_effect = {
+			SIA = {
+				reset_government = yes
+			}
+		}
+		FRA = {
+			add_to_war = {
+				targeted_alliance = SIA
+				enemy = HVN
+				hostility_reason = asked_to_join
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = FRA_indochina_events.5
+	title = FRA_indochina_events.5.t
+	desc = FRA_indochina_events.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.5.a
+		create_wargoal = {
+			target = SIA
+			type = puppet_wargoal_focus
+		}
+	}
+	option = {
+		name = FRA_indochina_events.5.b
+		add_political_power = -25
+	}
+
+}
+
+##saigon
+country_event = {
+	id = FRA_indochina_events.6
+	title = FRA_indochina_events.6.t
+	desc = FRA_indochina_events.6.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.6.a
+		LAO = {
+			load_oob = Special_Indochinese_Corps
+			create_unit = {
+				division = "name = \"Elite Forces of Laos\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = LAO
+			}
+			create_unit = {
+				division = "name = \"Elite Forces of Laos\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = LAO
+			}
+		}
+		CAM = {
+			load_oob = Special_Indochinese_Corps
+			create_unit = {
+				division = "name = \"Elite Forces of Cambodia\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = CAM
+			}
+			create_unit = {
+				division = "name = \"Elite Forces of Cambodia\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = CAM
+			}
+		}
+		VIN = {
+			load_oob = Special_Indochinese_Corps
+			create_unit = {
+				division = "name = \"Elite Forces of Vietnam\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = VIN
+			}
+			create_unit = {
+				division = "name = \"Elite Forces of Vietnam\" division_template = \"Indochinese Elite Corps\" start_experience_factor = 1 start_equipment_factor = 1"
+				owner = VIN
+			}
+		}
+		every_state = {
+			limit = {
+				any_neighbor_state = {
+					OR = {
+						is_controlled_by = RAK
+						THIS.owner = {
+							is_in_faction_with = RAK
+						}
+					} 
+					
+				}
+				owner = {
+					OR = {
+						tag = FRA
+						is_in_faction_with = FRA
+					}
+				}
+			}
+			add_building_construction = {
+				type = bunker
+				level = 3
+				instant_build = yes
+				province = {
+					all_provinces = yes
+					limit_to_border = yes
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = FRA_indochina_events.7
+	title = FRA_indochina_events.7.t
+	desc = FRA_indochina_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_indochina_events.7.a
+		FRA = {
+			annex_country = {
+				target = VIN
+				transfer_troops = yes
+			}
+		}
+	}
+
+}
+
+add_namespace = FRA_african_colonial_events
+
+## Dual African Authorities
+country_event = {
+	id = FRA_african_colonial_events.1
+	title = FRA_african_colonial_events.1.t
+	desc = FRA_african_colonial_events.1.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.1.a
+		set_country_flag = FRA_will_construct_trans_saharan_railroad
+	}
+	option = {
+		name = FRA_african_colonial_events.1.b
+		set_country_flag = FRA_will_do_union_plan
+	}
+}
+
+## Abbas
+country_event = {
+	id = FRA_african_colonial_events.2
+	title = FRA_african_colonial_events.2.t
+	desc = FRA_african_colonial_events.2.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.2.a
+		add_stability = -0.05
+		add_manpower = 10000
+
+		MOR = {
+			every_owned_state = {
+				add_core_of = ALG
+			}
+		}
+
+		ALG = {
+			annex_country = {
+				target = MOR
+				transfer_troops = yes
+			}
+			transfer_state = 459
+			transfer_state = 1125
+			transfer_state = 460
+		}
+
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.3
+				days = 5
+			}
+		}
+	}
+}
+#Pied Noir Issue
+country_event = {
+	id = FRA_african_colonial_events.3
+	title = FRA_african_colonial_events.3.t
+	desc = FRA_african_colonial_events.3.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.3.a
+		add_ideas = FRA_pied_noor_reintegration
+		add_manpower = 10000
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.4
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = FRA_african_colonial_events.3.b
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		add_manpower = 2500
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.4
+				days = 3
+			}
+		}
+	}
+}
+
+##french civil code
+country_event = {
+	id = FRA_african_colonial_events.4
+	title = FRA_african_colonial_events.4.t
+	desc = FRA_african_colonial_events.4.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.4.a
+		add_ideas = FRA_anti_islamic_uproar
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.5
+				days = 3
+			}
+		}
+	}
+	option = {
+		name = FRA_african_colonial_events.4.b
+		add_stability = 0.025
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		hidden_effect = {
+			country_event = {
+				id = FRA_african_colonial_events.5
+				days = 3
+			}
+		}
+	}
+}
+
+##french civil code
+country_event = {
+	id = FRA_african_colonial_events.5
+	title = FRA_african_colonial_events.5.t
+	desc = FRA_african_colonial_events.5.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.5.a
+		ALG = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = algerian_tribal_land_modifier
+				}
+			}
+		}
+		set_country_flag = FRA_unlock_algerian_integration_focus
+		custom_effect_tooltip = FRA_we_will_complete_pre_integration_reforms
+	}
+	option = {
+		name = FRA_african_colonial_events.5.b
+		ALG = {
+			add_political_power = 50
+		}
+		add_to_variable = {
+			tooltip = FRA_messy_algerian_integration_increases
+			FRA_messy_algerian_integration = 1
+		}
+		custom_effect_tooltip = FRA_we_will_complete_pre_integration_reforms
+		set_country_flag = FRA_unlock_algerian_integration_focus
+	}
+}
+
+## successful integration
+country_event = {
+	id = FRA_african_colonial_events.6
+	title = FRA_african_colonial_events.6.t
+	desc = FRA_african_colonial_events.6.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.6.a
+		remove_ideas = FRA_anti_islamic_uproar
+		remove_ideas = FRA_pied_noor_reintegration
+	}
+}
+
+country_event = {
+	id = FRA_african_colonial_events.7
+	title = FRA_african_colonial_events.7.t
+	desc = FRA_african_colonial_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+
+	is_triggered_only = yes
+
+	option = {
+		name = FRA_african_colonial_events.7.a
+		remove_ideas = FRA_anti_islamic_uproar
+		remove_ideas = FRA_pied_noor_reintegration
+		FRA = {
+			every_owned_state = {
+				limit = {
+					is_core_of = ALG
+				}
+				remove_core_of = FRA
+			}
+		}
+		add_stability = -0.1
+	}
+}
 
 #post victory tree events
 add_namespace = french_post_victory_tree
