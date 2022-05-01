@@ -817,12 +817,9 @@ country_event = {
 	}
 	option = { #negotiate with them
 		name = FRA_vienna_crash.1.b
-		hidden_effect = {
-			country_event = {
-				id = FRA_vienna_crash.2
-				days = 2
-			} 
-		 	set_country_flag = FRA_can_negotiate_with_strikers
+		add_timed_idea = {
+			idea = FRA_mantignon_agreements
+			days = 365
 		}
 		trigger = {
 			has_completed_focus = FRA_DOCTRINAIRE_LEFT

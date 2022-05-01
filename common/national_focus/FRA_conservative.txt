@@ -1363,7 +1363,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = FRA_CLASS_HIERARCHY
 	
-	cost = 3
+	cost = 5
 	ai_will_do = {
 		factor = 2000
 	}
@@ -1387,7 +1387,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = FRA_MILITARY_HIEARCHY
-	cost = 3
+	cost = 5
 	ai_will_do = {
 		factor = 2000
 	}
@@ -1433,7 +1433,7 @@ shared_focus = {
     x = -1
     y = 1
     relative_position_id = FRA_NOBLE_RULE
-    cost = 3
+    cost = 5
     ai_will_do = {
       factor = 2000
     }
@@ -1442,9 +1442,10 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-	 add_political_power = 50
-	 add_stability = 0.05
-	 add_war_support = 0.05
+	swap_ideas = {
+		add_idea = Robe_Nobility_3
+		remove_idea = Robe_Nobility_2
+	}
     }
   }
 
@@ -1471,9 +1472,7 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
  
     completion_reward = {
-      add_ideas = {
-				Bonapartist_Absolutism
-			}
+      
 
 			set_temp_variable = {neu_pop = party_popularity@authoritarian_democratic}
 
@@ -1493,6 +1492,8 @@ shared_focus = {
 			set_politics = {
 				ruling_party = neutrality
 			}
+			remove_country_leader_trait = inexperienced_monarch
+
 
 			hidden_effect = {
 			create_country_leader = {
@@ -1613,7 +1614,6 @@ shared_focus = {
     #search_filters = { FOCUS_FILTER_RESEARCH }
 
     completion_reward = {
-      add_political_power = 100
 	  remove_ideas = pierre_laval
 		  add_ideas = paul_reynaud_hog
 	 
@@ -2138,7 +2138,7 @@ shared_focus = {
     x = 1
     y = 1
     relative_position_id = FRA_MILITARY_GOVERNMENT
-    cost = 3
+    cost = 5
     ai_will_do = {
       factor = 2000
     }
@@ -2732,6 +2732,9 @@ shared_focus = {
 		available = {
 			has_country_flag = FRA_lyon_strike_start
 		}
+		bypass = {
+			has_idea = FRA_mantignon_agreements
+		}
 	
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -3107,7 +3110,7 @@ shared_focus = {
 		x = -1
 		y = 1
 		relative_position_id = FRA_MILITARY_GOVERNMENT 
-		cost = 5
+		cost = 8
 		ai_will_do = {
 			factor = 20
 		}
@@ -5412,6 +5415,9 @@ instant_build = yes
 			ai_will_do = {
 				factor = 100
 			}
+			available = {
+				has_completed_focus = FRA_DOCTRINAIRE_LEFT
+			}
 			completion_reward = {
 				country_event = FRA_african_colonial_events.2
 			}
@@ -7232,7 +7238,7 @@ instant_build = yes
 			text = FRA_they_cant_be_trusted_anymore
 			x = -3
 			y = 1
-			cost = 4
+			cost = 7
 			ai_will_do = {
 				factor = 20
 			}
