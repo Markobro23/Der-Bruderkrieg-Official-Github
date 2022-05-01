@@ -690,7 +690,7 @@ shared_focus = {
         multiply_variable = {
           AUS_Polish_Support_war_support_factor_loc = 100
         }
-
+        custom_effect_tooltip = AUS_unlock_reintegration_decisons
         
   }
 }
@@ -797,6 +797,40 @@ shared_focus = {
 
   completion_reward = {
     add_country_leader_trait = austrian_caesar
+    if = {
+      limit = {
+        has_country_flag = AUS_venice_integrated
+        has_country_flag = AUS_HUN_integrated
+        has_country_flag = AUS_prague_integrated
+      }
+      every_state = {
+        limit = { is_core_of = CZE }
+        add_core_of = AUS
+      }
+      every_state = {
+        limit = { is_core_of = HUN }
+        add_core_of = AUS
+      }
+      add_state_core = 159
+      else = {
+        every_state = {
+          limit = { is_core_of = CZE }
+          add_core_of = AUS
+        }
+        every_state = {
+          limit = { is_core_of = HUN }
+          add_core_of = AUS
+        }
+        add_state_core = 159
+        every_state = {
+          limit = { OR = { is_core_of = HUN is_core_of = CZE state = 159 } }
+          add_dynamic_modifier = {
+            modifier = failed_reintegration_modifier
+            days = 720
+          }
+        }
+      }
+    }
   }
 }
 
