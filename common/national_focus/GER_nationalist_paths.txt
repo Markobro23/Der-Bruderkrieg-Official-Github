@@ -3849,6 +3849,11 @@ shared_focus = {
 			
 		}
 	}
+	bypass = {
+		SER = {
+			is_in_faction = yes
+		}
+	}
 	relative_position_id = GER_focus_on_european_nationalism
 	ai_will_do = {
 		factor = 600
@@ -3872,11 +3877,16 @@ shared_focus = {
 		focus = GER_focus_on_european_nationalism
 	}
 	relative_position_id = GER_focus_on_european_nationalism
-	available = {
-		NOT = {
-			SWE = {
-				has_government = authoritarian_democratic 
-			}
+	# available = {
+	# 	NOT = {
+	# 		SWE = {
+	# 			has_government = authoritarian_democratic 
+	# 		}
+	# 	}
+	# }
+	bypass = {
+		SWE = {
+			is_in_faction = yes
 		}
 	}
 	ai_will_do = {
