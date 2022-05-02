@@ -1659,8 +1659,7 @@ AUS_imperial_senate = {
 		}
 
 		available = {
-				has_country_flag = open_funding_campaign_infil
-			
+			has_country_flag = open_funding_campaign_infil
 		}
 
 		visible = {
@@ -1702,6 +1701,32 @@ AUS_imperial_senate = {
 				}
 			}
 		}
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 9
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 75
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 74
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 43
+					size > 2
+				}
+			}
+		}
 
 		days_remove = 35
 
@@ -1720,6 +1745,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_prague_integrated
+			remove_dynamic_modifier = {
+				modifier = bohemian_modifier
+			}
+			
 		}
 	}
 
@@ -1758,6 +1787,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_prague_integrated
+			remove_dynamic_modifier = {
+				modifier = bohemian_modifier
+			}
+			
 		}
 	}
 
@@ -1770,11 +1803,38 @@ AUS_imperial_senate = {
 		}
 
 		visible = {
+			
 			has_completed_focus = AUS_CENTRALISM
 			NOT = {
 				OR = {
 					has_country_flag = AUS_HUN_integrated
 					has_decision = AUS_peaceful_integration_HUN
+				}
+			}
+		}
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 43
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 154
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 155
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 804
+					size > 2
 				}
 			}
 		}
@@ -1796,6 +1856,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_HUN_integrated
+			country_event = {
+				id = austria.199
+				days = 5
+			}
 		}
 	}
 
@@ -1834,6 +1898,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_HUN_integrated
+			country_event = {
+				id = austria.199
+				days = 5
+			}
 		}
 	}
 
@@ -1857,6 +1925,15 @@ AUS_imperial_senate = {
 
 		days_remove = 35
 
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 159
+					size > 2
+				}
+			}
+		}
+
 		cost = 10
 
 		fire_only_once = yes
@@ -1872,6 +1949,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_venice_integrated
+			country_event = {
+				id = austria.205
+				days = 5
+			}
 		}
 	}
 
@@ -1910,6 +1991,10 @@ AUS_imperial_senate = {
 
 		remove_effect = {
 			set_country_flag = AUS_venice_integrated
+			country_event = {
+				id = austria.205
+				days = 5
+			}
 		}
 	}
 
