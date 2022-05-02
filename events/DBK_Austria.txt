@@ -520,8 +520,16 @@ country_event = {
 		name = aus.b.1
 		ai_chance = { factor = 100 } 
 
-		news_event = {id = austria.147 hours = 3}
 		
+		HUN = {
+			set_politics = {
+				ruling_party = fascism
+			}
+			
+			set_rule = {
+				can_join_factions = no
+			}
+		}
 		hungary_civil_war = yes
 		HUN = {
 			set_politics = {
@@ -532,7 +540,7 @@ country_event = {
 				can_join_factions = no
 			}
 		}
-		
+		news_event = {id = austria.147 hours = 3}
 		add_threat = 3
 		multiply_variable = {
 			AUS_Nemetzi_dal_stability_factor = 2
