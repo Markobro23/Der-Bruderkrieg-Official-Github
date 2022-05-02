@@ -39,7 +39,11 @@ DIPLOMACY_GUARANTEE_ENABLE_TRIGGER_OVERRIDES_GAME = {
 		always = yes
 	}
 	else = {
-		always = no
+		custom_trigger_tooltip = {
+			tooltip = this_action_will_unlock_in_1942
+			always = no
+		
+		}
 	}
 }
 
@@ -51,7 +55,10 @@ DIPLOMACY_GUARANTEE_ENABLE_TRIGGER = {
 		always = yes
 	}
 	else = {
-		always = no
+		custom_trigger_tooltip = {
+			tooltip = this_action_will_unlock_in_1942
+			always = no
+		}
 	}
 }
 
@@ -568,6 +575,14 @@ DIPLOMACY_REQUEST_LICENSED_PRODUCTION_ENABLE_TRIGGER = {
 }
 DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
 	if = {
+		limit = {
+			tag = GER
+			has_completed_focus = GER_eliminate_the_american_menace
+			is_ai = no
+		}
+		always = yes
+	}
+	else_if = {
 		limit = {
 			date > 1941.1.1
 		}

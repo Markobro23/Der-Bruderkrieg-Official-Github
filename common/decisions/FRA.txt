@@ -457,6 +457,50 @@ FRA_declare_a_state_of_emergency = {
 	}
 }
 
+	FRA_negotiate_with_strikes = {
+
+		visible = {
+			has_country_flag = FRA_can_negotiate_with_strikers
+		}
+
+		icon = generic_political_discourse
+
+		cost = 15
+
+		complete_effect = {
+			add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_5 FRA_progress_to_crushing_strikes = 5 }
+			add_days_mission_timeout = {
+				mission = FRA_lyon_strike
+				days = 20
+			}
+		}
+
+		days_remove = 25
+
+		modifier = {
+			consumer_goods_factor = 0.03
+		}
+
+	}
+
+	FRA_promise_reforms_to_union_leaders = {
+
+		visible = {
+			has_country_flag = FRA_can_negotiate_with_strikers
+		}
+
+		icon = generic_political_discourse
+
+		cost = 20
+
+		complete_effect = {
+			add_to_variable = { tooltip = FRA_increase_progress_to_crushing_strikes_by_10 FRA_progress_to_crushing_strikes = 10 }
+		}
+
+		days_re_enable = 30
+
+	}
+
 FRA_declare_the_strikes_cleared = {
 
 	icon = eng_trade_unions_demand

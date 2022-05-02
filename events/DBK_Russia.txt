@@ -1260,6 +1260,7 @@ country_event = {
 			ideology = communism
 			popularity = -0.05
 		}
+		SOV_increase_support_among_people_small = yes
 	}
 }
 
@@ -1277,6 +1278,7 @@ country_event = {
 			ideology = communism
 			popularity = -0.08
 		}
+		SOV_increase_support_among_people_small = yes
 	}
 }
 
@@ -1511,12 +1513,12 @@ country_event = { #the crossroads
 	option = {
 		name = SOV_kerensky_tree_events.7.a #Peace would be best
 		ai_chance = { factor = 1 }
-		complete_national_focus = SOV_Democratically_Fighting_Opposition
+		set_country_flag = SOV_Democratically_Fighting_Opposition
 	}
 	option = {
 		name = SOV_kerensky_tree_events.7.b #Nah fam
 		ai_chance = { factor = 1}
-		complete_national_focus = SOV_Suppression_of_Opposition
+		set_country_flag = SOV_Suppression_of_Opposition
 	}
 }
 
@@ -1543,6 +1545,59 @@ country_event = { #the post war choice
 		complete_national_focus = SOV_reach_out_to_america
 	}
 }
+
+country_event = { #small conservative protests
+	id = SOV_kerensky_tree_events.9
+	title = SOV_kerensky_tree_events.9.t
+	desc = SOV_kerensky_tree_events.9.d
+	#picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.9.a #Peace would be best
+		ai_chance = { factor = 1 }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.01
+		}
+		SOV_decrease_support_among_people_small = yes
+	}
+}
+
+country_event = { #medium conservative protests
+	id = SOV_kerensky_tree_events.10
+	title = SOV_kerensky_tree_events.10.t
+	desc = SOV_kerensky_tree_events.10.d
+	#picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.10.a #Peace would be best
+		ai_chance = { factor = 1 }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.025
+		}
+		SOV_decrease_support_among_people_medium = yes
+	}
+}
+
+country_event = { #large conservative protests
+	id = SOV_kerensky_tree_events.11
+	title = SOV_kerensky_tree_events.11.t
+	desc = SOV_kerensky_tree_events.11.d
+	#picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.11.a #Peace would be best
+		ai_chance = { factor = 1 }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.05
+		}
+		SOV_decrease_support_among_people_large = yes
+	}
+}
+
+
 
 add_namespace = SOV_pavel_tree_events
 ##The Question of the Okhrana
@@ -4484,53 +4539,19 @@ country_event = {
 	title = SOV_russian_collapse_leadup.1.t
 	desc = SOV_russian_collapse_leadup.1.d
 	#picture = GFX_hitlerartisteventpic
-	#is_triggered_only = yes
+	is_triggered_only = yes
 	fire_only_once = yes
-	trigger = { 
-		if = {
-			limit = {
-				OR = {
-					has_government = communism
-					has_government = democratic_communism
-				}
-			}
-			has_country_flag = SOV_rsdlp_collapse_fire_russian_collapse
-		}
-		if = {
-			limit = {
-				OR = {
-					has_government = socialism_democratic
-					has_government = democratic_liberalism
-				}
-			}
-			check_variable = {
-				var = SOV_peoples_support_for_current_regime value = 25 compare = less_than
-			} 
-			OR = {
-				has_idea = SOV_conservative_high_command
-				has_idea = SOV_conservative_high_command_2
-				has_idea = SOV_conservative_high_command_3
-			}
-		}
-		if = {
-			limit = {
-				OR = {
-					has_government = democratic
-				}
-			}
-			always = no
-			##fire_belogurov_collapse = yes
-		}
-		else = {
-			always = no
-		}
-		tag = SOV
-	}
+	
 	option = {
 		name = SOV_russian_collapse_leadup.1.a
 		ai_chance = { factor = 1}
 
-		country_event = SOV_russian_collapse_events.1
+		hidden_effect = {
+			country_event = {
+			   id = SOV_russian_collapse_events.1
+			   days = 3
+			}
+		}
 		set_global_flag = SOV_russian_collapse_flag
 		sound_effect = DBK_red_alert
 	}
