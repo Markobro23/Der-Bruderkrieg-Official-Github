@@ -7083,17 +7083,11 @@ instant_build = yes
 				y = 0
 				cost = 2
 				ai_will_do = {
-					factor = 200
+					factor = 1
 					modifier = {
-						add = -200
-						OR = {
-							NOT = {
-								has_completed_focus = FRA_PATH_AGGRESSION
-							}
-							NOT = {
-								has_completed_focus = FRA_NAPOLEON
-							}
-						}
+						factor = 200
+						has_completed_focus = FRA_PATH_AGGRESSION
+						has_completed_focus = FRA_NAPOLEON
 					}
 				}
 				
