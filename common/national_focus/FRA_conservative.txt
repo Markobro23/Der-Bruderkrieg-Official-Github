@@ -4639,16 +4639,12 @@ shared_focus = {
 			available_if_capitulated = yes
 	
 			ai_will_do = {
-				factor = 100
+				factor = 10
 				modifier = {
-					add = -200
+					factor = 200
 					OR = {
-						NOT = {
-							has_completed_focus = FRA_PATH_AGGRESSION
-						}
-						NOT = {
-							has_completed_focus = FRA_NAPOLEON
-						}
+						has_completed_focus = FRA_PATH_AGGRESSION
+						has_completed_focus = FRA_NAPOLEON
 					}
 				}
 			}
@@ -7226,6 +7222,7 @@ instant_build = yes
 					add_political_power = 100
 					set_cosmetic_tag = confederation_of_the_rhine
 				}
+				country_event = { id = westfalen_subtree_events.5 hours = 2 }
 			}
 		}
 		shared_focus = {
