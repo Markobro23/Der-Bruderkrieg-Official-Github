@@ -4639,16 +4639,12 @@ shared_focus = {
 			available_if_capitulated = yes
 	
 			ai_will_do = {
-				factor = 100
+				factor = 10
 				modifier = {
-					add = -200
+					factor = 200
 					OR = {
-						NOT = {
-							has_completed_focus = FRA_PATH_AGGRESSION
-						}
-						NOT = {
-							has_completed_focus = FRA_NAPOLEON
-						}
+						has_completed_focus = FRA_PATH_AGGRESSION
+						has_completed_focus = FRA_NAPOLEON
 					}
 				}
 			}
