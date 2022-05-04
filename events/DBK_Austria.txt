@@ -561,7 +561,6 @@ country_event = {
 			AUS_Nemetzi_dal_conscription_factor_loc = 100
 		}
 		set_country_flag = AUS_nemzeti_dal_to_full_revolution
-
 		hidden_effect = {
 			every_state = {
 				limit = { is_core_of = HUN }
@@ -630,13 +629,13 @@ country_event = {
 	
 		add_dynamic_modifier = {modifier = bohemian_modifier}
 		set_country_flag = AUS_bohemian_outrage_to_ban_czech_diet
+		every_state = {
+				limit = { is_core_of = CZE }
+				remove_core_of = AUS
+			}
 		hidden_effect = {
 			remove_dynamic_modifier = {
 				modifier = Bohemian_Outrage
-			}
-			every_state = {
-				limit = { is_core_of = CZE }
-				remove_core_of = AUS
 			}
 		}
 	}
@@ -713,6 +712,8 @@ country_event = {
 
 		  805 = { set_demilitarized_zone = no }
 		  160 = { set_demilitarized_zone = no }
+
+		  
 
 		  
 		}
@@ -1153,6 +1154,13 @@ country_event = {
 		39 = {
 			add_core_of = HUN
 		}
+
+		effect_tooltip = {
+			#swap_ideas = {
+			#	remove_idea = Nemzeti_dal
+			#	add_idea = Autonomism
+			#}
+		}
 		
 	}
 
@@ -1246,7 +1254,7 @@ country_event = {
 
 		hidden_effect = {
 		159 = {
-			add_core_of = ITF
+			add_core_of = ITF	
 		}
 	}
 		

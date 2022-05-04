@@ -1,4 +1,378 @@
 
+DBK_USA_content_category = {
+
+	## LEADER CHOOAWE
+	USA_dnc_decision = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 156
+		ai_will_do = {
+		  factor = 3000
+		}
+		complete_effect = {
+			set_country_flag = USA_doing_dnc
+		}
+		available = {
+			NOT = {
+				has_country_flag = USA_doing_rnc
+			}
+		}
+		remove_effect = {
+			country_event = {
+				id = USA_democratic_national_convention.1
+			}
+		}
+	}
+	USA_rnc_decision = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 156
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			NOT = {
+				has_country_flag = USA_doing_dnc
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_doing_rnc
+		}
+		remove_effect = {
+			country_event = USA_republican_national_convention.1
+		}
+	}
+
+
+	## LONG REFORMS
+	USA_long_reforms = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 500
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			has_country_flag = USA_elections_over
+
+			has_country_leader = {
+				name = "Huey Long"
+				ruling_only = yes
+			}
+			date > 1937.2.2
+		}
+		complete_effect = {
+			set_country_flag = USA_doing_rnc
+		}
+		remove_effect = {
+			remove_ideas = USA_dust_bowl
+			remove_ideas = USA_great_depression
+			remove_idea = USA_era_of_segregation
+
+			add_ideas = USA_the_american_dream_reborn	
+			add_ideas = USA_high_racial_tensions_2
+			add_ideas = USA_dust_bowl_reforms_3
+			add_ideas = USA_economic_reform_admin_2
+			swap_ruler_traits = { remove = USA_kingfish add = USA_kingfish_2 }
+		}
+	}
+	
+
+	## SMITH REFORMS
+	USA_smith_reforms = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 500
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			has_country_flag = USA_elections_over
+
+			has_country_leader = {
+				name = "Alfred Smith"
+				ruling_only = yes
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_doing_rnc
+		}
+		remove_effect = {
+			remove_ideas = USA_dust_bowl
+			remove_ideas = USA_great_depression
+			remove_idea = USA_era_of_segregation
+
+			add_ideas = USA_revived_efficiency_movement_5	
+			swap_ideas = {
+				add_idea = USA_prohibition_2
+				remove_idea = USA_prohibition
+			}
+			add_ideas = USA_democratic_return_to_normalcy
+			add_ideas = USA_smiths_radical_safeguarding_3
+			add_country_leader_trait = USA_happy_warrior
+		}
+	}
+
+	## WARREN REFORMS
+	USA_warren_reforms = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 500
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			has_country_flag = USA_elections_over
+
+			has_country_leader = {
+				name = "Earl Warren"
+				ruling_only = yes
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_doing_rnc
+		}
+		remove_effect = {
+			remove_ideas = USA_dust_bowl
+			remove_ideas = USA_great_depression
+			remove_idea = USA_era_of_segregation
+
+			add_ideas = USA_dust_bowl_reforms
+			
+			if = {
+				limit = { has_idea = james_j_couzens } 
+				add_timed_idea = {
+					days = 700
+					idea = USA_liberal_recovery
+				}
+			}
+			if = {
+				limit = { has_idea = herbert_hoover }
+				add_timed_idea = {
+					days = 700
+					idea = USA_conservative_recovery
+				}
+			}
+		
+		}
+	}
+
+
+	## Foriegn Policy
+	USA_go_ham_on_england= {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			NOT = {
+				has_country_flag = USA_has_already_chosen_european_decision_path
+			}
+			ENG = {
+				has_war_with = GER
+			}
+			OR = {
+				has_country_leader = {
+					name = "Earl Warren"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Huey Long"
+					ruling_only = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_has_already_chosen_european_decision_path
+		}
+		remove_effect = {
+			
+			create_wargoal = {
+				target = ENG
+				type = topple_government
+			}
+
+		}
+	}
+	USA_go_ham_on_prussia = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			NOT = {
+				has_country_flag = USA_has_already_chosen_european_decision_path
+			}
+			ENG = {
+				has_war_with = GER
+			}
+	
+			OR = {
+				has_country_leader = {
+					name = "Alfred Smith"
+					ruling_only = yes
+				}
+				has_country_leader = {
+					name = "Earl Warren"
+					ruling_only = yes
+				}
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_has_already_chosen_european_decision_path
+		}
+		remove_effect = {
+			
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+
+		}
+	}
+
+	USA_go_ham_on_england_prussia = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			NOT = {
+				has_country_flag = USA_has_already_chosen_european_decision_path
+			}
+			GER = {
+				has_completed_focus = GER_the_mosley_pact
+			}
+			ENG = {
+				has_war_with = FRA
+			}
+		}
+		complete_effect = {
+			set_country_flag = USA_has_already_chosen_european_decision_path
+		}
+		remove_effect = {
+			
+			create_wargoal = {
+				target = ENG
+				type = topple_government
+			}
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+		}
+	}
+
+	USA_go_ham_on_argentina = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			ARG = {
+				has_cosmetic_tag = la_plata
+			}
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			
+			create_wargoal = {
+				target = ARG
+				type = topple_government
+			}
+		
+		}
+	}
+
+	USA_add_mexico_to_faction = {
+
+		available = {
+			tag = USA
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		available = {
+			has_war_with = ARG
+		}
+		complete_effect = {
+		}
+		remove_effect = {
+			MEX = {
+				country_event = generic.5
+			}	
+		}
+	}
+
+}
 
 DBK_USA_house = {
 	USA_lobby_for_liberals_senate_small = {
@@ -1095,8 +1469,8 @@ USA_the_mafia = {
 		}
 
 		activation = {
-			
-			has_completed_focus =  USA_the_end_of_prohibition
+			always = no
+			#has_completed_focus =  USA_the_end_of_prohibition
 		}
 
 		visible = {
@@ -1367,7 +1741,7 @@ USA_supporting_the_IRA = {
 		days_remove = 120
 
 		visible = {
-			has_completed_focus = USA_and_took_your_lands
+			#has_completed_focus = USA_and_took_your_lands
 		}
 
 		ai_will_do = {
@@ -1400,7 +1774,7 @@ USA_supporting_the_IRA = {
 		days_remove = 0
 
 		visible = {
-			has_completed_focus = USA_so_proud_irishmen_join_me_and_say
+			#has_completed_focus = USA_so_proud_irishmen_join_me_and_say
 		}
 
 		ai_will_do = {
@@ -2720,7 +3094,7 @@ USA_mexico_rebels = {
 			USA = {
 				if = {
 					limit = {
-						has_completed_focus = USA_the_continent_down_south
+						#has_completed_focus = USA_the_continent_down_south
 					}
 					add_to_faction = MEX
 				}
