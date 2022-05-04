@@ -1056,7 +1056,7 @@ shared_focus = {
 			y = 0
 			cost = 5
 			ai_will_do = {
-				factor = 12
+				factor = 120
 			}
 		
 			available = {
@@ -3178,7 +3178,11 @@ shared_focus = {
 		country_event = GER_goering_internal_stabilization.2
 	}
 	ai_will_do = {
-		factor = 60
+		factor = 600
+		modifier = {
+			add = -598
+			date < 1937.1.1
+		}
 	}
 }
 shared_focus = {
