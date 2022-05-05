@@ -826,6 +826,7 @@ shared_focus = {
 		completion_reward = {
 			unlock_decision_category_tooltip = anthrax_decisions
 			add_war_support = 0.1
+			set_country_flag = unlock_anthrax_flag
 		}
 		ai_will_do = {
 			factor = 60
@@ -1266,7 +1267,6 @@ shared_focus = {
 				has_civil_war = no
 			}
 			completion_reward = {
-				set_country_flag = unlock_anthrax_flag
 				country_event = GER_goering_economic_policy_tree_events.1
 			}
 		}
@@ -3897,8 +3897,23 @@ shared_focus = {
 		factor = 600
 	}
 	completion_reward = {
-		SWE = {
-			country_event = sweden.1
+		if = {
+			limit = {
+				SWE = {
+					has_government = fascism
+				}
+			}
+			SWE = {
+				country_event = {
+					id = GER_wiltkrieg_faction_events.17
+					days = 2
+				}
+			}
+		}
+		else = {
+			SWE = {
+				country_event = sweden.1
+			}
 		}
 	}
 }
