@@ -1,0 +1,204 @@
+﻿#Equipment Production
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "ANH"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "ANH"
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+}
+
+division_template = {
+	name = "Qibing Shi I"
+	division_names_group = "FNG_CAV_01"
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+}
+division_template = {
+	name = "Qibing Shi II"
+	division_names_group = "FNG_CAV_01"
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+	}
+	support = {
+		recon = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Minbing"
+	division_names_group = "FNG_MIL_01"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+		infantry = { x = 0 y = 4 }
+	}
+	template_counter = 68
+}
+division_template = {
+	name = "Bubing Shi I"
+	division_names_group = "FNG_INF_01"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+}
+division_template = {
+	name = "Bubing Shi II"
+	division_names_group = "FNG_INF_01"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		artillery = { x = 0 y = 0 }
+	}
+}
+division_template = {
+	name = "Armored-Division"
+	division_names_group = "FNG_ARM_01"
+	regiments = {
+		light_armor = { x = 0 y = 0 }
+		light_armor = { x = 0 y = 1 }
+		light_armor = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+}
+
+units = {
+	division = {
+		name = "Nanfangjun Di 1 Shi"
+		location = 11781
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Nanfangjun Di 2 Shi"
+		location = 9848
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Nanfangjun Di 3 Shi"
+		location = 9781
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Nanfangjun Di 4 Shi"
+		location = 3934
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Nanfangjun Di 5 Shi"
+		location = 934
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Chengde Bubing Shi"
+		location = 11815
+		division_template = "Bubing Shi I"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Liaoyuan Qibing Shi"
+		location = 7663
+		division_template = "Qibing Shi I"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Taonan Qibing Shi"
+		location = 7591
+		division_template = "Qibing Shi I"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Mukden Bubing di 1 Shi"
+		location = 11771
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.4
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Hailar Bubing Shi"
+		location = 4572
+		division_template = "Bubing Shi I"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	
+	division = {
+		name = "Jinzhou Bubing Shi"
+		division_name = {
+			is_name_ordered = yes
+			name_order = 18
+		}
+		location = 9854
+		division_template = "Bubing Shi II"
+		start_experience_factor = 0.1
+		start_equipment_factor = 1.0
+	}
+	
+
+}
+
+
+
+
