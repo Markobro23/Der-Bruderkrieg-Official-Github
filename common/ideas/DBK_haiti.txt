@@ -1,0 +1,46 @@
+ideas = {
+    country = {
+        HAI_american_occupation = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_usa_conflict
+
+            cancel = {
+                NOT = {
+                   is_subject_of = USA
+                }
+            }
+            modifier = {
+                stability_factor = -0.1
+                monthly_population = -0.05
+                authoritarian_democratic_drift = 0.01
+            }
+        }
+        HAI_american_debt_repayments = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_usa_conflict
+
+            cancel = {
+                NOT = {
+                   is_in_faction_with = USA
+                }
+            }
+            modifier = {
+                consumer_goods_factor = 0.1
+            }
+        }
+    }
+}

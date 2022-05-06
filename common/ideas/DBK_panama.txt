@@ -1,0 +1,47 @@
+
+ideas = {
+    country = {
+        PAN_canal_lease = {
+            allowed = {
+                always = no
+            }
+
+            picture = generic_consumer_goods
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                owns_state = 685
+            }
+
+            modifier = {
+                political_power_cost = -0.1
+                consumer_goods_factor = -0.1
+            }
+		}
+        PAN_strongman_gov = {
+            allowed = {
+                always = no
+            }
+
+            picture = generic_consumer_goods
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                    has_government = democratic
+                }
+            }
+
+            modifier = {
+                democratic_drift = 0.05
+                stability_factor = -0.1
+            }
+        }
+    }
+}
