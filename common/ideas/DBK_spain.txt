@@ -1,6 +1,6 @@
 ideas = {
     country = {
-        SPN_political_instability = {
+        SPR_the_regency = {
 
             allowed = {
                 always = yes
@@ -13,11 +13,12 @@ ideas = {
             removal_cost = -1
         
             modifier = {
-                stability_factor = -0.2
-        
+                war_support_factor = -0.15
+                justify_war_goal_time = 0.75
+                min_export = -0.05
             }
         }
-        SPR_puppet_king_of_spain = {
+        SPR_november_reforms = {
 
             allowed = {
                 always = yes
@@ -30,9 +31,25 @@ ideas = {
             removal_cost = -1
         
             modifier = {
-                stability_weekly = -0.02
-                communism_drift = 0.1
-                democratic_drift = 0.1
+                political_power_gain = 0.15
+                drift_defence_factor = 0.35
+            }
+        }
+        SPR_path_to_prsoperity = {
+
+            allowed = {
+                always = yes
+            }
+        
+            allowed_civil_war = {
+                always = yes
+            }
+        
+            removal_cost = -1
+        
+            modifier = {
+                production_speed_buildings_factor = 0.1
+                production_factory_max_efficiency_factor = 0.1
             }
         }
         
