@@ -1960,8 +1960,11 @@ shared_focus = {
 	id = SOV_foreign_oil_focus
 	icon = GFX_goal_SOV_oil_titan
 	prerequisite = { focus = SOV_great_beacon_democracy }
+	mutually_exclusive = {
+		focus = SOV_pre_emptive_oil_seizure
+	}
 	relative_position_id = SOV_great_beacon_democracy
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -1979,9 +1982,8 @@ shared_focus = {
 	id = SOV_demand_iranian_oil
 	icon = GFX_Attack_Persia
 	prerequisite = { focus = SOV_foreign_oil_focus }
-	mutually_exclusive = { focus = SOV_pre_emptive_oil_seizure }
 	relative_position_id = SOV_foreign_oil_focus
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2012,9 +2014,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_pre_emptive_oil_seizure
 	icon = GFX_goal_SOV_operation_aryan
-	prerequisite = { focus = SOV_foreign_oil_focus }
-	mutually_exclusive = { focus = SOV_demand_iranian_oil }
-	relative_position_id = SOV_foreign_oil_focus
+	prerequisite = { focus = SOV_great_beacon_democracy }
+	mutually_exclusive = { focus = SOV_foreign_oil_focus }
+	relative_position_id = SOV_great_beacon_democracy
 	x = 1
 	y = 1
 	cost = 5
@@ -2037,13 +2039,49 @@ shared_focus = {
 		}
 	}
 	completion_reward = {
-		create_wargoal = {
-			target = PER
-			type = take_state_focus
-			generator = { 266 } #might be wrong about the state just change it if so
+		PER = {
+			country_event = russia.22
 		}
 	}
 }
+shared_focus = {
+	id = SOV_invite_afghanistan
+	icon = GFX_goal_SOV_recruit_afghani_militants
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = { focus = SOV_pre_emptive_oil_seizure }
+	relative_position_id = SOV_pre_emptive_oil_seizure
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		AFG = {
+			country_event = russia.22
+		}
+	}
+	ai_will_do = {
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
+	}
+}
+
 
 shared_focus = {
 	id = SOV_turkestan_democracy
@@ -2091,9 +2129,8 @@ shared_focus = {
 	id = SOV_monopolize_turkestan_oil
 	icon = GFX_goal_SOV_support_the_etr
 	prerequisite = { focus = SOV_turkestan_democracy }
-	prerequisite = { focus = SOV_foreign_oil_focus }
 	relative_position_id = SOV_turkestan_democracy
-	x = 0
+	x = -1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2205,6 +2242,7 @@ shared_focus = {
   			type = take_state_focus
   			generator = { 537 }
   		}
+		
 	}
 }
 
@@ -2213,7 +2251,7 @@ shared_focus = {
 	icon = GFX_focus_attack_japan
 	prerequisite = { focus = SOV_retake_islands }
 	relative_position_id = SOV_retake_islands
-	x = 0
+	x = -1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2238,7 +2276,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_watch_the_manchurian_front
 	prerequisite = { focus = SOV_retake_islands }
 	relative_position_id = SOV_retake_islands
-	x = 2
+	x = 1
 	y = 1
 	cost = 6
 	available_if_capitulated = yes
@@ -2318,10 +2356,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_worlds_oil_titan
 	icon = GFX_goal_Internationalism
-	prerequisite = { focus = SOV_pre_emptive_oil_seizure focus = SOV_demand_iranian_oil }
-	prerequisite = { focus = SOV_monopolize_turkestan_oil }
+	prerequisite = { focus = SOV_securing_ottoman_oil focus = SOV_monopolize_turkestan_oil }
 	relative_position_id = SOV_monopolize_turkestan_oil
-	x = -3
+	x = -2
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2348,9 +2385,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_securing_ottoman_oil
 	icon = GFX_goal_SOV_the_southern_menace
-	prerequisite = { focus = SOV_worlds_oil_titan }
-	relative_position_id = SOV_worlds_oil_titan
-	x = -2
+	prerequisite = { focus = SOV_demand_iranian_oil focus = SOV_invite_afghanistan }
+	relative_position_id = SOV_demand_iranian_oil
+	x = 1
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2360,9 +2397,11 @@ shared_focus = {
 		TUR = {
 			exists = yes
 		}
-		date > 1939.1.1
-		has_army_manpower = {
-			size > 999999
+		OR = {
+			date > 1939.1.1
+			has_army_manpower = {
+				size > 999999
+			}
 		}
 		if = {
             limit = {
@@ -2382,10 +2421,23 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		create_wargoal = { 
-			target = TUR
-			type = topple_government
+		if = {
+			limit = {
+				PER = {
+					is_in_faction_with = SOV
+				}
+			}
+			PER = {
+				country_event = persian_ottoman_war.1
+			}
 		}
+		else = {
+			create_wargoal = { 
+				target = TUR
+				type = topple_government
+			}
+		}
+		
 	}
 }
 
@@ -2393,8 +2445,11 @@ shared_focus = {
 	id = SOV_expoiting_the_arabian_oilfields
 	icon = GFX_goal_Oil
 	prerequisite = { focus = SOV_securing_ottoman_oil }
+	prerequisite = {
+		focus = SOV_russian_diamonds
+	}
 	relative_position_id = SOV_securing_ottoman_oil
-	x = -1
+	x = -2
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2438,7 +2493,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_alliance_with_ethiopia
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2459,84 +2514,81 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		give_guarantee = ETH   
-		ETH = {
-			country_event = russia.22
-		}
+		unlock_decision_category_tooltip = SOV_east_africa_ambitions
 	}
 }
 
-shared_focus = {
-	id = SOV_supply_ethiopian_army
-	icon = GFX_goal_FRA_military_hierarchy
-	prerequisite = { focus = SOV_protecting_ethiopia }
-	relative_position_id = SOV_protecting_ethiopia
-	x = 2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_supply_ethiopian_army
+# 	icon = GFX_goal_FRA_military_hierarchy
+# 	prerequisite = { focus = SOV_protecting_ethiopia }
+# 	relative_position_id = SOV_protecting_ethiopia
+# 	x = 2
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	bypass = {
-		OR = {
-			has_war_with = ETH
-			ETH = { exists = no }
-		}
-	}
+# 	bypass = {
+# 		OR = {
+# 			has_war_with = ETH
+# 			ETH = { exists = no }
+# 		}
+# 	}
   
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		ETH = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-				producer = SOV
-			}
-			army_experience = 25
-		}
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		ETH = {
+# 			add_equipment_to_stockpile = {
+# 				type = infantry_equipment
+# 				amount = 2000
+# 				producer = SOV
+# 			}
+# 			army_experience = 25
+# 		}
+# 	}
+# }
 
-shared_focus = {
-	id = SOV_put_down_ethiopian_ethnic_rebellions
-	icon = GFX_goal_USA_the_question_of_the_negro
-	prerequisite = { focus = SOV_protecting_ethiopia }
-	relative_position_id = SOV_protecting_ethiopia
-	x = 0
-	y = 1
-	cost = 3
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_put_down_ethiopian_ethnic_rebellions
+# 	icon = GFX_goal_USA_the_question_of_the_negro
+# 	prerequisite = { focus = SOV_protecting_ethiopia }
+# 	relative_position_id = SOV_protecting_ethiopia
+# 	x = 0
+# 	y = 1
+# 	cost = 3
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	bypass = {
-		OR = {
-			has_war_with = ETH
-			ETH = { exists = no }
-		}
-	}
+# 	bypass = {
+# 		OR = {
+# 			has_war_with = ETH
+# 			ETH = { exists = no }
+# 		}
+# 	}
   
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		ETH = {
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
-			remove_ideas = ETH_ethnic_conflicts
-		}
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		ETH = {
+# 			add_popularity = {
+# 				ideology = neutrality
+# 				popularity = 0.05
+# 			}
+# 			remove_ideas = ETH_ethnic_conflicts
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_connecting_eastern_europe
 	icon = GFX_goal_USA_build_new_roads
 	prerequisite = { focus = SOV_great_beacon_democracy }
 	relative_position_id = SOV_great_beacon_democracy
-	x = -2
+	x = -3
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2574,7 +2626,7 @@ shared_focus = {
 	icon = GFX_goal_AUS_Centralised_Government
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2601,7 +2653,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_connecting_eastern_europe }
 	relative_position_id = SOV_connecting_eastern_europe
 	x = 0
-	y = 2
+	y = 1
 	cost = 6
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2627,7 +2679,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_connecting_eastern_europe }
 	relative_position_id = SOV_connecting_eastern_europe
 	x = -1
-	y = 1
+	y = 2
 	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2643,9 +2695,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_republic_victorious
 	icon = GFX_goal_SOV_republic_victorious
-	prerequisite = { focus = SOV_uprisings_in_austria focus = SOV_securing_ottoman_oil }
+	prerequisite = { focus = SOV_uprisings_in_austria focus = SOV_protecting_ethiopia }
 	relative_position_id = SOV_uprisings_in_austria
-	x = 0
+	x = 1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes

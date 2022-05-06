@@ -316,6 +316,44 @@ on_actions = {
         }
     }
 
+    on_offer_join_faction = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = {
+                        tag = PER
+                    }
+                    is_in_faction_with = SOV
+                }
+                news_event = PER_russian_relations.1
+            }
+             if = {
+                limit = {
+                    FROM = {
+                        tag = AFG
+                    }
+                    is_in_faction_with = SOV
+                }
+                news_event = PER_russian_relations.2
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        tag = ETH
+                    }
+                    is_in_faction_with = SOV
+                }
+                news_event = SOV_kerensky_tree_events.12
+                SOV = {
+                    country_event = {
+                        id = british_inteverntion_in_russian_expansion.1
+                        days = 5
+                    }
+                }
+            }
+        }
+    }
+
     on_war = {
         effect = {
             if = {
@@ -394,6 +432,12 @@ on_actions = {
                 }
                 hidden_effect = {
                     news_event = russian_expansion.2
+                    SOV = {
+                        country_event = {
+                            id = british_inteverntion_in_russian_expansion.2
+                            days = 5
+                        }
+                    }
                 }
             }
             if = {
@@ -415,7 +459,12 @@ on_actions = {
                 }
                 hidden_effect = {
                     news_event = russian_expansion.1
-
+                    SOV = {
+                        country_event = {
+                            id = british_inteverntion_in_russian_expansion.3
+                            days = 5
+                        }
+                    }
                 }
             }
             if = {

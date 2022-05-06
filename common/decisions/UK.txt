@@ -162,6 +162,47 @@ UK_chose_victor_of_elections = {
 
 
 UK_halifax_decisions = {
+	UK_halifax_declare_on_russia = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		available = {
+			check_variable = {
+				var = russian_anger
+				value = 2
+				compare = greater_than_or_equals
+			}
+			SOV = {
+				OR = {
+					has_war_with = AUS
+					has_war_with = FRA
+				}
+			}
+		} 
+
+		days_remove = 60 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			create_wargoal = {
+				target = SOV
+				type = topple_government
+			}
+		}
+	}
 	UK_halifax_centralization_south_africa = {
 
 		icon = eng_trade_unions_demand
@@ -349,6 +390,47 @@ UK_halifax_decisions = {
 }
 
 UK_churchill_decisions = {
+	UK_churchill_declare_on_russia = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		available = {
+			check_variable = {
+				var = russian_anger
+				value = 2
+				compare = greater_than_or_equals
+			}
+			SOV = {
+				OR = {
+					has_war_with = AUS
+					has_war_with = FRA
+				}
+			}
+		} 
+
+		days_remove = 60 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			create_wargoal = {
+				target = SOV
+				type = topple_government
+			}
+		}
+	}
 	UK_churchill_centralization_south_africa = {
 
 		icon = eng_trade_unions_demand
@@ -727,7 +809,47 @@ UK_mosley_decisions = {
 }
 
 UK_attlee_decisions = {
-	
+	UK_attlee_declare_on_russia = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		available = {
+			check_variable = {
+				var = russian_anger
+				value = 2
+				compare = greater_than_or_equals
+			}
+			SOV = {
+				OR = {
+					has_war_with = AUS
+					has_war_with = FRA
+				}
+			}
+		} 
+
+		days_remove = 60 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+		}
+
+		remove_effect = {
+			create_wargoal = {
+				target = SOV
+				type = topple_government
+			}
+		}
+	}
 }
 
 UK_benett_eden_decisions = {

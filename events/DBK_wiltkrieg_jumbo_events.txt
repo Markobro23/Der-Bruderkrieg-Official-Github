@@ -1161,6 +1161,138 @@ news_event = {
 	}
 }
 
+add_namespace = british_inteverntion_in_russian_expansion
+
+## Persian faction joining
+country_event = {
+	id = british_inteverntion_in_russian_expansion.1
+	title = british_inteverntion_in_russian_expansion.1.t
+	desc = british_inteverntion_in_russian_expansion.1.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.1.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_russian_expansion.2
+	title = british_inteverntion_in_russian_expansion.2.t
+	desc = british_inteverntion_in_russian_expansion.2.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.2.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_russian_expansion.3
+	title = british_inteverntion_in_russian_expansion.3.t
+	desc = british_inteverntion_in_russian_expansion.3.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.3.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
 
 
 add_namespace = russian_inteverntion_in_europakrieg
