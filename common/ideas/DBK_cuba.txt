@@ -1,0 +1,49 @@
+ideas = {
+    country = {
+        CUB_feu_resistance = {
+            allowed = {
+                always = no
+            }
+
+            picture = generic_communism_drift_bonus
+
+            cancel = {
+                has_government = communism
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                stability_factor = -0.05
+                communism_drift = 0.05
+                research_speed_factor = -0.03
+            }
+		}
+        CUB_american_tax_haven = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_consumer_goods
+
+            cancel = {
+                OR = {
+                    NOT = {
+                        is_in_faction_with = USA
+                    }
+                    has_government = communism
+                }
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.05
+                consumer_goods_factor = -0.05
+                economy_cost_factor = 0.25
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+ideas = {
+    country = {
+        COS_communist_coalition = {
+            allowed = {
+                always = no
+            }
+
+
+            cancel = {
+                NOT = {
+                    has_government = socialism_democratic 
+                }
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_cost = 0.2
+                party_popularity_stability_factor = 0.1
+                democratic_communism_drift = 0.03
+                production_factory_efficiency_gain_factor = 0.1
+                monthly_population = 0.05
+            }
+		}
+        COS_angered_plantation_owners = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_consumer_goods
+
+            cancel = {
+                NOT = {
+                    has_government = socialism_democratic 
+                }
+            }
+            modifier = {
+                consumer_goods_factor = 0.075
+                socialism_democratic_drift = -0.03
+            }
+        }
+    }
+}

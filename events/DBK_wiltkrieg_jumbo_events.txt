@@ -1534,9 +1534,16 @@ country_event = {
 	option = {
 		name = russian_inteverntion_in_europakrieg.9.a
 		ai_chance = {factor = 30}
-		create_wargoal = {
-			target = AUS
-			type = topple_government
+		if = {
+			limit = {
+				has_global_flag = austria_defeated
+			}
+		}
+		else = {
+			create_wargoal = {
+				target = AUS
+				type = topple_government
+			}
 		}
 	}
 
