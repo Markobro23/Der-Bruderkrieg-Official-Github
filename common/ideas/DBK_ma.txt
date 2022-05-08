@@ -1,0 +1,43 @@
+
+ideas = {
+    country = {
+        XSM_governor_clash = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+            modifier = {
+                political_power_gain = -0.2
+                neutrality_drift = -0.05
+            }
+		}
+
+        XSM_kuomintang_aligned = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                KMT = {
+                    OR = {
+                        has_war_with = XSM
+                        is_subject = yes
+                        exists = no
+                    }
+                }
+            }
+            targeted_modifier = {
+                tag = CHI
+                trade_cost_for_target_factor = -0.2
+                extra_trade_to_target_factor = 0.2
+            }
+        }
+    }
+}
