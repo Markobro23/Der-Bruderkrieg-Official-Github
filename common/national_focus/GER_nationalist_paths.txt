@@ -3988,10 +3988,21 @@ shared_focus = {
 	ai_will_do = {
 		factor = 600
 	}
+	available = {
+		NOT = {
+			has_country_leader = {
+				name = "Kurt von Schleicher"
+			} 
+			has_country_leader = {
+				name = "August von Mackensen"
+			}
+		}
+	}
 	mutually_exclusive = {
 		focus = GER_focus_on_european_nationalism
 	}
 	completion_reward = {
+		set_faction_name = GER_concordat_of_hamburg
 		add_ideas = member_anticolonial_association_oppressed_people
 	}
 }
