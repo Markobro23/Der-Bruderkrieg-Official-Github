@@ -129,6 +129,38 @@ on_actions = {
 		}
 	}
 
+	on_puppet = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_idea = member_anticolonial_association_oppressed_people
+					}
+					NOT = {
+						has_idea = member_anticolonial_association_oppressed_people
+					}
+				}
+				add_ideas = member_anticolonial_association_oppressed_people
+			}
+		}
+	}
+	on_release_as_puppet = {
+		effect = {
+			if = {
+				limit = {
+					FROM = {
+						has_idea = member_anticolonial_association_oppressed_people
+					}
+					NOT = {
+						has_idea = member_anticolonial_association_oppressed_people
+					}
+				}
+				add_ideas = member_anticolonial_association_oppressed_people
+			}
+		}
+	}
+	
+
 	# ROOT is winner, FROM gets annexed
 	on_annex = {
 		effect = {

@@ -993,14 +993,10 @@ shared_focus = {
         set_politics = {
             ruling_party = fascism
         }
-        add_country_leader_role = {
-            character = SOV_kirill_i 
-            promote_leader = yes
-            country_leader = {
-                ideology = fascism_ideology
-                expire = "1965.1.1"
-            }
-        }
+       add_popularity = {
+           ideology = fascism
+           popularity = 0.25
+       }
         
         set_cosmetic_tag = holy_russian_empire
     }
@@ -3267,6 +3263,33 @@ shared_focus = {
         }
         AFG = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        PER = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        TRB = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+
+        if = {
+            limit = {
+                TUR = {
+                    is_puppet_of = SOV
+                }
+            }
+            TUR = {
+                country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+            }
+        }
+        if = {
+            limit = {
+                BYZ = {
+                    is_puppet_of = SOV
+                }
+            }
+            BYZ = {
+                country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+            }
         }
     }
 }
