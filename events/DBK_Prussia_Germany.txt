@@ -117,15 +117,15 @@ country_event = {
 		set_country_flag = GER_spartakus_rioting_inbound_country
 		activate_mission = GER_spartakus_riot_mission
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		} 
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		}
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		}
 		hidden_effect = {
