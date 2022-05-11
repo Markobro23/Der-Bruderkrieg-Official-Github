@@ -1161,6 +1161,33 @@ AUS_infilitrating_the_prussian_palace = {
 
 
 AUS_imperial_senate = {
+
+	## AI
+	AUS_fix_the_damn_hungarian_revolt = {
+		icon = generic_nation
+		available = {
+			has_war_with = HUN
+			has_completed_focus = AUS_ABSOLUTISM
+		}
+		visible = {
+		    tag = AUS
+			is_ai = yes
+		}
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 100
+		remove_effect = {
+			annex_country = {
+				target = HUN
+				transfer_troops = no
+			}
+		}
+	}
+
 	AUS_conscription_act_vote = {
 
 		icon = eng_trade_unions_demand
@@ -1828,7 +1855,7 @@ AUS_imperial_senate = {
 			}
 		}
 
-		days_remove = 75
+		days_remove = 2
 
 		cost = 25
 
@@ -3955,6 +3982,7 @@ AUS_foritfying_against_the_fbc = {
 AUS_offensives_against_the_fbc = {
 	AUS_the_silesian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = GER
@@ -3978,6 +4006,7 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_bavarian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = GER
@@ -4005,6 +4034,7 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_danubian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = ROM
@@ -4028,6 +4058,7 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_galician_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = SOV
@@ -4051,6 +4082,7 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_westfalen_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = FGD
@@ -4086,6 +4118,7 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_venetian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = ITA
@@ -4110,9 +4143,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_serbian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
-
+			OR = {
+				has_war_with = SER
+				has_war_with = YUG
+			}
 		}
 		visible = {
 
