@@ -650,6 +650,19 @@ french_civil_war = {
 
 france_loses_peace_deal = {
     set_global_flag = prussia_has_beaten_france
+   
+    random_country = {
+            limit = {
+                is_in_faction_with = FRA
+            }
+        save_global_event_target_as = new_continental_system_leader
+    }
+    event_target:new_continental_system_leader = {
+        set_faction_leader = yes
+    }
+    FRA = {
+        white_peace = GER
+    }
     GER = {
         annex_country = {
             target = FGD
@@ -673,17 +686,16 @@ france_loses_peace_deal = {
             transfer_state = 800
             puppet = BEL
         }
-        white_peace = FRA
-        #puppet = FRA
-        #if = {
-        #    limit = {
-        #        has_dlc = "Together for Victory"
-        #    }
-        #    set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
-        #}
-        #else = {
-        #    set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
-        #}
+        puppet = FRA
+        if = {
+           limit = {
+               has_dlc = "Together for Victory"
+           }
+           set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        }
+        else = {
+           set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
+        }
         
     }
     BEL = {
@@ -764,9 +776,9 @@ france_loses_peace_deal = {
 			transfer_state = PREV
 		}
 	}
-    FRA = {
-		news_event = { id = france.215 hours = 3 }
-	}
+    # FRA = {
+	# 	news_event = { id = france.215 hours = 3 }
+	# }
 }
 
 france_beats_prussia_peace_deal = {
