@@ -79,3 +79,36 @@ SGC_court_coup_effect = {
 d_SGC_court_coup_effect = {
 	SGC_court_coup_effect = yes
 }
+
+
+GPU_update_unstable_nation = {
+	every_country = {
+		if = {
+			limit = {
+				has_idea = GPU_unstable_nation
+			}
+			swap_ideas = {
+				add_idea = GPU_unstable_nation_2
+				remove_idea = GPU_unstable_nation
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = GPU_unstable_nation_2
+			}
+			swap_ideas = {
+				add_idea = GPU_unstable_nation_3
+				remove_idea = GPU_unstable_nation_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = GPU_unstable_nation_3
+			}
+			remove_ideas = GPU_unstable_nation_3
+		}
+		else = {
+			add_ideas = GPU_unstable_nation
+		}
+	}
+}
