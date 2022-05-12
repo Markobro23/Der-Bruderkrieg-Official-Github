@@ -2296,22 +2296,10 @@ shared_focus = {
 		factor = 10
 	}
 	completion_reward = {
-		if = {
-        limit = { OR = { has_full_control_of_state = 777 } } 
-        unlock_decision_tooltip = AUS_develop_togo_steel_deposits
-      }
-      if = {
-        limit = { OR = { has_full_control_of_state = 777 } }
-        unlock_decision_tooltip = AUS_develop_togo_chromium_deposits
-      }     
-      if = {
-        limit = { OR = { has_full_control_of_state = 777 } } 
-        unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
-      }
-      if = {
-        limit = { OR = { has_full_control_of_state = 777 } } 
-        unlock_decision_tooltip = AUS_develop_togo_rubber_deposits
-      }
+		unlock_decision_tooltip = AUS_develop_togo_steel_deposits
+		unlock_decision_tooltip = AUS_develop_togo_chromium_deposits    
+		unlock_decision_tooltip = AUS_develop_togo_bauxite_deposits
+		unlock_decision_tooltip = AUS_develop_togo_rubber_deposits
 	}
 }
 
@@ -4075,7 +4063,7 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_reinforce_the_sgc_garrison
-  cost = 7
+  cost = 5
   ai_will_do = {
     factor = 200
   }
@@ -4097,7 +4085,6 @@ shared_focus = {
         localization = AUS_reduce_sgc_autonomy
       }
     }
-    GPU_update_unstable_nation = yes
 
    }
 }
@@ -4144,7 +4131,7 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_recalling_franz_ferdinand
-  cost = 7
+  cost = 5
   ai_will_do = {
     factor = 200
   }
@@ -4164,7 +4151,6 @@ shared_focus = {
   GPU = {
     remove_ideas = GPU_garrisson_state_3
   }
-  GPU_update_unstable_nation = yes
    }
 }
 
