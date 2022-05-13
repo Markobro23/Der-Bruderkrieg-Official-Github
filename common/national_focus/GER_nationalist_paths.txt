@@ -3489,9 +3489,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 60
 	}
-	available = {
-		has_completed_focus = GER_breaking_the_chains
-	}
+	
 	completion_reward = {
 		add_state_core = 960
 		add_state_core = 57
@@ -3764,11 +3762,12 @@ shared_focus = {
 	prerequisite = {
 		focus = GER_slaughter_the_jacobins
 	}
-	prerequisite = {
-		focus = GER_rachekrieg
-	}
+
 	bypass = {
 		has_war_with = FRA
+	}
+	available = {
+		has_completed_focus = GER_breaking_the_chains
 	}
 	will_lead_to_war_with = FRA
 	relative_position_id = GER_slaughter_the_jacobins
@@ -4106,8 +4105,14 @@ shared_focus = {
 	}
 
 	available = {
-		ENG = { has_country_flag = UK_chose_mosley }
-		has_war_with = FRA
+		ENG = {
+			has_country_flag = UK_chose_mosley
+		}
+		OR = {
+			has_war_with = FRA
+			has_global_flag = austria_defeated
+			has_global_flag = prussia_has_beaten_france
+		}
 	}
 
 	completion_reward = {
@@ -4567,17 +4572,10 @@ shared_focus = {
 	
 	available = {
 		has_global_flag = operation_walross_blockade
-		has_war_with = FRA
-		hidden_trigger = {
-			if = {
-				limit = {
-					is_ai = yes
-				}
-				OR = {
-					has_global_flag = austria_defeated
-					has_global_flag = prussia_has_beaten_france
-				}
-			}
+		OR = {
+			has_war_with = FRA
+			has_global_flag = austria_defeated
+			has_global_flag = prussia_has_beaten_france
 		}
 	}
 
