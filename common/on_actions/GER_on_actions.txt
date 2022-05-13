@@ -261,12 +261,15 @@ on_actions = {
                     GER = {
                         has_idea = GER_syndicalist_system
                     }
-                    NOT = {
-                        has_idea = GER_syndicalist_system
-                        has_idea = GER_syndicalist_system_2
+                    FROM = {
+                        NOT = {
+                            has_idea = GER_syndicalist_system
+                            has_idea = GER_syndicalist_system_2
+                        }
                     }
+                    is_in_faction_with = GER
                 }
-                add_ideas = GER_syndicalist_system
+                FROM = { add_ideas = GER_syndicalist_system }
             }
             else_if = {
                 limit = {
@@ -276,17 +279,19 @@ on_actions = {
                             has_idea = GER_syndicalist_system_2
                         }
                     }
-                    if = {
-                        limit = {
-                            has_idea = GER_syndicalist_system
+                    FROM ={ 
+                        if = {
+                            limit = {
+                                has_idea = GER_syndicalist_system
+                            }
+                            swap_ideas = {
+                                add_idea = GER_syndicalist_system_2
+                                remove_idea = GER_syndicalist_system
+                            }
                         }
-                        swap_ideas = {
-                            add_idea = GER_syndicalist_system_2
-                            remove_idea = GER_syndicalist_system
+                        else = {
+                            add_ideas = GER_syndicalist_system
                         }
-                    }
-                    else = {
-                        add_ideas = GER_syndicalist_system
                     }
                 }
             }
