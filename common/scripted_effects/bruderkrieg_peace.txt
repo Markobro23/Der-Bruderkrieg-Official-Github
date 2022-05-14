@@ -1,12 +1,9 @@
 austria_loses_peace_deal = {
    
-
+    log = "austria post war peace deal"
     if = {
         limit = { 
             country_exists = AUS
-            AUS = {
-                has_war_with = GER 
-            }
         }
         AUS = {
             dismantle_faction = yes 
@@ -127,6 +124,12 @@ prussia_russia_wins_states = {
         transfer_state = 88
         transfer_state = 762
         transfer_state = 89
+        transfer_state = 1123
+        add_state_core = 951
+        add_state_core = 88
+        add_state_core = 762
+        add_state_core = 89
+        add_state_core = 1123
     }
     HUN = {
         transfer_state = 154
@@ -240,9 +243,23 @@ hungary_states = {
         transfer_state = 804
         transfer_state = 73
         set_cosmetic_tag = prussian_rk
+
+        set_popularities = {
+            ultranationalism = 54
+            communism = 12
+            fascism = 20
+            democratic = 14
+        }
+        keep_current_politics = yes
     }
     GER = {
         puppet = HUN
+    }
+    HUN = {
+        reset_government = yes
+        set_politics = {
+            ruling_party = ultranationalism
+        }
     }
 }
 
@@ -253,11 +270,26 @@ polish_states = {
         transfer_state = 88
         transfer_state = 951
         transfer_state = 89
+        transfer_state = 1123
         set_cosmetic_tag = prussian_rk
+        set_popularities = {
+            fascism = 44
+            communism = 12
+            ultranationalism = 10
+            democratic = 14
+            neutrality = 20
+        }
+        keep_current_politics = yes
     }
 
     GER = {
         puppet = GLC
+    }
+    GLC = {
+        reset_government = yes
+        set_politics = {
+            ruling_party = fascism
+        }
     }
     
 }
@@ -294,9 +326,7 @@ italian_states = {
 }
 
 croat_states = {
-    ITA = {
-        puppet = CRO
-    }
+    
     CRO = {
         transfer_state = 109
         transfer_state = 103
@@ -306,8 +336,24 @@ croat_states = {
         transfer_state = 815
         transfer_state = 104
         transfer_state = 819
+
+        set_popularities = {
+            fascism = 66
+            communism = 29
+            socialism_democratic = 5
+        }
+        keep_current_politics = yes
     } 
 
+    ITA = {
+        puppet = CRO
+    }
+    CRO = {
+        reset_government = yes
+        set_politics = {
+            ruling_party = fascism
+        }
+    }
 
     
 }
@@ -321,14 +367,28 @@ serbia_states = {
 }
 
 slovak_states = {
-    GER = {
-        puppet = SLO
-    }
+   
     SLO = {
         transfer_state = 70
         transfer_state = 71
         set_cosmetic_tag = prussian_rk
-
+        set_popularities = {
+            fascism = 42
+            communism = 20
+            ultranationalism = 12
+            democratic = 14
+            socialism_democratic = 12
+        }
+        keep_current_politics = yes
+    }
+    GER = {
+        puppet = SLO
+    }
+    SLO = {
+        set_politics = {
+            ruling_party = fascism
+        }
+        reset_government = yes
     }
 }
 

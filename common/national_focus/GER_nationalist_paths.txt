@@ -6773,30 +6773,30 @@ shared_focus = {
 		}
 	}
 	
+	# shared_focus = {
+	# 	id = GER_the_last_war
+	# 	icon = GFX_goal_GER_the_last_war
+	# 	x = -1
+	# 	y = 1
+	# 	cost = 2
+	# 	prerequisite = { focus = GER_von_das_slavenvolk }
+	# 	relative_position_id = GER_von_das_slavenvolk
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		add_ideas = GER_the_last_war_idea
+	# 	}
+	# }
+	
 	shared_focus = {
-		id = GER_the_last_war
-		icon = GFX_goal_GER_the_last_war
+		id = GER_prepare_for_the_struggle
+		icon = GFX_goal_GER_prepare_for_the_struggle
 		x = -1
 		y = 1
 		cost = 2
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			add_ideas = GER_the_last_war_idea
-		}
-	}
-	
-	shared_focus = {
-		id = GER_prepare_for_the_struggle
-		icon = GFX_goal_GER_prepare_for_the_struggle
-		x = 0
-		y = 1
-		cost = 2
-		prerequisite = { focus = GER_the_last_war }
-		relative_position_id = GER_the_last_war
 		ai_will_do = {
 			factor = 1 
 		}
@@ -6810,7 +6810,7 @@ shared_focus = {
 	
 	shared_focus = {
 		id = GER_the_greatest_war
-		icon = GFX_goal_GER_the_greatest_war
+		icon = GFX_goal_GER_the_last_war
 		x = 0
 		y = 1
 		cost = 2
@@ -6829,41 +6829,41 @@ shared_focus = {
 	
 	
 	
-	shared_focus = {
-		id = GER_our_theories_tested
-		icon = GFX_goal_GER_our_theories_tested
-		x = 1
-		y = 1
-		cost = 2
-		prerequisite = { focus = GER_von_das_slavenvolk }
-		relative_position_id = GER_von_das_slavenvolk
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			add_tech_bonus = {
-				name = armor_bonus
-				uses = 1
-				bonus = 1
-				category = armor
-			}
-			add_doctrine_cost_reduction = {
-				cost_reduction = 0.5
-				name = land_doctrine_bonus
-				uses = 1
-				category = cat_mobile_warfare
-			}
-		}
-	}
+	# shared_focus = {
+	# 	id = GER_our_theories_tested
+	# 	icon = GFX_goal_GER_our_theories_tested
+	# 	x = 1
+	# 	y = 1
+	# 	cost = 2
+	# 	prerequisite = { focus = GER_von_das_slavenvolk }
+	# 	relative_position_id = GER_von_das_slavenvolk
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		add_tech_bonus = {
+	# 			name = armor_bonus
+	# 			uses = 1
+	# 			bonus = 1
+	# 			category = armor
+	# 		}
+	# 		add_doctrine_cost_reduction = {
+	# 			cost_reduction = 0.5
+	# 			name = land_doctrine_bonus
+	# 			uses = 1
+	# 			category = cat_mobile_warfare
+	# 		}
+	# 	}
+	# }
 	
 	shared_focus = {
 		id = GER_winter_clothing
 		icon = GFX_goal_GER_winter_clothing
-		x = 0
+		x = 1
 		y = 1
 		cost = 5
-		prerequisite = { focus = GER_our_theories_tested }
-		relative_position_id = GER_our_theories_tested
+		prerequisite = { focus = GER_von_das_slavenvolk }
+		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
 			factor = 1 
 		}
@@ -6914,6 +6914,7 @@ shared_focus = {
 		ai_will_do = {
 			factor = 1 
 		}
+		will_lead_to_war_with = SOV
 		completion_reward = {
 			declare_war_on = { target = SOV type = annex_everything }	### Will be changed once Successor states are fully implemented		
 		}
@@ -7051,15 +7052,20 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			every_controlled_state = {
-				limit = { is_owned_by = SOV }
-				force_disable_resistance = {
-					clear = yes
-					occupier = GER
-					occupied = SOV
+			GER = {
+				every_controlled_state = {
+					limit = {
+						is_core_of = SOV
+					}
+					custom_effect_tooltip = GER_disable_resistance_in_all_soviet_controlled_states
+					force_disable_resistance = {
+						clear = yes
+						occupier = GER
+						occupied = SOV
+					}
 				}
 			}
-			add_ideas = GER_death_to_partisans_idea
+			# add_ideas = GER_death_to_partisans_idea
 		}
 	}
 
