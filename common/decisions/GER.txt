@@ -968,6 +968,14 @@ GER_operations = {
 
 		visible = {
 			has_completed_focus = GER_weaken_the_confederal_army
+			NOT = {
+				AUS = {
+					OR = {
+						exists = no
+						is_subject_of = GER
+					}
+				}
+			}
 		}
 
 		fire_only_once = no
@@ -989,7 +997,7 @@ GER_operations = {
 		available = {
 			tag = GER
 			has_completed_focus = GER_austrian_sabotage
-			has_war_with = GPU
+			has_war_with = AUS
 			has_equipment = {
 				infantry_equipment > 4999
 			}
@@ -997,6 +1005,14 @@ GER_operations = {
 
 		visible = {
 			has_completed_focus = GER_austrian_sabotage
+			NOT = {
+				AUS = {
+					OR = {
+						exists = no
+						is_subject_of = GER
+					}
+				}
+			}
 		}
 
 		fire_only_once = no
