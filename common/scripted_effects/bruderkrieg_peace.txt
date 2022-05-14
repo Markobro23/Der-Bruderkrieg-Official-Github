@@ -672,7 +672,6 @@ france_loses_peace_deal = {
         transfer_state = 28
         transfer_state = 802
         transfer_state = 42
-        transfer_state = 58
         transfer_state = 801
         
         transfer_state = 955
@@ -687,16 +686,16 @@ france_loses_peace_deal = {
             transfer_state = 800
             puppet = BEL
         }
-        puppet = FRA
-        if = {
-           limit = {
-               has_dlc = "Together for Victory"
-           }
-           set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
-        }
-        else = {
-           set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
-        }
+        #puppet = FRA
+        #if = {
+        #   limit = {
+        #       has_dlc = "Together for Victory"
+        #   }
+        #   set_autonomy = { target = FRA autonomous_state = autonomy_reichskommissariat }
+        #}
+        #else = {
+        #   set_autonomy = { target = FRA autonomous_state = autonomy_puppet }
+        #}
         
     }
     BEL = {
@@ -766,17 +765,27 @@ france_loses_peace_deal = {
     HOL = {
        drop_cosmetic_tag = yes 
     }
-    GER = {
-        puppet = OCC
-        puppet = NFR
-        puppet = HOL
-    }
+	
 	every_state = {
 		limit = { is_owned_by = FRA is_on_continent = europe }
 		GER = {
 			transfer_state = PREV
 		}
 	}
+	BRI = {
+		add_state_core = 19
+		add_state_core = 23
+		add_state_core = 30
+		add_state_core = 15
+		add_state_core = 29
+		add_state_core = 785
+	}
+    GER = {
+        puppet = OCC
+        puppet = NFR
+        puppet = HOL
+	release_puppet = BRI
+    }
     # FRA = {
 	# 	news_event = { id = france.215 hours = 3 }
 	# }
