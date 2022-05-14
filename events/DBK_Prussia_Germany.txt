@@ -913,14 +913,12 @@ country_event = {
 		ai_chance = { factor = 1000 } 
 		AUS = {
 			every_owned_state = {
-				if = {
-					limit = { is_core_of = HUN }
-					add_dynamic_modifier = {
-						modifier = GER_operation_margarethe_modifier
-					}
-				}
+				limit = { is_core_of = HUN }
 				set_variable = { GER_army_speed_factor_varOM = -0.15 }
 				set_variable = { GER_army_defence_factor_varOM = -0.1 }
+				add_dynamic_modifier = {
+					modifier = GER_operation_margarethe_modifier
+				}
 			}
 		}
 	}
