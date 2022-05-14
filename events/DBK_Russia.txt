@@ -1133,7 +1133,6 @@ country_event = { #Russia demands annexation
 	id = SOV_return_of_the_tsar_path.23
 	title = SOV_return_of_the_tsar_path.23.t
 	desc = SOV_return_of_the_tsar_path.23.d
-	picture = GFX_news_event_generic_sign_treaty2
 	is_triggered_only = yes
 	option = { #we have no choice
 		name = SOV_return_of_the_tsar_path.23.a
@@ -1169,7 +1168,6 @@ country_event = { #FROM accepts annexation
 	id = SOV_return_of_the_tsar_path.24
 	title = SOV_return_of_the_tsar_path.24.t
 	desc = SOV_return_of_the_tsar_path.24.d
-	picture = GFX_news_event_generic_sign_treaty2
 	is_triggered_only = yes
 	option = { #based
 		name = SOV_return_of_the_tsar_path.24.a
@@ -1184,7 +1182,6 @@ country_event = { #FROM rejects annexation
 	id = SOV_return_of_the_tsar_path.25
 	title = SOV_return_of_the_tsar_path.25.t
 	desc = SOV_return_of_the_tsar_path.25.d
-	picture = GFX_news_event_generic_sign_treaty2
 	is_triggered_only = yes
 	option = { #This amount of cringe can only be stopped by death
 		name = SOV_return_of_the_tsar_path.25.a
@@ -1200,7 +1197,6 @@ country_event = { #the pogroms
 	id = SOV_return_of_the_tsar_path.26
 	title = SOV_return_of_the_tsar_path.26.t
 	desc = SOV_return_of_the_tsar_path.26.d
-	picture = GFX_news_event_generic_sign_treaty2
 	is_triggered_only = yes
 	option = { #This amount of cringe can only be stopped by death
 		name = SOV_return_of_the_tsar_path.26.a
@@ -1208,6 +1204,18 @@ country_event = { #the pogroms
 		add_stability = -0.05
 		add_war_support = -0.05
         add_political_power = -50
+	}
+}
+
+news_event = { #X slavic entente
+	id = SOV_return_of_the_tsar_path.27
+	title = SOV_return_of_the_tsar_path.27.t
+	desc = SOV_return_of_the_tsar_path.27.d
+	picture = GFX_russianslavicentente
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = SOV_return_of_the_tsar_path.27.a
 	}
 }
 
@@ -1628,6 +1636,22 @@ news_event = {
 
 }
 
+##petrogard defense
+news_event = {
+	id = SOV_kerensky_tree_events.14
+	title = SOV_kerensky_tree_events.14.t
+	desc = SOV_kerensky_tree_events.14.d
+	picture = GFX_fedforglobal
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_kerensky_tree_events.14.a
+
+		ai_chance = {factor = 0}
+	}
+
+}
+
 
 
 add_namespace = SOV_pavel_tree_events
@@ -1699,6 +1723,22 @@ country_event = {
 		ai_chance = { factor = 1}		
 	}
 }
+
+news_event = {
+	id = SOV_pavel_tree_events.4
+	title = SOV_pavel_tree_events.4.t
+	desc = SOV_pavel_tree_events.4.d
+	picture = GFX_fedforglobal
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = SOV_pavel_tree_events.4.a
+
+		ai_chance = {factor = 0}
+	}
+
+}
+
 
 add_namespace = SOV_pavel_okhrana_operation_events
 
