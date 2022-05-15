@@ -24,6 +24,9 @@ austria_loses_peace_deal = {
 
     }
 }
+d_prussia_russia_wins_states = {
+    prussia_russia_wins_states = yes
+}
 prussia_russia_wins_states = {
      if = {
         limit = {
@@ -139,9 +142,63 @@ prussia_russia_wins_states = {
         
         transfer_state = 804
         transfer_state = 73
+
+        if = {
+            limit = {
+                SOV = {
+                    has_country_leader = {
+                        name = "Vladimir Lenin"
+                        ruling_only = yes
+                    }
+                }
+            }
+            HUN = {
+                set_popularities = {
+                    communism = 65
+                    fascism = 22
+                    ultranationalism = 10
+                    democratic = 3
+                }
+                set_politics = {
+                    ruling_party = communism
+                }
+            }
+            
+        }
+        else = {
+            HUN = {
+                set_popularities = {
+                    democratic = 24
+                    democratic_liberalism = 36
+                    communism = 2
+                    fascism = 32
+                    ultranationalism = 6
+                }
+                create_country_leader = {
+                    name = "Istvan Bethlen"
+                    desc = ""
+                    picture = "Istvan_Bethlen.dds"
+                    expire = "1965.1.1"
+                    ideology = democratic_liberal
+                    traits = {
+                        
+                    }
+                }
+                set_politics = {
+                    ruling_party = democratic_liberalism
+                }
+            }
+        }
+        HUN = {
+            keep_current_politics = yes
+        }
+        
     }
     SOV = {
         puppet = HUN
+    }
+    HUN = {
+        reset_government = yes
     }
     italian_states = yes
     croat_states = yes
@@ -162,12 +219,56 @@ prussia_russia_wins_states = {
             transfer_state = 812
         }
     }
+    
+    SLO = {
+        transfer_state = 70
+        transfer_state = 71
+
+        if = {
+            limit = {
+                SOV = {
+                    has_country_leader = {
+                        name = "Vladimir Lenin"
+                        ruling_only = yes
+                    }
+                }
+            }
+            SLO = {
+                set_popularities = {
+                    democratic_communism = 54
+                    fascism = 19
+                    ultranationalism = 5
+                    democratic = 19
+                    democratic_liberalism = 3
+                }
+                set_politics = {
+                    ruling_party = democratic_communism
+                }
+            }
+        }
+        else = {
+            SLO = {
+                set_popularities = {
+                    democratic = 34
+                    democratic_liberalism = 26
+                    communism = 14
+                    fascism = 20
+                    ultranationalism = 6
+                }
+                set_politics = {
+                    ruling_party = democratic
+                }
+            }
+        }
+        SLO = {
+            keep_current_politics = yes
+        }
+    }
     SOV = {
         puppet = SLO
     }
     SLO = {
-        transfer_state = 70
-        transfer_state = 71
+        reset_government = yes
     }
     romanian_states = yes
 }

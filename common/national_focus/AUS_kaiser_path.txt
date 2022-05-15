@@ -2468,6 +2468,14 @@ shared_focus = {
     factor = 100
   }
   completion_reward = {
+    hidden_effect = {
+      KEN = {
+        keep_current_politics = yes
+      }
+      TZN = {
+        keep_current_politics = yes
+      }
+    }
     ORA = {
       release = KEN
       release = TZN
@@ -2493,6 +2501,20 @@ shared_focus = {
       else = {
         puppet = KEN
         puppet = TZN
+      }
+    }
+    hidden_effect = {
+      KEN = {
+        set_politics = {
+          ruling_party = democratic
+        }
+        reset_government = yes
+      }
+      TZN = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+        }
+        reset_government = yes
       }
     }
 	hidden_effect = {
