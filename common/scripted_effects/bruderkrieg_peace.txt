@@ -845,7 +845,29 @@ france_loses_peace_deal = {
                 }
             }
             transfer_state = 800
-            puppet = BEL
+            BEL = {
+                set_popularities = {
+                    fascism = 42
+                    democratic = 22
+                    democratic_liberalism = 10
+                    communism = 12
+                    socialism_democratic = 14
+                }
+                set_politics = {
+                    ruling_party = fascism
+                }
+                recruit_character = BEL_leon_degrelle_actual
+                promote_character = {
+                    character = BEL_leon_degrelle_actual
+                    ideology = fascism_ideology
+                }
+            }
+            GER = {
+                puppet = BEL
+            }
+            BEL = {
+                reset_government = yes
+            }
         }
         #puppet = FRA
         #if = {
@@ -886,6 +908,7 @@ france_loses_peace_deal = {
         }
     }
     OCC = {
+        keep_current_politics = yes
         set_cosmetic_tag = prussian_rk
         add_state_core = 33
         add_state_core = 25
@@ -896,6 +919,7 @@ france_loses_peace_deal = {
         remove_state_core = 19
     }
     NFR = {
+        keep_current_politics = yes
         set_cosmetic_tag = prussian_rk
         add_state_core = 17
         add_state_core = 18
@@ -917,10 +941,10 @@ france_loses_peace_deal = {
 	}
 	if = {
 		limit = { country_exists = FEA }
-		annex_country = {
-			target = FEA
-			transfer_troops = yes
-		}
+        annex_country = {
+            target = FEA
+            transfer_troops = yes
+        }
 	}
     }
     HOL = {
@@ -940,12 +964,22 @@ france_loses_peace_deal = {
 		add_state_core = 15
 		add_state_core = 29
 		add_state_core = 785
+        keep_current_poltiics = yes
 	}
     GER = {
         puppet = OCC
         puppet = NFR
-        puppet = HOL
+        
 	release_puppet = BRI
+    }
+    BRI = {
+        reset_government = yes
+    }
+    OCC = {
+        reset_government = yes
+    }
+    NFR = {
+        reset_government = yes
     }
     # FRA = {
 	# 	news_event = { id = france.215 hours = 3 }
