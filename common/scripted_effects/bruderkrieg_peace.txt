@@ -1489,7 +1489,6 @@ russia_beats_ottoman_peace_deal = {
     }
     TRB = {
         transfer_state = 1041
-
     }
     SOV = {
         transfer_state = 341
@@ -1500,19 +1499,24 @@ russia_beats_ottoman_peace_deal = {
         transfer_state = 421
         transfer_state = 1084
     }
+
+
     SYR = {
+        keep_current_politics = yes
         add_state_core = 553
     }
     IRQ = {
+        keep_current_politics = yes
         add_state_core = 656
+    }
+    PAL = {
+        keep_current_politics = yes
     }
     BYZ = {
         keep_current_politics = yes
     }
     release_byazntium = yes
-    BYZ = {
-        reset_government = yes
-    }
+
     release = SYR
     release = PAL
     #release = LEB
@@ -1529,6 +1533,14 @@ russia_beats_ottoman_peace_deal = {
     release = TUR
     TUR = {
         set_cosmetic_tag = russian_occupied_ottomans
+        set_popularities = {
+            democratic = 33
+            democratic_communism = 10
+            communism = 9
+            democratic_liberalism = 12
+            neutrality = 25
+            fascism = 11
+        }
         set_politics = {
             ruling_party = democratic
         }
@@ -1541,17 +1553,34 @@ russia_beats_ottoman_peace_deal = {
                 
             }
         }
+        keep_current_politics = yes
     }
     SOV = {
         puppet = SYR
         #puppet = ISR
         #puppet = LEB
         puppet = IRQ
-        puppet = JOR
         puppet = TUR
         puppet = BYZ
     }
-
+    ENG = {
+        puppet = PAL
+    }
+    SYR = {
+        reset_government = yes
+    }
+    IRQ = {
+        reset_government = yes
+    }
+    PAL = {
+        reset_government = yes
+    }
+    TUR = {
+        reset_government = yes
+    }
+    BYZ = {
+        reset_government = yes
+    }
     if = {
         limit = {
             SAU = {
