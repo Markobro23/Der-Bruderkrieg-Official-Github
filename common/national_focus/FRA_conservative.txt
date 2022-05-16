@@ -3689,10 +3689,7 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_RESEARCH }
 
 		completion_reward = {
-			swap_ideas = {
-				add_idea = Bonapartist_Ambition_2
-				remove_idea = Bonapartist_Ambition
-			}
+			
 
 			news_event = napoleanfrance.28
 
@@ -5571,7 +5568,7 @@ instant_build = yes
 			#search_filters = { FOCUS_FILTER_RESEARCH }
 		
 			completion_reward = {
-				add_war_support = 0.05
+				add_ideas = Bonapartist_Ambition
 			}
 		}
 		
@@ -5671,7 +5668,7 @@ instant_build = yes
 			completion_reward = {
 		
 				add_political_power = 70
-				add_stability = 0.08
+				add_war_support = 0.05
 			}
 		}
 		
@@ -6652,22 +6649,11 @@ instant_build = yes
     
       completion_reward = {
         ######Make Bonapartist Ambition so fucking op
-    
-        if = {
-          limit = {
-            has_idea = Bonapartist_Ambition_2
-          }
-          swap_ideas = {
-            add_idea = Bonapartist_Ambition_3
-            remove_idea = Bonapartist_Ambition_2
-          }
-        }
-        else = {
-          swap_ideas = {
-            add_idea = Bonapartist_Ambition_2
-            remove_idea = Bonapartist_Ambition
-          }
-        }
+		swap_ideas = {
+			remove_idea = Bonapartist_Ambition
+			add_idea = Bonapartist_Ambition_2
+		}
+        
 
         # create_wargoal = {
         #   target = SOV
