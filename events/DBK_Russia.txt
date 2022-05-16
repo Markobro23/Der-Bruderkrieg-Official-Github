@@ -5336,3 +5336,53 @@ country_event = {
 		}
 	}
 }
+
+country_event = { #allowing decisions
+	id = TUR_turan_anti_SOV_revolt_event.2
+	title = TUR_turan_anti_SOV_revolt_event.2.t
+	desc = TUR_turan_anti_SOV_revolt_event.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = TUR_turan_anti_SOV_revolt_event.2.a
+		unlock_decision_category_tooltip = SOV_crushing_turan_sympathies
+		set_country_flag = SOV_turanists_threat
+	}
+}
+
+news_event = { #ottoman peace event
+	id = TUR_turan_anti_SOV_revolt_event.3
+	title = TUR_turan_anti_SOV_revolt_event.3.t
+	desc = TUR_turan_anti_SOV_revolt_event.3.d
+	#picture = 
+	is_triggered_only = yes
+	major = yes
+	option = {
+		name = TUR_turan_anti_SOV_revolt_event.3.a
+	}
+}
+
+add_namespace = SOV_brit_conflict
+
+news_event = { #british seizure of palestine
+	id = SOV_brit_conflict.1
+	title = SOV_brit_conflict.1.t
+	desc = SOV_brit_conflict.1.d
+	#picture = 
+	is_triggered_only = yes
+	major = yes
+	immediate = {
+		if = {
+			limit = { tag = ENG }
+			hidden_effect = {
+				puppet = PAL
+				PAL = {
+					set_cosmetic_tag = PAL_mandate
+				}
+			}
+		}
+	}
+	option = {
+		name = SOV_brit_conflict.1.a
+	}
+}
