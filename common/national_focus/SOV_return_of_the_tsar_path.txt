@@ -1532,39 +1532,45 @@ shared_focus = {
                 }
             }
             SER = {
-                country_event = { id = russia.22 hours = 3 }
-                every_owned_state = {
-                    limit = { any_neighbor_state = { is_owned_by = AUS } }
-                    add_building_construction = {
-                        type = bunker
-                        level = 5
-                        instant_build = yes
-                        province = {
-                            all_provinces = yes
-                            limit_to_border = yes
-                        } 
+                every_state = {
+                    limit = {
+                        any_neighbor_state = {
+                            OR = {
+                                is_controlled_by = AUS
+                                THIS.owner = {
+                                    is_in_faction_with = AUS
+                                }
+                            } 
+                            
+                        }
+                        owner = {
+                            tag = SER
+                        }
                     }
                 }
             }
         }
-         if = {
+        if = {
             limit = {
                 YUG = {
                     exists = yes
                 }
             }
             YUG = {
-                country_event = { id = russia.22 hours = 3 }
-                every_owned_state = {
-                    limit = { any_neighbor_state = { is_owned_by = AUS } }
-                    add_building_construction = {
-                        type = bunker
-                        level = 5
-                        instant_build = yes
-                        province = {
-                            all_provinces = yes
-                            limit_to_border = yes
-                        } 
+                every_state = {
+                    limit = {
+                        any_neighbor_state = {
+                            OR = {
+                                is_controlled_by = AUS
+                                THIS.owner = {
+                                    is_in_faction_with = AUS
+                                }
+                            } 
+                            
+                        }
+                        owner = {
+                            tag = SER
+                        }
                     }
                 }
             }
