@@ -152,7 +152,57 @@ on_actions = {
 							transfer_troops = no
 						}
 					}
-					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = ALB
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					ALB = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = ALB
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = DEN
+	
+						}
+						FROM = {
+							tag = GER
+						}
+					}
+					DEN = {
+						white_peace = GER
+					}
+					DEN = {
+						set_popularities = {
+							ultranationalism = 45
+							communism = 39
+							democratic_communism = 16
+						}
+						set_politics = {
+							ruling_party = ultranationalism	
+						}
+						keep_current_politics = yes
+					}
+					GER = {
+						puppet = DEN
+					}
+					DEN = {
+						reset_government = yes
+					}
 				}
 				if = {
 					limit = {
@@ -451,8 +501,21 @@ on_actions = {
 					FROM = {
 						OR = { tag = FRA is_in_faction_with = FRA }
 					}
+					AUS = {
+						is_puppet = no
+					}
 				}
-				france_beats_austria = yes
+				if = {
+					limit = {
+						FRA = {
+							is_subject_of_of = GER
+						}
+					}
+					france_loses_peace_deal = yes
+				}
+				else = {
+					france_beats_austria = yes
+				}
 			}
 			if = {
 				limit = {
