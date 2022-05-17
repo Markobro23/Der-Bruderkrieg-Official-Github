@@ -779,12 +779,7 @@ shared_focus = {
         factor = 50
     }
     completion_reward = {
-        add_tech_bonus = {
-            category = artillery
-            bonus = 1 
-            uses = 1
-        }
-        
+        add_research_slot = 1
     }
 }
 shared_focus = {
@@ -1286,6 +1281,16 @@ shared_focus = {
     available = {
         
     }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+        }
+    }
     completion_reward = {
         SER = {
             add_timed_idea = {
@@ -1328,6 +1333,24 @@ shared_focus = {
     }
     available = {
         date > 1939.1.1
+    }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+            OR = {
+                SER = {
+                    is_in_faction_with = SOV
+                }
+                YUG = {
+                    is_in_faction_with = SOV
+                }
+            }
+        }
     }
     completion_reward = {
         ROM = {
@@ -1669,6 +1692,16 @@ shared_focus = {
         has_country_flag = SOV_Dobruja_Resolved
         ROM = {
             owns_state = 77
+        }
+    }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
         }
     }
     ai_will_do = {
@@ -2013,6 +2046,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+        }
+    }
     available = {
         has_country_flag = SOV_Dobruja_Resolved
         BUL = {
@@ -2119,6 +2162,16 @@ shared_focus = {
     }
     available = {
         
+    }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+        }
     }
     completion_reward = {
         
@@ -2623,6 +2676,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    
     mutually_exclusive = {
         
     }
@@ -2966,11 +3020,11 @@ shared_focus = {
         factor = 1000
     }
     available = {
-        has_war_with = AUS
+      #  has_war_with = AUS
     }
     completion_reward = {
      ###russia will join the pact of the brothers temporarliy
-
+    unlock_decision_tooltip = SOV_operation_third_rome_decision
     add_ideas = SOV_for_the_motherland
     }
 }
