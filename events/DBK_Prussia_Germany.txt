@@ -309,6 +309,22 @@ country_event = {
 	}
  }
 
+
+ country_event = {
+	id = GER_goering_internal_stabilization.9 # The Blade Forged
+	title = GER_goering_internal_stabilization.9.t
+	desc = GER_goering_internal_stabilization.9.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.9.a
+		ai_chance = { factor = 1000 } 
+		set_country_flag = GER_spartakus_crushed
+		remove_ideas = Revolutionary_Treason
+	}
+ }
  country_event = {
 	id = GER_goering_internal_stabilization.10 # Berlin Rally
 	title = GER_goering_internal_stabilization.10.t
@@ -364,6 +380,22 @@ country_event = {
 
 	option = { 
 		name = GER_goering_internal_stabilization.13.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+}
+
+## rosa in berlin
+country_event = {
+	id = GER_goering_internal_stabilization.14 
+	title = GER_goering_internal_stabilization.14.t
+	desc = GER_goering_internal_stabilization.14.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.14.a
 		ai_chance = { factor = 1000 } 
 		
 	}
@@ -2196,6 +2228,19 @@ country_event = {
 				ruling_only = yes
 			}
 		}
+    }
+}
+
+country_event = {
+    id = GER_flavor_events.3
+    title = GER_flavor_events.3.t
+    desc = GER_flavor_events.3.d
+
+    is_triggered_only = yes
+
+    option = {
+        name = GER_flavor_events.3.a
+		add_war_support = 0.005
     }
 }
 
