@@ -4659,3 +4659,48 @@ country_event = {
 # 		name = Texas_breakup_events.3.a
 # 	}
 # }
+
+add_namespace = USA_content_events
+
+news_event = { #roosevelt collory becomes big global thingamajig
+	id = USA_content_events.1
+	title = USA_content_events.1.t
+	desc = USA_content_events.1.d
+	picture = GFX_hueylonginaugaration
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = USA_content_events.1.a
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+				has_government = ultranationalism
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.b
+		trigger = {
+			OR = {
+				is_in_faction_with = USA
+				tag = USA
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.c
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+					has_government = ultranationalism
+					is_in_faction_with = USA
+					tag = USA
+				}
+			}
+		}
+	}
+}

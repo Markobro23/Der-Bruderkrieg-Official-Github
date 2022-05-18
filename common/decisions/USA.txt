@@ -347,10 +347,49 @@ DBK_USA_content_category = {
 		}
 	}
 
-	USA_add_mexico_to_faction = {
+	USA_declare_colloray_global = {
+
+		icon = GFX_decision_eng_propaganda_campaigns
+
+		fire_only_once = yes
+
+		days_remove = 35
+
+		ai_will_do = {
+			factor = 1000
+		}
 
 		available = {
-			tag = USA
+			date > 1937.6.1
+		}
+
+		remove_effect = {
+			set_country_flag = USA_big_boi_time
+			news_event = { id = USA_content_events.1 hours = 2 }
+		}
+
+	}
+
+	USA_add_mexico_to_faction = {
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					tag = MEX
+					tag = COS
+					tag = ECU
+					tag = CEN
+				}
+			}
+		}
+
+		available = {
+			FROM = {
+				has_war = no
+			}
+			NOT = {
+				has_country_flag = USA_already_expanding_faction
+			}
 		}
 	
 		icon = GFX_decision_eng_propaganda_campaigns
@@ -360,13 +399,88 @@ DBK_USA_content_category = {
 		ai_will_do = {
 		  factor = 1000
 		}
-		available = {
-			has_war_with = ARG
+		visible = {
+			has_country_flag = USA_big_boi_time
 		}
 		complete_effect = {
+			set_country_flag = {
+				flag = USA_already_expanding_faction
+				days = 35
+				value = 1
+			}
 		}
 		remove_effect = {
-			MEX = {
+			FROM = {
+				country_event = generic.5
+			}	
+		}
+	}
+
+	USA_add_brazil_to_faction = {
+
+		available = {
+			has_global_flag = brazil_reunited
+			NOT = {
+				has_country_flag = USA_already_expanding_faction
+			}
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		visible = {
+			has_country_flag = USA_big_boi_time
+			country_exists = UBR
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = USA_already_expanding_faction
+				days = 35
+				value = 1
+			}
+		}
+		remove_effect = {
+			UBR = {
+				country_event = generic.5
+			}	
+		}
+	}
+
+	USA_add_central_america_to_faction = {
+
+		available = {
+			CEN = {
+				has_war = no
+			}
+			NOT = {
+				has_country_flag = USA_already_expanding_faction
+			}
+		}
+	
+		icon = GFX_decision_eng_propaganda_campaigns
+		fire_only_once = yes
+		cost = 0
+		days_remove = 35
+		ai_will_do = {
+		  factor = 1000
+		}
+		visible = {
+			has_country_flag = USA_big_boi_time
+			country_exists = CEN
+		}
+		complete_effect = {
+			set_country_flag = {
+				flag = USA_already_expanding_faction
+				days = 35
+				value = 1
+			}
+		}
+		remove_effect = {
+			CEN = {
 				country_event = generic.5
 			}	
 		}

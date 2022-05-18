@@ -1100,6 +1100,9 @@ form_brazil_category = {
 		}
 
 		visible = {
+			NOT = {
+				has_global_flag = brazil_reunited
+			}
 			OR = {
 				tag = BRE
 				tag = GEF
@@ -1111,7 +1114,7 @@ form_brazil_category = {
 		}
 
 		complete_effect = {
-		
+		set_global_flag = brazil_reunited
 		set_cosmetic_tag = BRZ_unified
 		news_event = { id = DBK_formablenations.8 days = 1 }
 		remove_ideas = UBR_civilist_republic
