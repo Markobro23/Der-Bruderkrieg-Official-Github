@@ -2634,18 +2634,81 @@ anthrax_decisions = {
 		}
 		visible = {
 		}
-		fire_only_once = no
-		days_re_enable = 50
-		cost = 75
-		days_remove = 60
+		fire_only_once = yes
+		cost = 0
+		modifier = {
+			research_speed_factor = -0.05
+			industrial_capacity_factory = -0.025
+		}
+		days_remove = 35
 		ai_will_do = {
 			factor = 1000
 		}
 		remove_effect = {
-			add_tech_bonus = {
-				category = cat_anthrax
-				bonus = 1 
-				uses = 1
+			add_to_variable = {
+				tooltip = GER_increase_bomb_power_by_1
+				anthrax_power = 1
+			}
+		}
+	}
+
+	produce_bombs = {
+		icon = generic_army_support
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GER_bomb_power_at_or_more_than_1
+				check_variable = {
+					var = anthrax_power 
+					value = 1
+					compare = greater_than_or_equals
+				}
+			}
+		}
+		visible = {
+		}
+		fire_only_once = yes
+		cost = 10
+		modifier = {
+			production_factory_efficiency_gain_factor = -0.05
+		}
+		days_remove = 50
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_increase_bomb_number_by_1
+				anthrax_bombs = 1
+			}
+		}
+	}
+
+	invest_in_anthrax_research_2 = {
+		icon = generic_army_support
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GER_bomb_power_at_1
+				check_variable = {
+					anthrax_power = 1
+				}
+			}
+		}
+		visible = {
+		}
+		fire_only_once = yes
+		cost = 0
+		modifier = {
+			research_speed_factor = -0.05
+			industrial_capacity_factory = -0.025
+		}
+		days_remove = 70
+		ai_will_do = {
+			factor = 1000
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GER_increase_bomb_power_by_1
+				anthrax_power = 1
 			}
 		}
 	}
@@ -2682,13 +2745,21 @@ anthrax_decisions = {
 			}
 		}
 		available = {
-			has_tech = anthrax_1
+			#has_tech = anthrax_1
 			OR = {
 				has_war_with = AUS
 				has_war_with = FRA
 				has_war_with = SOV
 				has_war_with = ENG
 				has_war_with = USA
+			}
+			custom_trigger_tooltip = {
+				tooltip = GER_bomb_number_at_or_more_than_1
+				check_variable = {
+					var = anthrax_bombs 
+					value = 1
+					compare = greater_than_or_equals
+				}
 			}
 		}
 		fire_only_once = no
@@ -2700,6 +2771,10 @@ anthrax_decisions = {
 		}
 		remove_effect = {
 			set_country_flag = anthrax_operation_start
+			add_to_variable = {
+				tooltip = GER_decrease_bomb_number_by_1
+				anthrax_power = -1
+			}
 		}
 	}
 
@@ -2751,7 +2826,7 @@ anthrax_decisions = {
 			FROM = {
 				add_dynamic_modifier = {
 					modifier = anthrax_bomb_modifier
-					days = 150
+					days = 250
 				}
 			}
 			clr_country_flag = anthrax_operation_start
