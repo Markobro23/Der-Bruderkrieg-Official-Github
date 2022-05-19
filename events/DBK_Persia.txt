@@ -12,6 +12,22 @@ news_event = {
 
 	option = {
 		name = PER_russian_relations.1.a
+		if = {
+			limit = {
+				tag = PER
+			}
+			remove_ideas = PER_the_anglo_recession
+		}
+		if = {
+			limit = {
+				tag = SOV
+			}
+			effect_tooltip = {
+				PER = {
+					remove_ideas = PER_the_anglo_recession
+				}
+			}
+		}
 	}
 }
 
@@ -27,5 +43,21 @@ news_event = {
 
 	option = {
 		name = PER_russian_relations.2.a
+		if = {
+			limit = {
+				tag = AFG
+			}
+			remove_ideas = AFG_the_saqqawists
+		}
+		if = {
+			limit = {
+				tag = SOV
+			}
+			effect_tooltip = {
+				AFG = {
+					remove_ideas = AFG_the_saqqawists
+				}
+			}
+		}
 	}
 }

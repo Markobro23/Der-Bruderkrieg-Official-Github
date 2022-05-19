@@ -3863,8 +3863,16 @@ shared_focus = {
 		}
 	}
 	bypass = {
-		SER = {
-			is_in_faction = yes
+		OR = {
+			SER = {
+				is_in_faction = yes
+			}
+			AND = {
+				has_global_flag = form_serbia_flag
+				SER = {
+					exists = no
+				}
+			}
 		}
 	}
 	relative_position_id = GER_focus_on_european_nationalism

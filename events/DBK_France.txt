@@ -1984,6 +1984,11 @@ country_event = {
 		name = belgian_election_events.3.a
 		
 		set_global_flag = degrelle_loses_electionns 
+
+		BEL = {
+			remove_ideas = BEL_integralism
+			add_ideas = BEL_liberalism
+		}
 		
 		news_event = belgian_election_events.4
 
@@ -2228,10 +2233,11 @@ country_event = {
 				id = belgian_election_events.14 
 				days = 2
 			}
-		}
+		} 
 
 		hidden_effect = {
 			COG = {
+				load_oob = "COG_1936"
 				add_ideas = member_anticolonial_association_oppressed_people
 				add_popularity = {
 					ideology = fascism

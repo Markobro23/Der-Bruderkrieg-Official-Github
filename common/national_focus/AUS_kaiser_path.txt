@@ -4306,7 +4306,7 @@ shared_focus = {
   x = 0
   y = 1
   relative_position_id = AUS_on_the_offensive
-  cost = 15
+  cost = 8
   ai_will_do = {
     factor = 20
   }
@@ -4315,10 +4315,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    create_wargoal = {
-      type = topple_government
-      target = GER
-    }
+    unlock_decision_category_tooltip = AUS_offensives_against_the_fbc
   }
 }
 
@@ -6092,6 +6089,13 @@ shared_focus = {
 
   completion_reward = {
     ALB = {country_event = austria_foriegn_policy.10}
+
+    ALB = {
+      swap_ideas = {
+        add_idea = ALB_young_republic_2
+        remove_idea = ALB_young_republic
+      }
+    }
   }
 }
 shared_focus = {
@@ -6299,6 +6303,9 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
+    BOS = {
+      remove_ideas = BOS_population_exchange
+    }
     country_event = austria_foriegn_policy.1
   }
 }
@@ -6329,12 +6336,20 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    create_wargoal = {
-      target = SOV
-      type = take_state_focus
-      generator = {
-        91
-        90
+    90 = {
+      add_core_of = AUS
+    }
+    92 = {
+      add_core_of = AUS
+    }
+    SOV = {
+      every_owned_state = {
+        limit = {
+          is_core_of = POL
+        }
+        add_dynamic_modifier = {
+          modifier = polish_home_army
+        }
       }
     }
   }
