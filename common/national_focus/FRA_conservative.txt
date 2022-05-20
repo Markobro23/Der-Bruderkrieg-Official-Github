@@ -57,160 +57,7 @@ focus_tree = {
   } 
 
   
-	shared_focus = {
-		id = FRA_open_military_academies
-		icon = GFX_goal_FRA_fraternite
-		text = FRA_open_military_academies
-		prerequisite = { focus = FRA_NAPOLEON  focus = FRA_NAPOLEON}
-		x = 1
-		y = 1
-		relative_position_id = FRA_NAPOLEON
-		mutually_exclusive = {
-			focus = FRA_open_research_facilities
-		}
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_ideas = FRA_military_academies
-		}
-	}
-	# shared_focus = {
-	# 	id = FRA_teach_modern_warfare
-	# 	icon = GFX_goal_generic_army_motorized
-	# 	text = FRA_teach_modern_warfare
-	# 	prerequisite = { focus = FRA_open_military_academies }
-	# 	x = 0
-	# 	y = 1
-	# 	relative_position_id = FRA_open_military_academies
-	# 	cost = 3
-	# 	ai_will_do = {
-	# 		factor = 1
-	# 	}
-
-	# 	available_if_capitulated = yes
-	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	# 	completion_reward = {
-	# 		swap_ideas = {
-	# 			add_idea = FRA_military_academies_2
-	# 			remove_idea = FRA_military_academies
-	# 		}
-	# 	 }
-	# }
-
-	shared_focus = {
-		id = FRA_open_research_facilities
-		icon = GFX_goal_FRA_school_of_research
-		text = FRA_open_research_facilities
-		prerequisite = { focus = FRA_PATH_AGGRESSION focus = FRA_NAPOLEON }
-		x = -1
-		y = 1
-		relative_position_id = FRA_PATH_AGGRESSION
-		mutually_exclusive = {
-			focus = FRA_open_military_academies
-		}
-		cost = 5
-		ai_will_do = {
-			factor = 1
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_research_slot = 1
-		}
-	}
-
-	# shared_focus = {
-	# 	id = FRA_intellegent_scientists_committee
-	# 	icon = GFX_focus_research2
-	# 	text = FRA_intellegent_scientists_committee
-	# 	prerequisite = { focus = FRA_open_research_facilities }
-	# 	x = 0
-	# 	y = 1
-	# 	relative_position_id = FRA_open_research_facilities
-	# 	cost = 3
-	# 	ai_will_do = { 
-	# 		factor = 1
-	# 	}
-
-	# 	available_if_capitulated = yes
-	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	# 	completion_reward = {
-	# 		add_research_slot = 1
-	# 	}
-	# }
-	shared_focus = {
-		id = FRA_expand_the_sorbonne_university
-		icon = GFX_goal_france_for_the_better
-		text = FRA_expand_the_sorbonne_university
-		prerequisite = { focus = FRA_open_military_academies
-					focus = FRA_open_research_facilities
-		}
-		prerequisite = {
-		}
-		x = 1
-		y = 1
-		relative_position_id = FRA_open_military_academies
-		cost = 5
-		ai_will_do = {
-		  factor = 1
-		}
-		
 	
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-	
-		completion_reward = {
-				if = {
-					limit = {
-						has_idea = FRA_wiltkrieg_neutrality
-					}
-					swap_ideas = {
-						add_idea = FRA_wiltkrieg_neutrality_3
-						remove_idea = FRA_wiltkrieg_neutrality
-					}
-				}
-				if = {
-					limit = {
-						has_idea = FRA_wiltkrieg_neutrality_2
-					}
-					remove_ideas = FRA_wiltkrieg_neutrality_2
-				}
-		 }
-	  } 
-  shared_focus = {
-	id = FRA_a_new_french_army
-	icon = GFX_French_Army
-	text = FRA_a_new_french_army
-		prerequisite = {focus = FRA_MASTER_ARTILLERY focus = FRA_BRAVE_NEW_EMPIRE focus = FRA_MASTER_GUERRE_ECLAIR focus = FRA_MASTER_TACTICS }
-
-	x = 3
-	y = 1
-	cost = 5
-	ai_will_do = {
-	  factor = 1
-	}
-	relative_position_id = FRA_MASTER_ARTILLERY
-
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-	completion_reward = {
-			
-		add_war_support = 0.05
-		army_experience = 20
-	 }
-  }
- 
 
   shared_focus = {
     id = FRA_FRENCH_ADVISORS
@@ -361,7 +208,7 @@ focus_tree = {
 
 		 completion_reward = {
 			 add_doctrine_cost_reduction = {
-				 bonus = 1
+				 cost_reduction = 1
 				 uses = 1
 				 cost_reduction = cat_mass_assault
 			 }
@@ -579,7 +426,31 @@ focus_tree = {
 
 	 
 
-  
+    shared_focus = {
+	id = FRA_a_new_french_army
+	icon = GFX_French_Army
+	text = FRA_a_new_french_army
+		prerequisite = {focus = FRA_MASTER_ARTILLERY focus = FRA_BRAVE_NEW_EMPIRE focus = FRA_MASTER_GUERRE_ECLAIR focus = FRA_MASTER_TACTICS }
+
+	x = 3
+	y = 1
+	cost = 5
+	ai_will_do = {
+	  factor = 1
+	}
+	relative_position_id = FRA_MASTER_ARTILLERY
+
+	available_if_capitulated = yes
+	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	completion_reward = {
+			
+		add_war_support = 0.05
+		army_experience = 20
+	 }
+  }
+ 
+
 
 
 
@@ -2336,6 +2207,33 @@ shared_focus = {
 #     }
 #   }
 
+	
+
+	  shared_focus = { 
+		id = FRA_the_strikers_hit
+		icon = GFX_USA_trust_busting
+		text = FRA_the_strikers_hit
+		#prerequisite = { focus = FRA_the_bill_was_rejected }
+		x = 8
+		y = 0
+		cost = 2
+		ai_will_do = {
+		  factor = 100
+		}
+		available = {
+			has_country_flag = FRA_lyon_strike_start
+		}
+		bypass = {
+			has_idea = FRA_mantignon_agreements
+		}
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_RESEARCH }
+	
+		completion_reward = {
+			unlock_decision_category_tooltip = FRA_worker_strikes
+		}
+	  }
 	shared_focus = {
     id = FRA_VIVE_LE_FRANCE
     icon = GFX_goal_FRA_vive_la_france
@@ -2720,33 +2618,7 @@ shared_focus = {
 
 	
 
-	
 
-	  shared_focus = { 
-		id = FRA_the_strikers_hit
-		icon = GFX_USA_trust_busting
-		text = FRA_the_strikers_hit
-		#prerequisite = { focus = FRA_the_bill_was_rejected }
-		x = 8
-		y = 0
-		cost = 2
-		ai_will_do = {
-		  factor = 100
-		}
-		available = {
-			has_country_flag = FRA_lyon_strike_start
-		}
-		bypass = {
-			has_idea = FRA_mantignon_agreements
-		}
-	
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_RESEARCH }
-	
-		completion_reward = {
-			unlock_decision_category_tooltip = FRA_worker_strikes
-		}
-	  }
 	
 
 
@@ -3704,6 +3576,137 @@ shared_focus = {
 			add_country_leader_trait = napoleon_ancestor
 		}
 	}
+
+	shared_focus = {
+		id = FRA_open_military_academies
+		icon = GFX_goal_FRA_fraternite
+		text = FRA_open_military_academies
+		prerequisite = { focus = FRA_NAPOLEON  focus = FRA_NAPOLEON}
+		x = 1
+		y = 1
+		relative_position_id = FRA_NAPOLEON
+		mutually_exclusive = {
+			focus = FRA_open_research_facilities
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_ideas = FRA_military_academies
+		}
+	}
+	# shared_focus = {
+	# 	id = FRA_teach_modern_warfare
+	# 	icon = GFX_goal_generic_army_motorized
+	# 	text = FRA_teach_modern_warfare
+	# 	prerequisite = { focus = FRA_open_military_academies }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = FRA_open_military_academies
+	# 	cost = 3
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 			add_idea = FRA_military_academies_2
+	# 			remove_idea = FRA_military_academies
+	# 		}
+	# 	 }
+	# }
+
+	shared_focus = {
+		id = FRA_open_research_facilities
+		icon = GFX_goal_FRA_school_of_research
+		text = FRA_open_research_facilities
+		prerequisite = { focus = FRA_PATH_AGGRESSION focus = FRA_NAPOLEON }
+		x = -1
+		y = 1
+		relative_position_id = FRA_PATH_AGGRESSION
+		mutually_exclusive = {
+			focus = FRA_open_military_academies
+		}
+		cost = 5
+		ai_will_do = {
+			factor = 1
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	# shared_focus = {
+	# 	id = FRA_intellegent_scientists_committee
+	# 	icon = GFX_focus_research2
+	# 	text = FRA_intellegent_scientists_committee
+	# 	prerequisite = { focus = FRA_open_research_facilities }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = FRA_open_research_facilities
+	# 	cost = 3
+	# 	ai_will_do = { 
+	# 		factor = 1
+	# 	}
+
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+	# 	completion_reward = {
+	# 		add_research_slot = 1
+	# 	}
+	# }
+	shared_focus = {
+		id = FRA_expand_the_sorbonne_university
+		icon = GFX_goal_france_for_the_better
+		text = FRA_expand_the_sorbonne_university
+		prerequisite = { focus = FRA_open_military_academies
+					focus = FRA_open_research_facilities
+		}
+		prerequisite = {
+		}
+		x = 1
+		y = 1
+		relative_position_id = FRA_open_military_academies
+		cost = 5
+		ai_will_do = {
+		  factor = 1
+		}
+		
+	
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	
+		completion_reward = {
+				if = {
+					limit = {
+						has_idea = FRA_wiltkrieg_neutrality
+					}
+					swap_ideas = {
+						add_idea = FRA_wiltkrieg_neutrality_3
+						remove_idea = FRA_wiltkrieg_neutrality
+					}
+				}
+				if = {
+					limit = {
+						has_idea = FRA_wiltkrieg_neutrality_2
+					}
+					remove_ideas = FRA_wiltkrieg_neutrality_2
+				}
+		 }
+	  } 
 
 
 	##redone SCW tree
@@ -5039,34 +5042,7 @@ instant_build = yes
 			}
 		}
 
-		shared_focus = {
-			id = FRA_intensify_exploitation
-			icon = GFX_goal_FRA_intensify_exploitation
-			x = -1
-			y = 1
-			cost = 5
-			available_if_capitulated = yes
-			prerequisite = { focus = FRA_the_second_france }
-			relative_position_id = FRA_the_second_france
-			mutually_exclusive = {focus = FRA_violette_proposal}
-			ai_will_do = {
-				factor = 100
-			}
-			completion_reward = {
-				ALG = {
-					add_war_support = 0.1
-					add_popularity = {
-						ideology = fascism
-						popularity = 0.15
-					}
-					set_politics = {
-						ruling_party = fascism
-					}
-					set_cosmetic_tag = ALG_french_algeria	
-				}
-				
-			}
-		}
+		
 
 		shared_focus = {
 			id = FRA_the_union_plan
@@ -5143,6 +5119,35 @@ instant_build = yes
 						add_extra_state_shared_building_slots = 1
 					}
 				}
+			}
+		}
+
+		shared_focus = {
+			id = FRA_intensify_exploitation
+			icon = GFX_goal_FRA_intensify_exploitation
+			x = -1
+			y = 1
+			cost = 5
+			available_if_capitulated = yes
+			prerequisite = { focus = FRA_the_second_france }
+			relative_position_id = FRA_the_second_france
+			mutually_exclusive = {focus = FRA_violette_proposal}
+			ai_will_do = {
+				factor = 100
+			}
+			completion_reward = {
+				ALG = {
+					add_war_support = 0.1
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.15
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					set_cosmetic_tag = ALG_french_algeria	
+				}
+				
 			}
 		}
 

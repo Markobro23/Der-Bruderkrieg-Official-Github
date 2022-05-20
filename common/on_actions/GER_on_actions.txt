@@ -279,19 +279,19 @@ on_actions = {
                             has_idea = GER_syndicalist_system_2
                         }
                     }
-                    FROM ={ 
-                        if = {
-                            limit = {
-                                has_idea = GER_syndicalist_system
-                            }
-                            swap_ideas = {
-                                add_idea = GER_syndicalist_system_2
-                                remove_idea = GER_syndicalist_system
-                            }
+                }
+                FROM ={ 
+                    if = {
+                        limit = {
+                            has_idea = GER_syndicalist_system
                         }
-                        else = {
-                            add_ideas = GER_syndicalist_system
+                        swap_ideas = {
+                            add_idea = GER_syndicalist_system_2
+                            remove_idea = GER_syndicalist_system
                         }
+                    }
+                    else = {
+                        add_ideas = GER_syndicalist_system
                     }
                 }
             }

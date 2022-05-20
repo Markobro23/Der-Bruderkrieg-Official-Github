@@ -289,7 +289,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_weakening_the_tsar
     icon = GFX_goal_SOV_a_tsar_only_in_name 
-	prerequisite = {focus = SOV_Menshevik_Dominance focus = SOV_Paragon_of_Honesty }
+	prerequisite = {focus = SOV_Menshevik_Dominance }
 	x = 1
 	y = 1
 	relative_position_id = SOV_Menshevik_Dominance
@@ -764,6 +764,29 @@ shared_focus = {
 		}
 	}
 
+	
+
+	shared_focus = {
+		id = SOV_VIRGIN_LAND_INITIATIVE
+		icon = GFX_goal_tfv_generic_tech_sharing
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_NATIONALIZE_FARM }
+		x = 1
+		y = 1
+		relative_position_id = SOV_NATIONALIZE_FARM
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			unlock_decision_category_tooltip = SOV_virgin_land
+		}
+	}
+
 	shared_focus = {
 		id = SOV_BEUREAU_INDUSTRIALIZATION
 		icon = GFX_focus_generic_socialist_science
@@ -788,27 +811,6 @@ shared_focus = {
 				add_idea = Industrializing_2
 				remove_idea = Industrializing
 			}
-		}
-	}
-
-	shared_focus = {
-		id = SOV_VIRGIN_LAND_INITIATIVE
-		icon = GFX_goal_tfv_generic_tech_sharing
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_NATIONALIZE_FARM }
-		x = 1
-		y = 1
-		relative_position_id = SOV_NATIONALIZE_FARM
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			unlock_decision_category_tooltip = SOV_virgin_land
 		}
 	}
 

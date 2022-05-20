@@ -1263,143 +1263,7 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = SOV_Investments_in_Serbia
-    icon = GFX_goal_support_small_bussinesses 
-	prerequisite = {focus = SOV_Export_to_Bulgaria focus = SOV_Carpthanian_Defenses }
-	x = 0
-	y = 1
-    relative_position_id = SOV_Export_to_Bulgaria  
-    cost = 4
-    available_if_capitulated = yes
-    mutually_exclusive = {
-        focus = SOV_Eastern_Balkan_Industry
-    }
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        
-    }
-    bypass = {
-        NOT = {
-            ROM = {
-                is_in_faction_with = SOV
-            }
-            BUL = {
-                is_in_faction_with = SOV
-            }
-        }
-    }
-    completion_reward = {
-        SER = {
-            add_timed_idea = {
-                idea = SOV_financial_support
-                days = 90
-            }
-        }
-        YUG = {
-            add_timed_idea = {
-                idea = SOV_financial_support
-                days = 90
-            }
-        }
-        ROM = {
-            add_timed_idea = {
-                idea = SOV_financial_support
-                days = 90
-            }
-        }
-        BUL = {
-            add_timed_idea = {
-                idea = SOV_financial_support
-                days = 90
-            }
-        }
-    }
-}
-shared_focus = {
-    id = SOV_the_tsaritsyn_conference
-    icon = GFX_goal_UGL_push_for_moskowa 
-	prerequisite = {focus = SOV_Eastern_Balkan_Industry focus = SOV_Investments_in_Serbia }
-	x = 1
-	y = 1
-    relative_position_id = SOV_Eastern_Balkan_Industry  
-    cost = 4
-    available_if_capitulated = yes
-   
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        date > 1939.1.1
-    }
-    bypass = {
-        NOT = {
-            ROM = {
-                is_in_faction_with = SOV
-            }
-            BUL = {
-                is_in_faction_with = SOV
-            }
-            OR = {
-                SER = {
-                    is_in_faction_with = SOV
-                }
-                YUG = {
-                    is_in_faction_with = SOV
-                }
-            }
-        }
-    }
-    completion_reward = {
-        ROM = {
-            country_event = SOV_return_of_the_tsar_path.19
-        }
-        BUL = {
-            country_event = SOV_return_of_the_tsar_path.19
-        }
-        if = {
-            limit = {
-                SER = {
-                    exists = yes
-                }
-                has_global_flag = form_serbia_flag
-            }
-            SER = {
-                country_event = SOV_return_of_the_tsar_path.19
-            }
-        }
-        else_if = {
-            limit = {
-                YUG = {
-                    exists = yes
-                }
-                has_global_flag = form_serbia_flag
-            }
-            YUG = {
-                country_event = SOV_return_of_the_tsar_path.19
-            }
-        }
-        else = {
-            if = {
-                limit = {
-                    NOT = {
-                        OBS = {
-                            exists = yes
-                        }
-                        has_global_flag = form_serbia_flag
-                    }
-                }
-                effect_tooltip = {
-                    YUG = {
-                        country_event = SOV_return_of_the_tsar_path.19
-                    }
-                }
-            }
-        }
-    }
-}
+
 # shared_focus = {
 #     id = SOV_The_Dinaric_Line
 #     icon = GFX_goal_AUS_anti_expansionist_bulwark 
@@ -1430,69 +1294,8 @@ shared_focus = {
 #         }
 #     }
 # }
-shared_focus = {
-    id = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice
-    icon = GFX_goal_generic_army_artillery2 
-	prerequisite = {focus = SOV_Repair_Romanian_Relations  }
-    prerequisite = {
-        focus = SOV_Repair_Bulgarian_Relations
-    }
-    prerequisite = {
-        focus = SOV_Regionalized_Defense
-    }
-	x = -1
-	y = 1
-    relative_position_id = SOV_Regionalized_Defense 
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        
-    }
-    bypass = {
-        NOT = {
-            has_dlc = "Together for Victory"
-        }
-    }
-    completion_reward = {
-       SOV = {
-           add_to_tech_sharing_group = slavic_research
-       }
-       SER = {
-           add_to_tech_sharing_group = slavic_research
-       }
-       YUG = {
-           add_to_tech_sharing_group = slavic_research
-       }
-       BUL = {
-           add_to_tech_sharing_group = slavic_research
-       }
-       ROM = {
-           add_to_tech_sharing_group = slavic_research
-       }
-    }
-}
-shared_focus = {
-    id = SOV_Contract_Transylvanian_Rebels
-    icon = GFX_goal_ITA_romanian_defenses
-	prerequisite = {focus = SOV_the_austrians }
-	x = -1
-	y = 1
-    relative_position_id = SOV_the_austrians  
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        
-    }
-    completion_reward = {
-       unlock_decision_category_tooltip = SOV_transylvanian_rebel_contacts
-    }
-}
+
+
 # shared_focus = {
 #     id = SOV_Provide_Political_Support
 #     icon = GFX_goal_hierarchy_of_loyalty 
@@ -1611,6 +1414,137 @@ shared_focus = {
                 }
                 country_event = russia.22
             }
+        }
+    }
+}
+shared_focus = {
+    id = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice
+    icon = GFX_goal_generic_army_artillery2 
+	prerequisite = {focus = SOV_Repair_Romanian_Relations  }
+    prerequisite = {
+        focus = SOV_Repair_Bulgarian_Relations
+    }
+    prerequisite = {
+        focus = SOV_Regionalized_Defense
+    }
+	x = -1
+	y = 1
+    relative_position_id = SOV_Regionalized_Defense 
+    cost = 4
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        
+    }
+    bypass = {
+        NOT = {
+            has_dlc = "Together for Victory"
+        }
+    }
+    completion_reward = {
+       SOV = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       SER = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       YUG = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       BUL = {
+           add_to_tech_sharing_group = slavic_research
+       }
+       ROM = {
+           add_to_tech_sharing_group = slavic_research
+       }
+    }
+}
+shared_focus = {
+    id = SOV_Romanian_Military_Training
+    icon = GFX_goal_SOV_promoting_loyal_officers 
+    prerequisite = {focus = SOV_Repair_Romanian_Relations  }
+    prerequisite = {
+        focus = SOV_Repair_Bulgarian_Relations
+    }
+    prerequisite = {
+        focus = SOV_Regionalized_Defense
+    }
+	x = 1
+	y = 1
+    relative_position_id = SOV_Repair_Romanian_Relations
+    cost = 4
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        
+    }
+    completion_reward = {
+        army_experience = 25
+        ROM = {
+            army_experience = 15
+        }
+        BUL = {
+            army_experience = 15
+        }
+        YUG = {
+            army_experience = 15
+        }
+        # SER = {
+        #     army_experience = 15
+        # }
+
+        create_production_license = {
+            target = ROM
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = BUL
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = YUG
+            equipment = {
+                type = infantry_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+
+        create_production_license = {
+            target = ROM
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = BUL
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
+        }
+        create_production_license = {
+            target = YUG
+            equipment = {
+                type = fighter_equipment
+                version = 0
+            }
+            cost_factor = 0
         }
     }
 }
@@ -1944,93 +1878,7 @@ shared_focus = {
        
     }
 }
-shared_focus = {
-    id = SOV_Romanian_Military_Training
-    icon = GFX_goal_SOV_promoting_loyal_officers 
-    prerequisite = {focus = SOV_Repair_Romanian_Relations  }
-    prerequisite = {
-        focus = SOV_Repair_Bulgarian_Relations
-    }
-    prerequisite = {
-        focus = SOV_Regionalized_Defense
-    }
-	x = 1
-	y = 1
-    relative_position_id = SOV_Repair_Romanian_Relations
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        
-    }
-    completion_reward = {
-        army_experience = 25
-        ROM = {
-            army_experience = 15
-        }
-        BUL = {
-            army_experience = 15
-        }
-        YUG = {
-            army_experience = 15
-        }
-        # SER = {
-        #     army_experience = 15
-        # }
 
-        create_production_license = {
-            target = ROM
-            equipment = {
-                type = infantry_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-        create_production_license = {
-            target = BUL
-            equipment = {
-                type = infantry_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-        create_production_license = {
-            target = YUG
-            equipment = {
-                type = infantry_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-
-        create_production_license = {
-            target = ROM
-            equipment = {
-                type = fighter_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-        create_production_license = {
-            target = BUL
-            equipment = {
-                type = fighter_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-        create_production_license = {
-            target = YUG
-            equipment = {
-                type = fighter_equipment
-                version = 0
-            }
-            cost_factor = 0
-        }
-    }
-}
 shared_focus = {
     id = SOV_Export_to_Bulgaria
     icon = GFX_goal_USA_economic_reform_plan 
@@ -2236,6 +2084,145 @@ shared_focus = {
         
 #     }
 # }
+
+shared_focus = {
+    id = SOV_Investments_in_Serbia
+    icon = GFX_goal_support_small_bussinesses 
+	prerequisite = {focus = SOV_Export_to_Bulgaria focus = SOV_Carpthanian_Defenses }
+	x = 0
+	y = 1
+    relative_position_id = SOV_Export_to_Bulgaria  
+    cost = 4
+    available_if_capitulated = yes
+    mutually_exclusive = {
+        focus = SOV_Eastern_Balkan_Industry
+    }
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        
+    }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+        }
+    }
+    completion_reward = {
+        SER = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+        YUG = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+        ROM = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+        BUL = {
+            add_timed_idea = {
+                idea = SOV_financial_support
+                days = 90
+            }
+        }
+    }
+}
+shared_focus = {
+    id = SOV_the_tsaritsyn_conference
+    icon = GFX_goal_UGL_push_for_moskowa 
+	prerequisite = {focus = SOV_Eastern_Balkan_Industry focus = SOV_Investments_in_Serbia }
+	x = 1
+	y = 1
+    relative_position_id = SOV_Eastern_Balkan_Industry  
+    cost = 4
+    available_if_capitulated = yes
+   
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        date > 1939.1.1
+    }
+    bypass = {
+        NOT = {
+            ROM = {
+                is_in_faction_with = SOV
+            }
+            BUL = {
+                is_in_faction_with = SOV
+            }
+            OR = {
+                SER = {
+                    is_in_faction_with = SOV
+                }
+                YUG = {
+                    is_in_faction_with = SOV
+                }
+            }
+        }
+    }
+    completion_reward = {
+        ROM = {
+            country_event = SOV_return_of_the_tsar_path.19
+        }
+        BUL = {
+            country_event = SOV_return_of_the_tsar_path.19
+        }
+        if = {
+            limit = {
+                SER = {
+                    exists = yes
+                }
+                has_global_flag = form_serbia_flag
+            }
+            SER = {
+                country_event = SOV_return_of_the_tsar_path.19
+            }
+        }
+        else_if = {
+            limit = {
+                YUG = {
+                    exists = yes
+                }
+                has_global_flag = form_serbia_flag
+            }
+            YUG = {
+                country_event = SOV_return_of_the_tsar_path.19
+            }
+        }
+        else = {
+            if = {
+                limit = {
+                    NOT = {
+                        OBS = {
+                            exists = yes
+                        }
+                        has_global_flag = form_serbia_flag
+                    }
+                }
+                effect_tooltip = {
+                    YUG = {
+                        country_event = SOV_return_of_the_tsar_path.19
+                    }
+                }
+            }
+        }
+    }
+}
+
 shared_focus = {
     id = SOV_the_baltic_situation
     icon = GFX_goal_SOV_the_baltic_situation
@@ -2433,6 +2420,65 @@ shared_focus = {
 # }
 
 shared_focus = {
+    id = SOV_the_southern_menace
+    icon = GFX_goal_SOV_the_southern_menace 
+    prerequisite = {focus = SOV_prepare_for_the_final_struggle  }
+  
+	x = -4
+	y = 1
+    relative_position_id = SOV_prepare_for_the_final_struggle  
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 10000
+    }
+    completion_reward = {
+        TUR = {
+            add_opinion_modifier = {
+                target = SOV
+                modifier = orthodox_resistance_campaign
+            }
+            add_war_support = -0.05
+        }
+        1041 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        349 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        353 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        352 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        350 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        341 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+        948 = {
+            add_dynamic_modifier = {
+                modifier = SOV_orthodox_resistance
+            }
+        }
+    }
+}
+
+shared_focus = {
     id = SOV_persian_submission
     icon = GFX_goal_SOV_operation_aryan
 	prerequisite = {focus = SOV_the_southern_menace }
@@ -2609,36 +2655,7 @@ shared_focus = {
 
 
 
-shared_focus = {
-    id = SOV_russian_glory
-    icon = GFX_goal_SOV_russian_glory
-    # prerequisite = {
-    #     focus = SOV_peters_dream_achieved
-    # }
-	prerequisite = { focus = SOV_growth_of_the_levant focus = SOV_deal_with_the_rebels }
-    prerequisite = {
-        focus = SOV_operation_third_rome
-    }
-    prerequisite = {
-        focus = SOV_operation_supernova
-    }
-    # prerequisite = {
-    #     focus = SOV_peters_dream_achieved
-    # }
-	x = 0
-	y = 1
-    relative_position_id = SOV_operation_third_rome
-    cost = 2
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        SOV_increase_support_among_people_large = yes
-        add_political_power = 100
-        
-    }
-}
+
 shared_focus = {
     id = SOV_prepare_for_the_final_struggle
     icon = GFX_goal_FRA_autocracy
@@ -2659,6 +2676,31 @@ shared_focus = {
      
      create_faction = "Greater Slavic Entente"
     news_event = SOV_return_of_the_tsar_path.27
+    }
+}
+
+shared_focus = {
+    id = SOV_prepare_the_balkans
+    icon = GFX_goal_SOV_hierarchy_of_loyalty
+	prerequisite = {focus = SOV_the_austrians }
+	x = 1
+	y = 1
+    relative_position_id = SOV_the_austrians 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    completion_reward = {
+    YUG = {
+        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+    }
+    ROM = {
+        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+    }
+    BUL = {
+        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+    }
     }
 }
 shared_focus = {
@@ -2928,6 +2970,25 @@ shared_focus = {
         ##russia supports anti-austrian stance
     }
 }
+shared_focus = {
+    id = SOV_Contract_Transylvanian_Rebels
+    icon = GFX_goal_ITA_romanian_defenses
+	prerequisite = {focus = SOV_the_austrians }
+	x = -1
+	y = 1
+    relative_position_id = SOV_the_austrians  
+    cost = 4
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        
+    }
+    completion_reward = {
+       unlock_decision_category_tooltip = SOV_transylvanian_rebel_contacts
+    }
+}x
 
 shared_focus = {
     id = SOV_high_altitude_combat_trainings
@@ -2963,30 +3024,6 @@ shared_focus = {
 #     }
 # }
 
-shared_focus = {
-    id = SOV_prepare_the_balkans
-    icon = GFX_goal_SOV_hierarchy_of_loyalty
-	prerequisite = {focus = SOV_the_austrians }
-	x = 1
-	y = 1
-    relative_position_id = SOV_the_austrians 
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-    YUG = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
-    ROM = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
-    BUL = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
-    }
-}
 shared_focus = {
     id = SOV_tsar_east_african_expidition
     icon = GFX_goal_SOV_alliance_with_ethiopia
@@ -3030,92 +3067,37 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_the_southern_menace
-    icon = GFX_goal_SOV_the_southern_menace 
-    prerequisite = {focus = SOV_prepare_for_the_final_struggle  }
-  
-	x = -4
-	y = 1
-    relative_position_id = SOV_prepare_for_the_final_struggle  
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 10000
+    id = SOV_russian_glory
+    icon = GFX_goal_SOV_russian_glory
+    # prerequisite = {
+    #     focus = SOV_peters_dream_achieved
+    # }
+	prerequisite = { focus = SOV_growth_of_the_levant focus = SOV_deal_with_the_rebels }
+    prerequisite = {
+        focus = SOV_operation_third_rome
     }
-    completion_reward = {
-        TUR = {
-            add_opinion_modifier = {
-                target = SOV
-                modifier = orthodox_resistance_campaign
-            }
-            add_war_support = -0.05
-        }
-        1041 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        349 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        353 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        352 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        350 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        341 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
-        948 = {
-            add_dynamic_modifier = {
-                modifier = SOV_orthodox_resistance
-            }
-        }
+    prerequisite = {
+        focus = SOV_operation_supernova
     }
-}
-
-shared_focus = {
-    id = SOV_deal_with_the_rebels
-    icon = GFX_goal_SOV_a_new_russian_army
-	prerequisite = {focus = SOV_glory_of_konstantiniyye }
-	x = 1
+    # prerequisite = {
+    #     focus = SOV_peters_dream_achieved
+    # }
+	x = 0
 	y = 1
-    relative_position_id = SOV_glory_of_konstantiniyye 
+    relative_position_id = SOV_operation_third_rome
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
-    available = {
-        TUR = {
-            is_puppet_of = SOV
-        }
-    }
     completion_reward = {
-        custom_effect_tooltip = SOV_medium_turan_decrease
-        add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
-        TUR = {
-            add_war_support = 0.05
-            add_autonomy_score = {
-                value = -50
-            }
-        }
+        SOV_increase_support_among_people_large = yes
+        add_political_power = 100
+        
     }
 }
+
+
 shared_focus = {
     id = SOV_glory_of_konstantiniyye
     icon = GFX_goal_SOV_demand_constantinople
@@ -3148,6 +3130,34 @@ shared_focus = {
         TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }
     }
 }   
+shared_focus = {
+    id = SOV_deal_with_the_rebels
+    icon = GFX_goal_SOV_a_new_russian_army
+	prerequisite = {focus = SOV_glory_of_konstantiniyye }
+	x = 1
+	y = 1
+    relative_position_id = SOV_glory_of_konstantiniyye 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        TUR = {
+            is_puppet_of = SOV
+        }
+    }
+    completion_reward = {
+        custom_effect_tooltip = SOV_medium_turan_decrease
+        add_to_variable = { SOV_turan_popularity_in_TUR = -5 }
+        TUR = {
+            add_war_support = 0.05
+            add_autonomy_score = {
+                value = -50
+            }
+        }
+    }
+}
 # shared_focus = {
 #     id = SOV_the_turks_and_armenians
 #     icon = GFX_goal_SOV_annex_western_armenia

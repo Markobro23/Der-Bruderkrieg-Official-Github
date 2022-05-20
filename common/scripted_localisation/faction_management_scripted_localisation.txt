@@ -1,0 +1,46 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+#Opinion - or number
+defined_text = { #Opinion Text
+	name = WOK_DontIfRoot
+	text = {
+		trigger = {
+			tag = ROOT
+		}
+		localization_key = WOK_DontBecauseRoot
+	}
+	text = {
+		trigger = {
+			NOT = {
+				tag = ROOT
+			}
+		}
+		localization_key = GER_YesBecauseNotRoot
+	}
+}
+#Faction Opinion - or number
+defined_text = { #Faction Opinion Text
+	name = WOK_DontIfRoot2
+	text = {
+		trigger = {
+			tag = ROOT
+		}
+		localization_key = WOK_DontBecauseRoot2
+	}
+	text = {
+		trigger = {
+			NOT = {
+				tag = ROOT
+			}
+		}
+		localization_key = GER_YesBecauseNotRoot2
+	}
+}
