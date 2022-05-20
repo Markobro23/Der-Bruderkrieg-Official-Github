@@ -1,0 +1,51 @@
+ideas = {
+	country = {
+		ALG_ailing_arab_aristocracy = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_disjointed_gov
+
+            removal_cost = -1
+
+            modifier = {
+				political_power_gain = -0.25
+				stability_factor = 0.1
+                economy_cost_factor = 0.15
+                mobilization_laws_cost_factor = 0.15
+                local_resources_factor = -0.2
+            }
+		}
+		ALG_rising_nationalism = {
+            allowed = {
+                always = no
+            }
+
+            picture = FRA_scw_intervention_nationalists_focus
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            on_remove = {
+                remove_opinion_modifier = {
+                    target = FRA
+                    modifier = medium_decrease 
+                }
+            }
+
+            removal_cost = -1
+
+            modifier = {
+				army_core_defence_factor = 0.05
+                surrender_limit = 0.3
+                custom_modifier_tooltip = FRA_minus_50_opinion
+            }
+		}
+	}
+}
