@@ -130,7 +130,7 @@ focus_tree = {
 	shared_focus = GER_luftstreltkrafte_innovations
 	shared_focus = GER_the_mosley_pact
 	shared_focus = GER_operation_walross
-	shared_focus = GER_a_german_triumph
+	#shared_focus = GER_a_german_triumph
 	shared_focus = GER_von_das_slavenvolk
 
 
@@ -4115,7 +4115,7 @@ shared_focus = {
 	id = GER_the_mosley_pact
 	icon = GFX_goal_GER_the_mosley_pact
 	cost = 5
-	x = 21
+	x = 20
 	y = 10
 	
 	ai_will_do = {
@@ -4592,7 +4592,7 @@ shared_focus = {
 	id = GER_operation_walross
 	icon = GFX_goal_GER_operation_walross
 	cost = 5
-	x = 25
+	x = 24
 	y = 10
 	
 	ai_will_do = {
@@ -6208,44 +6208,44 @@ shared_focus = {
 	# 	}
 	
 	# }
-	shared_focus = {
-		id = GER_a_german_triumph
-		icon = GFX_goal_GER_a_german_triumph 
-		x = 15
-		y = 9
-		cost = 3
-		ai_will_do = {
-			factor = 1 
-		}
-		available = { 
-			custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
-		}	
-		prerequisite = {
+	# shared_focus = {
+	# 	id = GER_a_german_triumph
+	# 	icon = GFX_goal_GER_a_german_triumph 
+	# 	x = 15
+	# 	y = 9
+	# 	cost = 3
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	available = { 
+	# 		custom_trigger_tooltip = { tooltip = form_germany_needed_tt has_cosmetic_tag = united_germany }
+	# 	}	
+	# 	prerequisite = {
 			
-		}
-		completion_reward = {
-			add_ideas = GER_age_of_the_eagle
+	# 	}
+	# 	completion_reward = {
+	# 		add_ideas = GER_age_of_the_eagle
 
 
-			set_variable = {
-				GER_austrian_resistance = 50
-			}
-			set_variable = {
-				GER_french_resistance = 50
-			}
-			set_variable = {
-				GER_french_resistance_growth = 3
-			}
-			set_variable = {
-				GER_austrian_resistance_growth = 3
-			}
+	# 		set_variable = {
+	# 			GER_austrian_resistance = 50
+	# 		}
+	# 		set_variable = {
+	# 			GER_french_resistance = 50
+	# 		}
+	# 		set_variable = {
+	# 			GER_french_resistance_growth = 3
+	# 		}
+	# 		set_variable = {
+	# 			GER_austrian_resistance_growth = 3
+	# 		}
 	
 			
 
 
 			
-		}
-	}
+	# 	}
+	# }
 
 	
 	shared_focus = {
@@ -6657,44 +6657,44 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = GER_la_resistance
-		icon = GFX_goal_GER_la_resistance 
-		x = -2
-		y = 1
-		cost = 3
-		prerequisite = { focus = GER_a_german_triumph }
-		relative_position_id = GER_a_german_triumph 
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			unlock_decision_category_tooltip = GER_french_resistance
-		}
-	}
-	shared_focus = {
-		id = GER_an_inherited_problem
-		icon = GFX_goal_GER_an_inherited_problem 
-		x = 2
-		y = 1
-		cost = 3
-		prerequisite = { focus = GER_a_german_triumph }
-		relative_position_id = GER_a_german_triumph
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			unlock_decision_category_tooltip = GER_austrian_resistance
-		}
-	}
+	# shared_focus = {
+	# 	id = GER_la_resistance
+	# 	icon = GFX_goal_GER_la_resistance 
+	# 	x = -2
+	# 	y = 1
+	# 	cost = 3
+	# 	prerequisite = { focus = GER_a_german_triumph }
+	# 	relative_position_id = GER_a_german_triumph 
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		unlock_decision_category_tooltip = GER_french_resistance
+	# 	}
+	# }
+	# shared_focus = {
+	# 	id = GER_an_inherited_problem
+	# 	icon = GFX_goal_GER_an_inherited_problem 
+	# 	x = 2
+	# 	y = 1
+	# 	cost = 3
+	# 	prerequisite = { focus = GER_a_german_triumph }
+	# 	relative_position_id = GER_a_german_triumph
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		unlock_decision_category_tooltip = GER_austrian_resistance
+	# 	}
+	# }
 	shared_focus = {
 		id = GER_support_ethnic_militias
 		icon = GFX_goal_GER_ethnic_militias 
 		x = 1
 		y = 1
 		cost = 3
-		prerequisite = { focus = GER_an_inherited_problem }
-		relative_position_id = GER_an_inherited_problem
+		prerequisite = { focus = GER_breaking_the_chains }
+		relative_position_id = GER_breaking_the_chains
 		mutually_exclusive = { focus = GER_central_control }
 		ai_will_do = {
 			factor = 1 
@@ -6709,8 +6709,8 @@ shared_focus = {
 		x = -1
 		y = 1
 		cost = 3
-		prerequisite = { focus = GER_an_inherited_problem }
-		relative_position_id = GER_an_inherited_problem
+		prerequisite = { focus = GER_breaking_the_chains }
+		relative_position_id = GER_breaking_the_chains
 		mutually_exclusive = { focus = GER_support_ethnic_militias }
 		ai_will_do = {
 			factor = 1 
@@ -6744,11 +6744,15 @@ shared_focus = {
 		x = -1
 		y = 1
 		cost = 3
-		prerequisite = { focus = GER_la_resistance }
-		relative_position_id = GER_la_resistance
+		prerequisite = { focus = GER_unternehmen_attila }
+		relative_position_id = GER_unternehmen_attila
 		mutually_exclusive = { focus = GER_cagoule_loyalty }
 		ai_will_do = {
-			factor = 1 
+			factor = 100
+		}
+
+		available = {
+			has_country_flag = GER_unlock_french_resistance_decisions
 		}
 		completion_reward = {
 			unlock_decision_tooltip = GER_consolidate_power_with_the_gestapo
@@ -6760,14 +6764,18 @@ shared_focus = {
 		x = 1
 		y = 1
 		cost = 3
-		prerequisite = { focus = GER_la_resistance }
-		relative_position_id = GER_la_resistance
+		prerequisite = { focus = GER_unternehmen_attila }
+		relative_position_id = GER_unternehmen_attila
 		mutually_exclusive = { focus = GER_form_the_okf }
 		ai_will_do = {
-			factor = 1 
+			factor = 100
+		}
+		available = {
+			has_country_flag = GER_unlock_french_resistance_decisions
 		}
 		completion_reward = {
 			unlock_decision_tooltip = GER_establish_collaborationist_governments
+			custom_effect_tooltip = GER_cagoule_loyalty_tt
 		}
 	}
 	shared_focus = {
@@ -6779,13 +6787,59 @@ shared_focus = {
 		prerequisite = { focus = GER_cagoule_loyalty focus = GER_form_the_okf }
 		relative_position_id = GER_cagoule_loyalty
 		ai_will_do = {
-			factor = 1 
+			factor = 100 
+		}
+		available = {
+			BRI = {
+				all_controlled_state = {
+					resistance < 41
+				}
+			}
+			OCC = {
+				all_controlled_state = {
+					resistance < 41
+				}
+			}
+			NFR = {
+				all_controlled_state = {
+					resistance < 41
+				}
+			}
 		}
 		completion_reward = {
 			add_stability = 0.05
-			add_to_variable = {
-				tooltip = GER_decrease_french_resistance_by_5
-				GER_french_resistance = -5
+			custom_effect_tooltip = GER_staatspolezei_tt
+			if = {
+				limit = {
+					has_idea = GER_french_occupation_idea
+				}
+				remove_ideas = GER_french_occupation_idea
+				annex_country = {
+					target = NFR
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = BRI
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = OCC
+					transfer_troops = yes
+				}
+			}
+			if = {
+				limit = {
+					has_completed_focus = GER_cagoule_loyalty
+				}
+				BRI = {
+					add_ideas = GER_french_collab_govs_idea
+				}
+				OCC = {
+					add_ideas = GER_french_collab_govs_idea
+				}
+				NFR = {
+					add_ideas = GER_french_collab_govs_idea
+				}
 			}
 		}
 	}

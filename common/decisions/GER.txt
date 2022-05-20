@@ -1045,24 +1045,44 @@ GER_caucusus_offensive = {
 
 GER_french_resistance = {
 	GER_french_resistance_placeholder = {
+	
 		available = {
-			tag = GER
-			has_completed_focus = GER_la_resistance
+			has_army_manpower = {
+				size > 10000
+			}	
 		}
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 10000
+			}
+		}
+		custom_cost_text = FRA_hinder_prussian_arms_shipments_tt
+		icon = generic_army_support
 
 		visible = {
-			has_completed_focus = GER_la_resistance
 		}
  
 		fire_only_once = no
 
-		cost = 50
-		days_remove = 15
+		days_remove = 25
+		days_re_enable = 20
 
 		remove_effect = {
-			add_to_variable = {
-				tooltip = GER_decrease_french_resistance_by_5
-				GER_french_resistance = -5
+			add_manpower = -10000
+			BRI = {
+				every_controlled_state = {
+					add_resistance = -10
+				}
+			}
+			OCC = {
+				every_controlled_state = {
+					add_resistance = -10
+				}
+			}
+			NFR = {
+				every_controlled_state = {
+					add_resistance = -10
+				}
 			}
 		}
 	}
@@ -1103,6 +1123,21 @@ GER_french_resistance = {
 				custom_effect_tooltip = GER_prevent_local_french_resistance_riots
 				clr_state_flag = GER_french_resistance_rioting_inbound_state
 			}
+			BRI = {
+				every_controlled_state = {
+					add_resistance = -3
+				}
+			}
+			OCC = {
+				every_controlled_state = {
+					add_resistance = -3
+				}
+			}
+			NFR = {
+				every_controlled_state = {
+					add_resistance = -3
+				}
+			}
 		}
 
 	}
@@ -1122,7 +1157,7 @@ GER_french_resistance = {
 		}
 		visible = {
 			NOT = {
-				has_country_flag = GER_french_resistance_crushed
+				has_completed_focus = GER_staatspolezei
 			}
 		}
 		priority = 100
@@ -1176,18 +1211,22 @@ GER_french_resistance = {
 		days_remove = 15
 
 		remove_effect = {
-			annex_country = {
-				target = COR
-				transfer_troops = yes
+			BRI = {
+				every_controlled_state = {
+					set_resistance = 0
+				}
 			}
-			annex_country = {
-				target = FRA
-				transfer_troops = yes
+			OCC = {
+				every_controlled_state = {
+					set_resistance = 0
+				}
 			}
-			annex_country = {
-				target = BEL
-				transfer_troops = yes
+			NFR = {
+				every_controlled_state = {
+					set_resistance = 0
+				}
 			}
+			add_ideas = GER_french_occupation_idea
 		}
 	}
 	GER_establish_collaborationist_governments = {
@@ -1206,19 +1245,39 @@ GER_french_resistance = {
 		days_remove = 15
 
 		remove_effect = {
-			GER = {
-				release = OCC
-				add_to_faction = OCC
-			}
+			set_country_flag = GER_formed_french_collab_govs
 			OCC = {
-				drop_cosmetic_tag = yes
-				set_cosmetic_tag = prussian_rk
-			}
-			FRA = {
-				annex_country = {
-					target = COR
-					transfer_troops = yes
+				every_controlled_state = {
+					add_core_of = OCC
 				}
+			}
+			BRI = {
+				every_controlled_state = {
+					add_core_of = BRI
+				}
+			}
+			NFR = {
+				every_controlled_state = {
+					add_core_of = NFR
+				}
+			}
+
+			GER = {
+				set_autonomy = {
+					target = OCC
+					autonomous_state = autonomy_free
+				}
+				add_to_faction = OCC
+				set_autonomy = {
+					target = BRI
+					autonomous_state = autonomy_free
+				}
+				add_to_faction = BRI
+				set_autonomy = {
+					target = NFR
+					autonomous_state = autonomy_free
+				}
+				add_to_faction = NFR
 			}
 		}
 	}
