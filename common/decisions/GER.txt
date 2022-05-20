@@ -1066,6 +1066,99 @@ GER_french_resistance = {
 			}
 		}
 	}
+	GER_targeted_crush_french_resistance_riots = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 0
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_array = GER.french_resistance_states
+		state_target = yes
+		fire_only_once = no
+		visible = {	
+			FROM = {
+				has_state_flag = GER_french_resistance_rioting_inbound_state
+			}
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				custom_effect_tooltip = GER_prevent_local_french_resistance_riots
+				clr_state_flag = GER_french_resistance_rioting_inbound_state
+			}
+		}
+
+	}
+
+	GER_french_resistance_riot_mission = {
+		icon = generic_civil_support
+		allowed = { tag = GER 
+		
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = GER_french_resistance_rioting_inbound_state
+				}
+			}
+			
+		}
+		visible = {
+			NOT = {
+				has_country_flag = GER_french_resistance_crushed
+			}
+		}
+		priority = 100
+		activation = {	has_country_flag = GER_french_resistance_rioting_inbound_country NOT = {
+			has_country_flag = GER_french_resistance_crushed
+		}  }
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			custom_effect_tooltip = GER_lower_french_resistance_progress_5_every_state_not_crushed
+			#probably some kinda array loop shit that I am too tired to figure out rn
+			every_state = {
+				if = {
+					limit = {
+						is_core_of = GER
+						is_owned_by = GER
+						has_state_flag = GER_french_resistance_rioting_inbound_state
+					}
+					add_to_temp_variable = { GER_temp_french_resistance_value = 5 }
+				}
+			}
+			subtract_from_variable = { GER_anti_french_resistance = GER_temp_french_resistance_value }
+			every_state = {
+				limit = { has_state_flag = GER_french_resistance_rioting_inbound_state }
+				clr_state_flag = GER_french_resistance_rioting_inbound_state
+				add_dynamic_modifier = {
+					modifier = GER_french_resistance_riot_modifier 
+				}
+			}
+			
+			
+		}
+		
+	}
 
 	GER_consolidate_power_with_the_gestapo = {
 		available = {
