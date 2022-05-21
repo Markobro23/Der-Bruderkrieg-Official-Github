@@ -666,6 +666,32 @@ Flag_Scripted_Map_Icons = {
 			  image = "[GetFactionIcon]"
 		  }
 	  }
+	  effects = {
+		  DBK_faction_icon_button_click = {
+				if = {
+					limit = {
+						has_country_flag = DEBUG_faction_management
+					}
+					clr_country_flag = DEBUG_faction_management
+				}
+				else = {
+					set_country_flag = DEBUG_faction_management
+				}
+                set_variable = { WOK_faction_left_tab_switch = 1 }
+                set_variable = { ROOT.faction_troop_amount = 0 }
+                for_each_scope_loop = {
+                    array = ROOT.faction_members
+                    
+                    add_to_variable = { ROOT.faction_troop_amount = num_armies }
+                }
+                set_variable = { ROOT.faction_factory_amount = 0 }
+                for_each_scope_loop = {
+                    array = ROOT.faction_members
+                    
+                    add_to_variable = { ROOT.faction_factory_amount = num_of_factories }
+                }
+			}
+	  }
  }
 
 GER_national_missions_conatiner_scripted_gui = {

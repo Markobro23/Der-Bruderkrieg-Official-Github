@@ -1,0 +1,174 @@
+scripted_gui = {
+    WOK_faction_management_ui = {
+        window_name = "WOK_faction_management"
+	    context_type = player_context
+
+		visible = {
+            has_country_flag = DEBUG_faction_management
+        }
+
+        properties = {
+            faction_leader_flag = {
+                image = "[?faction_leader.GetFlag]"
+            }
+            WOK_equipment_button_switch = {
+                frame = WOK_faction_tab_switch
+            }
+            WOK_relations_button_switch = {
+                frame = WOK_faction_tab_switch
+            }
+            WOK_faction_members_tab_switch = {
+                frame = WOK_faction_left_tab_switch
+            }
+            WOK_faction_behavoir_maker_tab_switch = {
+                frame = WOK_faction_left_tab_switch
+            }
+            WOK_faction_conflicts_tab_switch = {
+                frame = WOK_faction_left_tab_switch
+            }
+        }
+
+        effects = {
+            WOK_faction_management_close_click = {
+				clr_country_flag = DEBUG_faction_management
+			}
+            WOK_equipment_button_switch_click = {
+                set_variable = { WOK_faction_tab_switch = 1 }
+            }
+            WOK_relations_button_switch_click = {
+                set_variable = { WOK_faction_tab_switch = 2 }
+            }
+            WOK_disband_faction_button_click = {
+                if = {
+                    limit = {
+                        
+                    }
+                    dismantle_faction = yes
+                }
+            }
+            WOK_faction_members_tab_switch_click = {
+                set_variable = { WOK_faction_left_tab_switch = 1 }
+            }
+            WOK_faction_behavoir_maker_tab_switch_click = {
+                set_variable = { WOK_faction_left_tab_switch = 2 }
+            }
+            WOK_faction_conflicts_tab_switch_click = {
+                set_variable = { WOK_faction_left_tab_switch = 3 }
+            }
+        }
+
+        triggers = {
+            WOK_disband_faction_button_click_enabled = {
+                is_faction_leader = yes
+                has_war = no
+            }
+            WOK_rename_faction_click_enabled = {
+                is_faction_leader = yes
+            }
+        }
+    }
+    
+    # WOK_faction_management_ui_button = {
+    #     window_name = "WOK_faction_management_button"
+    #     parent_window_token = politics_tab
+	#     context_type = player_context
+
+    #     properties = {
+            
+    #     }
+
+    #     effects = {
+    #         WOK_faction_management_open_click = {
+	# 			set_country_flag = DEBUG_faction_management
+    #             set_variable = { WOK_faction_left_tab_switch = 1 }
+    #             set_variable = { ROOT.faction_troop_amount = 0 }
+    #             for_each_scope_loop = {
+    #                 array = ROOT.faction_members
+                    
+    #                 add_to_variable = { ROOT.faction_troop_amount = num_armies }
+    #             }
+    #             set_variable = { ROOT.faction_factory_amount = 0 }
+    #             for_each_scope_loop = {
+    #                 array = ROOT.faction_members
+                    
+    #                 add_to_variable = { ROOT.faction_factory_amount = num_of_factories }
+    #             }
+	# 		}
+    #     }
+
+    #     triggers = {
+            
+    #     }
+    # }
+
+    #Members tab
+    WOK_faction_management_members_tab = {
+        window_name = "faction_members_tab"
+        parent_window_name = "WOK_faction_management"
+        context_type = player_context
+
+        visible = {
+            check_variable = { WOK_faction_left_tab_switch = 1 }
+        }
+
+        properties = {
+            faction_member_flag = {
+                image = "[THIS.GetFlag]"
+            }
+            faction_relations_filter_flag = {
+                image = "[ROOT.GetFlag]"
+            }
+        }
+
+        dynamic_lists = {
+            faction_members_gridbox = {
+                array = ROOT.faction_members
+                entry_container = faction_member_entry
+                change_scope = yes
+            }
+        }
+
+        effects = {
+        }
+
+        triggers = {
+            
+        }
+    }
+    #Members tab
+    WOK_faction_management_conflicts_tab = {
+        window_name = "faction_conflicts_tab"
+        parent_window_name = "WOK_faction_management"
+        context_type = player_context
+
+        visible = {
+            check_variable = { WOK_faction_left_tab_switch = 2 }
+        }
+
+        properties = {
+            conflict_member_flag1 = {
+                image = "[FIN.GetFlag]"
+            }
+            conflict_member_flag2 = {
+                image = "[SOV.GetFlag]"
+            }
+        }
+
+        #dynamic_lists = {
+            #faction_conflicted_states_gridbox = {
+                #array = faction_conflicts_pairs
+                #entry_container = faction_member_entry
+                #change_scope = yes
+            #}
+        #}
+
+        effects = {
+
+        }
+
+        triggers = {
+            
+        }
+    }
+}
+

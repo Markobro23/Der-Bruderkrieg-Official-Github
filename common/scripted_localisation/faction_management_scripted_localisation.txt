@@ -40,7 +40,21 @@ defined_text = { #Faction Opinion Text
 			NOT = {
 				tag = ROOT
 			}
+			check_variable = {
+				THIS.opinion@ROOT > 74
+			}
 		}
-		localization_key = GER_YesBecauseNotRoot2
+		localization_key = GER_YesBecauseNotRoot3
+	}
+	text = {
+		trigger = {
+			NOT = {
+				tag = ROOT
+			}
+			check_variable = {
+				THIS.opinion@ROOT < 0
+			}
+		}
+		localization_key = GER_YesBecauseNotRoot4
 	}
 }
