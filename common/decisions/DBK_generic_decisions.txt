@@ -377,4 +377,160 @@ weltkrieg_decisions = {
 			base = 0
 		}
 	}
+
+	GER_fate_of_balkans = {
+
+		icon = border_war
+
+		allowed = {
+			OR = {
+				original_tag = GER
+				original_tag = ITA
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = fate_balkans_not_already_decided
+				NOT = {
+					OR = {
+						has_global_flag = weltkrieg_ITA_gets_balkans
+						has_global_flag = weltkrieg_SOV_gets_balkans
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_war_with = AUS
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					tag = GER
+				}
+				country_event = { id = weltkrieg_peace.1 hours = 1 }
+			}
+			if = {
+				limit = {
+					tag = ITA
+				}
+				country_event = { id = weltkrieg_peace.2 hours = 1 }
+			}
+		}
+
+	}
+
+	ITA_claim_occitania = {
+
+		icon = border_war
+
+		allowed = {
+			original_tag = ITA
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		complete_effect = {
+			GER = {
+				country_event = { id = weltkrieg_peace.4 hours = 1 }
+			}
+		}
+
+	}
+
+	FRA_split_prussia = {
+
+		icon = border_war
+
+		allowed = {
+			OR = {
+				original_tag = AUS
+				original_tag = FRA
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = fate_prussia_not_already_decided
+				NOT = {
+					OR = {
+						has_global_flag = france_austria_split_deal
+						has_global_flag = AUS_FRA_alliance_falls_apart
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			FRA = {
+				has_war_with = GER
+			}
+			AUS = {
+				has_war_with = GER
+			}
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					tag = AUS
+				}
+				country_event = { id = second_treaty_of_vienna.4 hours = 1 }
+			}
+			if = {
+				limit = {
+					tag = FRA
+				}
+				AUS = { country_event = { id = second_treaty_of_vienna.4 hours = 1 } }
+			}
+		}
+
+	}
+
+	FRA_pressure_austria_for_sicily = {
+
+		icon = border_war
+
+		allowed = {
+			original_tag = FRA
+		}
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = fate_italy_not_already_decided
+				NOT = {
+					OR = {
+						has_global_flag = weltkrieg_FRA_gets_sicily
+						has_global_flag = weltkrieg_AUS_gets_sicily
+					}
+				}
+			}
+		}
+
+		visible = {
+			has_war_with = ITA
+			AUS = {
+				has_war_with = ITA
+			}
+		}
+
+		complete_effect = {
+			AUS = {
+				country_event = { id = weltkrieg_peace.3 hours = 1 }
+			}
+		}
+
+	}
 }
