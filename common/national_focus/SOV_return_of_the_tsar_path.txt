@@ -1418,6 +1418,37 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = SOV_Repair_Romanian_Relations
+    icon = GFX_goal_SOV_repair_romanian_relations 
+    prerequisite = {focus = SOV_Western_Balkan_Threat}
+	x = -2
+	y = 1
+    relative_position_id = SOV_Western_Balkan_Threat
+    cost = 4
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        
+    }
+    bypass = {
+        ROM = {
+            is_in_faction = yes
+        }
+    }
+    completion_reward = {
+        ROM = {
+            swap_ideas = {
+                add_idea = ROM_romanian_nationalism_2
+                remove_idea = ROM_romanian_nationalism
+            }
+            country_event = russia.22
+        }
+       
+    }
+}
+shared_focus = {
     id = SOV_Aid_Fabrika_Oruzja_i_Municiie_Uzice
     icon = GFX_goal_generic_army_artillery2 
 	prerequisite = {focus = SOV_Repair_Romanian_Relations  }
@@ -1847,37 +1878,7 @@ shared_focus = {
 #         }
 #     }
 # }
-shared_focus = {
-    id = SOV_Repair_Romanian_Relations
-    icon = GFX_goal_SOV_repair_romanian_relations 
-    prerequisite = {focus = SOV_Western_Balkan_Threat}
-	x = -2
-	y = 1
-    relative_position_id = SOV_Western_Balkan_Threat
-    cost = 4
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    available = {
-        
-    }
-    bypass = {
-        ROM = {
-            is_in_faction = yes
-        }
-    }
-    completion_reward = {
-        ROM = {
-            swap_ideas = {
-                add_idea = ROM_romanian_nationalism_2
-                remove_idea = ROM_romanian_nationalism
-            }
-            country_event = russia.22
-        }
-       
-    }
-}
+
 
 shared_focus = {
     id = SOV_Export_to_Bulgaria
@@ -2420,6 +2421,29 @@ shared_focus = {
 # }
 
 shared_focus = {
+    id = SOV_prepare_for_the_final_struggle
+    icon = GFX_goal_FRA_autocracy
+    prerequisite = {focus = SOV_expand_the_russian_sphere }
+  
+	x = 5
+	y = 1
+    relative_position_id = SOV_expand_the_russian_sphere 
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    mutually_exclusive = {
+        
+    }
+    completion_reward = {
+     
+     create_faction = "Greater Slavic Entente"
+    news_event = SOV_return_of_the_tsar_path.27
+    }
+}
+
+shared_focus = {
     id = SOV_the_southern_menace
     icon = GFX_goal_SOV_the_southern_menace 
     prerequisite = {focus = SOV_prepare_for_the_final_struggle  }
@@ -2656,29 +2680,25 @@ shared_focus = {
 
 
 
+
 shared_focus = {
-    id = SOV_prepare_for_the_final_struggle
-    icon = GFX_goal_FRA_autocracy
-    prerequisite = {focus = SOV_expand_the_russian_sphere }
+    id = SOV_the_austrians
+    icon = GFX_goal_AUS_Centralised_Government
+	prerequisite = {focus = SOV_prepare_for_the_final_struggle  }
   
-	x = 5
+	x = 0
 	y = 1
-    relative_position_id = SOV_expand_the_russian_sphere 
-    cost = 2
+    relative_position_id = SOV_prepare_for_the_final_struggle  
+    cost = 3
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
-    mutually_exclusive = {
-        
-    }
     completion_reward = {
-     
-     create_faction = "Greater Slavic Entente"
-    news_event = SOV_return_of_the_tsar_path.27
+        add_war_support = 0.05
+        ##russia supports anti-austrian stance
     }
 }
-
 shared_focus = {
     id = SOV_prepare_the_balkans
     icon = GFX_goal_SOV_hierarchy_of_loyalty
@@ -2952,24 +2972,7 @@ shared_focus = {
 }
 
 
-shared_focus = {
-    id = SOV_the_austrians
-    icon = GFX_goal_AUS_Centralised_Government
-	prerequisite = {focus = SOV_prepare_for_the_final_struggle  }
-  
-	x = 0
-	y = 1
-    relative_position_id = SOV_prepare_for_the_final_struggle  
-    cost = 3
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        add_war_support = 0.05
-        ##russia supports anti-austrian stance
-    }
-}
+
 shared_focus = {
     id = SOV_Contract_Transylvanian_Rebels
     icon = GFX_goal_ITA_romanian_defenses
@@ -2988,7 +2991,7 @@ shared_focus = {
     completion_reward = {
        unlock_decision_category_tooltip = SOV_transylvanian_rebel_contacts
     }
-}x
+}
 
 shared_focus = {
     id = SOV_high_altitude_combat_trainings

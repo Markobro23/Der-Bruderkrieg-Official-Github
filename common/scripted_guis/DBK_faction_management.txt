@@ -118,6 +118,7 @@ scripted_gui = {
             faction_relations_filter_flag = {
                 image = "[ROOT.GetFlag]"
             }
+          
         }
 
         dynamic_lists = {
@@ -126,6 +127,8 @@ scripted_gui = {
                 entry_container = faction_member_entry
                 change_scope = yes
             }
+        
+            
         }
 
         effects = {
@@ -135,6 +138,40 @@ scripted_gui = {
             
         }
     }
+
+    #Equipment tab
+    WOK_faction_management_equipment_tab = {
+        window_name = "members_of_equipment_pool"
+        parent_window_name = "WOK_faction_management"
+        context_type = player_context
+
+        visible = {
+        }
+
+        properties = {
+            faction_equipment_pool_member_flag = {
+                image = "[THIS.GetFlag]"
+            }
+        }
+
+        dynamic_lists = {
+           
+            faction_equipment_pool_gridbox = {
+                array = ROOT.members_of_equipment_pool_array
+                entry_container = faction_equipment_pool_member_entry
+                change_scope = yes
+            }
+            
+        }
+
+        effects = {
+        }
+
+        triggers = {
+            
+        }
+    }
+
     #Members tab
     WOK_faction_management_conflicts_tab = {
         window_name = "faction_conflicts_tab"

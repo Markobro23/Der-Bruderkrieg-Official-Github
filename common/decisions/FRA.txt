@@ -361,69 +361,69 @@ FRA_factory_occupation_initiation = {
 	}
 }
 
-FRA_factory_occupation_large = {
+# FRA_factory_occupation_large = {
 
-	icon = eng_trade_unions_demand
+# 	icon = eng_trade_unions_demand
 
-	visible = {
-		has_country_flag = FRA_lyon_strike_start
-		has_idea = FRA_the_lyon_general_strike
-	}
-	available = {
-		has_completed_focus = FRA_the_strikers_hit
-	}
+# 	visible = {
+# 		has_country_flag = FRA_lyon_strike_start
+# 		has_idea = FRA_the_lyon_general_strike
+# 	}
+# 	available = {
+# 		has_completed_focus = FRA_the_strikers_hit
+# 	}
 
-	days_remove = 40
+# 	days_remove = 40
 
-	cost = 25
+# 	cost = 25
 
-	fire_only_once = no
+# 	fire_only_once = no
 
-	ai_will_do = {
-		factor = 1000
+# 	ai_will_do = {
+# 		factor = 1000
 		
-	}
+# 	}
 
-	complete_effect = {
-	}
+# 	complete_effect = {
+# 	}
 
-	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -10 }
-		update_french_strike_vars = yes
-	}
-}
+# 	remove_effect = {
+# 		add_to_variable = { global.france_strikes_ref_var = -10 }
+# 		update_french_strike_vars = yes
+# 	}
+# }
 
-FRA_send_in_the_military_forces = {
+# FRA_send_in_the_military_forces = {
 
-	icon = eng_trade_unions_demand
+# 	icon = eng_trade_unions_demand
 
-	visible = {
-		has_country_flag = FRA_lyon_strike_start
-		has_idea = FRA_the_lyon_general_strike
-	}
-	available = {
-		has_completed_focus = FRA_the_strikers_hit
-	}
+# 	visible = {
+# 		has_country_flag = FRA_lyon_strike_start
+# 		has_idea = FRA_the_lyon_general_strike
+# 	}
+# 	available = {
+# 		has_completed_focus = FRA_the_strikers_hit
+# 	}
 
-	days_remove = 50
+# 	days_remove = 50
 
-	cost = 40
+# 	cost = 40
 
-	fire_only_once = no
+# 	fire_only_once = no
 
-	ai_will_do = {
-		factor = 1000
+# 	ai_will_do = {
+# 		factor = 1000
 		
-	}
+# 	}
 
-	complete_effect = {
-	}
+# 	complete_effect = {
+# 	}
 
-	remove_effect = {
-		add_to_variable = { global.france_strikes_ref_var = -10 }
-		update_french_strike_vars = yes
-	}
-}
+# 	remove_effect = {
+# 		add_to_variable = { global.france_strikes_ref_var = -10 }
+# 		update_french_strike_vars = yes
+# 	}
+# }
 
 FRA_declare_a_state_of_emergency = {
 
@@ -1283,7 +1283,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_military_var = 5
+				tooltip = FRA_military_power_increases_by_5
+				FRA_military_var = 5
 	  }
 	  add_command_power = 5
 		}
@@ -1319,7 +1320,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_military_var = 7
+				tooltip = FRA_military_power_increases_by_7
+			FRA_military_var = 7
 	  }
 	  add_war_support = 0.03
 		}
@@ -1355,7 +1357,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_military_var = 5
+				tooltip = FRA_military_power_increases_by_5
+				FRA_military_var = 5
       }
 		}
   }
@@ -1390,7 +1393,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_military_var = 5
+				tooltip = FRA_military_power_increases_by_5
+				FRA_military_var = 5
       }
 
       random_owned_controlled_state = {
@@ -1433,7 +1437,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_military_var = 7
+				tooltip = FRA_military_power_increases_by_7
+			FRA_military_var = 7
       }
 
      add_manpower = 2000
@@ -1509,7 +1514,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_nobility_var = 7
+				tooltip = FRA_nobility_power_increases_by_7
+			FRA_nobility_var = 7
 	  }
 	  add_political_power = -10
 
@@ -1546,6 +1552,7 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
+		toolip = FRA_nobility_power_increases_by_5
          FRA_nobility_var = 5
       }
 
@@ -1584,6 +1591,7 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
+			tooltip = FRA_nobility_power_increases_by_10
          FRA_nobility_var = 10
       }
 
@@ -1622,7 +1630,8 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_nobility_var = 5 
+			tooltip = FRA_nobility_power_increases_by_5
+			FRA_nobility_var = 5 
       }
 
       add_war_support = -0.03
@@ -1659,10 +1668,12 @@ FRA_balancing_the_autocracy = {
 
 		remove_effect = {
 			add_to_variable = {
-         FRA_nobility_var = 5 
+			tooltip = FRA_nobility_power_increases_by_5
+			FRA_nobility_var = 5 
       }
 
       add_to_variable = {
+		tooltip = FRA_military_power_decreases_by_3
         FRA_military_var = -3
      }
 
@@ -2777,7 +2788,7 @@ FRA_stir_up_war_sentiments = {
 				has_country_flag = FRA_train_for_austerity_done
 				has_country_flag = FRA_protect_africa_done
 				has_country_flag = FRA_anti_austrian_ambitions_done
-				has_country_flag = FRA_socialist_prussian_menace_done
+				#has_country_flag = FRA_socialist_prussian_menace_done
 				has_country_flag = FRA_protect_westfalen_done
 			}
 		}

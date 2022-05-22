@@ -197,17 +197,132 @@ guiTypes = {
 				}
 			}
 
+			#Equipment
+			containerWindowType = {
+				name = "faction_equipment_pool0"
+				position = { x= 15 y= 215 }
+				size = { width= 100%% height= 42 }
+
+				#Infantry
+				instantTextboxType = {
+					name = "WOK_faction_infantry_info"
+					position = { x = 35 y = 6 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "Faction Infantry Equipment: "
+					maxWidth = 250
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "WOK_faction_infantry_num"
+					position = { x = 300 y = 6 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "[?ROOT.faction_infantry_amount]"
+					maxWidth = 120
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+
+				#Armor
+				instantTextboxType = {
+					name = "WOK_faction_armor_info"
+					position = { x = 35 y = 36 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "Faction Tank Equipment: "
+					maxWidth = 250
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "WOK_faction_armor_num"
+					position = { x = 300 y = 36 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "[?ROOT.faction_armor_amount]"
+					maxWidth = 120
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+
+				#Support
+				instantTextboxType = {
+					name = "WOK_faction_support_info"
+					position = { x = 35 y = 66 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "Faction Support Equipment: "
+					maxWidth = 250
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "WOK_faction_support_num"
+					position = { x = 300 y = 66 }
+					textureFile = ""
+					font = "garamond_16_bold"
+					borderSize = {x = 0 y = 0}
+					text = "[?ROOT.faction_support_amount]"
+					maxWidth = 120
+					maxHeight = 30
+					format = center
+					fixedsize = yes		
+				}
+
+
+			}
+
+			
+
 			#Divider 01
 			containerWindowType = {
 				name = "faction_management_divider_01"
 				position = { x= 13 y= 640 }
 				size = { width= 425 height= 150 }
-			
+				
 				background = {
 					name = "Background"
 					quadTextureSprite ="GFX_tiled_frontend_upper_bar"
 				}
 			}
+
+			containerWindowType = {
+				name = "members_of_equipment_pool"
+				position = { x= 22 y= 672 }
+				size = { width= 425 height= 150 }
+				clipping = yes
+				verticalScrollbar = "right_vertical_slider"
+				margin = {top= 0 left=0 bottom= 0 right= 0}
+				
+				background = {
+					name = "Background"		
+					quadTextureSprite ="GFX_tiled_window_transparent"
+				}
+				
+				#Faction members gridbox
+				gridboxtype = {
+					name = "faction_equipment_pool_gridbox"
+					position = { x = 0 y = 0 }
+					size = { width = 425 height = 150 }
+					slotsize = { width = 425 height = 30 }
+					max_slots_horizontal = 1
+					add_horizontal = no
+				}
+				
+			}
+			
 
 			#Header
 			containerWindowType = {
@@ -587,7 +702,7 @@ guiTypes = {
 				position = { x = 0 y = 0 }
 				size = { width = 765 height = 500 }
 				slotsize = { width = 765 height = 84 }
-				max_slots_horizontal = 1
+				#max_slots_horizontal = 1
 				add_horizontal = no
 			}
 		}
@@ -864,5 +979,26 @@ guiTypes = {
 				quadTextureSprite ="GFX_tiled_decisions_bg_small"
 			}
 		}
+	}
+
+	containerWindowType = {
+		name = "faction_equipment_pool_member_entry"
+		position = { x= 0 y= 0 }
+		size = { width= 134 height= 80 }
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_decisions_bg_small"
+		}
+		iconType = {
+			name = "faction_equipment_pool_member_flag"
+			spriteType = "GFX_shield_medium"
+			position = { x = 29 y = 12 }
+		}
+		iconType = {
+			name = "faction_equipment_pool_flag_frame"
+			spriteType = "GFX_diplo_flag_frame"
+			position = { x = 3 y = 2 }
+		}	
 	}
 }
