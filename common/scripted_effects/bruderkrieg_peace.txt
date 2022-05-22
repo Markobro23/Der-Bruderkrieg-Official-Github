@@ -221,10 +221,27 @@ prussia_russia_wins_states = {
             transfer_state = 43
             transfer_state = 664
             transfer_state = 804
-            transfer_state = 73   
+            transfer_state = 73
+            transfer_state = 45
+            transfer_state = 764
+            set_politics = {
+                ruling_party = fascism
+                elections_allowed = no
+            }
+            set_popularities = {
+                democratic = 10
+                democratic_liberalism = 10
+                communism = 8
+                fascism = 52
+                ultranationalism = 20
+            }
+            keep_current_politics = yes
         }
         ITA = {
             puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
         }
     }
     italian_states = yes
@@ -348,7 +365,7 @@ prussia_wins_states = {
             limit = {
                 has_global_flag = weltkrieg_ITA_gets_balkans
             }
-            ITA = {
+            HUN = {
                 transfer_state = 39
             }
             else = {
@@ -403,6 +420,29 @@ hungary_states = {
     if = {
         limit = {
             has_global_flag = weltkrieg_ITA_gets_balkans
+        }
+        HUN = {
+            transfer_state = 73
+            transfer_state = 45
+            transfer_state = 764
+            set_politics = {
+                ruling_party = fascism
+                elections_allowed = no
+            }
+            set_popularities = {
+                democratic = 10
+                democratic_liberalism = 10
+                communism = 8
+                fascism = 52
+                ultranationalism = 20
+            }
+            keep_current_politics = yes
+        }
+        ITA = {
+            puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
         }
         ITA = {
             puppet = HUN
@@ -501,6 +541,7 @@ croat_states = {
         transfer_state = 815
         transfer_state = 104
         transfer_state = 819
+        transfer_state = 809
 
         set_popularities = {
             fascism = 66
