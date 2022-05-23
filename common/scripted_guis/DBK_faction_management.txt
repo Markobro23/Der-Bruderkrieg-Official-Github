@@ -70,17 +70,21 @@ scripted_gui = {
 
             distribute_infantry_button_click = {
                 set_temp_variable = {
-                    ROOT.faction_infantry_distrubtion = ROOT.faction_infantry_amount
+                    ROOT.faction_infantry_distrubtion = ROOT.num_equipment@infantry_equipment
                 }
                 divide_temp_variable = {
                     faction_infantry_distrubtion = ROOT.members_of_equipment_pool_array^num
                 }
                 log = "[?members_of_equipment_pool_array^num] + [?faction_infantry_distrubtion]"
 
-                add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = var:faction_infantry_distrubtion
-                    producer = ROOT
+                every_country = {
+                    limit = { is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = var:faction_infantry_distrubtion
+                        producer = THIS
+                    }
                 }
                 set_variable = { ROOT.faction_infantry_amount = 0 }
 				for_each_scope_loop = {
@@ -88,14 +92,7 @@ scripted_gui = {
                     
                     add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
                 }
-                every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
-                  
-                    add_opinion_modifier = {
-                        target = AUS
-                        modifier = equipment_given
-                    }
-                }
+                
             }
             request_infantry_button_click = {
                 set_temp_variable = {
@@ -146,18 +143,23 @@ scripted_gui = {
 
             distribute_armor_button_click = {
                 set_temp_variable = {
-                    ROOT.faction_armor_distrubtion = ROOT.faction_armor_amount
+                    ROOT.faction_armor_distrubtion = ROOT.num_equipment@armor_equipment
                 }
                 divide_temp_variable = {
                     faction_armor_distrubtion = ROOT.members_of_equipment_pool_array^num
                 }
                 log = "[?members_of_equipment_pool_array^num] + [?faction_armor_distrubtion]"
 
-                add_equipment_to_stockpile = {
-                    type = light_tank_chassis
-                    amount = var:faction_armor_distrubtion
-                    producer = ROOT
+                every_country = {
+                    limit = { is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    
+                    add_equipment_to_stockpile = {
+                        type = light_tank_chassis
+                        amount = var:faction_armor_distrubtion
+                        producer = THIS
+                    }
                 }
+              
                 set_variable = { ROOT.faction_armor_amount = 0 }
 				for_each_scope_loop = {
                     array = ROOT.members_of_equipment_pool_array
@@ -165,14 +167,7 @@ scripted_gui = {
 					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
 					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
                 }
-                every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
-                  
-                    add_opinion_modifier = {
-                        target = AUS
-                        modifier = equipment_given
-                    }
-                }
+                
             }
             request_armor_button_click = {
                 set_temp_variable = {
@@ -225,31 +220,28 @@ scripted_gui = {
 
             distribute_support_button_click = {
                 set_temp_variable = {
-                    ROOT.faction_support_distrubtion = ROOT.faction_support_amount
+                    ROOT.faction_support_distrubtion = ROOT.num_equipment@support_equipment
                 }
                 divide_temp_variable = {
                     faction_support_distrubtion = ROOT.members_of_equipment_pool_array^num
                 }
                 log = "[?members_of_equipment_pool_array^num] + [?faction_support_distrubtion]"
 
-                add_equipment_to_stockpile = {
-                    type = support_equipment
-                    amount = var:faction_support_distrubtion
-                    producer = ROOT
+                every_country = {
+                    limit = { is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = var:faction_support_distrubtion
+                        producer = THIS
+                    }
                 }
                 set_variable = { ROOT.faction_support_amount = 0 }
 				for_each_scope_loop = {
                     array = ROOT.members_of_equipment_pool_array
                     add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
                 }
-                every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
-                  
-                    add_opinion_modifier = {
-                        target = AUS
-                        modifier = equipment_given
-                    }
-                }
+                
             }
             request_support_button_click = {
                 set_temp_variable = {
@@ -312,6 +304,51 @@ scripted_gui = {
             }
             WOK_faction_behavoir_maker_tab_switch_click_enabled = {
                 always = no
+            }
+
+            distribute_infantry_button_click_enabled = {
+                has_equipment = {
+                    infantry_equipment_1 > 999
+                }    
+            }
+            request_infantry_button_click_enabled = {
+                custom_trigger_tooltip = {
+                    tooltip = faction_infantry_amount_greater_than_100
+
+                    check_variable = {
+                        faction_infantry_amount > 99
+                    }
+                }
+            }
+
+            distribute_armor_button_click_enabled = {
+                has_equipment = {
+                    light_tank_chassis > 999
+                } 
+            }
+            request_armor_button_click_enabled = {
+                custom_trigger_tooltip = {
+                    tooltip = faction_armor_amount_greater_than_100
+
+                    check_variable = {
+                        faction_armor_amount > 99
+                    }
+                }
+            }
+
+            distribute_support_button_click_enabled = {
+                has_equipment = {
+                    support_equipment > 999
+                }
+            }
+            request_support_button_click_enabled = {
+                custom_trigger_tooltip = {
+                    tooltip = faction_support_amount_greater_than_100
+
+                    check_variable = {
+                        faction_support_amount > 99
+                    }
+                }
             }
         }
     }
