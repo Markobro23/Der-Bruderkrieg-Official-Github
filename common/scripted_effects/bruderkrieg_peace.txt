@@ -137,71 +137,112 @@ prussia_russia_wins_states = {
         add_state_core = 89
         add_state_core = 1123
     }
-    HUN = {
-        transfer_state = 154
-        transfer_state = 155
-        transfer_state = 43
-        transfer_state = 664
-        
-        transfer_state = 804
-        transfer_state = 73
-
-        if = {
-            limit = {
-                SOV = {
-                    has_country_leader = {
-                        name = "Vladimir Lenin"
-                        ruling_only = yes
-                    }
-                }
-            }
-            HUN = {
-                set_popularities = {
-                    communism = 65
-                    fascism = 22
-                    ultranationalism = 10
-                    democratic = 3
-                }
-                set_politics = {
-                    ruling_party = communism
-                }
-            }
-            
-        }
-        else = {
-            HUN = {
-                set_popularities = {
-                    democratic = 24
-                    democratic_liberalism = 36
-                    communism = 2
-                    fascism = 32
-                    ultranationalism = 6
-                }
-                create_country_leader = {
-                    name = "Istvan Bethlen"
-                    desc = ""
-                    picture = "Istvan_Bethlen.dds"
-                    expire = "1965.1.1"
-                    ideology = democratic_liberal
-                    traits = {
-                        
-                    }
-                }
-                set_politics = {
-                    ruling_party = democratic_liberalism
-                }
+    if = {
+        limit = {
+            OR = {
+                has_global_flag = weltkrieg_SOV_gets_balkans
+                NOT = { has_global_flag = weltkrieg_ITA_gets_balkans }
             }
         }
         HUN = {
+            transfer_state = 154
+            transfer_state = 155
+            transfer_state = 43
+            transfer_state = 664
+            
+            transfer_state = 804
+            transfer_state = 73
+
+            if = {
+                limit = {
+                    SOV = {
+                        has_country_leader = {
+                            name = "Vladimir Lenin"
+                            ruling_only = yes
+                        }
+                    }
+                }
+                HUN = {
+                    set_popularities = {
+                        communism = 65
+                        fascism = 22
+                        ultranationalism = 10
+                        democratic = 3
+                    }
+                    set_politics = {
+                        ruling_party = communism
+                    }
+                }
+                
+            }
+            else = {
+                HUN = {
+                    set_popularities = {
+                        democratic = 24
+                        democratic_liberalism = 36
+                        communism = 2
+                        fascism = 32
+                        ultranationalism = 6
+                    }
+                    create_country_leader = {
+                        name = "Istvan Bethlen"
+                        desc = ""
+                        picture = "Istvan_Bethlen.dds"
+                        expire = "1965.1.1"
+                        ideology = democratic_liberal
+                        traits = {
+                            
+                        }
+                    }
+                    set_politics = {
+                        ruling_party = democratic_liberalism
+                    }
+                }
+            }
+            HUN = {
+                keep_current_politics = yes
+            }
+            
+        }
+        SOV = {
+            puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
+        }
+    }
+    if = {
+        limit = {
+            has_global_flag = weltkrieg_ITA_gets_balkans
+        }
+        HUN = {
+            transfer_state = 154
+            transfer_state = 155
+            transfer_state = 43
+            transfer_state = 664
+            transfer_state = 804
+            transfer_state = 73
+            transfer_state = 45
+            transfer_state = 764
+            set_politics = {
+                ruling_party = fascism
+                elections_allowed = no
+            }
+            set_popularities = {
+                democratic = 10
+                democratic_liberalism = 10
+                communism = 8
+                fascism = 52
+                ultranationalism = 20
+            }
             keep_current_politics = yes
         }
-        
-    }
-    SOV = {
-        puppet = HUN
-    }
-    HUN = {
-        reset_government = yes
+        ITA = {
+            puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
+        }
     }
     italian_states = yes
     croat_states = yes
@@ -214,7 +255,18 @@ prussia_russia_wins_states = {
         serbia_states = yes
     }
     else = {
-        SOV = { puppet = BOS }
+        if = {
+            limit = {
+                OR = {
+                    has_global_flag = weltkrieg_SOV_gets_balkans
+                    NOT = { has_global_flag = weltkrieg_ITA_gets_balkans }
+                }
+            }
+            SOV = { puppet = BOS }
+            else = {
+                ITA = { puppet = BOS }
+            }
+        }
         HUN = {
             transfer_state = 764
             transfer_state = 45
@@ -309,7 +361,17 @@ prussia_wins_states = {
        transfer_state = 820
        transfer_state = 102
        transfer_state = 777
-       transfer_state = 39
+        if = {
+            limit = {
+                has_global_flag = weltkrieg_ITA_gets_balkans
+            }
+            HUN = {
+                transfer_state = 39
+            }
+            else = {
+                transfer_state = 39
+            }
+        }
     }
 
     GER = { add_state_core = 69 }
@@ -346,7 +408,6 @@ hungary_states = {
         transfer_state = 664
         transfer_state = 804
         transfer_state = 73
-        set_cosmetic_tag = prussian_rk
 
         set_popularities = {
             ultranationalism = 54
@@ -356,13 +417,53 @@ hungary_states = {
         }
         keep_current_politics = yes
     }
-    GER = {
-        puppet = HUN
-    }
-    HUN = {
-        reset_government = yes
-        set_politics = {
-            ruling_party = ultranationalism
+    if = {
+        limit = {
+            has_global_flag = weltkrieg_ITA_gets_balkans
+        }
+        HUN = {
+            transfer_state = 73
+            transfer_state = 45
+            transfer_state = 764
+            set_politics = {
+                ruling_party = fascism
+                elections_allowed = no
+            }
+            set_popularities = {
+                democratic = 10
+                democratic_liberalism = 10
+                communism = 8
+                fascism = 52
+                ultranationalism = 20
+            }
+            keep_current_politics = yes
+        }
+        ITA = {
+            puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
+        }
+        ITA = {
+            puppet = HUN
+        }
+        HUN = {
+            reset_government = yes
+            set_politics = {
+                ruling_party = ultranationalism
+            }
+        }
+        else = {
+            GER = {
+                puppet = HUN
+            }
+            HUN = {
+                set_cosmetic_tag = prussian_rk
+                reset_government = yes
+                set_politics = {
+                    ruling_party = ultranationalism
+                }
+            }
         }
     }
 }
@@ -440,6 +541,7 @@ croat_states = {
         transfer_state = 815
         transfer_state = 104
         transfer_state = 819
+        transfer_state = 809
 
         set_popularities = {
             fascism = 66
@@ -574,16 +676,7 @@ austrian_civil_war_effect = {
 
 
 prussia_loses_peace_deal = {
-    
-        if = {
-            limit = {
-                FRA = {
-                    has_war_with = GER
-                }
-            }
-            set_global_flag = france_austria_split_deal
-        }
-       AUS = { country_event = second_treaty_of_vienna.4 }
+       AUS = { country_event = second_treaty_of_vienna.1 }
        if = {
            limit = {
                ITA = {
@@ -672,6 +765,7 @@ italy_loses_to_austria_peace_deal = {
             white_peace = ITA
         }
         release = SCI
+        load_focus_tree = generic_focus
     }
     SCI = {
         set_cosmetic_tag = ITA_two_sicilies
@@ -684,8 +778,31 @@ italy_loses_to_austria_peace_deal = {
             socialism_democratic = 10
             neutrality = 70
         }
+        keep_current_politics = yes
     }
-    
+    if = {
+        limit = {
+            has_global_flag = weltkrieg_FRA_gets_sicily
+        }
+        FRA = {
+            puppet = SCI
+        }
+        SCI = {
+            reset_government = yes
+        }
+    }
+    if = {
+        limit = {
+            has_global_flag = weltkrieg_AUS_gets_sicily
+        }
+        AUS = {
+            puppet = SCI
+            puppet = ITA
+        }
+        SCI = {
+            reset_government = yes
+        }
+    }
     
 }
 france_loses_to_austria_peace_deal = {
@@ -765,6 +882,7 @@ italy_loses_to_france_peace_deal = {
     ITA = {
         set_cosmetic_tag = ITA_central_italy
         release = SCI
+        load_focus_tree = generic_focus
     }
     SCI = {
         set_cosmetic_tag = ITA_two_sicilies
@@ -912,15 +1030,28 @@ france_loses_peace_deal = {
         }
     }
     OCC = {
-        keep_current_politics = yes
-        set_cosmetic_tag = prussian_rk
-        add_state_core = 33
-        add_state_core = 25
-        add_state_core = 31
-        add_state_core = 22
-        add_state_core = 26
-        add_state_core = 20
-        remove_state_core = 19
+        if = {
+            limit = {
+                has_global_flag = weltkrieg_ITA_gets_occitania
+            }
+            add_state_core = 33
+            add_state_core = 25
+            add_state_core = 31
+            add_state_core = 22
+            add_state_core = 26
+            add_state_core = 20
+            else = {
+                keep_current_politics = yes
+                set_cosmetic_tag = prussian_rk
+                add_state_core = 33
+                add_state_core = 25
+                add_state_core = 31
+                add_state_core = 22
+                add_state_core = 26
+                add_state_core = 20
+                remove_state_core = 19
+            }
+        }
     }
     NFR = {
         keep_current_politics = yes
@@ -936,20 +1067,20 @@ france_loses_peace_deal = {
         release = OCC
         release = NFR
         #set_cosmetic_tag = RAU_France
-	if = {
-		limit = { country_exists = FWA }
-		annex_country = {
-			target = FWA
-			transfer_troops = yes
-		}
-	}
-	if = {
-		limit = { country_exists = FEA }
-        annex_country = {
-            target = FEA
-            transfer_troops = yes
-        }
-	}
+    	if = {
+    		limit = { country_exists = FWA }
+    		annex_country = {
+    			target = FWA
+    			transfer_troops = yes
+    		}
+    	}
+    	if = {
+    		limit = { country_exists = FEA }
+            annex_country = {
+                target = FEA
+                transfer_troops = yes
+            }
+    	}
     }
     HOL = {
        drop_cosmetic_tag = yes 
@@ -971,7 +1102,12 @@ france_loses_peace_deal = {
         keep_current_politics = yes
 	}
     GER = {
-        puppet = OCC
+        if = {
+            limit = {
+                NOT = { has_global_flag = weltkrieg_ITA_gets_occitania }
+            }
+            puppet = OCC
+        }
         puppet = NFR
         
 	    release_puppet = BRI
@@ -994,6 +1130,14 @@ france_loses_peace_deal = {
             add_core_of = FRA
             set_resistance = GER.french_resistance_var
             set_compliance = GER.french_compliance_var
+        }
+    }
+    ITA = {
+        if = {
+            limit = {
+                has_global_flag = weltkrieg_ITA_gets_occitania
+            }
+            puppet = OCC
         }
     }
     OCC = {
@@ -1029,15 +1173,6 @@ france_loses_peace_deal = {
 }
 
 france_beats_prussia_peace_deal = {
-    if = {
-            limit = {
-                AUS = {
-                    is_subject = no
-                    has_war_with = GER
-                }
-            }
-            set_global_flag = france_austria_split_deal
-        }
     if = {
         limit = {
             ITA = {
