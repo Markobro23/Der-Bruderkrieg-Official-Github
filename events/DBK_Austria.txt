@@ -3377,6 +3377,76 @@ country_event = {
 	}
 }
 
+country_event = { #austria requests hanover's independence
+	id = austria.209
+	title = austria.209.t
+	desc = austria.209.d
+	
+	is_triggered_only = yes 
+
+	option = { #we don't want to anger the brits bruv
+		name = austria.209.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_rival_the_british_in_the_benelux
+			}
+		}
+		FGD = {
+			release = HAN
+		}
+		ENG = {
+	      puppet = HAN
+	      country_event = { id = austria_post_victory_tree.3 hours = 6}
+	    }
+	    hidden_effect = {
+	      HAN = {
+	        add_popularity = {
+	          ideology = neutrality
+	          popularity = 0.4
+	        }
+	        set_politics = {
+	          ruling_party = neutrality
+	          elections_allowed = no
+	        }
+	      }
+	    }
+	}
+	option = { #helping the brits? Bro who do you think we are
+		name = austria.209.b
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_completed_factor = FRA_repair_relations_with_the_british
+			}
+		}
+		ENG = {
+			country_event = { id = austria.210 hours = 2 }
+		}
+		AUS = {
+			country_event = { id = austria.210 hours = 2 }
+		}
+	}
+}
+
+country_event = { #france refuses to free Hannover
+	id = austria.210
+	title = austria.210.t
+	desc = austria.210.d
+	
+	is_triggered_only = yes 
+
+	option = { #those tyrants!
+		name = austria.210.a
+		add_opinion_modifier = {
+			target = FRA
+			modifier = large_decrease
+		}
+	}
+}
+
 add_namespace = austria_military_events
 
 ###Prussia our greatest enemy

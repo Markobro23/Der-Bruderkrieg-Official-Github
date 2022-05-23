@@ -8198,37 +8198,19 @@ shared_focus = {
   }
 
   available = {
-    OR = {
-      HAN = {
-        is_subject_of = AUS
-      }
-      AND = {
-        owns_state = 59
-        HAN = { exists = no }
-      }
-    }
+    HAN = { exists = no }
+  }
+
+  bypass = {
+    country_exists = HAN
   }
 
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    release = HAN
-    ENG = {
-      puppet = HAN
-      country_event = { id = austria_post_victory_tree.3 hours = 6}
-    }
-    hidden_effect = {
-      HAN = {
-        add_popularity = {
-          ideology = neutrality
-          popularity = 0.4
-        }
-        set_politics = {
-          ruling_party = neutrality
-          elections_allowed = no
-        }
-      }
+    FRA = {
+      country_event = { id = austria.209 hours = 1 }
     }
    }
 }
