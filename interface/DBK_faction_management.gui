@@ -194,6 +194,7 @@ guiTypes = {
 					maxHeight = 70
 					format = center
 					fixedsize = yes		
+					pdx_tooltip = WOK_relations_button_switch_click_enabled_tt
 				}
 			}
 
@@ -229,10 +230,45 @@ guiTypes = {
 					fixedsize = yes		
 				}
 
+				#Infantry Distribution
+				buttonType = {
+					name = "distribute_infantry_button"
+					position = { x = 35 y = 36 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+					tooltip = distribute_infantry_button_tt
+				}
+				instantTextboxType = {
+					name = "distribute_infantry_button_text"
+					position = { x = 73 y = 41 }
+					font = "hoi_16mbs"
+					text = "Distribute Infantry"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
+				#Infantry Requests
+				buttonType = {
+					name = "request_infantry_button"
+					tooltip = "request_infantry_button_tt"
+					position = { x = 235 y = 36 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+				}
+				instantTextboxType = {
+					name = "request_infantry_button_text"
+					position = { x = 273 y = 41 }
+					font = "hoi_16mbs"
+					text = "Request Infantry"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
+
 				#Armor
 				instantTextboxType = {
 					name = "WOK_faction_armor_info"
-					position = { x = 35 y = 36 }
+					position = { x = 35 y = 146 }
 					textureFile = ""
 					font = "garamond_16_bold"
 					borderSize = {x = 0 y = 0}
@@ -244,7 +280,7 @@ guiTypes = {
 				}
 				instantTextboxType = {
 					name = "WOK_faction_armor_num"
-					position = { x = 300 y = 36 }
+					position = { x = 300 y = 146 }
 					textureFile = ""
 					font = "garamond_16_bold"
 					borderSize = {x = 0 y = 0}
@@ -255,10 +291,49 @@ guiTypes = {
 					fixedsize = yes		
 				}
 
+				#Armor Distribution
+				buttonType = {
+					name = "distribute_armor_button"
+					tooltip = "distribute_armor_button_tt"
+					position = { x = 35 y = 176 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+				}
+
+				instantTextboxType = {
+					name = "distribute_armor_button_text"
+					position = { x = 73 y = 181 }
+					font = "hoi_16mbs"
+					text = "Distribute Armor"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
+				
+				
+				#Armor Requests
+				buttonType = {
+					name = "request_armor_button"
+					tooltip = "request_armor_button_tt"
+					position = { x = 235 y = 176 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+				}
+
+				instantTextboxType = {
+					name = "request_armor_button_text"
+					position = { x = 273 y = 181 }
+					font = "hoi_16mbs"
+					text = "Request Armor"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
+
 				#Support
 				instantTextboxType = {
 					name = "WOK_faction_support_info"
-					position = { x = 35 y = 66 }
+					position = { x = 35 y = 286 }
 					textureFile = ""
 					font = "garamond_16_bold"
 					borderSize = {x = 0 y = 0}
@@ -270,7 +345,7 @@ guiTypes = {
 				}
 				instantTextboxType = {
 					name = "WOK_faction_support_num"
-					position = { x = 300 y = 66 }
+					position = { x = 300 y = 286 }
 					textureFile = ""
 					font = "garamond_16_bold"
 					borderSize = {x = 0 y = 0}
@@ -281,7 +356,45 @@ guiTypes = {
 					fixedsize = yes		
 				}
 
+				
+				
+				
 
+				#Support Distribution
+				buttonType = {
+					name = "distribute_support_button"
+					tooltip = "distribute_support_button_tt"
+					position = { x = 35 y = 316 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+				}
+				instantTextboxType = {
+					name = "distribute_support_button_text"
+					position = { x = 73 y = 321 }
+					font = "hoi_16mbs"
+					text = "Distribute Support"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
+
+				#Support Requests
+				buttonType = {
+					name = "request_support_button"
+					tooltip = "request_support_button_tt"
+					position = { x = 235 y = 316 }
+					quadTextureSprite = "GFX_government_button"
+					buttonFont = "hoi_16mbs"
+					Orientation = "UPPER_LEFT"
+				}
+				instantTextboxType = {
+					name = "request_support_button_text"
+					position = { x = 273 y = 321 }
+					font = "hoi_16mbs"
+					text = "Request Support"
+					maxWidth = 122
+					alwaystransparent = yes
+				}
 			}
 
 			
@@ -315,10 +428,10 @@ guiTypes = {
 				gridboxtype = {
 					name = "faction_equipment_pool_gridbox"
 					position = { x = 0 y = 0 }
-					size = { width = 425 height = 150 }
-					slotsize = { width = 425 height = 30 }
-					max_slots_horizontal = 1
-					add_horizontal = no
+					size = { width = 40 height = 150 }
+					slotsize = { width = 40 height = 30 }
+					max_slots_horizontal = 10
+					add_horizontal = yes
 				}
 				
 			}
@@ -434,6 +547,7 @@ guiTypes = {
 					maxHeight = 42
 					format = center
 					fixedsize = yes	
+					pdx_tooltip = WOK_relations_button_switch_click_enabled_tt
 				}
 				buttonType = {
 					name = "WOK_faction_conflicts_tab_switch"
@@ -986,19 +1100,13 @@ guiTypes = {
 		position = { x= 0 y= 0 }
 		size = { width= 134 height= 80 }
 
-		background = {
-			name = "Background"
-			quadTextureSprite ="GFX_tiled_decisions_bg_small"
-		}
+	
 		iconType = {
 			name = "faction_equipment_pool_member_flag"
-			spriteType = "GFX_shield_medium"
-			position = { x = 29 y = 12 }
+			position = { x = 0 y = 0 }
+			quadTextureSprite ="GFX_flag_small"
+			alwaystransparent = yes
 		}
-		iconType = {
-			name = "faction_equipment_pool_flag_frame"
-			spriteType = "GFX_diplo_flag_frame"
-			position = { x = 3 y = 2 }
-		}	
+		
 	}
 }

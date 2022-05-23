@@ -689,27 +689,8 @@ Flag_Scripted_Map_Icons = {
                     
                     add_to_variable = { ROOT.faction_factory_amount = num_of_factories }
                 }
-				set_variable = { ROOT.faction_infantry_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    
-                    add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
-                }
 
-				set_variable = { ROOT.faction_armor_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    add_to_variable = { ROOT.faction_armor_amount = num_equipment@light_tank_chassis }
-					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
-					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
-                }
-
-				set_variable = { ROOT.faction_support_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
-                }
-
+				#Jordan Poole Equipment
 				clear_array = ROOT.members_of_equipment_pool_array
 				for_each_scope_loop = {
                     array = ROOT.faction_members
@@ -724,6 +705,28 @@ Flag_Scripted_Map_Icons = {
 						}
 					}
                 }
+				set_variable = { ROOT.faction_infantry_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    
+                    add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
+                }
+
+				set_variable = { ROOT.faction_armor_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_armor_amount = num_equipment@light_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
+                }
+
+				set_variable = { ROOT.faction_support_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
+                }
+
+				
 				
 			}
 	  }

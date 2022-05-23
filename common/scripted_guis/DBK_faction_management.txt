@@ -26,7 +26,19 @@ scripted_gui = {
             WOK_faction_conflicts_tab_switch = {
                 frame = WOK_faction_left_tab_switch
             }
+            faction_equipment_pool_member_flag = {
+                image = "[THIS.GetFlag]"
+            }
         }
+        dynamic_lists = {
+            faction_equipment_pool_gridbox = {
+                array = ROOT.members_of_equipment_pool_array
+                entry_container = faction_equipment_pool_member_entry
+                change_scope = yes
+            }
+        }
+
+        
 
         effects = {
             WOK_faction_management_close_click = {
@@ -55,6 +67,236 @@ scripted_gui = {
             WOK_faction_conflicts_tab_switch_click = {
                 set_variable = { WOK_faction_left_tab_switch = 3 }
             }
+
+            distribute_infantry_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_infantry_distrubtion = ROOT.faction_infantry_amount
+                }
+                divide_temp_variable = {
+                    faction_infantry_distrubtion = ROOT.members_of_equipment_pool_array^num
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_infantry_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = var:faction_infantry_distrubtion
+                    producer = ROOT
+                }
+                set_variable = { ROOT.faction_infantry_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    
+                    add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
+                }
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                  
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_given
+                    }
+                }
+            }
+            request_infantry_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_infantry_request = ROOT.faction_infantry_amount
+                }
+                divide_temp_variable = {
+                    faction_infantry_request = 2
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_infantry_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = infantry_equipment
+                    amount = var:faction_infantry_request
+                    producer = ROOT
+                }
+
+                set_temp_variable = {
+                    faction_infantry_request_taken = faction_infantry_request 
+                }
+
+                divide_temp_variable = {
+                    faction_infantry_request_taken = ROOT.members_of_equipment_pool_array^num
+                }
+                log = "[?faction_infantry_request_taken]"
+                multiply_temp_variable = {
+                    faction_infantry_request_taken = -1
+                }
+                
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    add_equipment_to_stockpile = {
+                        type = infantry_equipment
+                        amount = var:faction_infantry_request_taken
+                        producer = THIS
+                    }
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_taken
+                    }
+                }
+                set_variable = { ROOT.faction_infantry_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    
+                    add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
+                }
+            }
+
+            distribute_armor_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_armor_distrubtion = ROOT.faction_armor_amount
+                }
+                divide_temp_variable = {
+                    faction_armor_distrubtion = ROOT.members_of_equipment_pool_array^num
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_armor_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = light_tank_chassis
+                    amount = var:faction_armor_distrubtion
+                    producer = ROOT
+                }
+                set_variable = { ROOT.faction_armor_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_armor_amount = num_equipment@light_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
+                }
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                  
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_given
+                    }
+                }
+            }
+            request_armor_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_armor_request = ROOT.faction_armor_amount
+                }
+                divide_temp_variable = {
+                    faction_armor_request = 2
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_armor_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = light_tank_chassis
+                    amount = var:faction_armor_request
+                    producer = ROOT
+                }
+
+                set_temp_variable = {
+                    faction_armor_request_taken = faction_armor_request 
+                }
+
+                divide_temp_variable = {
+                    faction_armor_request_taken = ROOT.members_of_equipment_pool_array^num
+                }
+                multiply_temp_variable = {
+                    faction_armor_request_taken = -1
+                }
+                log = "[?faction_armor_request_taken]"
+
+                
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    add_equipment_to_stockpile = {
+                        type = light_tank_chassis
+                        amount = var:faction_armor_request_taken
+                        producer = THIS
+                    }
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_taken
+                    }
+                }
+                set_variable = { ROOT.faction_armor_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_armor_amount = num_equipment@light_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
+					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
+                }
+            }
+
+            distribute_support_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_support_distrubtion = ROOT.faction_support_amount
+                }
+                divide_temp_variable = {
+                    faction_support_distrubtion = ROOT.members_of_equipment_pool_array^num
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_support_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = support_equipment
+                    amount = var:faction_support_distrubtion
+                    producer = ROOT
+                }
+                set_variable = { ROOT.faction_support_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
+                }
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                  
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_given
+                    }
+                }
+            }
+            request_support_button_click = {
+                set_temp_variable = {
+                    ROOT.faction_support_request = ROOT.faction_support_amount
+                }
+                divide_temp_variable = {
+                    faction_support_request = 2
+                }
+                log = "[?members_of_equipment_pool_array^num] + [?faction_support_distrubtion]"
+
+                add_equipment_to_stockpile = {
+                    type = support_equipment
+                    amount = var:faction_support_request
+                    producer = ROOT
+                }
+
+                set_temp_variable = {
+                    faction_support_request_taken = faction_support_request 
+                }
+
+                divide_temp_variable = {
+                    faction_support_request_taken = ROOT.members_of_equipment_pool_array^num
+                }
+                multiply_temp_variable = {
+                    faction_support_request_taken = -1
+                }
+                log = "[?faction_support_request_taken]"
+
+                
+                every_country = {
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    add_equipment_to_stockpile = {
+                        type = support_equipment
+                        amount = var:faction_support_request_taken
+                        producer = THIS
+                    }
+                    add_opinion_modifier = {
+                        target = AUS
+                        modifier = equipment_taken
+                    }
+                }
+                set_variable = { ROOT.faction_support_amount = 0 }
+				for_each_scope_loop = {
+                    array = ROOT.members_of_equipment_pool_array
+                    add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
+                }
+            }
         }
 
         triggers = {
@@ -64,6 +306,12 @@ scripted_gui = {
             }
             WOK_rename_faction_click_enabled = {
                 is_faction_leader = yes
+            }
+            WOK_relations_button_switch_click_enabled = {
+                always = no
+            }
+            WOK_faction_behavoir_maker_tab_switch_click_enabled = {
+                always = no
             }
         }
     }
@@ -139,38 +387,7 @@ scripted_gui = {
         }
     }
 
-    #Equipment tab
-    WOK_faction_management_equipment_tab = {
-        window_name = "members_of_equipment_pool"
-        parent_window_name = "WOK_faction_management"
-        context_type = player_context
-
-        visible = {
-        }
-
-        properties = {
-            faction_equipment_pool_member_flag = {
-                image = "[THIS.GetFlag]"
-            }
-        }
-
-        dynamic_lists = {
-           
-            faction_equipment_pool_gridbox = {
-                array = ROOT.members_of_equipment_pool_array
-                entry_container = faction_equipment_pool_member_entry
-                change_scope = yes
-            }
-            
-        }
-
-        effects = {
-        }
-
-        triggers = {
-            
-        }
-    }
+  
 
     #Members tab
     WOK_faction_management_conflicts_tab = {
