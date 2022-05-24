@@ -29,6 +29,7 @@ scripted_gui = {
             faction_equipment_pool_member_flag = {
                 image = "[THIS.GetFlag]"
             }
+         
         }
         dynamic_lists = {
             faction_equipment_pool_gridbox = {
@@ -143,7 +144,7 @@ scripted_gui = {
 
             distribute_armor_button_click = {
                 set_temp_variable = {
-                    ROOT.faction_armor_distrubtion = ROOT.num_equipment@armor_equipment
+                    ROOT.faction_armor_distrubtion = ROOT.num_equipment@light_tank_chassis
                 }
                 divide_temp_variable = {
                     faction_armor_distrubtion = ROOT.members_of_equipment_pool_array^num
@@ -350,6 +351,7 @@ scripted_gui = {
                     }
                 }
             }
+            
         }
     }
     
@@ -403,7 +405,9 @@ scripted_gui = {
             faction_relations_filter_flag = {
                 image = "[ROOT.GetFlag]"
             }
-          
+            faction_member_entry_behaviour_icon = {
+                image = "[THIS.GETfaction_member_entry_behaviour_icon]"
+            }
         }
 
         dynamic_lists = {
@@ -417,12 +421,54 @@ scripted_gui = {
         }
 
         effects = {
+            faction_member_entry_behaviour_icon_click = {
+                
+                THIS = {
+                    if = {
+                        limit = {
+                            check_variable = {
+                                behavior_garrison = 6
+                            }
+                        }
+                        set_variable = {
+                            behavior_garrison = 0
+                        }
+                    }
+                    else = {
+                        add_to_variable = {
+                            behavior_garrison = 1
+                        }
+                    }
+                    update_ai_strategy_commands = yes
+                }
+            }
         }
 
         triggers = {
-            
+            faction_member_entry_behaviour_icon_visible = {
+                #is_ai = yes
+            }
         }
     }
+
+    # WOK_faction_member_entry_behaviour_selection_sidebar_tab = {
+    #     window_name = "faction_member_entry_behaviour_selection_sidebar"
+    #     context_type = player_context
+
+    #     visible = {
+    #         has_country_flag = open_faction_member_entry_behaviour_selection_sidebar
+    #     }
+    #     effects = {
+    #         faction_member_entry_behaviour_garrison_select_click = {
+    #            event_target:open_faction_member_entry_behaviour_selection_sidebar_country = {
+    #                 set_variable = {
+    #                     behavior_garrison = 1
+    #                 }
+    #                 update_ai_strategy_commands = yes
+    #             }
+    #         }
+    #     }
+    # }
 
   
 
