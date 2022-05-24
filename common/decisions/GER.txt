@@ -3129,6 +3129,7 @@ GER_occupation_of_russia = {
         	controls_state = 191
         	controls_state = 13
         	controls_state = 189
+        	controls_state = 1126
 		}
 
 		fire_only_once = yes
@@ -3143,6 +3144,7 @@ GER_occupation_of_russia = {
         		transfer_state = 191
         		transfer_state = 13
         		transfer_state = 189
+        		transfer_state = 1126
 				hidden_effect = {
 					set_cosmetic_tag = prussian_rk
 				}
@@ -3525,6 +3527,137 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = LNU
+		}
+
+	}
+
+	GER_rk_finnland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+		}
+
+		visible = {
+			FIN = {
+				exists = no
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = FIN
+		}
+
+	}
+
+	GER_promote_finnish_nationalists = {
+
+		icon = generic_political_discourse
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+        	controls_state = 215
+        	controls_state = 213
+        	controls_state = 722
+        	controls_state = 147
+        	controls_state = 146
+		}
+
+		visible = {
+			FIN = {
+				exists = no
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 146
+					add_state_core = 213
+					add_state_core = 215
+				}
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+        		transfer_state = 215
+        		transfer_state = 213
+        		transfer_state = 146
+        		transfer_state = 722
+        		transfer_state = 147
+			}
+			add_to_faction = FIN
+		}
+
+	}
+
+	GER_rk_karelien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 215
+        	controls_state = 213
+        	controls_state = 146
+        	controls_state = 722
+        	controls_state = 147
+        	controls_state = 216
+		}
+
+		visible = {
+			UGL = {
+				exists = no
+			}
+			NOT = {
+				FIN = {
+					owns_state = 215
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				UGL = {
+					remove_ideas = UGL_white_army_divided
+        			add_state_core = 215
+        			add_state_core = 213
+        			add_state_core = 146
+        			add_state_core = 722
+        			add_state_core = 216
+        			add_state_core = 147
+        			transfer_state = 215
+        			transfer_state = 213
+        			transfer_state = 146
+        			transfer_state = 722
+        			transfer_state = 147
+        			transfer_state = 216
+        			set_capital = { state = 216 }
+        			set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = UGL
 		}
 
 	}
