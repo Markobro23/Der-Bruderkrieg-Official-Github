@@ -3386,7 +3386,6 @@ GER_occupation_of_russia = {
         	controls_state = 1083
         	controls_state = 234
         	controls_state = 238
-        	controls_state = 237
 		}
 
 		fire_only_once = yes
@@ -3415,7 +3414,8 @@ GER_occupation_of_russia = {
 		        transfer_state = 1083
 		        transfer_state = 234
 		        transfer_state = 238
-		        transfer_state = 237
+		        transfer_state = 843
+		        transfer_state = 345
 				hidden_effect = {
 					set_cosmetic_tag = prussian_rk
 				}
@@ -3484,7 +3484,6 @@ GER_occupation_of_russia = {
         	controls_state = 240
         	controls_state = 260
         	controls_state = 265
-        	controls_state = 217
         	controls_state = 245
 		}
 
@@ -3506,7 +3505,6 @@ GER_occupation_of_russia = {
 			        add_state_core = 240
 			        add_state_core = 260
 			        add_state_core = 265
-			        add_state_core = 217
 			        add_state_core = 245
 			        transfer_state = 242
 	        		transfer_state = 219
@@ -3521,7 +3519,6 @@ GER_occupation_of_russia = {
 	        		transfer_state = 240
 	        		transfer_state = 260
 	        		transfer_state = 265
-	        		transfer_state = 217
 	        		transfer_state = 245
 					set_cosmetic_tag = prussian_rk
 				}
@@ -3658,6 +3655,35 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = UGL
+		}
+
+	}
+
+	GER_establish_wolgadeutschland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 217
+        	controls_state = 236
+        	controls_state = 237
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				KLV = {
+        			add_state_core = 217
+        			add_state_core = 237
+        			add_state_core = 236
+        			transfer_state = 217
+        			transfer_state = 237
+        			transfer_state = 236
+        			set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = KLV
 		}
 
 	}
