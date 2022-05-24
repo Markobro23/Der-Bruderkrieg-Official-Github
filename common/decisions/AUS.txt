@@ -6851,7 +6851,6 @@ AUS_creating_raus = {
 
 		available = {
 			controls_state = 202
-        	controls_state = 137
         	controls_state = 93
         	controls_state = 199
         	controls_state = 201
@@ -6866,10 +6865,9 @@ AUS_creating_raus = {
         	controls_state = 196
         	controls_state = 200
         	controls_state = 221
-        	controls_state = 227
-        	controls_state = 228
         	controls_state = 220
         	controls_state = 240
+        	controls_state = 137
 		}
 
 		fire_only_once = yes
@@ -6877,13 +6875,12 @@ AUS_creating_raus = {
 		complete_effect = {
 			UKR = {
 				hidden_effect = {
-					add_state_core = 220
-					add_state_core = 240
+					#add_state_core = 220
+					#add_state_core = 240
 					add_state_core = 137
 					remove_state_core = 766
 				}
 				transfer_state = 202
-        		transfer_state = 137
         		transfer_state = 93
         		transfer_state = 199
         		transfer_state = 201
@@ -6897,13 +6894,72 @@ AUS_creating_raus = {
         		transfer_state = 226
         		transfer_state = 196
         		transfer_state = 200
+        		transfer_state = 137
         		transfer_state = 221
-        		transfer_state = 227
+			}
+			puppet = UKR
+			hidden_effect = {
+				UKR = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_expand_ukrainian_authority = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 227
+        	controls_state = 228
+        	controls_state = 220
+        	controls_state = 240
+        	controls_state = 218
+        	controls_state = 234
+        	controls_state = 1085
+		}
+
+		visible = {
+			has_subject = UKR
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			UKR = {
+				hidden_effect = {
+					add_state_core = 227
+        			add_state_core = 228
+        			add_state_core = 220
+        			add_state_core = 240
+        			add_state_core = 218
+        			add_state_core = 234
+        			add_state_core = 1085
+				}
+				transfer_state = 227
         		transfer_state = 228
         		transfer_state = 220
         		transfer_state = 240
+        		transfer_state = 218
+        		transfer_state = 234
+        		transfer_state = 1085
 			}
-			puppet = UKR
 		}
 	}
 
@@ -6936,8 +6992,80 @@ AUS_creating_raus = {
         		transfer_state = 241
 			}
 			puppet = BLR
+			hidden_effect = {
+				BLR = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 
+	}
+
+	AUS_rau_polen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 10
+        	controls_state = 87
+        	controls_state = 98
+        	controls_state = 97
+		}
+
+		visible = {
+			NOT = {
+				POL = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			POL = {
+        		transfer_state = 10
+        		transfer_state = 87
+        		transfer_state = 98
+        		transfer_state = 97
+			}
+			puppet = POL
+			hidden_effect = {
+				POL = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = rau_poland_not_lithuania
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_concessions_to_people
+								}
+							}
+							set_cosmetic_tag = AUS_kingdom_puppet
+						}
+					}
+				}
+			}
+		}
 	}
 
 	AUS_rau_polen_litauen = {
@@ -6982,7 +7110,60 @@ AUS_creating_raus = {
         		transfer_state = 189
 			}
 			puppet = POL
+			hidden_effect = {
+				POL = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = austrian_rau
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_concessions_to_people
+								}
+							}
+							set_cosmetic_tag = austrian_pol_lit_kingdom
+						}
+					}
+				}
+			}
 		}
+	}
+
+	AUS_tend_to_polish_collaborators = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		available = {
+			controls_state = 10
+		}
+
+		visible = {
+			NOT = {
+				has_subject = POL
+			}
+			any_controlled_state = {
+				is_core_of = POL
+				NOT = { is_core_of = AUS }
+			}
+		}
+
+		days_remove = 7
+
+		days_re_enable = 21
+
+		remove_effect = {
+			every_controlled_state = {
+				limit = { is_core_of = POL NOT = { is_core_of = AUS } }
+				add_compliance = 5
+			}
+		}
+
 	}
 
 	AUS_expand_galician_authority = {
@@ -6990,8 +7171,6 @@ AUS_creating_raus = {
 		icon = border_war
 
 		fire_only_once = yes
-
-		cost = 50
 
 		visible = {
 			NOT = {
@@ -7002,12 +7181,30 @@ AUS_creating_raus = {
 		}
 
 		available = {
-			controls_state = 90
-			controls_state = 92
-			controls_state = 10
-			controls_state = 87
-			controls_state = 98
-			controls_state = 97
+			90 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			92 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			10 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			87 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			98 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			97 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
 		}
 
 		complete_effect = {
@@ -7087,6 +7284,26 @@ AUS_creating_raus = {
         		transfer_state = 189
 			}
 			puppet = LIT
+			hidden_effect = {
+				LIT = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -7114,6 +7331,26 @@ AUS_creating_raus = {
         		transfer_state = 1126
 			}
 			puppet = LAT
+			hidden_effect = {
+				LAT = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -7138,6 +7375,26 @@ AUS_creating_raus = {
         		transfer_state = 13
 			}
 			puppet = EST
+			hidden_effect = {
+				EST = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -7171,6 +7428,26 @@ AUS_creating_raus = {
         		}
 			}
 			puppet = FOB
+			hidden_effect = {
+				FOB = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -7216,6 +7493,86 @@ AUS_creating_raus = {
 				transfer_state = 766
 			}
 			puppet = MOL
+		}
+
+	}
+
+	AUS_rau_kosaken = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 234
+			controls_state = 218
+			controls_state = 238
+			controls_state = 245
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NYK = {
+				hidden_effect = {
+					add_state_core = 234
+					add_state_core = 218
+					add_state_core = 238
+					add_state_core = 245
+				}
+				transfer_state = 234
+				transfer_state = 218
+				transfer_state = 238
+				transfer_state = 245
+			}
+			puppet = NYK
+			hidden_effect = {
+				NYK = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_free_finland = {
+
+		icon = generic_political_discourse
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+        	controls_state = 722
+        	controls_state = 147
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+        		transfer_state = 722
+        		transfer_state = 147
+			}
+			add_to_faction = FIN
 		}
 
 	}
