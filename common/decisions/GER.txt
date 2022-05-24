@@ -3081,3 +3081,611 @@ atomwaffen_decisions = {
 		}
   	}
 }
+
+GER_occupation_of_russia = {
+	
+	GER_rk_polen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 10
+			controls_state = 87
+			controls_state = 98
+			controls_state = 90
+			controls_state = 92
+			controls_state = 97
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			POL = {
+				transfer_state = 10
+				transfer_state = 87
+				transfer_state = 98
+				transfer_state = 90
+				transfer_state = 92
+				transfer_state = 97
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = POL
+		}
+
+	}
+
+	GER_rk_baltikum = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 190
+        	controls_state = 11
+        	controls_state = 784
+        	controls_state = 12
+        	controls_state = 190
+        	controls_state = 191
+        	controls_state = 13
+        	controls_state = 189
+        	controls_state = 1126
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FOB = {
+				transfer_state = 190
+        		transfer_state = 11
+        		transfer_state = 784
+        		transfer_state = 12
+        		transfer_state = 190
+        		transfer_state = 191
+        		transfer_state = 13
+        		transfer_state = 189
+        		transfer_state = 1126
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = FOB
+		}
+
+	}
+
+	GER_rk_ukraine = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 202
+        	controls_state = 137
+        	controls_state = 218
+        	controls_state = 93
+        	controls_state = 199
+        	controls_state = 201
+        	controls_state = 198
+        	controls_state = 192
+        	controls_state = 197
+        	controls_state = 203
+        	controls_state = 193
+        	controls_state = 225
+        	controls_state = 259
+        	controls_state = 226
+        	controls_state = 196
+        	controls_state = 200
+        	controls_state = 221
+        	controls_state = 227
+        	controls_state = 228
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				UKR = {
+					add_state_core = 137
+					add_state_core = 218
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			release_puppet_on_controlled = UKR
+		}
+
+	}
+
+	GER_rk_bessarabien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 78
+		}
+
+		visible = {
+			controls_state = 78
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			MOL = {
+				transfer_state = 78
+				if = {
+					limit = {
+						GER = { controls_state = 766 }
+					}
+					transfer_state = 766
+				}
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = MOL
+			if = {
+				limit = {
+					is_in_faction_with = ROM
+				}
+				ROM = {
+					add_opinion_modifier = {
+						target = GER
+						modifier = small_decrease
+					}
+				}
+			}
+		}
+
+	}
+
+	GER_give_moldova_to_romania = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 78
+        	is_in_faction_with = ROM
+		}
+
+		visible = {
+			is_in_faction_with = ROM
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			ROM = {
+				transfer_state = 78
+				if = {
+					limit = {
+						GER = { controls_state = 766 }
+					}
+					transfer_state = 766
+				}
+			}
+		}
+
+	}
+
+	GER_expand_rk_galizien = {
+
+		icon = border_war
+
+		visible = {
+			UKR = {
+				exists = no
+			}
+			GLC = {
+				is_subject_of = GER
+			}
+		}
+
+		available = {
+			controls_state = 91
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GLC = {
+				transfer_state = 91
+			}
+		}
+
+	}
+
+	GER_rk_weissrussland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 206
+        	controls_state = 95
+        	controls_state = 94
+        	controls_state = 194
+        	controls_state = 204
+        	controls_state = 96
+        	controls_state = 207
+        	controls_state = 241
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			BLR = {
+				transfer_state = 206
+        		transfer_state = 95
+        		transfer_state = 94
+        		transfer_state = 194
+        		transfer_state = 204
+        		transfer_state = 96
+        		transfer_state = 207
+        		transfer_state = 241
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = BLR
+		}
+
+	}
+
+	GER_consolidate_ostland = {
+
+		icon = ger_reichskommissariats
+
+		visible = {
+			FOB = {
+				is_subject_of = GER
+			}
+			BLR = {
+				is_subject_of = GER
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				every_state = {
+					limit = { is_core_of = BLR is_core_of = FOB }
+					add_core_of = LIT
+				}
+				LIT = {
+					transfer_state = 11
+					annex_country = {
+						target = BLR
+						transfer_troops = yes
+					}
+					annex_country = {
+						target = FOB
+						transfer_troops = yes
+					}
+					set_cosmetic_tag = prussian_rk
+				}
+				puppet = LIT
+			}
+			custom_effect_tooltip = ostland_annex_weissrussland_and_baltikum
+		}
+
+	}
+
+	GER_rk_kaukasus = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 1085
+        	controls_state = 232
+        	controls_state = 235
+        	controls_state = 231
+        	controls_state = 229
+        	controls_state = 233
+        	controls_state = 230
+        	controls_state = 1082
+        	controls_state = 1083
+        	controls_state = 234
+        	controls_state = 238
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GEO = {
+				hidden_effect = {
+					add_state_core = 1085
+			        add_state_core = 232
+			        add_state_core = 235
+			        add_state_core = 231
+			        add_state_core = 229
+			        add_state_core = 233
+			        add_state_core = 230
+			        add_state_core = 1082
+			        add_state_core = 1083
+				}
+				transfer_state = 1085
+		        transfer_state = 232
+		        transfer_state = 235
+		        transfer_state = 231
+		        transfer_state = 229
+		        transfer_state = 233
+		        transfer_state = 230
+		        transfer_state = 1082
+		        transfer_state = 1083
+		        transfer_state = 234
+		        transfer_state = 238
+		        transfer_state = 843
+		        transfer_state = 345
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = GEO
+		}
+
+	}
+
+	GER_rk_frederickstadt = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 195
+        	controls_state = 208
+        	controls_state = 209
+        	controls_state = 244
+        	controls_state = 263
+        	controls_state = 246
+        	controls_state = 210
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				RRR = {
+					add_state_core = 195
+			        add_state_core = 208
+			        add_state_core = 209
+			        add_state_core = 244
+			        add_state_core = 263
+			        add_state_core = 246
+			        add_state_core = 210
+			        transfer_state = 195
+	        		transfer_state = 208
+	        		transfer_state = 209
+	        		transfer_state = 244
+	        		transfer_state = 263
+	        		transfer_state = 246
+	        		transfer_state = 210
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = RRR
+		}
+
+	}
+
+	GER_rk_russland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 242
+        	controls_state = 219
+        	controls_state = 243
+        	controls_state = 205
+        	controls_state = 223
+        	controls_state = 254
+        	controls_state = 224
+        	controls_state = 222
+        	controls_state = 258
+        	controls_state = 220
+        	controls_state = 240
+        	controls_state = 260
+        	controls_state = 265
+        	controls_state = 245
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				LNU = {
+					add_state_core = 242
+			        add_state_core = 219
+			        add_state_core = 243
+			        add_state_core = 205
+			        add_state_core = 223
+			        add_state_core = 254
+			        add_state_core = 224
+			        add_state_core = 222
+			        add_state_core = 258
+			        add_state_core = 220
+			        add_state_core = 240
+			        add_state_core = 260
+			        add_state_core = 265
+			        add_state_core = 245
+			        transfer_state = 242
+	        		transfer_state = 219
+	        		transfer_state = 243
+	        		transfer_state = 205
+	        		transfer_state = 223
+	        		transfer_state = 254
+	        		transfer_state = 224
+	        		transfer_state = 222
+	        		transfer_state = 258
+	        		transfer_state = 220
+	        		transfer_state = 240
+	        		transfer_state = 260
+	        		transfer_state = 265
+	        		transfer_state = 245
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = LNU
+		}
+
+	}
+
+	GER_rk_finnland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+		}
+
+		visible = {
+			FIN = {
+				exists = no
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = FIN
+		}
+
+	}
+
+	GER_promote_finnish_nationalists = {
+
+		icon = generic_political_discourse
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+        	controls_state = 215
+        	controls_state = 213
+        	controls_state = 722
+        	controls_state = 147
+        	controls_state = 146
+		}
+
+		visible = {
+			FIN = {
+				exists = no
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 146
+					add_state_core = 213
+					add_state_core = 215
+				}
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+        		transfer_state = 215
+        		transfer_state = 213
+        		transfer_state = 146
+        		transfer_state = 722
+        		transfer_state = 147
+			}
+			add_to_faction = FIN
+		}
+
+	}
+
+	GER_rk_karelien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 215
+        	controls_state = 213
+        	controls_state = 146
+        	controls_state = 722
+        	controls_state = 147
+        	controls_state = 216
+		}
+
+		visible = {
+			UGL = {
+				exists = no
+			}
+			NOT = {
+				FIN = {
+					owns_state = 215
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				UGL = {
+					remove_ideas = UGL_white_army_divided
+        			add_state_core = 215
+        			add_state_core = 213
+        			add_state_core = 146
+        			add_state_core = 722
+        			add_state_core = 216
+        			add_state_core = 147
+        			transfer_state = 215
+        			transfer_state = 213
+        			transfer_state = 146
+        			transfer_state = 722
+        			transfer_state = 147
+        			transfer_state = 216
+        			set_capital = { state = 216 }
+        			set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = UGL
+		}
+
+	}
+
+	GER_establish_wolgadeutschland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 217
+        	controls_state = 236
+        	controls_state = 237
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				KLV = {
+        			add_state_core = 217
+        			add_state_core = 237
+        			add_state_core = 236
+        			transfer_state = 217
+        			transfer_state = 237
+        			transfer_state = 236
+        			set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = KLV
+		}
+
+	}
+
+}
