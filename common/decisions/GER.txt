@@ -3375,17 +3375,13 @@ GER_occupation_of_russia = {
 		icon = ger_reichskommissariats
 
 		available = {
-			controls_state = 1085
-        	controls_state = 232
-        	controls_state = 235
         	controls_state = 231
         	controls_state = 229
-        	controls_state = 233
         	controls_state = 230
         	controls_state = 1082
         	controls_state = 1083
-        	controls_state = 234
-        	controls_state = 238
+		    controls_state = 843
+		    controls_state = 345
 		}
 
 		fire_only_once = yes
@@ -3393,34 +3389,134 @@ GER_occupation_of_russia = {
 		complete_effect = {
 			GEO = {
 				hidden_effect = {
-					add_state_core = 1085
-			        add_state_core = 232
-			        add_state_core = 235
-			        add_state_core = 231
-			        add_state_core = 229
-			        add_state_core = 233
-			        add_state_core = 230
-			        add_state_core = 1082
-			        add_state_core = 1083
+					add_state_core = 231
+        			add_state_core = 229
+        			add_state_core = 230
+        			add_state_core = 1082
+        			add_state_core = 1083
+		    		add_state_core = 843
+		    		add_state_core = 345
 				}
-				transfer_state = 1085
-		        transfer_state = 232
-		        transfer_state = 235
-		        transfer_state = 231
-		        transfer_state = 229
-		        transfer_state = 233
-		        transfer_state = 230
-		        transfer_state = 1082
-		        transfer_state = 1083
-		        transfer_state = 234
-		        transfer_state = 238
-		        transfer_state = 843
-		        transfer_state = 345
+				transfer_state = 231
+        		transfer_state = 229
+        		transfer_state = 230
+        		transfer_state = 1082
+        		transfer_state = 1083
+		    	transfer_state = 843
+		    	transfer_state = 345
 				hidden_effect = {
 					set_cosmetic_tag = prussian_rk
 				}
 			}
 			puppet = GEO
+		}
+
+	}
+
+	GER_rk_kuban = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 234
+        	controls_state = 238
+        	controls_state = 1085
+        	controls_state = 235
+		}
+
+		visible = {
+			NOT = {
+				GEO = {
+					owns_state = 234
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NYK = {
+				hidden_effect = {
+					add_state_core = 234
+        			add_state_core = 238
+        			add_state_core = 1085
+        			add_state_core = 235
+			        set_capital = { state = 234 }
+				}
+				transfer_state = 234
+        		transfer_state = 238
+        		transfer_state = 1085
+        		transfer_state = 235
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = NYK
+		}
+
+	}
+
+	GER_rk_tschetschenisch = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 232
+        	controls_state = 233
+		}
+
+		visible = {
+			CHE = { exists = no }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CHE = {
+				hidden_effect = {
+					add_state_core = 232
+        			add_state_core = 233
+				}
+				transfer_state = 232
+        		transfer_state = 233
+				hidden_effect = {
+					set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = CHE
+		}
+
+	}
+
+	GER_consolidate_caucasian_rks = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = GEO
+			has_subject = NYK
+			has_subject = CHE
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				every_state = {
+					limit = { OR = { is_core_of = CHE is_core_of = NYK } }
+					add_core_of = GEO
+				}
+			}
+			GEO = {
+				annex_country = {
+					target = NYK
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = CHE
+					transfer_troops = yes
+				}
+			}
 		}
 
 	}
@@ -3459,6 +3555,7 @@ GER_occupation_of_russia = {
 	        		transfer_state = 246
 	        		transfer_state = 210
 					set_cosmetic_tag = prussian_rk
+					set_capital = { state = 195 }
 				}
 			}
 			puppet = RRR
@@ -3485,6 +3582,7 @@ GER_occupation_of_russia = {
         	controls_state = 260
         	controls_state = 265
         	controls_state = 245
+        	controls_state = 257
 		}
 
 		fire_only_once = yes
@@ -3506,6 +3604,7 @@ GER_occupation_of_russia = {
 			        add_state_core = 260
 			        add_state_core = 265
 			        add_state_core = 245
+        	        add_state_core = 257
 			        transfer_state = 242
 	        		transfer_state = 219
 	        		transfer_state = 243
@@ -3520,6 +3619,8 @@ GER_occupation_of_russia = {
 	        		transfer_state = 260
 	        		transfer_state = 265
 	        		transfer_state = 245
+        	        transfer_state = 257
+					set_capital = { state = 242 }
 					set_cosmetic_tag = prussian_rk
 				}
 			}
@@ -3632,6 +3733,10 @@ GER_occupation_of_russia = {
 			}
 		}
 
+		visible = {
+			UGL = { exists = no }
+		}
+
 		fire_only_once = yes
 
 		complete_effect = {
@@ -3669,6 +3774,10 @@ GER_occupation_of_russia = {
         	controls_state = 237
 		}
 
+		visible = {
+			KLV = { exists = no }
+		}
+
 		fire_only_once = yes
 
 		complete_effect = {
@@ -3684,6 +3793,45 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = KLV
+		}
+
+	}
+
+	GER_rk_migalawo = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 351
+        	controls_state = 253
+        	controls_state = 247
+        	controls_state = 248
+        	controls_state = 264
+		}
+
+		visible = {
+			EST = { exists = no }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				EST = {
+        			add_state_core = 351
+        			add_state_core = 253
+        			add_state_core = 247
+        			add_state_core = 248
+        			add_state_core = 264
+        			transfer_state = 351
+        			transfer_state = 253
+        			transfer_state = 247
+        			transfer_state = 248
+        			transfer_state = 264
+        			set_cosmetic_tag = prussian_rk
+				}
+			}
+			puppet = EST
 		}
 
 	}
