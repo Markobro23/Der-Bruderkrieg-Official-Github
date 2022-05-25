@@ -1096,6 +1096,8 @@ shared_focus = {
                 days = 600
             }
         }
+        SOV_increase_support_among_people_small = yes
+        add_political_power = -25
     }
 }
 
@@ -1121,7 +1123,14 @@ shared_focus = {
     completion_reward = {
         
         add_political_power = 150
-        set_cosmetic_tag = royal_russian_republic
+        if = {
+            limit = {
+                NOT = {
+                    has_cosmetic_tag = united_eurasia
+                }
+            }
+            set_cosmetic_tag = royal_russian_republic
+        }
         set_politics = {
             ruling_party = democratic_liberalism
         }
@@ -3361,19 +3370,50 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		AND = {
+			ROM = {
+				exists = no
+			}
+			YUG = {
+				exists = no
+			}
+            BUL = {
+				exists = no
+			}
+            SER = {
+				exists = no
+			}
+		}
+	}
     completion_reward = {
         ROM = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
-        YUG = {
-            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        if = {
+            limit = {
+                YUG = {
+                    exists = yes
+                }
+            }
+            YUG = {
+                country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+            }
+        }
+        if = {
+            limit = {
+                SER = {
+                    exists = yes
+                }
+            }
+            SER = {
+                country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+            }
         }
         BUL = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
-        SER = {
-            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
-        }
+     
     }
 }
 shared_focus = {
@@ -3389,6 +3429,34 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+     bypass = {
+		AND = {
+			ETR = {
+				exists = no
+			}
+			NRX = {
+				exists = no
+			}
+            KUL = {
+				exists = no
+			}
+            AFG = {
+				exists = no
+			}
+            PER = {
+				exists = no
+			}
+            TRB = {
+				exists = no
+			}
+            TUR = {
+				exists = no
+			}
+            BYZ = {
+				exists = no
+			}
+		}
+	}
     completion_reward = {
         ETR = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
@@ -3444,6 +3512,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			GLC = {
+				exists = no
+			}
+			GLC = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         GLC = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
@@ -3464,6 +3542,17 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		AND = {
+			MAN = {
+				exists = no
+			}
+			MON = {
+				exists = no
+			}
+          
+		}
+	}
     completion_reward = {
         MAN = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
@@ -3491,6 +3580,9 @@ shared_focus = {
     }
     completion_reward = {
         set_cosmetic_tag = united_eurasia
+        every_controlled_state = {
+            add_core_of = SOV
+        }
         
     }
 }
@@ -3528,6 +3620,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    
     completion_reward = {
         add_state_core = 763
         add_state_core = 188
@@ -3548,6 +3641,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         create_wargoal = {
             target = GER
@@ -3568,6 +3671,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    # bypass = {
+	# 	OR = {
+	# 		FRA = {
+	# 			exists = no
+	# 		}
+	# 		FRA = {
+	# 			has_war_with = SOV
+	# 		}
+    #         FRA = {
+    #             is_puppet = yes
+    #         }
+	# 	}
+	# }
     completion_reward = {
         swap_ideas = {
             add_idea = Path_of_Agression_SOV_2
@@ -3588,6 +3704,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			FRA = {
+				exists = no
+			}
+			FRA = {
+				has_war_with = SOV
+			}
+            FRA = {
+                is_puppet = yes
+            }
+		}
+	}
     completion_reward = {
         create_wargoal = {
             target = FRA
@@ -3605,6 +3734,19 @@ shared_focus = {
     available = {
         has_completed_focus = SOV_the_eurasian_superstate
     }
+    bypass = {
+		OR = {
+			ENG = {
+				exists = no
+			}
+			ENG = {
+				has_war_with = SOV
+			}
+            ENG = {
+                is_puppet = yes
+            }
+		}
+	}
  
 	x = 1
 	y = 1

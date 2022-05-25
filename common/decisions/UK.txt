@@ -895,6 +895,54 @@ weltkrieg_decisions = {
 			add_war_support = 0.15
 		}
 	}
+	ENG_invade_prussia_for_memes = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_war_with = SOV
+			NOT = {
+				has_country_flag = UK_chose_mosley
+				has_country_flag = UK_chose_attlee
+			}
+		}
+
+		cost = 0
+		days_remove = 35
+
+		available = {
+		}
+
+		remove_effect = {
+			activate_mission = ENG_complete_mobilization
+			set_country_flag = ENG_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+
+			hidden_effect = {
+				AUS = {
+					country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+				}
+				GER = {
+					country_event = {
+						id = british_inteverntion_in_prussian_expansion.8
+						days = 3
+					}
+				}
+			}
+
+		}
+
+	}
 }
 
 UK_withdraw_from_hanover_cat = {

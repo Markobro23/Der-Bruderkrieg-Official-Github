@@ -413,102 +413,102 @@ shared_focus = {
 	}
 }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_high_command
-	icon = GFX_goal_SOV_reorganizing_the_high_command
-	x = -2
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_high_command
+# 	icon = GFX_goal_SOV_reorganizing_the_high_command
+# 	x = -2
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
-	ai_will_do = {
-		factor = 95
-	}
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_officer_corps
-	icon = GFX_goal_SOV_reorganizing_the_officer_corp
-	x = 0
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_officer_corps
+# 	icon = GFX_goal_SOV_reorganizing_the_officer_corp
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
-	ai_will_do = {
-		factor = 95
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_infantry
-	icon = GFX_goal_SOV_reorganizing_the_infantry
-	x = 2
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_infantry
+# 	icon = GFX_goal_SOV_reorganizing_the_infantry
+# 	x = 2
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
-	ai_will_do = {
-		factor = 95
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
 shared_focus = { 
 	id = SOV_continuing_the_reforms
 	icon = GFX_goal_SOV_continuing_the_reforms
 	x = 0
 	y = 1
-	relative_position_id = SOV_reorganizing_the_officer_corps
+	relative_position_id = SOV_pavels_army_reforms
 	
 	available = {
 	}
@@ -517,9 +517,7 @@ shared_focus = {
 	}
 
 	cost = 3
-	prerequisite = { focus = SOV_reorganizing_the_high_command }
-	prerequisite = { focus = SOV_reorganizing_the_officer_corps }
-	prerequisite = { focus = SOV_reorganizing_the_infantry }
+	prerequisite = { focus = SOV_pavels_army_reforms }
 	ai_will_do = {
 		factor = 95
 	}
@@ -2489,9 +2487,10 @@ shared_focus = {
 	}
 	relative_position_id = SOV_demand_japanese_lands
 	available = {
-		GER = {
-			has_war_with = AUS
-		}
+		
+	}
+	bypass = {
+		has_war_with = AUS
 	}
 
 	cost = 10		
@@ -2502,10 +2501,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		create_wargoal = {
-			target = AUS
-			type = topple_government
-		}
+		unlock_decision_tooltip = SOV_operation_third_rome_decision
 	}
 	ai_will_do = {
 		factor = 200
