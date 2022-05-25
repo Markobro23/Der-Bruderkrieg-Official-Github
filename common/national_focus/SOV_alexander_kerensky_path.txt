@@ -2753,6 +2753,10 @@ shared_focus = {
 	completion_reward = {
 		add_war_support = 0.05
 		SOV_increase_support_among_people_large = yes
+
+		hidden_effect = {
+			country_event = SOV_kerensky_tree_events.15
+		}
 	}
 }
 # shared_focus = {
@@ -2780,7 +2784,7 @@ shared_focus = {
 	relative_position_id = SOV_the_republic_victorious
 	x = -1
 	y = 1
-	cost = 8
+	cost = 10
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 	mutually_exclusive = {
@@ -2790,8 +2794,67 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
+	available = {
+		HUN = {
+			has_idea = HUN_post_war_rebels
+		}
+		SLO = {
+			has_idea = HUN_post_war_rebels
+		}
+		HUN = {
+			every_owned_state = {
+				divisions_in_state = {
+					size > 4
+					state = THIS
+				}
+			}
+		}
+		SLO = {
+			every_owned_state = {
+				divisions_in_state = {
+					size > 4
+					state = THIS
+				}
+			}
+		}
+	}
 	completion_reward = {
-		add_political_power = 50
+		HUN = {
+			set_cosmetic_tag = occupied_hungary_russia
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader ={
+				name="Abram Dragomirov"
+				picture = "gfx/leaders/SOV/Portrait_RUS_Abram_Dragomirov.png"
+				ideology = despotic
+			}
+		}
+		SLO = {
+			set_cosmetic_tag = occupied_slovakia_russia
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader ={
+				name="Vladimir von Manstein"
+				picture = "gfx/leaders/SOV/Portrait_RUS_Vladimir_Manshteyn.png"
+				ideology = despotic
+			}
+		}
+		HUN = {
+			remove_ideas = HUN_post_war_rebels
+		}
+		SLO = {
+			remove_ideas = HUN_post_war_rebels
+		}
 	}
 }
 
@@ -2802,18 +2865,37 @@ shared_focus = {
 	relative_position_id = SOV_the_republic_victorious
 	x = 1
 	y = 1
-	cost = 8
+	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 	mutually_exclusive = {
 		focus = SOV_forge_our_own_path
 	}
-
+	available = {
+		HUN = {
+			has_idea = HUN_post_war_rebels
+		}
+	}
 	ai_will_do = {
 		factor = 1000
 	}
 	completion_reward = {
-		add_war_support = 0.1
+		set_autonomy = {
+			target = HUN
+			autonomous_state = autonomy_free
+		}
+		set_autonomy = {
+			target = SLO
+			autonomous_state = autonomy_free
+		}
+		add_to_faction = HUN
+		add_to_faction = SLO
+		HUN = {
+			remove_ideas = HUN_post_war_rebels
+		}
+		SLO = {
+			remove_ideas = HUN_post_war_rebels
+		}
 	}
 }
 
@@ -2832,6 +2914,18 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
+		every_country = {
+			limit = {
+				is_in_faction_with = SOV
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+			add_ideas = SOV_european_economic_zone
+		}
+		SOV = {
+			add_ideas = SOV_european_economic_zone
+		}
 		every_owned_state = {
             limit = {
             	any_neighbor_state = { OR = { is_owned_by = GER is_owned_by = ENG is_owned_by = FRA is_owned_by = AUS } }
@@ -2995,7 +3089,7 @@ shared_focus = {
 	relative_position_id = SOV_forge_our_own_path
 	x = 0
 	y = 1
-	cost = 10
+	cost = 12
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 

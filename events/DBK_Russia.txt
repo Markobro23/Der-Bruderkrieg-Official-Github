@@ -1664,7 +1664,23 @@ news_event = {
 
 }
 
-
+country_event = { #rebels in occupation
+	id = SOV_kerensky_tree_events.15
+	title = SOV_kerensky_tree_events.15.t
+	desc = SOV_kerensky_tree_events.15.d
+	picture = GFX_SOV_okhranaquestion
+	is_triggered_only = yes
+	option = {
+		name = SOV_kerensky_tree_events.15.a #That's not very cash money of you
+		ai_chance = { factor = 1}
+		HUN = {
+			add_ideas = HUN_post_war_rebels
+		}
+		SLO = {
+			add_ideas = HUN_post_war_rebels
+		}
+	}
+} 
 
 add_namespace = SOV_pavel_tree_events
 ##The Question of the Okhrana
