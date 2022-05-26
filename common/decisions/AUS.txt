@@ -6985,11 +6985,62 @@ AUS_creating_raus = {
 		}
 	}
 
+	AUS_expand_ukrainian_authority_mini = {
+
+		icon = border_war
+
+		name = AUS_expand_ukrainian_authority
+
+		available = {
+			controls_state = 137
+			controls_state = 196
+			controls_state = 200
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			has_subject = UKR
+			has_completed_focus = AUS_ABSOLUTISM
+			has_subject = NYK
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			UKR = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 196
+        			add_state_core = 200
+        			add_state_core = 220
+        			add_state_core = 240
+				}
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+        		if = {
+        			limit = {
+        				NOT = {
+        					LNU = { owns_state = 220 }
+        				}
+        			}
+        			transfer_state = 220
+        			transfer_state = 240
+        		}
+			}
+		}
+	}
+
 	AUS_rau_weissrussland = {
 
 		icon = ger_reichskommissariats
 
 		available = {
+			controls_state = 242
+			controls_state = 243
 			controls_state = 206
         	controls_state = 95
         	controls_state = 94
@@ -7008,6 +7059,10 @@ AUS_creating_raus = {
 
 		complete_effect = {
 			BLR = {
+				hidden_effect = {
+					add_state_core = 242
+					add_state_core = 243
+				}
 				transfer_state = 206
         		transfer_state = 95
         		transfer_state = 94
@@ -7016,6 +7071,8 @@ AUS_creating_raus = {
         		transfer_state = 96
         		transfer_state = 207
         		transfer_state = 241
+				transfer_state = 242
+				transfer_state = 243
 			}
 			puppet = BLR
 			hidden_effect = {
@@ -7697,10 +7754,8 @@ AUS_creating_raus = {
 
 		available = {
 			controls_state = 219
-        	controls_state = 242
         	controls_state = 205
         	controls_state = 223
-        	controls_state = 243
         	controls_state = 224
         	controls_state = 222
 		}
@@ -7715,24 +7770,23 @@ AUS_creating_raus = {
 			hidden_effect = {
 				LNU = {
 					add_state_core = 219
-        			add_state_core = 242
         			add_state_core = 205
         			add_state_core = 223
-        			add_state_core = 243
         			add_state_core = 224
         			add_state_core = 222
 			        transfer_state = 219
-        			transfer_state = 242
         			transfer_state = 205
         			transfer_state = 223
-        			transfer_state = 243
         			transfer_state = 224
         			transfer_state = 222
 					set_capital = { state = 219 }
 					if = {
 						limit = { 
 							AUS = { 
-								has_subject = NYK 
+								OR = {
+									has_subject = NYK 
+									has_subject = CRI
+								}
 								controls_state = 220
 								controls_state = 240
 							} 
