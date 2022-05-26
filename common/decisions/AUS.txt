@@ -6865,8 +6865,6 @@ AUS_creating_raus = {
         	controls_state = 196
         	controls_state = 200
         	controls_state = 221
-        	controls_state = 220
-        	controls_state = 240
         	controls_state = 137
 		}
 
@@ -8159,6 +8157,65 @@ AUS_creating_raus = {
 						}
 					}
 				}
+			}
+		}
+
+	}
+
+	AUS_re_establish_novgorod = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = RRR
+			NOT = {
+				FIN = {
+					owns_state = 216
+				}
+			}
+			has_completed_focus = AUS_concessions_to_people
+		}
+
+		available = {
+			OR = {
+				AND = {
+					controls_state = 215
+		        	controls_state = 213
+		        	controls_state = 216
+				}
+				UGL = {
+					controls_state = 215
+		        	controls_state = 213
+		        	controls_state = 216
+				}
+			}
+		}
+
+		complete_effect = {
+			RRR = {
+				hidden_effect = {
+					add_state_core = 215
+		        	add_state_core = 213
+		        	add_state_core = 216
+				}
+				if = {
+					limit = {
+						AUS = {
+							has_subject = UGL
+						}
+					}
+					annex_country = {
+						target = UGL
+						transfer_troops = yes
+					}
+					else = {
+						transfer_state = 215
+		        		transfer_state = 213
+		        		transfer_state = 216
+					}
+				}
+				set_cosmetic_tag = AUS_novgorod_republic
+				set_capital = { state = 263 }
 			}
 		}
 
