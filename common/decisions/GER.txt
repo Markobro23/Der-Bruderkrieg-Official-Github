@@ -3823,6 +3823,7 @@ GER_occupation_of_russia = {
 		complete_effect = {
 			hidden_effect = {
 				EST = {
+					add_state_core = 216
         			add_state_core = 351
         			add_state_core = 253
         			add_state_core = 247
@@ -3833,6 +3834,19 @@ GER_occupation_of_russia = {
         			transfer_state = 247
         			transfer_state = 248
         			transfer_state = 264
+        			if = {
+        				limit = {
+        					GER = {
+        						NOT = {
+        							OR = {
+        								has_subject = FIN
+        								has_subject = UGL
+        							}
+        						}
+        					}
+        				}
+        				transfer_state = 216
+        			}
         			set_cosmetic_tag = russian_prussian_rk
 				}
 			}
