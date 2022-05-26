@@ -1325,6 +1325,9 @@ shared_focus = {
 	ai_will_do = { 
 		factor = 2000
 	}  
+	available = {
+		always = no
+	}
 
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1390,6 +1393,9 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = SOV_denouncing_the_okhrana
+	}
+	available = {
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -2217,12 +2223,10 @@ shared_focus = {
 			ETR = {
 		every_owned_state = {
 			
-			ETR = {
 				give_resource_rights = {
 					receiver = SOV
-					state = PREV
+					state = THIS
 				}
-			}
 		}
 		}
 		}
