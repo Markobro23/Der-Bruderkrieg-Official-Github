@@ -3803,4 +3803,130 @@ GER_occupation_of_russia = {
 
 	}
 
+	GER_rk_neuer_osten = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 250
+			controls_state = 255
+			controls_state = 239
+			controls_state = 252
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					LNU = {
+						owns_state = 252
+					}
+					EST = {
+						owns_state = 252
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				NVR = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 239
+					add_state_core = 252
+					transfer_state = 250
+					transfer_state = 255
+					transfer_state = 239
+					transfer_state = 252
+					set_capital = { state = 252 }
+					set_cosmetic_tag = russian_prussian_rk
+				}
+			}
+			puppet = NVR
+		}
+
+	}
+
+	GER_expand_migalawo = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 250
+			controls_state = 255
+			controls_state = 239
+			controls_state = 252
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					has_subject = NVR
+					LNU = { owns_state = 252 }
+				}
+			}
+			has_subject = EST
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			EST = {
+				hidden_effect = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 239
+					add_state_core = 252
+				}
+				transfer_state = 250
+				transfer_state = 255
+				transfer_state = 239
+				transfer_state = 252
+			}
+		}
+
+	}
+
+	GER_expand_russland = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 250
+			controls_state = 255
+			controls_state = 239
+			controls_state = 252
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					has_subject = NVR
+					EST = { owns_state = 252 }
+				}
+			}
+			has_subject = LNU
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			LNU = {
+				hidden_effect = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 239
+					add_state_core = 252
+				}
+				transfer_state = 250
+				transfer_state = 255
+				transfer_state = 239
+				transfer_state = 252
+			}
+		}
+
+	}
+
 }
