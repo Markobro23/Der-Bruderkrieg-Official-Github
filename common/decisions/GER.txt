@@ -3488,6 +3488,44 @@ GER_occupation_of_russia = {
 
 	}
 
+	GER_consolidate_caucasian_rks = {
+
+		icon = ger_reichskommissariats
+
+		visible = {
+			has_subject = GEO
+			has_subject = NYK
+			has_subject = CHE
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GEO = {
+				hidden_effect = {
+					every_state = {
+						limit = {
+							OR = {
+								is_core_of = CHE
+								is_core_of = NYK
+							}
+						}
+						add_core_of = GEO
+					}
+				}
+				annex_country = {
+					target = NYK
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = CHE
+					transfer_troops = yes
+				}
+			}
+		}
+
+	}
+
 	GER_rk_frederickstadt = {
 
 		icon = ger_reichskommissariats
