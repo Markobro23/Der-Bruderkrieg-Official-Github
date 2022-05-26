@@ -6933,10 +6933,16 @@ AUS_creating_raus = {
         	controls_state = 218
         	controls_state = 234
         	controls_state = 1085
+			controls_state = 238
+			controls_state = 245
+			controls_state = 235
 		}
 
 		visible = {
 			has_subject = UKR
+			NOT = {
+				has_subject = NYK
+			}
 		}
 
 		fire_only_once = yes
@@ -6951,6 +6957,9 @@ AUS_creating_raus = {
         			add_state_core = 218
         			add_state_core = 234
         			add_state_core = 1085
+        			add_state_core = 238
+					add_state_core = 245
+					add_state_core = 235
 				}
 				transfer_state = 227
         		transfer_state = 228
@@ -6959,6 +6968,9 @@ AUS_creating_raus = {
         		transfer_state = 218
         		transfer_state = 234
         		transfer_state = 1085
+        		transfer_state = 238
+				transfer_state = 245
+				transfer_state = 235
 			}
 		}
 	}
@@ -7127,6 +7139,15 @@ AUS_creating_raus = {
 							}
 							set_cosmetic_tag = austrian_pol_lit_kingdom
 						}
+					}
+				}
+				if = {
+					limit = {
+						has_subject = GLC
+					}
+					GLC = {
+						transfer_state = 90
+						transfer_state = 92
 					}
 				}
 			}
@@ -7493,6 +7514,333 @@ AUS_creating_raus = {
 				transfer_state = 766
 			}
 			puppet = MOL
+			hidden_effect = {
+				MOL = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = austrian_rau
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_rudolfsburg = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 195
+        	controls_state = 244
+        	controls_state = 263
+        	controls_state = 208
+        	controls_state = 209
+        	controls_state = 210
+        	controls_state = 195
+        	controls_state = 246
+        	controls_state = 264
+        	controls_state = 247
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				RRR = {
+					add_state_core = 195
+        			add_state_core = 244
+        			add_state_core = 263
+        			add_state_core = 208
+        			add_state_core = 209
+        			add_state_core = 210
+        			add_state_core = 195
+        			add_state_core = 246
+        			add_state_core = 264
+        			add_state_core = 247
+			        transfer_state = 195
+        			transfer_state = 244
+        			transfer_state = 263
+        			transfer_state = 208
+        			transfer_state = 209
+        			transfer_state = 210
+        			transfer_state = 195
+        			transfer_state = 246
+        			transfer_state = 264
+        			transfer_state = 247
+					set_capital = { state = 195 }
+				}
+			}
+			puppet = RRR
+			hidden_effect = {
+				RRR = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_rudolfsburg
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_expand_petrograd_authority = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = RRR
+		}
+
+		available = {
+			controls_state = 351
+			controls_state = 248
+		}
+
+		complete_effect = {
+			RRR = {
+				hidden_effect = {
+					add_state_core = 351
+					add_state_core = 248
+				}
+				transfer_state = 351
+				transfer_state = 248
+			}
+		}
+
+	}
+
+	AUS_rau_moskowien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 219
+        	controls_state = 242
+        	controls_state = 205
+        	controls_state = 223
+        	controls_state = 243
+        	controls_state = 224
+        	controls_state = 222
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				LNU = {
+					add_state_core = 219
+        			add_state_core = 242
+        			add_state_core = 205
+        			add_state_core = 223
+        			add_state_core = 243
+        			add_state_core = 224
+        			add_state_core = 222
+			        transfer_state = 219
+        			transfer_state = 242
+        			transfer_state = 205
+        			transfer_state = 223
+        			transfer_state = 243
+        			transfer_state = 224
+        			transfer_state = 222
+					set_capital = { state = 219 }
+					if = {
+						limit = { 
+							AUS = { 
+								has_subject = NYK 
+								controls_state = 220
+								controls_state = 240
+							} 
+						}
+						add_state_core = 220
+						transfer_state = 220
+						add_state_core = 240
+						transfer_state = 240
+					}
+				}
+			}
+			puppet = LNU
+			hidden_effect = {
+				LNU = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_moscow
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_expand_moscows_authority = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = LNU
+			NOT = {
+				has_subject = NVR
+			}
+		}
+
+		available = {
+			controls_state = 250
+			controls_state = 255
+			controls_state = 254
+			controls_state = 258
+			controls_state = 257
+			controls_state = 260
+			controls_state = 239
+			controls_state = 265
+			controls_state = 252
+			controls_state = 253
+		}
+
+		complete_effect = {
+			LNU = {
+				hidden_effect = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 254
+					add_state_core = 258
+					add_state_core = 257
+					add_state_core = 260
+					add_state_core = 239
+					add_state_core = 265
+					add_state_core = 220
+					add_state_core = 240
+					add_state_core = 252
+					add_state_core = 253
+				}
+				transfer_state = 250
+				transfer_state = 255
+				transfer_state = 254
+				transfer_state = 258
+				transfer_state = 257
+				transfer_state = 260
+				transfer_state = 239
+				transfer_state = 265
+				transfer_state = 252
+				transfer_state = 253
+				if = {
+					limit = {
+						AUS = {
+							controls_state = 240
+							controls_state = 220
+						}
+					}
+					transfer_state = 220
+					transfer_state = 240
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_voronezh = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 250
+			controls_state = 255
+			controls_state = 254
+			controls_state = 258
+			controls_state = 257
+			controls_state = 260
+			controls_state = 239
+			controls_state = 265
+			controls_state = 252
+			controls_state = 253
+		}
+
+		visible = {
+			NOT = {
+				LNU = {
+					owns_state = 260
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				NVR = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 254
+					add_state_core = 258
+					add_state_core = 257
+					add_state_core = 260
+					add_state_core = 239
+					add_state_core = 265
+					add_state_core = 220
+					add_state_core = 240
+					add_state_core = 252
+					add_state_core = 253
+					transfer_state = 250
+					transfer_state = 255
+					transfer_state = 254
+					transfer_state = 258
+					transfer_state = 257
+					transfer_state = 260
+					transfer_state = 239
+					transfer_state = 265
+					transfer_state = 252
+					transfer_state = 253
+					set_capital = { state = 260 }
+				}
+			}
+			puppet = NVR
+			hidden_effect = {
+				NVR = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_voronezh
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 
 	}
@@ -7506,6 +7854,18 @@ AUS_creating_raus = {
 			controls_state = 218
 			controls_state = 238
 			controls_state = 245
+			controls_state = 235
+			controls_state = 227
+			controls_state = 228
+			controls_state = 1085
+		}
+
+		visible = {
+			NOT = {
+				UKR = {
+					owns_state = 218
+				}
+			}
 		}
 
 		fire_only_once = yes
@@ -7517,11 +7877,19 @@ AUS_creating_raus = {
 					add_state_core = 218
 					add_state_core = 238
 					add_state_core = 245
+					add_state_core = 227
+					add_state_core = 228
+					add_state_core = 1085
+					add_state_core = 235
 				}
 				transfer_state = 234
 				transfer_state = 218
 				transfer_state = 238
 				transfer_state = 245
+				transfer_state = 227
+				transfer_state = 228
+				transfer_state = 1085
+				transfer_state = 235
 			}
 			puppet = NYK
 			hidden_effect = {
@@ -7548,6 +7916,121 @@ AUS_creating_raus = {
 
 	}
 
+	AUS_rau_wolgadeutsche = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 217
+        	controls_state = 237
+        	controls_state = 236
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				KLV = {
+					add_state_core = 217
+        			add_state_core = 237
+        			add_state_core = 236
+			        transfer_state = 217
+        			transfer_state = 237
+        			transfer_state = 236
+					set_capital = { state = 217 }
+				}
+			}
+			puppet = KLV
+			hidden_effect = {
+				KLV = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_volga
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_kaukasus = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 231
+        	controls_state = 229
+        	controls_state = 230
+        	controls_state = 1082
+        	controls_state = 1083
+		    controls_state = 843
+		    controls_state = 345
+		    controls_state = 233
+		    controls_state = 232
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GEO = {
+				hidden_effect = {
+					add_state_core = 231
+        			add_state_core = 229
+        			add_state_core = 230
+        			add_state_core = 1082
+        			add_state_core = 1083
+		    		add_state_core = 843
+		    		add_state_core = 345
+		    		add_state_core = 233
+		    		add_state_core = 232
+				}
+				transfer_state = 231
+        		transfer_state = 229
+        		transfer_state = 230
+        		transfer_state = 1082
+        		transfer_state = 1083
+		    	transfer_state = 843
+		    	transfer_state = 345
+		    	transfer_state = 233
+		    	transfer_state = 232
+			}
+			puppet = GEO
+			hidden_effect = {
+				GEO = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_caucasian_kingdom
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
 	AUS_free_finland = {
 
 		icon = generic_political_discourse
@@ -7559,6 +8042,7 @@ AUS_creating_raus = {
         	controls_state = 148
         	controls_state = 722
         	controls_state = 147
+        	controls_state = 146
 		}
 
 		fire_only_once = yes
@@ -7571,8 +8055,111 @@ AUS_creating_raus = {
         		transfer_state = 148
         		transfer_state = 722
         		transfer_state = 147
+        		transfer_state = 146
+        		hidden_effect = {
+        			add_state_core = 146
+        		}
 			}
 			add_to_faction = FIN
+		}
+
+	}
+
+	AUS_greater_finland = {
+
+		icon = border_war
+
+		visible = {
+			is_in_faction_with = FIN
+			NOT = {
+				has_subject = UGL
+			}
+		}
+
+		available = {
+			controls_state = 213
+			controls_state = 215
+			controls_state = 216
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 213
+					add_state_core = 215
+					add_state_core = 216
+				}
+				transfer_state = 213
+				transfer_state = 215
+				transfer_state = 216
+			}
+		}
+
+	}
+
+	AUS_rau_karelien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	controls_state = 215
+        	controls_state = 213
+        	controls_state = 216
+		}
+
+		visible = {
+			UGL = {
+				exists = no
+			}
+			NOT = {
+				FIN = {
+					owns_state = 215
+				}
+			}
+		}
+
+		visible = {
+			UGL = { exists = no }
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				UGL = {
+					remove_ideas = UGL_white_army_divided
+        			add_state_core = 215
+        			add_state_core = 213
+        			add_state_core = 216
+        			transfer_state = 215
+        			transfer_state = 213
+        			transfer_state = 216
+        			set_capital = { state = 216 }
+				}
+			}
+			puppet = UGL
+			hidden_effect = {
+				UGL = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_karelia
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
 		}
 
 	}
