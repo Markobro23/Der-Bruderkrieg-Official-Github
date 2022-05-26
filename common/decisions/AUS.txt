@@ -6862,10 +6862,7 @@ AUS_creating_raus = {
         	controls_state = 225
         	controls_state = 259
         	controls_state = 226
-        	controls_state = 196
-        	controls_state = 200
         	controls_state = 221
-        	controls_state = 137
 		}
 
 		ai_will_do = {
@@ -6879,7 +6876,7 @@ AUS_creating_raus = {
 				hidden_effect = {
 					#add_state_core = 220
 					#add_state_core = 240
-					add_state_core = 137
+					#add_state_core = 137
 					remove_state_core = 766
 				}
 				transfer_state = 202
@@ -6894,9 +6891,6 @@ AUS_creating_raus = {
         		transfer_state = 225
         		transfer_state = 259
         		transfer_state = 226
-        		transfer_state = 196
-        		transfer_state = 200
-        		transfer_state = 137
         		transfer_state = 221
 			}
 			puppet = UKR
@@ -6938,6 +6932,9 @@ AUS_creating_raus = {
 			controls_state = 238
 			controls_state = 245
 			controls_state = 235
+			controls_state = 137
+			controls_state = 196
+			controls_state = 200
 		}
 
 		ai_will_do = {
@@ -6947,7 +6944,10 @@ AUS_creating_raus = {
 		visible = {
 			has_subject = UKR
 			NOT = {
-				has_subject = NYK
+				OR = {
+					has_subject = NYK
+					has_subject = CRI
+				}
 			}
 		}
 
@@ -6956,6 +6956,7 @@ AUS_creating_raus = {
 		complete_effect = {
 			UKR = {
 				hidden_effect = {
+					add_state_core = 137
 					add_state_core = 227
         			add_state_core = 228
         			add_state_core = 220
@@ -6977,6 +6978,9 @@ AUS_creating_raus = {
         		transfer_state = 238
 				transfer_state = 245
 				transfer_state = 235
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
 			}
 		}
 	}
@@ -7573,6 +7577,9 @@ AUS_creating_raus = {
 							}
 						}
 						set_cosmetic_tag = austrian_rau
+						else = {
+							set_cosmetic_tag = AUS_MOL_governate
+						}
 					}
 				}
 			}
@@ -7908,6 +7915,59 @@ AUS_creating_raus = {
 							}
 							set_cosmetic_tag = austrian_rau
 						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_crimea = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			controls_state = 137
+			controls_state = 196
+			controls_state = 200
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			NOT = {
+				UKR = {
+					owns_state = 137
+				}
+			}
+			has_completed_focus = AUS_concessions_to_people
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CRI = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 196
+					add_state_core = 200
+				}
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+			}
+			puppet = CRI
+			hidden_effect = {
+				CRI = {
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_crimea_khaganate
 					}
 				}
 			}
