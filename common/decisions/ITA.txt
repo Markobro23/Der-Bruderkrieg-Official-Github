@@ -1,3 +1,191 @@
+ITA_content_decisions = {
+  ITA_chose_bianchi = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+			always = yes
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		cost = 0
+		days_remove = 100
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_bianchi
+			news_event = ITA_elections.1
+		}
+	}
+	ITA_chose_ciano = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_ciano
+			news_event = ITA_elections.2
+      add_ideas = ITA_constanzo_ciano
+      add_ideas = ITA_galeazzo_ciano
+      add_ideas = ITA_guido_guidi
+      add_ideas = ITA_carlo_alberto_biggini
+      add_ideas = ITA_ferruccio_lantini
+
+      set_politics = {
+        ruling_party = fascism
+      }
+      set_cosmetic_tag = ITA_royal_state
+
+      hidden_effect = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.25
+					}
+				}
+		}
+	}
+	ITA_chose_evola = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_evola
+			news_event = ITA_elections.3
+      add_ideas = ITA_julius_evola
+				add_ideas = ITA_dino_grandi
+				add_ideas = ITA_evola_intmin
+				add_ideas = ITA_augusto_turati
+				add_ideas = ITA_ferruccio_lantini
+
+        hidden_effect = {
+				drop_cosmetic_tag = yes
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+
+        hidden_effect = {
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.25
+					}
+				}
+		}
+	}
+	ITA_chose_terruzi = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_terruzi
+      add_ideas = ITA_attilio_teruzzi_hog
+      add_ideas = ITA_renzo_montagna
+      add_ideas = ITA_cesare_maria_de_vecchi
+      add_ideas = ITA_tullio_tamburini
+      add_ideas = ITA_renato_ricci
+          add_ideas = ITA_renato_ricci
+			news_event = ITA_elections.4
+
+      hidden_effect = {
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+				retire_country_leader = yes
+			}
+			create_country_leader = {
+			name = "Attilio Teruzzi"
+			#desc = "MUSSOLINI_DESC"
+			picture = "gfx/leaders/AttilioTeruzzi.dds"
+			expire = "1965.1.1"
+			ideology = ultranationalist
+			traits = { 
+				
+			}
+		}
+			set_cosmetic_tag = ITA_italian_empire
+		}
+	}
+}
+
 ITA_incoming_socialist_revolution = {
   ITA_incoming_socialist_revolution_decision = {
 
