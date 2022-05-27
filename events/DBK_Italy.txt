@@ -644,6 +644,47 @@ country_event = { #coup in portugal
 	}
 }
 
+news_event = { #florence-berlin split
+	id = italy.531
+	title = italy.531.t
+	desc = italy.531.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+	major = yes
+
+	option = {  #traitor!
+		name = italy.531.a 
+		trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = {  #the second brother's coaltion begins to collapse
+		name = italy.531.b
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					tag = ITA
+					is_subject_of = ITA
+					is_in_faction_with = GER
+				}
+			}
+		}
+	}
+	option = {  #a new destiny for italy!
+		name = italy.531.c
+		trigger = {
+			OR = {
+				tag = ITA
+				is_subject_of = ITA
+			}
+		}
+	}
+}
+
 add_namespace = ITA_starting_tree_events
 ##the italian mess
 country_event = {

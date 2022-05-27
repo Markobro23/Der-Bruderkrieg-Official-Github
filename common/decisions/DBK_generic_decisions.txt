@@ -389,6 +389,8 @@ weltkrieg_decisions = {
 			}
 		}
 
+		cost = 25
+
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = fate_balkans_not_already_decided
@@ -396,8 +398,19 @@ weltkrieg_decisions = {
 					OR = {
 						has_global_flag = weltkrieg_ITA_gets_balkans
 						has_global_flag = weltkrieg_SOV_gets_balkans
+						has_global_flag = weltrieg_someone_deciding_balkans
 					}
 				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				AUS = {
+					surrender_progress > 0.2
+				}
+				add = 2 
 			}
 		}
 
@@ -408,17 +421,18 @@ weltkrieg_decisions = {
 		}
 
 		complete_effect = {
+			set_global_flag = weltrieg_someone_deciding_balkans
 			if = {
 				limit = {
 					tag = GER
 				}
-				country_event = { id = weltkrieg_peace.1 hours = 1 }
+				country_event = { id = weltkrieg_peace.1 }
 			}
 			if = {
 				limit = {
 					tag = ITA
 				}
-				country_event = { id = weltkrieg_peace.2 hours = 1 }
+				country_event = { id = weltkrieg_peace.2 }
 			}
 		}
 
@@ -432,10 +446,23 @@ weltkrieg_decisions = {
 			original_tag = ITA
 		}
 
+		cost = 25
+
 		fire_only_once = yes
 
 		visible = {
 			has_war_with = FRA
+			is_in_faction_with = GER
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				FRA = {
+					surrender_progress > 0.1
+				}
+				add = 1
+			}
 		}
 
 		complete_effect = {
@@ -464,12 +491,25 @@ weltkrieg_decisions = {
 					OR = {
 						has_global_flag = france_austria_split_deal
 						has_global_flag = AUS_FRA_alliance_falls_apart
+						has_global_flag = weltkrieg_conference_vienna
 					}
 				}
 			}
 		}
 
+		cost = 25
+
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 2
+				GER = {
+					surrender_progress > 0.1
+				}
+			}
+		}
 
 		visible = {
 			FRA = {
@@ -481,17 +521,18 @@ weltkrieg_decisions = {
 		}
 
 		complete_effect = {
+			set_global_flag = weltkrieg_conference_vienna
 			if = {
 				limit = {
 					tag = AUS
 				}
-				country_event = { id = second_treaty_of_vienna.4 hours = 1 }
+				country_event = { id = second_treaty_of_vienna.4 }
 			}
 			if = {
 				limit = {
 					tag = FRA
 				}
-				AUS = { country_event = { id = second_treaty_of_vienna.4 hours = 1 } }
+				AUS = { country_event = { id = second_treaty_of_vienna.4 } }
 			}
 		}
 
@@ -516,6 +557,24 @@ weltkrieg_decisions = {
 						has_global_flag = weltkrieg_AUS_gets_sicily
 					}
 				}
+			}
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				FRA = {
+					controls_state = 158
+				}
+				add = 1
+			}
+			modifier = {
+				FRA = {
+					controls_state = 114
+				}
+				add = 1
 			}
 		}
 

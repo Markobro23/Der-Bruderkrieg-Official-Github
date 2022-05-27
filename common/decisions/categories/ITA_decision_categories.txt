@@ -257,3 +257,23 @@ ITA_portugese_syndaclists = {
 		}
 	}
 }
+
+ITA_establish_stato_gemelli = {
+	icon = military_operation
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		OR = {
+			has_war_with = GER
+			any_owned_state = {
+				is_core_of = GER
+			}
+			any_controlled_state = {
+				is_core_of = GER
+			}
+		}
+	}
+}
