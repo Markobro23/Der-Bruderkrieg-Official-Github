@@ -935,11 +935,25 @@ d_france_loses_peace_deal = {
 france_loses_peace_deal = {
     set_global_flag = prussia_has_beaten_france
    
-    random_country = {
-            limit = {
-                is_in_faction_with = FRA
+    if = {
+        limit = { SPR = { is_in_faction_with = FRA } }
+        SPR = {
+            save_global_event_target_as = new_continental_system_leader
+        }
+        else_if = {
+            limit = { POR = { is_in_faction_with = FRA } }
+            POR = {
+               save_global_event_target_as = new_continental_system_leader
             }
-        save_global_event_target_as = new_continental_system_leader
+            else = {
+                random_country = {
+                    limit = {
+                        NOT = { tag = FRA is_in_faction_with = FRA }
+                    }
+                    save_global_event_target_as = new_continental_system_leader
+                }
+            }
+        }
     }
     event_target:new_continental_system_leader = {
         set_faction_leader = yes
@@ -1023,9 +1037,9 @@ france_loses_peace_deal = {
             add_state_core = 1
             transfer_state = 458
             transfer_state = 665
-            transfer_state = 797
+            #transfer_state = 797
             transfer_state = 269
-            transfer_state = 268
+            #transfer_state = 268
             white_peace = FRA
         }
     }
@@ -1034,7 +1048,7 @@ france_loses_peace_deal = {
             limit = {
                 has_global_flag = weltkrieg_ITA_gets_occitania
             }
-            add_state_core = 33
+            #add_state_core = 33
             add_state_core = 25
             add_state_core = 31
             add_state_core = 22
@@ -1055,15 +1069,26 @@ france_loses_peace_deal = {
     }
     NFR = {
         keep_current_politics = yes
-        set_cosmetic_tag = prussian_rk
-        add_state_core = 17
+        set_cosmetic_tag = GER_parisian_industrial_zone
+            #add_state_core = 17
         add_state_core = 18
         add_state_core = 16
+        add_state_core = 15
+        add_state_core = 33
+        add_state_core = 785
+        add_state_core = 29
         add_state_core = 24
-        add_state_core = 27
+            #add_state_core = 27
         add_state_core = 803
     }
+    WFR = {
+        set_cosmetic_tag = GER_bismarckstadt
+        set_capital = { state = 17 }
+        add_state_core = 17
+        add_state_core = 27
+    }
     FRA = {
+        release = WFR
         release = OCC
         release = NFR
         #set_cosmetic_tag = RAU_France
@@ -1096,9 +1121,6 @@ france_loses_peace_deal = {
 		add_state_core = 19
 		add_state_core = 23
 		add_state_core = 30
-		add_state_core = 15
-		add_state_core = 29
-		add_state_core = 785
         keep_current_politics = yes
 	}
     GER = {
@@ -1109,6 +1131,7 @@ france_loses_peace_deal = {
             puppet = OCC
         }
         puppet = NFR
+        puppet = WFR
         
 	    release_puppet = BRI
         set_variable = {
@@ -1132,6 +1155,14 @@ france_loses_peace_deal = {
             set_compliance = GER.french_compliance_var
         }
     }
+    WFR = {
+        remove_state_core = 27
+        every_controlled_state = {
+            add_core_of = FRA
+            set_resistance = GER.french_resistance_var
+            set_compliance = GER.french_compliance_var
+        }
+    }
     ITA = {
         if = {
             limit = {
@@ -1141,6 +1172,7 @@ france_loses_peace_deal = {
         }
     }
     OCC = {
+        set_cosmetic_tag = ITA_south_german_puppets
         reset_government = yes
         remove_state_core = 33
         remove_state_core = 25
@@ -1156,10 +1188,10 @@ france_loses_peace_deal = {
     }
     NFR = {
         reset_government = yes
-        remove_state_core = 17
         remove_state_core = 18
+        remove_state_core = 785
+        remove_state_core = 29
         remove_state_core = 24
-        remove_state_core = 27
         remove_state_core = 803
         every_controlled_state = {
             add_core_of = FRA
