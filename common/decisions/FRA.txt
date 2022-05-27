@@ -3257,8 +3257,6 @@ FRA_securing_russian_advance = {
 		icon = generic_prepare_civil_war
 
 		available = {
-			controls_state = 11
-			controls_state = 189
 			controls_state = 190
 			controls_state = 12
 			controls_state = 1126
@@ -3269,28 +3267,66 @@ FRA_securing_russian_advance = {
 		fire_only_once = yes
 
 		complete_effect = {
-			release_puppet_on_controlled = FOB
+			FOB = {
+				transfer_state = 190
+				transfer_state = 12
+				transfer_state = 1126
+				transfer_state = 191
+				transfer_state = 13
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
+			}
+			puppet = FOB
 		}
 
 	}
 
-	FRA_bessarabien_governate = {
+	FRA_revive_crown_of_lithuania = {
 
 		icon = generic_prepare_civil_war
 
 		available = {
-			controls_state = 78
-			controls_state = 766
+			controls_state = 11
+			controls_state = 189
+			controls_state = 784
+			controls_state = 95
+			controls_state = 94
+			controls_state = 96
+			controls_state = 206
+			controls_state = 204
+			controls_state = 194
 		}
 
 		fire_only_once = yes
 
 		complete_effect = {
-			MOL = {
-				transfer_state = 78
-				transfer_state = 766
+			LIT = {
+				hidden_effect = {
+					add_state_core = 11
+					add_state_core = 189
+					add_state_core = 784
+					add_state_core = 95
+					add_state_core = 94
+					add_state_core = 96
+					add_state_core = 206
+					add_state_core = 204
+					add_state_core = 194
+				}
+				transfer_state = 11
+				transfer_state = 189
+				transfer_state = 784
+				transfer_state = 95
+				transfer_state = 94
+				transfer_state = 96
+				transfer_state = 206
+				transfer_state = 204
+				transfer_state = 194
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
 			}
-			puppet = MOL
+			puppet = LIT
 		}
 
 	}
@@ -3329,8 +3365,764 @@ FRA_securing_russian_advance = {
 					limit = { FRA = { controls_state = 91 } }
 					transfer_state = 91
 				}
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
 			}
 			puppet = UKR
+		}
+
+	}
+
+	FRA_establish_pol_lit_commonwealth = {
+
+		icon = generic_political_discourse
+
+		visible = {
+			has_subject = POL
+			has_subject = LIT
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			POL = {
+				hidden_effect = {
+					every_state = {
+						limit = {
+							OR = {
+								is_core_of = LIT
+								is_owned_by = UKR
+							}
+						}
+						add_core_of = POL
+					}
+				}
+				annex_country = {
+					target = LIT
+					transfer_troops = yes
+				}
+				if = {
+					limit = {
+						FRA = {
+							has_subject = UKR 
+						}
+					}
+					annex_country = {
+						target = UKR
+						transfer_troops = yes
+					}
+					else = {
+						custom_effect_tooltip = FRA_hold_up_on_forming_plc
+					}
+				}
+				set_cosmetic_tag = PLC_UNIFIED
+			}
+		}
+
+	}
+
+	FRA_kingdom_of_belarus = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 242
+			controls_state = 207
+			controls_state = 210
+			controls_state = 241
+			controls_state = 243
+		}
+
+		visible = {
+			NOT = {
+				KLV = {
+					owns_state = 242
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			BLR = {
+				hidden_effect = {
+					add_state_core = 242
+					add_state_core = 243
+					add_state_core = 210
+				}
+				transfer_state = 242
+				transfer_state = 207
+				transfer_state = 210
+				transfer_state = 241
+				transfer_state = 243
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    		set_capital = { state = 242 }
+		    	}
+			}
+			puppet = BLR
+		}
+
+	}
+
+	FRA_occupy_central_russia = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			OR = {
+				controls_state = 242
+				BLR = {
+					owns_state = 242
+				}
+			}
+			OR = {
+				controls_state = 243
+				BLR = {
+					owns_state = 243
+				}
+			}
+			controls_state = 220
+			controls_state = 240
+			controls_state = 225
+			controls_state = 193
+			controls_state = 224
+			controls_state = 222
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			KLV = {
+				hidden_effect = {
+					add_state_core = 220
+					add_state_core = 240
+					add_state_core = 225
+					add_state_core = 193
+					add_state_core = 224
+					add_state_core = 222
+				}
+				if = {
+					limit = {
+						FRA = {
+							NOT = {
+								has_subject = BLR
+							}
+						}
+					}
+					hidden_effect = {
+						add_state_core = 242
+						add_state_core = 243
+						add_state_core = 210
+						add_state_core = 241
+						add_state_core = 207
+						set_capital = { state = 242 }
+					}
+					transfer_state = 242
+					transfer_state = 207
+					transfer_state = 210
+					transfer_state = 241
+					transfer_state = 243
+					else = {
+						set_capital = { state = 220 }
+					}
+				}
+				transfer_state = 220
+				transfer_state = 240
+				transfer_state = 225
+				transfer_state = 193
+				transfer_state = 224
+				transfer_state = 222
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_occupation
+		    	}
+			}
+			puppet = KLV
+		}
+
+	}
+
+	FRA_bessarabien_governate = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 78
+			controls_state = 766
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			MOL = {
+				transfer_state = 78
+				transfer_state = 766
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
+			}
+			puppet = MOL
+		}
+
+	}
+
+	FRA_establish_khanate_crimea = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 137
+			controls_state = 196
+			controls_state = 200
+			controls_state = 226
+			controls_state = 227
+			controls_state = 228
+			controls_state = 221
+			controls_state = 259
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CRI = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 196
+					add_state_core = 200
+					add_state_core = 226
+					add_state_core = 227
+					add_state_core = 228
+					add_state_core = 221
+					add_state_core = 259
+				}
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+				transfer_state = 226
+				transfer_state = 227
+				transfer_state = 228
+				transfer_state = 221
+				transfer_state = 259
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
+			}
+			puppet = CRI
+		}
+
+	}
+
+	FRA_establish_cossack_free_corps = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 218
+			controls_state = 238
+			controls_state = 245
+			controls_state = 217
+			controls_state = 265
+		}
+
+		visible = {
+			NOT = {
+				NVR = {
+					owns_state = 218
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NYK = {
+				hidden_effect = {
+					add_state_core = 218
+					add_state_core = 238
+					add_state_core = 245
+					add_state_core = 217
+					add_state_core = 265
+					set_capital = { state = 218 }
+				}
+				transfer_state = 218
+				transfer_state = 238
+				transfer_state = 245
+				transfer_state = 217
+				transfer_state = 265
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
+			}
+			puppet = NYK
+		}
+
+	}
+
+	FRA_establish_southern_military_district = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 1085
+			controls_state = 234
+			controls_state = 235
+			controls_state = 236
+			controls_state = 237
+			controls_state = 233
+			controls_state = 232
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NVR = {
+				hidden_effect = {
+					add_state_core = 1085
+					add_state_core = 234
+					add_state_core = 235
+					add_state_core = 236
+					add_state_core = 237
+					add_state_core = 233
+					add_state_core = 232
+				}
+				transfer_state = 1085
+				transfer_state = 234
+				transfer_state = 235
+				transfer_state = 236
+				transfer_state = 237
+				transfer_state = 233
+				transfer_state = 232
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_occupation
+		    		set_capital = { state = 1085 }
+		    	}
+			}
+			puppet = NVR
+		}
+
+	}
+
+	FRA_expand_southern_occupation_north = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 218
+			controls_state = 238
+			controls_state = 245
+			controls_state = 217
+			controls_state = 265
+		}
+
+		fire_only_once = yes
+
+		visible = {
+			has_subject = NVR
+			NOT = {
+				has_subject = NYK
+			}
+		}
+
+		complete_effect = {
+			NVR = {
+				hidden_effect = {
+					add_state_core = 218
+					add_state_core = 238
+					add_state_core = 245
+					add_state_core = 217
+					add_state_core = 265
+					set_capital = { state = 218 }
+				}
+				transfer_state = 218
+				transfer_state = 238
+				transfer_state = 245
+				transfer_state = 217
+				transfer_state = 265
+			}
+		}
+
+	}
+
+	FRA_expand_southern_occupation = {
+
+		icon = border_war
+
+		available = {
+        	controls_state = 231
+        	controls_state = 229
+        	controls_state = 230
+        	controls_state = 1082
+        	controls_state = 1083
+		    controls_state = 843
+		    controls_state = 345
+		}
+
+		visible = {
+			has_subject = NVR
+			NOT = {
+				has_subject = GEO
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NVR = {
+				hidden_effect = {
+					add_state_core = 231
+        			add_state_core = 229
+        			add_state_core = 230
+        			add_state_core = 1082
+        			add_state_core = 1083
+		    		add_state_core = 843
+		    		add_state_core = 345
+				}
+				transfer_state = 231
+        		transfer_state = 229
+        		transfer_state = 230
+        		transfer_state = 1082
+        		transfer_state = 1083
+		    	transfer_state = 843
+		    	transfer_state = 345
+			}
+		}
+
+	}
+
+	FRA_establish_duchy_agravi = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+        	controls_state = 231
+        	controls_state = 229
+        	controls_state = 230
+        	controls_state = 1082
+        	controls_state = 1083
+		    controls_state = 843
+		    controls_state = 345
+		}
+
+		visible = {
+			NOT = {
+				NVR = {
+					owns_state = 231
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GEO = {
+				hidden_effect = {
+					add_state_core = 231
+        			add_state_core = 229
+        			add_state_core = 230
+        			add_state_core = 1082
+        			add_state_core = 1083
+		    		add_state_core = 843
+		    		add_state_core = 345
+				}
+				transfer_state = 231
+        		transfer_state = 229
+        		transfer_state = 230
+        		transfer_state = 1082
+        		transfer_state = 1083
+		    	transfer_state = 843
+		    	transfer_state = 345
+		    	hidden_effect = {
+		    		set_cosmetic_tag = FRA_russian_puppets
+		    	}
+			}
+			puppet = GEO
+		}
+
+	}
+
+	FRA_occupy_moscow = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+        	controls_state = 219
+        	controls_state = 205
+        	controls_state = 223
+        	controls_state = 351
+        	controls_state = 254
+		    controls_state = 252
+        	controls_state = 253
+        	controls_state = 247
+        	controls_state = 248
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				LNU = {
+					add_state_core = 219
+		        	add_state_core = 205
+		        	add_state_core = 223
+		        	add_state_core = 254
+		        	add_state_core = 254
+		        	add_state_core = 253
+        			add_state_core = 351
+		        	add_state_core = 247
+		        	add_state_core = 248
+			        transfer_state = 219
+		        	transfer_state = 205
+		        	transfer_state = 223
+		        	transfer_state = 254
+        			transfer_state = 351
+		        	transfer_state = 252
+		        	transfer_state = 253
+		        	transfer_state = 247
+		        	transfer_state = 248
+					set_capital = { state = 219 }
+					set_cosmetic_tag = FRA_russian_occupation
+				}
+			}
+			puppet = LNU
+		}
+
+	}
+
+	FRA_expand_central_occupation_zone = {
+
+		icon = border_war
+
+		available = {
+        	controls_state = 250
+        	controls_state = 239
+        	controls_state = 255
+        	controls_state = 257
+        	controls_state = 260
+        	controls_state = 258
+		}
+
+		visible = {
+			has_subject = KLV
+			NOT = {
+				LNU = {
+					owns_state = 257
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			KLV = {
+				hidden_effect = {
+					add_state_core = 250
+		        	add_state_core = 239
+		        	add_state_core = 255
+		        	add_state_core = 257
+		        	add_state_core = 260
+		        	add_state_core = 258
+		        }
+			    transfer_state = 250
+		        transfer_state = 239
+		        transfer_state = 255
+		        transfer_state = 257
+		        transfer_state = 260
+		        transfer_state = 258
+			}
+		}
+
+	}
+
+	FRA_expand_moscow_zone = {
+
+		icon = border_war
+
+		available = {
+        	controls_state = 250
+        	controls_state = 239
+        	controls_state = 255
+        	controls_state = 257
+        	controls_state = 260
+        	controls_state = 258
+		}
+
+		visible = {
+			has_subject = LNU
+			NOT = {
+				KLV = {
+					owns_state = 257
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			LNU = {
+				hidden_effect = {
+					add_state_core = 250
+		        	add_state_core = 239
+		        	add_state_core = 255
+		        	add_state_core = 257
+		        	add_state_core = 260
+		        	add_state_core = 258
+		        }
+			    transfer_state = 250
+		        transfer_state = 239
+		        transfer_state = 255
+		        transfer_state = 257
+		        transfer_state = 260
+		        transfer_state = 258
+			}
+		}
+
+	}
+
+	FRA_occupy_petrograd = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+        	controls_state = 195
+        	controls_state = 264
+        	controls_state = 246
+        	controls_state = 263
+        	controls_state = 244
+        	controls_state = 208
+        	controls_state = 209
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				RRR = {
+					add_state_core = 195
+		        	add_state_core = 264
+		        	add_state_core = 246
+		        	add_state_core = 263
+		        	add_state_core = 244
+		        	add_state_core = 208
+		        	add_state_core = 209
+			        transfer_state = 195
+		        	transfer_state = 264
+		        	transfer_state = 246
+		        	transfer_state = 263
+		        	transfer_state = 244
+		        	transfer_state = 208
+		        	transfer_state = 209
+					set_capital = { state = 195 }
+					set_cosmetic_tag = FRA_russian_occupation
+				}
+			}
+			puppet = RRR
+		}
+
+	}
+
+	FRA_kingdom_finland = {
+
+		icon = generic_prepare_civil_war
+
+		available = {
+			controls_state = 111
+        	controls_state = 149
+        	controls_state = 150
+        	controls_state = 148
+        	controls_state = 722
+        	controls_state = 147
+        	controls_state = 146
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			FIN = {
+				exists = no
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 146
+				}
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+        		transfer_state = 146
+        		transfer_state = 722
+        		transfer_state = 147
+        		hidden_effect = {
+        			set_cosmetic_tag = FRA_russian_puppets
+        		}
+			}
+			puppet = FIN
+		}
+
+	}
+
+	FRA_expand_kingdom_finland = {
+
+		icon = border_war
+
+		available = {
+			controls_state = 216
+        	controls_state = 215
+        	controls_state = 213
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			has_subject = FIN
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 216
+					add_state_core = 213
+					add_state_core = 215
+				}
+				transfer_state = 216
+        		transfer_state = 215
+        		transfer_state = 213
+			}
 		}
 
 	}
