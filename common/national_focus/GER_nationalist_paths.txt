@@ -6936,7 +6936,7 @@ shared_focus = {
 		icon = GFX_goal_GER_von_das_slavs 
 		x = 31
 		y = 7
-		cost = 0
+		cost = 2.5
 		ai_will_do = {
 			factor = 1 
 		}
@@ -6970,7 +6970,7 @@ shared_focus = {
 		icon = GFX_goal_GER_prepare_for_the_struggle
 		x = -1
 		y = 1
-		cost = 2
+		cost = 5
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
@@ -6984,24 +6984,7 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = GER_the_greatest_war
-		icon = GFX_goal_GER_the_last_war
-		x = 0
-		y = 1
-		cost = 2
-		prerequisite = { focus = GER_prepare_for_the_struggle }
-		relative_position_id = GER_prepare_for_the_struggle
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			swap_ideas = {
-				remove_idea = GER_the_last_war_idea1
-				add_idea = GER_the_greatest_war_idea
-			}
-		}
-	}
+	
 	
 	
 	
@@ -7048,18 +7031,42 @@ shared_focus = {
 		}
 	}
 	
+	
 	shared_focus = {
-		id = GER_surpass_general_winter
-		icon = GFX_goal_GER_surpass_winter
-		x = 0
+		id = GER_streik
+		icon = GFX_goal_GER_streik
+		x = -1
 		y = 1
-		cost = 2
+		cost = 5
+		will_lead_to_war_with = SOV
 		prerequisite = { focus = GER_winter_clothing }
+		prerequisite = { focus = GER_prepare_for_the_struggle }
 		relative_position_id = GER_winter_clothing
 		ai_will_do = {
 			factor = 1 
 		}
+		will_lead_to_war_with = SOV
 		completion_reward = {
+			declare_war_on = { target = SOV type = annex_everything }	### Will be changed once Successor states are fully implemented		
+		}
+	}
+
+	shared_focus = {
+		id = GER_surpass_general_winter
+		icon = GFX_goal_GER_surpass_winter
+		x = -2
+		y = 1
+		cost = 2
+		prerequisite = { focus = GER_streik }
+		relative_position_id = GER_streik
+		mutually_exclusive = {
+			focus = GER_moskowien_awaits
+		}
+		ai_will_do = {
+			factor = 1 
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = GER_winter_spring_offensives
 			## Adds Infrastructre in Eastern Provinces (arj has a script, gimme)
 			every_owned_state = {
 				limit = {
@@ -7078,25 +7085,6 @@ shared_focus = {
 	}
 	
 	shared_focus = {
-		id = GER_streik
-		icon = GFX_goal_GER_streik
-		x = -1
-		y = 1
-		cost = 5
-		will_lead_to_war_with = SOV
-		prerequisite = { focus = GER_surpass_general_winter }
-		prerequisite = { focus = GER_the_greatest_war }
-		relative_position_id = GER_surpass_general_winter
-		ai_will_do = {
-			factor = 1 
-		}
-		will_lead_to_war_with = SOV
-		completion_reward = {
-			declare_war_on = { target = SOV type = annex_everything }	### Will be changed once Successor states are fully implemented		
-		}
-	}
-	
-	shared_focus = {
 		id = GER_moskowien_awaits
 		icon = GFX_goal_GER_moscow
 		x = 2
@@ -7109,72 +7097,68 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			219 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
-			242 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
-			205 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
-			243 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
-			224 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
-			241 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier days = 100 } }
+			unlock_decision_category_tooltip = GER_moskowien_offensive
 		}
 	}
 	
-	shared_focus = {
-		id = GER_securing_the_south
-		icon = GFX_goal_GER_securing_the_south
-		x = -2
-		y = 1
-		cost = 5
-		prerequisite = { focus = GER_streik }
-		mutually_exclusive = {focus = GER_moskowien_awaits }
-		relative_position_id = GER_streik
-		ai_will_do = {
-			factor = 1 
-		}
-		completion_reward = {
-			196 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			200 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			227 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			218 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			238 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			234 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			1065 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			217 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			236 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-			235 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
-		}
-	}
+	# shared_focus = {
+	# 	id = GER_securing_the_south
+	# 	icon = GFX_goal_GER_securing_the_south
+	# 	x = -2
+	# 	y = 1
+	# 	cost = 5
+	# 	prerequisite = { focus = GER_streik }
+	# 	mutually_exclusive = {focus = GER_moskowien_awaits }
+	# 	relative_position_id = GER_streik
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		196 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		200 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		227 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		218 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		238 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		234 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		1065 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		217 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		236 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 		235 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier days = 100 } }
+	# 	}
+	# }
 	
-	shared_focus = {
-		id = GER_the_fuel_for_autarky
-		icon = GFX_goal_GER_fuel_for_autarky
-		x = 1
-		y = 1
-		cost = 5
-		prerequisite = { 
-			focus = GER_moskowien_awaits
-			focus = GER_securing_the_south
-			 }
-		mutually_exclusive = { focus = GER_exploit_separatism }
-		ai_will_do = {
-			factor = 1 
-		}
-		relative_position_id = GER_securing_the_south
-		completion_reward = {
-			add_ideas = GER_eastern_exploitation
-		}
-	}
+	# shared_focus = {
+	# 	id = GER_the_fuel_for_autarky
+	# 	icon = GFX_goal_GER_fuel_for_autarky
+	# 	x = 1
+	# 	y = 1
+	# 	cost = 5
+	# 	prerequisite = { 
+	# 		focus = GER_moskowien_awaits
+	# 		focus = GER_securing_the_south
+	# 		 }
+	# 	mutually_exclusive = { focus = GER_exploit_separatism }
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	relative_position_id = GER_securing_the_south
+	# 	completion_reward = {
+	# 		add_ideas = GER_eastern_exploitation
+	# 	}
+	# }
 	 
 	shared_focus = {
 		id = GER_exploit_separatism
 		icon = GFX_goal_GER_exploit_separatism
-		x = -1
+		x = -2
 		y = 1
 		cost = 5
 		prerequisite = { 
 			focus = GER_moskowien_awaits
-			focus = GER_securing_the_south
 			 }
-		mutually_exclusive = { focus = GER_the_fuel_for_autarky }
+		prerequisite = { 
+			focus = GER_surpass_general_winter
+			 }
 		ai_will_do = {
 			factor = 1 
 		}
@@ -7213,36 +7197,53 @@ shared_focus = {
 			}
 		}
 	}
-	
 	shared_focus = {
-		id = GER_death_to_partisans
-		icon = GFX_goal_GER_death_to_partisans
-		x = 1
+		id = GER_the_greatest_war
+		icon = GFX_goal_GER_the_last_war
+		x = 0
 		y = 1
-		cost = 5
-		prerequisite = { 
-			focus = GER_the_fuel_for_autarky
-			focus = GER_exploit_separatism
-			 }
-			 relative_position_id = GER_the_fuel_for_autarky
+		cost = 2
+		prerequisite = { focus = GER_exploit_separatism }
+		relative_position_id = GER_exploit_separatism
 		ai_will_do = {
 			factor = 1 
 		}
 		completion_reward = {
-			GER = {
-				every_controlled_state = {
-					limit = {
-						is_core_of = SOV
-					}
-					custom_effect_tooltip = GER_disable_resistance_in_all_soviet_controlled_states
-					force_disable_resistance = {
-						clear = yes
-						occupier = GER
-						occupied = SOV
-					}
-				}
+			swap_ideas = {
+				remove_idea = GER_the_last_war_idea1
+				add_idea = GER_the_greatest_war_idea
 			}
-			# add_ideas = GER_death_to_partisans_idea
 		}
 	}
+	# shared_focus = {
+	# 	id = GER_death_to_partisans
+	# 	icon = GFX_goal_GER_death_to_partisans
+	# 	x = 1
+	# 	y = 1
+	# 	cost = 5
+	# 	prerequisite = { 
+	# 		focus = GER_the_fuel_for_autarky
+	# 		focus = GER_exploit_separatism
+	# 		 }
+	# 		 relative_position_id = GER_the_fuel_for_autarky
+	# 	ai_will_do = {
+	# 		factor = 1 
+	# 	}
+	# 	completion_reward = {
+	# 		GER = {
+	# 			every_controlled_state = {
+	# 				limit = {
+	# 					is_core_of = SOV
+	# 				}
+	# 				custom_effect_tooltip = GER_disable_resistance_in_all_soviet_controlled_states
+	# 				force_disable_resistance = {
+	# 					clear = yes
+	# 					occupier = GER
+	# 					occupied = SOV
+	# 				}
+	# 			}
+	# 		}
+	# 		# add_ideas = GER_death_to_partisans_idea
+	# 	}
+	# }
 
