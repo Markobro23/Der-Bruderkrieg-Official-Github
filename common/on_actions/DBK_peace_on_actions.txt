@@ -1445,6 +1445,38 @@ on_actions = {
 				}
 				america_venezuela_peace_deal = yes
 			}
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = CEN
+					}
+					FROM = {
+						OR = {
+							tag = ELS
+							tag = HON
+							tag = GUA
+						}
+					}
+				}
+				every_country = {
+					limit = {
+						OR = { 
+							tag = ELS
+							tag = HON
+							tag = GUA
+						}
+					}
+					country_event = { id = central_american_collapse.3 hours = 6 }
+					white_peace = CEN
+				}
+				HON = {
+					annex_country = {
+						target = CEN
+					}
+					add_state_core = 312
+				}
+			}
   
 			if = {
 				limit = {
