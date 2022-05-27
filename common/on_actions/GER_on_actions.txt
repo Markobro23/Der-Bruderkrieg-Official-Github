@@ -297,4 +297,22 @@ on_actions = {
             }
         }
     }
+
+    on_puppet = {
+        effect = {
+            if = {
+                limit = {
+                    tag = AUS
+                    FROM = {
+                        tag = GER
+                    }
+                }
+                GER = {
+                    annex_country = {
+                        target = AUS
+                    }
+                }
+            }
+        }
+    }
 }
