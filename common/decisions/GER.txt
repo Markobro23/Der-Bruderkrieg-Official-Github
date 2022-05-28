@@ -1141,9 +1141,12 @@ GER_french_resistance = {
 					add_resistance = -10
 				}
 			}
-			OCC = {
-				every_controlled_state = {
-					add_resistance = -10
+			if = {
+				limit = { has_subject = OCC }
+				OCC = {
+					every_controlled_state = {
+						add_resistance = -10
+					}
 				}
 			}
 			NFR = {
@@ -1195,12 +1198,20 @@ GER_french_resistance = {
 					add_resistance = -3
 				}
 			}
-			OCC = {
+			if = {
+				limit = { has_subject = OCC }
+				OCC = {
+					every_controlled_state = {
+						add_resistance = -3
+					}
+				}
+			}
+			NFR = {
 				every_controlled_state = {
 					add_resistance = -3
 				}
 			}
-			NFR = {
+			WFR = {
 				every_controlled_state = {
 					add_resistance = -3
 				}
@@ -1283,12 +1294,20 @@ GER_french_resistance = {
 					set_resistance = 0
 				}
 			}
-			OCC = {
+			if = {
+				limit = { has_subject = OCC }
+				OCC = {
+					every_controlled_state = {
+						set_resistance = 0
+					}
+				}
+			}
+			NFR = {
 				every_controlled_state = {
 					set_resistance = 0
 				}
 			}
-			NFR = {
+			WFR = {
 				every_controlled_state = {
 					set_resistance = 0
 				}
@@ -1313,9 +1332,12 @@ GER_french_resistance = {
 
 		remove_effect = {
 			set_country_flag = GER_formed_french_collab_govs
-			OCC = {
-				every_controlled_state = {
-					add_core_of = OCC
+			if = {
+				limit = { has_subject = OCC }
+				OCC = {
+					every_controlled_state = {
+						add_core_of = OCC
+					}
 				}
 			}
 			BRI = {
@@ -1328,13 +1350,21 @@ GER_french_resistance = {
 					add_core_of = NFR
 				}
 			}
+			WFR = {
+				every_controlled_state = {
+					add_core_of = WFR
+				}
+			}
 
 			GER = {
-				set_autonomy = {
-					target = OCC
-					autonomous_state = autonomy_free
+				if = {
+					limit = { has_subject = OCC }
+					set_autonomy = {
+						target = OCC
+						autonomous_state = autonomy_free
+					}
+					add_to_faction = OCC
 				}
-				add_to_faction = OCC
 				set_autonomy = {
 					target = BRI
 					autonomous_state = autonomy_free
@@ -1345,8 +1375,54 @@ GER_french_resistance = {
 					autonomous_state = autonomy_free
 				}
 				add_to_faction = NFR
+				set_autonomy = {
+					target = WFR
+					autonomous_state = autonomy_free
+				}
+				add_to_faction = WFR
 			}
 		}
+	}
+
+	GER_refocus_NFR_on_nordicism = {
+
+		icon = generic_political_discourse
+
+		visible = {
+			NFR = {
+				is_subject_of = GER
+				has_idea = RK_industrial_zone
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			NFR = {
+				every_controlled_state = {
+					add_compliance = 5
+					add_resistance = -5
+				}
+				remove_ideas = RK_industrial_zone
+				if = {
+					limit = { 33 = { is_core_of = NFR } }
+					remove_state_core = 33
+				}
+				drop_cosmetic_tag = yes
+			}
+			WFR = {
+				if = {
+					limit = {
+						NFR = { owns_state = 33 }
+					}
+					transfer_state = 33
+				}
+				transfer_state = 24
+				transfer_state = 18
+				transfer_state = 803
+			}
+		}
+
 	}
 }
 
@@ -2334,6 +2410,7 @@ GER_industrial_expansion = {
 				is_owned_by = GER
 			}
 		}
+		fire_only_once = yes
 		cost = 35
 		days_remove = 100
 		ai_will_do = {

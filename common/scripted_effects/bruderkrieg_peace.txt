@@ -1070,6 +1070,7 @@ france_loses_peace_deal = {
     NFR = {
         keep_current_politics = yes
         set_cosmetic_tag = GER_parisian_industrial_zone
+        add_ideas = RK_industrial_zone
             #add_state_core = 17
         add_state_core = 18
         add_state_core = 16
@@ -1172,18 +1173,25 @@ france_loses_peace_deal = {
         }
     }
     OCC = {
-        set_cosmetic_tag = ITA_south_german_puppets
-        reset_government = yes
-        remove_state_core = 33
-        remove_state_core = 25
-        remove_state_core = 22
-        remove_state_core = 26
-        remove_state_core = 32
-        remove_state_core = 20
-        every_controlled_state = {
-            add_core_of = FRA
-            set_resistance = GER.french_resistance_var
-            set_compliance = GER.french_compliance_var
+        if = {
+            limit = {
+                is_subject_of = ITA
+            }
+            set_cosmetic_tag = ITA_south_german_puppets
+        }
+        else = {
+            reset_government = yes
+            remove_state_core = 33
+            remove_state_core = 25
+            remove_state_core = 22
+            remove_state_core = 26
+            remove_state_core = 32
+            remove_state_core = 20
+            every_controlled_state = {
+                add_core_of = FRA
+                set_resistance = GER.french_resistance_var
+                set_compliance = GER.french_compliance_var
+            }
         }
     }
     NFR = {
