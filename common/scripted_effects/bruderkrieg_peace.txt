@@ -877,26 +877,106 @@ france_loses_to_austria_peace_deal = {
     OCC = {
         add_state_core = 23
         add_state_core = 33
+        set_cosmetic_tag = OCC_anton
+    }
+    GPU = {
+        transfer_state = 42
     }
     ADU = {
         add_state_core = 32
         add_state_core = 21
         add_state_core = 735
+        set_cosmetic_tag = ADU_marseille_duchy
+    }
+    if = {
+        limit = {
+            FGD = { is_subject_of = FRA }
+        }
+        FGD = {
+            add_state_core = 28
+        }
+        every_state = {
+            limit = { is_core_of = FGD is_owned_by = FRA } 
+            transfer_state_to = FGD
+        }
     }
     FRA = {
         release = ADU
+        release = LUX
         release = COR
         release = BRI
         release = OCC
+        if = {
+            limit = {
+                country_exists = FEA
+            }
+            annex_country = {
+                target = FEA
+                transfer_troops = yes
+            }
+        }
+        if = {
+            limit = {
+                country_exists = FWA
+            }
+            annex_country = {
+                target = FWA
+                transfer_troops = yes
+            }
+        }
+        news_event = { id = france.216 days = 7 }
+        set_truce = {
+            target = AUS
+            days = 5
+        }
+    }
+    every_state = {
+        limit = {
+            is_owned_by = FRA
+            is_on_continent = europe
+            NOT = { state = 1 }
+        }
+        add_core_of = FPR
+        transfer_state_to = FPR
     }
     AUS = {
-        puppet = FRA
+        puppet = FPR
         puppet = ADU
         puppet = COR
+        puppet = LUX
         puppet = BRI
         puppet = OCC
+        puppet = FGD
     }
-    
+    FPR = {
+        set_cosmetic_tag = kingdom_france
+        set_popularities = {
+            democratic = 45
+            socialism_democratic = 15
+            neutrality = 20
+            fascism = 10
+            authoritarian_democratic = 10
+        }
+        set_politics = {
+            ruling_party = democratic
+            elections_allowed = no
+        }
+        create_country_leader = {
+            name = "Pierre-Étienne Flandin"
+            picture = "gfx/leaders/Europe/portrait_europe_generic_4.dds"
+            expire = "1965.1.1"
+            ideology = authoritarian_democrat 
+        }
+        create_country_leader = {
+            name = "Pierre-Étienne Flandin"
+            picture = "gfx/leaders/Europe/portrait_europe_generic_4.dds"
+            expire = "1965.1.1"
+            ideology = democratic_conservative 
+        }
+    }
+    LUX = {
+        set_cosmetic_tag = LUX_AUS
+    }
 }
 italy_loses_to_france_peace_deal = {
     ITA = {

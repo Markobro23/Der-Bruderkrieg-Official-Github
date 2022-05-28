@@ -706,7 +706,7 @@ country_event = {
 	}
 }
 
-news_event = { #exile
+news_event = { #exile from prussia
 	id = france.215
 	title = france.215.t
 	desc = france.215.d
@@ -720,11 +720,18 @@ news_event = { #exile
 			OR = {
 				is_in_faction_with = FRA
 				is_subject_of = FRA
-				tag = FRA
 			}
 		}
+		name = france.215.a
+	}
+	option = { # 
+		trigger = {
+			tag = FRA
+		}
 		name = france.215.a 
-		FRA = { set_cosmetic_tag = FRA_FREE set_country_flag = FRA_unlock_exile_tree mark_focus_tree_layout_dirty = yes }
+		set_cosmetic_tag = FRA_FREE 
+		set_country_flag = FRA_unlock_exile_tree 
+		mark_focus_tree_layout_dirty = yes
 		declare_war_on = {
 			target = GER
 			type = topple_government
@@ -754,6 +761,69 @@ news_event = { #exile
 			}
 		}
 		name = france.215.c 
+	}
+}
+
+news_event = { #exile from austria
+	id = france.216
+	title = france.216.t
+	desc = france.216.d
+	picture = GFX_news_event_french_parade
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { # 
+		trigger = {
+			OR = {
+				is_in_faction_with = FRA
+				is_subject_of = FRA
+			}
+			NOT = { tag = FRA }
+		}
+		name = france.216.a
+		declare_war_on = {
+			target = AUS
+			type = topple_government
+		}
+	}
+	option = { # 
+		trigger = {
+			tag = FRA
+		}
+		name = france.216.a 
+		set_cosmetic_tag = FRA_FREE 
+		set_country_flag = FRA_unlock_exile_tree 
+		mark_focus_tree_layout_dirty = yes
+		declare_war_on = {
+			target = AUS
+			type = topple_government
+		}
+	}
+	option = { # booya
+		trigger = {
+			OR = {
+				is_in_faction_with = AUS
+				is_subject_of = AUS
+				tag = AUS
+			}
+		}
+		name = france.215.b 
+	}
+	option = { #can this french dynastic war end before the empire collapses?
+		trigger = {
+			NOT = {
+				OR = {
+					is_in_faction_with = FRA
+					is_subject_of = FRA
+					tag = FRA
+					is_in_faction_with = AUS
+					is_subject_of = AUS
+					tag = AUS
+				}
+			}
+		}
+		name = france.216.c 
 	}
 }
 
