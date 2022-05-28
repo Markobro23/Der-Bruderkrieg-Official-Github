@@ -949,6 +949,10 @@ france_loses_to_austria_peace_deal = {
         puppet = FGD
     }
     FPR = {
+        add_ideas = {
+            FPR_ancien_regime
+            FPR_loire_demarcation
+        }
         set_cosmetic_tag = kingdom_france
         set_popularities = {
             democratic = 45
@@ -973,6 +977,58 @@ france_loses_to_austria_peace_deal = {
             expire = "1965.1.1"
             ideology = democratic_conservative 
         }
+    }
+    OCC = {
+        add_ideas = {
+            FPR_french_resistance
+            FPR_loire_demarcation
+        }
+        if = {
+                    limit = {
+                        AUS = {
+                            has_government = democratic
+                        }
+                    }
+                    create_country_leader = {
+                        name = "Austrian Military Government"
+                        picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+                        expire = "1965.1.1"
+                        ideology = paternalistic_conservatism 
+                    }
+                    else_if = {
+                        limit = {
+                            AUS = { has_government = neutrality }
+                        }
+                        create_country_leader = {
+                            name = "Austrian Military Government"
+                            picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+                            expire = "1965.1.1"
+                            ideology = despotic 
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            AUS = { has_government = democratic_liberalism }
+                        }
+                        create_country_leader = {
+                            name = "Austrian Military Government"
+                            picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+                            expire = "1965.1.1"
+                            ideology = centrism 
+                        }
+                    }
+                    else_if = {
+                        limit = {
+                            AUS = { has_government = authoritarian_democratic }
+                        }
+                        create_country_leader = {
+                            name = "Austrian Military Government"
+                            picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+                            expire = "1965.1.1"
+                            ideology = authoritarian_democrat 
+                        }
+                    }
+                }
     }
     LUX = {
         set_cosmetic_tag = LUX_AUS

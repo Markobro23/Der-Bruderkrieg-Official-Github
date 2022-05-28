@@ -2087,6 +2087,131 @@ ideas = {
 		  }
 	  }
 
+	FPR_ancien_regime = {
+
+		picture = Constitution_of_1927
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			stability_factor = -0.1
+			political_power_cost = 0.25
+		}
+	}
+
+	FPR_ancien_regime_2 = {
+
+		name = FPR_ancien_regime
+
+		picture = Robe_Nobility
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			stability_factor = -0.05
+			political_power_cost = 0.1
+		}
+	}
+
+	FPR_ancien_regime_3 = {
+
+		picture = Robe_Nobility
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			war_support_factor = 0.1
+			consumer_goods_factor = -0.05
+		}
+	}
+
+	FPR_loire_demarcation = {
+
+		picture = AUS_treaty_of_vienna
+
+	  	allowed = {
+	  		always = no
+	  	}
+
+	  	cancel = {
+	  		OR = {
+	  			FPR = { exists = no }
+	  			OCC = { exists = no }
+	  		}
+	  	}
+	  	
+		modifier = {
+			production_speed_buildings_factor = -0.1
+			conscription = -0.005
+			monthly_population = -0.05
+		}
+	}
+
+	FPR_french_resistance = {
+
+		picture = HOL_civil_discontent
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			consumer_goods_factor = 0.1
+			conscription_factor = -0.2
+		}
+	}
+
+	FPR_french_resistance_2 = {
+
+		name = FPR_french_resistance
+
+		picture = HOL_civil_discontent
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			consumer_goods_factor = 0.05
+			conscription_factor = -0.1
+		}
+	}
+
+	FPR_french_collaboration_forces = {
+
+		picture = FRA_wiltkrieg_neutrality
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			conscription = 0.015
+			stability_factor = 0.05
+		}
+	}
+
+	FPR_austrian_seizure_lyon_industries = {
+
+		picture = generic_production_bonus
+
+	  	allowed = {
+	  		always = no
+	  	}
+	  	
+		modifier = {
+			cic_to_overlord_factor = 0.1
+			mic_to_overlord_factor = 0.1
+			stability_factor = -0.1
+		}
+	}
+
   }
 
   head_of_government = {

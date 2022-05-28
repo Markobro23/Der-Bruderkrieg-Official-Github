@@ -9265,3 +9265,275 @@ AUS_creating_raus = {
 	}
 
 }
+
+AUS_managing_bourbons = {
+	
+	AUS_support_ancien_regime = {
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			FPR = {
+				exists = yes
+				OR = {
+					has_idea = FPR_ancien_regime_2
+					has_idea = FPR_ancien_regime
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 35
+
+		modifier = {
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.03
+		}
+
+		remove_effect = {
+			FPR = {
+				if = {
+					limit = {
+						FPR = {
+							has_idea = FPR_ancien_regime_2
+						}
+					}
+					swap_ideas = {
+						remove_idea = FPR_ancien_regime_2
+						add_idea = FPR_ancien_regime_3
+					}
+				}
+				if = {
+					limit = {
+						FPR = {
+							has_idea = FPR_ancien_regime
+						}
+					}
+					swap_ideas = {
+						remove_idea = FPR_ancien_regime
+						add_idea = FPR_ancien_regime_2
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_withdraw_southern_france = {
+
+		icon = border_war
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			has_subject = OCC
+			country_exists = OCC
+			country_exists = FPR
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			FPR = {
+				has_idea = FPR_ancien_regime_3
+			}
+		}
+
+		days_remove = 35
+
+		remove_effect = {
+			hidden_effect = {
+				every_state = {
+					limit = { is_core_of = OCC }
+					add_core_of = FPR
+				}
+			}
+			FPR = {
+				annex_country = {
+					target = OCC
+					transfer_troops = yes
+				}
+			}
+		}
+
+	}
+
+	AUS_lower_french_resistance = {
+
+		icon = oppression
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				has_idea = FPR_french_resistance
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 35
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			industrial_capacity_factor = -0.05
+			weekly_manpower = -100
+		}
+
+		remove_effect = {
+			OCC = {
+				swap_ideas = {
+					remove_idea = FPR_french_resistance
+					add_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+	}
+
+	AUS_recruit_collaborators = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				has_idea = FPR_french_resistance
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			OCC = {
+				add_ideas = FPR_french_collaboration_forces
+			}
+		}
+
+	}
+
+	AUS_seize_lyon_industry = {
+
+		icon = generic_construction
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				NOT = {
+					has_idea = FPR_austrian_seizure_lyon_industries
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			OCC = {
+				add_timed_idea = {
+					idea = FPR_austrian_seizure_lyon_industries
+					days = 100
+				}
+				swap_ideas = {
+					remove_idea = FPR_french_resistance_2
+					add_idea = FPR_french_resistance
+				}
+			}
+		}
+
+	}
+
+	AUS_operation_lil = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+			}
+			has_subject = FPR
+			FPR = {
+				exists = yes
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			FPR = {
+				country_event = { id = austria_post_victory_tree.7 hours = 2 }
+			}
+			custom_effect_tooltip = if_bourbons_accept
+			effect_tooltip = {
+				OCC = {
+					annex_country = {
+						target = FPR
+						transfer_troops = yes
+					}
+				}
+			}
+			OCC = {
+				swap_ideas = {
+					remove_idea = FPR_french_resistance_2
+					add_idea = FPR_french_resistance
+				}
+			}
+		}
+
+	}
+
+}

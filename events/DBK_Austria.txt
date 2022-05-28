@@ -5061,3 +5061,70 @@ country_event = { #Karl gets bombed
 		}
 	}
 }
+
+country_event = { #Case Anton Uno Reverse Card
+	id = austria_post_victory_tree.7
+	title = austria_post_victory_tree.7.t
+	desc = austria_post_victory_tree.7.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #RIP to us I guess
+		name = austria_post_victory_tree.7.a
+		ai_chance = {
+			factor = 4
+		}
+		OCC = {
+			annex_country = {
+				target = FPR
+				transfer_troops = yes
+			}
+		}
+		every_state = {
+			limit = { is_core_of = FPR }
+			add_core_of = OCC
+		}
+	}
+	option = { #uh no
+		name = austria_post_victory_tree.7.b
+		ai_chance = {
+			factor = 1
+		}
+		AUS = {
+			set_autonomy = {
+				targer = FPR
+				autonomous_state = autonomy_free
+			}
+			country_event = { id = austria_post_victory_tree.8 hours = 3 }
+		}
+		effect_tooltip = {
+			AUS = {
+				create_wargoal = {
+					type = annex_everything
+					target = FPR
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Case Anton Uno Reverse Card
+	id = austria_post_victory_tree.8
+	title = austria_post_victory_tree.8.t
+	desc = austria_post_victory_tree.8.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #RIP bourbons
+		name = austria_post_victory_tree.8.a
+		ai_chance = {
+			factor = 4
+		}
+		declare_war_on = {
+			target = FPR
+			type = annex_everything
+		}
+	}
+}

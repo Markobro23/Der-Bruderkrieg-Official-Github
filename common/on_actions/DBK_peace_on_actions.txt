@@ -891,6 +891,28 @@ on_actions = {
 				log = "2nd europa ends for france: [GetDateText]"
 				france_beats_prussia_peace_deal = yes
 			}
+			if = {
+				limit = {
+					tag = FPR
+					FROM = {
+						OR = {
+							tag = AUS
+							is_subject_of = AUS
+						}
+					}
+					OCC = { is_subject_of = AUS }
+				}
+				white_peace = AUS
+				OCC = {
+					annex_country = {
+						target = FPR
+					}
+				}
+				every_state = {
+					limit = { is_core_of = FPR }
+					add_core_of = OCC
+				}
+			}
 			
 		}
 	}
