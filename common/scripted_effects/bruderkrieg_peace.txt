@@ -31,6 +31,16 @@ d_prussia_russia_wins_states = {
     prussia_russia_wins_states = yes
 }
 prussia_russia_wins_states = {
+    hidden_effect = {
+        if = {
+            limit = { DRV = { is_in_faction_with = AUS } }
+            ITA = {
+                annex_country = {
+                    target = DRV
+                }
+            }
+        }
+    }
      if = {
         limit = {
             JAP = {
@@ -54,6 +64,9 @@ prussia_russia_wins_states = {
     else = {
         random_country = {
             limit = {
+                NOT = {
+                    tag = DRV
+                }
                 is_in_faction_with = AUS
             }
             save_global_event_target_as = new_pakt_faction_leader
@@ -326,6 +339,28 @@ prussia_russia_wins_states = {
         reset_government = yes
     }
     romanian_states = yes
+    GER = {
+        if = {
+            limit = { country_exists = AUS }
+            annex_country = {
+                target = AUS
+            }
+        }
+    }
+    ITA = {
+        if = {
+            limit = { country_exists = ORA }
+            annex_country = {
+                target = ORA
+            }
+        }
+        if = {
+            limit = { country_exists = KEN }
+            annex_country = {
+                target = KEN
+            }
+        }
+    }
 }
 prussia_wins_states = {
     set_global_flag = austria_defeated
@@ -1043,6 +1078,17 @@ france_loses_peace_deal = {
             white_peace = FRA
         }
     }
+    if = {
+        limit = {
+            NOT = { has_global_flag = weltkrieg_ITA_gets_occitania }
+        }
+        ADU = {
+            add_state_core = 21
+            add_state_core = 32
+            set_capital = { state = 21 }
+            set_cosmetic_tag = ITA_french_zone
+        }
+    }
     OCC = {
         if = {
             limit = {
@@ -1089,6 +1135,10 @@ france_loses_peace_deal = {
         add_state_core = 27
     }
     FRA = {
+        if = {
+            limit = { NOT = { has_global_flag = weltkrieg_ITA_gets_occitania } }
+            release = ADU
+        }
         release = WFR
         release = OCC
         release = NFR
@@ -1129,7 +1179,19 @@ france_loses_peace_deal = {
             limit = {
                 NOT = { has_global_flag = weltkrieg_ITA_gets_occitania }
             }
-            puppet = OCC
+            if = {
+                limit = {
+                    OR = {
+                        has_dlc = "Death or Dishonor"
+                    }
+                }
+                set_autonomy = {
+                    target = OCC
+                    autonomy_state = autonomy_reichsprotectorate
+                    freedom_level = 750
+                }
+                else = { puppet = OCC }
+            }
         }
         puppet = NFR
         puppet = WFR
@@ -1163,6 +1225,7 @@ france_loses_peace_deal = {
             set_resistance = GER.french_resistance_var
             set_compliance = GER.french_compliance_var
         }
+        add_ideas = RK_collaborationist_army
     }
     ITA = {
         if = {
@@ -1170,6 +1233,9 @@ france_loses_peace_deal = {
                 has_global_flag = weltkrieg_ITA_gets_occitania
             }
             puppet = OCC
+            else = {
+                puppet = ADU
+            }
         }
     }
     OCC = {
