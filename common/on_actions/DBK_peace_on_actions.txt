@@ -252,7 +252,10 @@ on_actions = {
 						FROM = {
 							OR = {
 								tag = GER
-								is_in_faction_with = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
 								is_subject_of = GER
 								tag = ITA
 								is_subject_of = ITA
@@ -268,7 +271,10 @@ on_actions = {
 						FROM = {
 							OR = {
 								tag = GER
-								is_in_faction_with = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
 								is_subject_of = GER
 							}
 						}
@@ -482,6 +488,17 @@ on_actions = {
 					}
 				}
 				austria_beats_serbia_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = SPR
+					}
+					FROM = {
+						OR = { tag = AUS is_in_faction_with = AUS }
+					}
+				}
+				austria_beats_spain_peace_deal = yes
 			}
 			if = {
 				limit = {

@@ -9536,4 +9536,44 @@ AUS_managing_bourbons = {
 
 	}
 
+	AUS_give_spain_a_bourbon_king = { #if you don't do this decision, a habsburg gets put in charge
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			FPR = {
+				exists = yes
+				has_idea = FPR_ancien_regime_3
+			}
+			has_war_with = SPR
+			OCC = {
+				exists = no
+			}
+		}
+
+		available = {
+			SPR = {
+				surrender_progress > 0.1
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+			every_state = {
+				limit = { is_core_of = SPR }
+				add_core_of = FPR
+			}
+			set_global_flag = FPR_gets_spain
+		}
+
+	}
+
 }

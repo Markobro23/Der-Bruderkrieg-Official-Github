@@ -383,7 +383,14 @@ ITA_content_decisions = {
           white_peace = ITA
         }
       }
-      news_event = { id = italy.531 hours = 3 random = 3 }
+      if = {
+        limit = { has_war_with = ENG }
+        every_country = {
+          limit = { OR = { tag = ENG is_in_faction_with = ENG is_subject_of = ENG } }
+          white_peace = ITA
+        }
+      }
+      news_event = { id = italy.531 hours = 3 }
     }
   }
   ITA_continue_alliance_with_germany = {
@@ -419,6 +426,13 @@ ITA_content_decisions = {
           has_subject = OCC
         }
       }
+      modifier = {
+      	add = -1
+      	POR = {
+      		is_in_faction_with = FRA
+      		has_war_with = ROOT
+      	}
+      }
     }
 
     fire_only_once = yes 
@@ -434,7 +448,9 @@ ITA_content_decisions = {
     icon = generic_political_discourse
 
     available = {
-      has_war = no
+      NOT = {
+      	has_war_with = FRA
+      }
     }
 
     visible = {
@@ -476,7 +492,9 @@ ITA_content_decisions = {
     icon = generic_political_discourse
 
     available = {
-      has_war = no
+      NOT = {
+      	has_war_with = ENG
+      }
     }
 
     visible = {
