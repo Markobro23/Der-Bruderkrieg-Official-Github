@@ -797,6 +797,39 @@ on_actions = {
 				set_global_flag = krakow_has_fallen
     		}
 
+			if = {
+    			limit = { #constan
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = TUR
+    				}
+    				FROM.FROM = {
+    					state = 341
+    				}
+					NOT = {
+						has_global_flag = istanbul_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.18 hours = 3 random = 9 }
+				set_global_flag = istanbul_has_fallen
+    		}
+			if = {
+    			limit = { #bucharest
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = ROM
+    				}
+    				FROM.FROM = {
+    					state = 46
+    				}
+					NOT = {
+						has_global_flag = bucharest_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.19 hours = 3 random = 9 }
+				set_global_flag = bucharest_has_fallen
+    		}
+
 			
 
 			
