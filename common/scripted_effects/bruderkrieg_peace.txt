@@ -3107,3 +3107,88 @@ AUS_reconquers_SGC = {
     GPU = { add_ideas = GPU_garrisson_state }
     set_country_flag = SGC_court_opposition_crushed
 }
+
+spain_loses_to_brothers_coalition = {
+    every_country = {
+        limit = { is_in_faction_with = GER has_war_with = SPR }
+        SPR = {
+            white_peace = PREV
+        }
+    }
+    if = {
+        limit = { OCC = { is_in_faction_with = GER } }
+        OCC = {
+            transfer_state = 165
+            transfer_state = 794
+            transfer_state = 166
+            add_state_core = 165
+            add_state_core = 794
+            add_state_core = 166
+        }
+    }
+    NAV = {
+        add_state_core = 171
+        add_state_core = 790
+        add_state_core = 174
+        add_state_core = 792
+        add_state_core = 172
+        add_state_core = 176
+        add_state_core = 791
+        set_cosmetic_tag = prussian_rk
+        set_popularities = {
+            fascism = 40
+            ultranationalism = 30
+            democratic = 10
+            democratic_communism = 20
+        }
+        set_politics = {
+            ruling_party = fascism
+        }
+        keep_current_politics = yes
+    }
+    SPR = {
+        create_country_leader = {
+            name = "Ramón Serrano Suñer"
+            picture = "gfx//leaders//Europe//Portrait_Europe_Generic_3.dds"
+            expire = "1965.1.1"
+            ideology = national_syndicalism
+        }
+        set_popularities = {
+            fascism = 20
+            ultranationalism = 50
+            neutrality = 10
+            democratic = 10
+            democratic_communism = 10
+        }
+        set_politics = {
+            ruling_party = ultranationalism
+        }
+        keep_current_politics = yes
+        release = NAV
+    }
+    if = {
+        limit = {
+            ITA = { is_in_faction_with = GER }
+        }
+        ITA = {
+            puppet = SPR
+        }
+        else = {
+            GER = {
+                puppet = SPR
+            }
+        }
+    }
+    GER = {
+        puppet = NAV
+    }
+    every_country = {
+        limit = {
+            OR = {
+                tag = NAV
+                tag = SPR
+            }
+        }
+        reset_government = yes
+    }
+}

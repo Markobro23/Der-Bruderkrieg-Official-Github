@@ -74,3 +74,31 @@ news_event = {
 
 	}
 }
+
+country_event = {
+	id = dutch_civil_war.5
+	title = dutch_civil_war.5.t
+	desc = dutch_civil_war.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = dutch_civil_war.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		white_peace = HOL
+		transfer_state = 7
+		transfer_state = 35
+		transfer_state = 36
+		add_state_core = 7
+		add_state_core = 35
+		add_state_core = 36
+		HOL = {
+			transfer_state = 309
+			transfer_state = 966
+			transfer_state = 695
+			set_cosmetic_tag = dutch_govenrment_in_exile
+		}
+	}
+} 
