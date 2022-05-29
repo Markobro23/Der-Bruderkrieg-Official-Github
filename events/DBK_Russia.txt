@@ -5517,17 +5517,28 @@ country_event = { #SOV offers peace
 		puppet = ROM
 		puppet = BUL
 		if = {
-			limit = { BYZ = { is_subject_of = SOV } ATH = { is_in_faction_with = GER } }
-			ATH = {
-				annex_country = {
-					target = BYZ
-				}
-				transfer_state = 988
+			limit = {
+				ATH = { is_in_faction_with = GER }
 			}
-			hidden_effect = {
-				every_state = {
-					limit = { is_core_of = BYZ NOT = { is_core_of = ATH } }
-					add_core_of = ATH
+			every_state = {
+				limit = { is_owned_by = BUL is_core_of = ATH }
+				ATH = {
+					transfer_state = PREV
+				}
+			}
+			if = {
+				limit = { BYZ = { is_subject_of = SOV } }
+				ATH = {
+					annex_country = {
+						target = BYZ
+					}
+					transfer_state = 988
+				}
+				hidden_effect = {
+					every_state = {
+						limit = { is_core_of = BYZ NOT = { is_core_of = ATH } }
+						add_core_of = ATH
+					}
 				}
 			}
 		}

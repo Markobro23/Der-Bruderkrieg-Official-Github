@@ -248,6 +248,22 @@ on_actions = {
 				}
 				if = {
 					limit = {
+						tag = POR
+						FROM = {
+							OR = {
+								tag = GER
+								is_in_faction_with = GER
+								is_subject_of = GER
+								tag = ITA
+								is_subject_of = ITA
+								is_in_faction_with = ITA
+							}
+						}
+					}
+					country_event = { id = POR_exile.1 }
+				}
+				if = {
+					limit = {
 						ROOT = {
 							tag = HOL
 	
