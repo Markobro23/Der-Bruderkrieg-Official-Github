@@ -2522,19 +2522,20 @@ shared_focus = {
     icon = GFX_goal_SOV_third_internationale
 	x = 0
 	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
 	prerequisite = { focus = SOV_end_the_austrian_threat }
 	
 	relative_position_id = SOV_end_the_austrian_threat
 
 	cost = 10		
 	available = {
-		has_global_flag = austria_defeated
+		custom_trigger_tooltip = {
+            tooltip = austria_defeated
+            OR = {
+                has_global_flag = austria_defeated
+                AUS = { exists = no }
+                AUS = { is_subject = yes }
+            }
+        }
 	}
 
 	cancel_if_invalid = yes

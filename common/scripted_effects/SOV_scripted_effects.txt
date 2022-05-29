@@ -1927,3 +1927,46 @@ SOV_decrease_support_among_people_large = {
 }
 
 
+SOV_give_up_to_aa_line = {
+	every_state = {
+		limit = {
+			is_owned_by = SOV
+			OR = {
+				AND = {
+					is_on_continent = europe
+					NOT = {
+						state = 214
+					}
+				}
+				AND = {
+					is_on_continent = asia
+					OR = {
+						state = 252
+						state = 250
+						state = 239
+						state = 217
+						state = 236
+						state = 237
+						state = 351
+						state = 255
+					}
+				}
+				AND = {
+					is_on_continent = middle_east
+					OR = {
+						state = 231
+						state = 229
+						state = 1083
+						state = 230
+						state = 1082
+						state = 345
+						state = 843
+						state = 354
+						state = 355
+					}
+				}
+			}
+		}
+		transfer_state_to = ROOT
+	}
+}

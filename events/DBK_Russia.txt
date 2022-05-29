@@ -5360,6 +5360,7 @@ country_event = {
 				target = TUR
 				autonomous_state = autonomy_free
 			}
+			remove_from_faction = TUR
 			declare_war_on = {
 				target = TUR
 				type = puppet_wargoal_focus
@@ -5415,5 +5416,177 @@ news_event = { #british seizure of palestine
 	}
 	option = {
 		name = SOV_brit_conflict.1.a
+	}
+}
+
+#peacing out with being invaded stuff
+add_namespace = SOV_brest_livosk2
+
+country_event = { #making peace with whoever's invading
+	id = SOV_brest_livosk2.1
+	title = SOV_brest_livosk2.1.t
+	desc = SOV_brest_livosk2.1.d
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = SOV
+		has_war = yes
+		NOT = {
+			controls_state = 217
+			controls_state = 219
+			controls_state = 195
+		}
+	}
+
+	option = { #sue for peace
+		name = SOV_brest_livosk2.1.a
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				has_war_with = AUS
+				AUS = { is_faction_leader = yes }
+			}
+			AUS = {
+				country_event = { id = SOV_brest_livosk2.2 hours = 3 }
+			}
+		}
+		if = {
+			limit = {
+				has_war_with = GER
+				GER = { is_faction_leader = yes }
+			}
+			GER = {
+				country_event = { id = SOV_brest_livosk2.2 hours = 3 }
+			}
+		}
+		if = {
+			limit = {
+				has_war_with = FRA
+				FRA = { is_faction_leader = yes }
+			}
+			FRA = {
+				country_event = { id = SOV_brest_livosk2.2 hours = 3 }
+			}
+		}
+	}
+	option = { #no peace, never!
+		name = SOV_brest_livosk2.1.b
+		ai_chance = {
+			factor = 0
+		}
+		add_ideas = SOV_forever_war
+	}
+}
+
+country_event = { #SOV offers peace
+	id = SOV_brest_livosk2.2
+	title = SOV_brest_livosk2.2.t
+	desc = SOV_brest_livosk2.2.d
+	
+	is_triggered_only = yes
+
+	option = { #sure
+		name = SOV_brest_livosk2.2.a
+		ai_chance = {
+			factor = 100
+		}
+		news_event = { id = SOV_brest_livosk2.3 hours = 6 }
+		SOV_give_up_to_aa_line = yes
+		every_country = {
+			limit = {
+				has_war_with = SOV
+				OR = {
+					is_in_faction_with = ROOT
+					is_subject_of = ROOT
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = SOV
+						is_in_faction_with = SOV
+						is_subject_of = SOV
+					}
+				}
+				white_peace = PREV
+			}
+		}
+		puppet = ROM
+		puppet = BUL
+		if = {
+			limit = { BYZ = { is_subject_of = SOV } ATH = { is_in_faction_with = GER } }
+			ATH = {
+				annex_country = {
+					target = BYZ
+				}
+				transfer_state = 988
+			}
+			hidden_effect = {
+				every_state = {
+					limit = { is_core_of = BYZ NOT = { is_core_of = ATH } }
+					add_core_of = ATH
+				}
+			}
+		}
+		if = {
+			limit = {
+				TUR = {
+					NOT = { is_in_faction_with = SOV }
+				}
+				country_exists = TRB
+			}
+			TUR = {
+				annex_country = {
+					target = TRB
+				}
+			}
+		}
+	}
+	option = { #no peace, never!
+		name = SOV_brest_livosk2.2.b
+		ai_chance = {
+			factor = 0
+		}
+		add_ideas = SOV_forever_war
+		SOV = {
+			country_event = { id = SOV_brest_livosk2.4 hours = 3 }
+		}
+	}
+}
+
+news_event = { #SOV peaces out with FROM
+	id = SOV_brest_livosk2.3
+	title = SOV_brest_livosk2.3.t
+	desc = SOV_brest_livosk2.3.d
+	
+	is_triggered_only = yes
+	major = yes
+
+	option = { #the fall of a giant
+		name = SOV_brest_livosk2.3.a
+		ai_chance = {
+			factor = 1
+		}
+		
+	}
+}
+
+country_event = { #FROM refuses peace
+	id = SOV_brest_livosk2.4
+	title = SOV_brest_livosk2.4.t
+	desc = SOV_brest_livosk2.4.d
+	
+	is_triggered_only = yes
+
+	option = { #biggus saddicus
+		name = SOV_brest_livosk2.4.b
+		ai_chance = {
+			factor = 0
+		}
+		add_war_support = 0.2
+		add_stability = -0.1
 	}
 }
