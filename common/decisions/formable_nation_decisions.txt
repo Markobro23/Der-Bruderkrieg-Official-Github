@@ -1519,3 +1519,131 @@ form_arabia_category = {
 	}
 
 }
+
+reunite_russia_category = {
+	
+	reunite_russia_decision = {
+
+		icon = generic_form_nation
+
+		available = {
+			SOV = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			PRM = {
+				OR = {
+					exists = no
+					is_in_faction_with = ROOT
+				}
+			}
+			GRN = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			KAZ = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			TAJ = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			TMS = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			SRG = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			KRK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			NSK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			ZMU = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			YAK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = SOV
+						is_core_of = PRM
+						is_core_of = KAZ
+						is_core_of = TMS
+						is_core_of = GRN
+						is_core_of = TAJ
+						is_core_of = NSK
+						is_core_of = SRG
+						is_core_of = KRK
+						is_core_of = YAK
+						is_core_of = ZMU
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				ROOT = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = SOV } }
+				set_cosmetic_tag = SOV
+			}
+		}
+
+	}
+
+}

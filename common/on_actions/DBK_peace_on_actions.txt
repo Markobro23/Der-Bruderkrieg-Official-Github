@@ -506,7 +506,14 @@ on_actions = {
 						tag = ITA
 					}
 					FROM = {
-						OR = { tag = AUS is_in_faction_with = AUS }
+						OR = {
+							tag = AUS
+							AND = {
+								is_in_faction_with = AUS
+								AUS = { is_subject = no }
+							}
+							is_subject_of = AUS
+						}
 					}
 				}
 				ITA = {
@@ -520,7 +527,14 @@ on_actions = {
 						tag = ITA
 					}
 					FROM = {
-						OR = { tag = FRA is_in_faction_with = FRA }
+						OR = {
+							tag = FRA
+							AND = {
+								is_in_faction_with = FRA
+								FRA = { is_subject = no }
+							}
+							is_subject_of = FRA
+						}
 					}
 				}
 				ITA = {
@@ -534,7 +548,14 @@ on_actions = {
 						tag = FRA
 					}
 					FROM = {
-						tag = AUS
+						OR = {
+							tag = AUS
+							AND = {
+								is_in_faction_with = AUS
+								AUS = { is_subject = no }
+							}
+							is_subject_of = AUS
+						}
 					}
 				}
 				france_loses_to_austria_peace_deal = yes
@@ -931,9 +952,6 @@ on_actions = {
 								GER = { is_subject = no }
 							}
 							is_subject_of = GER
-							tag = ITA
-							is_subject_of = ITA
-							is_in_faction_with = ITA
 						}
 					}
 				}
@@ -952,7 +970,16 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = { tag = GER }
-					FROM = { tag = FRA }
+					FROM = {
+						OR = {
+							tag = FRA
+							AND = {
+								is_in_faction_with = FRA
+								FRA = { is_subject = no }
+							}
+							is_subject_of = FRA
+						}
+					}
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				france_beats_prussia_peace_deal = yes

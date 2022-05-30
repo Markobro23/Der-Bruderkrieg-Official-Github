@@ -5495,6 +5495,9 @@ country_event = { #SOV offers peace
 		}
 		news_event = { id = SOV_brest_livosk2.3 hours = 6 }
 		SOV_give_up_to_aa_line = yes
+		hidden_effect = {
+			SOV = { country_event = { id = SOV_brest_livosk2.5 days = 7 random = 48 } }
+		}
 		every_country = {
 			limit = {
 				has_war_with = SOV
@@ -5593,11 +5596,247 @@ country_event = { #FROM refuses peace
 	is_triggered_only = yes
 
 	option = { #biggus saddicus
-		name = SOV_brest_livosk2.4.b
+		name = SOV_brest_livosk2.4.a
 		ai_chance = {
-			factor = 0
+			factor = 1
 		}
 		add_war_support = 0.2
 		add_stability = -0.1
+	}
+}
+
+country_event = { #heehoo collapse go brrrrr
+	id = SOV_brest_livosk2.5
+	title = SOV_brest_livosk2.5.t
+	desc = SOV_brest_livosk2.5.d
+	
+	is_triggered_only = yes
+
+	immediate = {
+		SOV_release_YAK = yes
+		SOV_release_ZMU = yes
+		SOV_release_KRK = yes
+		SOV_release_SRG = yes
+		SOV_release_PRM = yes
+		SOV_release_GRN = yes
+		SOV_release_central_asia = yes
+		news_event = { id = SOV_brest_livosk2.6 days = 15 }
+	}
+
+	option = { #the rightful government will prevail!
+		name = SOV_brest_livosk2.5.a
+		set_global_flag = SOV_has_collapsed
+		ai_chance = {
+			factor = 1
+		}
+		create_faction = russian_reconstruction_committee
+		add_to_faction = PRM
+		add_to_faction = TMS
+		add_to_faction = NSK
+		hidden_effect = {
+			SRG = {
+				create_faction = russian_white_army
+				add_to_faction = TMS
+				add_to_faction = KRK
+				add_to_faction = KAZ
+				add_to_faction = TAJ
+			}
+			YAK = {
+				create_faction = far_eastern_republic
+				add_to_faction = ZMU
+			}
+			SRG = {
+				declare_war_on = {
+					target = YAK
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+			YAK = {
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+		}
+		declare_war_on = {
+			target = SRG
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = GRN
+			type = annex_everything
+		}
+		declare_war_on = {
+			target = YAK
+			type = annex_everything
+		}
+	}
+	option = { #the military will rule!
+		name = SOV_brest_livosk2.5.b
+		ai_chance = {
+			factor = 1
+		}
+		SRG = {
+			create_faction = russian_white_army
+			add_to_faction = TMS
+			add_to_faction = KRK
+			add_to_faction = KAZ
+			add_to_faction = TAJ
+		}
+		hidden_effect = {
+			create_faction = russian_reconstruction_committee
+			add_to_faction = PRM
+			add_to_faction = TMS
+			add_to_faction = NSK
+			YAK = {
+				create_faction = far_eastern_republic
+				add_to_faction = ZMU
+			}
+			SRG = {
+				declare_war_on = {
+					target = YAK
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+			YAK = {
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+			declare_war_on = {
+				target = SRG
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GRN
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = YAK
+				type = annex_everything
+			}
+		}
+		SRG = {
+			change_tag_from = ROOT
+		}
+	}
+	option = { #the east will be free!
+		name = SOV_brest_livosk2.5.c
+		ai_chance = {
+			factor = 1
+		}
+		YAK = {
+			create_faction = far_eastern_republic
+			add_to_faction = ZMU
+		}
+		hidden_effect = {
+			create_faction = russian_reconstruction_committee
+			add_to_faction = PRM
+			add_to_faction = TMS
+			add_to_faction = NSK
+
+			SRG = {
+				create_faction = russian_white_army
+				add_to_faction = TMS
+				add_to_faction = KRK
+				add_to_faction = KAZ
+				add_to_faction = TAJ
+				declare_war_on = {
+					target = YAK
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+			YAK = {
+				declare_war_on = {
+					target = GRN
+					type = annex_everything
+				}
+			}
+			declare_war_on = {
+				target = SRG
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = GRN
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = YAK
+				type = annex_everything
+			}
+		}
+		YAK = {
+			change_tag_from = ROOT
+		}
+	}
+}
+
+news_event = { #collapse of russia
+	id = SOV_brest_livosk2.6
+	title = SOV_brest_livosk2.6.t
+	desc = SOV_brest_livosk2.6.d
+	
+	is_triggered_only = yes
+	major = yes
+
+	option = { #the fall of a giant
+		name = SOV_brest_livosk2.6.a
+		ai_chance = {
+			factor = 1
+		}
+		
+	}
+}
+
+news_event = { #reuniting of russia
+	id = SOV_brest_livosk2.7
+	title = SOV_brest_livosk2.7.t
+	desc = { #internationally recognized gov
+		text = SOV_brest_livosk2.7.d1
+		trigger = {
+			FROM = {
+				tag = SOV
+			}
+		}
+	}
+	desc = { #military wins
+		text = SOV_brest_livosk2.7.d2
+		trigger = {
+			FROM = {
+				tag = SRG
+			}
+		}
+	}
+	desc = { #far east
+		text = SOV_brest_livosk2.7.d3
+		trigger = {
+			FROM = {
+				tag = SRG
+			}
+		}
+	}
+	
+	is_triggered_only = yes
+	major = yes
+
+	option = { #the fall of a giant
+		name = SOV_brest_livosk2.7.a
+		ai_chance = {
+			factor = 1
+		}
+		
 	}
 }
