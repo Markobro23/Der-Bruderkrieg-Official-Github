@@ -893,7 +893,14 @@ on_actions = {
 						tag = ENG
 					}
 					FROM = {
-						tag = GER
+						OR = {
+							tag = GER
+							AND = {
+								is_in_faction_with = GER
+								GER = { is_subject = no }
+							}
+							is_subject_of = GER
+						}
 					}
 				}
 				GER = {
@@ -916,7 +923,19 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = { tag = FRA }
-					FROM = { OR = { tag = GER is_in_faction_with = GER } }
+					FROM = {
+						OR = {
+							tag = GER
+							AND = {
+								is_in_faction_with = GER
+								GER = { is_subject = no }
+							}
+							is_subject_of = GER
+							tag = ITA
+							is_subject_of = ITA
+							is_in_faction_with = ITA
+						}
+					}
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				GER = {
