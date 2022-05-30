@@ -3285,9 +3285,21 @@ GER_occupation_of_russia = {
 				hidden_effect = {
 					set_cosmetic_tag = east_europe_prussian_rk
 				}
+				hidden_effect = {
+					set_popularities = {
+					fascism = 61
+					democratic = 15
+					communism = 12
+					neutrality = 12
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					keep_current_politics = yes
+				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3299,7 +3311,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3310,7 +3322,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3321,7 +3333,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3332,7 +3344,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3344,6 +3356,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = POL
+			POL = {
+				hidden_effect = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -3396,11 +3413,23 @@ GER_occupation_of_russia = {
         		transfer_state = 189
         		transfer_state = 1126
 				hidden_effect = {
+					set_popularities = {
+					ultranationalism = 81
+					democratic = 9
+					communism = 0
+					neutrality = 10
+					}
+					set_politics = {
+						ruling_party = ultranationalism
+					}
+					keep_current_politics = yes
+				}
+				hidden_effect = {
 					set_cosmetic_tag = east_europe_prussian_rk
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3412,7 +3441,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3423,7 +3452,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3434,7 +3463,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3445,7 +3474,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3457,6 +3486,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = FOB
+			FOB = {
+				hidden_effect = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -3523,9 +3557,22 @@ GER_occupation_of_russia = {
 					add_state_core = 137
 					add_state_core = 218
 					set_cosmetic_tag = east_europe_prussian_rk
+					hidden_effect = {
+						set_popularities = {
+						fascism = 61
+						democratic = 9
+						communism = 10
+						neutrality = 10
+						democratic_liberalism = 10
+						}
+						set_politics = {
+							ruling_party = fascism
+						}
+						keep_current_politics = yes
+					}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3537,7 +3584,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3548,7 +3595,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3559,7 +3606,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3570,7 +3617,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3583,6 +3630,9 @@ GER_occupation_of_russia = {
 				}
 			}
 			release_puppet_on_controlled = UKR
+			UKR = {
+				reset_government = yes
+			}
 		}
 
 	}
@@ -3629,11 +3679,24 @@ GER_occupation_of_russia = {
 					transfer_state = 766
 				}
 				hidden_effect = {
+					set_popularities = {
+					neutrality = 68
+					democratic = 3
+					communism = 3
+					fascism = 25
+					democratic_liberalism = 3
+					}
+					set_politics = {
+						ruling_party = neutrality
+					}
+					keep_current_politics = yes
+				}
+				hidden_effect = {
 					set_cosmetic_tag = east_europe_prussian_rk
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3645,7 +3708,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3656,7 +3719,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3667,7 +3730,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3678,7 +3741,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3690,6 +3753,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = MOL
+			hidden_effect = {
+				MOL = {
+					reset_government = yes
+				}
+			}
 			if = {
 				limit = {
 					is_in_faction_with = ROM
@@ -3814,11 +3882,23 @@ GER_occupation_of_russia = {
         		transfer_state = 207
         		transfer_state = 241
 				hidden_effect = {
+					set_popularities = {
+					ultranationalism = 68
+					democratic = 3
+					communism = 15
+					socialism_democratic = 14
+					}
+					set_politics = {
+						ruling_party = ultranationalism
+					}
+					keep_current_politics = yes
+				}
+				hidden_effect = {
 					set_cosmetic_tag = east_europe_prussian_rk
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3830,7 +3910,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3841,7 +3921,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3852,7 +3932,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3863,7 +3943,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3875,6 +3955,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = BLR
+			BLR = {
+				hidden_effect = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -3917,7 +4002,7 @@ GER_occupation_of_russia = {
 					set_cosmetic_tag = east_europe_prussian_rk
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -3929,7 +4014,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3940,7 +4025,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3951,7 +4036,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -3962,7 +4047,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4031,11 +4116,24 @@ GER_occupation_of_russia = {
 		    	transfer_state = 843
 		    	transfer_state = 345
 				hidden_effect = {
+					set_popularities = {
+					fascism = 55
+					democratic = 10
+					democratic_communism = 6
+					communism = 15
+					socialism_democratic = 14
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					keep_current_politics = yes
+				}
+				hidden_effect = {
 					set_cosmetic_tag = cock_prussian_rk
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4047,7 +4145,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4058,7 +4156,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4069,7 +4167,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4080,7 +4178,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4092,6 +4190,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = GEO
+			hidden_effect = {
+				GEO = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4139,6 +4242,16 @@ GER_occupation_of_russia = {
         			add_state_core = 235
 			        set_capital = { state = 234 }
 				}
+				hidden_effect = {
+					set_popularities = {
+					fascism = 89
+					neutrality = 11
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					keep_current_politics = yes
+				}
 				transfer_state = 234
         		transfer_state = 238
         		transfer_state = 1085
@@ -4148,7 +4261,7 @@ GER_occupation_of_russia = {
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4160,7 +4273,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4171,7 +4284,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4182,7 +4295,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4193,7 +4306,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4205,6 +4318,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = NYK
+			hidden_effect = {
+				NYK = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4244,11 +4362,22 @@ GER_occupation_of_russia = {
 				transfer_state = 232
         		transfer_state = 233
 				hidden_effect = {
+					set_popularities = {
+					fascism = 69
+					neutrality = 19
+					authoritarian_democratic = 12
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					keep_current_politics = yes
+				}
+				hidden_effect = {
 					set_cosmetic_tag = cock_prussian_rk
 				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4260,7 +4389,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4271,7 +4400,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4282,7 +4411,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4293,7 +4422,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4305,6 +4434,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = CHE
+			hidden_effect = {
+				CHE = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4400,11 +4534,23 @@ GER_occupation_of_russia = {
 	        		transfer_state = 263
 	        		transfer_state = 246
 	        		transfer_state = 210
+					hidden_effect = {
+						set_popularities = {
+						ultranationalism = 59
+						democratic = 10
+						democratic_communism = 9
+						socialism_democratic = 22
+						}
+						set_politics = {
+							ruling_party = ultranationalism
+						}
+						keep_current_politics = yes
+					}
 					set_cosmetic_tag = russian_prussian_rk
 					set_capital = { state = 195 }
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4416,7 +4562,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4427,7 +4573,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4438,7 +4584,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4449,7 +4595,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4466,6 +4612,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = RRR
+			hidden_effect = {
+				RRR = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4552,10 +4703,22 @@ GER_occupation_of_russia = {
 	        		transfer_state = 245
         	        transfer_state = 257
 					set_capital = { state = 242 }
+					hidden_effect = {
+						set_popularities = {
+						ultranationalism = 59
+						democratic = 10
+						democratic_communism = 9
+						socialism_democratic = 22
+						}
+						set_politics = {
+							ruling_party = ultranationalism
+						}
+						keep_current_politics = yes
+					}
 					set_cosmetic_tag = russian_prussian_rk
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4567,7 +4730,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4578,7 +4741,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4589,7 +4752,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4600,7 +4763,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4613,6 +4776,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = LNU
+			hidden_effect = {
+				LNU = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4658,9 +4826,23 @@ GER_occupation_of_russia = {
 				hidden_effect = {
 					set_cosmetic_tag = finnish_prussian_rk
 				}
+				hidden_effect = {
+					set_popularities = {
+					fascism = 49
+					democratic = 10
+					neutrality = 10
+					democratic_communism = 9
+					socialism_democratic = 12
+					democratic_liberalism = 12
+					}
+					set_politics = {
+						ruling_party = fascism
+					}
+					keep_current_politics = yes
+				}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4672,7 +4854,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4683,7 +4865,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4694,7 +4876,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4705,7 +4887,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4717,6 +4899,11 @@ GER_occupation_of_russia = {
         		}
 			}
 			puppet = FIN
+			hidden_effect = {
+				FIN = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4857,9 +5044,19 @@ GER_occupation_of_russia = {
         			transfer_state = 216
         			set_capital = { state = 216 }
         			set_cosmetic_tag = finnish_prussian_rk
+					hidden_effect = {
+						set_popularities = {
+						neutrality = 93
+						democratic = 7
+						}
+						set_politics = {
+							ruling_party = neutrality
+						}
+						keep_current_politics = yes
+					}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4871,7 +5068,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4882,7 +5079,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4893,7 +5090,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4904,7 +5101,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4917,6 +5114,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = UGL
+			hidden_effect = {
+				UGL = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -4959,9 +5161,18 @@ GER_occupation_of_russia = {
         			transfer_state = 237
         			transfer_state = 236
         			set_cosmetic_tag = prussian_rk
+					hidden_effect = {
+						set_popularities = {
+						fascism = 100
+						}
+						set_politics = {
+							ruling_party = fascism
+						}
+						keep_current_politics = yes
+					}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -4973,7 +5184,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4984,7 +5195,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -4995,7 +5206,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5006,7 +5217,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5019,6 +5230,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = KLV
+			hidden_effect = {
+					KLV = {
+						reset_government = yes
+					}
+				}
 		}
 
 	}
@@ -5069,6 +5285,18 @@ GER_occupation_of_russia = {
         			transfer_state = 247
         			transfer_state = 248
         			transfer_state = 264
+					hidden_effect = {
+						set_popularities = {
+						ultranationalism = 65
+						socialism_democratic = 12
+						democratic = 13
+						neutrality = 10
+						}
+						set_politics = {
+							ruling_party = ultranationalism
+						}
+						keep_current_politics = yes
+					}
         			if = {
         				limit = {
         					GER = {
@@ -5085,7 +5313,7 @@ GER_occupation_of_russia = {
         			set_cosmetic_tag = russian_prussian_rk
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -5097,7 +5325,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5108,7 +5336,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5119,7 +5347,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5130,7 +5358,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5143,6 +5371,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = EST
+			hidden_effect = {
+				EST = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
@@ -5199,9 +5432,21 @@ GER_occupation_of_russia = {
 					transfer_state = 252
 					set_capital = { state = 252 }
 					set_cosmetic_tag = russian_prussian_rk
+					hidden_effect = {
+						set_popularities = {
+						fascism = 75
+						socialism_democratic = 10
+						democratic = 8
+						neutrality = 7
+						}
+						set_politics = {
+							ruling_party = fascism
+						}
+						keep_current_politics = yes
+					}
         		if = {
         			limit = {
-        				GER = {
+        				THIS = {
         					has_government = democratic
         				}
         			}
@@ -5213,7 +5458,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = neutrality }
+	        				THIS = { has_government = neutrality }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5224,7 +5469,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = ultranationalism }
+	        				THIS = { has_government = ultranationalism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5235,7 +5480,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = fascism }
+	        				THIS = { has_government = fascism }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5246,7 +5491,7 @@ GER_occupation_of_russia = {
 	        		}
 	        		else_if = {
 	        			limit = {
-	        				GER = { has_government = authoritarian_democratic }
+	        				THIS = { has_government = authoritarian_democratic }
 	        			}
 	        			create_country_leader = {
 		        			name = "Wehrmacht Government"
@@ -5259,6 +5504,11 @@ GER_occupation_of_russia = {
 				}
 			}
 			puppet = NVR
+			hidden_effect = {
+				NVR = {
+					reset_government = yes
+				}
+			}
 		}
 
 	}
