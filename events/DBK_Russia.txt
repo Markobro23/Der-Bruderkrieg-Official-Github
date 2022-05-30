@@ -5613,8 +5613,17 @@ country_event = { #heehoo collapse go brrrrr
 	is_triggered_only = yes
 
 	immediate = {
+		leave_faction = yes
+		every_country = {
+			limit = { has_war_with = SOV }
+			white_peace = SOV
+		}
 		SOV_release_YAK = yes
 		SOV_release_ZMU = yes
+		if = {
+			limit = { has_war_with = JAP }
+			JAP = { puppet = ZMU }
+		}
 		SOV_release_KRK = yes
 		SOV_release_SRG = yes
 		SOV_release_PRM = yes
@@ -5643,7 +5652,10 @@ country_event = { #heehoo collapse go brrrrr
 			}
 			YAK = {
 				create_faction = far_eastern_republic
-				add_to_faction = ZMU
+				if = {
+					limit = { ZMU = { is_subject = no } }
+					add_to_faction = ZMU
+				}
 			}
 			SRG = {
 				declare_war_on = {
@@ -5694,7 +5706,10 @@ country_event = { #heehoo collapse go brrrrr
 			add_to_faction = NSK
 			YAK = {
 				create_faction = far_eastern_republic
-				add_to_faction = ZMU
+				if = {
+					limit = { ZMU = { is_subject = no } }
+					add_to_faction = ZMU
+				}
 			}
 			SRG = {
 				declare_war_on = {
@@ -5736,7 +5751,10 @@ country_event = { #heehoo collapse go brrrrr
 		}
 		YAK = {
 			create_faction = far_eastern_republic
-			add_to_faction = ZMU
+			if = {
+				limit = { ZMU = { is_subject = no } }
+				add_to_faction = ZMU
+			}
 		}
 		hidden_effect = {
 			create_faction = russian_reconstruction_committee
