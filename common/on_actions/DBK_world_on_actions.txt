@@ -829,8 +829,39 @@ on_actions = {
     			news_event = { id = DBK_fall_of_city.19 hours = 3 random = 9 }
 				set_global_flag = bucharest_has_fallen
     		}
+			if = {
+    			limit = { #sofia
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = BUL
+    				}
+    				FROM.FROM = {
+    					state = 48
+    				}
+					NOT = {
+						has_global_flag = sofia_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.20 hours = 3 random = 9 }
+				set_global_flag = sofia_has_fallen
+    		}
+			if = {
+    			limit = { #madrid
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = SPR
+    				}
+    				FROM.FROM = {
+    					state = 41
+    				}
+					NOT = {
+						has_global_flag = madrid_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.21 hours = 3 random = 9 }
+				set_global_flag = madrid_has_fallen
+    		}
 
-			
 
 			
     		

@@ -371,12 +371,15 @@ on_actions = {
 						FROM = {
 							is_in_faction_with = SOV
 						}
-					}
-					has_war_with = GER
-					NOT = {
 						FROM = {
 							tag = GER
 						}
+						FROM = {
+							is_in_faction_with = GER
+						}
+					}
+					SOV = {
+						has_war_with = AUS
 					}
 				}
 				prussia_russia_wins_states = yes
