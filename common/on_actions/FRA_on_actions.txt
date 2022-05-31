@@ -144,6 +144,47 @@ on_actions = {
 		}
 	}
 
+	on_offer_join_faction = {
+        effect = {
+            if = {
+                limit = {
+                    FROM = {
+                        tag = BEL
+                    }
+                    is_in_faction_with = FRA
+                }
+                news_event = napoleanfrance.34
+            }
+             if = {
+                limit = {
+                    FROM = {
+                        tag = HOL
+                    }
+                    is_in_faction_with = FRA
+                }
+                news_event = napoleanfrance.35
+            }
+            if = {
+                limit = {
+                    FROM = {
+                        tag = POR
+                    }
+                    is_in_faction_with = FRA
+                }
+                news_event = napoleanfrance.36
+            }
+			if = {
+                limit = {
+                    FROM = {
+                        tag = SPR
+                    }
+                    is_in_faction_with = FRA
+                }
+                news_event = napoleanfrance.37
+            }
+        }
+    }
+
 	on_weekly_FRA = {
 		effect = {
 			if = {
