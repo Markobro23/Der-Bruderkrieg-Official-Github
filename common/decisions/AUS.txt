@@ -3651,10 +3651,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3696,10 +3696,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3748,10 +3748,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3789,10 +3789,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3830,10 +3830,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3876,10 +3876,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3917,10 +3917,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3987,8 +3987,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = GER
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4011,8 +4011,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = GER
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4039,8 +4039,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = ROM
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4063,8 +4063,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = SOV
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4087,8 +4087,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = FGD
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4123,8 +4123,8 @@ AUS_offensives_against_the_fbc = {
 		available = {
 			has_war_with = ITA
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -4151,10 +4151,9 @@ AUS_offensives_against_the_fbc = {
 				has_war_with = YUG
 			}
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
-
 		fire_only_once = no
 
 		days_remove = 70
@@ -5994,7 +5993,12 @@ AUS_french_prussian_war_preparations = {
 		cost = 50
 
 		available = {
-			owns_state = 69
+			OR = {
+				owns_state = 69
+				69.owner = {
+					is_puppet_of = AUS
+				}
+			}
 		}
 
 		days_remove = 20
@@ -6041,7 +6045,7 @@ AUS_french_prussian_war_preparations = {
 		days_remove = 30
 
 		remove_effect = {
-			540 = {
+			954 = {
 				add_building_construction = {
 					type = bunker
 					level = 2
