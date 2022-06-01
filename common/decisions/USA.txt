@@ -486,6 +486,29 @@ DBK_USA_content_category = {
 		}
 	}
 
+	USA_deciding_arg_occupation = {
+
+		icon = generic_industry
+
+		visible = {
+			NOT = {
+				has_country_leader = {
+					name = "William Gibbs McAdoo"
+					ruling_only = yes
+				}
+			}
+			has_war_with = ARG
+		}
+		fire_only_once = yes
+
+		cost = 25
+
+		complete_effect = {
+			country_event = { id = USA_content_events.2 hours = 1 }
+		}
+
+	}
+
 }
 
 DBK_USA_house = {

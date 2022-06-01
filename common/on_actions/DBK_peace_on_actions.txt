@@ -312,6 +312,108 @@ on_actions = {
 				}
 		}
 	}
+		#austria workaround, all my homies hate on_capitulation not working
+	on_state_control_changed = {
+		effect = {
+			if = { #losing vienna
+				limit = {
+					FROM = {
+						tag = AUS
+						OR = {
+							AND = { #budapest check
+								has_completed_focus = AUS_CENTRALISM
+								NOT = {
+									controls_state = 43
+								}
+							}
+							AND = { #trieste check
+								has_completed_focus = AUS_FEDERALISM
+								NOT = {
+									controls_state = 736
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						state = 4
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+				}
+				if = {
+					limit = {
+						has_war_with = SOV
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+			if = { #losing budapest
+				limit = {
+					FROM = {
+						tag = AUS
+						has_completed_focus = AUS_CENTRALISM
+						NOT = {
+							controls_state = 4
+						}
+					}
+					FROM.FROM = {
+						state = 43
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+				}
+				if = {
+					limit = {
+						has_war_with = SOV
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+			if = { #losing trieste
+				limit = {
+					FROM = {
+						tag = AUS
+						has_completed_focus = AUS_FEDERALISM
+						NOT = {
+							controls_state = 4
+						}
+					}
+					FROM.FROM = {
+						state = 736
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+				}
+				if = {
+					limit = {
+						has_war_with = SOV
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+		}
+	}
 	
 	##bruderkrieg austria ones
 	on_capitulation = {
