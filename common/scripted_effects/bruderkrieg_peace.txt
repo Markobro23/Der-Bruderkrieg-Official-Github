@@ -2829,6 +2829,66 @@ america_venezuela_peace_deal = {
     
 }
 
+america_beats_argentina = {
+    if = {
+        limit = {
+            country_exists = PBC
+            PBC = {
+                has_war_with = ARG
+            }
+        }
+        PBC = {
+            transfer_state = 998
+        }
+    }
+    if = {
+        limit = {
+            country_exists = PAR
+            PAR = {
+                has_war_with = ARG
+            }
+        }
+        PAR = { transfer_state = 1015 }
+    }
+    if = {
+        limit = {
+            USA = {
+                OR = {
+                    has_country_leader = {
+                        name = "William Gibbs McAdoo"
+                        ruling_only = yes
+                    }
+                    has_country_flag = USA_vengeful_occupation_arg
+                }
+            }
+        }
+        USA = {
+            puppet = ARG
+            puppet = CHL
+        }
+        ARG = {
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.3
+            }
+            set_politics = {
+                ruling_party = neutrality
+            }
+            set_cosmetic_tag = USA_mandate
+        }
+        CHL = {
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.3
+            }
+            set_politics = {
+                ruling_party = neutrality
+            }
+            set_cosmetic_tag = USA_mandate
+        }
+    }
+}
+
 ottoman_recentralization_peace_deal = {
     annex_country = {target = SYR transfer_troops = no }
     annex_country = {target = PAL transfer_troops = no }
