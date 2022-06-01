@@ -31,6 +31,7 @@ d_prussia_russia_wins_states = {
     prussia_russia_wins_states = yes
 }
 prussia_russia_wins_states = {
+    log = "prussia_russia_win_styates"
     hidden_effect = {
         if = {
             limit = { DRV = { is_in_faction_with = AUS } }
@@ -141,12 +142,10 @@ prussia_russia_wins_states = {
     SOV = {
         transfer_state = 951
         transfer_state = 88
-        transfer_state = 762
         transfer_state = 89
         transfer_state = 1123
         add_state_core = 951
         add_state_core = 88
-        add_state_core = 762
         add_state_core = 89
         add_state_core = 1123
     }
@@ -1128,6 +1127,11 @@ france_loses_peace_deal = {
     }
     event_target:new_continental_system_leader = {
         set_faction_leader = yes
+        declare_war_on = {
+            target = GER
+            type = topple_government
+        }
+        add_war_support = 0.2
     }
     FRA = {
         white_peace = GER
@@ -1409,9 +1413,37 @@ france_loses_peace_deal = {
             set_compliance = GER.french_compliance_var
         }
     }
-     FRA = {
-	 	news_event = { id = france.215 hours = 3 }
-	}
+    #  FRA = {
+	#  	news_event = { id = france.215 hours = 3 }
+	# }
+    GER = {
+        annex_country = {
+            target = FRA
+            transfer_troops = no
+        }
+        if = {
+            limit = {
+                has_global_flag = congo_revolt_fired
+            }
+            release = COG
+            add_to_faction = COG
+        }
+    }
+    ALG = {
+        annex_country = {
+            target = MOR
+            transfer_troops = yes
+        }
+        declare_war_on = {
+            target = GER
+            type = topple_government
+        }
+
+    }
+    event_target:new_continental_system_leader = {
+        add_to_faction = ALG
+    }
+    
 }
 
 france_beats_prussia_peace_deal = {
@@ -1954,6 +1986,9 @@ russia_beats_ottoman_peace_deal = {
     }
     release = TUR
     TUR = {
+        every_controlled_state = {
+            add_core_of = TUR
+        }
         set_cosmetic_tag = russian_occupied_ottomans
         set_popularities = {
             democratic = 33
@@ -2827,6 +2862,66 @@ america_venezuela_peace_deal = {
         puppet = VEN
     }
     
+}
+
+america_beats_argentina = {
+    if = {
+        limit = {
+            country_exists = PBC
+            PBC = {
+                has_war_with = ARG
+            }
+        }
+        PBC = {
+            transfer_state = 998
+        }
+    }
+    if = {
+        limit = {
+            country_exists = PAR
+            PAR = {
+                has_war_with = ARG
+            }
+        }
+        PAR = { transfer_state = 1015 }
+    }
+    if = {
+        limit = {
+            USA = {
+                OR = {
+                    has_country_leader = {
+                        name = "William Gibbs McAdoo"
+                        ruling_only = yes
+                    }
+                    has_country_flag = USA_vengeful_occupation_arg
+                }
+            }
+        }
+        USA = {
+            puppet = ARG
+            puppet = CHL
+        }
+        ARG = {
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.3
+            }
+            set_politics = {
+                ruling_party = neutrality
+            }
+            set_cosmetic_tag = USA_mandate
+        }
+        CHL = {
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.3
+            }
+            set_politics = {
+                ruling_party = neutrality
+            }
+            set_cosmetic_tag = USA_mandate
+        }
+    }
 }
 
 ottoman_recentralization_peace_deal = {
