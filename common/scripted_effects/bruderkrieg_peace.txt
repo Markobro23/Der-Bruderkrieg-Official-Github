@@ -31,6 +31,7 @@ d_prussia_russia_wins_states = {
     prussia_russia_wins_states = yes
 }
 prussia_russia_wins_states = {
+    log = "prussia_russia_win_styates"
     hidden_effect = {
         if = {
             limit = { DRV = { is_in_faction_with = AUS } }
@@ -1409,9 +1410,33 @@ france_loses_peace_deal = {
             set_compliance = GER.french_compliance_var
         }
     }
-     FRA = {
-	 	news_event = { id = france.215 hours = 3 }
-	}
+    #  FRA = {
+	#  	news_event = { id = france.215 hours = 3 }
+	# }
+    GER = {
+        annex_country = {
+            target = FRA
+            transfer_troops = no
+        }
+        if = {
+            limit = {
+                has_global_flag = congo_revolt_fired
+            }
+            release = COG
+            add_to_faction = COG
+        }
+    }
+    ALG = {
+        annex_country = {
+            target = MOR
+            transfer_troops = yes
+        }
+        declare_war_on = {
+            target = GER
+            type = topple_government
+        }
+    }
+    
 }
 
 france_beats_prussia_peace_deal = {

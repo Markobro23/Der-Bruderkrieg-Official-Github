@@ -328,13 +328,8 @@ on_actions = {
 						}
 					}
 					NOT = {
-						OR = {
-							FROM = {
-								tag = SOV
-							}
-							FROM = {
-								is_in_faction_with = SOV
-							}
+						SOV = {
+							has_war_with = AUS
 						}
 					}
 				}
@@ -384,6 +379,14 @@ on_actions = {
 				}
 				prussia_russia_wins_states = yes
 				log = "2nd europa ends: [GetDateText]"
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = AUS
+					}
+				}
+				log = "prussia_russia_win_styates"
 			}
 			
 			if = {
