@@ -142,12 +142,10 @@ prussia_russia_wins_states = {
     SOV = {
         transfer_state = 951
         transfer_state = 88
-        transfer_state = 762
         transfer_state = 89
         transfer_state = 1123
         add_state_core = 951
         add_state_core = 88
-        add_state_core = 762
         add_state_core = 89
         add_state_core = 1123
     }
@@ -1129,6 +1127,11 @@ france_loses_peace_deal = {
     }
     event_target:new_continental_system_leader = {
         set_faction_leader = yes
+        declare_war_on = {
+            target = GER
+            type = topple_government
+        }
+        add_war_support = 0.2
     }
     FRA = {
         white_peace = GER
@@ -1435,6 +1438,10 @@ france_loses_peace_deal = {
             target = GER
             type = topple_government
         }
+
+    }
+    event_target:new_continental_system_leader = {
+        add_to_faction = ALG
     }
     
 }
@@ -1979,6 +1986,9 @@ russia_beats_ottoman_peace_deal = {
     }
     release = TUR
     TUR = {
+        every_controlled_state = {
+            add_core_of = TUR
+        }
         set_cosmetic_tag = russian_occupied_ottomans
         set_popularities = {
             democratic = 33
