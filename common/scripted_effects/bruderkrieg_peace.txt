@@ -738,6 +738,9 @@ prussia_loses_peace_deal = {
        }
        
 }           
+d_italy_loses_to_austria_peace_deal = {
+    italy_loses_to_austria_peace_deal = yes
+}
 italy_loses_to_austria_peace_deal = {
     ITA = {
         white_peace = AUS
@@ -750,13 +753,12 @@ italy_loses_to_austria_peace_deal = {
             }
         }
         ITF = {
-            transfer_state = 161
             transfer_state = 159
+            set_cosmetic_tag = kingdom_of_lombardy_veneto
         }
     }
     else = {
         AUS = {
-            transfer_state = 161
             transfer_state = 159
         }
     }
@@ -783,8 +785,11 @@ italy_loses_to_austria_peace_deal = {
             transfer_state = 158
             transfer_state = 157
             transfer_state = 891
+            drop_cosmetic_tag = yes
+            set_cosmetic_tag = kingdom_of_north_italy
         }
     }
+    
     SCI = {
         add_state_core = 882
         add_state_core = 886
@@ -799,6 +804,18 @@ italy_loses_to_austria_peace_deal = {
             white_peace = ITA
         }
         release = SCI
+        set_politics = {
+            ruling_party = neutrality
+        }
+        set_popularities = {
+            communism = 8
+            democratic_communism = 12
+            socialism_democratic = 10
+            fascism = 12
+            ultranationalism = 8
+            neutrality = 50
+        }
+        keep_current_politics = yes
         load_focus_tree = generic_focus
     }
     SCI = {
@@ -824,6 +841,12 @@ italy_loses_to_austria_peace_deal = {
         SCI = {
             reset_government = yes
         }
+        AUS = {
+            puppet = ITA
+        }
+        ITA = {
+            reset_government = yes
+        }
     }
     if = {
         limit = {
@@ -836,9 +859,52 @@ italy_loses_to_austria_peace_deal = {
         SCI = {
             reset_government = yes
         }
+        ITA = {
+            reset_government = yes
+        }
     }
     
 }
+italy_loses_to_france_peace_deal = {
+    if = {
+        limit = {
+            AUS = {
+                has_war_with = ITA
+            }
+        }
+        italy_loses_to_austria_peace_deal = yes
+    }
+    else = {
+        ITA = {
+            white_peace = FRA
+        }
+        FRA = {
+            transfer_state = 158
+            transfer_state = 157
+            transfer_state = 891
+        }
+        SCI = {
+            add_state_core = 882
+            add_state_core = 886
+            add_state_core = 156
+            add_state_core = 880
+            add_state_core = 115
+        }
+        ITA = {
+            set_cosmetic_tag = ITA_central_italy
+            release = SCI
+            load_focus_tree = generic_focus
+        }
+        SCI = {
+            set_cosmetic_tag = ITA_two_sicilies
+        }
+        FRA = {
+            puppet = ITA
+            puppet = SCI
+        }
+    }
+}
+
 france_loses_to_austria_peace_deal = {
     FRA = {
         white_peace = AUS
@@ -1033,34 +1099,7 @@ france_loses_to_austria_peace_deal = {
         set_cosmetic_tag = LUX_AUS
     }
 }
-italy_loses_to_france_peace_deal = {
-    ITA = {
-        white_peace = FRA
-    }
-    FRA = {
-        transfer_state = 158
-        transfer_state = 157
-        transfer_state = 891
-    }
-    SCI = {
-        add_state_core = 882
-        add_state_core = 886
-        add_state_core = 156
-        add_state_core = 880
-        add_state_core = 115
-    }
-    ITA = {
-        set_cosmetic_tag = ITA_central_italy
-        release = SCI
-        load_focus_tree = generic_focus
-    }
-    SCI = {
-        set_cosmetic_tag = ITA_two_sicilies
-    }
-    FRA = {
-        puppet = ITA
-    }
-}
+
 
 
 french_civil_war = {
