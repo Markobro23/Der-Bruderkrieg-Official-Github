@@ -861,8 +861,24 @@ on_actions = {
     			news_event = { id = DBK_fall_of_city.21 hours = 3 random = 9 }
 				set_global_flag = madrid_has_fallen
     		}
+			if = {
+    			limit = { #florence
+				has_global_flag = wiltkrieg
+    				NOT = {
+						tag = ITA
+    				}
+    				FROM.FROM = {
+    					state = 162
+    				}
+					NOT = {
+						has_global_flag = florence_has_fallen
+					}
+    			}
+    			news_event = { id = DBK_fall_of_city.22 hours = 3 random = 9 }
+				set_global_flag = florence_has_fallen
+    		}
 
-
+			
 			
     		
     		
