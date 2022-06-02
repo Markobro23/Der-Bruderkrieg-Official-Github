@@ -785,7 +785,7 @@ italy_loses_to_austria_peace_deal = {
             transfer_state = 158
             transfer_state = 157
             transfer_state = 891
-            drop_cosmetic_tag = yes
+            #drop_cosmetic_tag = yes
             set_cosmetic_tag = kingdom_of_north_italy
         }
     }
@@ -815,6 +815,11 @@ italy_loses_to_austria_peace_deal = {
             ultranationalism = 8
             neutrality = 50
         }
+        create_country_leader = {
+            name = "Amadeo I"
+            ideology = despotic
+            picture = "gfx/leaders/Amadeo.dds"
+        }
         keep_current_politics = yes
         load_focus_tree = generic_focus
     }
@@ -823,6 +828,8 @@ italy_loses_to_austria_peace_deal = {
         set_politics = {
             ruling_party = neutrality
         }
+        
+        
         set_popularities = {
             communism = 10
             democratic_communism = 10
@@ -894,13 +901,40 @@ italy_loses_to_france_peace_deal = {
             set_cosmetic_tag = ITA_central_italy
             release = SCI
             load_focus_tree = generic_focus
+            create_country_leader = {
+                name = "Napoleon II"
+                ideology = despotic
+                picture = "gfx/leaders/NapoleonVIPortrait.dds"
+            }
+            set_popularities = {
+                communism = 8
+                democratic_communism = 12
+                socialism_democratic = 10
+                fascism = 12
+                ultranationalism = 8
+                neutrality = 50
+            }
+            keep_current_politics = yes
         }
         SCI = {
             set_cosmetic_tag = ITA_two_sicilies
+            set_popularities = {
+                communism = 10
+                democratic_communism = 10
+                socialism_democratic = 10
+                neutrality = 70
+            }
+            keep_current_politics = yes
         }
         FRA = {
             puppet = ITA
             puppet = SCI
+        }
+        SCI = {
+            reset_government = yes
+        }
+        ITA = {
+            reset_government = yes
         }
     }
 }
