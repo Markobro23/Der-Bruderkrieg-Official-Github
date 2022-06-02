@@ -75,7 +75,7 @@ country_event = { #france wanting to change the peace deal for italy, wants nort
 	option = { #sure
 		name = weltkrieg_peace.3.a
 		FRA = {
-			country_event = { id = weltkrieg_peace.7 hours = 1 }
+			country_event = { id = weltkrieg_peace.9 hours = 1 }
 		}
 		set_global_flag = weltkrieg_FRA_gets_sicily
 	}
@@ -88,7 +88,7 @@ country_event = { #france wanting to change the peace deal for italy, wants nort
 	option = { #nah it's ours
 		name = weltkrieg_peace.3.c
 		FRA = {
-			country_event = { id = weltkrieg_peace.5 hours = 1 }
+			country_event = { id = weltkrieg_peace.10 hours = 1 }
 		}
 		set_global_flag = weltkrieg_AUS_gets_sicily
 	}
@@ -169,5 +169,37 @@ country_event = { #France is neutral about the division of italy
 
 	option = { #eh, could be worse
 		name = weltkrieg_peace.8.a
+	}
+}
+
+country_event = { #Austria promises us Sicily
+	id = weltkrieg_peace.9
+	title = weltkrieg_peace.9.t
+	desc = weltkrieg_peace.9.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya!
+		name = weltkrieg_peace.9.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_increase
+		}
+	}
+}
+
+country_event = { #Austria looks to all of Italy
+	id = weltkrieg_peace.10
+	title = weltkrieg_peace.10.t
+	desc = weltkrieg_peace.10.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya!
+		name = weltkrieg_peace.9.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_decrease
+		}
 	}
 }

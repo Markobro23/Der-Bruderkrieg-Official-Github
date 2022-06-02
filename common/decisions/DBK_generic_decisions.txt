@@ -555,6 +555,7 @@ weltkrieg_decisions = {
 					OR = {
 						has_global_flag = weltkrieg_FRA_gets_sicily
 						has_global_flag = weltkrieg_AUS_gets_sicily
+						has_global_flag = weltkrieg_italy_decision_AUS_FRA
 					}
 				}
 			}
@@ -576,6 +577,12 @@ weltkrieg_decisions = {
 				}
 				add = 1
 			}
+			modifier = {
+				ITA = {
+					surrender_progress > 0.3
+				}
+				add = 2
+			}
 		}
 
 		visible = {
@@ -586,9 +593,56 @@ weltkrieg_decisions = {
 		}
 
 		complete_effect = {
+			set_global_flag = weltkrieg_italy_decision_AUS_FRA
 			AUS = {
 				country_event = { id = weltkrieg_peace.3 hours = 1 }
 			}
+		}
+
+	}
+
+	AUS_decide_italy_fate = {
+
+		icon = border_war
+
+		allowed = {
+			original_tag = AUS
+		}
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = fate_italy_not_already_decided
+				NOT = {
+					OR = {
+						has_global_flag = weltkrieg_FRA_gets_sicily
+						has_global_flag = weltkrieg_AUS_gets_sicily
+						has_global_flag = weltkrieg_italy_decision_AUS_FRA
+					}
+				}
+			}
+		}
+
+		cost = 25
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				ITA = {
+					surrender_progress > 0.5
+				}
+				add = 2
+			}
+		}
+
+		visible = {
+			has_war_with = ITA
+		}
+
+		complete_effect = {
+			set_global_flag = weltkrieg_italy_decision_AUS_FRA
+			country_event = { id = weltkrieg_peace.3 hours = 1 }
 		}
 
 	}
