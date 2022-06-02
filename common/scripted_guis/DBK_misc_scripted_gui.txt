@@ -28,12 +28,12 @@ Flag_Scripted_Map_Icons = {
 
  DBK_head_of_gov_open_mechanic = {
 	 parent_window_token = politics_tab
-	  context_type = player_context
+	 context_type = player_context
 
 	  window_name = "DBK_head_of_gov_open"
 	  visible = {
 		  always = yes
-	  }
+		}
 	  effects = {
 		DBK_head_of_gov_open_button_click = {
 			if = {
@@ -87,6 +87,7 @@ Flag_Scripted_Map_Icons = {
   }
 
   DBK_head_of_gov_mechanic = {
+	  parent_window_token = politics_tab
 	  context_type = player_context
 
 	  window_name = "DBK_head_of_gov_container"
@@ -593,6 +594,7 @@ Flag_Scripted_Map_Icons = {
 			NOT = {
 				has_country_flag = AUS_national_mission_1_click_flag
 			}
+			76 = { infrastructure > 7 }
 			76 = { industrial_complex > 7 } 
 		}
 		AUS_national_mission_2_click_enabled = {
@@ -600,7 +602,7 @@ Flag_Scripted_Map_Icons = {
 				has_country_flag = AUS_national_mission_2_click_flag
 			}
 			all_owned_state = {
-				infrastructure > 3
+				infrastructure > 4
 			}
 		}
 		AUS_national_mission_3_click_enabled = {
@@ -664,71 +666,6 @@ Flag_Scripted_Map_Icons = {
 		  DBK_faction_icon_button = {
 			  image = "[GetFactionIcon]"
 		  }
-	  }
-	  effects = {
-		  DBK_faction_icon_button_click = {
-				if = {
-					limit = {
-						has_country_flag = DEBUG_faction_management
-					}
-					clr_country_flag = DEBUG_faction_management
-				}
-				else = {
-					set_country_flag = DEBUG_faction_management
-				}
-                set_variable = { WOK_faction_left_tab_switch = 1 }
-                set_variable = { ROOT.faction_troop_amount = 0 }
-                for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    
-                    add_to_variable = { ROOT.faction_troop_amount = num_armies }
-                }
-                set_variable = { ROOT.faction_factory_amount = 0 }
-                for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    
-                    add_to_variable = { ROOT.faction_factory_amount = num_of_factories }
-                }
-
-				#Jordan Poole Equipment
-				clear_array = ROOT.members_of_equipment_pool_array
-				for_each_scope_loop = {
-                    array = ROOT.faction_members
-                    if = {
-						limit = {
-							check_variable = {
-								THIS.opinion@ROOT > 19
-							}
-						}
-						add_to_array = {
-							array = ROOT.members_of_equipment_pool_array
-						}
-					}
-                }
-				set_variable = { ROOT.faction_infantry_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.members_of_equipment_pool_array
-                    
-                    add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
-                }
-
-				set_variable = { ROOT.faction_armor_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.members_of_equipment_pool_array
-                    add_to_variable = { ROOT.faction_armor_amount = num_equipment@light_tank_chassis }
-					add_to_variable = { ROOT.faction_armor_amount = num_equipment@medium_tank_chassis }
-					add_to_variable = { ROOT.faction_armor_amount = num_equipment@heavy_tank_chassis }
-                }
-
-				set_variable = { ROOT.faction_support_amount = 0 }
-				for_each_scope_loop = {
-                    array = ROOT.members_of_equipment_pool_array
-                    add_to_variable = { ROOT.faction_support_amount = num_equipment@support_equipment }
-                }
-
-				
-				
-			}
 	  }
  }
 
@@ -972,28 +909,22 @@ FRA_national_missions_conatiner_scripted_gui = {
 				industrial_complex > 5
 				arms_factory > 5
 			}
-			42 = {
-				owner = {
-					OR = {
-						tag = FRA
-						is_puppet_of = FRA
-					}
+			42.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
 				}
 			}
-			51 = {
-				owner = {
-					OR = {
-						tag = FRA
-						is_puppet_of = FRA
-					}
+			51.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
 				}
 			}
-			957 = {
-				owner = {
-					OR = {
-						tag = FRA
-						is_puppet_of = FRA
-					}
+			957.owner = {
+				OR = {
+					tag = FRA
+					is_puppet_of = FRA
 				}
 			}
 			
@@ -1090,7 +1021,7 @@ FRA_national_missions_conatiner_scripted_gui = {
 			}
 		}
 
-		effects = {
+		effects = {c
 			button_click = {
 				if = {
 					limit = {
