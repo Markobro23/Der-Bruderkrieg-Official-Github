@@ -4401,7 +4401,7 @@ shared_focus = {
   icon = GFX_goal_generic_allies_build_infantry
   text = AUS_KRUPP_MAUSER_CONTRACTS
   prerequisite = { focus = AUS_KAISERLICHE_HEER }
-  x = -3
+  x = -2
   y = 1
   relative_position_id = AUS_KAISERLICHE_HEER
   cost = 5
@@ -4431,7 +4431,7 @@ shared_focus = {
     icon = GFX_goal_generic_construct_military
     text = VIENNA_KRIEGSAKADEMIE
     prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = -1
+    x = 2
     y = 1
     relative_position_id = AUS_KAISERLICHE_HEER
     cost = 5
@@ -4456,35 +4456,35 @@ shared_focus = {
      }
   }
 
-  shared_focus = {
-    id = AUS_CONSCRIPT_THE_MASSES
-    icon = GFX_Conscript_The_Masses
-    text = AUS_CONSCRIPT_THE_MASSES
-    prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = 1
-    y = 1
-    relative_position_id = AUS_KAISERLICHE_HEER
-    cost = 5
-    ai_will_do = {
-      factor = 1
-    }
+  # shared_focus = {
+  #   id = AUS_CONSCRIPT_THE_MASSES
+  #   icon = GFX_Conscript_The_Masses
+  #   text = AUS_CONSCRIPT_THE_MASSES
+  #   prerequisite = { focus = AUS_KAISERLICHE_HEER }
+  #   x = 1
+  #   y = 1
+  #   relative_position_id = AUS_KAISERLICHE_HEER
+  #   cost = 5
+  #   ai_will_do = {
+  #     factor = 1
+  #   }
 
-    available_if_capitulated = yes
-    #search_filters = { FOCUS_FILTER_INDUSTRY }
+  #   available_if_capitulated = yes
+  #   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
-    completion_reward = {
-      add_ideas = {
-        extensive_conscription
-      }
-     }
-  }
+  #   completion_reward = {
+  #     add_ideas = {
+  #       extensive_conscription
+  #     }
+  #    }
+  # }
 
   shared_focus = {
     id = AUS_PANZER_CORP
     icon = GFX_goal_generic_army_tanks
     text = AUS_PANZER_CORP
     prerequisite = { focus = AUS_KAISERLICHE_HEER }
-    x = 3
+    x = 0
     y = 1
     relative_position_id = AUS_KAISERLICHE_HEER
     cost = 5
@@ -4509,12 +4509,10 @@ shared_focus = {
   icon = GFX_Austrian_Command
   text = AUSTRIAN_COMMAND
   prerequisite = { focus = AUS_PANZER_CORP }
-  prerequisite = { focus = AUS_VIENNA_KRIEGSAKADEMIE }
   prerequisite = { focus = AUS_KRUPP_MAUSER_CONTRACTS }
-  prerequisite = { focus = AUS_CONSCRIPT_THE_MASSES }
 
   mutually_exclusive = {focus = AUS_IMPERIAL_MIL}
-  x = 1
+  x = 0
   y = 1
   relative_position_id = AUS_KRUPP_MAUSER_CONTRACTS
   cost = 5
@@ -4538,10 +4536,8 @@ shared_focus = {
   text = AUS_IMPERIAL_MIL
   prerequisite = { focus = AUS_PANZER_CORP }
   prerequisite = { focus = AUS_VIENNA_KRIEGSAKADEMIE }
-  prerequisite = { focus = AUS_KRUPP_MAUSER_CONTRACTS }
-  prerequisite = { focus = AUS_CONSCRIPT_THE_MASSES }
   mutually_exclusive = {focus = AUS_AUSTRIAN_COMMAND}
-  x = -1
+  x = 2
   y = 1
   relative_position_id = AUS_PANZER_CORP
   cost = 5
@@ -5107,7 +5103,7 @@ shared_focus = {
   icon = GFX_goal_generic_build_airforce
   text = AUS_KAISER_AIR
   x = 42
-  y = 7
+  y = 6
   cost = 5
   ai_will_do = {
     factor = 1
