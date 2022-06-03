@@ -5884,37 +5884,7 @@ shared_focus = {
 	
 	
 	###NAVAL 1 
-	shared_focus = { 
-		id = GER_rudeltaktik
-		icon = GFX_GER_rudeltaktik
-		x = 1
-		y = 1
-		relative_position_id = GER_ship_innovations
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 5
-		prerequisite = { focus = GER_ship_innovations }
-		
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_doctrine_cost_reduction = {
-				cost_reduction = 2
-				category = cat_trade_interdiction
-			 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	
 	# shared_focus = { 
 	# 	id = GER_further_improvement
 	# 	icon = unkown
@@ -6003,6 +5973,38 @@ shared_focus = {
 		   category = naval_doctrine
 		}
 	}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	shared_focus = { 
+		id = GER_rudeltaktik
+		icon = GFX_GER_rudeltaktik
+		x = 1
+		y = 1
+		relative_position_id = GER_ship_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 5
+		prerequisite = { focus = GER_ship_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 2
+				bonus = 0.5
+				category = cat_trade_interdiction
+			 }
+		}
 		ai_will_do = {
 			factor = 1
 		}

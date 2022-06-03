@@ -12,3 +12,64 @@ GER_naval_interest_trigger = {
 		#has_completed_focus = GER_rebuild_the_high_seas_fleet
 	}
 }
+
+in_summer = {
+	custom_trigger_tooltip = {
+		tooltip = in_summer_tt
+		OR = {
+			AND = {
+				date > 1936.3.1
+				date < 1936.9.1
+			}
+			AND = {
+				date > 1937.3.1
+				date < 1937.9.1
+			}
+			AND = {
+				date > 1938.3.1
+				date < 1938.9.1
+			}
+			AND = {
+				date > 1939.3.1
+				date < 1939.9.1
+			}
+			AND = {
+				date > 1940.3.1
+				date < 1940.9.1
+			}
+			AND = {
+				date > 1941.3.1
+				date < 1941.9.1
+			}
+			AND = {
+				date > 1942.3.1
+				date < 1942.9.1
+			}
+			AND = {
+				date > 1943.3.1
+				date < 1943.9.1
+			}
+			AND = {
+				date > 1944.3.1
+				date < 1944.9.1
+			}
+			AND = {
+				date > 1945.3.1
+				date < 1945.9.1
+			}
+			AND = {
+				date > 1946.3.1
+				date < 1946.9.1
+			}
+		}
+	}
+}
+
+in_winter = {
+	custom_trigger_tooltip = {
+		tooltip = in_winter_tt
+		NOT = {
+			in_summer = yes
+		}
+	}
+}

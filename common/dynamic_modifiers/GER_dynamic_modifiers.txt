@@ -57,6 +57,21 @@ GER_plan_kaukasus_modifier = {
 	disable_strategic_redeployment_for_controller = 1
 }
 
+GER_plan_petrograd_modifier = {
+	remove_trigger = {
+		OR = {
+			is_controlled_by = GER
+			NOT = { country_exists = GER }
+			GER = { is_subject = yes }
+		}
+	}
+
+	army_speed_factor_for_controller = -0.25
+	local_org_regain = -0.15
+	local_intel_to_enemies = -0.2
+	disable_strategic_redeployment_for_controller = 1
+}
+
 GER_querfront_modifier = {
 	enable = { always = yes }
 	icon = GFX_idea_USA_farmer_tax_breaks
