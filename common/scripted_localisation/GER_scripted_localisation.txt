@@ -12,9 +12,15 @@ defined_text = {
     }
     text = {
         trigger = {
-            has_country_leader = {
-                name = "August von Mackensen"
-                ruling_only = yes
+            OR = {
+                has_country_leader = {
+                    name = "August von Mackensen"
+                    ruling_only = yes
+                }
+                has_country_leader = {
+                    name = "Wilhelm I"
+                    ruling_only = yes
+                }
             }
         }
         localization_key = "von Mackensen"
@@ -36,6 +42,26 @@ defined_text = {
             }
         }
         localization_key = "Rohm"
+    }
+    text = {
+        localization_key = "[GER.GetLeader]"
+    }
+}
+
+defined_text = {
+    name = GetGermanLeaderNick
+    
+    text = {
+        trigger = {
+            has_country_leader = {
+                name = "Hermann Goering"
+                ruling_only = yes
+            }
+        }
+        localization_key = "Reichsmarshall"
+    }
+    text = {
+        localization_key = "Fuhrer"
     }
 }
 
@@ -172,13 +198,13 @@ defined_text = {
     name = GetMilitaChoice
     text = {
         trigger = {
-            has_completed_focus = GER_crush_the_freikorps
+            has_country_flag = chose_sa
         }
         localization_key = "SA"
     }
     text = {
         trigger = {
-            has_completed_focus = GER_crush_the_sa
+            has_country_flag = chose_wermacht
         }
         localization_key = "Friekorps"
     }
@@ -225,6 +251,294 @@ defined_text = {
 
 }
 
+
+## Prussian Focus Switches
+
+# arbesfront
+defined_text = {
+    name = Getform_the_preubisches_arbeitsfrontFocus
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_form_the_preubisches_arbeitsfront_goering
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_form_the_preubisches_arbeitsfront_reactionary
+    }
+    text = {
+        localization_key = GER_form_the_preubisches_arbeitsfront_goering
+    }
+}
+defined_text = {
+    name = Getform_the_preubisches_arbeitsfrontFocusDesc
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_form_the_preubisches_arbeitsfront_goering_desc
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_form_the_preubisches_arbeitsfront_reactionary_desc
+    }
+    text = {
+        localization_key = GER_form_the_preubisches_arbeitsfront_goering_desc
+    }
+}
+
+# strasserism
+defined_text = {
+    name = GetGER_strasserism
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_strasserism_goering
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_strasserism_reactionary
+    }
+    text = {
+        localization_key = GER_strasserism_goering
+    }
+}
+defined_text = {
+    name = GetGER_strasserismDesc
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_strasserism_goering_desc
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_strasserism_reactionary_desc
+    }
+    text = {
+        localization_key = GER_strasserism_goering_desc
+    }
+}
+
+# ns work
+defined_text = {
+    name = GetGER_national_socialist_work_policies
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_national_socialist_work_policies_goering
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_national_socialist_work_policies_reactionary
+    }
+    text = {
+        localization_key = GER_national_socialist_work_policies_goering
+    }
+}
+defined_text = {
+    name = GetGER_national_socialist_work_policiesDesc
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_national_socialist_work_policies_goering_desc
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_national_socialist_work_policies_reactionary_desc
+    }
+    text = {
+        localization_key = GER_national_socialist_work_policies_goering_desc
+    }
+}
+
+# they made ready for war
+defined_text = {
+    name = GetTheyMadeReadyForWarDesc
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = GER_goering_economic_policy_tree_events_1_desc_goering
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = GER_goering_economic_policy_tree_events_1_desc_reactionary
+    }
+    text = {
+        localization_key = GER_goering_economic_policy_tree_events_1_desc_goering
+    }
+}
+
+# they made ready for war
+defined_text = {
+    name = GetGER_The_Prussian_Worker
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_leader = {
+                        name = "Kurt von Schleicher"
+                    }
+                    has_country_leader = {
+                        name = "August von Mackensen"
+                    }
+                }
+            }
+        }
+        localization_key = "The Prussian Worker"
+    }
+    text = {
+        trigger = {
+            OR = {
+                has_country_leader = {
+                    name = "Kurt von Schleicher"
+                }
+                has_country_leader = {
+                    name = "August von Mackensen"
+                }
+            }
+        }
+        localization_key = "The Prussian Corporate State"
+    }
+    text = {
+        localization_key = "The Prussian Worker"
+    }
+}
+
+
+
+# royalism
 defined_text = {
     name = GetRoyalismFocus
     text = {
@@ -291,5 +605,35 @@ defined_text = {
     }
     text = {
         localization_key = GER_anti_royalism_goering_desc
+    }
+}
+
+
+defined_text = {
+    name = GetanthraxPower
+
+    text = {
+        trigger = {
+            check_variable = {
+                anthrax_power = 0
+            }
+        }
+        localization_key = "GER_disfunctional_anthrax_bombs"
+    }
+     text = {
+        trigger = {
+            check_variable = {
+                anthrax_power = 1
+            }
+        }
+        localization_key = "GER_semifunctional_anthrax_bombs"
+    }
+     text = {
+        trigger = {
+            check_variable = {
+                anthrax_power = 2
+            }
+        }
+        localization_key = "GER_fullyfunctional_anthrax_bombs"
     }
 }

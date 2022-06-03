@@ -9,7 +9,6 @@ Arj <br />
 
 ## Lead Developers <br /> 
 Shark28 <br />
-Bruno <br />
 Huey Long <br />
 Polish Lib <br />
 tomaszrock22 <br />
@@ -22,17 +21,15 @@ Samurai  <br />
 Tolz  <br />
 Asbestosstar <br />
 WorldMapper3 <br />
+Polarn <br />
 
 ## Special Thanks to: <br />
-Polarn <br />
+Bruno <br />
 Elysian <br />
-Your Mom <br />
 
 # Website
 https://arjthegreat.github.io/ 
  
-# Tayrona Works
-https://www.tayronaworks.com/derbruderkrieg
 
 # Visual Studio
 https://code.visualstudio.com/download <br />

@@ -12,8 +12,6 @@ set_technology = {
 	tech_engineers = 1
 	tech_recon = 1
 	gw_artillery = 1
-	gwtank = 1 
-	basic_light_tank = 1
 	early_fighter = 1
 	cv_early_fighter = 1
 	cv_naval_bomber1 = 1
@@ -26,6 +24,22 @@ set_technology = {
 	basic_train = 1
 }
 
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
 
 
 if = {
@@ -141,9 +155,20 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 75
-	fascism = 20
-	communism = 5
+	communism = 2
+	democratic_communism = 2
+	socialism_democratic = 4
+	democratic_liberalism = 4
+	democratic = 48
+	authoritarian_democratic = 8
+	neutrality = 0
+	fascism = 32
+	ultranationalism = 0
+}
+
+add_ideas = {
+	SAF_sauf
+	SAF_boer_resistance
 }
 
 recruit_character = SAF_jan_smuts

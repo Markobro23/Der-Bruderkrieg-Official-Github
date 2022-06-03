@@ -751,7 +751,7 @@ form_germany_category = {
 			controls_state = 5
 			controls_state = 763
 			controls_state = 86
-
+			controls_state = 817
 
 			####new states
 			controls_state = 950
@@ -762,9 +762,9 @@ form_germany_category = {
 			controls_state = 955
 			controls_state = 957
 			controls_state = 960
-			
+			controls_state = 798
 			OR = {
-				AND = { tag = GER NOT = { has_war_with = FRA } NOT = { has_war_with = AUS } }
+				tag = GER
 				tag = GPU
 				tag = FGD
 				tag = HAN
@@ -791,7 +791,7 @@ form_germany_category = {
 			hidden_effect = {
 			51 = { add_core_of = ROOT }
 			42 = { add_core_of = ROOT }
-			56 = { add_core_of = ROOT }
+			56 = { add_core_of = ROOT } 
 			57 = { add_core_of = ROOT }
 			55 = { add_core_of = ROOT }
 			50 = { add_core_of = ROOT }
@@ -819,8 +819,8 @@ form_germany_category = {
 			955 = { add_core_of = ROOT }
 			957 = { add_core_of = ROOT }
 			960 = { add_core_of = ROOT }
-
-
+			817 = { add_core_of = ROOT }	
+			798 = { add_core_of = ROOT }
 			}
 			
 			hidden_effect = {
@@ -1015,6 +1015,7 @@ form_serbia_category = {
 			controls_state = 105
 			controls_state = 808
 			controls_state = 821
+			controls_state = 107
 			has_global_flag = serbian_civil_war_has_begun
 		}
 
@@ -1039,6 +1040,7 @@ form_serbia_category = {
 			add_state_core = 105
 			add_state_core = 808
 			add_state_core = 821
+			add_state_core = 107
 			GER = {
 				remove_ideas = Serbian_Civil_War
 				remove_ideas = Serbian_Civil_War_2
@@ -1065,7 +1067,7 @@ form_brazil_category = {
 		ai_will_do = { factor = 100 }
  
 		icon = generic_form_nation
-
+		fire_only_once = yes
 		
 		available = {
 			controls_state = 495 
@@ -1098,6 +1100,9 @@ form_brazil_category = {
 		}
 
 		visible = {
+			NOT = {
+				has_global_flag = brazil_reunited
+			}
 			OR = {
 				tag = BRE
 				tag = GEF
@@ -1109,9 +1114,9 @@ form_brazil_category = {
 		}
 
 		complete_effect = {
-
+		set_global_flag = brazil_reunited
 		set_cosmetic_tag = BRZ_unified
-		
+		news_event = { id = DBK_formablenations.8 days = 1 }
 		remove_ideas = UBR_civilist_republic
 
 		}
@@ -1177,6 +1182,14 @@ form_india_category = {
 				add_state_core = 320
 			}
 			if = { limit = { tag = RAJ } set_cosmetic_tag = british_raj } else = { set_cosmetic_tag = united_india }
+			if = {
+				limit = {
+					tag = RAJ
+				}
+				ENG = {
+					remove_ideas = ENG_broken_crown_jewel
+				}
+			}
 			if = {
 				limit = {
 					GAK = {
@@ -1401,6 +1414,10 @@ form_greece_category = {
 			NOT = { has_global_flag = greece_reunited }
 		}
 
+		ai_will_do = {
+			factor = 1090
+		}
+
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = controls_non_occupied_greece
@@ -1423,7 +1440,7 @@ form_greece_category = {
 		complete_effect = {
 			news_event = { id = DBK_formablenations.4 }
 			every_country = {
-				limit = { OR = { controls_state = 187 controls_state = 164 controls_state = 182 controls_state = 827 controls_state = 1124 controls_state = 1121 } NOT = { OR = { has_country_flag = demanded_greek_lands_return has_war_with = ROOT } } }
+				limit = { NOT = { tag = ROOT } OR = { controls_state = 187 controls_state = 164 controls_state = 182 controls_state = 827 controls_state = 1124 controls_state = 1121 } NOT = { OR = { has_country_flag = demanded_greek_lands_return has_war_with = ROOT } } }
 				country_event = { id = DBK_formablenations.5 hours = 3 }
 				set_country_flag = demanded_greek_lands_return
 			}
@@ -1461,6 +1478,169 @@ form_greece_category = {
 					limit = { is_core_of = THS }
 					remove_core_of = THS
 				}
+			}
+		}
+
+	}
+
+}
+
+form_arabia_category = {
+	
+	form_arabia_decision = {
+
+		available = {
+			owns_state = 675
+			owns_state = 874
+			owns_state = 876
+			owns_state = 873
+			owns_state = 875
+			owns_state = 870
+			owns_state = 878
+			owns_state = 877
+			owns_state = 871
+			owns_state = 872
+			owns_state = 292
+			owns_state = 679
+			owns_state = 678
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = united_arabia
+			news_event = { id = DBK_formablenations.9 hours = 6 }
+		}
+
+	}
+
+}
+
+reunite_russia_category = {
+	
+	reunite_russia_decision = {
+
+		icon = generic_form_nation
+
+		available = {
+			SOV = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			PRM = {
+				OR = {
+					exists = no
+					is_in_faction_with = ROOT
+				}
+			}
+			GRN = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			KAZ = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			TAJ = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			TMS = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			SRG = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			KRK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			NSK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			ZMU = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+			YAK = {
+				OR = {
+					exists = no
+					is_subject_of = ROOT
+					is_in_faction_with = ROOT
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = SOV
+						is_core_of = PRM
+						is_core_of = KAZ
+						is_core_of = TMS
+						is_core_of = GRN
+						is_core_of = TAJ
+						is_core_of = NSK
+						is_core_of = SRG
+						is_core_of = KRK
+						is_core_of = YAK
+						is_core_of = ZMU
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+			every_country = {
+				limit = {
+					is_in_faction_with = ROOT
+				}
+				ROOT = {
+					annex_country = {
+						target = PREV
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = SOV } }
+				set_cosmetic_tag = SOV
 			}
 		}
 

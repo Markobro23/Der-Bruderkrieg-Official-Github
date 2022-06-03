@@ -24,7 +24,7 @@ country_event = { #changing to natcorp
 			  Promote_leader = yes
 			  Country_leader = {
 				ideology = monarchist_fascism
-			    expire = “1965.1.1.1”
+			    expire = 1965.1.1.1
 			    traits = {
 			    }
 			  }
@@ -44,18 +44,46 @@ country_event = { #changing to natcorp
 			}
 			ai_chance = {
 				factor = 250
+				modifier = {
+					factor = 100000
+					GER = {
+						has_completed_focus = GER_funding_gustavs_ambitions
+					}
+				}
 			}
 		}
 	option = {
 		name = sweden.1.b ##keep Sven Hedin
 		add_stability = -0.05
+		set_temp_variable = { current_neutrality_temp = party_popularity@neutrality }
+		multiply_temp_variable = { current_neutrality_temp = 0.6 }
 		add_popularity = {
-			ideology = ROOT
-			popularity = -0.08
+			ideology = authoritarian_democratic
+			popularity = current_neutrality_temp
+		}
+		add_country_leader_role = {
+			Character = SWE_gustav_v
+			Promote_leader = yes
+			Country_leader = {
+			ideology = authoritarian_democrat
+			expire = 1965.1.1.1
+			traits = {
+			}
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democratic
+			elections_allowed = no
 		}
 		add_timed_idea = { idea = strikes_1 days = 90 }
 		ai_chance = {
-			factor = 250
+			factor = 500
+			modifier = {
+				factor = 0
+				GER = {
+					has_completed_focus = GER_funding_gustavs_ambitions
+				}
+			}
 		}
 	}
 }
@@ -65,6 +93,7 @@ news_event = { #Gustav's Self-coup
 	title = sweden.2.t
 	desc = sweden.2.d
 	is_triggered_only = yes
+	picture = GFX_gustav5selfcoup
 
 	option = {
 		name = sweden.2.a #nice

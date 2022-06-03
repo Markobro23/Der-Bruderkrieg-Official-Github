@@ -1,0 +1,207 @@
+add_namespace = great_south_american_war
+##argentina vs paraguay
+country_event = {
+	id = great_south_american_war.1 
+	title = great_south_american_war.1.t
+	desc = great_south_american_war.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		declare_war_on = {
+			target = PAR
+			type = annex_everything
+		}
+		PBC = {
+			country_event = {
+				id = great_south_american_war.2 
+				days = 3
+			}
+		}
+		
+	}
+} 
+
+country_event = {
+	id = great_south_american_war.2 
+	title = great_south_american_war.2.t
+	desc = great_south_american_war.2.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		PBC = {
+			create_faction = "Lima Accords"
+		}
+		add_to_faction = PAR
+		ARG = {
+			create_faction = "National Renewal Alliance"
+			add_to_faction = CHL
+			if = {
+				limit = {
+					BOL = {
+						exists = yes
+					}
+				}
+				add_to_faction = BOL
+			}
+		} 
+		
+		PBC = {
+			declare_war_on = {
+				target = ARG
+				type = puppet_wargoal_focus
+			}
+		}
+		news_event = great_south_american_war.3 
+		hidden_effect = {
+			BOL = {
+				add_to_war = {
+					targeted_alliance = ARG
+					enemy = PBC
+					hostility_reason = asked_to_join
+				}
+			}
+		}
+	}
+} 
+
+news_event = {
+	id = great_south_american_war.3 
+	title = great_south_american_war.3.t
+	desc = great_south_american_war.3.d
+	picture = GFX_greatsouthamericanwar
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = great_south_american_war.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##aergentina king
+add_namespace = argentina_monarchy
+country_event = {
+	id = argentina_monarchy.1 
+	title = argentina_monarchy.1.t
+	desc = argentina_monarchy.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = argentina_monarchy.1.a #needs to be localized
+		ai_chance = { factor = 60 } #this factor means the AI will almost always pick this oner
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.1
+		}
+
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = argentina_monarchy.1.b #needs to be localized
+		ai_chance = { factor = 20 } #this factor means the AI will almost always pick this oner
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.3
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		create_country_leader = {
+			name = "Maximilian II"
+			ideology = despotic
+			picture = "gfx/leaders/MaximilianII.dds"
+		}
+
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = argentina_monarchy.1.c #needs to be localized
+		ai_chance = { factor = 10 } #this factor means the AI will almost always pick this oner
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		create_country_leader = {
+			name = "Amadeo I"
+			ideology = despotic
+			picture = "gfx/leaders/Amadeo.dds"
+		}
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = argentina_monarchy.1.d #needs to be localized
+		ai_chance = { factor = 10 } #this factor means the AI will almost always pick this oner
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.2
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		create_country_leader = {
+			name = "Guillermo I"
+			ideology = despotic
+			picture = "gfx/leaders/Kaiser_Wilhelm_II.dds"
+		}
+	}
+}
+
+add_namespace = invasion_uruguay
+country_event = {
+    id = invasion_uruguay.1 
+    title = invasion_uruguay.1.t
+    desc = invasion_uruguay.1.d
+    picture = GFX_report_event_vienna_award_hungary
+
+    fire_only_once = yes   
+    is_triggered_only = yes
+
+    option = { # Only one option, just an acknowledgment by the player
+        name = invasion_uruguay.1.a #needs to be localized
+        ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+        
+		ARG = {
+			declare_war_on = {
+				target = URG
+				type = annex_everything 
+			}
+		}		
+
+        news_event = invasion_uruguay.2 
+
+    }
+
+}
+
+news_event = {
+	id = invasion_uruguay.2 
+	title = invasion_uruguay.2.t
+	desc = invasion_uruguay.2.d
+	picture = GFX_centralamericancollapse
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = invasion_uruguay.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}

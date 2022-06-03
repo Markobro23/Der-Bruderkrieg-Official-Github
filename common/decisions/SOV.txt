@@ -4498,41 +4498,41 @@ SOV_lenins_military_improvements = {
 
 		
 	}
-	SOV_remove_conservative_high_command = {
+	# SOV_remove_conservative_high_command = {
 
-		#icon = generic_construction
+	# 	#icon = generic_construction
 
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = SOV_military_loyalty_is_greater_than_50
-				check_variable = {
-					SOV_military_support_for_current_regime > 50
-				}
-			}
-		}
+	# 	available = {
+	# 		custom_trigger_tooltip = {
+	# 			tooltip = SOV_military_loyalty_is_greater_than_50
+	# 			check_variable = {
+	# 				SOV_military_support_for_current_regime > 50
+	# 			}
+	# 		}
+	# 	}
 
 
-		fire_only_once = yes
+	# 	fire_only_once = yes
 
-		cost = 0
-		days_remove = 0
+	# 	cost = 0
+	# 	days_remove = 0
 
 	
 
-		ai_will_do = {
-			factor = 20
-		}
+	# 	ai_will_do = {
+	# 		factor = 20
+	# 	}
 
-		visible = {
-			has_completed_focus = SOV_military_reforms
-		}
+	# 	visible = {
+	# 		has_completed_focus = SOV_military_reforms
+	# 	}
 
-		remove_effect = {
-			remove_ideas = SOV_conservative_high_command
-		}
+	# 	remove_effect = {
+	# 		remove_ideas = SOV_conservative_high_command
+	# 	}
 
 		
-	}
+	# }
 }
 
 ##Milyukov Stuff
@@ -4555,7 +4555,7 @@ SOV_lenins_military_improvements = {
     custom_cost_text = command_power_10
 
     available = {
-	has_completed_focus = SOV_reorganizing_the_high_command
+	#has_completed_focus = SOV_reorganizing_the_high_command
       command_power > 10
     }
 
@@ -4585,7 +4585,7 @@ SOV_lenins_military_improvements = {
     custom_cost_text = command_power_10
 
     available = {
-		has_completed_focus = SOV_reorganizing_the_high_command
+		#has_completed_focus = SOV_reorganizing_the_high_command
       command_power > 10
     }
 
@@ -4611,7 +4611,7 @@ SOV_lenins_military_improvements = {
     custom_cost_text = has_army_experience_5
 
     available = {
-		has_completed_focus = SOV_reorganizing_the_high_command
+		#has_completed_focus = SOV_reorganizing_the_high_command
       has_army_experience > 5
     }
 
@@ -4631,7 +4631,7 @@ SOV_lenins_military_improvements = {
     fire_only_once = yes
 
     available = {
-		has_completed_focus = SOV_reorganizing_the_officer_corps
+		#has_completed_focus = SOV_reorganizing_the_officer_corps
       command_power < 85
     }
 
@@ -4651,7 +4651,7 @@ SOV_lenins_military_improvements = {
 
     days_remove = 30
 	available = {
-		has_completed_focus = SOV_reorganizing_the_officer_corps
+		#has_completed_focus = SOV_reorganizing_the_officer_corps
 	}
     remove_effect = {
       army_experience = 10
@@ -4669,7 +4669,7 @@ SOV_lenins_military_improvements = {
     custom_cost_text = command_power_10
 
     available = {
-		has_completed_focus = SOV_reorganizing_the_officer_corps
+		#has_completed_focus = SOV_reorganizing_the_officer_corps
       command_power > 10
     }
 
@@ -4695,7 +4695,7 @@ SOV_lenins_military_improvements = {
     custom_cost_text = command_power_10
 
     available = {
-	has_completed_focus = SOV_reorganizing_the_infantry
+	#has_completed_focus = SOV_reorganizing_the_infantry
       command_power > 10
     }
 
@@ -4722,7 +4722,7 @@ SOV_lenins_military_improvements = {
 
   	days_remove = 35
 	available = {
-		has_completed_focus = SOV_reorganizing_the_infantry
+		#has_completed_focus = SOV_reorganizing_the_infantry
 	}
   	modifier = {
   		weekly_manpower = -100
@@ -5465,6 +5465,7 @@ SOV_the_extermination_of_the_communists = {
 				ideology = communism
 				popularity = -0.07
 			}
+			SOV_increase_support_among_people_small = yes
 			# add_to_variable = {
 			# 	SOV_commie_extermination_progress = 10
 			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
@@ -5504,6 +5505,7 @@ SOV_the_extermination_of_the_communists = {
 				ideology = democratic_communism
 				popularity = -0.07
 			}
+			SOV_increase_support_among_people_small = yes
 			# add_to_variable = {
 			# 	SOV_commie_extermination_progress = 10
 			# 	tooltip = SOV_increase_commie_extermination_progress_by_10
@@ -5652,6 +5654,10 @@ SOV_expand_the_russian_sphere_tsar = {
 
 		#icon = generic_construction
 
+		visible = {
+			ROM = { is_in_faction = no }
+		}
+
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = SOV_influence_greater_than_100_ROM
@@ -5690,6 +5696,10 @@ SOV_expand_the_russian_sphere_tsar = {
 
 		#icon = generic_construction
 
+		visible = {
+			YUG = { is_in_faction = no }
+		}
+
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = SOV_influence_greater_than_100_YUG
@@ -5725,6 +5735,10 @@ SOV_expand_the_russian_sphere_tsar = {
 	}
 
 	SOV_puppet_bulgaria = {
+
+		visible = {
+			BUL = { is_in_faction = no }
+		}
 
 		#icon = generic_construction
 
@@ -9088,6 +9102,10 @@ SOV_subjugating_the_balkans = {
 
 		cost = 25
 
+		visible = {
+			ROM = { is_in_faction = no }
+		}
+
 		fire_only_once = yes
 
 		available = {
@@ -9231,6 +9249,10 @@ SOV_subjugating_the_balkans = {
 		cost = 25
 
 		fire_only_once = yes
+
+		visible = {
+			BUL = { is_in_faction = no }
+		}
 
 		available = {
 			
@@ -11400,7 +11422,7 @@ SOV_transylvanian_rebel_contacts = {
 
 		complete_effect = {
 			add_equipment_to_stockpile = {
-				type = light_tank_equipment
+				type = light_tank_chassis
 				amount = -300
 			}
 			add_equipment_to_stockpile = {
@@ -11479,6 +11501,8 @@ SOV_crushing_turan_sympathies = {
 			}
 		}
 
+		icon = generic_political_discourse
+
 		activation = {
 			TUR = {
 				is_subject_of = SOV
@@ -11539,6 +11563,8 @@ SOV_crushing_turan_sympathies = {
 
 		cost = 25
 
+		icon = generic_industry
+
 		available = {
 			has_equipment = {
 				infantry_equipment > 99
@@ -11583,6 +11609,8 @@ SOV_crushing_turan_sympathies = {
 
 		cost = 50
 
+		icon = generic_prepare_civil_war
+
 		days_re_enable = 70
 
 		complete_effect = {
@@ -11600,6 +11628,8 @@ SOV_crushing_turan_sympathies = {
 	SOV_military_parade_in_istanbul = {
 
 		cost = 25
+
+		icon = oppression
 
 		available = {
 			divisions_in_state = {
@@ -11639,6 +11669,8 @@ SOV_east_africa_ambitions = {
 			factor = 100
 		}
 
+		icon = generic_nationalism
+
 		visible = {
 			ETH = {
 				NOT = {
@@ -11650,6 +11682,60 @@ SOV_east_africa_ambitions = {
 		remove_effect = {
 			ETH = {
 				country_event = russia.22
+			}
+	
+		}
+	}
+	SOV_put_down_ethiopian_ethnic_rebellions = {
+		days_remove = 35
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		icon = generic_civil_support
+
+		available = {
+			ETH = {
+				is_in_faction_with = SOV
+			}
+		} 
+
+		remove_effect = {
+			ETH = {
+				add_popularity = {
+					ideology = neutrality
+					popularity = 0.05
+				}
+				remove_ideas = ETH_ethnic_conflicts
+			}
+		}
+	}
+	SOV_supply_ethiopian_army = {
+		days_remove = 35
+		fire_only_once = yes
+
+		icon = generic_army_support
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available = {
+			ETH = {
+				is_in_faction_with = SOV
+			}
+		} 
+
+		remove_effect = {
+			ETH = {
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 2000
+					producer = SOV
+				}
+				army_experience = 25
 			}
 		}
 	}
@@ -11847,4 +11933,65 @@ SOV_east_africa_ambitions = {
 			}
 		}
     }
+}
+
+weltkrieg_decisions = {
+	SOV_operation_third_rome_decision = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = SOV
+		}
+
+		available = { 
+			GER = {
+				has_war_with = AUS
+			}
+		}
+
+		visible = {
+			OR = {
+				has_completed_focus = SOV_operation_third_rome
+				has_completed_focus = SOV_intervene_in_austria
+				has_completed_focus = SOV_worlds_oil_titan
+			}
+			NOT = {
+				has_war_with = AUS
+			}
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			set_country_flag = SOV_chose_to_enter_europakrieg
+
+			add_ideas = SOV_the_mobilized_forces
+			custom_effect_tooltip = SOV_intervention_in_europakrieg_tt
+
+			hidden_effect = {
+				GER = {
+					country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
+				}
+				AUS = {
+					country_event = {
+						id = russian_inteverntion_in_europakrieg.8
+						days = 3
+					}
+				}
+			}
+		}
+	}
 }

@@ -1161,6 +1161,33 @@ AUS_infilitrating_the_prussian_palace = {
 
 
 AUS_imperial_senate = {
+
+	## AI
+	AUS_fix_the_damn_hungarian_revolt = {
+		icon = generic_nation
+		available = {
+			has_war_with = HUN
+			has_completed_focus = AUS_ABSOLUTISM
+		}
+		visible = {
+		    tag = AUS
+			is_ai = yes
+		}
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 100
+		remove_effect = {
+			annex_country = {
+				target = HUN
+				transfer_troops = no
+			}
+		}
+	}
+
 	AUS_conscription_act_vote = {
 
 		icon = eng_trade_unions_demand
@@ -1659,8 +1686,7 @@ AUS_imperial_senate = {
 		}
 
 		available = {
-				has_country_flag = open_funding_campaign_infil
-			
+			has_country_flag = open_funding_campaign_infil
 		}
 
 		visible = {
@@ -1685,7 +1711,436 @@ AUS_imperial_senate = {
 		}
 	}
 
+	AUS_hardcore_integration_CZE = {
+		icon = eng_trade_unions_demand
 
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_prague_integrated
+					has_decision = AUS_peaceful_integration_CZE
+				}
+			}
+		}
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 9
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 75
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 74
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 43
+					size > 2
+				}
+			}
+		}
+
+		days_remove = 35
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		modifier = {
+			weekly_manpower = -25
+			command_power_gain_mult = -0.2
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_prague_integrated
+			remove_dynamic_modifier = {
+				modifier = bohemian_modifier
+			}
+
+			hidden_effect = {
+				set_variable = {
+					AUS.recovery = 0
+				}
+				set_variable = { 
+					AUS.loc_showcase_bohmia = AUS.recovery
+				}
+				add_to_variable = {
+					AUS.loc_showcase_bohmia = 100
+				}
+
+				set_variable = {
+					AUS.stab_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.stab_bohemian_massacre = 500
+				}
+
+				set_variable = {
+					AUS.stab_bohemian_massacre_loc = AUS.stab_bohemian_massacre
+				}
+
+				multiply_variable = {
+					AUS.stab_bohemian_massacre_loc = 100
+				}
+				
+
+				set_variable = {
+					AUS.factory_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.factory_bohemian_massacre = 1000
+				}
+				set_variable = {
+				AUS.factory_bohemian_massacre_loc = AUS.factory_bohemian_massacre
+				}
+
+				multiply_variable = {
+				AUS.factory_bohemian_massacre_loc = 100
+			}
+
+				set_variable = {
+					AUS.buildings_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.buildings_bohemian_massacre = 1000
+				}
+				set_variable = {
+					AUS.buildings_bohemian_massacre_loc = AUS.buildings_bohemian_massacre
+				}
+
+				multiply_variable = {
+					AUS.buildings_bohemian_massacre_loc = 100
+				}
+			}
+			
+		}
+	}
+
+	AUS_peaceful_integration_CZE = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_prague_integrated
+					has_decision = AUS_hardcore_integration_CZE
+				}
+			}
+		}
+
+		days_remove = 2
+
+		cost = 25
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100000
+		}
+
+		modifier = {
+			industrial_capacity_factory = -0.1
+			political_power_gain = -0.1
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_prague_integrated
+			remove_dynamic_modifier = {
+				modifier = bohemian_modifier
+			}
+
+			hidden_effect = {
+				set_variable = {
+					AUS.recovery = 0
+				}
+				set_variable = { 
+					AUS.loc_showcase_bohmia = AUS.recovery
+				}
+				add_to_variable = {
+					AUS.loc_showcase_bohmia = 100
+				}
+
+				set_variable = {
+					AUS.stab_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.stab_bohemian_massacre = 500
+				}
+
+				set_variable = {
+					AUS.stab_bohemian_massacre_loc = AUS.stab_bohemian_massacre
+				}
+
+				multiply_variable = {
+					AUS.stab_bohemian_massacre_loc = 100
+				}
+				
+
+				set_variable = {
+					AUS.factory_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.factory_bohemian_massacre = 1000
+				}
+				set_variable = {
+				AUS.factory_bohemian_massacre_loc = AUS.factory_bohemian_massacre
+				}
+
+				multiply_variable = {
+				AUS.factory_bohemian_massacre_loc = 100
+			}
+
+				set_variable = {
+					AUS.buildings_bohemian_massacre = AUS.recovery
+				}
+
+				divide_variable = {
+					AUS.buildings_bohemian_massacre = 1000
+				}
+				set_variable = {
+					AUS.buildings_bohemian_massacre_loc = AUS.buildings_bohemian_massacre
+				}
+
+				multiply_variable = {
+					AUS.buildings_bohemian_massacre_loc = 100
+				}
+			}
+			
+		}
+	}
+
+	AUS_hardcore_integration_HUN = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_HUN_integrated
+					has_decision = AUS_peaceful_integration_HUN
+				}
+			}
+		}
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 43
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 154
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 155
+					size > 2
+				}
+			}
+			AUS = {
+				divisions_in_state = {
+					state = 804
+					size > 2
+				}
+			}
+		}
+
+		days_remove = 45
+
+		cost = 20
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		modifier = {
+			weekly_manpower = -25
+			command_power_gain_mult = -0.2
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_HUN_integrated
+			country_event = {
+				id = austria.199
+				days = 5
+			}
+		}
+	}
+
+	AUS_peaceful_integration_HUN = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_HUN_integrated
+					has_decision = AUS_hardcore_integration_HUN
+				}
+			}
+		}
+
+		days_remove = 90
+
+		cost = 35
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100000
+		}
+
+		modifier = {
+			industrial_capacity_factory = -0.1
+			political_power_gain = -0.1
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_HUN_integrated
+			country_event = {
+				id = austria.199
+				days = 5
+			}
+		}
+	}
+
+	AUS_hardcore_integration_venice = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_venice_integrated
+					has_decision = AUS_peaceful_integration_venice
+				}
+			}
+		}
+
+		days_remove = 25
+
+		available = {
+			AUS = {
+				divisions_in_state = {
+					state = 159
+					size > 2
+				}
+			}
+		}
+
+		cost = 10
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		modifier = {
+			weekly_manpower = -25
+			command_power_gain_mult = -0.2
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_venice_integrated
+			country_event = {
+				id = austria.205
+				days = 5
+			}
+		}
+	}
+
+	AUS_peaceful_integration_venice = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+			tag = AUS 
+		}
+
+		visible = {
+			has_completed_focus = AUS_CENTRALISM
+			NOT = {
+				OR = {
+					has_country_flag = AUS_venice_integrated
+					has_decision = AUS_hardcore_integration_venice
+				}
+			}
+		}
+
+		days_remove = 35
+
+		cost = 15
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100000
+		}
+
+		modifier = {
+			industrial_capacity_factory = -0.1
+			political_power_gain = -0.1
+		}
+
+		remove_effect = {
+			set_country_flag = AUS_venice_integrated
+			country_event = {
+				id = austria.205
+				days = 5
+			}
+		}
+	}
 
 }
 
@@ -3196,10 +3651,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3241,10 +3696,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3293,10 +3748,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3334,10 +3789,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3375,10 +3830,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3421,10 +3876,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3462,10 +3917,10 @@ AUS_foritfying_against_the_fbc = {
 
 
 		available = {
-
+			has_war = no
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = yes
@@ -3527,12 +3982,13 @@ AUS_foritfying_against_the_fbc = {
 AUS_offensives_against_the_fbc = {
 	AUS_the_silesian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = GER
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3550,12 +4006,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_bavarian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = GER
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3577,12 +4034,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_danubian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = ROM
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3600,12 +4058,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_galician_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = SOV
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3623,12 +4082,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_westfalen_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = FGD
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3658,12 +4118,13 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_venetian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
 			has_war_with = ITA
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
 
 		fire_only_once = no
@@ -3682,14 +4143,17 @@ AUS_offensives_against_the_fbc = {
 	}
 	AUS_the_serbian_offensive = {
 
+		icon = generic_army_support
 
 		available = {
-
+			OR = {
+				has_war_with = SER
+				has_war_with = YUG
+			}
 		}
-		visible = {
-
+		ai_will_do = {
+			factor = 2
 		}
-
 		fire_only_once = no
 
 		days_remove = 70
@@ -5502,7 +5966,7 @@ AUS_prospect_for_resources = {
 		remove_effect = {
 			855 = {	set_state_flag = AUS_baghdad_oil_flag }
 			TUR = {
-				country_event = austriamine.2
+				country_event = austriamine.1
 			}
 		}
 
@@ -5529,7 +5993,12 @@ AUS_french_prussian_war_preparations = {
 		cost = 50
 
 		available = {
-			owns_state = 69
+			OR = {
+				owns_state = 69
+				69.owner = {
+					is_puppet_of = AUS
+				}
+			}
 		}
 
 		days_remove = 20
@@ -5576,7 +6045,7 @@ AUS_french_prussian_war_preparations = {
 		days_remove = 30
 
 		remove_effect = {
-			540 = {
+			954 = {
 				add_building_construction = {
 					type = bunker
 					level = 2
@@ -6372,6 +6841,3779 @@ AUS_colonial_rebellions = {
 					}
 				}
 			}
+		}
+
+	}
+
+}
+
+AUS_creating_raus = {
+	
+	AUS_rau_ukraine = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			202 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	93 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	199 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	201 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	198 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	192 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	197 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	203 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	193 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	225 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	259 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	226 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	221 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			UKR = {
+				hidden_effect = {
+					#add_state_core = 220
+					#add_state_core = 240
+					#add_state_core = 137
+					remove_state_core = 766
+				}
+				transfer_state = 202
+        		transfer_state = 93
+        		transfer_state = 199
+        		transfer_state = 201
+        		transfer_state = 198
+        		transfer_state = 192
+        		transfer_state = 197
+        		transfer_state = 203
+        		transfer_state = 193
+        		transfer_state = 225
+        		transfer_state = 259
+        		transfer_state = 226
+        		transfer_state = 221
+				austria_occupation_piecharts = yes
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+					
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+	        	}
+			}
+			puppet = UKR
+			hidden_effect = {
+				UKR = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_expand_ukrainian_authority = {
+
+		icon = border_war
+
+		available = {
+			227 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	228 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	220 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	240 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	218 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	234 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1085 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			238 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			245 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			235 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			137 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			196 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			200 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			has_subject = UKR
+			NOT = {
+				OR = {
+					has_subject = NYK
+					has_subject = CRI
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			UKR = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 227
+        			add_state_core = 228
+        			add_state_core = 220
+        			add_state_core = 240
+        			add_state_core = 218
+        			add_state_core = 234
+        			add_state_core = 1085
+        			add_state_core = 238
+					add_state_core = 245
+					add_state_core = 235
+				}
+				transfer_state = 227
+        		transfer_state = 228
+        		transfer_state = 220
+        		transfer_state = 240
+        		transfer_state = 218
+        		transfer_state = 234
+        		transfer_state = 1085
+        		transfer_state = 238
+				transfer_state = 245
+				transfer_state = 235
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+			}
+		}
+	}
+
+	AUS_expand_ukrainian_authority_mini = {
+
+		icon = border_war
+
+		name = AUS_expand_ukrainian_authority
+
+		available = {
+			137 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			196 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			200 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			has_subject = UKR
+			has_completed_focus = AUS_ABSOLUTISM
+			has_subject = NYK
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			UKR = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 196
+        			add_state_core = 200
+        			add_state_core = 220
+        			add_state_core = 240
+				}
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+        		if = {
+        			limit = {
+        				NOT = {
+        					LNU = { owns_state = 220 }
+        				}
+        			}
+        			transfer_state = 220
+        			transfer_state = 240
+        		}
+			}
+		}
+	}
+
+	AUS_rau_weissrussland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			242 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			243 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			206 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	95 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	94 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	194 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	204 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	96 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	207 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	241 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			BLR = {
+				hidden_effect = {
+					add_state_core = 242
+					add_state_core = 243
+					austria_occupation_piecharts = yes
+				}
+				transfer_state = 206
+        		transfer_state = 95
+        		transfer_state = 94
+        		transfer_state = 194
+        		transfer_state = 204
+        		transfer_state = 96
+        		transfer_state = 207
+        		transfer_state = 241
+				transfer_state = 242
+				transfer_state = 243
+				if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+	        	}
+			}
+			puppet = BLR
+			hidden_effect = {
+				BLR = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_polen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			10 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	87 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	98 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	97 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				POL = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			POL = {
+        		transfer_state = 10
+        		transfer_state = 87
+        		transfer_state = 98
+        		transfer_state = 97
+				hidden_effect = {
+					austria_occupation_piecharts = yes
+				}
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+	        	}
+			}
+			puppet = POL
+			hidden_effect = {
+				POL = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = rau_poland_not_lithuania
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_concessions_to_people
+								}
+							}
+							set_cosmetic_tag = AUS_kingdom_puppet
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_rau_polen_litauen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			10 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	11 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	87 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	98 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	97 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1025 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	784 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	189 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				LIT = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			POL = {
+				hidden_effect = {
+					add_state_core = 11
+					add_state_core = 189
+					add_state_core = 784
+					austria_occupation_piecharts = yes
+				}
+        		transfer_state = 10
+        		transfer_state = 11
+        		transfer_state = 87
+        		transfer_state = 98
+        		transfer_state = 97
+        		transfer_state = 1025
+        		transfer_state = 784
+        		transfer_state = 189
+			}
+			puppet = POL
+			hidden_effect = {
+				POL = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = austrian_rau
+
+		        		if = {
+		        			limit = {
+		        				AUS = {
+		        					has_government = democratic
+		        				}
+		        			}
+		        			create_country_leader = {
+			        			name = "Austrian Military Government"
+			        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = paternalistic_conservatism 
+			        		}
+			        		else_if = {
+			        			limit = {
+			        				THIS = { has_government = neutrality }
+			        			}
+			        			create_country_leader = {
+				        			name = "Austrian Military Government"
+			        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+				        			expire = "1965.1.1"
+				        			ideology = despotic 
+				        		}
+			        		}
+			        		else_if = {
+			        			limit = {
+			        				THIS = { has_government = democratic_liberalism }
+			        			}
+			        			create_country_leader = {
+				        			name = "Austrian Military Government"
+			        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+				        			expire = "1965.1.1"
+				        			ideology = centrism 
+				        		}
+			        		}
+			        		else_if = {
+			        			limit = {
+			        				THIS = { has_government = authoritarian_democratic }
+			        			}
+			        			create_country_leader = {
+				        			name = "Austrian Military Government"
+			        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+				        			expire = "1965.1.1"
+				        			ideology = authoritarian_democrat 
+				        		}
+			        		}
+		        		}
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_concessions_to_people
+								}
+							}
+							set_cosmetic_tag = austrian_pol_lit_kingdom
+							if = {
+			        			limit = {
+			        				AUS = {
+			        					has_government = democratic
+			        				}
+			        			}
+			        			create_country_leader = {
+				        			name = "Polish-Lithuanian Regency Council"
+				        			picture = "gfx/leaders/FRA/Portrait_FRA_PLC_regency.png"
+				        			expire = "1965.1.1"
+				        			ideology = paternalistic_conservatism 
+				        		}
+				        		else_if = {
+				        			limit = {
+				        				THIS = { has_government = neutrality }
+				        			}
+				        			create_country_leader = {
+					        			name = "Polish-Lithuanian Regency Council"
+				        				picture = "gfx/leaders/FRA/Portrait_FRA_PLC_regency.png"
+					        			expire = "1965.1.1"
+					        			ideology = despotic 
+					        		}
+				        		}
+				        		else_if = {
+				        			limit = {
+				        				THIS = { has_government = democratic_liberalism }
+				        			}
+				        			create_country_leader = {
+					        			name = "Polish-Lithuanian Regency Council"
+				        				picture = "gfx/leaders/FRA/Portrait_FRA_PLC_regency.png"
+					        			expire = "1965.1.1"
+					        			ideology = centrism  
+					        		}
+				        		}
+				        		else_if = {
+				        			limit = {
+				        				THIS = { has_government = authoritarian_democratic }
+				        			}
+				        			create_country_leader = {
+					        			name = "Polish-Lithuanian Regency Council"
+				        				picture = "gfx/leaders/FRA/Portrait_FRA_PLC_regency.png"
+					        			expire = "1965.1.1"
+					        			ideology = authoritarian_democrat  
+					        		}
+				        		}
+			        		}
+						}
+					}
+				}
+				if = {
+					limit = {
+						has_subject = GLC
+					}
+					GLC = {
+						transfer_state = 90
+						transfer_state = 92
+					}
+				}
+			}
+		}
+	}
+
+	AUS_tend_to_polish_collaborators = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		available = {
+			10 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_subject = POL
+			}
+			any_controlled_state = {
+				is_core_of = POL
+				NOT = { is_core_of = AUS }
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		days_remove = 7
+
+		days_re_enable = 21
+
+		remove_effect = {
+			every_controlled_state = {
+				limit = { is_core_of = POL NOT = { is_core_of = AUS } }
+				add_compliance = 5
+			}
+		}
+
+	}
+
+	AUS_expand_galician_authority = {
+
+		icon = border_war
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				POL = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		available = {
+			90 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			92 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			10 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			87 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			98 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+			97 = {
+				is_controlled_by = AUS
+				compliance > 30
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		complete_effect = {
+			AUS = {
+				add_state_core = 90
+				add_state_core = 92
+				add_state_core = 10
+				add_state_core = 87
+				add_state_core = 98
+				add_state_core = 97
+			}
+			GLC = {
+				add_state_core = 90
+				add_state_core = 92
+				add_state_core = 10
+				add_state_core = 87
+				add_state_core = 98
+				add_state_core = 97
+			}
+			if = {
+				limit = {
+					GLC = {
+						exists = yes
+						is_subject_of = AUS
+					}
+				}
+				GLC = {
+					transfer_state = 90
+					transfer_state = 92
+					transfer_state = 10
+					transfer_state = 87
+					transfer_state = 98
+					transfer_state = 97
+					if = {
+						limit = {
+							91 = {
+								CONTROLLER = {
+									OR = {
+										tag = FRA
+										is_in_faction_with = FRA
+									}
+								}
+							}
+						}
+						transfer_state = 91
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_litauen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	11 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1025 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	784 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	189 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			NOT = {
+				POL = {
+					owns_state = 11
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			LIT = {
+				hidden_effect = {
+					add_state_core = 11
+					add_state_core = 189
+					add_state_core = 784
+					add_state_core = 1025
+					add_state_core = 188
+					austria_occupation_piecharts = yes
+				}
+        		transfer_state = 11
+        		transfer_state = 1025
+        		transfer_state = 784
+        		transfer_state = 189
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = LIT
+			hidden_effect = {
+				LIT = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_rau_kurland_und_semgallen = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	190 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1126 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	12 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			LAT = {
+				hidden_effect = {
+					austria_occupation_piecharts = yes
+					add_state_core = 190
+					add_state_core = 12
+					add_state_core = 1126
+				}
+        		transfer_state = 190
+        		transfer_state = 12
+        		transfer_state = 1126
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = LAT
+			hidden_effect = {
+				LAT = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_rau_estland = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	191 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	13 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			EST = {
+				hidden_effect = {
+					add_state_core = 13
+					add_state_core = 191
+					austria_occupation_piecharts = yes
+				}
+        		transfer_state = 191
+        		transfer_state = 13
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = EST
+			hidden_effect = {
+				EST = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_consolidate_baltic_raus = {
+
+		icon = generic_political_discourse
+
+		visible = {
+        	EST = {
+        		is_subject_of = AUS
+        	}
+        	LAT = {
+        		is_subject_of = AUS
+        	}
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		complete_effect = {
+			FOB = {
+				hidden_effect = {
+					transfer_state = 12
+					austria_occupation_piecharts = yes
+				}
+        		annex_country = {
+        			target = EST
+        			transfer_troops = yes
+        		}
+        		annex_country = {
+        			target = LAT
+        			transfer_troops = yes
+        		}
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = FOB
+			hidden_effect = {
+				FOB = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+	}
+
+	AUS_consolidate_baltic_raus_2 = {
+
+		icon = generic_political_discourse
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+        	FOB = {
+        		is_subject_of = AUS
+        	}
+        	LIT = {
+        		is_subject_of = AUS
+        	}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FOB = {
+        		annex_country = {
+        			target = LIT
+        			transfer_troops = yes
+        		}
+			}
+		}
+	}
+
+	AUS_bessarabien_governate = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			78 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			766 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			MOL = {
+				transfer_state = 78
+				transfer_state = 766
+				hidden_effect = {
+					austria_occupation_piecharts = yes
+				}
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = MOL
+			hidden_effect = {
+				MOL = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_ABSOLUTISM
+							}
+						}
+						set_cosmetic_tag = austrian_rau
+						else = {
+							set_cosmetic_tag = AUS_MOL_governate
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_rudolfsburg = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			195 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	244 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	263 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	208 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	209 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	210 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	195 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	246 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	264 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	247 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				RRR = {
+					austria_occupation_piecharts = yes
+					add_state_core = 195
+        			add_state_core = 244
+        			add_state_core = 263
+        			add_state_core = 208
+        			add_state_core = 209
+        			add_state_core = 210
+        			add_state_core = 195
+        			add_state_core = 246
+        			add_state_core = 264
+        			add_state_core = 247
+			        transfer_state = 195
+        			transfer_state = 244
+        			transfer_state = 263
+        			transfer_state = 208
+        			transfer_state = 209
+        			transfer_state = 210
+        			transfer_state = 195
+        			transfer_state = 246
+        			transfer_state = 264
+        			transfer_state = 247
+					set_capital = { state = 195 }
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+				}
+			}
+			puppet = RRR
+			hidden_effect = {
+				RRR = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_rudolfsburg
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_expand_petrograd_authority = {
+
+		icon = border_war
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			has_subject = RRR
+		}
+
+		available = {
+			351 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			248 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			RRR = {
+				hidden_effect = {
+					add_state_core = 351
+					add_state_core = 248
+				}
+				transfer_state = 351
+				transfer_state = 248
+			}
+		}
+
+	}
+
+	AUS_rau_moskowien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			219 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	205 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	223 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	224 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	222 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				LNU = {
+					austria_occupation_piecharts = yes
+					add_state_core = 219
+        			add_state_core = 205
+        			add_state_core = 223
+        			add_state_core = 224
+        			add_state_core = 222
+			        transfer_state = 219
+        			transfer_state = 205
+        			transfer_state = 223
+        			transfer_state = 224
+        			transfer_state = 222
+					set_capital = { state = 219 }
+					if = {
+						limit = { 
+							AUS = { 
+								OR = {
+									has_subject = NYK 
+									has_subject = CRI
+								}
+								220 = {
+									OWNER = {
+										OR = {
+											tag = AUS
+											tag = SOV
+										}
+									}
+								}
+								240 = {
+									OWNER = {
+										OR = {
+											tag = AUS
+											tag = SOV
+										}
+									}
+								}
+							} 
+						}
+						add_state_core = 220
+						transfer_state = 220
+						add_state_core = 240
+						transfer_state = 240
+					}
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+				}
+			}
+			puppet = LNU
+			hidden_effect = {
+				LNU = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_moscow
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_expand_moscows_authority = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = LNU
+			NOT = {
+				has_subject = NVR
+			}
+		}
+
+		available = {
+			250 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			255 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			254 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			258 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			257 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			260 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			239 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			265 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			252 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			253 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		complete_effect = {
+			LNU = {
+				hidden_effect = {
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 254
+					add_state_core = 258
+					add_state_core = 257
+					add_state_core = 260
+					add_state_core = 239
+					add_state_core = 265
+					add_state_core = 220
+					add_state_core = 240
+					add_state_core = 252
+					add_state_core = 253
+				}
+				transfer_state = 250
+				transfer_state = 255
+				transfer_state = 254
+				transfer_state = 258
+				transfer_state = 257
+				transfer_state = 260
+				transfer_state = 239
+				transfer_state = 265
+				transfer_state = 252
+				transfer_state = 253
+				if = {
+					limit = {
+						240 = {
+							OWNER = {
+								OR = {
+									tag = AUS
+									tag = SOV
+								}
+							}
+						}
+						220 = {
+							OWNER = {
+								OR = {
+									tag = AUS
+									tag = SOV
+								}
+							}
+						}
+					}
+					transfer_state = 220
+					transfer_state = 240
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_voronezh = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			250 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			255 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			254 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			258 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			257 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			260 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			239 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			265 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			252 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			253 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		visible = {
+			NOT = {
+				LNU = {
+					owns_state = 260
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				NVR = {
+					austria_occupation_piecharts = yes
+					add_state_core = 250
+					add_state_core = 255
+					add_state_core = 254
+					add_state_core = 258
+					add_state_core = 257
+					add_state_core = 260
+					add_state_core = 239
+					add_state_core = 265
+					add_state_core = 220
+					add_state_core = 240
+					add_state_core = 252
+					add_state_core = 253
+					transfer_state = 250
+					transfer_state = 255
+					transfer_state = 254
+					transfer_state = 258
+					transfer_state = 257
+					transfer_state = 260
+					transfer_state = 239
+					transfer_state = 265
+					transfer_state = 252
+					transfer_state = 253
+					set_capital = { state = 260 }
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+				}
+			}
+			puppet = NVR
+			hidden_effect = {
+				NVR = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_voronezh
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_crimea = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			137 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			196 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			200 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			NOT = {
+				UKR = {
+					owns_state = 137
+				}
+			}
+			has_completed_focus = AUS_concessions_to_people
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CRI = {
+				hidden_effect = {
+					add_state_core = 137
+					add_state_core = 196
+					add_state_core = 200
+					austria_occupation_piecharts = yes
+				}
+				transfer_state = 137
+				transfer_state = 196
+				transfer_state = 200
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = CRI
+			hidden_effect = {
+				CRI = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_crimea_khaganate
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_kosaken = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			234 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			218 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			238 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			245 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			235 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			227 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			228 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			1085 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		visible = {
+			NOT = {
+				UKR = {
+					owns_state = 218
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			NYK = {
+				hidden_effect = {
+					austria_occupation_piecharts = yes
+					add_state_core = 234
+					add_state_core = 218
+					add_state_core = 238
+					add_state_core = 245
+					add_state_core = 227
+					add_state_core = 228
+					add_state_core = 1085
+					add_state_core = 235
+				}
+				transfer_state = 234
+				transfer_state = 218
+				transfer_state = 238
+				transfer_state = 245
+				transfer_state = 227
+				transfer_state = 228
+				transfer_state = 1085
+				transfer_state = 235
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = NYK
+			hidden_effect = {
+				NYK = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_puppet
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_wolgadeutsche = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			217 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	237 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	236 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				KLV = {
+					austria_occupation_piecharts = yes
+					add_state_core = 217
+        			add_state_core = 237
+        			add_state_core = 236
+			        transfer_state = 217
+        			transfer_state = 237
+        			transfer_state = 236
+					set_capital = { state = 217 }
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+				}
+			}
+			puppet = KLV
+			hidden_effect = {
+				KLV = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_kingdom_volga
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_rau_kaukasus = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	231 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	229 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	230 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1082 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	1083 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		    843 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		    345 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		    233 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		    232 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			GEO = {
+				hidden_effect = {
+					austria_occupation_piecharts = yes
+					add_state_core = 231
+        			add_state_core = 229
+        			add_state_core = 230
+        			add_state_core = 1082
+        			add_state_core = 1083
+		    		add_state_core = 843
+		    		add_state_core = 345
+		    		add_state_core = 233
+		    		add_state_core = 232
+				}
+				transfer_state = 231
+        		transfer_state = 229
+        		transfer_state = 230
+        		transfer_state = 1082
+        		transfer_state = 1083
+		    	transfer_state = 843
+		    	transfer_state = 345
+		    	transfer_state = 233
+		    	transfer_state = 232
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+			}
+			puppet = GEO
+			hidden_effect = {
+				GEO = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_caucasian_kingdom
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_free_finland = {
+
+		icon = generic_political_discourse
+
+		available = {
+			111 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	149 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	150 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	148 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	722 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	147 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	146 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				transfer_state = 111
+        		transfer_state = 149
+        		transfer_state = 150
+        		transfer_state = 148
+        		transfer_state = 722
+        		transfer_state = 147
+        		transfer_state = 146
+        		hidden_effect = {
+        			add_state_core = 146
+        		}
+			}
+			add_to_faction = FIN
+		}
+
+	}
+
+	AUS_greater_finland = {
+
+		icon = border_war
+
+		visible = {
+			is_in_faction_with = FIN
+			NOT = {
+				has_subject = UGL
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		available = {
+			213 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			215 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			216 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			FIN = {
+				hidden_effect = {
+					add_state_core = 213
+					add_state_core = 215
+					add_state_core = 216
+				}
+				transfer_state = 213
+				transfer_state = 215
+				transfer_state = 216
+			}
+		}
+
+	}
+
+	AUS_rau_karelien = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+        	215 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	213 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+        	216 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+		}
+
+		visible = {
+			UGL = {
+				exists = no
+			}
+			NOT = {
+				FIN = {
+					owns_state = 215
+				}
+			}
+		}
+
+		visible = {
+			UGL = { exists = no }
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			hidden_effect = {
+				UGL = {
+					austria_occupation_piecharts = yes
+					remove_ideas = UGL_white_army_divided
+        			add_state_core = 215
+        			add_state_core = 213
+        			add_state_core = 216
+        			transfer_state = 215
+        			transfer_state = 213
+        			transfer_state = 216
+        			set_capital = { state = 216 }
+        		if = {
+        			limit = {
+        				THIS = {
+        					has_government = democratic
+        				}
+        			}
+        			create_country_leader = {
+	        			name = "Austrian Military Government"
+	        			picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+	        			expire = "1965.1.1"
+	        			ideology = paternalistic_conservatism 
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = neutrality }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = despotic 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = democratic_liberalism }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = centrism 
+		        		}
+	        		}
+	        		else_if = {
+	        			limit = {
+	        				THIS = { has_government = authoritarian_democratic }
+	        			}
+	        			create_country_leader = {
+		        			name = "Austrian Military Government"
+	        				picture = "gfx/leaders/AUS/Portrait_AUS_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = authoritarian_democrat 
+		        		}
+	        		}
+        		}
+				}
+			}
+			puppet = UGL
+			hidden_effect = {
+				UGL = {
+					reset_government = yes
+					if = {
+						limit = {
+							AUS = {
+								has_completed_focus = AUS_concessions_to_people
+							}
+						}
+						set_cosmetic_tag = AUS_duchy_karelia
+						else_if = {
+							limit = {
+								AUS = {
+									has_completed_focus = AUS_ABSOLUTISM
+								}
+							}
+							set_cosmetic_tag = austrian_rau
+						}
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_re_establish_novgorod = {
+
+		icon = border_war
+
+		visible = {
+			has_subject = RRR
+			NOT = {
+				FIN = {
+					owns_state = 216
+				}
+			}
+			has_completed_focus = AUS_concessions_to_people
+		}
+
+		available = {
+					215 = {
+						CONTROLLER = {
+							OR = {
+								tag = AUS
+								is_in_faction_with = AUS
+							}
+						}
+					}
+		        	213 = {
+						CONTROLLER = {
+							OR = {
+								tag = AUS
+								is_in_faction_with = AUS
+							}
+						}
+					}
+		        	216 = {
+						CONTROLLER = {
+							OR = {
+								tag = AUS
+								is_in_faction_with = AUS
+							}
+						}
+					}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		complete_effect = {
+			RRR = {
+				hidden_effect = {
+					add_state_core = 215
+		        	add_state_core = 213
+		        	add_state_core = 216
+				}
+				if = {
+					limit = {
+						AUS = {
+							has_subject = UGL
+						}
+					}
+					annex_country = {
+						target = UGL
+						transfer_troops = yes
+					}
+					else = {
+						transfer_state = 215
+		        		transfer_state = 213
+		        		transfer_state = 216
+					}
+				}
+				set_cosmetic_tag = AUS_novgorod_republic
+				set_capital = { state = 263 }
+			}
+		}
+
+	}
+
+}
+
+AUS_managing_bourbons = {
+	
+	AUS_support_ancien_regime = {
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			FPR = {
+				exists = yes
+				OR = {
+					has_idea = FPR_ancien_regime_2
+					has_idea = FPR_ancien_regime
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 35
+
+		modifier = {
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.03
+		}
+
+		remove_effect = {
+			FPR = {
+				if = {
+					limit = {
+						FPR = {
+							has_idea = FPR_ancien_regime_2
+						}
+					}
+					swap_ideas = {
+						remove_idea = FPR_ancien_regime_2
+						add_idea = FPR_ancien_regime_3
+					}
+				}
+				if = {
+					limit = {
+						FPR = {
+							has_idea = FPR_ancien_regime
+						}
+					}
+					swap_ideas = {
+						remove_idea = FPR_ancien_regime
+						add_idea = FPR_ancien_regime_2
+					}
+				}
+			}
+		}
+
+	}
+
+	AUS_withdraw_southern_france = {
+
+		icon = border_war
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			has_subject = OCC
+			country_exists = OCC
+			country_exists = FPR
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		available = {
+			FPR = {
+				has_idea = FPR_ancien_regime_3
+			}
+		}
+
+		days_remove = 35
+
+		remove_effect = {
+			hidden_effect = {
+				every_state = {
+					limit = { is_core_of = OCC }
+					add_core_of = FPR
+				}
+			}
+			FPR = {
+				annex_country = {
+					target = OCC
+					transfer_troops = yes
+				}
+			}
+		}
+
+	}
+
+	AUS_lower_french_resistance = {
+
+		icon = oppression
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				has_idea = FPR_french_resistance
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		days_remove = 35
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			industrial_capacity_factor = -0.05
+			weekly_manpower = -100
+		}
+
+		remove_effect = {
+			OCC = {
+				swap_ideas = {
+					remove_idea = FPR_french_resistance
+					add_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+	}
+
+	AUS_recruit_collaborators = {
+
+		icon = generic_industry
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				has_idea = FPR_french_resistance
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			OCC = {
+				add_ideas = FPR_french_collaboration_forces
+			}
+		}
+
+	}
+
+	AUS_seize_lyon_industry = {
+
+		icon = generic_construction
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+				NOT = {
+					has_idea = FPR_austrian_seizure_lyon_industries
+				}
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			OCC = {
+				add_timed_idea = {
+					idea = FPR_austrian_seizure_lyon_industries
+					days = 100
+				}
+				swap_ideas = {
+					remove_idea = FPR_french_resistance_2
+					add_idea = FPR_french_resistance
+				}
+			}
+		}
+
+	}
+
+	AUS_operation_lil = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		visible = {
+			has_subject = OCC
+			OCC = {
+				exists = yes
+			}
+			has_subject = FPR
+			FPR = {
+				exists = yes
+			}
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = AUS_french_resistance_is_low
+				OCC = {
+					has_idea = FPR_french_resistance_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		remove_effect = {
+			FPR = {
+				country_event = { id = austria_post_victory_tree.7 hours = 2 }
+			}
+			custom_effect_tooltip = if_bourbons_accept
+			effect_tooltip = {
+				OCC = {
+					annex_country = {
+						target = FPR
+						transfer_troops = yes
+					}
+				}
+			}
+			OCC = {
+				swap_ideas = {
+					remove_idea = FPR_french_resistance_2
+					add_idea = FPR_french_resistance
+				}
+			}
+		}
+
+	}
+
+	AUS_give_spain_a_bourbon_king = { #if you don't do this decision, a habsburg gets put in charge
+
+		icon = generic_political_discourse
+
+		cost = 50
+
+		visible = {
+			has_subject = FPR
+			FPR = {
+				exists = yes
+				has_idea = FPR_ancien_regime_3
+			}
+			has_war_with = SPR
+			OCC = {
+				exists = no
+			}
+		}
+
+		available = {
+			SPR = {
+				surrender_progress > 0.1
+			}
+		}
+
+		ai_will_do = {
+			factor = 2
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+			every_state = {
+				limit = { is_core_of = SPR }
+				add_core_of = FPR
+			}
+			set_global_flag = FPR_gets_spain
 		}
 
 	}

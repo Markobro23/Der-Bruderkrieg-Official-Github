@@ -890,7 +890,6 @@ shared_focus = {
     id = SOV_lenins_economic_policy
     icon = GFX_goal_SOV_lenins_economic_policy
     prerequisite = { focus = SOV_uniting_the_parties_of_the_rsdlp  }
-    
     x = -5
     y = 1
     relative_position_id = SOV_uniting_the_parties_of_the_rsdlp
@@ -898,6 +897,12 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
         factor = 200
+        modifier = {
+            factor = 0
+            NOT = {
+                has_completed_focus = SOV_a_new_leftists_russia
+            }
+        }
     }
     completion_reward = {
         
@@ -906,6 +911,19 @@ shared_focus = {
 			category = industry
 			bonus = 1
 			uses = 1
+		}
+
+        custom_effect_tooltip = SOV_lenins_economic_policy_tt
+        
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
 		}
     }
 }
@@ -933,6 +951,17 @@ shared_focus = {
             technology = concentrated_industry2
             technology = concentrated_industry3
 		}
+
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
     }
 }
 
@@ -950,6 +979,16 @@ shared_focus = {
     }
     completion_reward = {
         add_ideas = limited_exports
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.10
+			}
+		}
         
     }
 }
@@ -968,6 +1007,16 @@ shared_focus = {
     }
     completion_reward = {
         SOV_level_up_lenin_economic_reforms = yes
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
         
     }
 }
@@ -991,6 +1040,16 @@ shared_focus = {
     completion_reward = {
         unlock_decision_category_tooltip = SOV_lenins_infra_plan
         add_political_power = 50
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
     }
 }
 
@@ -1013,7 +1072,16 @@ shared_focus = {
     completion_reward = {
         unlock_decision_category_tooltip = SOV_european_development
         add_political_power = 50
-        
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.9
+			}
+		}
     }
 }
 
@@ -1038,6 +1106,16 @@ shared_focus = {
         add_political_power = 75
         add_research_slot = 1
         unlock_decision_category_tooltip = SOV_flourishing_oil_industry
+        hidden_effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_completed_focus = SOV_a_new_leftists_russia
+					}
+				}
+				country_event = SOV_kerensky_tree_events.11
+			}
+		}
     }
 }
  
@@ -1417,6 +1495,16 @@ shared_focus = {
     ai_will_do = {
         factor = 2000
     }
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.11 }
     }
@@ -1439,6 +1527,16 @@ shared_focus = {
     available = {
         has_country_flag = SOV_they_can_be_allies_unlocked
     }
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     ai_will_do = {
         factor = 2000
     }
@@ -1854,7 +1952,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_first_five_year_plan
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         add_ideas = SOV_collectivization_efforts_focus
@@ -1976,7 +2074,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_first_five_year_plan
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         swap_ideas = {
@@ -2333,6 +2431,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			AFG = {
+				exists = no
+			}
+			AFG = {
+				is_in_faction = yes
+			}
+			AFG = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         AFG = {
             country_event = SOV_lenin_tree_events.9
@@ -2354,6 +2465,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			PER = {
+				exists = no
+			}
+			PER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         PER = {
             country_event = { id = SOV_lenin_tree_events.10 }
@@ -2401,19 +2522,20 @@ shared_focus = {
     icon = GFX_goal_SOV_third_internationale
 	x = 0
 	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
 	prerequisite = { focus = SOV_end_the_austrian_threat }
 	
 	relative_position_id = SOV_end_the_austrian_threat
 
 	cost = 10		
 	available = {
-		has_global_flag = austria_defeated
+		custom_trigger_tooltip = {
+            tooltip = austria_defeated
+            OR = {
+                has_global_flag = austria_defeated
+                AUS = { exists = no }
+                AUS = { is_subject = yes }
+            }
+        }
 	}
 
 	cancel_if_invalid = yes
@@ -2466,7 +2588,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			FRA = {
+				exists = no
+			}
+			FRA = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_follow_trotskys_footsteps }
 	
@@ -2547,7 +2676,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_follow_trotskys_footsteps }
 	
@@ -2610,7 +2746,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			ENG = {
+				exists = no
+			}
+			ENG = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_liberate_the_german_workers }
 	prerequisite = {
@@ -2833,11 +2976,51 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+        set_cosmetic_tag = SOV_lenin_ultra_communism
         swap_ideas = {
             add_idea = SOV_beacon_of_socialism_2
             remove_idea = SOV_beacon_of_socialism
         }
         SOV_increase_support_among_people_large = yes
+        if = {
+            limit = {
+                has_completed_focus = SOV_follow_trotskys_footsteps
+            }
+            every_country = {
+                limit = {
+                    is_puppet_of = SOV
+                }
+                SOV = {
+                    annex_country = {
+                        target = PREV
+                        transfer_troops = yes
+                    }
+                }
+            }
+        }
+        else_if = {
+            limit = { 
+                has_completed_focus = SOV_socialism_in_one_country
+            }
+            SOV = {
+
+            }
+        }
+        else = {
+            effect_tooltip = {
+                every_country = {
+                    limit = {
+                        is_puppet_of = SOV
+                    }
+                    SOV = {
+                        annex_country = {
+                            target = PREV
+                            transfer_troops = yes
+                        }
+                    }
+                }
+            }
+        }
 	}
 	ai_will_do = {
 	}

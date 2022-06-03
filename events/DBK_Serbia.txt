@@ -1,0 +1,1078 @@
+add_namespace = serbia_the_mad_king
+####Serbia, the mad kking
+
+country_event = {
+	id = serbia_the_mad_king.1 
+	title = serbia_the_mad_king.1.t
+	desc = serbia_the_mad_king.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		news_event = {id = serbia_the_mad_king.2 }
+
+		hidden_effect = {
+			country_event = {id = serbia_the_mad_king.3  days = 250}
+		}
+	}
+}
+
+news_event = {
+	id = serbia_the_mad_king.2 
+	title = serbia_the_mad_king.2.t
+	desc = serbia_the_mad_king.2.d
+	picture = GFX_alexanderthemad
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+
+
+
+}
+
+###General Revolt
+country_event = {
+	id = serbia_the_mad_king.3 
+	title = serbia_the_mad_king.3.t
+	desc = serbia_the_mad_king.3.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = serbian_civil_war_has_begun
+		OBS = {
+			country_event = serbia_the_mad_king.6
+		}
+		YUG = {
+			country_event = serbia_the_mad_king.7
+		}
+		SER = {
+			country_event = serbia_the_mad_king.8
+		}
+	}
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.3.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		news_event = {id = serbia_the_mad_king.4 }
+		
+		OBS = {
+			transfer_state = 818
+			add_state_core = 818
+			transfer_state = 814
+			add_state_core = 814
+			set_cosmetic_tag = obrenovic_dynasty
+			
+		}
+		SER = {
+			transfer_state = 108
+			add_state_core = 108
+			transfer_state = 807
+			add_state_core = 807
+			transfer_state = 813
+			add_state_core = 813
+			set_cosmetic_tag = karadordevic_dynasty
+		}
+		MNT = {
+			transfer_state = 105
+			add_state_core = 105
+		}
+		YUG = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = OBS
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			set_province_controller = 9849
+			set_province_controller = 6913
+		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			YUG = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		YUG = {
+			load_oob = "YUG_civil_war"
+		}
+		SER = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		OBS = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		MNT = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.3.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		OBS = {
+			change_tag_from = YUG
+		}
+		news_event = {id = serbia_the_mad_king.4 }
+		
+		OBS = {
+			transfer_state = 818
+			add_state_core = 818
+			transfer_state = 814
+			add_state_core = 814
+			set_cosmetic_tag = obrenovic_dynasty
+			
+		}
+		SER = {
+			transfer_state = 108
+			add_state_core = 108
+			transfer_state = 807
+			add_state_core = 807
+			transfer_state = 813
+			add_state_core = 813
+			set_cosmetic_tag = karadordevic_dynasty
+		}
+		MNT = {
+			transfer_state = 105
+			add_state_core = 105
+		}
+		YUG = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = OBS
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			set_province_controller = 9849
+			set_province_controller = 6913
+		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			YUG = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		YUG = {
+			load_oob = "YUG_civil_war"
+		}
+		SER = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		OBS = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		MNT = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.3.c #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SER = {
+			change_tag_from = YUG
+		}
+		news_event = {id = serbia_the_mad_king.4 }
+		
+		OBS = {
+			transfer_state = 818
+			add_state_core = 818
+			transfer_state = 814
+			add_state_core = 814
+			set_cosmetic_tag = obrenovic_dynasty
+			
+		}
+		SER = {
+			transfer_state = 108
+			add_state_core = 108
+			transfer_state = 807
+			add_state_core = 807
+			transfer_state = 813
+			add_state_core = 813
+			set_cosmetic_tag = karadordevic_dynasty
+		}
+		MNT = {
+			transfer_state = 105
+			add_state_core = 105
+		}
+		YUG = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = OBS
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			set_province_controller = 9849
+			set_province_controller = 6913
+		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			YUG = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		YUG = {
+			load_oob = "YUG_civil_war"
+		}
+		SER = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		OBS = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		MNT = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.3.f #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		MNT = {
+			change_tag_from = YUG
+		}
+		news_event = {id = serbia_the_mad_king.4 }
+		
+		OBS = {
+			transfer_state = 818
+			add_state_core = 818
+			transfer_state = 814
+			add_state_core = 814
+			set_cosmetic_tag = obrenovic_dynasty
+			
+		}
+		SER = {
+			transfer_state = 108
+			add_state_core = 108
+			transfer_state = 807
+			add_state_core = 807
+			transfer_state = 813
+			add_state_core = 813
+			set_cosmetic_tag = karadordevic_dynasty
+		}
+		MNT = {
+			transfer_state = 105
+			add_state_core = 105
+		}
+		YUG = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = OBS
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			declare_war_on = {
+				target = SER
+				type = civil_war
+			}
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		SER = {
+			declare_war_on = {
+				target = MNT
+				type = civil_war
+			}
+		}
+		OBS = {
+			set_province_controller = 9849
+			set_province_controller = 6913
+		}
+		for_each_loop = {
+			array = controlled_states
+			value = controlled_state
+		
+			YUG = {
+				delete_unit = {
+					state = var:controlled_state
+					disband = yes # or no
+				}
+			}    
+		}
+		YUG = {
+			load_oob = "YUG_civil_war"
+		}
+		SER = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		OBS = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+		MNT = {
+			load_oob = "SER_civil_war"
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Serbian Civil War Division\" division_template = \"Pesadijska Divizija\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+					owner = PREV
+				}
+			}
+		}
+	}
+}
+
+news_event = {
+	id = serbia_the_mad_king.4 
+	title = serbia_the_mad_king.4.t
+	desc = serbia_the_mad_king.4.d
+	picture = GFX_serbiancivilwar
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.4.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
+
+##invervention
+
+country_event = {
+	id = serbia_the_mad_king.5 
+	title = serbia_the_mad_king.5.t
+	desc = serbia_the_mad_king.5.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = no   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.b #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		add_ideas = Serbian_Civil_War_2
+	}
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.5.c #needs to be localized
+		ai_chance = { factor = 0 } #this factor means the AI will almost always pick this one
+	
+	}
+}
+
+country_event = {
+	id = serbia_the_mad_king.6 
+	title = serbia_the_mad_king.6.t
+	desc = serbia_the_mad_king.6.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.6.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		AUS = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.7 
+	title = serbia_the_mad_king.7.t
+	desc = serbia_the_mad_king.7.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.7.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		SOV = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}
+country_event = {
+	id = serbia_the_mad_king.8 
+	title = serbia_the_mad_king.8.t
+	desc = serbia_the_mad_king.8.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = serbia_the_mad_king.8.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		GER = {
+			country_event = {
+				id = serbia_the_mad_king.5 
+				days = 2
+			}
+		}
+	}
+}

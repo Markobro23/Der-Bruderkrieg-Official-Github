@@ -1,6 +1,11 @@
 ﻿capital = 825
 
-#oob = "GRE_1936"
+oob = "THS_1936"
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "THS_1936_naval_mtg"
+}
 
 set_research_slots = 3
 
@@ -9,6 +14,8 @@ add_ideas = {
 	THS_nicolaos_matussis
 	THS_alcibiades_diamandi
 	THS_manolis_triantafyllidis
+	THS_greek_nationalists
+	THS_south_slav_sympathies
 }
 
 #add_ideas = {
@@ -71,25 +78,9 @@ set_politics = {
 }
 
 
-create_country_leader = {
-	name = "Kimon Georgiev"
-	desc = "POLITICS_IOANNIS_METAXAS_DESC"
-	picture = "gfx/leaders/Kimon_Georgieyv.dds"
-	expire = "1965.1.1"
-	ideology = authoritarian_democrat
-	traits = {
-		#
-	}
-}
+recruit_character = THS_kimon_georgiev
 
-BUL = {
-	
-set_autonomy = {
-	target = THS
-	autonomous_state =  autonomy_puppet
-} 
 
-}
 
 set_popularities = {
 	communism = 8

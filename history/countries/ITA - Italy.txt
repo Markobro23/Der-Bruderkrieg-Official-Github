@@ -2,7 +2,7 @@ capital = 162
 
 oob = "ITA_1936"
 
-
+give_guarantee = SCA
 
 add_opinion_modifier = {
 	target = AUS
@@ -17,7 +17,7 @@ add_opinion_modifier = {
 set_variable = { var = ITA_mafia_var value = 0 }
 
 
-set_research_slots = 4
+set_research_slots = 3
 set_stability = 0.35
 set_war_support = 0.6
 add_ideas = {
@@ -54,10 +54,6 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	#basic_heavy_tank = 1  # PLACEHOLDER
-	#basic_medium_tank = 1 # PLACEHOLDER
 	early_fighter = 1
 	early_bomber = 1
 	naval_bomber1 = 1
@@ -67,6 +63,30 @@ set_technology = {
 	fuel_silos = 1
 	fuel_refining = 1
 	basic_train = 1
+}
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -174,6 +194,20 @@ recruit_character = ITA_ettore_muti
 recruit_character = ITA_marziale_cerutti
 recruit_character = ITA_silvio_scaroni
 recruit_character = ITA_luigi_mascherpa
+
+recruit_character = ITA_francesco_de_martini
+recruit_character = ITA_igino_ghisellini
+recruit_character = ITA_attilio_teruzzi
+recruit_character = ITA_enea_navarini
+recruit_character = ITA_edmondo_rossoni
+recruit_character = ITA_alessandro_pirzio_biroli
+recruit_character = ITA_carlo_geloso
+recruit_character = ITA_giuseppe_valle
+recruit_character = ITA_pietro_pintor
+recruit_character = ITA_ettore_bastico
+recruit_character = ITA_annibale_bergonzoli
+recruit_character = ITA_alberto_pariani
+recruit_character = ITA_italo_gariboldi
 
 # recruit_character = ITA_achille_starace
 # recruit_character = ITA_alessandro_pavolini 
@@ -677,94 +711,48 @@ if = {
 			rear_1_custom_slot = ship_torpedo_sub_1
 		}
 	}
-}
-
-
-1939.1.1 = {
 	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
+		limit = {
+			has_dlc = "No Step Back"
+		}
 		create_equipment_variant = {
-			name = "Marcello Class"
-			type = submarine_2
+			name = "L6/40"
+			type = light_tank_chassis_1
+			parent_version = 0
+			modules = {
+				main_armament_slot = tank_auto_cannon
+				turret_type_slot = tank_light_one_man_tank_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+			}
 			upgrades = {
-				ship_reliability_upgrade = 1
-				sub_engine_upgrade = 1
-				sub_stealth_upgrade = 1
-				sub_torpedo_upgrade = 1
+				tank_nsb_engine_upgrade = 2
+				tank_nsb_armor_upgrade = 4
 			}
-		}
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		### Battleship Variants
-		create_equipment_variant = {
-			name = "Caio Duilio Class"			# refit variant (refit in 1937-40)
-			type = ship_hull_heavy_1
-			name_group = ITA_BB_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_heavy_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = heavy_ship_engine_2
-				fixed_ship_secondaries_slot = ship_secondaries_1
-				fixed_ship_armor_slot = ship_armor_bb_1
-				front_1_custom_slot = ship_anti_air_1
-				mid_1_custom_slot = ship_secondaries_1
-				mid_2_custom_slot = ship_anti_air_1
-				rear_1_custom_slot = ship_heavy_battery_1
-			}
-		obsolete = yes
+			icon = "GFX_ITA_improved_light_tank_medium"
 		}
 
-		### Light Cruiser Variants
 		create_equipment_variant = {
-			name = "Duca degli Abruzzi Class"
-			type = ship_hull_cruiser_2
-			name_group = ITA_CL_HISTORICAL
+			name = "M11/39"
+			type = light_tank_chassis_2
 			parent_version = 0
 			modules = {
-				fixed_ship_battery_slot = ship_light_medium_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_2
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = cruiser_ship_engine_2
-				fixed_ship_armor_slot = ship_armor_cruiser_1
-				front_1_custom_slot = ship_anti_air_2
-				mid_1_custom_slot = ship_torpedo_1
-				mid_2_custom_slot = ship_airplane_launcher_2
-				rear_1_custom_slot = ship_light_medium_battery_3
+				main_armament_slot = tank_high_velocity_cannon
+				turret_type_slot = tank_light_fixed_superstructure_turret
+				suspension_type_slot = tank_bogie_suspension
+				armor_type_slot = tank_riveted_armor
+				engine_type_slot = tank_gasoline_engine
+				special_type_slot_1 = secondary_turret_hmg
 			}
-		}
-		### Destroyer Variants
-		create_equipment_variant = {
-			name = "Soldati Class" 				# represents Soldati and Pegaso classes
-			type = ship_hull_light_2
-			name_group = ITA_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = empty
-				rear_1_custom_slot = ship_depth_charge_1
+			upgrades = {
+				tank_nsb_engine_upgrade = 2
+				tank_nsb_armor_upgrade = 3
 			}
-		}
-		### Submarine Variants
-		create_equipment_variant = {
-			name = "Marcello Class"
-			type = ship_hull_submarine_2
-			name_group = ITA_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_1
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = ship_torpedo_sub_1
-			}
+			icon = "GFX_ITA_basic_medium_tank_medium"
 		}
 	}
 }
+
+
+

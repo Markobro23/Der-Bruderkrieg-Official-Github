@@ -1,0 +1,205 @@
+add_namespace = weltkrieg_peace
+
+country_event = { #the fate of the balkans
+	id = weltkrieg_peace.1
+	title = weltkrieg_peace.1.t
+	desc = weltkrieg_peace.1.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #screw over russia
+		name = weltkrieg_peace.1.a
+		#italy gets an event promising more of the balkans, if they accept, russia gets an event about how they've been screwed over
+		ITA = {
+			country_event = { id = weltkrieg_peace.6 hours = 1 }
+		}
+		if = {
+			limit = {
+				SOV = {
+					has_war_with = AUS
+				}
+			}
+			SOV = {
+				country_event = { id = weltkrieg_peace.5 hours = 1 }
+			}
+		}
+		set_global_flag = weltkrieg_ITA_gets_balkans
+	}
+	option = { #screw over italy
+		name = weltkrieg_peace.1.b
+		trigger = {
+			SOV = {
+				has_war_with = AUS
+			}
+		}
+		ITA = {
+			country_event = { id = weltkrieg_peace.5 hours = 1 }
+		}
+		SOV = {
+			country_event = { id = weltkrieg_peace.6 hours = 1 }
+		}
+		set_global_flag = weltkrieg_SOV_gets_balkans
+	}
+	option = { #it's good as is
+		name = weltkrieg_peace.1.c
+		FROM = {
+			country_event = { id = weltkrieg_peace.5 hours = 1 }
+		}
+	}
+}
+
+country_event = { #italy wanting to change the peace deal for Austria
+	id = weltkrieg_peace.2
+	title = weltkrieg_peace.2.t
+	desc = weltkrieg_peace.2.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #more of africa
+		name = weltkrieg_peace.2.a
+		#Prussia gets an event of Italy asking for more of africa in the peace deal
+	}
+	option = { #more of balkans
+		name = weltkrieg_peace.2.b
+		country_event = { id = weltkrieg_peace.1 hours = 1 }
+	}
+}
+
+country_event = { #france wanting to change the peace deal for italy, wants northwest and sicily - Austria
+	id = weltkrieg_peace.3
+	title = weltkrieg_peace.3.t
+	desc = weltkrieg_peace.3.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #sure
+		name = weltkrieg_peace.3.a
+		FRA = {
+			country_event = { id = weltkrieg_peace.9 hours = 1 }
+		}
+		set_global_flag = weltkrieg_FRA_gets_sicily
+	}
+	option = { #nah it should be neutral, just divided
+		name = weltkrieg_peace.3.b
+		FRA = {
+			country_event = { id = weltkrieg_peace.8 hours = 1 }
+		}
+	}
+	option = { #nah it's ours
+		name = weltkrieg_peace.3.c
+		FRA = {
+			country_event = { id = weltkrieg_peace.10 hours = 1 }
+		}
+		set_global_flag = weltkrieg_AUS_gets_sicily
+	}
+}
+
+country_event = { #italy wanting to change the peace deal for France
+	id = weltkrieg_peace.4
+	title = weltkrieg_peace.4.t
+	desc = weltkrieg_peace.4.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #split france
+		name = weltkrieg_peace.4.a
+		set_global_flag = weltkrieg_ITA_gets_occitania
+		ITA = {
+			country_event = { id = weltkrieg_peace.7 hours = 1 }
+		}
+	}
+	option = { #No
+		name = weltkrieg_peace.4.b
+		ITA = {
+			country_event = { id = weltkrieg_peace.5 hours = 1 }
+		}
+	}
+}
+
+country_event = { #getting screwed out of the peace conference
+	id = weltkrieg_peace.5
+	title = weltkrieg_peace.5.t
+	desc = weltkrieg_peace.5.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #dangit!
+		name = weltkrieg_peace.5.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_decrease
+		}
+	}
+}
+
+country_event = { #prussian ally getting balkans
+	id = weltkrieg_peace.6
+	title = weltkrieg_peace.6.t
+	desc = weltkrieg_peace.6.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya
+		name = weltkrieg_peace.6.a
+	}
+}
+
+country_event = { #we got what we wnated
+	id = weltkrieg_peace.7
+	title = weltkrieg_peace.7.t
+	desc = weltkrieg_peace.7.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya!
+		name = weltkrieg_peace.7.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_increase
+		}
+	}
+}
+
+country_event = { #France is neutral about the division of italy
+	id = weltkrieg_peace.8
+	title = weltkrieg_peace.8.t
+	desc = weltkrieg_peace.8.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #eh, could be worse
+		name = weltkrieg_peace.8.a
+	}
+}
+
+country_event = { #Austria promises us Sicily
+	id = weltkrieg_peace.9
+	title = weltkrieg_peace.9.t
+	desc = weltkrieg_peace.9.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya!
+		name = weltkrieg_peace.9.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_increase
+		}
+	}
+}
+
+country_event = { #Austria looks to all of Italy
+	id = weltkrieg_peace.10
+	title = weltkrieg_peace.10.t
+	desc = weltkrieg_peace.10.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	option = { #booya!
+		name = weltkrieg_peace.9.a
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_decrease
+		}
+	}
+}

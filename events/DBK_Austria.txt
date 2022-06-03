@@ -268,6 +268,49 @@ country_event = {
     }
 }
 
+## hungarians raid a village (mfers) 
+country_event = {
+    id = DBK_austria_start.15
+    title = DBK_austria_start.15.t
+    desc = DBK_austria_start.15.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+
+    option = {
+        name = DBK_austria_start.15.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.16
+    title = DBK_austria_start.16.t
+    desc = DBK_austria_start.16.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+
+    option = {
+        name = DBK_austria_start.16.a
+    }
+}
+
+country_event = {
+    id = DBK_austria_start.17
+    title = DBK_austria_start.17.t
+    desc = DBK_austria_start.17.d
+
+    fire_only_once = yes
+    is_triggered_only = yes
+
+
+    option = {
+        name = DBK_austria_start.17.a
+    }
+}
+
 add_namespace = austria_a_collapsing_empire
 
 ###hungarian attack on pecs
@@ -520,8 +563,16 @@ country_event = {
 		name = aus.b.1
 		ai_chance = { factor = 100 } 
 
-		news_event = {id = austria.147 hours = 3}
 		
+		HUN = {
+			set_politics = {
+				ruling_party = fascism
+			}
+			
+			set_rule = {
+				can_join_factions = no
+			}
+		}
 		hungary_civil_war = yes
 		HUN = {
 			set_politics = {
@@ -532,7 +583,7 @@ country_event = {
 				can_join_factions = no
 			}
 		}
-		
+		news_event = {id = austria.147 hours = 3}
 		add_threat = 3
 		multiply_variable = {
 			AUS_Nemetzi_dal_stability_factor = 2
@@ -553,6 +604,12 @@ country_event = {
 			AUS_Nemetzi_dal_conscription_factor_loc = 100
 		}
 		set_country_flag = AUS_nemzeti_dal_to_full_revolution
+		hidden_effect = {
+			every_state = {
+				limit = { is_core_of = HUN }
+				remove_core_of = AUS
+			}
+		}
 	}
 }
 
@@ -611,10 +668,14 @@ country_event = {
 		name = aus.b.2
 		news_event = {id = austria.148 hours = 3}
 		add_threat = 1
-		unlock_decision_category_tooltip = AUS_post_massacre_cat
+		#unlock_decision_category_tooltip = AUS_post_massacre_cat
 	
 		add_dynamic_modifier = {modifier = bohemian_modifier}
 		set_country_flag = AUS_bohemian_outrage_to_ban_czech_diet
+		every_state = {
+				limit = { is_core_of = CZE }
+				remove_core_of = AUS
+			}
 		hidden_effect = {
 			remove_dynamic_modifier = {
 				modifier = Bohemian_Outrage
@@ -667,7 +728,7 @@ country_event = {
 		  }
 
 
-		  set_variable = {
+		set_variable = {
 			AUS_Giovane_Italia_consumer_goods_factor_loc = AUS_Giovane_Italia_consumer_goods_factor
 		}
 		multiply_variable = {
@@ -695,12 +756,13 @@ country_event = {
 		  805 = { set_demilitarized_zone = no }
 		  160 = { set_demilitarized_zone = no }
 
-		  hidden_effect = {
-			  country_event = {
-				  id = austria.205
-				  days = 120
-			  }
+		  159 = {
+			remove_core_of = AUS
 		  }
+
+		  
+
+		  
 		}
 }
 
@@ -1021,10 +1083,8 @@ country_event = {
 
 		set_country_flag = AUS_switch_from_bohemian_outrage_to_bohemian_autonomy
 		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = Bohemian_Outrage_idea
-				add_idea = Autonomism 
-			}
+			remove_ideas = Bohemian_Outrage_idea
+			add_ideas = Autonomism 
 		}
 		set_country_flag = AUS_high_polish_support_to_very_high_polish_support
 
@@ -1141,10 +1201,8 @@ country_event = {
 		}
 
 		effect_tooltip = {
-			#swap_ideas = {
-			#	remove_idea = Nemzeti_dal
-			#	add_idea = Autonomism
-			#}
+			remove_ideas = Nemzeti_dal
+			add_ideas = Autonomism_2
 		}
 		
 	}
@@ -1231,10 +1289,8 @@ country_event = {
 		set_country_flag = AUS_Giovane_Italia_to_Venetian_autonomy
 
 		effect_tooltip = {
-			swap_ideas = {
-				remove_idea = Giovane_Italia_idea
-				add_idea = Autonomism_3
-			}
+			remove_ideas = Giovane_Italia_idea
+			add_ideas = Autonomism_3
 		}
 
 		hidden_effect = {
@@ -1296,7 +1352,29 @@ country_event = {
 		# 	autonomy_state = autonomy_danubian_federation_member
       	# 	freedom_level = 0.2
 		# }
+		hidden_effect = {
+			CRO = {
+				set_politics = {
+				ruling_party = democratic
+				last_election = "1935.3.31"
+				election_frequency = 48
+				elections_allowed = no
+				}
+				set_popularities = {
+				democratic = 49
+				neutrality = 27
+				communism = 24
+				}
+				keep_current_politics = yes
+			}
+		}
 		release_puppet = CRO
+		
+		hidden_effect = {
+			CRO = {
+				reset_government = yes
+			}
+		}
 
 		AUS_fedor_dragojlov = {
 	      set_nationality = CRO
@@ -1304,16 +1382,16 @@ country_event = {
 	    AUS_vladimir_laxa = {
 	      set_nationality = CRO
 	    }
-	    AUS_mihajlo_lukić = {
+	    AUS_mihajlo_lukic = {
 	      set_nationality = CRO
 	    }
 	    AUS_slavko_kvaternik = {
 	      set_nationality = CRO
 	    }
-	    AUS_eduard_bonabunić = {
+	    AUS_eduard_bonabunic = {
 	      set_nationality = CRO
 	    }
-	    AUS_matija_Čanić = {
+	    AUS_matija_canic = {
 	      set_nationality = CRO
 	    }
 
@@ -3161,6 +3239,18 @@ country_event = {
 		multiply_variable = {
 			AUS_Nemetzi_dal_conscription_factor = 0
 		}
+		set_variable = {
+			AUS_Nemetzi_dal_stability_factor_loc = AUS_Nemetzi_dal_stability_factor
+		}
+		multiply_variable = {
+			AUS_Nemetzi_dal_stability_factor_loc = 100
+		}
+		set_variable = {
+			AUS_Nemetzi_dal_conscription_factor_loc = AUS_Nemetzi_dal_conscription_factor
+		}
+		multiply_variable = {
+			AUS_Nemetzi_dal_conscription_factor_loc = 100
+		}
 		custom_effect_tooltip = AUS_remove_effects_of_third_hungarian_revolution
 	}	
 }
@@ -3189,6 +3279,30 @@ country_event = {
 		}
 		multiply_variable = {
 			AUS_Giovane_Italia_stability_factor = 0
+		}
+		set_variable = {
+			AUS_Giovane_Italia_consumer_goods_factor_loc = AUS_Giovane_Italia_consumer_goods_factor
+		}
+		multiply_variable = {
+			AUS_Giovane_Italia_consumer_goods_factor_loc = 100
+		}
+		set_variable = {
+			AUS_Giovane_Italia_war_support_factor_loc = AUS_Giovane_Italia_war_support_factor
+		}
+		multiply_variable = {
+			AUS_Giovane_Italia_war_support_factor_loc = 100
+		}
+		set_variable = {
+			AUS_Giovane_Italia_political_power_factor_loc = AUS_Giovane_Italia_political_power_factor
+		}
+		multiply_variable = {
+			AUS_Giovane_Italia_political_power_factor_loc = 100
+		}
+		set_variable = {
+			AUS_Giovane_Italia_stability_factor_loc = AUS_Giovane_Italia_stability_factor
+		}
+		multiply_variable = {
+			AUS_Giovane_Italia_stability_factor_loc = 100
 		}
 		custom_effect_tooltip = AUS_remove_effects_of_the_occupation_of_milan
 	}	
@@ -3238,29 +3352,29 @@ country_event = {
 	option = { #one last dinner before you go?
 		name = austria.207.a
 		ORA_stjepan_sarkotić = { set_nationality = AUS }
-		add_country_leader_role = {
-			character = ORA_alexander_von_falkenhausen 
-			promote_leader = yes
-			country_leader = {
-				ideology = despotic
-				expire = "1965.1.1"
-				traits = {
-					retired_officer
-				}
-			}
-		}
+		#add_country_leader_role = {
+		#	character = ORA_alexander_von_falkenhausen 
+		#	promote_leader = yes
+		#	country_leader = {
+		#		ideology = despotic
+		#		expire = "1965.1.1"
+		#		traits = {
+		#			retired_officer
+		#		}
+		#	}
+		#}
 		#hidden_effect = {
-			AUS = {
-				add_corps_commander_role = {
-					character = ORA_stjepan_sarkotić 
-					skill = 3
-					attack_skill = 2
-					defense_skill = 3
-					planning_skill = 3
-					logistics_skill = 3
-				}
-				country_event = { id = austria.208 hours = 1 }
-			}
+		#	AUS = {
+		#		add_corps_commander_role = {
+		#			character = ORA_stjepan_sarkotić 
+		#			skill = 3
+		#			attack_skill = 2
+		#			defense_skill = 3
+		#			planning_skill = 3
+		#			logistics_skill = 3
+		#		}
+		#		country_event = { id = austria.208 hours = 1 }
+		#	}
 		#}
 	}
 }
@@ -3296,6 +3410,76 @@ country_event = {
 				planning_skill = 3
 				logistics_skill = 3
 			}
+		}
+	}
+}
+
+country_event = { #austria requests hanover's independence
+	id = austria.209
+	title = austria.209.t
+	desc = austria.209.d
+	
+	is_triggered_only = yes 
+
+	option = { #we don't want to anger the brits bruv
+		name = austria.209.a
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_rival_the_british_in_the_benelux
+			}
+		}
+		FGD = {
+			release = HAN
+		}
+		ENG = {
+	      puppet = HAN
+	      country_event = { id = austria_post_victory_tree.3 hours = 6}
+	    }
+	    hidden_effect = {
+	      HAN = {
+	        add_popularity = {
+	          ideology = neutrality
+	          popularity = 0.4
+	        }
+	        set_politics = {
+	          ruling_party = neutrality
+	          elections_allowed = no
+	        }
+	      }
+	    }
+	}
+	option = { #helping the brits? Bro who do you think we are
+		name = austria.209.b
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 0
+				has_completed_focus = FRA_repair_relations_with_the_british
+			}
+		}
+		ENG = {
+			country_event = { id = austria.210 hours = 2 }
+		}
+		AUS = {
+			country_event = { id = austria.210 hours = 2 }
+		}
+	}
+}
+
+country_event = { #france refuses to free Hannover
+	id = austria.210
+	title = austria.210.t
+	desc = austria.210.d
+	
+	is_triggered_only = yes 
+
+	option = { #those tyrants!
+		name = austria.210.a
+		add_opinion_modifier = {
+			target = FRA
+			modifier = large_decrease
 		}
 	}
 }
@@ -3708,7 +3892,7 @@ news_event = {
 	id = southgermanconfederttion_civil_war.2
 	title = southgermanconfederttion_civil_war.2.t
 	desc = southgermanconfederttion_civil_war.2.d
-	#picture = GFX_report_event_vienna_award_hungary
+	picture = GFX_fallofmunichgeneric
 	major = yes
 
 	#fire_only_once = yes   
@@ -3741,18 +3925,12 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
-		BAD_berthold_i = { set_nationality = GPU }
-		HES_heinrich_von_vietinghoff = { set_nationality = GPU }
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
 			
-			if = {
-				limit = {
-					has_character_id = BAD_berthold_i
-				}
-				log = "BAD_berthold_i JOEOQO"
-			}
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -3844,11 +4022,12 @@ country_event = {
 				autonomous_state = autonomy_free
 			}
 		}
+		BAD = { BAD_berthold_i = { set_nationality = GPU } }
+		HES = { HES_heinrich_von_vietinghoff = { set_nationality = GPU } }
 		GPU = {
 			remove_ideas = GPU_court_factionalism
 			remove_ideas = GPU_garrisson_state
-			recruit_character = BAD_berthold_i 
-			recruit_character = HES_heinrich_von_vietinghoff
+			
 			annex_country = {
 				target = BAD
 				transfer_troops = yes
@@ -4159,8 +4338,24 @@ country_event = {
 		66 = {
 			add_core_of  = CZE
 		}
-		release = CZE
+		AUS = {
+			set_autonomy = {
+				target = CZE
+				autonomy_state = autonomy_free
+			}
+		}
 		CZE = {
+			set_cosmetic_tag = free_czech
+			create_country_leader = {
+				name = "Tomáš Garrigue Masaryk"
+				desc = "POLITICS_EDVARD_BENES_DESC"
+				picture = "gfx/leaders/masaryk.dds"
+				expire = "1965.1.1"
+				ideology = democratic_liberal
+				traits = {
+					#
+				}
+			}
 			set_politics = {
 				ruling_party = democratic_liberalism
 			}
@@ -4399,7 +4594,7 @@ country_event = {
 
 
 add_namespace = austria_foriegn_policy
-##Bosinan question
+##bosnian question
 country_event = {
 	id = austria_foriegn_policy.1
 	title = austria_foriegn_policy.1.t
@@ -4409,24 +4604,46 @@ country_event = {
 	is_triggered_only = yes
 	
 	option = {
+		
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = AUS
+			}
+		}
 		annex_country = {
 			target = BOS
-			transfer_troops = yes
+			transfer_troops = yes	
 		}
+		
 		trigger = {
 			has_completed_focus = AUS_ABSOLUTISM
 		}
 	}
 	option = {
 		name = austria_foriegn_policy.1.a
+		BOS = {
+			BOS_dzafer_kulenovic = {
+				set_nationality = CRO
+			}
+			BOS_alfred_jansa = {
+				set_nationality = AUS
+			}
+			BOS_gojkomir_glogovac = {
+				set_nationality = CRO
+			}
+		}
 		CRO = {
 			annex_country = {
 				target = BOS
 				transfer_troops = yes
 			}
-			set_cosmetic_tag = illyria
+			set_cosmetic_tag = CRO_illyria
 		}
+		
 		trigger = {
 			has_completed_focus = AUS_concessions_to_people
 		}
@@ -4694,7 +4911,7 @@ news_event = { #karl crowned emperor of all germs
 	id = austria_post_victory_tree.1
 	title = austria_post_victory_tree.1.t
 	desc = austria_post_victory_tree.1.d
-	picture = GFX_report_event_finnish_letter
+	picture = GFX_karlcoronation
 
 	is_triggered_only = yes
 	major = yes
@@ -4718,7 +4935,7 @@ news_event = { #france and austria denounce extremism, cring
 	id = austria_post_victory_tree.2
 	title = austria_post_victory_tree.2.t
 	desc = austria_post_victory_tree.2.d
-	picture = GFX_report_event_finnish_letter
+	picture = GFX_leizpigpact
 
 	is_triggered_only = yes
 
@@ -4835,6 +5052,73 @@ country_event = { #Karl gets bombed
 				#
 				
 			}
+		}
+	}
+}
+
+country_event = { #Case Anton Uno Reverse Card
+	id = austria_post_victory_tree.7
+	title = austria_post_victory_tree.7.t
+	desc = austria_post_victory_tree.7.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #RIP to us I guess
+		name = austria_post_victory_tree.7.a
+		ai_chance = {
+			factor = 4
+		}
+		OCC = {
+			annex_country = {
+				target = FPR
+				transfer_troops = yes
+			}
+		}
+		every_state = {
+			limit = { is_core_of = FPR }
+			add_core_of = OCC
+		}
+	}
+	option = { #uh no
+		name = austria_post_victory_tree.7.b
+		ai_chance = {
+			factor = 1
+		}
+		AUS = {
+			set_autonomy = {
+				target = FPR
+				autonomous_state = autonomy_free
+			}
+			country_event = { id = austria_post_victory_tree.8 hours = 3 }
+		}
+		effect_tooltip = {
+			AUS = {
+				create_wargoal = {
+					type = annex_everything
+					target = FPR
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Case Anton Uno Reverse Card
+	id = austria_post_victory_tree.8
+	title = austria_post_victory_tree.8.t
+	desc = austria_post_victory_tree.8.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #RIP bourbons
+		name = austria_post_victory_tree.8.a
+		ai_chance = {
+			factor = 4
+		}
+		declare_war_on = {
+			target = FPR
+			type = annex_everything
 		}
 	}
 }

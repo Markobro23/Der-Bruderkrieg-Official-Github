@@ -439,6 +439,7 @@ country_event = {
 	option = {
 		name = USA_republican_national_convention.2.a
 		set_country_flag = USA_the_warren_campaign_unlock
+		set_country_flag = USA_the_warren_campaign_flag
 	}
 }
 
@@ -656,6 +657,11 @@ country_event = {
 		}
 		}
 	}
+	option = {
+		name = USA_democratic_national_convention.12.a
+		
+		set_country_flag = USA_longs_tour_of_america_flag
+	}
 }
 ##long leavs the democratic parrty
 country_event = {
@@ -732,6 +738,7 @@ country_event = {
 		news_event = USA_democratic_national_convention.18
 		set_country_flag = USA_dnc_has_ended
 		set_country_flag = USA_smith_wins_dnc
+		set_country_flag = USA_smith_campaign_flag
 		log = "DNC END"
 		ai_chance = {
 			factor = 100
@@ -1140,7 +1147,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = usa_smith_presidency_tree
+			#load_focus_tree = usa_smith_presidency_tree
 			set_politics = {
 				ruling_party = democratic
 			}
@@ -1166,7 +1173,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = USA_warren_presidency_tree
+			#load_focus_tree = USA_warren_presidency_tree
 		}
 	}
 }
@@ -1184,7 +1191,7 @@ country_event = {
 		set_country_flag = USA_1936_elections_over
 		if = {
 			limit = {
-				has_completed_focus = USA_longs_campaign_speech
+				has_country_flag = USA_longs_tour_of_america_flag
 			}
 			set_country_flag = USA_long_wins_elections
 			hidden_effect = {
@@ -1196,7 +1203,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = USA_smith_campaign
+				has_country_flag = USA_smith_campaign_flag
 			}
 			set_country_flag = USA_smith_wins_elections
 			hidden_effect = {
@@ -1208,7 +1215,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = USA_the_warren_campaign
+				has_country_flag = USA_the_warren_campaign_flag
 			}
 			set_country_flag = USA_borah_wins_elections
 			hidden_effect = {
@@ -1262,7 +1269,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = usa_long_new_deal_tree
+			#load_focus_tree = usa_long_new_deal_tree
 		}
 		
 	}
@@ -1975,7 +1982,7 @@ country_event = {
 				modifier = ANC_rabaul_volcano_eruption_modifier
 			}
 		}
-		ANC = { add_ideas = ANC_ghost_of_rabaul days = 700 }
+		ANC = { add_timed_idea = {  idea = ANC_ghost_of_rabaul days = 700 } }
 	}
 }
 country_event = {
@@ -2013,6 +2020,20 @@ country_event = {
 		}
 		name = USA_rabaul_volcano_explosion.7.a 
 				hidden_effect = {
+					PNG = {
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = PNG
+							}
+						}
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = PNG
+							}
+						}
+					}
 			country_event = {
 				id = USA_rabaul_volcano_explosion.8
 				days = 7
@@ -2035,8 +2056,25 @@ country_event = {
    				 transfer_state_to = BOC
   			}
 		}
+		673 = {
+			add_core_of = BOC
+		}
 		name = USA_rabaul_volcano_explosion.8.a
 				hidden_effect = {
+					BOC = {
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = BOC
+							}
+						}
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = BOC
+							}
+						}
+					}
 			country_event = {
 				id = USA_rabaul_volcano_explosion.9
 				days = 7
@@ -3791,6 +3829,115 @@ country_event = {
 	}
 }
 
+# FIlipino Issue
+country_event = {
+	id = USA_generic_foriegn_policy_tree.7
+	title = USA_generic_foriegn_policy_tree.7.t
+	desc = USA_generic_foriegn_policy_tree.7.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = { #free
+		name = USA_generic_foriegn_policy_tree.7.a
+		set_autonomy = {
+			target = PHI
+			autonomous_state =  autonomy_puppet
+		}
+		PHI = { remove_ideas = PHI_filipino_rebels add_ideas = PHI_a_filipino_national_identity }
+	}
+	option = { #crack down
+		name = USA_generic_foriegn_policy_tree.7.b
+	
+		PHI = { 
+			add_ideas = PHI_national_military_government 
+
+			swap_ideas = {
+				add_idea = PHI_filipino_rebels_2
+				remove_idea = PHI_filipino_rebels
+			}
+		}
+	}
+	option = { #status quo
+		name = USA_generic_foriegn_policy_tree.7.c
+	
+		PHI = { 
+			set_country_flag = PHI_status_quo_continued
+		}
+	}
+}
+
+## Land of Eastern Democracy
+country_event = {
+	id = USA_generic_foriegn_policy_tree.8
+	title = USA_generic_foriegn_policy_tree.8.t
+	desc = USA_generic_foriegn_policy_tree.8.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.8.a
+
+	}
+}
+
+## continue relations with emperor
+country_event = {
+	id = USA_generic_foriegn_policy_tree.9
+	title = USA_generic_foriegn_policy_tree.9.t
+	desc = USA_generic_foriegn_policy_tree.9.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.9.a
+		JAP = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.4
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			JAP = {
+				remove_ideas = JAP_meiji_constitution
+			}
+			JAP = {
+				add_ideas = JAP_absolutism
+			}
+		}
+	}
+}
+
+## Hirohito Total Coup
+country_event = {
+	id = USA_generic_foriegn_policy_tree.10
+	title = USA_generic_foriegn_policy_tree.10.t
+	desc = USA_generic_foriegn_policy_tree.10.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.10.a
+		set_autonomy = {
+			target = JAP
+			autonomy_state = autonomy_satellite
+		}
+	}
+}
+
+## Hirohito In Exile
+country_event = {
+	id = USA_generic_foriegn_policy_tree.11
+	title = USA_generic_foriegn_policy_tree.11.t
+	desc = USA_generic_foriegn_policy_tree.11.d
+    #picture = 
+	
+	is_triggered_only = yes
+	option = {
+		name = USA_generic_foriegn_policy_tree.11.a
+		## recuirt hirohito as field marshall
+	}
+}
 
 
 ########
@@ -4393,7 +4540,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_debug_events.1.a
-		load_focus_tree = usa_long_new_deal_tree
+		#load_focus_tree = usa_long_new_deal_tree
 	}
 	option = {
 		name = USA_debug_events.1.b
@@ -4543,3 +4690,64 @@ country_event = {
 # 		name = Texas_breakup_events.3.a
 # 	}
 # }
+
+add_namespace = USA_content_events
+
+news_event = { #roosevelt collory becomes big global thingamajig
+	id = USA_content_events.1
+	title = USA_content_events.1.t
+	desc = USA_content_events.1.d
+	picture = GFX_news_event_usa_japan_at_war
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = USA_content_events.1.a
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+				has_government = ultranationalism
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.b
+		trigger = {
+			OR = {
+				is_in_faction_with = USA
+				tag = USA
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.c
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+					has_government = ultranationalism
+					is_in_faction_with = USA
+					tag = USA
+				}
+			}
+		}
+	}
+}
+
+country_event = { #deciding la plata occupation
+	id = USA_content_events.2
+	title = USA_content_events.2.t
+	desc = USA_content_events.2.d
+	#picture = G
+	is_triggered_only = yes
+	option = { #we must appeal to the argentine people
+		name = USA_content_events.2.a
+		
+	}
+	option = { #fuck them kids
+		name = USA_content_events.2.b
+		set_country_flag = USA_vengeful_occupation_arg
+	}
+}

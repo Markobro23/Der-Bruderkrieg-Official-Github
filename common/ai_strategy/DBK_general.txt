@@ -1,7 +1,9 @@
 ##asia
 dont_spam_divisions = {
 	allowed = {
-		is_minor = yes
+		NOT = {
+			is_major = yes
+		}
 		#personally I think a check on number of owned states would be a better framework, since usually countries that aren't involved are only like 1-2 states
 		#also why did you do the OR = { } and all of those NOT checks instead of just reversing it :skull:
 		NOT = {
@@ -24,12 +26,12 @@ dont_spam_divisions = {
 	ai_strategy = {
 		type = build_army
 		id = infantry
-		value = -5999999
+		value = -599
 	}
 	ai_strategy = {
 		type = build_army
 		id = armor
-		value = -5999999
+		value = -599
 	}
 }
 	
@@ -58,3 +60,40 @@ bolivia_join_bush_war = {
 	}
 }
 
+#AAOP_help_each_other = {
+#	
+#	allowed = {
+#		OR = {
+#			has_idea = member_anticolonial_association_oppressed_people
+#			has_idea = AIG_anticolonial_association_oppressed_people
+#		}
+#	}
+#
+#	enable = {
+#		OR = {
+#			has_idea = member_anticolonial_association_oppressed_people
+#			has_idea = AIG_anticolonial_association_oppressed_people
+#		}
+#	}
+#
+#	abort_when_not_enabled = yes
+#
+#	reversed = yes
+#
+#	ai_strategy = {
+#		type = send_volunteers_desire
+#		id = THIS
+#		value = 999
+#	}
+#	ai_strategy = {
+#		type = send_volunteers_desire
+#		id = FROM
+#		value = 999
+#	}
+#	ai_strategy = {
+#		type = send_volunteers_desire
+#		id = ROOT
+#		value = 999
+#	}
+#
+#}

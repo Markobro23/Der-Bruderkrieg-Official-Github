@@ -1,125 +1,140 @@
 characters={
-	SAU_tribal_council={
-		name="Tribal Council"
+	SAU_abdulaziz_bin_abdul_rahman_al_saud={
+		name="Abdulaziz bin Abdul Rahman Al Saud"
 		portraits={
 			civilian={
-				large="gfx/leaders/arabcouncil.dds"
+				large="gfx/leaders/SAU/Saud_bin_Abdulaziz.dds"
 			}
 		}
 		country_leader={
-			#desc="POLITICS_ABDULAZIZ_DESC"
+			desc="POLITICS_ABDULAZIZ_DESC"
 			ideology=despotic
 			expire="1965.1.1.1"
 			id=-1
 		}
-	}
-	SAU_umar_alhijazi={
-		name="Umar al-Hijazi"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_1.dds"
-			}
-		}
-		country_leader={
-			ideology=social_nationalism
-			traits={ war_industrialist friend_of_the_unions }
-			expire="1941.1.1.12"
-			id=-1
+		field_marshal = {
+			traits = { politically_connected trait_reckless offensive_doctrine harsh_leader }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
-	SAU_abd_allah_ibn_umar={
-		name="Abd Allah ibn Umar"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_1.dds"
+	SAU_saud_bin_abdulaziz_al_saud = {
+		name = "Saud bin Abdulaziz Al Saud"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Saud_bin_Abdulaziz_Al_Saud.png"
+			}
+			army = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Saud_bin_Abdulaziz_Al_Saud.png"
 			}
 		}
-		country_leader={
-			ideology=syndicalism
-			traits={ hawk economic_statistician }
-			expire="1949.1.1.12"
-			id=-1
+		advisor={
+			slot = high_command
+			idea_token = SAU_saud_al_saud
+			ledger  = army 
+				allowed  = {
+					original_tag  = SAU
+				}
+				traits  = {
+					army_logistics_2 
+				}
+				ai_will_do  = {
+					factor  = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
-	SAU_abu_bakr_ibm_kamil={
-		name="Abu Bakr ibm Kamil"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_2.dds"
+	SAU_rashid_bin_abdul_aziz_bin_saud_bin_mohammed_al_saud = {
+		name = "Rashid bin Abdul-Aziz bin Saud bin Mohammed al-Saud"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Abdulaziz_bin_Saud_bin_Abdulaziz.png"
 			}
 		}
-		country_leader={
-			ideology=social_democratic
-			traits={ silent_workhorse longist_puppet }
-			expire="1956.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { politically_connected desert_fox }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
 		}
 	}
-	SAU_fuad_ibn_salim={
-		name="Fuad ibn Salim"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_2.dds"
+	SAU_abdallah_bin_abdul_rahman_al_saud = {
+		name = "Abdullah bin Abdul-Rahman"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Abdallah_bin_Abdul_Rahman_Al_Saud.png"
 			}
 		}
-		country_leader={
-			ideology=civic_nationalism
-			traits={ quartermaster_general }
-			expire="1948.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { politically_connected old_guard }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	SAU_ishaq_ibn_yusuf={
-		name="Ishaq ibn Yusuf"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_2.dds"
+	SAU_saad_bin_abdulaziz_al_saud = {
+		name = "Saad bin Abdulaziz Al Saud"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Saad_bin_Abdulaziz_Al_Saud.png"
 			}
 		}
-		country_leader={
-			ideology=liberal_conservatism
-			traits={ hawk charismatic_ego }
-			expire="1955.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { trait_cautious cavalry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	SAU_khalid_ibn_halil={
-		name="Khalid ibn Halil"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_2.dds"
+	SAU_khalid_bin_abdulaziz_al_Saud = {
+		name = "Khalid of Saudi Arabia"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SAU/Portrait_Saudi_Arabia_Khalid_bin_Abdulaziz_Al_Saud.png"
 			}
 		}
-		country_leader={
-			ideology=oligarchic_republicanism
-			expire="1947.1.1.12"
-			id=-1
+		navy_leader = {
+			traits = { spotter }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
 		}
 	}
-	SAU_salim_ibn_hisham={
-		name="Salim ibn Hisham"
-		portraits={
-			civilian={
-				large="GFX_Portrait_Arabia_Generic_3"
+	SAU_faisal_al_duwaish = {
+		name = "Faisal al-Duwaish"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SAU/Portrait_IKH_Faisal_al_Duwaish.png"
+			}
+			army = {
+				large = "gfx/leaders/SAU/Portrait_IKH_Faisal_al_Duwaish.png"
 			}
 		}
-		country_leader={
-			ideology=monarchist_fascism
-			expire="1955.1.1.12"
-			id=-1
-		}
-	}
-	SAU_umar_ibn_khalid={
-		name="Umar ibn Khalid"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAU/Portrait_Arabia_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			expire="1946.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { desert_fox inflexible_strategist old_guard }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 3
+			logistics_skill = 1
 		}
 	}
 }

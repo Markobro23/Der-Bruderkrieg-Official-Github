@@ -1,3 +1,131 @@
+ITA_reforms_decision_effect = {
+
+	## Bianchi
+	if = {
+		limit = {
+			has_country_flag = ITA_chose_bianchi
+		}
+		add_ideas = ITA_fascist_trade_unions_3
+		add_country_leader_trait = ovra
+		swap_ideas = {
+			add_idea = Vendetta_Nazionale_2
+			remove_idea = Vendetta_Nazionale
+		}
+	}
+
+	## Ciano
+	if = {
+		limit = {
+			has_country_flag = ITA_chose_ciano
+		}
+		add_ideas = ITA_fascist_trade_unions_3
+		add_country_leader_trait = ovra
+		add_country_leader_trait = descendants_of_rome
+
+		PAP = {
+			country_event = ITA_fascist_tree_events.2
+		}
+		swap_ideas = {
+			add_idea = Vendetta_Nazionale_2
+			remove_idea = Vendetta_Nazionale
+		}
+	}
+
+	## Evola
+	if = {
+		limit = {
+			has_country_flag = ITA_chose_evola
+		}
+		add_ideas = ITA_carlomonic_state_2
+		add_ideas = ITA_italianisation
+		add_ideas = ITA_three_ideals
+		add_ideas = ITA_uri_group
+
+		random_list = {
+			50 = {
+				add_ideas = ITA_blueshirt_alliance
+			}
+			50 = {
+				add_ideas = ITA_for_the_king_for_the_country
+			}
+		}
+
+		unlock_decision_category_tooltip = ITA_evola_neo_feudalist_reforms
+		set_country_flag = ITA_evola_neo_feudalist_reforms_unlock
+	}
+
+	## Terruzzi
+	if = {
+		limit = {
+			has_country_flag = ITA_chose_terruzi
+		}
+		add_country_leader_trait =  italian_militarism
+		add_ideas = ITA_blackshirt_run_government_2
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 117
+		}
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 882
+		}
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 886
+		}
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 880
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		add_ideas = ITA_fascist_architects_2
+	}
+	
+
+	## ALL 4 Candidates
+	AUS = {
+		add_opinion_modifier = {
+			target = ITA
+			modifier = mortal_enemies
+		}
+	}
+	ITA = {
+		add_opinion_modifier = {
+			target = AUS
+			modifier = mortal_enemies
+		}
+	}
+	remove_ideas = ITA_socialist_revolt
+	remove_ideas = ITA_mass_economic_instability
+}
+
 ITA_calc_civil_war_vars = {
     
 } 

@@ -3,7 +3,7 @@ characters={
 		name="Gustav V"
 		portraits={
 			civilian={
-				large="gfx/leaders/Gustaf_V_Portrait.dds"
+				large="gfx/leaders/SWE/Gustaf_V_Portrait.dds"
 			}
 		}
 		country_leader={
@@ -44,7 +44,7 @@ characters={
 		name="Sven Linderot"
 		portraits={
 			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+				large="gfx/leaders/SWE/Portrait_Sweden_Sven_Linderot.png"
 			}
 		}
 		country_leader={
@@ -54,38 +54,16 @@ characters={
 			id=-1
 		}
 	}
-	SWE_folke_högberg={
-		name="Folke Högberg"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
-			}
-		}
-		corps_commander={
-			traits={ commando }
-			skill=3
-			attack_skill=1
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=-1
-		}
-	}
 	SWE_erik_af_edholm={
 		name="Erik af Edholm"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_land_3.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
+				large="gfx/leaders/SWE/Portrait_Sweden_Erik_Edholm.png"
 			}
 		}
 		corps_commander={
-			traits={ hill_fighter }
+			traits={ hill_fighter infantry_officer }
 			skill=4
 			attack_skill=4
 			defense_skill=1
@@ -94,14 +72,12 @@ characters={
 			legacy_id=-1
 		}
 	}
-	SWE_claes_lindström={
+	SWE_claes_lindstrom={
 		name="Claes Lindström"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_navy_2.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
+				large="gfx/leaders/SWE/Portrait_Sweden_Claes_Lindsstrom.png"
 			}
 		}
 		navy_leader={
@@ -109,62 +85,504 @@ characters={
 			skill=4
 			attack_skill=3
 			defense_skill=4
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=3
 			legacy_id=-1
 		}
 	}
-	SWE_robin_ivarsson={
-		name="Robin Ivarsson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
-			}
+	SWE_per_sylvan={
+		advisor={
+			slot = army_chief
+			idea_token = SWE_per_sylvan
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_chief_defensive_1
+				}
+				cost =  50
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=leninism
-			expire="1949.1.1.12"
-			id=-1
+		name=SWE_per_sylvan
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_6"
+			}
 		}
 	}
-	SWE_erik_tronde={
-		name="Erik Tronde"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
+	SWE_gosta_ehrensvard={
+		advisor={
+			slot = navy_chief
+			idea_token = SWE_gosta_ehrensvard
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					navy_chief_commerce_raiding_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=social_democratic
-			traits={ efficient_budgeter }
-			expire="1946.1.1.12"
-			id=-1
+		navy_leader = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		name=SWE_gosta_ehrensvard
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+				large = "gfx/leaders/SWE/Portrait_Sweden_Gosta_Ehrensvard.png"
+			}
 		}
 	}
-	SWE_robin_hasselström={
-		name="Robin Hasselström"
-		portraits={
-			civilian={
-				large="GFX_Portrait_europe_generic_7"
-			}
+	SWE_torsten_friis={
+		advisor={
+			slot = air_chief
+			idea_token = SWE_torsten_friis
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					air_chief_all_weather_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=liberal_conservatism
-			expire="1943.1.1.12"
-			id=-1
+		name=SWE_torsten_friis
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_3"
+			}
 		}
 	}
-	SWE_peter_cederholm={
-		name="Peter Cederholm"
+	SWE_erik_palmstierna={
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = SWE_erik_palmstierna
+			ledger = navy
+				allowed = {
+					original_tag = SWE
+				}
+				traits = { naval_theorist }
+		}
+		name=SWE_erik_palmstierna
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			army={
+				small="GFX_idea_generic_political_advisor_europe_1"
 			}
 		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			expire="1956.1.1.12"
-			id=-1
+	}
+	SWE_helge_stromback={
+		advisor={
+			slot = high_command
+			idea_token = SWE_helge_stromback
+			ledger = navy
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					navy_fleet_logistics_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=SWE_helge_stromback
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+			}
+		}
+	}
+	SWE_helge_jung={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = SWE_helge_jung
+			ledger = army
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					military_theorist
+				}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 2
+		}
+		name=SWE_helge_jung
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_2"
+				large="gfx/leaders/SWE/Portrait_Sweden_Helge_Jung.png"
+			}
+		}
+	}
+	SWE_olof_thornell={
+		advisor={
+			slot = army_chief
+			idea_token = SWE_olof_thornell
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_chief_old_guard
+				}
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		field_marshal = {
+			traits = { career_officer harsh_leader winter_specialist defensive_doctrine }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+		name=SWE_olof_thornell
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_5"
+				large="gfx/leaders/SWE/Portrait_Sweden_Olof_Thornell.png"
+			}
+		}
+	}
+	SWE_bengt_nordenskiold={
+		advisor={
+			slot = air_chief
+			idea_token = SWE_bengt_nordenskiold
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					air_chief_ground_support_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=SWE_bengt_nordenskiold
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_3"
+				large="gfx/leaders/SWE/Portrait_Sweden_Bengt_Nordenskiold.png"
+			}
+		}
+	}
+	SWE_ivar_holmquist={
+		advisor={
+			slot = army_chief
+			idea_token = SWE_ivar_holmquist
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_chief_organizational_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { politically_connected commando }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		name=SWE_ivar_holmquist
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+				large="gfx/leaders/SWE/Portrait_Sweden_Ivar_Holmquist.png"
+			}
+		}
+	}
+	SWE_fabian_tamm={
+		advisor={
+			slot = navy_chief
+			idea_token = SWE_fabian_tamm
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					navy_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		navy_leader = {
+			traits = { blockade_runner superior_tactician }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+		name=SWE_fabian_tamm
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_1"
+				large="gfx/leaders/SWE/Portrait_Sweden_Fabian_Tamm.png"
+			}
+		}
+	}
+	SWE_charles_de_champs={
+		advisor={
+			slot = navy_chief
+			idea_token = SWE_charles_de_champs
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					navy_chief_decisive_battle_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		navy_leader = {
+			traits = { old_guard_navy ironside }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		name=SWE_charles_de_champs
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+				large="gfx/leaders/SWE/Portrait_Sweden_Charles_Champs.png"
+			}
+		}
+	}
+	SWE_axel_rappe={
+		advisor={
+			slot = high_command
+			idea_token = SWE_axel_rappe
+			ledger = army
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_artillery_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=SWE_axel_rappe
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_1"
+			}
+		}
+	}
+	SWE_oscar_nygren={
+		advisor={
+			slot = army_chief
+			idea_token = SWE_oscar_nygren
+			allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_chief_drill_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		field_marshal = {
+			traits = { old_guard organisational_leader }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		name=SWE_oscar_nygren
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_3"
+				large="gfx/leaders/SWE/Portrait_Sweden_Oscar_Nygren.png"
+			}
+		}
+	}
+	SWE_axel_ljungdahl={
+		advisor={
+			slot = high_command
+			idea_token = SWE_axel_ljungdahl
+			ledger = air
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					air_bomber_interception_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name=SWE_axel_ljungdahl
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_2"
+			}
+		}
+	}
+	SWE_archibald_douglas={
+		advisor={
+			slot = high_command
+			idea_token = SWE_archibald_douglas
+			ledger = army
+				allowed = {
+					original_tag = SWE
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { cavalry_officer cavalry_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		name=SWE_archibald_douglas
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_2"
+				large="gfx/leaders/SWE/Portrait_Sweden_Archibald_Douglas.png"
+			}
+		}
+	}
+	SWE_harald_malmberg = {
+		name = "Harald Malmberg"
+		portraits = {
+			army = {
+				large="gfx/leaders/SWE/Portrait_Sweden_Harald_Malmberg.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_reckless }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SWE_ernst_af_klercker = {
+		name = "Ernst af Klercker"
+		portraits = {
+			army = {
+				large="gfx/leaders/SWE/Portrait_Sweden_Ernst_Klercker.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard career_officer infantry_leader }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	SWE_ivar_backlund = {
+		name = "Ivar Backlund"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SWE/Portrait_Sweden_Ivar_Backlund.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious trait_engineer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	SWE_nils_bjork = {
+		name = "Nils Björk"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SWE/Portrait_Sweden_Nils_Bjork.png"
+			}
+		}
+		corps_commander = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SWE_henry_peyron = {
+		name = "Henry Peyron"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SWE/Portrait_Sweden_Henry_Peyron.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SWE_erik_anderberg = {
+		name = "Erik Anderberg"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SWE/Portrait_Sweden_Erik_Anderberg.png"
+			}
+		}
+		navy_leader = {
+			traits = { spotter fly_swatter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
 		}
 	}
 }

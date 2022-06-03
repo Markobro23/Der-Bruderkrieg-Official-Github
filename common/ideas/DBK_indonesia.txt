@@ -1,0 +1,41 @@
+ideas = {
+    country = {
+        INS_conflicted_colonial_governments = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                   is_subject_of = ENG
+                }
+            }
+            modifier = {
+                stability_factor = -0.1
+                political_power_factor = -0.1
+            }
+        }
+        INS_national_awakening = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                is_subject = no
+            }
+            modifier = {
+                conscription_factor = -0.2
+                stability_factor = -0.1
+                research_speed_factor = 0.05
+            }
+        }
+    }
+}

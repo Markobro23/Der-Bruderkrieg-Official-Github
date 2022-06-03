@@ -1,0 +1,46 @@
+ideas = {
+	country = {
+		YEM_zionist_homeland = {
+			picture = generic_usa_conflict
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = 0.05
+				monthly_population = 0.3
+				industrial_capacity_dockyard = 0.05
+			}
+		}
+		YEM_arabic_resistance_idea = {
+			picture = generic_usa_conflict
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			on_remove = {
+				293 = {
+					remove_dynamic_modifier = {
+						modifier = YEM_arabic_resistance
+					}
+				}
+			}
+
+			modifier = {
+				political_power_gain = -0.05
+			}
+		}
+	}
+}

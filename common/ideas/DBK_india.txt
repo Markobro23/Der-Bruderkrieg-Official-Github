@@ -1,0 +1,796 @@
+ideas = {
+
+	country = {
+
+		#all india government
+
+		AIG_india_forever = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ENG_broken_crown_jewel
+
+			modifier = {
+				war_support_factor = 0.1
+			}
+
+			targeted_modifier = {
+				tag = RAJ
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
+			}
+
+		}
+
+		AIG_recovering_from_war = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = ROM_Agrarianism
+
+			modifier = {
+				consumer_goods_factor = 0.08
+				industrial_capacity_factory = -0.35
+				industrial_capacity_dockyard = -0.35
+				production_speed_buildings_factor = -0.25
+				trade_opinion_factor = -0.75
+			}
+
+		}
+
+		AIG_religious_tensions = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_marginalized_muslim_community_angry
+
+			modifier = {
+				conscription_factor = -0.15
+				army_morale_factor = -0.1
+			}
+
+		}
+
+		AIG_anticolonial_association_oppressed_people = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+
+			modifier = {
+				offensive_war_stability_factor = 0.15
+				non_core_manpower = 0.2
+			}
+
+		}
+
+		#indian national congress
+
+		INC_legitimist_remnant = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_morale_bonus
+
+			modifier = {
+				political_power_factor = -0.2
+				legitimacy_gain_factor = -0.15
+			}
+		}
+
+		INC_professional_army = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_indian_gentlemen_officers
+
+			modifier = {
+				army_org_factor = 0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+
+			research_bonus = {
+				land_doctrine = -0.1
+			}
+
+		}
+
+		INC_weak_economy = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = generic_agrarian_society
+
+			modifier = {
+				consumer_goods_factor = 0.1
+				industrial_capacity_factory = -0.25
+				industrial_capacity_dockyard = -0.35
+				production_speed_buildings_factor = -0.15
+			}
+
+		}
+
+		#sikh empire
+
+		KHA_khalsa = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = raj_marginalized_muslim_community_happy
+
+			modifier = {
+				army_core_defence_factor = 0.1
+				army_morale_factor = 0.1
+			}
+
+		}
+
+		#kingdom of sindh
+
+		PAK_memories_of_mughals = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				conscription = 0.015
+				war_support_factor = 0.1
+				fascism_drift = 0.01
+				stability_factor = -0.05
+			}
+		}
+
+		PAK_moth_eaten_pakistan = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				industrial_capacity_factory = -0.1
+				monthly_population = -0.25
+				political_power_gain = -0.1
+			}
+		}
+
+		PAK_moth_eaten_pakistan_2 = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				industrial_capacity_factory = -0.05
+				monthly_population = -0.1
+				political_power_gain = -0.05
+			}
+		}
+
+		#dravida
+
+		## DRA_most_confused_government_in_history in the ZZZ file
+		
+
+		DRA_unionist_opposition = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = -0.2
+				consumer_goods_factor = 0.1
+			}
+
+			targeted_modifier = {
+				tag = AIG
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.2
+			}
+
+			targeted_modifier = {
+				tag = INC
+				attack_bonus_against = -0.2
+				defense_bonus_against = -0.2
+			}
+
+		}
+
+		DRA_unionist_opposition_2 = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = DRA_unionist_opposition
+
+			modifier = {
+				army_morale_factor = -0.05
+				consumer_goods_factor = 0.025
+			}
+
+			targeted_modifier = {
+				tag = AIG
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
+			}
+
+			targeted_modifier = {
+				tag = INC
+				attack_bonus_against = -0.05
+				defense_bonus_against = -0.05
+			}
+
+		}
+
+		DRA_good_times_just_around_corner = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.05
+				industrial_capacity_dockyard = 0.1
+				trade_opinion_factor = 0.5
+			}
+
+		}
+
+		#kashmir
+
+		KAS_unionist_opposition = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = DRA_unionist_opposition
+
+			modifier = {
+				political_power_cost = 0.1
+				stability_factor = -0.1
+			}
+
+			targeted_modifier = {
+				tag = AIG
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+
+			targeted_modifier = {
+				tag = INC
+				attack_bonus_against = -0.1
+				defense_bonus_against = -0.1
+			}
+
+		}
+
+		KAS_republican_agitation = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			picture = land_of_freedom
+
+			modifier = {
+				consumer_goods_factor = 0.05
+				conscription_factor = -0.1
+				democratic_drift = 0.05
+				democratic_liberalism_drift = 0.05
+				socialism_democratic_drift = 0.05
+			}
+
+		}
+
+	}	
+
+	head_of_government = {
+
+		KAS_nailash_narain_haksar = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = KAS
+			}
+
+			traits = { bumbling_noble }
+
+		}
+
+		DRA_s_ramanathan = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { trotskyist_influences }
+
+		}
+
+		PAK_abul_ala_maududi = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { reformer }
+
+		}
+
+		KHA_yadavindra_singh = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { centrist_nationalist }
+
+		}
+
+		INC_j_b_kripalani = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { democratic_centralist }
+
+		}
+
+		AIG_u_muthuramalingam_thevar = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			traits = { friend_of_the_unions }
+
+		}
+
+	}
+
+	minister_of_the_interior = {
+	
+		KAS_ram_chandra_kak = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = KAS
+			}
+
+			traits = { anti_democratic_activities }
+
+		}
+
+		DRA_c_n_annadurai = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { centrist_nationalist }
+
+		}
+
+		PAK_ubaidullah_sindhi = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { reformer }
+
+		}
+
+		KHA_mohan_singh_nagoke = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { jathedar }
+
+		}
+
+		INC_vallabhbhai_patel = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { centrist_nationalist }
+
+		}
+
+		AIG_sheel_bhadra_yajee = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			traits = { revolutionary_culture_minister }
+
+		}
+
+	}	
+
+	minister_of_foriegn_affairs = {
+
+		KAS_b_n_rau = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KAS
+			}
+
+			traits = { diplomat }
+
+		}
+
+		DRA_p_subbarayan = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { diplomat }
+
+		}
+
+		PAK_shah_naqaz_bhutto = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { oligarch }
+
+		}
+
+		KHA_sunder_singh_lyallpuri = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { diplomat }
+
+		}
+
+		INC_rajendra_prasad = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { diplomat }
+
+		}
+
+		AIG_shah_nawaz_khan = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			traits = { pan_asianist }
+
+		}
+
+		AIG_jayaprakash_narayan = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			available = {
+				NOT = {
+					has_country_leader = {
+						name = "Subhas Chandra Bose"
+						ruling_only = yes
+					}
+				}
+			}
+
+			traits = { anti_totalitarian }
+
+		}
+
+	}
+
+	economic_minister = {
+
+		KAS_janak_singh = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = KAS
+			}
+
+			traits = { economic_reformer }
+
+		}
+
+		DRA_thiru_v_kalyanasundaram = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { union_organizer }
+
+		}
+
+		PAK_liaquat_ali_khan = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { mixed_economy_proponent }
+
+		}
+
+		PAK_allah_bux_soomro = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { oligarch }
+
+		}
+
+		KHA_partap_singh_kairon = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { land_redistributor }
+
+		}
+
+		INC_syama_prasad_mukherjee = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { protectionist }
+
+		}
+
+		AIG_ramchandra_sakharam_ruikar = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			traits = { union_organizer }
+
+		}
+
+	}
+
+	industrial_minister = {
+
+		KAS_n_gopalaswami_ayyangar = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KAS
+			}
+
+			traits = { national_connector }
+
+		}
+
+		DRA_c_p_ramaswamy_iyer = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { international_buyer }
+
+		}
+
+		PAK_muhammad_ayub_khurho = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = PAK
+			}
+
+			traits = { military_production_expansionist }
+
+		}
+
+		KHA_chhotu_ram = {
+
+			picture = generic_political_advisor_india_1
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { agricultural_reformer }
+
+		}
+
+		INC_anugrah_narayan_sinha = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { planned_economy_proponent }
+
+		}
+
+		INC_hoosenally_rahimtoola = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = INC
+			}
+
+			traits = { free_trade_advocate }
+
+		}
+
+		AIG_shripad_amrit_dange = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = AIG
+			}
+
+			traits = { nationalizer }
+
+		}
+
+	}
+
+	educational_minister = {
+
+		DRA_c_natesa_mudaliar = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = DRA
+			}
+
+			traits = { educated_public_servant }
+
+		}
+
+		KHA_kartar_sing_jhabbar = {
+
+			picture = generic_political_advisor_india_2
+
+			allowed = {
+				original_tag = KHA
+			}
+
+			traits = { religious_teacher }
+
+		}
+
+	}
+
+}

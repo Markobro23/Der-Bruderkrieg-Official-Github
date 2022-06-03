@@ -513,3 +513,32 @@ AUS_ethnic_variables_setup = {
 
 }
 
+
+
+austria_occupation_piecharts = {
+	if = {
+		limit = {
+			AUS = {
+				has_completed_focus = AUS_concessions_to_people
+			}
+		}
+		set_popularities = {
+			democratic = 62
+			socialism_democratic = 19
+			democratic_liberalism = 19
+		}
+		set_politics = {
+			ruling_party = democratic
+		}
+		keep_current_politics = yes
+	}
+	else = {
+		set_popularities = {
+			neutrality = 100
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		keep_current_politics = yes
+	}
+}

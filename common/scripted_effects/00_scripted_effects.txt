@@ -21,12 +21,75 @@
 #####################################
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
-d_drop_cosmetic_tag_command = {
+d_decrease_opinion = {
+	GLC = {
+		add_opinion_modifier = {
+			target = GER
+			modifier = large_decrease
+		}
+	}
+}
+d_faction_leader = {
+	log = "Faction Leader: [?ROOT.faction_leader.GetName]"
+}
+d_change_faction_behavior = {
+	add_to_variable = {
+		behavior_garrison = 1
+	}
+}
+d_reset_faction_behavior = {
+	set_variable = {
+		behavior_garrison = 0
+	}
+}
+d_drop_cosmetic_tag = {
 	drop_cosmetic_tag = yes
 }
 d_fire_russian_intervention = {
 	SOV = {
 		country_event = russian_inteverntion_in_europakrieg.2
+	}
+}
+d_has_global_flag_wiltkrieg = {
+	if = {
+		limit = {
+			has_global_flag = wiltkrieg
+		}
+		log = "has_global_flag = wiltkrieg"
+	}
+}
+d_brazil_test = {
+	if = {
+		limit = {
+			BRE = {
+				has_idea = brazil_nerf
+			}
+		}
+		log = "BRE has nerf"
+	}
+	if = {
+		limit = {
+			SRB = {
+				has_idea = brazil_nerf
+			}
+		}
+		log = "SRB has nerf"
+	}
+	if = {
+		limit = {
+			BRS = {
+				has_idea = brazil_nerf
+			}
+		}
+		log = "BRS has nerf"
+	}
+	if = {
+		limit = {
+			UBR = {
+				has_idea = brazil_nerf
+			}
+		}
+		log = "UBR has nerf"
 	}
 }
 d_continent_check = {
@@ -247,7 +310,6 @@ head_of_gov_setup = {
 		limit = {
 			capital_scope = { is_on_continent = europe }
 		}
-		log = "joe"
 		random_list = { 
 			1 = {
 			set_country_flag =Portrait_Europe_Generic_new_1_flag
@@ -896,10 +958,10 @@ puppet_saving_flag_checker = {
 	}
 }
 
-show_flag_icons = {
+d_show_flag_icons = {
 	set_country_flag = show_flag_map_icons
 } 
-clear_flag_icons = {
+d_clear_flag_icons = {
 	clr_country_flag = show_flag_map_icons
 }
 

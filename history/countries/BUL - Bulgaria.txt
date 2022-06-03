@@ -13,79 +13,97 @@ add_ideas = {
 	BUL_nikola_mushanov
 	BUL_aleksandar_stamboliyski
 }
+BUL = {
+	
+set_autonomy = {
+	target = THS
+	autonomous_state =  autonomy_puppet
+} 
 
+}
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
+	gw_artillery = 1
 	tech_support = 1
+	tech_recon = 1
 	tech_engineers = 1
+	tech_mountaineers = 1
 	motorised_infantry = 1
 	early_fighter = 1
+	cv_early_fighter = 1
+	early_bomber = 1
+	naval_bomber1 = 1
+	cv_naval_bomber1 = 1
 	fuel_silos = 1
 	basic_train = 1
 }
 
-1939.1.1 = {
-
-	add_political_power = 1198
-
-	#generic focuses
-	complete_national_focus = army_effort
-	complete_national_focus = equipment_effort
-	complete_national_focus = motorization_effort
-	complete_national_focus = aviation_effort
-	complete_national_focus = flexible_navy
-	complete_national_focus = industrial_effort
-	complete_national_focus = construction_effort
-	complete_national_focus = production_effort
-
-	oob = "BUL_1939"
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
 	set_technology = {
-		fighter1 = 1
-		early_bomber = 1
-		tactical_bomber1 = 1
-		gwtank = 1
-		basic_light_tank = 1
-		gw_artillery = 1
-		interwar_artillery = 1
-		tech_recon = 1
-		infantry_weapons2 = 1
-		support_weapons = 1
-
-		#doctrines
-		#Air
-		force_rotation = 1
-		fighter_baiting = 1
-
-		grand_battle_plan = 1
-		trench_warfare = 1
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		fuel_refining = 1
-		construction1 = 1
-		construction2 = 1 
-		dispersed_industry = 1
-		dispersed_industry2 = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_heavy = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_secondary_battery = 1
+		improved_ship_torpedo_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		basic_naval_mines = 1
 	}
 }
 
-set_convoys = 5
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+	}
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { NOT = { has_dlc = "No Step Back" } }
+	set_technology = {
+		gwtank = 1
+	}
+}
+
+
+
+set_convoys = 200
 
 set_politics = {
-	ruling_party = authoritarian_democratic
+	ruling_party = fascism
 	last_election = "1931.6.21"
 	election_frequency = 48
 	elections_allowed = no
@@ -97,86 +115,45 @@ set_popularities = {
 	socialism_democratic = 15
 	democratic_liberalism = 5
 	democratic = 10
-	authoritarian_democratic = 37
+	fascism = 37
 	neutrality = 5
-	fascism = 8
+	authoritarian_democratic = 8
 	ultranationalism = 2
 }
 
 
-1939.1.1 = {
-	set_politics = {
-		ruling_party = neutrality
-		last_election = "1938.3.27"
-		election_frequency = 48
-		elections_allowed = no
+recruit_character = BUL_hristo_lukov
+recruit_character = BUL_ferdinand_i
+recruit_character = BUL_boris_iii
+recruit_character = BUL_teodosi_daskalov
+recruit_character = BUL_georgi_dimitrov
+recruit_character = BUL_nikola_petkov
+recruit_character = BUL_nikola_nedev
+recruit_character = BUL_asen_nikolov
+recruit_character = BUL_pencho_zlatev
+recruit_character = BUL_rusi_rusev
+recruit_character = BUL_konstantin_lukash
+recruit_character = BUL_nikola_hadzhipetov
+recruit_character = BUL_ivan_valkov
+recruit_character = BUL_nikola_nakov
+recruit_character = BUL_kyril_sakskoburggotski
+recruit_character = BUL_ivan_variklechkov
+recruit_character = BUL_sava_ivanov
+
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	create_equipment_variant = {
+		name = "St.Pzw. II"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		#icon = "gfx/interface/equipmentdesigner/tanks/designer/Reichspakt/GER_gwtank.png"
 	}
-}
-
-create_country_leader = {
-	name = "Ferdinand I"
-	desc = "POLITICS_BORIS_III_DESC"
-	picture = "gfx/leaders/Tsar_Ferdinand_I.dds"
-	expire = "1965.1.1"
-	ideology = authoritarian_democrat
-	traits = {
-		greater_bulgaria
-		dictator
-		staunch_monarchist
-	}
-}
-
-create_country_leader = {
-	name = "Georgi Dimitrov"
-	desc = "POLITICS_GEORGI_DIMITROV_DESC"
-	picture = "Portrait_Bulgaria_Georgi_Dimitrov.dds"
-	expire = "1965.1.1"
-	ideology = leninism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Nikola Petkov"
-	desc = "POLITICS_NIKOLA_PETKOV_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-	expire = "1965.1.1"
-	ideology = radical_socialism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Hristo Lukov"
-	desc = "POLITICS_HRISTO_LUKOV_DESC"
-	picture = "GFX_Portrait_bulgaria_hristo_lukov"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
-
-create_corps_commander = {
-	name = "Vasil Tenev Boydev"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
-	traits = { armor_officer }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
-
-create_field_marshal = {
-	name = "Georgi Nikolov Popov"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_2.dds"
-	traits = { defensive_doctrine }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 4
 }

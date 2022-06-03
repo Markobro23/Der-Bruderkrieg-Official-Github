@@ -1,3 +1,586 @@
+ITA_content_decisions = {
+  ITA_operation_desert_fox = {
+		icon = generic_construction
+
+		available = {
+			has_country_flag = ITA_chose_candidate
+		}
+
+		visible = {
+			always = yes
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		cost = 0
+		days_remove = 17
+
+		remove_effect = {
+			declare_war_on = {
+        target = LBA
+        type = puppet_wargoal_focus
+      }
+      add_threat = 3
+      ENG = {
+        add_opinion_modifier = {
+          target = ITA
+          modifier = protest_action
+        }
+      }
+      FRA = {
+        add_opinion_modifier = {
+          target = ITA
+          modifier = protest_action
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = ITA
+          modifier = protest_action
+        }
+      }
+      ITA = {
+        set_state_controller = 451
+      }
+      451 = {
+        create_unit = {
+          division = "name = \"Libyan Protection Force\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+          owner = ITA
+        }
+        create_unit = {
+          division = "name = \"Libyan Protection Force\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+          owner = ITA
+        }
+      }
+		}
+	}
+  ITA_chose_bianchi = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+			always = yes
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+      modifier = {
+        factor = 0
+        OR = {
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EVOLAS_ESOTERICISM_PATH
+          }
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EMPHASIZE_NATIONALISM_PATH
+          }
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_CIANOS_CORPORATISM_PATH
+          }
+        }
+      }
+		}
+
+		cost = 0
+		days_remove = 100
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_bianchi
+			news_event = ITA_elections.1
+		}
+	}
+	ITA_chose_ciano = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		ai_will_do = {
+			factor = 10000
+      modifier = {
+        factor = 0
+        OR = {
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EVOLAS_ESOTERICISM_PATH
+          }
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EMPHASIZE_NATIONALISM_PATH
+          }
+        }
+      }
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_ciano
+			news_event = ITA_elections.2
+      add_ideas = ITA_constanzo_ciano
+      add_ideas = ITA_galeazzo_ciano
+      add_ideas = ITA_guido_guidi
+      add_ideas = ITA_carlo_alberto_biggini
+      add_ideas = ITA_ferruccio_lantini
+
+      set_politics = {
+        ruling_party = fascism
+      }
+      set_cosmetic_tag = ITA_royal_state
+
+      hidden_effect = {
+					add_popularity = {
+						ideology = fascism
+						popularity = 0.25
+					}
+				}
+		}
+	}
+	ITA_chose_evola = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+		
+		ai_will_do = {
+			factor = 10000
+      modifier = {
+        factor = 0
+        OR = {
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_CIANOS_CORPORATISM_PATH
+          }
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EMPHASIZE_NATIONALISM_PATH
+          }
+        }
+      }
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_evola
+			news_event = ITA_elections.3
+      add_ideas = ITA_julius_evola
+				add_ideas = ITA_dino_grandi
+				add_ideas = ITA_evola_intmin
+				add_ideas = ITA_augusto_turati
+				add_ideas = ITA_ferruccio_lantini
+
+        hidden_effect = {
+				drop_cosmetic_tag = yes
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+
+        hidden_effect = {
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.25
+					}
+				}
+		}
+	}
+	ITA_chose_terruzi = {
+		icon = generic_construction
+
+		available = {
+			NOT = {
+				has_country_flag = ITA_chose_candidate
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = ITA_chose_candidate
+		}
+		
+		ai_will_do = {
+			factor = 10000
+      modifier = {
+        factor = 0
+        OR = {
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_CIANOS_CORPORATISM_PATH
+          }
+          has_game_rule = {
+            rule = DBK_ITALIAN_PATH 
+            option = ITA_EVOLAS_ESOTERICISM_PATH
+          }
+        }
+      }
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 100
+
+		remove_effect = {
+			set_country_flag = ITA_elections_are_over	
+			set_country_flag = ITA_chose_terruzi
+      add_ideas = ITA_attilio_teruzzi_hog
+      add_ideas = ITA_renzo_montagna
+      add_ideas = ITA_cesare_maria_de_vecchi
+      add_ideas = ITA_tullio_tamburini
+      add_ideas = ITA_renato_ricci
+          add_ideas = ITA_renato_ricci
+			news_event = ITA_elections.4
+
+      hidden_effect = {
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+				retire_country_leader = yes
+			}
+			create_country_leader = {
+			name = "Attilio Teruzzi"
+			#desc = "MUSSOLINI_DESC"
+			picture = "gfx/leaders/AttilioTeruzzi.dds"
+			expire = "1965.1.1"
+			ideology = ultranationalist
+			traits = { 
+				
+			}
+		}
+			set_cosmetic_tag = ITA_italian_empire
+		}
+	}
+
+  ITA_political_reforms = {
+		icon = generic_construction
+
+		available = {
+			has_country_flag = ITA_elections_are_over
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 500
+
+		remove_effect = {
+			ITA_reforms_decision_effect = yes
+      set_country_flag = ITA_reforms_done
+		}
+	}
+
+  ITA_berlin_florence_split = {
+    icon = generic_prepare_civil_war
+
+    available = {
+      FRA = {
+        OR = {
+          capital_scope = {
+            is_on_continent = africa
+          }
+          has_capitulated = yes
+          is_subject_of = GER
+          is_subject_of = ITA
+        }
+      }
+    }
+
+    visible = {
+      NOT = { has_war_with = AUS }
+      is_in_faction_with = GER
+      NOT = { has_country_flag = ITA_loyal_to_berlin }
+    }
+
+    cost = 150
+    
+    ai_will_do = {
+      factor = 3
+      modifier = {
+        add = 2
+        NOT = {
+          has_subject = HUN
+          has_subject = OCC
+        }
+      }
+    }
+
+    fire_only_once = yes 
+
+    days_remove = 7
+
+    complete_effect = {
+      set_country_flag = ITA_leaving_berlin
+    }
+
+    remove_effect = {
+      leave_faction = yes
+      if = {
+        limit = { has_war_with = FRA }
+        every_country = {
+          limit = { OR = { tag = FRA is_in_faction_with = FRA is_subject_of = FRA } }
+          white_peace = ITA
+        }
+      }
+      if = {
+        limit = { has_war_with = ENG }
+        every_country = {
+          limit = { OR = { tag = ENG is_in_faction_with = ENG is_subject_of = ENG } }
+          white_peace = ITA
+        }
+      }
+      news_event = { id = italy.531 hours = 3 }
+    }
+  }
+  ITA_continue_alliance_with_germany = {
+    icon = generic_political_discourse
+
+    available = {
+      FRA = {
+        OR = {
+          capital_scope = {
+            is_on_continent = africa
+          }
+          has_capitulated = yes
+          is_subject_of = GER
+          is_subject_of = ITA
+        }
+      }
+    }
+
+    visible = {
+      NOT = { has_war_with = AUS }
+      is_in_faction_with = GER
+      NOT = { has_country_flag = ITA_leaving_berlin }
+    }
+
+    cost = 150
+    
+    ai_will_do = {
+      factor = 5
+      modifier = {
+        add = -1
+        NOT = {
+          has_subject = HUN
+          has_subject = OCC
+        }
+      }
+      modifier = {
+      	add = -1
+      	POR = {
+      		is_in_faction_with = FRA
+      		has_war_with = ROOT
+      	}
+      }
+    }
+
+    fire_only_once = yes 
+
+    days_remove = 7
+
+    complete_effect = {
+      set_country_flag = ITA_loyal_to_berlin
+    }
+  }
+
+  ITA_offer_support_continental_alliance = {
+    icon = generic_political_discourse
+
+    available = {
+      NOT = {
+      	has_war_with = FRA
+      }
+    }
+
+    visible = {
+      has_country_flag = ITA_leaving_berlin
+      FRA = {
+        NOT = {
+          is_subject_of = GER
+        }
+      }
+      is_in_faction = no
+    }
+
+    cost = 150
+    
+    ai_will_do = {
+      factor = 3
+    }
+
+    fire_only_once = yes 
+
+    cost = 0
+    days_remove = 35
+
+    remove_effect = {
+      random_country = {
+        limit = {
+          OR = {
+            tag = FRA
+            is_in_faction_with = FRA
+          }
+          is_faction_leader = yes
+        }
+        country_event = { id = generic.2 }
+      }
+    }
+  }
+
+  ITA_offer_support_commonwealth = {
+    icon = generic_political_discourse
+
+    available = {
+      NOT = {
+      	has_war_with = ENG
+      }
+    }
+
+    visible = {
+      has_country_flag = ITA_leaving_berlin
+      ENG = {
+        NOT = {
+          is_subject_of = GER
+        }
+      }
+      is_in_faction = no
+    }
+
+    cost = 150
+    
+    ai_will_do = {
+      factor = 3
+    }
+
+    fire_only_once = yes 
+
+    cost = 0
+    days_remove = 35
+
+    remove_effect = {
+      random_country = {
+        limit = {
+          OR = {
+            tag = ENG
+            is_in_faction_with = ENG
+          }
+          is_faction_leader = yes
+        }
+        country_event = { id = generic.2 }
+      }
+    }
+  }
+
+  ITA_invade_prussia = {
+    icon = generic_prepare_civil_war
+
+    available = {
+      has_war = no
+    }
+
+    visible = {
+      has_country_flag = ITA_leaving_berlin
+      NOT = {
+        OR = {
+          is_in_faction_with = GER
+          has_war_with = GER
+          GER = { exists = no }
+          FRA = { has_subject = GER }
+          SOV = { has_subject = GER }
+        }
+      }
+    }
+
+    cost = 150
+    
+    ai_will_do = {
+      factor = 2
+      modifier = {
+        add = 3
+        GER = {
+          OR = {
+            has_war_with = SOV
+            has_war_with = FRA
+          }
+        }
+      }
+    }
+
+    fire_only_once = yes 
+
+    cost = 0
+    days_remove = 35
+
+    remove_effect = {
+      create_wargoal = {
+        target = GER
+        type = puppet_wargoal_focus
+      }
+    }
+  }
+}
+
 ITA_incoming_socialist_revolution = {
   ITA_incoming_socialist_revolution_decision = {
 
@@ -3296,5 +3879,139 @@ ITA_portugese_syndaclists = {
 		}
 
 	}
+
+}
+
+weltkrieg_decisions = {
+  ITA_annex_papacy = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = ITA
+		}
+
+		available = {
+      PAP = {
+        exists = yes
+      }
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+      country_event = {
+        id = ITA_papal_events.1
+        days = 2
+      }
+		}
+	}
+  ITA_move_capital_to_rome = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = ITA
+		}
+
+		available = {
+      owns_state = 2
+		}
+
+		visible = {
+			has_war_with = FRA
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 5
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+      country_event = {
+        id = ITA_papal_events.2
+        days = 2
+      }
+		}
+	}
+}
+
+ITA_establish_stato_gemelli = {
+  
+  ITA_create_sg_vienna = {
+
+    icon = generic_prepare_civil_war
+
+    visible = {
+      AUS = {
+        OR = {
+          has_capitulated = yes
+          exists = no
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 1000
+    }
+
+    available = {
+      controls_state = 153
+      controls_state = 822
+      controls_state = 102
+      controls_state = 820
+      controls_state = 4
+      controls_state = 152
+      controls_state = 958
+    }
+
+    fire_only_once = yes
+
+    ai_will_do = {
+      factor = 1000
+    }
+
+    complete_effect = {
+      AUS = {
+        transfer_state = 153
+        transfer_state = 822
+        transfer_state = 102
+        transfer_state = 820
+        transfer_state = 4
+        transfer_state = 152
+        transfer_state = 958
+        hidden_effect = {
+          set_cosmetic_tag = ITA_south_german_puppets
+        }
+      }
+      puppet = AUS
+    }
+
+  }
 
 }

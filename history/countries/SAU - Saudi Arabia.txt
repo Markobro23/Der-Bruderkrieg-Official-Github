@@ -1,63 +1,28 @@
 ﻿capital = 292
 
-oob = "SAU_1936"
+oob = "SAU"
 
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
-	gwtank = 1
 }
+
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
+
+add_ideas = {
+	SAU_arabian_federation
+	SAU_for_a_united_arabia
+}
+
 
 set_convoys = 5
+add_manpower = 7000
 
-1939.1.1 = {
-
-	add_political_power = 1198
-
-	#generic focuses
-	complete_national_focus = army_effort
-	complete_national_focus = equipment_effort
-	complete_national_focus = motorization_effort
-	complete_national_focus = aviation_effort
-	complete_national_focus = naval_effort
-	complete_national_focus = large_navy
-	complete_national_focus = industrial_effort
-	complete_national_focus = construction_effort
-	complete_national_focus = production_effort
-
-	oob = "SAU_1939"
-	set_technology = {
-		tech_support = 1
-		tech_recon = 1
-		support_weapons = 1
-		gw_artillery = 1
-
-		#doctrines
-		air_superiority = 1
-		grand_battle_plan = 1
-		trench_warfare = 1
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		fuel_silos = 1
-		construction1 = 1
-		construction2 = 1
-		dispersed_industry = 1
-		dispersed_industry2 = 1
-	}
-}
 
 set_politics = {
 	ruling_party = neutrality
@@ -69,13 +34,10 @@ set_popularities = {
 	neutrality = 100
 }
 
-create_country_leader = {
-	name = "Saud bin Abdulaziz Al Saud"
-	desc = "POLITICS_ABDULAZIZ_DESC"
-	picture = "gfx/leaders/Saud_bin_Abdulaziz.dds"
-	expire = "1965.1.1"
-	ideology = despotic
-	traits = {
-		#
-	}
-}
+recruit_character = SAU_abdulaziz_bin_abdul_rahman_al_saud
+recruit_character = SAU_saud_bin_abdulaziz_al_saud
+recruit_character = SAU_rashid_bin_abdul_aziz_bin_saud_bin_mohammed_al_saud
+recruit_character = SAU_abdallah_bin_abdul_rahman_al_saud
+recruit_character = SAU_saad_bin_abdulaziz_al_saud
+recruit_character = SAU_khalid_bin_abdulaziz_al_Saud
+recruit_character = SAU_faisal_al_duwaish

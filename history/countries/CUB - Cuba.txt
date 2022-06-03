@@ -2,6 +2,13 @@
 
 oob = "CUB_1936"
 
+USA = {
+	set_autonomy = {
+		target = CUB
+		autonomous_state =  autonomy_puppet
+	}
+}
+
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -12,7 +19,10 @@ set_country_flag = monroe_doctrine
 set_war_support = 0.1
 set_convoys = 20
 
-
+add_ideas = {
+	CUB_feu_resistance
+	CUB_american_tax_haven
+}
 
 set_politics = {
 	ruling_party = democratic_liberalism
@@ -21,19 +31,21 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic_liberalism = 98
-	communism = 2
+	communism = 10
+	democratic_communism = 7
+	socialism_democratic = 3
+	democratic_liberalism = 62
+	democratic = 5
+	authoritarian_democratic = 3
+	neutrality = 10
+	fascism = 0
+	ultranationalism = 0
 }
 
-create_country_leader = {
-	name = "Clemente Vázquez Bello"
-	desc = "POLITICS_JOSE_AGRIPINO_BARNET_DESC"
-	picture = "gfx/leaders/Clemente_Vasquez_Bello.dds"
-	expire = "1965.1.1"
-	ideology = democratic_liberal
-	traits = {
-		#
-	}
-}
+recruit_character = CUB_clemente_vazquez_bello
+recruit_character = CUB_martin_diaz_tamayo
+recruit_character = CUB_alberto_herrera_franchi
+recruit_character = CUB_manuel_lopez_migoya
+recruit_character = CUB_ernesto_usatorres_ubieta
 
 

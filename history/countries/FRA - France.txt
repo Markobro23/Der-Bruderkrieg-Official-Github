@@ -5,6 +5,8 @@ add_to_faction = "FRA"
 add_to_faction = "FGD"
 
 give_guarantee = PAP
+give_guarantee = SMC
+give_guarantee = SCA
 
 
 set_autonomy = {
@@ -89,10 +91,6 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	basic_heavy_tank = 1
-	improved_light_tank = 1
 	early_fighter = 1
 	naval_bomber1 = 1
 	cv_early_fighter = 1
@@ -104,6 +102,7 @@ set_technology = {
 	fleet_in_being = 1
 	fuel_silos = 1
 	fuel_refining = 1
+	basic_train = 1 
 }
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
@@ -160,27 +159,49 @@ if = {
 	}
 }
 
+
 if = {
-		limit = {
-			NOT = {
-				has_dlc = "No Step Back"
-			}
-		}
-		set_technology = {
-			basic_train = 1 
-		}
-	}
-	if = {
-		limit = {
+	limit = {
 			
-			has_dlc = "No Step Back"
-			
-		}
-		set_technology = {
-			basic_train = 1 
-			railway_gun = 1
-		}
+		has_dlc = "No Step Back"
+		
 	}
+	set_technology = {
+		railway_gun = 1
+	}
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+		improved_light_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
 
 
 set_convoys = 300
@@ -202,10 +223,13 @@ set_popularities = {
 
 add_ideas = {
 	Constitution_of_1927
-	Bonapartist_Ambition
-	Haven_of_Refugees
+	FRA_imperial_overextension
 	FRA_wiltkrieg_neutrality
 	FRA_westfalen_troubles
+	#Bonapartist_Ambition
+	Haven_of_Refugees
+	
+	
 	#FRA_outdated_military_tech
 	#FRA_underdeveloped_countryside
 	pierre_laval
@@ -292,6 +316,101 @@ if = {
 		bypass_recruitment = no
 		available_to_spy_master = yes
 		nationalities = { FRA }
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	create_equipment_variant = {
+		name = "FT mod. 31"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_heavy_machine_gun
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 2
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "FT Char Cannon"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 1
+			tank_nsb_armor_upgrade = 2
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "H-35" #due to similar design this also covers R-35
+		type = light_tank_chassis_1
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_cast_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 2
+			tank_nsb_armor_upgrade = 4
+		}
+		icon = "GFX_FRA_basic_light_tank_medium"
+	}
+	create_equipment_variant = {
+		name = "Char B1" 
+		type = heavy_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_medium_howitzer
+			turret_type_slot = tank_heavy_fixed_superstructure_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+			special_type_slot_2 = secondary_turret_small_cannon
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 6
+			tank_nsb_armor_upgrade = 4
+		}
+		icon = "GFX_FRA_basic_heavy_tank_medium"
+	}
+
+	create_equipment_variant = {
+		name = "SOUMUA S35" 
+		type = medium_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon_2
+			turret_type_slot = tank_medium_one_man_tank_turret
+			suspension_type_slot = tank_bogie_suspension
+			armor_type_slot = tank_welded_armor
+			engine_type_slot = tank_gasoline_engine
+			special_type_slot_1 = tank_radio_1
+		}
+		upgrades = {
+			tank_nsb_engine_upgrade = 4
+			tank_nsb_armor_upgrade = 5
+		}
+		icon = "GFX_FRA_improved_medium_tank_medium"
 	}
 }
 
@@ -762,89 +881,3 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-		create_equipment_variant = {
-			name = "Aurore Class"
-			type = submarine_2
-			upgrades = {
-				ship_reliability_upgrade = 3
-				sub_engine_upgrade = 3
-				sub_stealth_upgrade = 3
-				sub_torpedo_upgrade = 3
-			}
-		}
-
-		create_equipment_variant = {
-			name = "Le Hardi Class"
-			type = destroyer_2
-			upgrades = {
-				ship_torpedo_upgrade = 1
-				destroyer_engine_upgrade = 1
-				ship_ASW_upgrade = 1
-				ship_anti_air_upgrade = 1
-			}
-		}
-
-		create_equipment_variant = {
-			name = "Mogador Class"
-			type = destroyer_2
-			upgrades = {
-				ship_torpedo_upgrade = 2
-				destroyer_engine_upgrade = 2
-				ship_ASW_upgrade = 2
-				ship_anti_air_upgrade = 2
-			}
-		}
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Submarines #
-		create_equipment_variant = {
-			name = "Aurore Class"
-			type = ship_hull_submarine_2
-			name_group = FRA_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_2
-				fixed_ship_engine_slot = sub_ship_engine_2
-				rear_1_custom_slot = ship_torpedo_sub_2
-			}
-		}
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Le Hardi Class"
-			type = ship_hull_light_2
-			name_group = FRA_DE_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_3
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_2
-				mid_1_custom_slot = ship_torpedo_2
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
-		create_equipment_variant = {
-			name = "Joffre Class"
-			type = ship_hull_carrier_1
-			name_group = FRA_CV_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_deck_slot_1 = ship_deck_space
-				fixed_ship_deck_slot_2 = ship_deck_space
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = carrier_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries
-				front_1_custom_slot = empty
-			}
-		}
-	}
-}

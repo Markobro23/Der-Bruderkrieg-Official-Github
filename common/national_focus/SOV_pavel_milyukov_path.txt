@@ -390,7 +390,7 @@ shared_focus = {
 		trigger = {
 			has_focus_tree = SOV_kerensky_presidency_path
 		}
-		x = -3
+		x = -6
 		y = 0
 	}
 	ai_will_do = {
@@ -413,102 +413,102 @@ shared_focus = {
 	}
 }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_high_command
-	icon = GFX_goal_SOV_reorganizing_the_high_command
-	x = -2
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_high_command
+# 	icon = GFX_goal_SOV_reorganizing_the_high_command
+# 	x = -2
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
-	ai_will_do = {
-		factor = 95
-	}
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_officer_corps
-	icon = GFX_goal_SOV_reorganizing_the_officer_corp
-	x = 0
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_officer_corps
+# 	icon = GFX_goal_SOV_reorganizing_the_officer_corp
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
-	ai_will_do = {
-		factor = 95
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
-shared_focus = { 
-	id = SOV_reorganizing_the_infantry
-	icon = GFX_goal_SOV_reorganizing_the_infantry
-	x = 2
-	y = 1
-	relative_position_id = SOV_pavels_army_reforms
+# shared_focus = { 
+# 	id = SOV_reorganizing_the_infantry
+# 	icon = GFX_goal_SOV_reorganizing_the_infantry
+# 	x = 2
+# 	y = 1
+# 	relative_position_id = SOV_pavels_army_reforms
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
+# 	}
 
-	cost = 2
-	prerequisite = { focus = SOV_pavels_army_reforms }
+# 	cost = 2
+# 	prerequisite = { focus = SOV_pavels_army_reforms }
 	
-	ai_will_do = {
-		factor = 95
-	}
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	ai_will_do = {
+# 		factor = 95
+# 	}
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-	}
-	ai_will_do = {
-		factor = 20
-	}
-}
+# 	completion_reward = {
+# 	}
+# 	ai_will_do = {
+# 		factor = 20
+# 	}
+# }
 
 shared_focus = { 
 	id = SOV_continuing_the_reforms
 	icon = GFX_goal_SOV_continuing_the_reforms
 	x = 0
 	y = 1
-	relative_position_id = SOV_reorganizing_the_officer_corps
+	relative_position_id = SOV_pavels_army_reforms
 	
 	available = {
 	}
@@ -517,9 +517,7 @@ shared_focus = {
 	}
 
 	cost = 3
-	prerequisite = { focus = SOV_reorganizing_the_high_command }
-	prerequisite = { focus = SOV_reorganizing_the_officer_corps }
-	prerequisite = { focus = SOV_reorganizing_the_infantry }
+	prerequisite = { focus = SOV_pavels_army_reforms }
 	ai_will_do = {
 		factor = 95
 	}
@@ -1078,8 +1076,10 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		create_faction = "The Federation of Global Authority"
+		create_faction = "Federation for Global Authority"
 		add_war_support = 0.1
+
+		news_event = SOV_pavel_tree_events.4
 	}
 	ai_will_do = {
 		factor = 2000
@@ -1137,7 +1137,7 @@ shared_focus = {
 
 	completion_reward = {
 		AFG = {
-			country_event = generic.20
+			country_event = russia.22
 		}
 	}
 	ai_will_do = {
@@ -1203,8 +1203,8 @@ shared_focus = {
 
 	completion_reward = {
 		PER = {
-            country_event = generic.20
-        }
+            country_event = russia.22
+		}
 	}
 	ai_will_do = {
 		factor = 200
@@ -1220,16 +1220,19 @@ shared_focus = {
 shared_focus = {
 	id = SOV_exploit_persian_oilfields
 	icon = GFX_goal_SOV_exploit_persian_oilfields
-	x = -1
-	y = 2
+	x = 0
+	y = 1
 	
 	available = {
 		PER = {
-			is_puppet_of = SOV
+			is_in_faction_with = SOV
 		}
 	}
 	bypass = {
 
+	}
+	mutually_exclusive = {
+		focus = SOV_expand_sebastopol
 	}
 	prerequisite = { focus = SOV_operation_aryan }
 	relative_position_id = SOV_operation_aryan
@@ -1242,6 +1245,25 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
+		PER = {
+			remove_ideas = PER_the_anglo_recession
+		}
+		build_railway = {
+			level = 1
+			build_only_on_allied = yes
+			controller_priority = {
+				base = 1
+				
+				modifier = {
+				tag = SOV
+				add = 2
+				}
+			}
+			fallback = yes
+			path = { 7661 1536 12434 4473 4901 4609 4637 4580 10837 }
+			start_province = 7661
+			target_province = 10837
+		}
 		add_resource = {
 			type = oil
 			amount = 5
@@ -1279,44 +1301,44 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = SOV_the_occupation_of_tehran
-	icon = GFX_goal_SOV_the_occupation_of_tehran
-	x = 0
-	y = 1
+# shared_focus = {
+# 	id = SOV_the_occupation_of_tehran
+# 	icon = GFX_goal_SOV_the_occupation_of_tehran
+# 	x = 0
+# 	y = 1
 	
-	available = {
-		PER = {
-			is_puppet_of = SOV
-		}
-	}
-	bypass = {
+# 	available = {
+# 		PER = {
+# 			is_puppet_of = SOV
+# 		}
+# 	}
+# 	bypass = {
 
-	}
-	prerequisite = { focus = SOV_operation_aryan }
-	relative_position_id = SOV_operation_aryan
+# 	}
+# 	prerequisite = { focus = SOV_operation_aryan }
+# 	relative_position_id = SOV_operation_aryan
 
-	cost = 5		
+# 	cost = 5		
 	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-		country_event = { id = SOV_pavel_foriegn_policy_tree.2 }
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
+# 	completion_reward = {
+# 		country_event = { id = SOV_pavel_foriegn_policy_tree.2 }
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_integrating_treizbond
@@ -1479,7 +1501,9 @@ shared_focus = {
 		focus = SOV_annexing_western_aremnia
 	}
 	relative_position_id = SOV_protect_bulgaria
-
+	mutually_exclusive = {
+		focus = SOV_exploit_persian_oilfields
+	}
 	cost = 3.5		
 	
 
@@ -1550,11 +1574,22 @@ shared_focus = {
 	y = 1
 	 
 	available = {
-	}
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = JAP
+            }
+        }
+    }
 	bypass = {
 
 	}
-	prerequisite = { focus = SOV_expand_sebastopol }
+	prerequisite = {focus = SOV_expand_sebastopol focus = SOV_exploit_persian_oilfields }
 	
 	relative_position_id = SOV_expand_sebastopol
 
@@ -1564,6 +1599,7 @@ shared_focus = {
 	cancel_if_invalid = yes
 	continue_if_invalid = no
 	available_if_capitulated = no
+	
 
 	completion_reward = {
 		TUR = { country_event = SOV_pavel_foriegn_policy_tree.7 }
@@ -1583,7 +1619,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_pavel_east_african_expidition
     icon = GFX_goal_SOV_alliance_with_ethiopia
-	prerequisite = {focus = SOV_expand_sebastopol focus = SOV_the_occupation_of_tehran }
+	prerequisite = {focus = SOV_expand_sebastopol focus = SOV_exploit_persian_oilfields }
 	x = -1
 	y = 1
     relative_position_id = SOV_expand_sebastopol 
@@ -2336,7 +2372,18 @@ shared_focus = {
 	y = 1
 	
 	available = {
-	}
+        if = {
+            limit = {
+                NOT = {
+                    has_war_with = AUS
+                }
+                is_ai = yes
+            }
+            NOT = {
+                has_war_with = TUR
+            }
+        }
+    }
 	bypass = {
 
 	}
@@ -2439,6 +2486,12 @@ shared_focus = {
 		focus = SOV_demand_constantinople
 	}
 	relative_position_id = SOV_demand_japanese_lands
+	available = {
+		
+	}
+	bypass = {
+		has_war_with = AUS
+	}
 
 	cost = 10		
 	
@@ -2448,10 +2501,7 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		create_wargoal = {
-			target = AUS
-			type = topple_government
-		}
+		unlock_decision_tooltip = SOV_operation_third_rome_decision
 	}
 	ai_will_do = {
 		factor = 200
@@ -2464,288 +2514,288 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = SOV_the_worlds_protector
-	icon = GFX_goal_Internationalism
-	x = 0
-	y = 1 
+# shared_focus = {
+# 	id = SOV_the_worlds_protector
+# 	icon = GFX_goal_Internationalism
+# 	x = 0
+# 	y = 1 
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
-	prerequisite = { focus = SOV_intervene_in_austria }
+# 	}
+# 	prerequisite = { focus = SOV_intervene_in_austria }
 	
-	relative_position_id = SOV_intervene_in_austria
+# 	relative_position_id = SOV_intervene_in_austria
 
-	cost = 10		
-	available = {
-		has_global_flag = austria_defeated
-	}
+# 	cost = 10		
+# 	available = {
+# 		has_global_flag = austria_defeated
+# 	}
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-		if = {
-			limit = {
-				has_idea = SOV_beacon_of_democracy_2
-			}
-			swap_ideas = {
-				add_idea = SOV_beacon_of_democracy_3
-				remove_idea = SOV_beacon_of_democracy_2
-			}
-		}
-		else = {
-			swap_ideas = {
-				add_idea = SOV_beacon_of_democracy_4
-				remove_idea = SOV_beacon_of_democracy
-			}
-		}
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
+# 	completion_reward = {
+# 		if = {
+# 			limit = {
+# 				has_idea = SOV_beacon_of_democracy_2
+# 			}
+# 			swap_ideas = {
+# 				add_idea = SOV_beacon_of_democracy_3
+# 				remove_idea = SOV_beacon_of_democracy_2
+# 			}
+# 		}
+# 		else = {
+# 			swap_ideas = {
+# 				add_idea = SOV_beacon_of_democracy_4
+# 				remove_idea = SOV_beacon_of_democracy
+# 			}
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
 
 
-shared_focus = {
-	id = SOV_end_the_prussian_menace
-	icon = GFX_goal_FRA_keep_out_the_reichmarshall
-	x = -1
-	y = 1
+# shared_focus = {
+# 	id = SOV_end_the_prussian_menace
+# 	icon = GFX_goal_FRA_keep_out_the_reichmarshall
+# 	x = -1
+# 	y = 1
 	
-	available = {
-	}
-	bypass = {
+# 	available = {
+# 	}
+# 	bypass = {
 
-	}
-	prerequisite = { focus = SOV_the_worlds_protector }
+# 	}
+# 	prerequisite = { focus = SOV_the_worlds_protector }
 	
-	relative_position_id = SOV_the_worlds_protector
+# 	relative_position_id = SOV_the_worlds_protector
 
-	cost = 10		
-	mutually_exclusive = {
-		focus = SOV_an_enemy_of_our_enemy_is_a_friend
-	}
+# 	cost = 10		
+# 	mutually_exclusive = {
+# 		focus = SOV_an_enemy_of_our_enemy_is_a_friend
+# 	}
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-		create_wargoal = {
-			target = GER
-			type = topple_government
-		}
-		add_threat = 5
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
+# 	completion_reward = {
+# 		create_wargoal = {
+# 			target = GER
+# 			type = topple_government
+# 		}
+# 		add_threat = 5
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
 
-shared_focus = {
-	id = SOV_an_enemy_of_our_enemy_is_a_friend
-	icon = GFX_goal_SOV_no_they_are_insane
-	x = 1
-	y = 1
+# shared_focus = {
+# 	id = SOV_an_enemy_of_our_enemy_is_a_friend
+# 	icon = GFX_goal_SOV_no_they_are_insane
+# 	x = 1
+# 	y = 1
 	
-	available = {
-		NOT = {
-			has_war_with = FRA
-		}
-	}
-	bypass = {
-		has_war_with = FRA
-	}
-	prerequisite = { focus = SOV_the_worlds_protector }
+# 	available = {
+# 		NOT = {
+# 			has_war_with = FRA
+# 		}
+# 	}
+# 	bypass = {
+# 		has_war_with = FRA
+# 	}
+# 	prerequisite = { focus = SOV_the_worlds_protector }
 	
-	relative_position_id = SOV_the_worlds_protector
-	mutually_exclusive = {
-		focus = SOV_end_the_prussian_menace
-	}
-	
-
-	cost = 10		
+# 	relative_position_id = SOV_the_worlds_protector
+# 	mutually_exclusive = {
+# 		focus = SOV_end_the_prussian_menace
+# 	}
 	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		give_guarantee = GER
-		add_war_support = 0.05
-		add_tech_bonus = {
-			category = armor 
-			bonus = 1
-			uses = 1
-		}
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
-
-shared_focus = {
-	id = SOV_destroy_napoleons_dreams
-	icon = GFX_goal_FRA_rule_of_the_franks
-	x = -2
-	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
-	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
-	
-	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
-
-	cost = 10		
-	mutually_exclusive = {
-		focus = SOV_discussions_with_france
-	}
-
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		create_wargoal = {
-			target = FRA
-			type = topple_government
-		}
-		add_threat = 5
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
-
-shared_focus = {
-	id = SOV_discussions_with_france
-	icon = GFX_goal_Uphold_Napoleonic_Ideas
-	x = 0
-	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
-	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
-	
-	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
-	mutually_exclusive = {
-		focus = SOV_destroy_napoleons_dreams
-	}
+# 	cost = 10		
 	
 
-	cost = 10		
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
+
+# 	completion_reward = {
+# 		give_guarantee = GER
+# 		add_war_support = 0.05
+# 		add_tech_bonus = {
+# 			category = armor 
+# 			bonus = 1
+# 			uses = 1
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
+
+# shared_focus = {
+# 	id = SOV_destroy_napoleons_dreams
+# 	icon = GFX_goal_FRA_rule_of_the_franks
+# 	x = -2
+# 	y = 1
+	
+# 	available = {
+# 	}
+# 	bypass = {
+
+# 	}
+# 	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
+	
+# 	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
+
+# 	cost = 10		
+# 	mutually_exclusive = {
+# 		focus = SOV_discussions_with_france
+# 	}
+
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
+
+# 	completion_reward = {
+# 		create_wargoal = {
+# 			target = FRA
+# 			type = topple_government
+# 		}
+# 		add_threat = 5
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
+
+# shared_focus = {
+# 	id = SOV_discussions_with_france
+# 	icon = GFX_goal_Uphold_Napoleonic_Ideas
+# 	x = 0
+# 	y = 1
+	
+# 	available = {
+# 	}
+# 	bypass = {
+
+# 	}
+# 	prerequisite = { focus = SOV_an_enemy_of_our_enemy_is_a_friend focus =SOV_end_the_prussian_menace }
+	
+# 	relative_position_id = SOV_an_enemy_of_our_enemy_is_a_friend
+# 	mutually_exclusive = {
+# 		focus = SOV_destroy_napoleons_dreams
+# 	}
 	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
-
-	completion_reward = {
-		##event ig
-		FRA = {
-			country_event = generic.27
-		}
-	}
-	ai_will_do = {
-		factor = 200
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
-
-
-shared_focus = {
-	id = SOV_the_united_nations
-	icon = GFX_goal_GenericSocialLiberalism
-	x = -1
-	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
-	prerequisite = { focus = SOV_discussions_with_france focus =SOV_destroy_napoleons_dreams }
-	
-	relative_position_id = SOV_discussions_with_france
-
-	cost = 15		
+# 	cost = 10		
 	
 
-	cancel_if_invalid = yes
-	continue_if_invalid = no
-	available_if_capitulated = no
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
 
-	completion_reward = {
-		set_faction_name = "United Nations"
-		every_country = {
-			limit = {
-				OR = {
-					has_government = democratic
-					has_government = democratic_liberalism
-					has_government = authoritarian_democratic
-					has_government = socialism_democratic
-				}
-			}
-			country_event = russia.22
-		}
-	}
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			add = -200
-			NOT = {
-				has_completed_focus = SOV_a_united_russia
-				has_completed_focus = SOV_a_new_russian_army
-			}
-		}
-	}
-}
+# 	completion_reward = {
+# 		##event ig
+# 		FRA = {
+# 			country_event = generic.27
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 200
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
+
+
+# shared_focus = {
+# 	id = SOV_the_united_nations
+# 	icon = GFX_goal_GenericSocialLiberalism
+# 	x = -1
+# 	y = 1
+	
+# 	available = {
+# 	}
+# 	bypass = {
+
+# 	}
+# 	prerequisite = { focus = SOV_discussions_with_france focus =SOV_destroy_napoleons_dreams }
+	
+# 	relative_position_id = SOV_discussions_with_france
+
+# 	cost = 15		
+	
+
+# 	cancel_if_invalid = yes
+# 	continue_if_invalid = no
+# 	available_if_capitulated = no
+
+# 	completion_reward = {
+# 		set_faction_name = "United Nations"
+# 		every_country = {
+# 			limit = {
+# 				OR = {
+# 					has_government = democratic
+# 					has_government = democratic_liberalism
+# 					has_government = authoritarian_democratic
+# 					has_government = socialism_democratic
+# 				}
+# 			}
+# 			country_event = russia.22
+# 		}
+# 	}
+# 	ai_will_do = {
+# 		factor = 1
+# 		modifier = {
+# 			add = -200
+# 			NOT = {
+# 				has_completed_focus = SOV_a_united_russia
+# 				has_completed_focus = SOV_a_new_russian_army
+# 			}
+# 		}
+# 	}
+# }
 
 
 

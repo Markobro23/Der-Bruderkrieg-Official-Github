@@ -5,6 +5,7 @@ oob = "ORA_1936"
 add_ideas = {
 	colonial_nation
 	ORA_ethnic_unrest
+	Stepjan_sarkotic
 }
 
 # Starting tech
@@ -18,7 +19,14 @@ set_technology = {
 	tech_recon = 1
 }
 
-set_convoys = 10
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
+
+set_convoys = 30
 set_politics = {
 	ruling_party = neutrality
 	last_election = "1936.1.1"
@@ -26,10 +34,18 @@ set_politics = {
 	elections_allowed = no
 }
 set_popularities = {
-	neutrality = 100
+	communism = 0
+	democratic_communism = 0
+	socialism_democratic = 0
+	democratic_liberalism = 0
+	democratic = 5
+	authoritarian_democratic = 35
+	neutrality = 57
+	fascism = 3
+	ultranationalism = 0
 }
 
-recruit_character = ORA_stjepan_sarkotić
+#recruit_character = ORA_stjepan_sarkotić ################### CUT, cause he is like almost dead.
 recruit_character = ORA_alexander_von_falkenhausen
 recruit_character = ORA_hermann_detzner
 recruit_character = ORA_paul_von_lettowvorbeck

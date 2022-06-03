@@ -78,6 +78,21 @@ ideas = {
 		  modifier = {
 		  }
 	}
+
+	FRA_imperial_overextension = {
+		allowed = {
+			always = yes
+		  }
+	
+		  allowed_civil_war = {
+			always = no
+		  }
+	
+		  removal_cost = -1
+
+		  modifier = {
+		  }
+	}
 	
 	Constitution_of_1852 = {
 
@@ -94,20 +109,7 @@ ideas = {
 		}
 	  }
 
-	  FRA_one_crown_no_king = {
-
-		allowed = {
-		  always = no
-		  has_government = democratic
-		}
-  
-		removal_cost = -1
-  
-		modifier = {
-		  stability_factor = 0.05
-		  political_power_cost = -0.1
-		}
-	  }
+	  
 
     Bonapartist_Ambition = {
 
@@ -126,8 +128,8 @@ ideas = {
       removal_cost = -1
 
       modifier = {
-        justify_war_goal_time = -0.25
         army_morale_factor = 0.1
+		conscription = 0.005
       }
     }
 
@@ -148,10 +150,9 @@ ideas = {
       removal_cost = -1
 
       modifier = {
-        conscription = 0.015
+        conscription = 0.005
         justify_war_goal_time = -0.25
         army_morale_factor = 0.15
-				army_org_factor = 0.08
       }
     }
 
@@ -198,7 +199,7 @@ ideas = {
 
       modifier = {
         MONTHLY_POPULATION = 0.15
-		stability_factor= -0.05
+		political_power_factor = -0.05
       }
     }
 
@@ -241,12 +242,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				political_power_factor = 0.1
-				stability_factor = 0.1
-				conscription = 0.01
-				war_support_factor = 0.1
-				neutrality_drift = 0.05
-				}
+				
+			}
 		}
 
 		FRA_wiltkrieg_neutrality = {
@@ -583,9 +580,9 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				stability_factor = 0.1
-				political_power_factor = 0.1
-				}
+				consumer_goods_factor = -0.025
+				monthly_population = 0.1
+			}
 		}
 
 		Napoleon_6 = {
@@ -690,8 +687,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				production_speed_buildings_factor = 0.1
-				industrial_capacity_factory = 0.1
+				production_speed_buildings_factor = 0.075
+				industrial_capacity_factory = 0.075
 			}
 		}
 
@@ -721,51 +718,7 @@ ideas = {
 			}
 		}
 
-		Robe_Nobility  = {
-			allowed = {
-				always = no
-			}
-
-			 cancel = {
-		  		is_subject = yes
-	  		  }
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-			#political_advisor_cost_factor = -0.2
-			#economic_minister_cost_factor = -0.2
-			political_power_gain = 0.05
-			}
-		}
-
-
-		Robe_Nobility_2  = {
-			allowed = {
-				always = no
-			}
-
-			 cancel = {
-		  		is_subject = yes
-	  		  }
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-			#political_advisor_cost_factor = -0.2
-			#economic_minister_cost_factor = -0.2
-			political_power_gain = 0.1
-			consumer_goods_factor = -0.05
-			}
-		}
+		
 
 		Sword_Nobility  = {
 			allowed = {
@@ -788,7 +741,6 @@ ideas = {
 				air_chief_cost_factor = -0.15
 				army_chief_cost_factor = -0.15
 				navy_chief_cost_factor = -0.15
-				army_org_factor = 0.08
 			}
 		}
 
@@ -813,7 +765,7 @@ ideas = {
 			air_chief_cost_factor = -0.15
 			army_chief_cost_factor = -0.15
 			navy_chief_cost_factor = -0.15
-			army_org_factor = 0.08
+			army_org_factor = 0.05
 			planning_speed = 0.15
 			max_planning = 0.3
 			}
@@ -948,8 +900,8 @@ ideas = {
 			modifier = {
 				war_support_factor = 0.12
 				conscription = 0.035
-				army_attack_factor = 0.15
-				army_defence_factor = 0.1
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
 			}
 		}
 
@@ -1139,8 +1091,8 @@ ideas = {
 
 			targeted_modifier = {
 				tag = ITA
-				attack_bonus_against = 0.15
-				defense_bonus_against = 0.15
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 
@@ -1157,8 +1109,8 @@ ideas = {
 
 			targeted_modifier = {
 				tag = GER
-				attack_bonus_against = 0.15
-				defense_bonus_against = 0.15
+				attack_bonus_against = 0.1
+				defense_bonus_against = 0.1
 			}
 		}
 
@@ -1247,7 +1199,7 @@ ideas = {
 
 			modifier = {
 				max_planning = 0.12
-				army_attack_factor = 0.05
+				army_attack_factor = 0.025
 				army_org_factor = 0.08
 			}
 		}
@@ -1265,7 +1217,7 @@ ideas = {
 
 			modifier = {
 				max_planning = 0.2
-				army_attack_factor = 0.1
+				army_attack_factor = 0.05
 				army_org_factor = 0.12
 				army_defence_factor = 0.05
 			}
@@ -1475,8 +1427,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				army_morale_factor = 0.1
-				conscription = 0.005
+				army_morale_factor = 0.05
+				training_time_army_factor = -0.15
 			}
 		}
 
@@ -1877,7 +1829,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				army_core_attack_factor = 0.1
+				army_core_attack_factor = 0.05
 				army_core_defence_factor = 0.2
 			}
 		}
@@ -1894,7 +1846,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				army_attack_factor = 0.1
+				army_attack_factor = 0.025
 				resistance_damage_to_garrison = -0.1
 			}
 		}
@@ -1912,9 +1864,16 @@ ideas = {
 		FRA_the_lyon_general_strike = {
 			modifier = {
 				consumer_goods_factor = 0.05
-				industrial_capacity_factory = -0.05
-				production_speed_buildings_factor = -0.05
+				production_speed_buildings_factor = -0.1
 				stability_factor = -0.1
+			}
+		}
+
+		FRA_mantignon_agreements = {
+			modifier = {
+				production_factory_efficiency_gain_factor = -0.15
+				industrial_capacity_factory = -0.1
+				industrial_capacity_dockyard = -0.1
 			}
 		}
 
@@ -1938,17 +1897,17 @@ ideas = {
 
 		FRA_kalterkrieg_idea = {
 			modifier = {
-				research_speed_factor = 0.3
+				research_speed_factor = 0.08
 				stability_factor = 0.15
-				justify_war_goal_time = -0.5
+				enemy_justify_war_goal_time = -0.5
 			}
 		}
 
 		FRA_kalterkrieg_idea_2 = {
 			modifier = {
-				research_speed_factor = 0.3
+				research_speed_factor = 0.12
 				stability_factor = 0.1
-				justify_war_goal_time = -0.5
+				enemy_justify_war_goal_time = -0.5
 				industrial_capacity_factory = 0.1
 				industrial_capacity_dockyard = 0.1
 			}
@@ -1970,8 +1929,7 @@ ideas = {
 
 			modifier = {
 				army_org_factor = 0.1
-				army_attack_factor = 0.1
-				army_defence_factor = 0.1
+				army_core_defence_factor = 0.05
 			}
 		}
 

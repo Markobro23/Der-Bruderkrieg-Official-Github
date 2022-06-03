@@ -1063,6 +1063,45 @@ d_SOV_launch_okhrana_civil_war_debug = {
 	SOV_launch_okhrana_civil_war = yes
 }
 
+SOV_level_up_duma_decision = {
+	if = {
+		limit = {
+			has_country_flag = SOV_sided_with_kerensky_campaign
+		}
+		add_to_variable = {
+			tooltip = SOV_increase_kerenskys_support_by_1
+			kerensky_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = SOV_chose_lenin
+		}
+		add_to_variable = {
+			tooltip = SOV_increase_lenins_support_by_1
+			lenin_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = SOV_sided_with_pavel_campaign
+		}
+		add_to_variable = {
+			tooltip = SOV_increase_pavels_support_by_1
+			pavel_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = SOV_sided_with_belogurov_campaign
+		}
+		add_to_variable = {
+			tooltip = SOV_increase_tsars_support_by_1
+			tsar_support = 1
+		}
+	}
+}
+
 SOV_level_up_duma_large_decision = {
 	if = {
 		limit = {
@@ -1229,22 +1268,30 @@ SOV_kerensky_level_down_duma_small_decision  = {
 
 	add_to_variable = {
 		tooltip = SOV_decrease_kerenskys_support_by_1
-		kerensky_support = 3
+		kerensky_support = -1
 	}
 	
 
-	add_to_variable = {
-		tooltip = SOV_increase_pavels_support_by_1
-		pavel_support = 1
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = SOV_increase_pavels_support_by_1
+				pavel_support = 1
+			}
+		}
+		50 = {
+			add_to_variable = {
+				tooltip = SOV_increase_lenins_support_by_1
+				lenin_support = 1
+			}
+		}
+		50 = {
+			add_to_variable = {
+			tooltip = SOV_increase_tsars_support_by_1
+				tsar_support = 1
+			}
+		}
 	}
-add_to_variable = {
-	tooltip = SOV_increase_lenins_support_by_1
-	lenin_support = 1
-}
-add_to_variable = {
-tooltip = SOV_increase_tsars_support_by_1
-	tsar_support = 1
-}
 
 }
 
@@ -1852,4 +1899,74 @@ SOV_increase_support_among_people_large = {
 
 }
 
+SOV_decrease_support_among_people_small = {
+	add_to_variable = {
+		tooltip = SOV_decrease_support_among_people_small_tt
+		SOV_peoples_support_for_current_regime = -2
+	}
+	SOV_calculate_political_support_modifier = yes
 
+}
+
+SOV_decrease_support_among_people_medium = {
+	add_to_variable = {
+		tooltip = SOV_decrease_support_among_people_medium_tt
+		SOV_peoples_support_for_current_regime = -4
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+SOV_decrease_support_among_people_large = {
+	add_to_variable = {
+		tooltip = SOV_decrease_support_among_people_large_tt
+		SOV_peoples_support_for_current_regime = -6
+	}
+	SOV_calculate_political_support_modifier = yes
+
+}
+
+
+SOV_give_up_to_aa_line = {
+	every_state = {
+		limit = {
+			is_owned_by = SOV
+			OR = {
+				AND = {
+					is_on_continent = europe
+					NOT = {
+						state = 214
+					}
+				}
+				AND = {
+					is_on_continent = asia
+					OR = {
+						state = 252
+						state = 250
+						state = 239
+						state = 217
+						state = 236
+						state = 237
+						state = 351
+						state = 255
+					}
+				}
+				AND = {
+					is_on_continent = middle_east
+					OR = {
+						state = 231
+						state = 229
+						state = 1083
+						state = 230
+						state = 1082
+						state = 345
+						state = 843
+						state = 354
+						state = 355
+					}
+				}
+			}
+		}
+		transfer_state_to = ROOT
+	}
+}

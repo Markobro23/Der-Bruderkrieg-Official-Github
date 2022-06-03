@@ -3,6 +3,14 @@ on_actions = {
 	##misc
 	on_capitulation = {
 		effect = {
+			if = {
+				limit = {
+					ROOT = {
+						tag = AUS
+					}
+				}
+				log = "prussia_russia_win_styates"
+			}
 			##log
 			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
 	
@@ -33,62 +41,7 @@ on_actions = {
 						days = 720
 					}
 				}
-				953 = {
-					add_core_of = AUS
-				}
-				952 = {
-					add_core_of = AUS
-				}
-		
-				154 = { 
-					add_core_of = AUS
-				}
-				155 = {
-					add_core_of = AUS
-				}
-				43 = {
-					add_core_of = AUS
-				}
-				83 = {
-					add_core_of = AUS
-				}
-				76 = {
-					add_core_of = AUS
-				}
-				84 = {
-					add_core_of = AUS
-				}
-				82 = {
-					add_core_of = AUS
-				}
-				764 = {
-					add_core_of = AUS
-				}
-		
-				664 = {
-					add_core_of = AUS
-				}
-				73 = {
-					add_core_of = AUS
-				}
-				71 = {
-					add_core_of = AUS
-				}
-				70 = {
-					add_core_of = AUS
-				}
-				45 = {
-					add_core_of = AUS
-				}
-				109 = {
-					add_core_of = AUS
-				}
-				823 = {
-					add_core_of = AUS
-				}
-				812 = {
-					add_core_of = AUS
-				}
+				
 			}
 			if = {
 				limit = {
@@ -178,6 +131,9 @@ on_actions = {
 						}
 					}
 					HOL = {
+						white_peace = JNE
+					}
+					HOL = {
 						annex_country = {
 							target = JNE
 							transfer_troops = no
@@ -188,12 +144,86 @@ on_actions = {
 				if = {
 					limit = {
 						ROOT = {
+							tag = LBA
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					LBA = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = LBA
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = ALB
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					ALB = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = ALB
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = DEN
+	
+						}
+						FROM = {
+							tag = GER
+						}
+					}
+					DEN = {
+						white_peace = GER
+					}
+					DEN = {
+						set_popularities = {
+							ultranationalism = 45
+							communism = 39
+							democratic_communism = 16
+						}
+						set_politics = {
+							ruling_party = ultranationalism	
+						}
+						keep_current_politics = yes
+					}
+					GER = {
+						puppet = DEN
+					}
+					DEN = {
+						reset_government = yes
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
 							tag = ATH
 	
 						}
 						FROM = {
 							tag = GRE
 						}
+					}
+					GRE = {
+						white_peace = ATH
 					}
 					GRE = {
 						annex_country = {
@@ -213,6 +243,9 @@ on_actions = {
 							tag = ATH
 						}
 					}
+					GRE = {
+						white_peace = ATH
+					}
 					ATH = {
 						annex_country = {
 							target = GRE
@@ -220,6 +253,41 @@ on_actions = {
 						}
 					}
 					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						tag = POR
+						FROM = {
+							OR = {
+								tag = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
+								is_subject_of = GER
+								tag = ITA
+								is_subject_of = ITA
+								is_in_faction_with = ITA
+							}
+						}
+					}
+					country_event = { id = POR_exile.1 }
+				}
+				if = {
+					limit = {
+						tag = SPR
+						FROM = {
+							OR = {
+								tag = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
+								is_subject_of = GER
+							}
+						}
+					}
+					spain_loses_to_brothers_coalition = yes
 				}
 				if = {
 					limit = {
@@ -252,6 +320,111 @@ on_actions = {
 				}
 		}
 	}
+		#austria workaround, all my homies hate on_capitulation not working
+	on_state_control_changed = {
+		effect = {
+			if = { #losing vienna
+				limit = {
+					FROM = {
+						tag = AUS
+						OR = {
+							AND = { #budapest check
+								has_completed_focus = AUS_CENTRALISM
+								NOT = {
+									controls_state = 43
+								}
+							}
+							AND = { #trieste check
+								has_completed_focus = AUS_FEDERALISM
+								NOT = {
+									controls_state = 736
+								}
+							}
+						}
+					}
+					FROM.FROM = {
+						state = 4
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+					NOT = { has_global_flag = prussia_has_beaten_austria }
+				}
+				if = {
+					limit = {
+						FROM = { has_war_with = SOV }
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+			if = { #losing budapest
+				limit = {
+					FROM = {
+						tag = AUS
+						has_completed_focus = AUS_CENTRALISM
+						NOT = {
+							controls_state = 4
+						}
+					}
+					FROM.FROM = {
+						state = 43
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+					NOT = { has_global_flag = prussia_has_beaten_austria }
+				}
+				if = {
+					limit = {
+						FROM = { has_war_with = SOV }
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+			if = { #losing trieste
+				limit = {
+					FROM = {
+						tag = AUS
+						has_completed_focus = AUS_FEDERALISM
+						NOT = {
+							controls_state = 4
+						}
+					}
+					FROM.FROM = {
+						state = 736
+					}
+					OR = {
+						tag = GER
+						tag = SOV
+						is_in_faction_with = SOV
+						is_in_faction_with = GER
+					}
+					NOT = { has_global_flag = prussia_has_beaten_austria }
+				}
+				if = {
+					limit = {
+						FROM = { has_war_with = SOV }
+					}
+					prussia_russia_wins_states = yes
+					else = {
+						austria_loses_peace_deal = yes
+					}
+				}
+			}
+		}
+	}
 	
 	##bruderkrieg austria ones
 	on_capitulation = {
@@ -268,13 +441,15 @@ on_actions = {
 						}
 					}
 					NOT = {
-						FROM = {
-							tag = SOV
+						SOV = {
+							has_war_with = AUS
 						}
 					}
 				}
-				austria_loses_peace_deal = yes
-				log = "2nd europa ends: [GetDateText]"
+				AUS = {
+					austria_loses_peace_deal = yes
+				}
+				log = "2nd europa ends: [GetDateText], by [FROM.GetName]"
 			}
 			if = {
 				limit = {
@@ -304,16 +479,21 @@ on_actions = {
 						FROM = {
 							is_in_faction_with = SOV
 						}
-					}
-					NOT = {
 						FROM = {
 							tag = GER
 						}
+						FROM = {
+							is_in_faction_with = GER
+						}
+					}
+					SOV = {
+						has_war_with = AUS
 					}
 				}
 				prussia_russia_wins_states = yes
 				log = "2nd europa ends: [GetDateText]"
 			}
+			
 			
 			if = {
 				limit = {
@@ -354,10 +534,10 @@ on_actions = {
 							is_subject_of = AUS
 						}
 					}
-					AUS = {
-						white_peace = SOV
-					}
-					russia_loses_peace_deal = yes
+					# AUS = {
+					# 	white_peace = SOV
+					# }
+					# russia_loses_peace_deal = yes
 				}
 				else_if = {
 					limit = {
@@ -365,40 +545,40 @@ on_actions = {
 							is_subject_of = FRA
 						}
 					}
-					FRA = {
-						white_peace = SOV
-					}
-					russia_loses_peace_to_france_deal = yes
+					# FRA = {
+					# 	white_peace = SOV
+					# }
+					# russia_loses_peace_to_france_deal = yes
 				}
 				else = {
-					GER = {
-						white_peace = SOV
-					}
+					# GER = {
+					# 	white_peace = SOV
+					# }
 					news_event = prussian_expansion.6
 				}
 			}
-			if = {
-				limit = {
-					ROOT = {
-						tag = GER
-					}
-					FROM = {
-						OR = { tag = SOV is_in_faction_with = SOV }
-					}
-				}
-				russia_beats_prussia = yes
-			}
-			if = {
-				limit = {
-					ROOT = {
-						tag = FRA
-					}
-					FROM = {
-						OR = { tag = SOV is_in_faction_with = SOV }
-					}
-				}
-				russia_beats_france = yes
-			}
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			tag = GER
+			# 		}
+			# 		FROM = {
+			# 			OR = { tag = SOV is_in_faction_with = SOV }
+			# 		}
+			# 	}
+			# 	russia_beats_prussia = yes
+			# }
+			# if = {
+			# 	limit = {
+			# 		ROOT = {
+			# 			tag = FRA
+			# 		}
+			# 		FROM = {
+			# 			OR = { tag = SOV is_in_faction_with = SOV }
+			# 		}
+			# 	}
+			# 	russia_beats_france = yes
+			# }
 			if = {
 				limit = {
 					ROOT = {
@@ -424,13 +604,13 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
-						tag = ITA
+						tag = SPR
 					}
 					FROM = {
 						OR = { tag = AUS is_in_faction_with = AUS }
 					}
 				}
-				italy_loses_to_austria_peace_deal = yes
+				austria_beats_spain_peace_deal = yes
 			}
 			if = {
 				limit = {
@@ -438,10 +618,61 @@ on_actions = {
 						tag = ITA
 					}
 					FROM = {
-						OR = { tag = FRA is_in_faction_with = FRA }
+						OR = {
+							tag = AUS
+							AND = {
+								is_in_faction_with = AUS
+								AUS = { is_subject = no }
+							}
+							is_subject_of = AUS
+						}
 					}
 				}
-				italy_loses_to_france_peace_deal = yes
+				ITA = {
+					load_focus_tree = generic_focus
+				}
+				if = {
+					limit = {
+						FRA ={
+							has_war_with = ITA
+						}
+					}
+					news_event = { id = collapse_of_italy.1 hours = 3 }
+				}
+				else = {
+					news_event = { id = collapse_of_italy.3 hours = 3 }
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = ITA
+					}
+					FROM = {
+						OR = {
+							tag = FRA
+							AND = {
+								is_in_faction_with = FRA
+								FRA = { is_subject = no }
+							}
+							is_subject_of = FRA
+						}
+					}
+				}
+				ITA = {
+					load_focus_tree = generic_focus
+				}
+				if = {
+					limit = {
+						AUS  ={
+							has_war_with = ITA
+						}
+					}
+					news_event = { id = collapse_of_italy.1 hours = 3 }
+				}
+				else = {
+					news_event = { id = collapse_of_italy.2 hours = 3 }
+				}
 			}
 			if = {
 				limit = {
@@ -449,7 +680,14 @@ on_actions = {
 						tag = FRA
 					}
 					FROM = {
-						tag = AUS
+						OR = {
+							tag = AUS
+							AND = {
+								is_in_faction_with = AUS
+								AUS = { is_subject = no }
+							}
+							is_subject_of = AUS
+						}
 					}
 				}
 				france_loses_to_austria_peace_deal = yes
@@ -463,8 +701,21 @@ on_actions = {
 					FROM = {
 						OR = { tag = FRA is_in_faction_with = FRA }
 					}
+					AUS = {
+						is_puppet = no
+					}
 				}
-				france_beats_austria = yes
+				if = {
+					limit = {
+						FRA = {
+							is_subject_of = GER
+						}
+					}
+					france_loses_peace_deal = yes
+				}
+				else = {
+					france_beats_austria = yes
+				}
 			}
 			if = {
 				limit = {
@@ -510,6 +761,274 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
+						tag = COG
+					}
+					FROM = {
+						OR = { tag = FRA is_in_faction_with = FRA }
+					}
+				}
+				FEA = {
+					annex_country = {
+						target = COG
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BOE
+					}
+					FROM = {
+						OR = { tag = ENG is_in_faction_with = ENG }
+					}
+				}
+				SAF = {
+					annex_country = {
+						target = BOE
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BOC
+					}
+					FROM = {
+						OR = { tag = USA is_in_faction_with = USA }
+					}
+				}
+				ANC = {
+					annex_country = {
+						target = BOC
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = PNG
+					}
+					FROM = {
+						OR = { tag = USA is_in_faction_with = USA }
+					}
+				}
+				ANC = {
+					annex_country = {
+						target = PNG
+						transfer_troops = yes
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRE
+					}
+					FROM = {
+						tag = UBR
+					}
+				}
+				UBR = {
+					annex_country = {
+						target = BRE
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRS
+					}
+					FROM = {
+						tag = UBR
+					}
+				}
+				UBR = {
+					annex_country = {
+						target = BRS
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = SRB
+					}
+					FROM = {
+						tag = UBR
+					}
+				}
+				UBR = {
+					annex_country = {
+						target = SRB
+						transfer_troops = yes
+					}
+				}
+			}
+
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRE
+					}
+					FROM = {
+						tag = BRS
+					}
+				}
+				BRS = {
+					annex_country = {
+						target = BRE
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = UBR
+					}
+					FROM = {
+						tag = BRS
+					}
+				}
+				BRS = {
+					annex_country = {
+						target = UBR
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = SRB
+					}
+					FROM = {
+						tag = BRS
+					}
+				}
+				BRS = {
+					annex_country = {
+						target = SRB
+						transfer_troops = yes
+					}
+				}
+			}
+
+
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRE
+					}
+					FROM = {
+						tag = SRB
+					}
+				}
+				SRB = {
+					annex_country = {
+						target = BRE
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = UBR
+					}
+					FROM = {
+						tag = SRB
+					}
+				}
+				SRB = {
+					annex_country = {
+						target = UBR
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRS
+					}
+					FROM = {
+						tag = SRB
+					}
+				}
+				SRB = {
+					annex_country = {
+						target = BRS
+						transfer_troops = yes
+					}
+				}
+			}
+
+
+
+			if = {
+				limit = {
+					ROOT = {
+						tag = SRB
+					}
+					FROM = {
+						tag = BRE
+					}
+				}
+				BRE = {
+					annex_country = {
+						target = SRB
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = UBR
+					}
+					FROM = {
+						tag = BRE
+					}
+				}
+				BRE = {
+					annex_country = {
+						target = UBR
+						transfer_troops = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = BRS
+					}
+					FROM = {
+						tag = BRE
+					}
+				}
+				BRE = {
+					annex_country = {
+						target = BRS
+						transfer_troops = yes
+					}
+				}
+			}
+
+
+
+			if = {
+				limit = {
+					ROOT = {
 						tag = ENG
 					}
 					FROM = {
@@ -527,7 +1046,14 @@ on_actions = {
 						tag = ENG
 					}
 					FROM = {
-						tag = GER
+						OR = {
+							tag = GER
+							AND = {
+								is_in_faction_with = GER
+								GER = { is_subject = no }
+							}
+							is_subject_of = GER
+						}
 					}
 				}
 				GER = {
@@ -550,21 +1076,67 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = { tag = FRA }
-					FROM = { OR = { tag = GER is_in_faction_with = GER } }
+					FROM = {
+						OR = {
+							tag = GER
+							AND = {
+								is_in_faction_with = GER
+								GER = { is_subject = no }
+							}
+							is_subject_of = GER
+						}
+					}
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				GER = {
 					white_peace = FRA
 				}
 				news_event = prussian_expansion.5
+				GER = {
+					country_event = {
+						id = GER_goering_post_unification.4
+						days = 10
+					}
+				}
 			}
 			if = {
 				limit = {
 					ROOT = { tag = GER }
-					FROM = { tag = FRA }
+					FROM = {
+						OR = {
+							tag = FRA
+							AND = {
+								is_in_faction_with = FRA
+								FRA = { is_subject = no }
+							}
+							is_subject_of = FRA
+						}
+					}
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				france_beats_prussia_peace_deal = yes
+			}
+			if = {
+				limit = {
+					tag = FPR
+					FROM = {
+						OR = {
+							tag = AUS
+							is_subject_of = AUS
+						}
+					}
+					OCC = { is_subject_of = AUS }
+				}
+				white_peace = AUS
+				OCC = {
+					annex_country = {
+						target = FPR
+					}
+				}
+				every_state = {
+					limit = { is_core_of = FPR }
+					add_core_of = OCC
+				}
 			}
 			
 		}
@@ -728,12 +1300,12 @@ on_actions = {
 				if = {
 					limit = {
 						AUS = {
-							is_subject_of_of = GER
+							is_subject_of = GER
 						}
 					}
-					GER = {
-						white_peace = SOV
-					}
+					# GER = {
+					# 	white_peace = SOV
+					# }
 					news_event = prussian_expansion.6
 				}
 				else_if = {
@@ -742,13 +1314,13 @@ on_actions = {
 							is_subject_of = FRA
 						}
 					}
-					FRA = {
-						white_peace = SOV
-					}
-					russia_loses_peace_to_france_deal = yes
+					# FRA = {
+					# 	white_peace = SOV
+					# }
+					# russia_loses_peace_to_france_deal = yes
 				}
 				else = {
-					russia_loses_peace_deal = yes	
+					# russia_loses_peace_deal = yes	
 				}
             }
         }
@@ -766,13 +1338,13 @@ on_actions = {
 							is_subject_of = GER
 						}
 					}
-					GER = {
-						white_peace = SOV
-					}
+					# GER = {
+					# 	white_peace = SOV
+					# }
 					news_event = prussian_expansion.6
 				}
 				else = {
-					russia_loses_peace_to_france_deal =  yes
+					# russia_loses_peace_to_france_deal =  yes
 				}
 			}
 		}
@@ -1120,51 +1692,39 @@ on_actions = {
 				}
 				america_venezuela_peace_deal = yes
 			}
-            if = {
-                limit = {
-                    ROOT = { tag = UBR }
-                    FROM = {
-						tag = BRS
-					}
-                }
-				log = "brazil test"
-                
-				if = {
-					limit = {
-						BRE = {
-							exists = no
-						}
-					}
-					
-				}
-            }
+
 			if = {
-                limit = {
-                    ROOT = { tag = UBR }
-                    FROM = {
-						tag = BRE
+				limit = {
+					ROOT = {
+						tag = CEN
 					}
-                }
-                UBR = {
-					annex_country = {
-						target = BRE
-						transfer_troops = no
+					FROM = {
+						OR = {
+							tag = ELS
+							tag = HON
+							tag = GUA
+						}
 					}
 				}
-				if = {
+				every_country = {
 					limit = {
-						BRS = {
-							exists = no
+						OR = { 
+							tag = ELS
+							tag = HON
+							tag = GUA
 						}
 					}
-					UBR = {
-						annex_country = {
-							target = FLF
-							transfer_troops = yes
-						}
-					}
+					country_event = { id = central_american_collapse.3 hours = 6 }
+					white_peace = CEN
 				}
-            }
+				HON = {
+					annex_country = {
+						target = CEN
+					}
+					add_state_core = 312
+				}
+			}
+  
 			if = {
 				limit = {
 					FROM = {
