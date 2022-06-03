@@ -1,0 +1,49 @@
+
+ideas = {
+    country = {
+        SWI_state_emergency = {
+            allowed = {
+                always = no
+            }
+
+            picture = GPU_garrisson_state
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                    has_government = neutrality
+                }
+            }
+
+            modifier = {
+                mobilization_laws_cost_factor = -0.2
+                economy_cost_factor = -0.2
+                conscription = 0.01
+                industrial_capacity_factory = 0.05
+            }
+		}
+
+        SWI_confederacy = {
+
+            picture = AUS_treaty_of_vienna
+
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            modifier = {
+                political_power_cost = 0.25
+                surrender_limit = 0.1
+                army_core_defence_factor = 0.05
+                resistance_growth_on_our_occupied_states = 0.1
+            }
+        }
+    }
+}
