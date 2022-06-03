@@ -36,6 +36,7 @@ guiTypes = {
 				x = 0
 				y = 30
 			}
+			pdx_tooltip = dual_leader_get_position_desc
 		}
 	  iconType = {
 			name = "leader_leader_frame"
@@ -44,6 +45,7 @@ guiTypes = {
 				y = 16
 			}
 			spriteType = "GFX_pol_leader_frame"
+			pdx_tooltip = dual_leader_get_position_desc
 		}
 		instantTextboxType = {
 			name = "leader_description"
@@ -54,22 +56,23 @@ guiTypes = {
 			maxHeight = 20
 			format = center
 			vertical_alignment = center
-			pdx_tooltip = "[GetDualLeaderPositionDesc]"
+			pdx_tooltip = "dual_leader_get_position_desc"
+		}
+		containerWindowType = {
+			name = "DBK_head_of_gov_open"
+			position = { x = 112 y = 7 }
+			
+			buttonType ={ 
+				name ="DBK_head_of_gov_open_button"
+				spriteType = "GFX_event_pic_clip"
+				position = { x = 0 y = 0 } 
+				pdx_tooltip = dual_leader_button_tt
+				shortcut = "d" 
+			}
 		}
 	}
 
-	containerWindowType = {
-		name = "DBK_head_of_gov_open"
-		position = { x = 130 y = 35 }
-		
-		buttonType ={ 
-			name ="DBK_head_of_gov_open_button"
-			spriteType = "GFX_event_pic_clip"
-			position = { x = 0 y = 0 } 
-			pdx_tooltip = dual_leader_button_tt
-			shortcut = "d" 
-		}
-	}
+	
 
 	containerWindowType = {
 		name = "DBK_head_of_gov_open_diplo"
@@ -90,11 +93,12 @@ guiTypes = {
 		
 		buttonType ={ 
 			name ="DBK_faction_icon_button"
-			spriteType = "x"
+			spriteType = "x" 
 			position = { x = 0 y = 0 }
-			pdx_tooltip = "[GetFactionName]"
+			pdx_tooltip = "DBK_faction_icon_tt"
+			shortcut = c
 		} 
-	}
+	} 
 
   containerWindowType = {
 		name = "DBK_head_of_gov_container_diplo"
