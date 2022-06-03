@@ -2948,10 +2948,46 @@ weltkrieg_decisions = {
 		}
 	
 		complete_effect = {
+			country_event = GER_austrian_ethnic_revolts.1
+		}
+	}
+
+	GER_invite_switzerland = {
+
+		icon = generic_political_discourse
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			SWI = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+					has_government = ultranationalism
+				}
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_prepare_operation_margerethe
+			NOT = {
+				has_completed_focus = GER_negotiate_with_rohm
+			}
+		}
+
+		fire_only_once = yes
+	
+	
+		ai_will_do = {
+			factor = 1000
 		}
 	
-		remove_effect = {
-			country_event = GER_austrian_ethnic_revolts.1
+		complete_effect = {
+			SWI = {
+				country_event = { id = GER_wiltkrieg_faction_events.17 hours = 1 }
+			}
 		}
 	}
 }
