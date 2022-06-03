@@ -303,4 +303,28 @@ ideas = {
             }
 		}
 	}
+	SWI_state_emergency = {
+            allowed = {
+                always = no
+            }
+
+            picture = GPU_garrisson_state
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                    has_government = neutrality
+                }
+            }
+
+            modifier = {
+                mobilization_laws_cost_factor = -0.2
+		economy_cost_factor = -0.2
+                conscription = 0.01
+                industrial_capacity_factory = 0.05
+            }
+		}
 }
