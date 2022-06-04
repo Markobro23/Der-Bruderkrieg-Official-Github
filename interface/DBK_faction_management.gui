@@ -201,13 +201,19 @@ guiTypes = {
 			#Equipment
 			containerWindowType = {
 				name = "faction_equipment_pool0"
-				position = { x= 15 y= 215 }
-				size = { width= 100%% height= 42 }
+				position = { x= 15 y= 205 }
+				size = { width= 425 height= 425 }
 
+				background = {
+					name = "faction_equipment_pool0_bg"
+					quadTextureSprite ="GFX_tiled_research_bg_glow"
+					#quadTextureSprite ="console_background2"
+				}
+				
 				#Infantry
 				instantTextboxType = {
 					name = "WOK_faction_infantry_info"
-					position = { x = 35 y = 6 }
+					position = { x = 35 y = 16 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -219,7 +225,7 @@ guiTypes = {
 				}
 				instantTextboxType = {
 					name = "WOK_faction_infantry_num"
-					position = { x = 300 y = 6 }
+					position = { x = 300 y = 16 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -233,15 +239,15 @@ guiTypes = {
 				#Infantry Distribution
 				buttonType = {
 					name = "distribute_infantry_button"
-					position = { x = 35 y = 36 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 35 y = 46 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 					tooltip = distribute_infantry_button_tt
 				}
 				instantTextboxType = {
 					name = "distribute_infantry_button_text"
-					position = { x = 73 y = 41 }
+					position = { x = 52 y = 53 }
 					font = "hoi_16mbs"
 					text = "Distribute Infantry"
 					maxWidth = 122
@@ -251,14 +257,14 @@ guiTypes = {
 				buttonType = {
 					name = "request_infantry_button"
 					tooltip = "request_infantry_button_tt"
-					position = { x = 235 y = 36 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 235 y = 46 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 				}
 				instantTextboxType = {
 					name = "request_infantry_button_text"
-					position = { x = 273 y = 41 }
+					position = { x = 260 y = 53 }
 					font = "hoi_16mbs"
 					text = "Request Infantry"
 					maxWidth = 122
@@ -268,7 +274,7 @@ guiTypes = {
 				#Armor
 				instantTextboxType = {
 					name = "WOK_faction_armor_info"
-					position = { x = 35 y = 146 }
+					position = { x = 35 y = 156 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -280,7 +286,7 @@ guiTypes = {
 				}
 				instantTextboxType = {
 					name = "WOK_faction_armor_num"
-					position = { x = 300 y = 146 }
+					position = { x = 300 y = 156 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -295,15 +301,15 @@ guiTypes = {
 				buttonType = {
 					name = "distribute_armor_button"
 					tooltip = "distribute_armor_button_tt"
-					position = { x = 35 y = 176 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 35 y = 186 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 				}
 
 				instantTextboxType = {
 					name = "distribute_armor_button_text"
-					position = { x = 73 y = 181 }
+					position = { x = 59 y = 193 }
 					font = "hoi_16mbs"
 					text = "Distribute Armor"
 					maxWidth = 122
@@ -315,15 +321,15 @@ guiTypes = {
 				buttonType = {
 					name = "request_armor_button"
 					tooltip = "request_armor_button_tt"
-					position = { x = 235 y = 176 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 235 y = 186 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 				}
 
 				instantTextboxType = {
 					name = "request_armor_button_text"
-					position = { x = 273 y = 181 }
+					position = { x = 265 y = 193 }
 					font = "hoi_16mbs"
 					text = "Request Armor"
 					maxWidth = 122
@@ -333,7 +339,7 @@ guiTypes = {
 				#Support
 				instantTextboxType = {
 					name = "WOK_faction_support_info"
-					position = { x = 35 y = 286 }
+					position = { x = 35 y = 296 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -345,7 +351,7 @@ guiTypes = {
 				}
 				instantTextboxType = {
 					name = "WOK_faction_support_num"
-					position = { x = 300 y = 286 }
+					position = { x = 300 y = 296 }
 					textureFile = ""
 					font = "Main_16"
 					borderSize = {x = 0 y = 0}
@@ -364,14 +370,14 @@ guiTypes = {
 				buttonType = {
 					name = "distribute_support_button"
 					tooltip = "distribute_support_button_tt"
-					position = { x = 35 y = 316 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 35 y = 326 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 				}
 				instantTextboxType = {
 					name = "distribute_support_button_text"
-					position = { x = 73 y = 321 }
+					position = { x = 55 y = 333 }
 					font = "hoi_16mbs"
 					text = "Distribute Support"
 					maxWidth = 122
@@ -382,14 +388,14 @@ guiTypes = {
 				buttonType = {
 					name = "request_support_button"
 					tooltip = "request_support_button_tt"
-					position = { x = 235 y = 316 }
-					quadTextureSprite = "GFX_government_button"
+					position = { x = 235 y = 326 }
+					quadTextureSprite = "GFX_button_148x34"
 					buttonFont = "hoi_16mbs"
 					Orientation = "UPPER_LEFT"
 				}
 				instantTextboxType = {
 					name = "request_support_button_text"
-					position = { x = 273 y = 321 }
+					position = { x = 260 y = 333 }
 					font = "hoi_16mbs"
 					text = "Request Support"
 					maxWidth = 122
@@ -409,6 +415,17 @@ guiTypes = {
 					name = "Background"
 					quadTextureSprite ="GFX_tiled_frontend_upper_bar"
 				}
+				instantTextBoxType = {
+					name = "members_of_equipment_pool_bg_text"
+					position = { x = 0 y = 10 }
+					font = "Main_16"
+					borderSize = {x = 0 y = 0}
+					text = "Our Equipment Pool"
+					maxWidth = 425
+					maxHeight = 79
+					fixedsize = yes	
+					format = center
+				}
 			}
 
 			containerWindowType = {
@@ -424,13 +441,25 @@ guiTypes = {
 					quadTextureSprite ="GFX_tiled_window_transparent"
 				}
 				
+				##
+				instantTextBoxType = {
+					name = "members_of_equipment_pool_text"
+					position = { x = 0 y = 12 }
+					font = "hoi_18mbs"
+					borderSize = {x = 0 y = 0}
+					text = "Members"
+					maxWidth = 425
+					maxHeight = 79
+					fixedsize = yes	
+					format = center
+				}
 				#Faction members gridbox
 				gridboxtype = {
 					name = "faction_equipment_pool_gridbox"
-					position = { x = 0 y = 0 }
+					position = { x = 69 y = 35 }
 					size = { width = 40 height = 150 }
 					slotsize = { width = 40 height = 30 }
-					max_slots_horizontal = 10
+					max_slots_horizontal = 7
 					add_horizontal = yes
 				}
 				
