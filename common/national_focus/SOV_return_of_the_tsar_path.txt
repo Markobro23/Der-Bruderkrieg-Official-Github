@@ -2523,6 +2523,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			PER = {
+				exists = no
+			}
+			PER = {
+				is_in_faction = yes
+			}
+			PER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         PER = {
             country_event = generic.20
@@ -2572,6 +2585,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			AFG = {
+				exists = no
+			}
+			AFG = {
+				is_in_faction = yes
+			}
+			AFG = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         AFG = {
             country_event = generic.20
@@ -2708,46 +2734,49 @@ shared_focus = {
         ##russia supports anti-austrian stance
     }
 }
+
 shared_focus = {
-    id = SOV_prepare_the_balkans
-    icon = GFX_goal_SOV_hierarchy_of_loyalty
+    id = SOV_tsar_east_african_expidition
+    icon = GFX_goal_SOV_alliance_with_ethiopia
 	prerequisite = {focus = SOV_the_austrians }
 	x = 1
 	y = 1
     relative_position_id = SOV_the_austrians 
-    cost = 5
+    cost = 4.5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
+ 
     completion_reward = {
-    YUG = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
-    ROM = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
-    BUL = {
-        add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
-    }
+        unlock_decision_category_tooltip = SOV_east_africa_ambitions
     }
 }
 shared_focus = {
     id = SOV_prussian_ally
     icon = GFX_goal_SOV_the_prussian_question
-    prerequisite = {focus = SOV_prepare_the_balkans }
+    prerequisite = {focus = SOV_tsar_east_african_expidition }
     prerequisite = {
         focus = SOV_Contract_Transylvanian_Rebels
     }
 	x = -1
 	y = 1
-    relative_position_id = SOV_prepare_the_balkans  
+    relative_position_id = SOV_tsar_east_african_expidition  
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
-    
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     mutually_exclusive = {
         
     }
@@ -2755,6 +2784,54 @@ shared_focus = {
      GER = {
 			country_event = { id = generic.27 hours = 3 }
 		}
+    }
+}
+shared_focus = {
+    id = SOV_prepare_the_balkans
+    icon = GFX_goal_SOV_hierarchy_of_loyalty
+	prerequisite = {focus = SOV_prussian_ally }
+	x = 1
+	y = 1
+    relative_position_id = SOV_prussian_ally 
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    available = {
+        has_completed_focus = SOV_The_Issue_Southern_Dobruja
+    }
+    completion_reward = {
+        if = {
+            limit = {
+                YUG = {
+                   is_in_faction_with = SOV
+                }
+            }
+            YUG = {
+                add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+            }
+        }
+        if = {
+            limit = {
+                ROM = {
+                   is_in_faction_with = SOV
+                }
+            }
+            ROM = {
+                add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+            }
+        }
+        if = {
+            limit = {
+                BUL = {
+                   is_in_faction_with = SOV
+                }
+            }
+            BUL = {
+                add_timed_idea = { idea = SOV_tsar_military_advisors days = 250 }
+            }
+        }
     }
 }
 # shared_focus = {
@@ -2881,6 +2958,19 @@ shared_focus = {
     ai_will_do = {
         factor = 10000
     }
+    bypass = {
+		OR = {
+			MON = {
+				exists = no
+			}
+			MON = {
+				is_in_faction = yes
+			}
+			MON = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         MON = {
             country_event = russia.22
@@ -2971,6 +3061,13 @@ shared_focus = {
             }
         }
     }
+    bypass = {
+		OR = {
+			JAP = {
+				exists = no
+			}
+		}
+	}
     completion_reward = {
         add_state_core = 537
      declare_war_on = {
@@ -3001,6 +3098,7 @@ shared_focus = {
        unlock_decision_category_tooltip = SOV_transylvanian_rebel_contacts
     }
 }
+
 
 shared_focus = {
     id = SOV_high_altitude_combat_trainings
@@ -3036,31 +3134,15 @@ shared_focus = {
 #     }
 # }
 
-shared_focus = {
-    id = SOV_tsar_east_african_expidition
-    icon = GFX_goal_SOV_alliance_with_ethiopia
-	prerequisite = {focus = SOV_prussian_ally }
-	x = 1
-	y = 1
-    relative_position_id = SOV_prussian_ally 
-    cost = 4.5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
- 
-    completion_reward = {
-        unlock_decision_category_tooltip = SOV_east_africa_ambitions
-    }
-}
+
 
 
 shared_focus = {
     id = SOV_operation_third_rome
     icon = GFX_goal_ITA_the_greatest_threat
-    prerequisite = {focus = SOV_tsar_east_african_expidition focus = SOV_high_altitude_combat_trainings }
+    prerequisite = {focus = SOV_prepare_the_balkans focus = SOV_high_altitude_combat_trainings }
 
-    relative_position_id = SOV_tsar_east_african_expidition
+    relative_position_id = SOV_prepare_the_balkans
     x = -1
     y= 1
     cost = 2
@@ -3125,6 +3207,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			TUR = {
+				exists = no
+			}
+			TUR = {
+				has_war_with = SOV
+			}
+		}
+	}
     available = {
         if = {
             limit = {

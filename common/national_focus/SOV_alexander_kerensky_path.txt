@@ -2731,15 +2731,24 @@ shared_focus = {
 		BUL = {
 			country_event = { id = russia.22 }
 		}
-		ROM = {
-			country_event = { id = russia.22 }
-		}
-		set_global_flag = ROM_cancel_iron_guard_coup
+		if = {
+			limit = {
+				NOT = {
+					ROM = {
+						is_in_faction_with = GER
+					}
+				}
+			}
+			ROM = {
+				country_event = { id = russia.22 }
+			}
+			set_global_flag = ROM_cancel_iron_guard_coup
 
-		hidden_effect = {
-			news_event = {
-				id = romania_iron_guard_coup.2
-				hours = 4
+			hidden_effect = {
+				news_event = {
+					id = romania_iron_guard_coup.2
+					hours = 4
+				}
 			}
 		}
 		
