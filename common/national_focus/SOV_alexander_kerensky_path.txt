@@ -2850,23 +2850,20 @@ shared_focus = {
 			has_idea = HUN_post_war_rebels
 		}
 		HUN = {
-			any_owned_state = {
-				HUN = {
-					divisions_in_state = {
-						size > 4
-						state = PREV
-					}
-				}
+			all_owned_state = {
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { HUN.num_armies_in_state@THIS > 3 } }
+			}
+		}
+		HUN = {
+			all_owned_state = {
+				set_temp_variable = { DUMB = THIS }
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { SOV.num_armies_in_state@var:DUMB > 3 } }
 			}
 		}
 		SLO = {
-			any_owned_state = {
-				SLO = {
-					divisions_in_state = {
-						size > 4
-						state = PREV
-					}
-				}
+			all_owned_state = {
+				set_temp_variable = { DUMB = THIS }
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { SOV.num_armies_in_state@var:DUMB > 3 } }
 			}
 		}
 	}
