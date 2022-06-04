@@ -269,7 +269,7 @@ AUS_halt_light_armor_production_in_transitioning = {
 		}
 		has_template_majority_unit = medium_armor
 		OR = {
-			has_equipment = { light_tank_equipment > 600 }
+			has_equipment = { light_tank_chassis > 600 }
 			date > 1939.1.1
 		}
 	}
@@ -279,7 +279,7 @@ AUS_halt_light_armor_production_in_transitioning = {
 
 	ai_strategy = {
 		type = equipment_variant_production_factor
-		id = light_tank_equipment
+		id = light_tank_chassis
 		value = -100
 	}
 }
@@ -362,10 +362,10 @@ AUS_super_boost_light_for_med_armor = {
 	}
 
 	# lets do changes more often during this period too
-	ai_strategy = {
-		type = template_xp_reserve
-		value = -125
-	}
+	# ai_strategy = {
+	# 	type = template_xp_reserve
+	# 	value = -125
+	# }
 
 	# this is gateway
 	ai_strategy = {

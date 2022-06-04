@@ -6051,6 +6051,19 @@ shared_focus = {
   ai_will_do = {
     factor = 2000
   }
+ bypass = {
+		OR = {
+			GRE = {
+				exists = no
+			}
+			GRE = {
+				is_in_faction = yes
+			}
+			GRE = {
+				has_war_with = AUS
+			}
+		}
+	}
 
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6071,7 +6084,16 @@ shared_focus = {
   ai_will_do = {
     factor = 2000
   }
-
+  bypass = {
+		OR = {
+			GRE = {
+				exists = no
+			}
+			GRE = {
+				has_war_with = SOV
+			}
+		}
+	}
 
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6094,10 +6116,18 @@ shared_focus = {
   }
 
   bypass = {
-    ALB = {
-      exists = no
-    }
-  }
+		OR = {
+			ALB = {
+				exists = no
+			}
+			ALB = {
+				is_in_faction = yes
+			}
+			ALB = {
+				has_war_with = AUS
+			}
+		}
+	}
 
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
