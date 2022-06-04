@@ -24,6 +24,26 @@ Flag_Scripted_Map_Icons = {
         }
     }
 
+	national_missions_open_scripted_gui = {
+		parent_window_token = politics_tab
+	  	context_type = player_context
+		window_name = "national_missions_open"
+
+		effects = {
+			DBK_national_missions_open_button_click = {
+				if = {
+					limit = {
+						has_country_flag = open_national_missions_decisions_container
+					}
+					clr_country_flag = open_national_missions_decisions_container
+				}
+				else = {
+					set_country_flag = open_national_missions_decisions_container
+				}
+			}
+		}
+	}
+
 
   DBK_head_of_gov_open_mechanic_diplo = {
 	context_type = selected_country_context
