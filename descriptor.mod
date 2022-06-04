@@ -32,7 +32,10 @@ replace_path="common/bookmarks"
 replace_path="portraits"
 replace_path="music"
 replace_path="map/strategicregions"
+
+
 replace_path="common/ai_focuses"
+
 replace_path="events"
 
 path="mod/Der-Bruderkrieg-Official-Github" 
