@@ -272,7 +272,7 @@ news_event = {
 	id = DBK_fall_of_city.17
 	title = DBK_fall_of_city.17.t
 	desc = DBK_fall_of_city.17.d
-	picture = GFX_fallofbudapest
+	picture = GFX_fallofkrakow
 	is_triggered_only = yes
 	#fire_only_once = yes
 	major = yes
@@ -281,6 +281,91 @@ news_event = {
 
 	option = { 
 		name = DBK_fall_of_city.17.a
+	}
+}
+
+##fall of istanbul
+news_event = {
+	id = DBK_fall_of_city.18
+	title = DBK_fall_of_city.18.t
+	desc = DBK_fall_of_city.18.d
+	picture = GFX_fallofconstantine
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.18.a
+	}
+}
+
+##fall of bucharest
+news_event = {
+	id = DBK_fall_of_city.19
+	title = DBK_fall_of_city.19.t
+	desc = DBK_fall_of_city.19.d
+	picture = GFX_fallofbucharest
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.19.a
+	}
+}
+
+##fall of sofia
+news_event = {
+	id = DBK_fall_of_city.20
+	title = DBK_fall_of_city.20.t
+	desc = DBK_fall_of_city.20.d
+	picture = GFX_fallofsofia
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.20.a
+	}
+}
+
+##fall of madrid
+news_event = {
+	id = DBK_fall_of_city.21
+	title = DBK_fall_of_city.21.t
+	desc = DBK_fall_of_city.21.d
+	picture = GFX_fallofmadrid
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.21.a
+	}
+}
+
+##fall of florence
+news_event = {
+	id = DBK_fall_of_city.22
+	title = DBK_fall_of_city.22.t
+	desc = DBK_fall_of_city.22.d
+	picture = GFX_fallofflorence
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.22.a
 	}
 }
 
@@ -620,6 +705,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_05.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = GER
+		}
+	}
+
 	option = {
 		name = french_inteverntion_in_prussian_expansion.5.a
 		set_country_flag = FRA_chose_intervention_against_prussia
@@ -676,6 +769,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_06.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = GER
+		}
+	}
+
 	option = {
 		name = french_inteverntion_in_prussian_expansion.6.a
 		set_country_flag = FRA_chose_intervention_against_prussia
@@ -733,6 +834,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_07.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = GER
+		}
+	}
+
 	option = {
 		name = french_inteverntion_in_prussian_expansion.7.a
 		set_country_flag = FRA_chose_intervention_against_prussia
@@ -1029,6 +1138,11 @@ country_event = {
 			add = 50
 			AUS = { has_completed_focus = AUS_ensure_intervention }
 		} }
+		ENG = {
+			activate_mission = ENG_complete_mobilization
+			set_country_flag = ENG_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+		}
 		hidden_effect = {
 			AUS = {
 				country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
@@ -1161,6 +1275,138 @@ news_event = {
 	}
 }
 
+add_namespace = british_inteverntion_in_russian_expansion
+
+## Persian faction joining
+country_event = {
+	id = british_inteverntion_in_russian_expansion.1
+	title = british_inteverntion_in_russian_expansion.1.t
+	desc = british_inteverntion_in_russian_expansion.1.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.1.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_russian_expansion.2
+	title = british_inteverntion_in_russian_expansion.2.t
+	desc = british_inteverntion_in_russian_expansion.2.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.2.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = british_inteverntion_in_russian_expansion.3
+	title = british_inteverntion_in_russian_expansion.3.t
+	desc = british_inteverntion_in_russian_expansion.3.d
+	#picture = 
+	is_triggered_only = yes
+	fire_only_once = yes
+	option = {
+		name = british_inteverntion_in_russian_expansion.3.a
+		if = {
+			limit = {
+				has_idea = ENG_sanctions
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions
+				add_idea = ENG_sanctions_2
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_2
+			}
+			swap_ideas = {
+				remove_idea = ENG_sanctions_2
+				add_idea = ENG_sanctions_3
+			}
+		}
+		else_if = {
+			limit = {
+				has_idea = ENG_sanctions_3
+			}
+		}
+		else = {
+			add_ideas = ENG_sanctions
+		}
+		ENG = {
+			add_to_variable = {
+				russian_anger = 1
+			}
+		}
+	}
+}
+
 
 
 add_namespace = russian_inteverntion_in_europakrieg
@@ -1170,7 +1416,7 @@ news_event = {
 	id = russian_inteverntion_in_europakrieg.1
 	title = russian_inteverntion_in_europakrieg.1.t
 	desc = russian_inteverntion_in_europakrieg.1.d
-	#picture = GFX_report_event_czech_soldiers_01.dds
+	picture = GFX_russianinterventionineuropakrieg
 	is_triggered_only = yes
 	major = yes
 	option = {
@@ -1188,6 +1434,14 @@ country_event = {
 	#picture = 
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = AUS
+		}
+	}
+
 	option = {
 		name = russian_inteverntion_in_europakrieg.2.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
@@ -1222,8 +1476,8 @@ country_event = {
 			}
 			country_event = { id = russian_inteverntion_in_europakrieg.5 days = 120 }
 		}
-		ai_chance = {factor = 95}
-		modifier = { GER = { has_war_with = FRA } factor = -95 }
+		ai_chance = {factor = 95 
+		modifier = { GER = { has_war_with = FRA } factor = -95 } }
 	}
 }
 
@@ -1272,6 +1526,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_05.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = AUS
+		}
+	}
+
 	option = {
 		name = russian_inteverntion_in_europakrieg.5.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
@@ -1309,6 +1571,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_06.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = AUS
+		}
+	}
+
 	option = {
 		name = russian_inteverntion_in_europakrieg.6.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
@@ -1347,6 +1617,14 @@ country_event = {
 	#picture = GFX_report_event_czech_soldiers_07.dds
 	is_triggered_only = yes
 	fire_only_once = yes
+
+	trigger = {
+		NOT = {
+			has_idea = SOV_the_mobilized_forces
+			has_war_with = AUS
+		}
+	}
+
 	option = {
 		name = russian_inteverntion_in_europakrieg.7.a
 		set_country_flag = SOV_chose_to_enter_europakrieg
@@ -1402,9 +1680,16 @@ country_event = {
 	option = {
 		name = russian_inteverntion_in_europakrieg.9.a
 		ai_chance = {factor = 30}
-		create_wargoal = {
-			target = AUS
-			type = topple_government
+		if = {
+			limit = {
+				has_global_flag = austria_defeated
+			}
+		}
+		else = {
+			create_wargoal = {
+				target = AUS
+				type = topple_government
+			}
 		}
 	}
 
@@ -1642,7 +1927,7 @@ country_event = {
 
 	option = {
 		name = wiltkrieg.2.a
-		news_event = {id = wiltkrieg.5 days = 3}
+		#news_event = {id = wiltkrieg.5 days = 3}
 		set_country_flag = AUS_karl_death
 		white_peace = GER
 
@@ -1694,7 +1979,7 @@ news_event = {
 	id = wiltkrieg.4
 	title = wiltkrieg.4.t
 	desc = wiltkrieg.4.d
-	#picture = 
+	picture = GFX_treatyofmunich
 	is_triggered_only = yes
 	#fire_only_once = yes
 	major = yes
@@ -1811,6 +2096,7 @@ country_event = {
 		 } 
 		 AUS = {
 			 transfer_state = 58
+			 transfer_state = 801
 		 }
 		
 		 if = {
@@ -1822,6 +2108,7 @@ country_event = {
 				transfer_state = 59
 				transfer_state = 817
 				transfer_state = 962
+				transfer_state = 955
 				add_state_core = 56
 				add_state_core = 59
 				add_state_core = 817
@@ -1836,6 +2123,7 @@ country_event = {
 			 transfer_state = 59
 			 transfer_state = 817
 			 transfer_state = 962
+			 transfer_state = 955
 			 set_cosmetic_tag = RAU_hannover
 		 	}
 			release_puppet = HAN
@@ -1913,7 +2201,7 @@ news_event = {
 	id = second_treaty_of_vienna.3
 	title = second_treaty_of_vienna.3.t
 	desc = second_treaty_of_vienna.3.d
-	#picture = 
+	picture = GFX_treatyofvienna
 	is_triggered_only = yes
 	#fire_only_once = yes
 	major = yes
@@ -1944,29 +2232,12 @@ country_event = {
 			}
 		}
 		set_global_flag = france_austria_split_deal
-		hidden_effect = {
-			AUS = {
-				log = "this work?"
-				country_event = {
-					id = second_treaty_of_vienna.1
-					days = 3
-				}
-			}
-		}
 	}
 	option = {
 		name = second_treaty_of_vienna.4.b	
 		FRA = {
 			country_event = {
 				id = second_treaty_of_vienna.5
-			}
-		}
-		hidden_effect = {
-			AUS = {
-				country_event = {
-					id = second_treaty_of_vienna.1
-					days = 3
-				}
 			}
 		}
 	}
@@ -2059,7 +2330,7 @@ country_event = {
 
 	option = {
 		name = post_wiltkrieg_trials.1.a
-		country_event = post_wiltkrieg_trials.2
+		#country_event = post_wiltkrieg_trials.2
 
 	}
 }
@@ -2338,5 +2609,70 @@ country_event = {
 			}
 		}
 
+	}
+}
+
+add_namespace = collapse_of_italy
+
+## Joint Austro-French coalition
+news_event = {
+	id = collapse_of_italy.1
+	title = collapse_of_italy.1.t
+	desc = collapse_of_italy.1.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.1.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			hidden_effect = {
+				italy_loses_to_austria_peace_deal = yes
+			}
+		}
+	}
+}
+
+## Joint french coalition
+news_event = {
+	id = collapse_of_italy.2
+	title = collapse_of_italy.2.t
+	desc = collapse_of_italy.2.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.2.a
+		if = {
+			limit = {
+				tag = FRA
+			}
+			hidden_effect = {
+				italy_loses_to_france_peace_deal = yes
+			}
+		}
+	}
+}
+
+## Joint Austrian coalition
+news_event = {
+	id = collapse_of_italy.3
+	title = collapse_of_italy.3.t
+	desc = collapse_of_italy.3.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.3.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			hidden_effect = {
+				italy_loses_to_austria_peace_deal = yes
+			}
+		}
 	}
 }

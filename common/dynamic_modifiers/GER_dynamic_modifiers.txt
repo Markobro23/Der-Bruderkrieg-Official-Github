@@ -1,7 +1,7 @@
 german_code_goering_modifier = {
 	enable = { always = yes }
 
-	icon = GFX_idea_Riots
+	icon = GFX_idea_USA_farmer_tax_breaks
 
 	war_support_factor = GER_war_support_factor_var
 	stability_factor = GER_stability_factor_var
@@ -57,9 +57,24 @@ GER_plan_kaukasus_modifier = {
 	disable_strategic_redeployment_for_controller = 1
 }
 
+GER_plan_petrograd_modifier = {
+	remove_trigger = {
+		OR = {
+			is_controlled_by = GER
+			NOT = { country_exists = GER }
+			GER = { is_subject = yes }
+		}
+	}
+
+	army_speed_factor_for_controller = -0.25
+	local_org_regain = -0.15
+	local_intel_to_enemies = -0.2
+	disable_strategic_redeployment_for_controller = 1
+}
+
 GER_querfront_modifier = {
 	enable = { always = yes }
-	icon = unknown
+	icon = GFX_idea_USA_farmer_tax_breaks
 	
 	political_power_gain = GER_political_power_gain_var
 	industrial_capacity_factory = GER_industrial_capacity_factory_var
@@ -75,7 +90,7 @@ GER_querfront_modifier = {
 
 GER_inoculation_modifier = {
 	enable = { always = yes }
-	icon = unknown
+	icon = GFX_idea_Riots
 
 	political_power_gain = GER_political_power_gain_var1
 	weekly_manpower = GER_weekly_manpower_var1
@@ -94,7 +109,7 @@ GER_inoculation_modifier = {
 
 GER_endsieg_modifier = {
 	enable = { always = yes }
-	icon = unknown
+	icon = GFX_idea_PAR_dreams_of_a_greater_paraguay
 
 	political_power_factor = GER_political_power_factor_var2
 	stability_weekly_factor = GER_stability_weekly_factor_var2
@@ -115,17 +130,18 @@ GER_endsieg_modifier = {
 
 GER_operation_margarethe_modifier = {
 	enable = { always = yes }
+
+	icon = GFX_idea_Riots
 	remove_trigger = {
 		owner = { NOT = { is_in_faction_with = AUS } }
 	}
-	icon = GFX_focus_generic_polish_deal
 
-	army_speed_factor = GER_army_speed_factor_varOM
-	army_defence_factor = GER_army_defence_factor_varOM
+	army_speed_factor = -0.1
+	army_defence_factor = -0.15
 }
 
 anthrax_bomb_modifier = {
-	icon = GFX_idea_Riots
+	icon = GFX_idea_ANC_rabaul_volcano_modifier
 	enable = {
 		always = yes
 	}
@@ -138,8 +154,8 @@ anthrax_bomb_modifier = {
 	disable_strategic_redeployment = 1
 	local_manpower = -0.5
 	recruitable_population_factor = -0.75
-	state_production_industrial_complex_factor = -0.5
-	state_production_arms_factory_factor = -0.5
+	#state_production_industrial_complex_factor = -0.5
+	#state_production_arms_factory_factor = -0.5
 	resistance_target = 0.5
 }
 
@@ -157,4 +173,16 @@ GER_church_benefits_modifier = {
 	local_supplies = 0.15
 	state_resources_factor = 0.05
 	state_repair_speed_industrial_complex_factor = 0.35
+}
+
+
+GER_french_resistance_riot_modifier = {
+	enable = { always = yes }
+
+	icon = GFX_idea_Riots
+
+	production_speed_buildings_factor = -0.1
+	local_resources_factor = -0.1
+	industrial_capacity_factory = -0.1
+
 }

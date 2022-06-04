@@ -1,0 +1,74 @@
+garrison_duty = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 1
+		}
+	}
+	ai_strategy = {
+		type = garrison_reinforcement_priority
+		value = 100 # positive is high prio, negative is low prio
+	}
+	ai_strategy = {
+		type = garrison
+		value = 50
+	}
+}
+spam_units = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 2
+		}
+	}
+	ai_strategy = {
+		type = force_build_armies
+		value = 100
+	}
+}
+naval_strikes = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 3
+		}
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		value = 100
+		id = MISSION_STRIKE_FORCE
+	}
+}
+air_missions = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 4
+		}
+	}
+	ai_strategy = {
+		type = build_army
+		value = 100
+		id = cas
+	}
+}
+civlian_construction = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 5
+		}
+	}
+	ai_strategy = {
+		type = build_building
+		value = 100
+		id = industrial_complex
+	}
+}
+military_overdrive = {
+	enable = {
+		check_variable = {
+			behavior_garrison = 6
+		}
+	}
+	ai_strategy = {
+		type = build_building
+		value = 100
+		id = arms_factory
+	}
+}

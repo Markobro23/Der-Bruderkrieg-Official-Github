@@ -82,6 +82,9 @@
 		 SOV = {
 			 country_event = TUR_arab_revolt.5
 		 }
+		 ai_chance = {
+			 factor = 0
+		 }
  	}
  }
 
@@ -517,9 +520,11 @@ country_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = persian_ottoman_war.3.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-		declare_war_on = {
-			target = TUR
-			type = topple_government
+		TUR = {
+			declare_war_on = {
+				target = PER
+				type = topple_government
+			}
 		}
 		set_global_flag = persian_ottoman_war_activation
 		AUS = {country_event = persian_ottoman_war.4 }

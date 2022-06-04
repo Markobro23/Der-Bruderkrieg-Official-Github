@@ -21,6 +21,27 @@
 #####################################
 
 #This is going to give misleading and ugly tooltips. Making it nice will take effort. TODO_WTT_CD make nice or ignore and remove comment. Easiest solution is just making a custom tooltip that says "5 civilian factories will be converted to military factories" and ignore telling the player the states where it will happen.
+d_decrease_opinion = {
+	GLC = {
+		add_opinion_modifier = {
+			target = GER
+			modifier = large_decrease
+		}
+	}
+}
+d_faction_leader = {
+	log = "Faction Leader: [?ROOT.faction_leader.GetName]"
+}
+d_change_faction_behavior = {
+	add_to_variable = {
+		behavior_garrison = 1
+	}
+}
+d_reset_faction_behavior = {
+	set_variable = {
+		behavior_garrison = 0
+	}
+}
 d_drop_cosmetic_tag = {
 	drop_cosmetic_tag = yes
 }
@@ -289,7 +310,6 @@ head_of_gov_setup = {
 		limit = {
 			capital_scope = { is_on_continent = europe }
 		}
-		log = "joe"
 		random_list = { 
 			1 = {
 			set_country_flag =Portrait_Europe_Generic_new_1_flag

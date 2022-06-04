@@ -1975,7 +1975,7 @@ country_event = {
 				modifier = ANC_rabaul_volcano_eruption_modifier
 			}
 		}
-		ANC = { add_ideas = ANC_ghost_of_rabaul days = 700 }
+		ANC = { add_timed_idea = {  idea = ANC_ghost_of_rabaul days = 700 } }
 	}
 }
 country_event = {
@@ -2013,6 +2013,20 @@ country_event = {
 		}
 		name = USA_rabaul_volcano_explosion.7.a 
 				hidden_effect = {
+					PNG = {
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = PNG
+							}
+						}
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = PNG
+							}
+						}
+					}
 			country_event = {
 				id = USA_rabaul_volcano_explosion.8
 				days = 7
@@ -2035,8 +2049,25 @@ country_event = {
    				 transfer_state_to = BOC
   			}
 		}
+		673 = {
+			add_core_of = BOC
+		}
 		name = USA_rabaul_volcano_explosion.8.a
 				hidden_effect = {
+					BOC = {
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = BOC
+							}
+						}
+						random_owned_controlled_state = {
+							create_unit = {
+							division = "name = \"Tribal Division 1\" division_template = \"Infantry Division\" start_experience_factor = 0.4"
+							owner = BOC
+							}
+						}
+					}
 			country_event = {
 				id = USA_rabaul_volcano_explosion.9
 				days = 7
@@ -4652,3 +4683,64 @@ country_event = {
 # 		name = Texas_breakup_events.3.a
 # 	}
 # }
+
+add_namespace = USA_content_events
+
+news_event = { #roosevelt collory becomes big global thingamajig
+	id = USA_content_events.1
+	title = USA_content_events.1.t
+	desc = USA_content_events.1.d
+	picture = GFX_news_event_usa_japan_at_war
+	is_triggered_only = yes
+	major = yes
+
+	option = {
+		name = USA_content_events.1.a
+		trigger = {
+			OR = {
+				has_government = communism
+				has_government = fascism
+				has_government = ultranationalism
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.b
+		trigger = {
+			OR = {
+				is_in_faction_with = USA
+				tag = USA
+			}
+		}
+	}
+	option = {
+		name = USA_content_events.1.c
+		trigger = {
+			NOT = {
+				OR = {
+					has_government = communism
+					has_government = fascism
+					has_government = ultranationalism
+					is_in_faction_with = USA
+					tag = USA
+				}
+			}
+		}
+	}
+}
+
+country_event = { #deciding la plata occupation
+	id = USA_content_events.2
+	title = USA_content_events.2.t
+	desc = USA_content_events.2.d
+	#picture = G
+	is_triggered_only = yes
+	option = { #we must appeal to the argentine people
+		name = USA_content_events.2.a
+		
+	}
+	option = { #fuck them kids
+		name = USA_content_events.2.b
+		set_country_flag = USA_vengeful_occupation_arg
+	}
+}

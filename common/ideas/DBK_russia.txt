@@ -611,7 +611,7 @@ SOV_milyukov_economics_1 = {
 	removal_cost = -1
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.4
+		production_factory_efficiency_gain_factor = 0.1
 	
 	}
 }  
@@ -627,7 +627,7 @@ SOV_milyukov_economics_2 = {
 	removal_cost = -1
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.4
+		production_factory_efficiency_gain_factor = 0.15
 		consumer_goods_factor = -0.05
 	
 	}
@@ -645,7 +645,7 @@ SOV_milyukov_economics_3 = {
 	removal_cost = -1
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.4
+		production_factory_efficiency_gain_factor = 0.15
 		consumer_goods_factor = -0.05
 		production_speed_arms_factory_factor = 0.1
 
@@ -664,7 +664,7 @@ SOV_milyukov_economics_4 = {
 	removal_cost = -1
 
 	modifier = {
-		production_factory_efficiency_gain_factor = 0.4
+		production_factory_efficiency_gain_factor = 0.15
 		consumer_goods_factor = -0.05
 		production_speed_arms_factory_factor = 0.1
 		political_power_factor = -0.05
@@ -2473,7 +2473,6 @@ SOV_beacon_of_democracy_4 = {
 					MONTHLY_POPULATION = 0.3
 				production_factory_efficiency_gain_factor = 0.1
 				production_speed_infrastructure_factor = 0.1
-				conscription = 0.1
 				}
 			}
 			SOV_an_employed_populace = {
@@ -2495,6 +2494,7 @@ SOV_beacon_of_democracy_4 = {
 					army_org_factor = 0.1
 					stability_factor = -0.25
 				}
+				cancel = { has_war_with = AUS }
 			}
 
 		SOV_varovskism_1 = {
@@ -2571,7 +2571,7 @@ SOV_beacon_of_democracy_4 = {
 			modifier = {
 				political_power_gain = 0.1
 				monthly_population = 0.15
-				surrender_limit = 0.2
+				surrender_limit = 0.05
 			}
 		}
 
@@ -2586,9 +2586,67 @@ SOV_beacon_of_democracy_4 = {
 			modifier = {
 				political_power_gain = 0.1
 				monthly_population = 0.15
-				surrender_limit = 0.2
+				surrender_limit = 0.08
 				consumer_goods_factor = -0.05
 				production_speed_buildings_factor = 0.1
+			}
+		}
+
+		HUN_post_war_rebels = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			removal_cost = -1
+			modifier = {
+				stability_factor = -0.25
+				war_support_factor = -0.25
+				political_power_factor = -0.15
+				conscription_factor = -0.15
+			}
+		}
+		SOV_european_economic_zone = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			removal_cost = -1
+			modifier = {
+				consumer_goods_factor = -0.05
+				min_export = 0.05
+				faction_trade_opinion_factor = 0.25
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		SOV_forever_war = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			picture = generic_purge
+			cancel = {
+				has_war = no
+			}
+			removal_cost = -1
+			modifier = {
+				war_support_factor = -0.2
+				stability_factor = -0.2
+				army_speed_factor = -0.1
+				army_morale_factor = -0.1
+				supply_consumption_factor = 0.1
 			}
 		}
   }

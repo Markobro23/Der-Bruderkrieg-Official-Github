@@ -1,4 +1,4 @@
-﻿capital = 504
+﻿capital = 983
 
 
 oob = "FLF_1936"
@@ -10,7 +10,6 @@ set_technology = {
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
 	early_fighter = 1
 	CAS1 = 1
 
@@ -46,77 +45,13 @@ if = {
 }
 set_country_flag = monroe_doctrine
 
-1939.1.1 = {
-
-	add_political_power = 1198
-
-	#generic focuses
-	complete_national_focus = army_effort
-	complete_national_focus = equipment_effort
-	complete_national_focus = motorization_effort
-	complete_national_focus = aviation_effort
-	complete_national_focus = naval_effort
-	complete_national_focus = large_navy
-	complete_national_focus = industrial_effort
-	complete_national_focus = construction_effort
-	complete_national_focus = production_effort
-
-	oob = "BRA_1939"
-	set_technology = {
-		interwar_artillery = 1
-		infantry_weapons1 = 1
-		infantry_weapons2 = 1
-		support_weapons = 1
-
-
-		#doctrines
-		air_superiority = 1
-		grand_battle_plan = 1
-		trench_warfare = 1
-		fleet_in_being = 1
-		battlefleet_concentration = 1
-		convoy_sailing = 1
-
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		radio_detection = 1
-		mechanical_computing = 1
-		computing_machine = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		synth_oil_experiments = 1
-		fuel_silos = 1
-		oil_processing = 1
-		improved_oil_processing = 1
-		construction1 = 1
-		construction2 = 1
-		dispersed_industry = 1
-		dispersed_industry2 = 1
-	}
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		set_technology = {
-			basic_submarine = 1
-			basic_destroyer = 1
-		}
-		set_naval_oob = "BRA_1939_naval_legacy"
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		set_technology = {
-			basic_ship_hull_light = 1
-		}
-		set_naval_oob = "BRA_1939_naval"
-	}
-} 
+recruit_character = FLF_candido_mariano_da_silva_rondon
+recruit_character = FLF_eurico_gaspar_dutra
+recruit_character = FLF_jose_fernandes_leite
 
 add_ideas = { 
-
+	FLF_native_alliance
+	FLF_socialist_resistance
 }
 
 set_politics = {
@@ -137,87 +72,16 @@ set_popularities = {
 	ultranationalism = 1
 }
 
-create_country_leader = {
-	name = "Cândido Mariano da Silva Rondon"
-	desc = ""
-	picture = "gfx/leaders/Rondon.dds"
-	expire = "1965.1.1"
-	ideology = civic_nationalism
-	traits = {
-		#
-	}
-}
 
-create_country_leader = {
-	name = "Plínio Salgado"
-	desc = "POLITICS_PLINIO_SALGADO_DESC"
-	picture = "Portrait_Brazil_Plinio_Salgado.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
-create_country_leader = {
-	name = "Luís Carlos Prestes"
-	desc = "POLITICS_LUIS_CARLOS_PRESTES_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
-	expire = "1965.1.1"
-	ideology = marxism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Armando Sales"
-	desc = "POLITICS_ARMANDO_SALES_DESC"
-	picture = "gfx/leaders/South America/Portrait_South_America_Generic_2.dds"
-	expire = "1965.1.1"
-ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
 
 
 set_convoys = 40
 
-1939.1.1 = {
-	set_politics = {
-		ruling_party = neutrality
-		last_election = "1934.7.17"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-		neutrality = 100
-	}
-}
+
 
 set_variable = {bra_influence_in_paraguay = 5}
 
-create_corps_commander = {
-	name = "Eurico Gaspar Dutra"
-	portrait_path = "gfx/leaders/Dutra.dds"
-	traits = { ranger  }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 3
-}
 
-create_corps_commander = {
-	name = "José Fernandes Leite"
-	portrait_path = "gfx/leaders/BR_Jose_Fernandes_Leite.dds"
-	traits = {  jungle_rat }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 4
-}
 
 
 if = {
@@ -309,22 +173,3 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = {
-			has_dlc = "Man the Guns"
-		}
-		create_equipment_variant = {
-			name = "Tupi Class"
-			type = ship_hull_submarine_2
-			name_group = BRA_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_1
-				fixed_ship_engine_slot = sub_ship_engine_1
-				rear_1_custom_slot = empty
-			}
-		}
-	}
-}

@@ -1495,6 +1495,16 @@ shared_focus = {
     ai_will_do = {
         factor = 2000
     }
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.11 }
     }
@@ -1517,6 +1527,16 @@ shared_focus = {
     available = {
         has_country_flag = SOV_they_can_be_allies_unlocked
     }
+    bypass = {
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
+	}
     ai_will_do = {
         factor = 2000
     }
@@ -1932,7 +1952,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_first_five_year_plan
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         add_ideas = SOV_collectivization_efforts_focus
@@ -2054,7 +2074,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_first_five_year_plan
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         swap_ideas = {
@@ -2411,6 +2431,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			AFG = {
+				exists = no
+			}
+			AFG = {
+				is_in_faction = yes
+			}
+			AFG = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         AFG = {
             country_event = SOV_lenin_tree_events.9
@@ -2432,6 +2465,16 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    bypass = {
+		OR = {
+			PER = {
+				exists = no
+			}
+			PER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         PER = {
             country_event = { id = SOV_lenin_tree_events.10 }
@@ -2479,19 +2522,20 @@ shared_focus = {
     icon = GFX_goal_SOV_third_internationale
 	x = 0
 	y = 1
-	
-	available = {
-	}
-	bypass = {
-
-	}
 	prerequisite = { focus = SOV_end_the_austrian_threat }
 	
 	relative_position_id = SOV_end_the_austrian_threat
 
 	cost = 10		
 	available = {
-		has_global_flag = austria_defeated
+		custom_trigger_tooltip = {
+            tooltip = austria_defeated
+            OR = {
+                has_global_flag = austria_defeated
+                AUS = { exists = no }
+                AUS = { is_subject = yes }
+            }
+        }
 	}
 
 	cancel_if_invalid = yes
@@ -2544,7 +2588,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			FRA = {
+				exists = no
+			}
+			FRA = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_follow_trotskys_footsteps }
 	
@@ -2625,7 +2676,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			GER = {
+				exists = no
+			}
+			GER = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_follow_trotskys_footsteps }
 	
@@ -2688,7 +2746,14 @@ shared_focus = {
 	available = {
 	}
 	bypass = {
-
+		OR = {
+			ENG = {
+				exists = no
+			}
+			ENG = {
+				has_war_with = SOV
+			}
+		}
 	}
 	prerequisite = { focus = SOV_liberate_the_german_workers }
 	prerequisite = {

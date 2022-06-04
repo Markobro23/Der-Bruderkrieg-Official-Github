@@ -706,7 +706,7 @@ country_event = {
 	}
 }
 
-news_event = { #exile
+news_event = { #exile from prussia
 	id = france.215
 	title = france.215.t
 	desc = france.215.d
@@ -720,11 +720,25 @@ news_event = { #exile
 			OR = {
 				is_in_faction_with = FRA
 				is_subject_of = FRA
+			}
+			NOT = {
 				tag = FRA
 			}
 		}
+		declare_war_on = {
+			target = GER
+			type = topple_government
+		}
+		name = france.215.a
+	}
+	option = { # 
+		trigger = {
+			tag = FRA
+		}
 		name = france.215.a 
-		FRA = { set_cosmetic_tag = FRA_FREE set_country_flag = FRA_unlock_exile_tree mark_focus_tree_layout_dirty = yes }
+		set_cosmetic_tag = FRA_FREE 
+		set_country_flag = FRA_unlock_exile_tree 
+		mark_focus_tree_layout_dirty = yes
 		declare_war_on = {
 			target = GER
 			type = topple_government
@@ -754,6 +768,69 @@ news_event = { #exile
 			}
 		}
 		name = france.215.c 
+	}
+}
+
+news_event = { #exile from austria
+	id = france.216
+	title = france.216.t
+	desc = france.216.d
+	picture = GFX_news_event_french_parade
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { # 
+		trigger = {
+			OR = {
+				is_in_faction_with = FRA
+				is_subject_of = FRA
+			}
+			NOT = { tag = FRA }
+		}
+		name = france.216.a
+		declare_war_on = {
+			target = AUS
+			type = topple_government
+		}
+	}
+	option = { # 
+		trigger = {
+			tag = FRA
+		}
+		name = france.216.a 
+		set_cosmetic_tag = FRA_FREE 
+		set_country_flag = FRA_unlock_exile_tree 
+		mark_focus_tree_layout_dirty = yes
+		declare_war_on = {
+			target = AUS
+			type = topple_government
+		}
+	}
+	option = { # booya
+		trigger = {
+			OR = {
+				is_in_faction_with = AUS
+				is_subject_of = AUS
+				tag = AUS
+			}
+		}
+		name = france.215.b 
+	}
+	option = { #can this french dynastic war end before the empire collapses?
+		trigger = {
+			NOT = {
+				OR = {
+					is_in_faction_with = FRA
+					is_subject_of = FRA
+					tag = FRA
+					is_in_faction_with = AUS
+					is_subject_of = AUS
+					tag = AUS
+				}
+			}
+		}
+		name = france.216.c 
 	}
 }
 
@@ -1920,6 +1997,67 @@ news_event = {
 
 
 
+## ALLIANCE WITH X
+#belgium
+news_event = {
+	id = napoleanfrance.34
+	title = napoleanfrance.34.t
+	desc = napoleanfrance.34.d
+	picture = GFX_francobelgianalliance
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.34.a
+	}
+}
+
+## dutch
+news_event = {
+	id = napoleanfrance.35
+	title = napoleanfrance.35.t
+	desc = napoleanfrance.35.d
+	picture = GFX_franconetherlandsalliance
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.35.a
+	}
+}
+
+## portugal
+news_event = {
+	id = napoleanfrance.36
+	title = napoleanfrance.36.t
+	desc = napoleanfrance.36.d
+	picture = GFX_francoportugesealliance
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.36.a
+	}
+}
+##spain
+news_event = {
+	id = napoleanfrance.37
+	title = napoleanfrance.37.t
+	desc = napoleanfrance.37.d
+	picture = GFX_francospanishalliance
+	major = yes
+
+	is_triggered_only = yes
+
+	option = {
+		name = napoleanfrance.37.a
+	}
+}
+
+
 add_namespace = belgian_election_events ##not really france itself but deeply intertwined
 
 ##Degrelle wins, france  belgium and england
@@ -1984,6 +2122,11 @@ country_event = {
 		name = belgian_election_events.3.a
 		
 		set_global_flag = degrelle_loses_electionns 
+
+		BEL = {
+			remove_ideas = BEL_integralism
+			add_ideas = BEL_liberalism
+		}
 		
 		news_event = belgian_election_events.4
 
@@ -2214,24 +2357,26 @@ country_event = {
 	picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
-
+ 
 	option = {
 		name = belgian_election_events.11.a
 		release = COG
 		declare_war_on = {
 			target = COG
-			type = civil_war
+			type = civil_war 
 		}
-
+		set_global_flag = congo_revolt_fired
 		hidden_effect = {
 			news_event = {
 				id = belgian_election_events.14 
 				days = 2
 			}
-		}
+		} 
 
 		hidden_effect = {
 			COG = {
+				load_oob = "COG_1936"
+				add_ideas = member_anticolonial_association_oppressed_people
 				add_popularity = {
 					ideology = fascism
 					popularity = 100
@@ -2315,19 +2460,19 @@ news_event = {
 	}
 }
 
-## Congo Revolt - GER Accept Support
-country_event = {
-	id = belgian_election_events.13
-	title = belgian_election_events.13.t
-	desc = belgian_election_events.13.d
-	picture = GFX_report_event_soldiers_in_france
+# ## Congo Revolt - GER Accept Support
+# country_event = {
+# 	id = belgian_election_events.13
+# 	title = belgian_election_events.13.t
+# 	desc = belgian_election_events.13.d
+# 	picture = GFX_report_event_soldiers_in_france
 
-	is_triggered_only = yes
+# 	is_triggered_only = yes
 
-	option = {
-		name = belgian_election_events.13.a
-	}
-}
+# 	option = {
+# 		name = belgian_election_events.13.a
+# 	}
+# }
 
 add_namespace = brussells_conference
 
@@ -2569,12 +2714,109 @@ news_event = {
 	id = westfalen_subtree_events.4
 	title = westfalen_subtree_events.4.t
 	desc = westfalen_subtree_events.4.d
-	picture = GFX_report_event_soldiers_in_france
+	picture = GFX_news_event_021
 	major = yes
 	is_triggered_only = yes
 
 	option = {
 		name = westfalen_subtree_events.4.a
+		
+	}
+}
+
+country_event = { #adenauer asks to form a parliament
+	id = westfalen_subtree_events.5
+	title = westfalen_subtree_events.5.t
+	desc = westfalen_subtree_events.5.d
+	#picture = GFX_report_event_soldiers_in_france
+	is_triggered_only = yes
+
+	option = { #sure, let's make a sister republic
+		name = westfalen_subtree_events.5.a
+		trigger = {
+			NOT = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+			}
+		}
+		FGD = {
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = no
+			}
+			add_ideas = FGD_konrad_adenauer
+			country_event = { id = westfalen_subtree_events.6 days = 1 }
+		}
+	}
+	option = { #moderately reform to a constitutional monarchy
+		name = westfalen_subtree_events.5.b
+		trigger = {
+			NOT = {
+				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+			}
+		}
+		FGD = {
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = authoritarian_democratic
+				elections_allowed = no
+			}
+			add_ideas = FGD_konrad_adenauer
+			country_event = { id = westfalen_subtree_events.6 days = 1 }
+		}
+	}
+	option = { #no
+		name = westfalen_subtree_events.5.c
+		FGD = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+			add_stability = -0.05
+			country_event = { id = westfalen_subtree_events.7 days = 1 }
+		}
+	}
+}
+
+country_event = { #napoleon accepts
+	id = westfalen_subtree_events.6
+	title = westfalen_subtree_events.6.t
+	desc = {
+		trigger = {
+			has_government = democratic
+		}
+		text = westfalen_subtree_events.6.d1
+	}
+	desc = {
+		trigger = {
+			has_government = authoritarian_democratic
+		}
+		text = westfalen_subtree_events.6.d2
+	}
+	picture = GFX_report_event_soldiers_in_france
+	is_triggered_only = yes
+
+	option = { #
+		name = westfalen_subtree_events.6.a
+		
+	}
+}
+
+country_event = { #france says no
+	id = westfalen_subtree_events.7
+	title = westfalen_subtree_events.7.t
+	desc = westfalen_subtree_events.7.d
+	picture = GFX_report_event_soldiers_in_france
+	is_triggered_only = yes
+
+	option = { #dang
+		name = westfalen_subtree_events.7.a
 		
 	}
 }
@@ -2612,12 +2854,16 @@ country_event = {
 	option = {
 		name = FRA_indochina_events.2.a
 		SIA = {
+			HVN = {
+				add_state_core = 937
+			}
 			release = HVN
 			declare_war_on = {
 				target = HVN
 				type = civil_war
 			}
 		}
+		
 	}
 }
 
@@ -2816,6 +3062,10 @@ country_event = {
 	option = {
 		name = FRA_african_colonial_events.1.b
 		set_country_flag = FRA_will_do_union_plan
+
+		trigger = {
+			has_completed_focus = FRA_DOCTRINAIRE_LEFT
+		}
 	}
 }
 
@@ -3211,7 +3461,7 @@ news_event = { #european customs union formation
 	id = french_post_victory_tree.4
 	title = french_post_victory_tree.4.t
 	desc = french_post_victory_tree.4.d
-	picture = GFX_report_event_soldiers_in_france
+	picture = GFX_news_event_generic_read_write
 
 	is_triggered_only = yes
 	major = yes
@@ -3306,7 +3556,7 @@ news_event = { #FRA unifies the continental system
 	id = french_post_victory_tree.7
 	title = french_post_victory_tree.7.t
 	desc = french_post_victory_tree.7.d
-	picture = GFX_report_event_soldiers_in_france
+	picture = GFX_franceunifiesthecustomsunion
 
 	is_triggered_only = yes
 	major = yes

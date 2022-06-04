@@ -289,7 +289,7 @@ shared_focus = {
 shared_focus = {
     id = SOV_weakening_the_tsar
     icon = GFX_goal_SOV_a_tsar_only_in_name 
-	prerequisite = {focus = SOV_Menshevik_Dominance focus = SOV_Paragon_of_Honesty }
+	prerequisite = {focus = SOV_Menshevik_Dominance }
 	x = 1
 	y = 1
 	relative_position_id = SOV_Menshevik_Dominance
@@ -353,17 +353,42 @@ shared_focus = {
         add_country_leader_trait = leader_of_1905
     }
 }
+shared_focus = {
+		id = SOV_2_YEAR_PLAN
+		icon = GFX_goal_generic_positive_trade_relations
+		#text = SOV_RED_AIRFORCE
+		x = 19
+		y = 0
 
+
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
 shared_focus = {
 	id = SOV_pursue_economic_justice
-	icon = GFX_goal_SOV_kulak_revolt
+	icon = GFX_goal_SOV_the_peoples_economy
 	text = SOV_pursue_economic_justice
-	x = 20
-	y = 0
+	x = -2
+	y = 1
 	cost = 2
 	ai_will_do = {
 	  factor = 20
 	}
+	prerequisite = { focus = SOV_2_YEAR_PLAN }
+		relative_position_id = SOV_2_YEAR_PLAN
   
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -378,7 +403,8 @@ shared_focus = {
 	icon = GFX_goal_bulding_up_the_housing_industury
 	text = SOV_owners_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = -2
+	
+	x = 1
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
 	cost = 5
@@ -398,7 +424,7 @@ shared_focus = {
 						has_completed_focus = SOV_kerenskys_dream
 					}
 				}
-				country_event = SOV_kerensky_tree_events.9
+				country_event = SOV_kerensky_tree_events.10
 			}
 		}	
 	}
@@ -409,8 +435,11 @@ shared_focus = {
 	icon = GFX_goal_SOV_centralization_reform
 	text = SOV_nationalize_important_industries
 	prerequisite = { focus = SOV_owners_state }
-	x = 0
-	y = 2
+	prerequisite = {
+		focus = SOV_COLONIZATION_INCENTIVE
+	}
+	x = 1
+	y = 1
 	relative_position_id = SOV_owners_state
 	cost = 5
 	ai_will_do = {
@@ -481,7 +510,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_using_the_seperatists
 	text = SOV_workers_state
 	prerequisite = { focus = SOV_pursue_economic_justice }
-	x = 1
+	x = -1
 	y = 1
 	relative_position_id = SOV_pursue_economic_justice
 	cost = 5
@@ -502,75 +531,75 @@ shared_focus = {
 						has_completed_focus = SOV_kerenskys_dream
 					}
 				}
-				country_event = SOV_kerensky_tree_events.9
-			}
-		}
-	}
-  }
-  
-  shared_focus = {
-	id = SOV_establish_minimum_wage
-	icon = GFX_goal_USA_lower_taxes_on_small_businesses
-	text = SOV_establish_minimum_wage
-	prerequisite = { focus = SOV_workers_state }
-	x = -1
-	y = 1
-	relative_position_id = SOV_workers_state
-	cost = 4
-	ai_will_do = {
-	  factor = 20
-	}
-  
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
-  
-	completion_reward = {
-		SOV_level_up_workers_idea = yes
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_completed_focus = SOV_kerenskys_dream
-					}
-				}
 				country_event = SOV_kerensky_tree_events.10
 			}
 		}
 	}
   }
+  
+#   shared_focus = {
+# 	id = SOV_establish_minimum_wage
+# 	icon = GFX_goal_USA_lower_taxes_on_small_businesses
+# 	text = SOV_establish_minimum_wage
+# 	prerequisite = { focus = SOV_workers_state }
+# 	x = -1
+# 	y = 1
+# 	relative_position_id = SOV_workers_state
+# 	cost = 4
+# 	ai_will_do = {
+# 	  factor = 20
+# 	}
+  
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
+  
+# 	completion_reward = {
+# 		SOV_level_up_workers_idea = yes
+# 		hidden_effect = {
+# 			if = {
+# 				limit = {
+# 					NOT = {
+# 						has_completed_focus = SOV_kerenskys_dream
+# 					}
+# 				}
+# 				country_event = SOV_kerensky_tree_events.10
+# 			}
+# 		}
+# 	}
+#   }
   
 
   
-  shared_focus = {
-	id = SOV_impose_safety_regulations
-	icon = GFX_goal_SOV_pavels_army_reforms
-	text = SOV_impose_safety_regulations
-	prerequisite = { focus = SOV_workers_state }
-	x = 1
-	y = 1
-	relative_position_id = SOV_workers_state
-	cost = 4
-	ai_will_do = {
-	  factor = 20
-	}
+#   shared_focus = {
+# 	id = SOV_impose_safety_regulations
+# 	icon = GFX_goal_SOV_pavels_army_reforms
+# 	text = SOV_impose_safety_regulations
+# 	prerequisite = { focus = SOV_workers_state }
+# 	x = 1
+# 	y = 1
+# 	relative_position_id = SOV_workers_state
+# 	cost = 4
+# 	ai_will_do = {
+# 	  factor = 20
+# 	}
   
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }   
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }   
   
-	completion_reward = {
-		SOV_level_up_workers_idea = yes
-		hidden_effect = {
-			if = {
-				limit = {
-					NOT = {
-						has_completed_focus = SOV_kerenskys_dream
-					}
-				}
-				country_event = SOV_kerensky_tree_events.10
-			}
-		}
-	}
-  }
+# 	completion_reward = {
+# 		SOV_level_up_workers_idea = yes
+# 		hidden_effect = {
+# 			if = {
+# 				limit = {
+# 					NOT = {
+# 						has_completed_focus = SOV_kerenskys_dream
+# 					}
+# 				}
+# 				country_event = SOV_kerensky_tree_events.10
+# 			}
+# 		}
+# 	}
+#   }
   
 #   shared_focus = {
 # 	id = SOV_maximum_price_list
@@ -598,10 +627,10 @@ shared_focus = {
 	id = SOV_legalize_unions
 	icon = GFX_goal_USA_work_with_unions
 	text = SOV_legalize_unions
-	prerequisite = { focus = SOV_establish_minimum_wage focus = SOV_impose_safety_regulations }
+	prerequisite = { focus = SOV_workers_state }
 	x =1
 	y = 1
-	relative_position_id = SOV_establish_minimum_wage
+	relative_position_id = SOV_workers_state
 	cost = 4
 	ai_will_do = {
 	  factor = 20
@@ -611,6 +640,10 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	completion_reward = {
+		swap_ideas = {
+			add_idea = SOV_workers_idea_2
+			remove_idea = SOV_workers_idea
+		}
 		SOV_increase_support_among_people_small = yes
 		add_popularity = {
 		ideology = socialism_democratic
@@ -630,63 +663,40 @@ shared_focus = {
 	}
   }
   
-  shared_focus = {
-	id = SOV_the_peoples_economy
-	icon = GFX_goal_SOV_the_peoples_economy
-	text = SOV_the_peoples_economy
-	prerequisite = {
-		focus = SOV_nationalize_important_industries
-	}
-	prerequisite = {
-		focus = SOV_legalize_unions
-	}
-	x = 2
-	y = 1
-	relative_position_id = SOV_nationalize_important_industries
-	cost = 6
-	ai_will_do = {
-	  factor = 20
-	}
+#   shared_focus = {
+# 	id = SOV_the_peoples_economy
+# 	icon = GFX_goal_SOV_the_peoples_economy
+# 	text = SOV_the_peoples_economy
+# 	prerequisite = {
+# 		focus = SOV_nationalize_important_industries
+# 	}
+# 	prerequisite = {
+# 		focus = SOV_legalize_unions
+# 	}
+# 	x = 2
+# 	y = 1
+# 	relative_position_id = SOV_nationalize_important_industries
+# 	cost = 6
+# 	ai_will_do = {
+# 	  factor = 20
+# 	}
   
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
-	completion_reward = {
-	 add_political_power = 150
-	}
-  }
+# 	completion_reward = {
+# 	 add_political_power = 150
+# 	}
+#   }
 
-	shared_focus = {
-		id = SOV_2_YEAR_PLAN
-		icon = GFX_goal_generic_positive_trade_relations
-		#text = SOV_RED_AIRFORCE
-		x = 20
-		y = 6
-
-
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = industry
-			}
-		}
-	}
+	
 
 	shared_focus = {
 		id = SOV_NATIONALIZE_FARM
 		icon = GFX_focus_prc_agrarian_socialism
 		#text = SOV_RED_AIRFORCE
 		prerequisite = { focus = SOV_2_YEAR_PLAN }
-		x = -1
+		x = 2
 		y = 1
 		relative_position_id = SOV_2_YEAR_PLAN
 		cost = 5
@@ -727,69 +737,44 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = SOV_FACTORIES_UPON_FARMS
-		icon = GFX_focus_generic_industry_1
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_COLONIZATION_INCENTIVE }
-		prerequisite = {
-			focus = SOV_VIRGIN_LAND_INITIATIVE
-		}
-		x = 1
-		y = 1
-		relative_position_id = SOV_COLONIZATION_INCENTIVE
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
+# 	shared_focus = {
+# 		id = SOV_FACTORIES_UPON_FARMS
+# 		icon = GFX_focus_generic_industry_1
+# 		#text = SOV_RED_AIRFORCE
+# 		prerequisite = { focus = SOV_COLONIZATION_INCENTIVE }
+# 		prerequisite = {
+# 			focus = SOV_VIRGIN_LAND_INITIATIVE
+# 		}
+# 		x = 1
+# 		y = 1
+# 		relative_position_id = SOV_COLONIZATION_INCENTIVE
+# 		cost = 5
+# 		ai_will_do = {
+# 			factor = 25
+# 		}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+# 		available_if_capitulated = yes
+# 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-	257 = {
-	add_building_construction = {
-		type = arms_factory
-		level = 1
-		instant_build = yes
-}
-}
-264 = {
-	add_building_construction = {
-		type = industrial_complex
-		level = 1
-		instant_build = yes
-}
-}
-		}
-	}
+# 		completion_reward = {
+# 	257 = {
+# 	add_building_construction = {
+# 		type = arms_factory
+# 		level = 1
+# 		instant_build = yes
+# }
+# }
+# 264 = {
+# 	add_building_construction = {
+# 		type = industrial_complex
+# 		level = 1
+# 		instant_build = yes
+# }
+# }
+# 		}
+# 	}
 
-	shared_focus = {
-		id = SOV_BEUREAU_INDUSTRIALIZATION
-		icon = GFX_focus_generic_socialist_science
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
-		prerequisite = {
-			focus = SOV_WELFARE_ECONOMICS
-		}
-		x = 1
-		y = 1
-		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			swap_ideas  = {
-				add_idea = Industrializing_2
-				remove_idea = Industrializing
-			}
-		}
-	}
+	
 
 	shared_focus = {
 		id = SOV_VIRGIN_LAND_INITIATIVE
@@ -808,7 +793,56 @@ shared_focus = {
 		#search_filters = { FOCUS_FILTER_INDUSTRY }
 
 		completion_reward = {
-			unlock_decision_category_tooltip = SOV_virgin_land
+			unlock_decision_category_tooltip = SOV_siberian_development
+		}
+	}
+
+	shared_focus = {
+		id = SOV_BEUREAU_INDUSTRIALIZATION
+		icon = GFX_focus_generic_socialist_science
+		#text = SOV_RED_AIRFORCE
+		prerequisite = { focus = SOV_VIRGIN_LAND_INITIATIVE }
+		prerequisite = {
+			focus = SOV_COLONIZATION_INCENTIVE
+		}
+		# prerequisite = {
+		# 	focus = SOV_WELFARE_ECONOMICS
+		# }
+		x = -1
+		y = 1
+		relative_position_id = SOV_VIRGIN_LAND_INITIATIVE
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			swap_ideas  = {
+				add_idea = Industrializing_2
+				remove_idea = Industrializing
+			}
+
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex 
+					level = 1
+					instant_build = yes
+
+				}
+				add_extra_state_shared_building_slots = 1
+    		}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex 
+					level = 1
+					instant_build = yes
+
+				}
+				add_extra_state_shared_building_slots = 1
+    		}
 		}
 	}
 
@@ -1010,30 +1044,30 @@ shared_focus = {
 	# 	}
 	# }
 
-	shared_focus = {
-		id = SOV_INTO_FUTURE
-		icon = GFX_focus_generic_industry_3
-		#text = SOV_RED_AIRFORCE
-	prerequisite = { focus = SOV_BEUREAU_INDUSTRIALIZATION }
-	prerequisite = { focus = SOV_FACTORIES_UPON_FARMS }
-		x = -1
-		y = 1
-		relative_position_id = SOV_BEUREAU_INDUSTRIALIZATION
-		cost = 15
-		ai_will_do = {
-			factor = 25
-		}
+	# shared_focus = {
+	# 	id = SOV_INTO_FUTURE
+	# 	icon = GFX_focus_generic_industry_3
+	# 	#text = SOV_RED_AIRFORCE
+	# prerequisite = { focus = SOV_BEUREAU_INDUSTRIALIZATION }
+	# prerequisite = { focus = SOV_FACTORIES_UPON_FARMS }
+	# 	x = -1
+	# 	y = 1
+	# 	relative_position_id = SOV_BEUREAU_INDUSTRIALIZATION
+	# 	cost = 15
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-			swap_ideas  = {
-				add_idea = Industrializing_3
-				remove_idea = Industrializing_2
-			}
-		}
-	}
+	# 	completion_reward = {
+	# 		swap_ideas  = {
+	# 			add_idea = Industrializing_3
+	# 			remove_idea = Industrializing_2
+	# 		}
+	# 	}
+	# }
 
 	# shared_focus = {
 	# 	id = SOV_URBAN_INDUSTRY
@@ -1160,50 +1194,50 @@ shared_focus = {
 	# 	}
 	# }
 
-	shared_focus = {
-		id = SOV_INDUSTRIAL_DEMOCRACY
-		icon = GFX_focus_generic_the_giant_wakes
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_2_YEAR_PLAN }
-		x = 2
-		y = 1
-		relative_position_id = SOV_2_YEAR_PLAN
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
+	# shared_focus = {
+	# 	id = SOV_INDUSTRIAL_DEMOCRACY
+	# 	icon = GFX_focus_generic_the_giant_wakes
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_2_YEAR_PLAN }
+	# 	x = 2
+	# 	y = 1
+	# 	relative_position_id = SOV_2_YEAR_PLAN
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-	add_ideas = SOVIETIZATION
-		}
-	}
+	# 	completion_reward = {
+	# add_ideas = SOVIETIZATION
+	# 	}
+	# }
 
-	shared_focus = {
-		id = SOV_WELFARE_ECONOMICS
-		icon = GFX_focus_mex_privatisation
-		#text = SOV_RED_AIRFORCE
-		prerequisite = { focus = SOV_INDUSTRIAL_DEMOCRACY }
-		x = 0
-		y = 1
-		relative_position_id = SOV_INDUSTRIAL_DEMOCRACY
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
+	# shared_focus = {
+	# 	id = SOV_WELFARE_ECONOMICS
+	# 	icon = GFX_focus_mex_privatisation
+	# 	#text = SOV_RED_AIRFORCE
+	# 	prerequisite = { focus = SOV_INDUSTRIAL_DEMOCRACY }
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = SOV_INDUSTRIAL_DEMOCRACY
+	# 	cost = 5
+	# 	ai_will_do = {
+	# 		factor = 25
+	# 	}
 
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
+	# 	available_if_capitulated = yes
+	# 	#search_filters = { FOCUS_FILTER_INDUSTRY }
 
-		completion_reward = {
-			swap_ideas = {
-			remove_idea = SOVIETIZATION
-			add_idea = SOVIETIZATION_2
-			}
-		}
-	}
+	# 	completion_reward = {
+	# 		swap_ideas = {
+	# 		remove_idea = SOVIETIZATION
+	# 		add_idea = SOVIETIZATION_2
+	# 		}
+	# 	}
+	# }
 
 shared_focus = {
 	id = SOV_the_question_of_the_okhrana
@@ -1291,6 +1325,9 @@ shared_focus = {
 	ai_will_do = { 
 		factor = 2000
 	}  
+	available = {
+		always = no
+	}
 
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -1356,6 +1393,9 @@ shared_focus = {
 	}
 	mutually_exclusive = {
 		focus = SOV_denouncing_the_okhrana
+	}
+	available = {
+		always = no
 	}
 
 	available_if_capitulated = yes
@@ -1922,6 +1962,11 @@ shared_focus = {
   			popularity = 0.05
   		}
 		create_faction = "Petrograd Defense Circle"
+
+		news_event = SOV_kerensky_tree_events.14
+
+		hidden_effect = {
+		}
 	}
 }
 
@@ -1960,8 +2005,11 @@ shared_focus = {
 	id = SOV_foreign_oil_focus
 	icon = GFX_goal_SOV_oil_titan
 	prerequisite = { focus = SOV_great_beacon_democracy }
+	mutually_exclusive = {
+		focus = SOV_pre_emptive_oil_seizure
+	}
 	relative_position_id = SOV_great_beacon_democracy
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -1979,9 +2027,8 @@ shared_focus = {
 	id = SOV_demand_iranian_oil
 	icon = GFX_Attack_Persia
 	prerequisite = { focus = SOV_foreign_oil_focus }
-	mutually_exclusive = { focus = SOV_pre_emptive_oil_seizure }
 	relative_position_id = SOV_foreign_oil_focus
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2012,9 +2059,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_pre_emptive_oil_seizure
 	icon = GFX_goal_SOV_operation_aryan
-	prerequisite = { focus = SOV_foreign_oil_focus }
-	mutually_exclusive = { focus = SOV_demand_iranian_oil }
-	relative_position_id = SOV_foreign_oil_focus
+	prerequisite = { focus = SOV_great_beacon_democracy }
+	mutually_exclusive = { focus = SOV_foreign_oil_focus }
+	relative_position_id = SOV_great_beacon_democracy
 	x = 1
 	y = 1
 	cost = 5
@@ -2037,13 +2084,59 @@ shared_focus = {
 		}
 	}
 	completion_reward = {
-		create_wargoal = {
-			target = PER
-			type = take_state_focus
-			generator = { 266 } #might be wrong about the state just change it if so
+		PER = {
+			country_event = russia.22
 		}
 	}
 }
+shared_focus = {
+	id = SOV_invite_afghanistan
+	icon = GFX_goal_SOV_recruit_afghani_militants
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+		OR = {
+			AFG = {
+				exists = no
+			}
+			AFG = {
+				is_in_faction = yes
+			}
+			AFG = {
+				has_war_with = SOV
+			}
+		}
+	}
+	prerequisite = { focus = SOV_pre_emptive_oil_seizure }
+	relative_position_id = SOV_pre_emptive_oil_seizure
+
+	cost = 5		
+	
+
+	cancel_if_invalid = yes
+	continue_if_invalid = no
+	available_if_capitulated = no
+
+	completion_reward = {
+		AFG = {
+			country_event = russia.22
+		}
+	}
+	ai_will_do = {
+		factor = 200
+		modifier = {
+			add = -200
+			NOT = {
+				has_completed_focus = SOV_a_united_russia
+				has_completed_focus = SOV_a_new_russian_army
+			}
+		}
+	}
+}
+
 
 shared_focus = {
 	id = SOV_turkestan_democracy
@@ -2091,9 +2184,8 @@ shared_focus = {
 	id = SOV_monopolize_turkestan_oil
 	icon = GFX_goal_SOV_support_the_etr
 	prerequisite = { focus = SOV_turkestan_democracy }
-	prerequisite = { focus = SOV_foreign_oil_focus }
 	relative_position_id = SOV_turkestan_democracy
-	x = 0
+	x = -1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2131,12 +2223,12 @@ shared_focus = {
 			ETR = {
 		every_owned_state = {
 			
-			ETR = {
-				give_resource_rights = {
-					receiver = SOV
-					state = PREV
+				ETR = {
+					give_resource_rights = {
+						receiver = SOV
+						state = PREV
+					}
 				}
-			}
 		}
 		}
 		}
@@ -2205,6 +2297,7 @@ shared_focus = {
   			type = take_state_focus
   			generator = { 537 }
   		}
+		
 	}
 }
 
@@ -2213,7 +2306,7 @@ shared_focus = {
 	icon = GFX_focus_attack_japan
 	prerequisite = { focus = SOV_retake_islands }
 	relative_position_id = SOV_retake_islands
-	x = 0
+	x = -1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2238,7 +2331,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_watch_the_manchurian_front
 	prerequisite = { focus = SOV_retake_islands }
 	relative_position_id = SOV_retake_islands
-	x = 2
+	x = 1
 	y = 1
 	cost = 6
 	available_if_capitulated = yes
@@ -2318,10 +2411,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_worlds_oil_titan
 	icon = GFX_goal_Internationalism
-	prerequisite = { focus = SOV_pre_emptive_oil_seizure focus = SOV_demand_iranian_oil }
-	prerequisite = { focus = SOV_monopolize_turkestan_oil }
+	prerequisite = { focus = SOV_securing_ottoman_oil focus = SOV_monopolize_turkestan_oil }
 	relative_position_id = SOV_monopolize_turkestan_oil
-	x = -3
+	x = -2
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2342,15 +2434,16 @@ shared_focus = {
 				modifier = small_increase
 			}
 		}
+		unlock_decision_tooltip = SOV_operation_third_rome_decision
 	}
 }
 
 shared_focus = {
 	id = SOV_securing_ottoman_oil
 	icon = GFX_goal_SOV_the_southern_menace
-	prerequisite = { focus = SOV_worlds_oil_titan }
-	relative_position_id = SOV_worlds_oil_titan
-	x = -2
+	prerequisite = { focus = SOV_demand_iranian_oil focus = SOV_invite_afghanistan }
+	relative_position_id = SOV_demand_iranian_oil
+	x = 1
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2360,9 +2453,11 @@ shared_focus = {
 		TUR = {
 			exists = yes
 		}
-		date > 1939.1.1
-		has_army_manpower = {
-			size > 999999
+		OR = {
+			date > 1939.1.1
+			has_army_manpower = {
+				size > 999999
+			}
 		}
 		if = {
             limit = {
@@ -2377,15 +2472,38 @@ shared_focus = {
         }
 	}
 
+	bypass = {
+		OR = {
+			TUR = {
+				is_puppet = yes
+			}
+			TUR = {
+				has_war_with = SOV
+			}
+		}
+	}
   
 	ai_will_do = {
 		factor = 1000
 	}
 	completion_reward = {
-		create_wargoal = { 
-			target = TUR
-			type = topple_government
+		if = {
+			limit = {
+				PER = {
+					is_in_faction_with = SOV
+				}
+			}
+			PER = {
+				country_event = persian_ottoman_war.1
+			}
 		}
+		else = {
+			create_wargoal = { 
+				target = TUR
+				type = topple_government
+			}
+		}
+		
 	}
 }
 
@@ -2393,8 +2511,11 @@ shared_focus = {
 	id = SOV_expoiting_the_arabian_oilfields
 	icon = GFX_goal_Oil
 	prerequisite = { focus = SOV_securing_ottoman_oil }
+	prerequisite = {
+		focus = SOV_russian_diamonds
+	}
 	relative_position_id = SOV_securing_ottoman_oil
-	x = -1
+	x = -2
 	y = 1
 	cost = 10
 	available_if_capitulated = yes
@@ -2438,7 +2559,7 @@ shared_focus = {
 	icon = GFX_goal_SOV_alliance_with_ethiopia
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 2
+	x = 1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2459,84 +2580,81 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
-		give_guarantee = ETH   
-		ETH = {
-			country_event = russia.22
-		}
+		unlock_decision_category_tooltip = SOV_east_africa_ambitions
 	}
 }
 
-shared_focus = {
-	id = SOV_supply_ethiopian_army
-	icon = GFX_goal_FRA_military_hierarchy
-	prerequisite = { focus = SOV_protecting_ethiopia }
-	relative_position_id = SOV_protecting_ethiopia
-	x = 2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_supply_ethiopian_army
+# 	icon = GFX_goal_FRA_military_hierarchy
+# 	prerequisite = { focus = SOV_protecting_ethiopia }
+# 	relative_position_id = SOV_protecting_ethiopia
+# 	x = 2
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	bypass = {
-		OR = {
-			has_war_with = ETH
-			ETH = { exists = no }
-		}
-	}
+# 	bypass = {
+# 		OR = {
+# 			has_war_with = ETH
+# 			ETH = { exists = no }
+# 		}
+# 	}
   
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		ETH = {
-			add_equipment_to_stockpile = {
-				type = infantry_equipment
-				amount = 2000
-				producer = SOV
-			}
-			army_experience = 25
-		}
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		ETH = {
+# 			add_equipment_to_stockpile = {
+# 				type = infantry_equipment
+# 				amount = 2000
+# 				producer = SOV
+# 			}
+# 			army_experience = 25
+# 		}
+# 	}
+# }
 
-shared_focus = {
-	id = SOV_put_down_ethiopian_ethnic_rebellions
-	icon = GFX_goal_USA_the_question_of_the_negro
-	prerequisite = { focus = SOV_protecting_ethiopia }
-	relative_position_id = SOV_protecting_ethiopia
-	x = 0
-	y = 1
-	cost = 3
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_put_down_ethiopian_ethnic_rebellions
+# 	icon = GFX_goal_USA_the_question_of_the_negro
+# 	prerequisite = { focus = SOV_protecting_ethiopia }
+# 	relative_position_id = SOV_protecting_ethiopia
+# 	x = 0
+# 	y = 1
+# 	cost = 3
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	bypass = {
-		OR = {
-			has_war_with = ETH
-			ETH = { exists = no }
-		}
-	}
+# 	bypass = {
+# 		OR = {
+# 			has_war_with = ETH
+# 			ETH = { exists = no }
+# 		}
+# 	}
   
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		ETH = {
-			add_popularity = {
-				ideology = neutrality
-				popularity = 0.05
-			}
-			remove_ideas = ETH_ethnic_conflicts
-		}
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		ETH = {
+# 			add_popularity = {
+# 				ideology = neutrality
+# 				popularity = 0.05
+# 			}
+# 			remove_ideas = ETH_ethnic_conflicts
+# 		}
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_connecting_eastern_europe
 	icon = GFX_goal_USA_build_new_roads
 	prerequisite = { focus = SOV_great_beacon_democracy }
 	relative_position_id = SOV_great_beacon_democracy
-	x = -2
+	x = -3
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2574,7 +2692,7 @@ shared_focus = {
 	icon = GFX_goal_AUS_Centralised_Government
 	prerequisite = { focus = SOV_worlds_oil_titan }
 	relative_position_id = SOV_worlds_oil_titan
-	x = 0
+	x = -1
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -2601,7 +2719,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_connecting_eastern_europe }
 	relative_position_id = SOV_connecting_eastern_europe
 	x = 0
-	y = 2
+	y = 1
 	cost = 6
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2613,10 +2731,26 @@ shared_focus = {
 		BUL = {
 			country_event = { id = russia.22 }
 		}
-		ROM = {
-			country_event = { id = russia.22 }
+		if = {
+			limit = {
+				NOT = {
+					ROM = {
+						is_in_faction_with = GER
+					}
+				}
+			}
+			ROM = {
+				country_event = { id = russia.22 }
+			}
+			set_global_flag = ROM_cancel_iron_guard_coup
+
+			hidden_effect = {
+				news_event = {
+					id = romania_iron_guard_coup.2
+					hours = 4
+				}
+			}
 		}
-		set_global_flag = ROM_cancel_iron_guard_coup
 		
 	}
 }
@@ -2627,7 +2761,7 @@ shared_focus = {
 	prerequisite = { focus = SOV_connecting_eastern_europe }
 	relative_position_id = SOV_connecting_eastern_europe
 	x = -1
-	y = 1
+	y = 2
 	cost = 5
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
@@ -2643,9 +2777,9 @@ shared_focus = {
 shared_focus = {
 	id = SOV_the_republic_victorious
 	icon = GFX_goal_SOV_republic_victorious
-	prerequisite = { focus = SOV_uprisings_in_austria focus = SOV_securing_ottoman_oil }
+	prerequisite = { focus = SOV_uprisings_in_austria focus = SOV_protecting_ethiopia focus = SOV_intervene_in_austria }
 	relative_position_id = SOV_uprisings_in_austria
-	x = 0
+	x = 1
 	y = 1
 	cost = 3
 	available_if_capitulated = yes
@@ -2653,6 +2787,13 @@ shared_focus = {
   
 	ai_will_do = {
 		factor = 1000
+	}
+	offset = { 
+		trigger = {
+			has_focus_tree = SOV_pavel_milyukov_presidency_tree
+		}
+		x = 4
+		y = 0
 	}
 	available = {
 		has_global_flag = austria_defeated
@@ -2660,54 +2801,158 @@ shared_focus = {
 	completion_reward = {
 		add_war_support = 0.05
 		SOV_increase_support_among_people_large = yes
+
+		hidden_effect = {
+			country_event = SOV_kerensky_tree_events.15
+		}
 	}
 }
-shared_focus = {
-	id = SOV_looking_at_the_last_of_the_democracies
-	icon = GFX_goal_USA_combat_the_yellow_peril
-	prerequisite = { focus = SOV_the_republic_victorious }
-	relative_position_id = SOV_the_republic_victorious
-	x = 0
-	y = 1
-	cost = 3
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_looking_at_the_last_of_the_democracies
+# 	icon = GFX_goal_USA_combat_the_yellow_peril
+# 	prerequisite = { focus = SOV_the_republic_victorious }
+# 	relative_position_id = SOV_the_republic_victorious
+# 	x = 0
+# 	y = 1
+# 	cost = 3
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		country_event = SOV_kerensky_tree_events.8
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		country_event = SOV_kerensky_tree_events.8
+# 	}
+# }
 shared_focus = {
 	id = SOV_forge_our_own_path
 	icon = GFX_goal_AUS_reform_the_pakt
-	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
-	relative_position_id = SOV_looking_at_the_last_of_the_democracies
-	x = -2
+	prerequisite = { focus = SOV_the_republic_victorious }
+	relative_position_id = SOV_the_republic_victorious
+	x = -1
 	y = 1
-	cost = 8
+	cost = 10
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 	mutually_exclusive = {
-		focus = SOV_across_the_channel
+		focus = SOV_defender_of_european_freedom
 	}
+
+	ai_will_do = {
+		factor = 1000
+	}
+	available = {
+		HUN = {
+			has_idea = HUN_post_war_rebels
+		}
+		SLO = {
+			has_idea = HUN_post_war_rebels
+		}
+		HUN = {
+			all_owned_state = {
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { HUN.num_armies_in_state@THIS > 3 } }
+			}
+		}
+		HUN = {
+			all_owned_state = {
+				set_temp_variable = { DUMB = THIS }
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { SOV.num_armies_in_state@var:DUMB > 3 } }
+			}
+		}
+		SLO = {
+			all_owned_state = {
+				set_temp_variable = { DUMB = THIS }
+				custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { SOV.num_armies_in_state@var:DUMB > 3 } }
+			}
+		}
+	}
+	completion_reward = {
+		HUN = {
+			set_cosmetic_tag = occupied_hungary_russia
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader ={
+				name="Abram Dragomirov"
+				picture = "gfx/leaders/SOV/Portrait_RUS_Abram_Dragomirov.png"
+				ideology = despotic
+			}
+		}
+		SLO = {
+			set_cosmetic_tag = occupied_slovakia_russia
+			add_popularity = {
+				ideology = neutrality
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader ={
+				name="Vladimir von Manstein"
+				picture = "gfx/leaders/SOV/Portrait_RUS_Vladimir_Manshteyn.png"
+				ideology = despotic
+			}
+		}
+		HUN = {
+			remove_ideas = HUN_post_war_rebels
+		}
+		SLO = {
+			remove_ideas = HUN_post_war_rebels
+		}
+	}
+}
+
+shared_focus = {
+	id = SOV_defender_of_european_freedom
+	icon = GFX_goal_SOV_defender_of_eurasian_freedom
+	prerequisite = { focus = SOV_the_republic_victorious }
+	relative_position_id = SOV_the_republic_victorious
+	x = 1
+	y = 1
+	cost = 5
+	available_if_capitulated = yes
+	#search_filters = { FOCUS_FILTER_RESEARCH }
 	mutually_exclusive = {
-		focus = SOV_reach_out_to_america
+		focus = SOV_forge_our_own_path
+	}
+	available = {
+		HUN = {
+			has_idea = HUN_post_war_rebels
+		}
 	}
 	ai_will_do = {
 		factor = 1000
 	}
 	completion_reward = {
-		add_political_power = 50
+		set_autonomy = {
+			target = HUN
+			autonomous_state = autonomy_free
+		}
+		set_autonomy = {
+			target = SLO
+			autonomous_state = autonomy_free
+		}
+		add_to_faction = HUN
+		add_to_faction = SLO
+		HUN = {
+			remove_ideas = HUN_post_war_rebels
+		}
+		SLO = {
+			remove_ideas = HUN_post_war_rebels
+		}
 	}
 }
+
 shared_focus = {
 	id = SOV_secure_our_southern_flank
-	icon = GFX_goal_AUS_anti_expansionist_bulwark
-	prerequisite = { focus = SOV_forge_our_own_path }
-	relative_position_id = SOV_forge_our_own_path
+	icon = GFX_goal_Internationalism
+	prerequisite = { focus = SOV_defender_of_european_freedom }
+	relative_position_id = SOV_defender_of_european_freedom
 	x = 0
 	y = 1
 	cost = 8
@@ -2718,6 +2963,18 @@ shared_focus = {
 		factor = 1000
 	}
 	completion_reward = {
+		every_country = {
+			limit = {
+				is_in_faction_with = SOV
+				capital_scope = {
+					is_on_continent = europe
+				}
+			}
+			add_ideas = SOV_european_economic_zone
+		}
+		SOV = {
+			add_ideas = SOV_european_economic_zone
+		}
 		every_owned_state = {
             limit = {
             	any_neighbor_state = { OR = { is_owned_by = GER is_owned_by = ENG is_owned_by = FRA is_owned_by = AUS } }
@@ -2734,182 +2991,161 @@ shared_focus = {
         }
 	}
 }
-shared_focus = {
-	id = SOV_defender_of_european_freedom
-	icon = GFX_goal_SOV_defender_of_eurasian_freedom
-	prerequisite = { focus = SOV_secure_our_southern_flank }
-	relative_position_id = SOV_secure_our_southern_flank
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_across_the_channel
+# 	icon = GFX_focus_eng_the_sun_never_sets
+# 	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
+# 	relative_position_id = SOV_looking_at_the_last_of_the_democracies
+# 	x = 0
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
+# 	mutually_exclusive = {
+# 		focus = SOV_forge_our_own_path
+# 	}
+# 	mutually_exclusive = {
+# 		focus = SOV_reach_out_to_america
+# 	}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
 
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		add_war_support = 0.1
-	}
-}
+# 		ENG = {
+# 			country_event = { id = generic.27 hours = 3 }
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = SOV_protect_norway
+# 	icon = GFX_goal_SOV_alliance_with_norway
+# 	prerequisite = { focus = SOV_across_the_channel }
+# 	relative_position_id = SOV_across_the_channel
+# 	x = 0
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-shared_focus = {
-	id = SOV_across_the_channel
-	icon = GFX_focus_eng_the_sun_never_sets
-	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
-	relative_position_id = SOV_looking_at_the_last_of_the_democracies
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
-	mutually_exclusive = {
-		focus = SOV_forge_our_own_path
-	}
-	mutually_exclusive = {
-		focus = SOV_reach_out_to_america
-	}
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		NOR = {
+# 			country_event = russia.22
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = SOV_end_swedish_tyranny
+# 	icon = GFX_goal_SOV_invite_sweden
+# 	prerequisite = { focus = SOV_protect_norway }
+# 	relative_position_id = SOV_protect_norway
+# 	x = 0
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-		ENG = {
-			country_event = { id = generic.27 hours = 3 }
-		}
-	}
-}
-shared_focus = {
-	id = SOV_protect_norway
-	icon = GFX_goal_SOV_alliance_with_norway
-	prerequisite = { focus = SOV_across_the_channel }
-	relative_position_id = SOV_across_the_channel
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
-
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		NOR = {
-			country_event = russia.22
-		}
-	}
-}
-shared_focus = {
-	id = SOV_end_swedish_tyranny
-	icon = GFX_goal_SOV_invite_sweden
-	prerequisite = { focus = SOV_protect_norway }
-	relative_position_id = SOV_protect_norway
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
-
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		create_wargoal = {
-			target = SWE
-			type = puppet_wargoal_focus
-		}
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		create_wargoal = {
+# 			target = SWE
+# 			type = puppet_wargoal_focus
+# 		}
+# 	}
+# }
 
 
 
-shared_focus = {
-	id = SOV_reach_out_to_america
-	icon = GFX_goal_SOV_target_america
-	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
-	relative_position_id = SOV_looking_at_the_last_of_the_democracies
-	x = 2
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
-	mutually_exclusive = {
-		focus = SOV_forge_our_own_path
-	}
-	mutually_exclusive = {
-		focus = SOV_across_the_channel
-	}
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		USA = {
-			country_event = { id = generic.27 hours = 3 }
-		}
-	}
-}
-shared_focus = {
-	id = SOV_focus_on_china
-	icon = GFX_goal_SOV_target_china
-	prerequisite = { focus = SOV_reach_out_to_america }
-	relative_position_id = SOV_reach_out_to_america
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_reach_out_to_america
+# 	icon = GFX_goal_SOV_target_america
+# 	prerequisite = { focus = SOV_looking_at_the_last_of_the_democracies }
+# 	relative_position_id = SOV_looking_at_the_last_of_the_democracies
+# 	x = 2
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
+# 	mutually_exclusive = {
+# 		focus = SOV_forge_our_own_path
+# 	}
+# 	mutually_exclusive = {
+# 		focus = SOV_across_the_channel
+# 	}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		USA = {
+# 			country_event = { id = generic.27 hours = 3 }
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = SOV_focus_on_china
+# 	icon = GFX_goal_SOV_target_china
+# 	prerequisite = { focus = SOV_reach_out_to_america }
+# 	relative_position_id = SOV_reach_out_to_america
+# 	x = 0
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
 		
-		create_wargoal = {
-			type = puppet_wargoal_focus
-			target = CHI
-		}
-		create_wargoal = {
-			type = puppet_wargoal_focus
-			target = GZC
-		}
-	}
-}
-shared_focus = {
-	id = SOV_dominance_over_asia
-	icon = GFX_focus_usa_focus_on_asia
-	prerequisite = { focus = SOV_focus_on_china }
-	relative_position_id = SOV_focus_on_china
-	x = 0
-	y = 1
-	cost = 8
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# 		create_wargoal = {
+# 			type = puppet_wargoal_focus
+# 			target = CHI
+# 		}
+# 		create_wargoal = {
+# 			type = puppet_wargoal_focus
+# 			target = GZC
+# 		}
+# 	}
+# }
+# shared_focus = {
+# 	id = SOV_dominance_over_asia
+# 	icon = GFX_goal_AUS_anti_expansionist_bulwark
+# 	prerequisite = { focus = SOV_defender_of_european_freedom }
+# 	relative_position_id = SOV_defender_of_european_freedom
+# 	x = 0
+# 	y = 1
+# 	cost = 8
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	ai_will_do = {
-		factor = 1000
-	}
-	completion_reward = {
-		add_ideas = SOV_chinese_exploitation
-	}
-}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	completion_reward = {
+# 		add_ideas = SOV_chinese_exploitation
+# 	}
+# }
 
 shared_focus = {
 	id = SOV_dismantle_the_prussian_hegemony
 	icon = GFX_goal_stabprussia
-	prerequisite = { focus = SOV_dominance_over_asia focus = SOV_end_swedish_tyranny focus = SOV_defender_of_european_freedom }
-	relative_position_id = SOV_dominance_over_asia
-	x = -3
+	prerequisite = { focus = SOV_forge_our_own_path }
+	relative_position_id = SOV_forge_our_own_path
+	x = 0
 	y = 1
-	cost = 10
+	cost = 12
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
 	ai_will_do = {
 		factor = 1000
 	}
-	mutually_exclusive = {
-		focus = SOV_finish_the_french_threat
-	}
+
 	completion_reward = {
 		create_wargoal = {
 			target = GER
@@ -2919,38 +3155,38 @@ shared_focus = {
 }
 
 
-shared_focus = {
-	id = SOV_finish_the_french_threat
-	icon = GFX_focus_attack_france
-	prerequisite = { focus = SOV_dominance_over_asia focus = SOV_end_swedish_tyranny focus = SOV_defender_of_european_freedom }
-	relative_position_id = SOV_dominance_over_asia
-	x = -1
-	y = 1
-	cost = 10
-	available_if_capitulated = yes
-	#search_filters = { FOCUS_FILTER_RESEARCH }
+# shared_focus = {
+# 	id = SOV_finish_the_french_threat
+# 	icon = GFX_focus_attack_france
+# 	prerequisite = { focus = SOV_dominance_over_asia focus = SOV_end_swedish_tyranny focus = SOV_defender_of_european_freedom }
+# 	relative_position_id = SOV_dominance_over_asia
+# 	x = -1
+# 	y = 1
+# 	cost = 10
+# 	available_if_capitulated = yes
+# 	#search_filters = { FOCUS_FILTER_RESEARCH }
 
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-		NOT = {
-			FRA = {
-				OR = {
-					has_government = democratic
-					has_government = democratic_liberalism
-				}
-			}
-		}
-	}
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 		NOT = {
+# 			FRA = {
+# 				OR = {
+# 					has_government = democratic
+# 					has_government = democratic_liberalism
+# 				}
+# 			}
+# 		}
+# 	}
 
-	mutually_exclusive = {
-		focus = SOV_dismantle_the_prussian_hegemony
-	}
-	completion_reward = {
-		create_wargoal = {
-			target = FRA
-			type = topple_government
-		}
-	}
-}
+# 	mutually_exclusive = {
+# 		focus = SOV_dismantle_the_prussian_hegemony
+# 	}
+# 	completion_reward = {
+# 		create_wargoal = {
+# 			target = FRA
+# 			type = topple_government
+# 		}
+# 	}
+# }

@@ -58,7 +58,7 @@ news_event = { #greece united
 	id = DBK_formablenations.4
 	title = DBK_formablenations.4.t
 	desc = DBK_formablenations.4.d
-	picture = GFX_report_event_czech_soldiers_02
+	picture = GFX_greekunification
 	is_triggered_only = yes
 	major = yes
 
@@ -110,12 +110,12 @@ country_event = { #greece united, wants islands back from UK
 				factor = 2
 			}
 		}
-		FROM = {
-			create_wargoal = {
-				type = annex_everything
-				target = ROOT
-			}
-		}
+		# FROM = {
+		# 	create_wargoal = {
+		# 		type = annex_everything
+		# 		target = ROOT
+		# 	}
+		# }
 	}
 }
 
@@ -123,6 +123,7 @@ news_event = { #south chinese confederacy
 	id = DBK_formablenations.6
 	title = DBK_formablenations.6.t
 	desc = DBK_formablenations.6.d
+	picture = GFX_news_event_china_flying_tigers
 	is_triggered_only = yes
 	major = yes
 
@@ -136,6 +137,7 @@ news_event = { #south chinese republic
 	id = DBK_formablenations.7
 	title = DBK_formablenations.7.t
 	desc = DBK_formablenations.7.d
+	picture = GFX_news_event_china_flying_tigers
 	is_triggered_only = yes
 	major = yes
 
@@ -148,6 +150,7 @@ news_event = { #south chinese republic
 news_event = { #brazil united
 	id = DBK_formablenations.8
 	title = DBK_formablenations.8.t
+	picture = GFX_brazilian_civil_war
 	desc = {
 		trigger = {
 			FROM = {
@@ -199,5 +202,19 @@ news_event = { #brazil united
 				NOT = { has_government = ROOT }
 			}
 		}
+	}
+}
+
+news_event = { #arabia
+	id = DBK_formablenations.9
+	title = DBK_formablenations.9.t
+	desc = DBK_formablenations.9.d
+	picture = GFX_arabianunification
+	is_triggered_only = yes
+	major = yes
+
+
+	option = {
+		name = DBK_formablenations.9.a
 	}
 }

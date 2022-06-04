@@ -35,7 +35,7 @@ add_namespace = germany
 	id = GER_goering_internal_stabilization.3
 	title = GER_goering_internal_stabilization.3.t
 	desc = GER_goering_internal_stabilization.3.d
-	picture = GFX_report_event_eng_dambuster2
+	picture = GFX_report_event_german_troops_paris
 
 	fire_only_once = yes   #this means this event can only fire one time
 	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
@@ -60,7 +60,7 @@ add_namespace = germany
 		}
 		set_country_flag = chose_wermacht
 		unlock_decision_category_tooltip = GER_ss_waffen_cat
-
+		custom_effect_tooltip = chose_wermacht_tt
 		
 	}
 
@@ -84,6 +84,7 @@ add_namespace = germany
 		}
 		set_country_flag = chose_sa
 	    unlock_decision_category_tooltip = GER_ss_waffen_cat
+		custom_effect_tooltip = chose_sa_tt
 	}
 }
 
@@ -117,15 +118,15 @@ country_event = {
 		set_country_flag = GER_spartakus_rioting_inbound_country
 		activate_mission = GER_spartakus_riot_mission
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		} 
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		}
 		random_owned_controlled_state = {
-			limit = { is_core_of = GER NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
+			limit = { is_core_of = GER NOT = { is_demilitarized_zone = yes } NOT = { has_state_flag = GER_spartakus_rioting_inbound_state } }
 			set_state_flag = GER_spartakus_rioting_inbound_state
 		}
 		hidden_effect = {
@@ -271,7 +272,7 @@ country_event = {
 		##mack
 		add_popularity = {
 			ideology = neutrality
-			popularity = 0.5
+			popularity = 0.35
 		}
 
 	}
@@ -283,7 +284,7 @@ country_event = {
 
 		add_popularity = {
 			ideology = fascism
-			popularity = 0.5
+			popularity = 0.35
 		}
 		set_politics = {
 			ruling_party = fascism
@@ -309,6 +310,7 @@ country_event = {
 	}
  }
 
+
  country_event = {
 	id = GER_goering_internal_stabilization.10 # Berlin Rally
 	title = GER_goering_internal_stabilization.10.t
@@ -323,6 +325,67 @@ country_event = {
 		
 	}
  }
+
+country_event = {
+	id = GER_goering_internal_stabilization.11 # Rohm's perspective
+	title = GER_goering_internal_stabilization.11.t
+	desc = GER_goering_internal_stabilization.11.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.11.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+}
+
+country_event = {
+	id = GER_goering_internal_stabilization.12 # Mackensen's perspective
+	title = GER_goering_internal_stabilization.12.t
+	desc = GER_goering_internal_stabilization.12.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.12.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+}
+
+country_event = {
+	id = GER_goering_internal_stabilization.13 # Von Scleicher's perspective
+	title = GER_goering_internal_stabilization.13.t
+	desc = GER_goering_internal_stabilization.13.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.13.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+}
+
+## rosa in berlin
+country_event = {
+	id = GER_goering_internal_stabilization.14 
+	title = GER_goering_internal_stabilization.14.t
+	desc = GER_goering_internal_stabilization.14.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_internal_stabilization.14.a
+		ai_chance = { factor = 1000 } 
+		
+	}
+}
 
 add_namespace = GER_goering_economic_policy_tree_events
 country_event = {
@@ -749,6 +812,12 @@ country_event = {
 	option = { 
 		name = GER_goering_path_to_unification.2.a
 		ai_chance = { factor = 0 } 
+		effect_tooltip = {
+			GER = {
+				transfer_state = 68
+				transfer_state = 67
+			}
+		}
 		hidden_effect = {
 			GER = {
 				country_event = { id = GER_goering_path_to_unification.3 days = 3 }
@@ -758,6 +827,14 @@ country_event = {
 	option = { 
 		name = GER_goering_path_to_unification.2.b
 		ai_chance = { factor = 1000 } 
+		effect_tooltip = {
+			GER = {
+				create_wargoal = {
+					target = AUS
+					type = annex_everything
+				}
+			}
+		}
 		hidden_effect = {
 			GER = {
 				country_event = { id = GER_goering_path_to_unification.4 days = 3 }
@@ -854,14 +931,12 @@ country_event = {
 		ai_chance = { factor = 1000 } 
 		AUS = {
 			every_owned_state = {
-				if = {
-					limit = { is_core_of = HUN }
-					add_dynamic_modifier = {
-						modifier = GER_operation_margarethe_modifier
-					}
-				}
+				limit = { is_core_of = HUN }
 				set_variable = { GER_army_speed_factor_varOM = -0.15 }
 				set_variable = { GER_army_defence_factor_varOM = -0.1 }
+				add_dynamic_modifier = {
+					modifier = GER_operation_margarethe_modifier
+				}
 			}
 		}
 	}
@@ -963,6 +1038,96 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = GER_goering_post_unification.4 #post resistance going insane
+	title = GER_goering_post_unification.4.t
+	desc = GER_goering_post_unification.4.d
+
+	fire_only_once = no  
+	is_triggered_only = yes 
+	trigger = {
+		OR = {
+			NOT = {
+				has_completed_focus = GER_staatspolezei
+			}
+			has_country_flag = GER_formed_french_collab_govs
+		}
+	} 
+	immediate = {
+		hidden_effect = {
+			every_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = GER_french_resistance_riot_modifier 
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = GER_french_resistance_riot_modifier 
+				}
+			}
+			BRI = {
+				every_controlled_state = {
+					add_to_array = {
+						array = GER.french_resistance_states
+					}
+				}
+			}
+			OCC = {
+				every_controlled_state = {
+					add_to_array = {
+						array = GER.french_resistance_states
+					}
+				}
+			}
+			NFR = {
+				every_controlled_state = {
+					add_to_array = {
+						array = GER.french_resistance_states
+					}
+				}
+			}
+		}
+	}
+
+	option = { 
+		name = GER_goering_post_unification.4.a
+		set_country_flag = GER_french_resistance_rioting_inbound_country
+		set_country_flag = GER_unlock_french_resistance_decisions
+		activate_mission = GER_french_resistance_riot_mission
+		NFR = {
+			random_controlled_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+				set_state_flag = GER_french_resistance_rioting_inbound_state
+			}
+		}
+		BRI = {
+			random_controlled_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+				set_state_flag = GER_french_resistance_rioting_inbound_state
+			}
+		}
+		OCC = {
+			random_controlled_state = {
+				damage_building = {
+					type = infrastructure
+					damage = 1
+				}
+				set_state_flag = GER_french_resistance_rioting_inbound_state
+			}
+		}
+		
+	
+		hidden_effect = {
+			country_event = { id = GER_goering_post_unification.4 days = 55 }
+		}
+	}
+}
 
 
 add_namespace = militia_revolts
@@ -1859,7 +2024,7 @@ add_namespace = militia_revolts
 	id = prussia_easter_egg_meme_events.1
 	title = prussia_easter_egg_meme_events.1.t
 	desc = prussia_easter_egg_meme_events.1.d
-	picture = GFX_report_event_eng_dambuster2
+	picture = GFX_report_event_german_troops_paris
 
 	fire_only_once = yes   #this means this event can only fire one time
 	is_triggered_only = yes #this means this event can't happen randomly, has to be triggered somewhere else. In our case, your national focus
@@ -2142,6 +2307,19 @@ country_event = {
     }
 }
 
+country_event = {
+    id = GER_flavor_events.3
+    title = GER_flavor_events.3.t
+    desc = GER_flavor_events.3.d
+
+    is_triggered_only = yes
+
+    option = {
+        name = GER_flavor_events.3.a
+		add_war_support = 0.005
+    }
+}
+
 add_namespace = GER_wiltkrieg_faction_events
 
 country_event = {
@@ -2169,7 +2347,7 @@ country_event = {
 	option = {
 		name = GER_wiltkrieg_faction_events.17.b
 		ai_chance = { factor = 1 }
-		GER = { country_event = GER_wiltkrieg_faction_events.1 }
+		GER = { country_event = GER_wiltkrieg_faction_events.19 }
 	}
 }
 

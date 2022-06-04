@@ -5,8 +5,7 @@ allowed = {
 original_tag = SOV
 }
 visible = {
-tag = SOV
-has_completed_focus = SOV_VIRGIN_LAND_INITIATIVE
+always = no
 }
 }
 
@@ -160,17 +159,15 @@ SOV_balancing_the_rsdlp = {
 	}
 	visible = {
 		has_completed_focus = SOV_uniting_the_parties_of_the_rsdlp
-		OR = {
-			NOT = {
-				has_country_flag = SOV_the_rsdlp_has_collapsed
-			}
-			NOT = {
-				has_completed_focus = SOV_our_rule_reigns_supreme
-				
-			}
-			NOT = {
-				has_completed_focus = SOV_the_russian_social_democratic_labour_party_reformed
-			}
+		NOT = {
+			has_country_flag = SOV_the_rsdlp_has_collapsed
+		}
+		NOT = {
+			has_completed_focus = SOV_our_rule_reigns_supreme
+			
+		}
+		NOT = {
+			has_completed_focus = SOV_the_russian_social_democratic_labour_party_reformed
 		}
 	}
 
@@ -298,6 +295,7 @@ SOV_siberian_development = {
 	visible = {
 		OR = {
 			has_completed_focus = SOV_far_eastern_development
+			has_completed_focus = SOV_VIRGIN_LAND_INITIATIVE
 		}
 	}
 }
@@ -434,10 +432,9 @@ SOV_crushing_turan_sympathies = {
 	allowed = {
 		tag = SOV
 	}
+	icon = military_operation
 	visible = {
-		TUR = {
-			is_subject_of = SOV
-		}
+		has_country_flag = SOV_turanists_threat
 		NOT = {
 			has_country_flag = SOV_crushed_turanism
 		}
@@ -451,6 +448,8 @@ SOV_east_africa_ambitions = {
 	visible = {
 		OR = {
 			has_completed_focus = SOV_tsar_east_african_expidition
+			has_completed_focus = SOV_protecting_ethiopia
+			has_completed_focus = SOV_pavel_east_african_expidition
 		}
 	}
 }

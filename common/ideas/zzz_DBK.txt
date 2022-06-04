@@ -254,5 +254,77 @@ ideas = {
 			}
 
 		}
+
+		CUB_american_tax_haven = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_consumer_goods
+
+            cancel = {
+                OR = {
+                    NOT = {
+                        is_in_faction_with = USA
+                    }
+                    has_government = communism
+                }
+            }
+            modifier = {
+                production_speed_buildings_factor = 0.05
+                consumer_goods_factor = -0.05
+                economy_cost_factor = 0.25
+            }
+        }
+
+		ALG_ailing_arab_aristocracy = {
+            allowed = {
+                always = no
+            }
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            picture = generic_disjointed_gov
+
+            removal_cost = -1
+
+            modifier = {
+				political_power_gain = -0.25
+				stability_factor = 0.1
+                economy_cost_factor = 0.15
+                mobilization_laws_cost_factor = 0.15
+                local_resources_factor = -0.2
+            }
+		}
+	SWI_state_emergency = {
+            allowed = {
+                always = no
+            }
+
+            picture = GPU_garrisson_state
+
+            allowed_civil_war = {
+                always = yes
+            }
+
+            cancel = {
+                NOT = {
+                    has_government = neutrality
+                }
+            }
+
+            modifier = {
+                mobilization_laws_cost_factor = -0.2
+		economy_cost_factor = -0.2
+                conscription = 0.01
+                industrial_capacity_factory = 0.05
+            }
+		}
 	}
 }

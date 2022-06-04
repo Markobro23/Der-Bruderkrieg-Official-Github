@@ -13,6 +13,10 @@ set_research_slots = 3
 
 add_ideas = {
 	limited_conscription
+
+	NOR_policy_of_neutrality
+	NOR_enforced_prohibition
+	NOR_miracle_economy
 }
 
 set_stability = 0.9
@@ -134,15 +138,21 @@ set_convoys = 200		# biggest merchant marine in the world
 set_stability = 0.7
 
 set_politics = {
-	ruling_party = democratic_liberalism
+	ruling_party = democratic
 	last_election = "1933.10.16"
 	election_frequency = 36
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic_liberalism = 96
-	fascism = 2
-	communism = 2
+	democratic = 37
+	democratic_liberalism = 15
+	authoritarian_democratic = 3
+	neutrality = 1
+	socialism_democratic = 21
+	democratic_communism = 8
+	fascism = 4
+	ultranationalism = 8
+	communism = 3
 }
 
 
@@ -153,6 +163,17 @@ create_country_leader = {
 	picture = "gfx/leaders/Haakon.dds"
 	expire = "1965.1.1"
 	ideology = democratic_liberal
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Haakon VII"
+	desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
+	picture = "gfx/leaders/Haakon.dds"
+	expire = "1965.1.1"
+	ideology = democratic_conservative
 	traits = {
 		#
 	}

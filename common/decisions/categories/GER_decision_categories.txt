@@ -34,7 +34,7 @@ GER_german_sphere = {
 
 GER_ss_waffen_cat =  {
 	icon = army_reform
-	scripted_gui = GER_militia_decisions_gui
+	#scripted_gui = GER_militia_decisions_gui
 	visible = {
 		OR = {
 			has_country_flag = chose_sa
@@ -54,7 +54,7 @@ GER_westfalen_guerilla =  {
 	visible = {
 		has_completed_focus = GER_a_failed_state
 		NOT = {
-			has_completed_focus = GER_venerate_new_karl
+			has_cosmetic_tag = united_germany
 		}
 	}
 	visible_when_empty = yes
@@ -72,7 +72,7 @@ GER_operations =  {
 		}	
 		
 		NOT = {
-			has_completed_focus = GER_venerate_new_karl
+			has_cosmetic_tag = united_germany
 		}
 	}
 	visible_when_empty = yes
@@ -84,7 +84,7 @@ GER_operations =  {
 GER_french_resistance =  {
 	icon = army_reform
 	visible = {
-		has_completed_focus = GER_la_resistance
+		has_country_flag = GER_unlock_french_resistance_decisions
 	}
 	visible_when_empty = yes
 	allowed = {
@@ -95,7 +95,7 @@ GER_french_resistance =  {
 GER_austrian_resistance =  {
 	icon = army_reform
 	visible = {
-		has_completed_focus = GER_an_inherited_problem
+		has_country_flag = GER_unlock_austrian_resistance_decisions
 	}
 	visible_when_empty = yes
 	allowed = {
@@ -169,23 +169,23 @@ GER_industrial_expansion = {
 	}
 }
 
-GER_caucusus_offensive = {
+GER_winter_spring_offensives = {
 	allowed = {
 		tag = GER
 	}
 	visible = {
-		#has_completed_focus = GER_securing_the_south
-		always = no
+		has_completed_focus = GER_surpass_general_winter
 	}
+	priority = 500
 }
 GER_moskowien_offensive = {
 	allowed = {
 		tag = GER
 	}
 	visible = {
-		#has_completed_focus = GER_moskowien_awaits
-		always = no
+		has_completed_focus = GER_moskowien_awaits
 	}
+	priority = 500
 }
 
 anthrax_decisions = {
@@ -205,4 +205,16 @@ atomwaffen_decisions = {
 		has_country_flag = unlock_atomwaffen_flag
 	}
 	priority = 99
+}
+
+GER_occupation_of_russia = {
+	icon = military_operation
+
+	allowed = {
+		original_tag = GER
+	}
+
+	visible = {
+		has_completed_focus = GER_exploit_separatism
+	}
 }

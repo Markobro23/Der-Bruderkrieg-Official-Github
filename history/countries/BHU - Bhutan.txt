@@ -8,20 +8,13 @@ set_technology = {
 	tech_mountaineers = 1
 }
 
-ENG = { if = {
-  limit = {
-    has_dlc = "Together for Victory"
-  }
-  
-  set_autonomy = {
-    target = BHU
-    autonomy_state = autonomy_dominion
-  }
+ENG = { 
+	add_to_faction = BHU
+}
 
-  else = {
-    puppet = BHU
-        }
-    }
+add_ideas = {
+	BHU_tibetan_exile
+	BHU_last_bastion_of_sun_yat_sen
 }
 
 
@@ -69,14 +62,18 @@ set_stability = 0.8
 }
 
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = democratic
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
 }
 
 set_popularities = {
-	neutrality = 100
+	neutrality = 39
+	communism = 15
+	democratic = 32
+	democratic_liberalism = 10
+	socialism_democratic = 4
 }
 
 create_country_leader = {
@@ -85,6 +82,17 @@ create_country_leader = {
 	picture = "gfx/leaders/Jigme_Wanchuk.dds"
 	expire = "1965.1.1"
 	ideology = despotic
+	traits = {
+		#
+	}
+}
+
+create_country_leader = {
+	name = "Ngapoi Ngawang Jigme"
+	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
+	picture = "gfx/leaders/TIB/Ngapoi_Jingwe.dds"
+	expire = "1965.1.1"
+	ideology = democratic_conservative
 	traits = {
 		#
 	}

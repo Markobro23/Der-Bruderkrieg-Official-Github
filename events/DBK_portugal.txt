@@ -1,0 +1,144 @@
+add_namespace = POR_exile
+
+country_event = { #going into exile
+	id = POR_exile.1 
+	title = POR_exile.1.t
+	desc = POR_exile.1.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { #Ohohoho evil time
+		name = POR_exile.1.a
+		ai_chance = { factor = 100 } 
+		remove_ideas = POR_french_dockyard_capital
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.2
+		}
+		set_nationality = {
+			character = POR_duarte_ii
+			target_country = PAF
+		}
+		keep_current_politics = yes
+		PAF = {
+			add_country_leader_role = {
+			  character = POR_duarte_ii
+			  promote_leader = yes
+			  country_leader = {
+			    ideology = despotic
+			    traits = { constitutional_monarch_minor }
+			  }
+			}
+			set_cosmetic_tag = POR
+			annex_country = {
+				target = PMO
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_owned_by = POR NOT = { is_on_continent = europe } }
+				transfer_state_to = PAF
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_war_with = GER
+						ITA = { is_in_faction_with = GER }
+					}
+					has_war_with = ITA
+				}
+			}
+			ITA = {
+				puppet = POR
+			}
+			else = {
+				GER = {
+					puppet = POR
+				}
+			}
+		}
+		reset_government = yes
+		news_event = { id = POR_exile.2 hours = 6 }
+	}
+	option = { #exile time bois
+		name = POR_exile.1.b
+		remove_ideas = POR_french_dockyard_capital
+		ai_chance = { factor = 100 } 
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.2
+		}
+		set_nationality = {
+			character = POR_duarte_ii
+			target_country = PAF
+		}
+		keep_current_politics = yes
+		if = {
+			limit = {
+				OR = {
+					AND = {
+						has_war_with = GER
+						ITA = { is_in_faction_with = GER }
+					}
+					has_war_with = ITA
+				}
+			}
+			ITA = {
+				puppet = POR
+			}
+			else = {
+				GER = {
+					puppet = POR
+				}
+			}
+		}
+		reset_government = yes
+		news_event = { id = POR_exile.2 hours = 6 }
+		PAF = {
+			add_country_leader_role = {
+			  character = POR_duarte_ii
+			  promote_leader = yes
+			  country_leader = {
+			    ideology = despotic
+			    traits = { constitutional_monarch_minor }
+			  }
+			}
+			set_cosmetic_tag = POR
+			annex_country = {
+				target = PMO
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_owned_by = POR NOT = { is_on_continent = europe } }
+				transfer_state_to = PAF
+			}
+			change_tag_from = POR
+		}
+	}
+}
+
+news_event = { #duarte goes into exile
+	id = POR_exile.2 
+	title = POR_exile.2.t
+	desc = POR_exile.2.d
+	picture = GFX_news_event_french_parade
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = POR_exile.2.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}

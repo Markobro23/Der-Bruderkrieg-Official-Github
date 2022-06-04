@@ -401,7 +401,7 @@ AUS_offensives_against_the_fbc = {
 	priority = 20
 
 	visible = {
-		has_completed_focus = AUS_on_the_offensive
+		has_completed_focus = AUS_the_final_showdown
 	}
 }
 
@@ -460,5 +460,32 @@ AUS_colonial_rebellions = { #we do a little trolling in France's colonies
 	}
 	visible = {
 		has_completed_focus = AUS_foment_colonial_rebellions
+	}
+}
+
+AUS_creating_raus = {
+	icon = military_operation
+
+	allowed = {
+		original_tag = AUS
+	}
+
+	visible = {
+		has_completed_focus = AUS_continue_the_war_on_the_eastern_front
+	}
+}
+
+AUS_managing_bourbons = {
+	icon = military_operation
+
+	allowed = {
+		original_tag = AUS
+	}
+
+	visible = {
+		OR = {
+			has_subject = FPR
+			has_subject = OCC
+		}
 	}
 }
