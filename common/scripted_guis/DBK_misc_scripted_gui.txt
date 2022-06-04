@@ -25,31 +25,6 @@ Flag_Scripted_Map_Icons = {
     }
 
 
-
- DBK_head_of_gov_open_mechanic = {
-	 parent_window_token = politics_tab
-	  context_type = player_context
-
-	  window_name = "DBK_head_of_gov_open"
-	  visible = {
-		  always = yes
-	  }
-	  effects = {
-		DBK_head_of_gov_open_button_click = {
-			if = {
-				limit = {
-					has_country_flag = DBK_head_of_gov_mechanic_flag
-				}
-				clr_country_flag = DBK_head_of_gov_mechanic_flag
-			}
-			else = {
-				set_country_flag = DBK_head_of_gov_mechanic_flag
-			}
-			
-			log = "hi"
-		}
-	}
-  }
   DBK_head_of_gov_open_mechanic_diplo = {
 	context_type = selected_country_context
 	parent_window_token = selected_country_view_diplomacy
@@ -87,11 +62,12 @@ Flag_Scripted_Map_Icons = {
   }
 
   DBK_head_of_gov_mechanic = {
+	  parent_window_token = politics_tab
 	  context_type = player_context
 
 	  window_name = "DBK_head_of_gov_container"
 	  visible = {
-		OR = { has_country_flag = DBK_head_of_gov_mechanic_flag }
+		#OR = { has_country_flag = DBK_head_of_gov_mechanic_flag }
 	  }
 
 	 
@@ -100,10 +76,34 @@ Flag_Scripted_Map_Icons = {
 			image = "[GetHeadofGovPortrait]"
 		}
 	  }
+	  triggers = {
+		  LeaderPortrait_visible = {
+			  has_country_flag = DBK_head_of_gov_mechanic_flag
+		  }
+		  leader_leader_frame_visible = {
+			  has_country_flag = DBK_head_of_gov_mechanic_flag
+		  }
+		  leader_description_visible = {
+			  has_country_flag = DBK_head_of_gov_mechanic_flag
+		  }
+	  }
 	  effects = {
 		  exit_click = {
 			  clr_country_flag = DBK_head_of_gov_mechanic_flag
 		  }
+		  DBK_head_of_gov_open_button_click = {
+			if = {
+				limit = {
+					has_country_flag = DBK_head_of_gov_mechanic_flag
+				}
+				clr_country_flag = DBK_head_of_gov_mechanic_flag
+			}
+			else = {
+				set_country_flag = DBK_head_of_gov_mechanic_flag
+			}
+			
+			log = "hi"
+		}
 	  }
   }
   DBK_head_of_gov_mechanic_diplo = {
@@ -593,6 +593,7 @@ Flag_Scripted_Map_Icons = {
 			NOT = {
 				has_country_flag = AUS_national_mission_1_click_flag
 			}
+			76 = { infrastructure > 7 }
 			76 = { industrial_complex > 7 } 
 		}
 		AUS_national_mission_2_click_enabled = {
@@ -665,7 +666,8 @@ Flag_Scripted_Map_Icons = {
 			  image = "[GetFactionIcon]"
 		  }
 	  }
-	  effects = {
+
+	   effects = {
 		  DBK_faction_icon_button_click = {
 				if = {
 					limit = {

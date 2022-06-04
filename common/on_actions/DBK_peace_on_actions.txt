@@ -631,7 +631,17 @@ on_actions = {
 				ITA = {
 					load_focus_tree = generic_focus
 				}
-				italy_loses_to_austria_peace_deal = yes
+				if = {
+					limit = {
+						FRA ={
+							has_war_with = ITA
+						}
+					}
+					news_event = { id = collapse_of_italy.1 hours = 3 }
+				}
+				else = {
+					news_event = { id = collapse_of_italy.3 hours = 3 }
+				}
 			}
 			if = {
 				limit = {
@@ -652,7 +662,17 @@ on_actions = {
 				ITA = {
 					load_focus_tree = generic_focus
 				}
-				italy_loses_to_france_peace_deal = yes
+				if = {
+					limit = {
+						AUS  ={
+							has_war_with = ITA
+						}
+					}
+					news_event = { id = collapse_of_italy.1 hours = 3 }
+				}
+				else = {
+					news_event = { id = collapse_of_italy.2 hours = 3 }
+				}
 			}
 			if = {
 				limit = {

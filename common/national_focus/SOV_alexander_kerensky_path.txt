@@ -353,7 +353,30 @@ shared_focus = {
         add_country_leader_trait = leader_of_1905
     }
 }
+shared_focus = {
+		id = SOV_2_YEAR_PLAN
+		icon = GFX_goal_generic_positive_trade_relations
+		#text = SOV_RED_AIRFORCE
+		x = 19
+		y = 0
 
+
+		cost = 5
+		ai_will_do = {
+			factor = 25
+		}
+
+		available_if_capitulated = yes
+		#search_filters = { FOCUS_FILTER_INDUSTRY }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = industry
+			}
+		}
+	}
 shared_focus = {
 	id = SOV_pursue_economic_justice
 	icon = GFX_goal_SOV_the_peoples_economy
@@ -666,30 +689,7 @@ shared_focus = {
 # 	}
 #   }
 
-	shared_focus = {
-		id = SOV_2_YEAR_PLAN
-		icon = GFX_goal_generic_positive_trade_relations
-		#text = SOV_RED_AIRFORCE
-		x = 19
-		y = 0
-
-
-		cost = 5
-		ai_will_do = {
-			factor = 25
-		}
-
-		available_if_capitulated = yes
-		#search_filters = { FOCUS_FILTER_INDUSTRY }
-
-		completion_reward = {
-			add_tech_bonus = {
-				bonus = 0.5
-				uses = 2
-				category = industry
-			}
-		}
-	}
+	
 
 	shared_focus = {
 		id = SOV_NATIONALIZE_FARM
@@ -2223,9 +2223,11 @@ shared_focus = {
 			ETR = {
 		every_owned_state = {
 			
-				give_resource_rights = {
-					receiver = SOV
-					state = THIS
+				ETR = {
+					give_resource_rights = {
+						receiver = SOV
+						state = PREV
+					}
 				}
 		}
 		}
@@ -2840,17 +2842,21 @@ shared_focus = {
 		}
 		HUN = {
 			any_owned_state = {
-				divisions_in_state = {
-					size > 4
-					state = THIS
+				HUN = {
+					divisions_in_state = {
+						size > 4
+						state = PREV
+					}
 				}
 			}
 		}
 		SLO = {
 			any_owned_state = {
-				divisions_in_state = {
-					size > 4
-					state = THIS
+				SLO = {
+					divisions_in_state = {
+						size > 4
+						state = PREV
+					}
 				}
 			}
 		}
@@ -3133,9 +3139,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
-	mutually_exclusive = {
-		focus = SOV_finish_the_french_threat
-	}
+
 	completion_reward = {
 		create_wargoal = {
 			target = GER

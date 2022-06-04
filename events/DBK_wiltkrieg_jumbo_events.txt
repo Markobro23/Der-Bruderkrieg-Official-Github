@@ -352,6 +352,23 @@ news_event = {
 	}
 }
 
+##fall of florence
+news_event = {
+	id = DBK_fall_of_city.22
+	title = DBK_fall_of_city.22.t
+	desc = DBK_fall_of_city.22.d
+	picture = GFX_fallofflorence
+	is_triggered_only = yes
+	#fire_only_once = yes
+	major = yes
+
+
+
+	option = { 
+		name = DBK_fall_of_city.22.a
+	}
+}
+
 
 
 
@@ -2592,5 +2609,70 @@ country_event = {
 			}
 		}
 
+	}
+}
+
+add_namespace = collapse_of_italy
+
+## Joint Austro-French coalition
+news_event = {
+	id = collapse_of_italy.1
+	title = collapse_of_italy.1.t
+	desc = collapse_of_italy.1.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.1.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			hidden_effect = {
+				italy_loses_to_austria_peace_deal = yes
+			}
+		}
+	}
+}
+
+## Joint french coalition
+news_event = {
+	id = collapse_of_italy.2
+	title = collapse_of_italy.2.t
+	desc = collapse_of_italy.2.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.2.a
+		if = {
+			limit = {
+				tag = FRA
+			}
+			hidden_effect = {
+				italy_loses_to_france_peace_deal = yes
+			}
+		}
+	}
+}
+
+## Joint Austrian coalition
+news_event = {
+	id = collapse_of_italy.3
+	title = collapse_of_italy.3.t
+	desc = collapse_of_italy.3.d
+	picture = GFX_fallofitaly
+	major = yes
+	is_triggered_only = yes
+	option = {
+		name = collapse_of_italy.3.a
+		if = {
+			limit = {
+				tag = AUS
+			}
+			hidden_effect = {
+				italy_loses_to_austria_peace_deal = yes
+			}
+		}
 	}
 }

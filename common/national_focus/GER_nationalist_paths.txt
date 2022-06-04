@@ -3957,6 +3957,14 @@ shared_focus = {
 	}
 	completion_reward = {
 		unlock_decision_tooltip = GER_operation_margerethe_decision
+		if = {
+			limit = {
+				NOT = {
+					has_completed_focus = GER_negotiate_with_rohm
+				}
+			}
+			unlock_decision_tooltip = GER_invite_switzerland
+		}
 	}
 }
 shared_focus = {
@@ -4965,8 +4973,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
 				uses = 1
 				category = cat_battlefield_support
 			 }
@@ -5091,8 +5099,8 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
+			add_doctrine_cost_reduction = {
+				cost_reduction = 1
 				uses = 1
 				category = strategic_destruction_tree
 					 }
@@ -5876,38 +5884,7 @@ shared_focus = {
 	
 	
 	###NAVAL 1 
-	shared_focus = { 
-		id = GER_rudeltaktik
-		icon = GFX_GER_rudeltaktik
-		x = 2
-		y = 1
-		relative_position_id = GER_preussische_reichsmarine
-		
-		available = {
-		}
-		bypass = {
-
-		}
-
-		cost = 5
-		prerequisite = { focus = GER_preussische_reichsmarine }
-		
-
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
-
-		completion_reward = {
-			add_tech_bonus = {
-				uses = 2
-				bonus = 0.5
-				category = cat_trade_interdiction
-			 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	
 	# shared_focus = { 
 	# 	id = GER_further_improvement
 	# 	icon = unkown
@@ -5936,42 +5913,42 @@ shared_focus = {
 	# 		factor = 1
 	# 	}
 	# }
-	shared_focus = { 
-		id = GER_improve_the_naval_academies
-		icon = GFX_GER_improve_naval_academies
-		x = 0
-		y = 1
-		relative_position_id = GER_rudeltaktik
+	# shared_focus = { 
+	# 	id = GER_improve_the_naval_academies
+	# 	icon = GFX_GER_improve_naval_academies
+	# 	x = 0
+	# 	y = 1
+	# 	relative_position_id = GER_rudeltaktik
 		
-		available = {
-		}
-		bypass = {
+	# 	available = {
+	# 	}
+	# 	bypass = {
 
-		}
+	# 	}
 
-		cost = 5
-		prerequisite = { focus = GER_rudeltaktik }
+	# 	cost = 5
+	# 	prerequisite = { focus = GER_rudeltaktik }
 		
 
-		cancel_if_invalid = yes
-		continue_if_invalid = no
-		available_if_capitulated = no
+	# 	cancel_if_invalid = yes
+	# 	continue_if_invalid = no
+	# 	available_if_capitulated = no
 
-		completion_reward = {
-			custom_effect_tooltip = available_political_advisor
-			show_ideas_tooltip = gunther_lutjens
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# 	completion_reward = {
+	# 		custom_effect_tooltip = available_political_advisor
+	# 		show_ideas_tooltip = gunther_lutjens
+	# 	}
+	# 	ai_will_do = {
+	# 		factor = 1
+	# 	}
+	# }
 	
 	
 	###NAVAL 2
 	shared_focus = { 
 		id = GER_ship_innovations
 		icon = GFX_GER_ship_innovations
-		x = 0
+		x = 1
 		y = 1
 		relative_position_id = GER_preussische_reichsmarine
 		
@@ -6001,9 +5978,41 @@ shared_focus = {
 		}
 	}
 	shared_focus = { 
+		id = GER_rudeltaktik
+		icon = GFX_GER_rudeltaktik
+		x = 1
+		y = 1
+		relative_position_id = GER_ship_innovations
+		
+		available = {
+		}
+		bypass = {
+
+		}
+
+		cost = 5
+		prerequisite = { focus = GER_ship_innovations }
+		
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = no
+
+		completion_reward = {
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 2
+				category = cat_trade_interdiction
+			 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	shared_focus = { 
 		id = GER_the_uboat
 		icon = GFX_GER_the_uboat
-		x = 0
+		x = -1
 		y = 1
 		relative_position_id = GER_ship_innovations
 		
@@ -6047,8 +6056,9 @@ shared_focus = {
 
 		cost = 5
 		prerequisite = { focus = GER_the_uboat }
-		prerequisite = { focus = GER_improve_the_naval_academies }
-		
+		prerequisite = {
+			focus = GER_rudeltaktik
+		}		
 
 		cancel_if_invalid = yes
 		continue_if_invalid = no
@@ -6059,7 +6069,8 @@ shared_focus = {
 				bonus = 1
 				uses = 1
 				category = bb_tech
-			 }
+			}
+
 		}
 		ai_will_do = {
 			factor = 1
@@ -6097,6 +6108,7 @@ shared_focus = {
 				  level = 2
 				  instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 2
 			 }
 		}
 		ai_will_do = {
@@ -6134,6 +6146,7 @@ shared_focus = {
 				  level = 1
 				  instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			 }
 			 random_owned_controlled_state = {
 				limit = {
@@ -6144,6 +6157,7 @@ shared_focus = {
 				  level = 1
 				  instant_build = yes
 				}
+				add_extra_state_shared_building_slots = 1
 			 }
 		}
 		ai_will_do = {
@@ -7095,7 +7109,7 @@ shared_focus = {
 		y = 1
 		cost = 5
 		prerequisite = { focus = GER_streik }
-		mutually_exclusive = { focus = GER_securing_the_south }
+		mutually_exclusive = { focus = GER_surpass_general_winter }
 		relative_position_id = GER_streik 
 		ai_will_do = {
 			factor = 1 

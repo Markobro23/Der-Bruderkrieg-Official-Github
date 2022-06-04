@@ -1036,16 +1036,19 @@ GER_operations = {
 ###RUSSIA
 GER_moskowien_offensive = {
 	GER_push_for_moscow = {
-		icon = generic_construction
+		icon = generic_army_support
 
 		available = {
+			NOT = {
+				has_country_flag = GER_doing_offensive_in_russia
+			}
 		}
 
 		visible = {
 		}
 
 		complete_effect = {
-			
+			set_country_flag = GER_doing_offensive_in_russia	
 		}
 		
 		ai_will_do = {
@@ -1066,6 +1069,7 @@ GER_moskowien_offensive = {
 			241 = { add_dynamic_modifier = { modifier = GER_plan_moskowien_modifier } }
 		}
 		remove_effect = {
+			clr_country_flag = GER_doing_offensive_in_russia
 			219 = { remove_dynamic_modifier = { modifier = GER_plan_moskowien_modifier } }
 			242 = { remove_dynamic_modifier = { modifier = GER_plan_moskowien_modifier } }
 			205 = { remove_dynamic_modifier = { modifier = GER_plan_moskowien_modifier } }
@@ -1074,59 +1078,115 @@ GER_moskowien_offensive = {
 			241 = { remove_dynamic_modifier = { modifier = GER_plan_moskowien_modifier } }
 		}
 	}
+	GER_securing_the_south = {
+		icon = generic_army_support
+
+		available = {
+			NOT = {
+				has_country_flag = GER_doing_offensive_in_russia
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = GER_doing_offensive_in_russia	
+		}
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 120
+
+		complete_effect = {
+			196 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			200 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			227 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			218 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			238 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			234 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			1065 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			217 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			236 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			235 ={ add_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+		}
+		remove_effect = {
+			clr_country_flag = GER_doing_offensive_in_russia
+			196 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			200 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			227 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			218 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			238 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			234 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			1065 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			217 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			236 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+			235 ={ remove_dynamic_modifier = { modifier = GER_plan_kaukasus_modifier } }
+		}
+	}
+	GER_northern_offensive = { 
+		icon = generic_army_support
+
+		available = {
+			NOT = {
+				has_country_flag = GER_doing_offensive_in_russia
+			}
+		}
+
+		visible = {
+		}
+
+		complete_effect = {
+			set_country_flag = GER_doing_offensive_in_russia	
+		}
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 120
+
+		complete_effect = {
+            189 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			11 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			190 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			13 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			191 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			1126 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			209 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			208 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			195 = { add_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+		}
+		remove_effect = {
+			
+			189 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			11 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			190 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			13 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			191 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			1126 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			209 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			208 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			195 = { remove_dynamic_modifier = { modifier = GER_plan_petrograd_modifier } }
+			
+		}
+	}
 }
 
 GER_winter_spring_offensives = {
 	GER_summer_offensive = {
-		icon = generic_construction
+		icon = generic_army_support
 
 		available = {
-			OR = {
-				AND = {
-					date > 1936.3.1
-					date < 1936.9.1
-				}
-				AND = {
-					date > 1937.3.1
-					date < 1937.9.1
-				}
-				AND = {
-					date > 1938.3.1
-					date < 1938.9.1
-				}
-				AND = {
-					date > 1939.3.1
-					date < 1939.9.1
-				}
-				AND = {
-					date > 1940.3.1
-					date < 1940.9.1
-				}
-				AND = {
-					date > 1941.3.1
-					date < 1941.9.1
-				}
-				AND = {
-					date > 1942.3.1
-					date < 1942.9.1
-				}
-				AND = {
-					date > 1943.3.1
-					date < 1943.9.1
-				}
-				AND = {
-					date > 1944.3.1
-					date < 1944.9.1
-				}
-				AND = {
-					date > 1945.3.1
-					date < 1945.9.1
-				}
-				AND = {
-					date > 1946.3.1
-					date < 1946.9.1
-				}
-			}
+			in_summer = yes
 		}
 
 		visible = {
@@ -1147,10 +1207,90 @@ GER_winter_spring_offensives = {
 		days_remove = 120
 
 		complete_effect = {
-			
+			every_unit_leader = {
+				add_temporary_buff_to_units = {
+					combat_offense = 0.25
+					combat_breakthrough = 0.25
+					org_damage_multiplier = -1.0
+					str_damage_multiplier = 0.25
+					war_support_reduction_on_damage = 0.2
+					cannot_retreat_while_attacking = 1.0
+								
+					days = 120
+					tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+				}
+			}
 		}
 		remove_effect = {
 			
+		}
+	}
+	GER_forage_for_winter = {
+		icon = generic_army_support
+
+		available = {
+			in_summer = yes
+		}
+		available = {
+			command_power > 99	
+		}
+		custom_cost_trigger = {
+			command_power > 99
+		}
+		custom_cost_text = GER_forage_for_winter_text_tt
+
+		visible = {
+			has_war_with = SOV
+		}
+
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 120
+
+		modifier = {
+			experience_gain_army_factor = -0.15
+			industrial_capacity_factory = -0.1
+		}
+		remove_effect = {
+			add_command_power = -100
+			unlock_decision_tooltip = GER_winter_supply_ready
+			set_country_flag = GER_winter_foraging_complete
+		}
+	}
+	GER_winter_supply_ready = {
+		icon = generic_army_support
+
+		available = {
+			in_winter = yes
+			has_country_flag = GER_winter_foraging_complete
+		}
+
+		visible = {
+			has_war_with = SOV
+		}
+
+		
+		ai_will_do = {
+			factor = 10000
+		}
+
+		fire_only_once = yes 
+
+		cost = 0
+		days_remove = 120
+
+		modifier = {
+			army_defence_factor = 0.1
+			supply_factor = 0.35
+		}
+		remove_effect = {
+			clr_country_flag = GER_winter_foraging_complete
 		}
 	}
 }
@@ -2948,10 +3088,46 @@ weltkrieg_decisions = {
 		}
 	
 		complete_effect = {
+			country_event = GER_austrian_ethnic_revolts.1
+		}
+	}
+
+	GER_invite_switzerland = {
+
+		icon = generic_political_discourse
+	
+		allowed = {
+			tag = GER
+		}
+
+		available = {
+			SWI = {
+				OR = {
+					has_government = fascism
+					has_government = neutrality
+					has_government = ultranationalism
+				}
+			}
+		}
+
+		visible = {
+			has_completed_focus = GER_prepare_operation_margerethe
+			NOT = {
+				has_completed_focus = GER_negotiate_with_rohm
+			}
+		}
+
+		fire_only_once = yes
+	
+	
+		ai_will_do = {
+			factor = 1000
 		}
 	
-		remove_effect = {
-			country_event = GER_austrian_ethnic_revolts.1
+		complete_effect = {
+			SWI = {
+				country_event = { id = GER_wiltkrieg_faction_events.17 hours = 1 }
+			}
 		}
 	}
 }

@@ -1,50 +1,86 @@
 guiTypes = {
 
-  containerWindowType = {
-    name = "Flag_Scripted_Map_Icons_window"
-    position = { x = 0 y = 0 }
-    size = { width = 1 height = 1 }
-        
-    iconType ={
-        name = "flag_icon"
-        spriteType = "GFX_shield_medium"
-        position = { x = 0 y = 0 }
-        Orientation = "UPPER_LEFT"
-        centerposition = yes
-        alwaystransparent = yes
-    }
-        
-    iconType ={
-        name = "flag_frame"
-        spriteType = "GFX_large_flag_frame"
-        position = { x = 0 y = 0 }
-        Orientation = "UPPER_LEFT"
-        centerposition = yes
-        alwaystransparent = yes
-    }
-}
-
-
-
-  containerWindowType = {
-		name = "DBK_head_of_gov_open"
-		position = { x = 338 y = 300 }
-		
-		buttonType ={ 
-			name ="DBK_head_of_gov_open_button"
-			spriteType = "GFX_dual_leader_politics"
-			position = { x = 0 y = 0 } 
-			pdx_tooltip = dual_leader_button_tt
-      shortcut = "d" 
-		} 
+	containerWindowType = {
+		name = "Flag_Scripted_Map_Icons_window"
+		position = { x = 0 y = 0 }
+		size = { width = 1 height = 1 }
+			
+		iconType ={
+			name = "flag_icon"
+			spriteType = "GFX_shield_medium"
+			position = { x = 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+			centerposition = yes
+			alwaystransparent = yes
+		}
+			
+		iconType ={
+			name = "flag_frame"
+			spriteType = "GFX_large_flag_frame"
+			position = { x = 0 y = 0 }
+			Orientation = "UPPER_LEFT"
+			centerposition = yes
+			alwaystransparent = yes
+		}
 	}
+
+	containerWindowType = {
+		name = "DBK_head_of_gov_container"
+		position = {
+			x = 18
+			y = 28
+		}
+		iconType = {
+			name = "LeaderPortrait"
+			position = {
+				x = 0
+				y = 30
+			}
+			pdx_tooltip = dual_leader_get_position_desc
+		}
+	  iconType = {
+			name = "leader_leader_frame"
+			position = {
+				x = -8
+				y = 16
+			}
+			spriteType = "GFX_pol_leader_frame"
+			pdx_tooltip = dual_leader_get_position_desc
+		}
+		instantTextboxType = {
+			name = "leader_description"
+			position = { x = 0 y = 243 }
+			font = "hoi_18mbs"
+			text = "[GetDualLeaderDesc]"
+			maxWidth = 155
+			maxHeight = 20
+			format = center
+			vertical_alignment = center
+			pdx_tooltip = "dual_leader_get_position_desc"
+		}
+		containerWindowType = {
+			name = "DBK_head_of_gov_open"
+			position = { x = 112 y = 7 }
+			
+			buttonType ={ 
+				name ="DBK_head_of_gov_open_button"
+				spriteType = "GFX_event_pic_clip"
+				position = { x = 0 y = 0 } 
+				pdx_tooltip = dual_leader_button_tt
+				shortcut = "d" 
+			}
+		}
+	}
+
+	
+
 	containerWindowType = {
 		name = "DBK_head_of_gov_open_diplo"
 		position = { x = 440 y = 110 }
 		
 		buttonType ={ 
 			name ="DBK_head_of_gov_open_button_diplo"
-			spriteType = "GFX_dual_leader_politics"
+			spriteType = "GFX_event_pic_clip"
 			position = { x = 0 y = 0 } 
 			pdx_tooltip = dual_leader_button_tt
       shortcut = "d" 
@@ -57,175 +93,20 @@ guiTypes = {
 		
 		buttonType ={ 
 			name ="DBK_faction_icon_button"
-			spriteType = "x"
+			spriteType = "x" 
 			position = { x = 0 y = 0 }
 			pdx_tooltip = "DBK_faction_icon_tt"
 			shortcut = c
 		} 
-	}
+	} 
 
-  containerWindowType = {
-		name = "DBK_head_of_gov_container"
-		position = {
-			x = 540
-			y = 136 
-		}
-		size = {
-			width = 300
-			height = 500
-		}
-		#movable = yes
-
-		background = {
-			name = "bg"
-			spriteType = "GFX_HoGbg"
-		}
-
-		buttonType = {
-			name = "exit"
-			position = {x=0 y=0}
-			##Orientation = "UPPER_RIGHT"
-			spriteType = "GFX_closebutton"
-			shortcut = "ESCAPE"
-		  } 
-		  instantTextboxType=  {
-			name = "Dual Leader position 2"
-			position = {
-				x = -1
-				y = 54
-			}
-			maxWidth = 300
-			maxHeight = 110
-			format = center
-			text = "dropshadowdualleaderposition"
-			font = "hoi_36header"
-		}
-		instantTextboxType=  {
-			name = "Dual Leader position"
-			position = {
-				x = 0
-				y = 55
-			}
-			maxWidth = 300
-			maxHeight = 110
-			format = center
-			text = "[GetDualLeaderPosition]"
-			font = "hoi_36header"
-		}
-
-		instantTextboxType=  {
-			name = "Dual Leader position desc"
-			position = {
-				x = 25
-				y = 375
-			}
-			maxWidth = 250
-			maxHeight = 110 
-			format = center
-			text = "[GetDualLeaderPositionDesc]"
-			font = "hoi_18mbs"
-		}
-		
-
-		containerWindowType = {
-			name = "the leaders"
-			position = {
-				x = 72
-				y = 95
-			}
-
-			##leader of the NFP
-			iconType = {
-				name = "LeaderPortrait"
-				position = {
-					x = 0
-					y = 30
-				}
-        spriteType = ""
-      }
-      iconType = {
-				name = "leader_leader_frame"
-				position = {
-					x = -8
-					y = 16
-				}
-				spriteType = "GFX_pol_leader_frame"
-			}
-      instantTextboxType = {
-				name = "leader_description"
-				position = { x = 0 y = 243 }
-				font = "hoi_18mbs"
-				text = "[GetDualLeaderDesc]"
-				maxWidth = 155
-				maxHeight = 20
-				format = center
-				vertical_alignment = center
-			}
-    }
-  }
   containerWindowType = {
 		name = "DBK_head_of_gov_container_diplo"
 		clipping = no
 		position = {
-			x = 540
-			y = 75 
+			x = -51
+			y = -18
 		}
-		size = {
-			width = 300
-			height = 500
-		}
-		#movable = yes
-
-		background = {
-			name = "bg"
-			spriteType = "GFX_HoGbg"
-		}
-
-		buttonType = {
-			name = "exit"
-			position = {x=0 y=0}
-			##Orientation = "UPPER_RIGHT"
-			spriteType = "GFX_closebutton"
-			shortcut = "ESCAPE"
-		  } 
-		  instantTextboxType=  {
-			name = "Dual Leader position 2"
-			position = {
-				x = -1
-				y = 54
-			}
-			maxWidth = 300
-			maxHeight = 110
-			format = center
-			text = "dropshadowdualleaderposition"
-			font = "hoi_36header"
-		}
-		instantTextboxType=  {
-			name = "Dual Leader position"
-			position = {
-				x = 0
-				y = 55
-			}
-			maxWidth = 300
-			maxHeight = 110
-			format = center
-			text = "[FROM.GetDualLeaderPosition]"
-			font = "hoi_36header"
-		}
-
-		instantTextboxType=  {
-			name = "Dual Leader position desc"
-			position = {
-				x = 25
-				y = 400
-			}
-			maxWidth = 250
-			maxHeight = 110 
-			format = center
-			text = "[FROM.GetDualLeaderPositionDesc]"
-			font = "hoi_18mbs"
-		}
-		
 
 		containerWindowType = {
 			name = "the leaders"
@@ -239,30 +120,22 @@ guiTypes = {
 				name = "LeaderPortrait"
 				position = {
 					x = 0
-					y = 30
+					y = 26
 				}
-        spriteType = ""
-      }
-      iconType = {
+				spriteType = ""
+				scale = 0.78
+				pdx_tooltip = "[FROM.GetDualLeaderDesc]"
+			}
+			iconType = {
 				name = "leader_leader_frame"
 				position = {
 					x = -8
 					y = 16
 				}
-				spriteType = "GFX_pol_leader_frame"
+				spriteType = "GFX_diplo_leader_frame"
 			}
-      instantTextboxType = {
-				name = "leader_description"
-				position = { x = 0 y = 243 }
-				font = "hoi_18mbs"
-				text = "[FROM.GetDualLeaderDesc]"
-				maxWidth = 155
-				maxHeight = 20
-				format = center
-				vertical_alignment = center
-			}
-    }
-  }
+		}
+	}
 
   containerWindowType = {
 		name = "DB_party_popularity_number_container"

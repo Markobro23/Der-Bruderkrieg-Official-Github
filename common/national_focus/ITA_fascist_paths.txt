@@ -1662,7 +1662,150 @@ shared_focus = {
 	# 		}
 	# 	}
 	# }
-	
+	shared_focus = {
+		id = ITA_the_dawn_of_the_blueshirts
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = -9
+		y = 1
+		cost = 0
+		
+		mutually_exclusive = {
+			focus = ITA_continue_cianos_rule
+		}
+		mutually_exclusive = {
+			focus = ITA_roccos_conspiracy
+		}
+		mutually_exclusive = {
+			focus = ITA_evolas_regime
+		}
+		available = {
+			always = no
+		}
+		
+		
+		prerequisite = {
+			focus = ITA_italys_destiny
+		}
+		relative_position_id = ITA_italys_destiny
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			hidden_effect = {
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+				retire_country_leader = yes
+			}
+			create_country_leader = {
+			name = "Attilio Teruzzi"
+			#desc = "MUSSOLINI_DESC"
+			picture = "gfx/leaders/AttilioTeruzzi.dds"
+			expire = "1965.1.1"
+			ideology = ultranationalist
+			traits = { 
+				
+			}
+		}
+			set_cosmetic_tag = ITA_italian_empire
+		}
+	}
+	shared_focus = {
+		id = ITA_intervene_in_munitions_companies
+		icon = GFX_focus_generic_combined_arms
+		x = 2
+		y = 1
+		cost = 5
+		
+		
+		prerequisite = { focus = ITA_the_dawn_of_the_blueshirts }
+				relative_position_id = ITA_the_dawn_of_the_blueshirts
+
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			swap_ideas = {
+				add_idea = ITA_mass_economic_instability_2
+				remove_idea = ITA_mass_economic_instability
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+	}
+	shared_focus = {
+		id = ITA_revamp_coal_industry_in_sardinia
+		icon = GFX_goal_SOV_oil_titan
+		x = 1
+		y = 1
+		cost = 5
+		
+		
+		prerequisite = { focus = ITA_intervene_in_munitions_companies }
+		relative_position_id = ITA_intervene_in_munitions_companies
+		ai_will_do = {
+			factor = 500
+		}
+		completion_reward = {
+			114 = {
+				add_resource = {
+					type = oil
+					amount = 12
+				}
+				add_building_construction = {
+					type = infrastructure 
+					level = 5
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 4
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+		}
+	}
 	shared_focus = {
 		id = ITA_found_the_anic
 		icon = GFX_goal_ITA_found_the_ainc2
@@ -1682,6 +1825,7 @@ shared_focus = {
 				
 		}
 	}
+	
 	shared_focus = {
 		id = ITA_fund_southern_steelworks
 		icon = GFX_goal_GenericResourceExtraction
@@ -2211,57 +2355,7 @@ shared_focus = {
 		}
 	}
 	
-	shared_focus = {
-		id = ITA_revamp_coal_industry_in_sardinia
-		icon = GFX_goal_SOV_oil_titan
-		x = 1
-		y = 1
-		cost = 5
-		
-		
-		prerequisite = { focus = ITA_intervene_in_munitions_companies }
-		relative_position_id = ITA_intervene_in_munitions_companies
-		ai_will_do = {
-			factor = 500
-		}
-		completion_reward = {
-			114 = {
-				add_resource = {
-					type = oil
-					amount = 12
-				}
-				add_building_construction = {
-					type = infrastructure 
-					level = 5
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = industrial_complex
-					level = 2
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 2
-				add_building_construction = {
-					type = bunker
-					level = 3
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
-				}
-				add_building_construction = {
-					type = coastal_bunker
-					level = 4
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_coastal = yes
-					}
-				}
-			}
-		}
-	}
+	
 	
 	# shared_focus = {
 	# 	id = ITA_power_struggle
@@ -2343,97 +2437,28 @@ shared_focus = {
 			set_cosmetic_tag = ITA_royal_state
 		}
 	}
-	
 	shared_focus = {
-		id = ITA_the_dawn_of_the_blueshirts
-		icon = GFX_goal_ITA_dawn_of_the_blueshirts
-		x = -9
+		id = ITA_promote_nationalism
+		icon = GFX_goal_FRA_fraternite
+		x = 0
 		y = 1
-		cost = 0
+		cost = 5
 		
-		mutually_exclusive = {
-			focus = ITA_continue_cianos_rule
-		}
-		mutually_exclusive = {
-			focus = ITA_roccos_conspiracy
-		}
-		mutually_exclusive = {
-			focus = ITA_evolas_regime
-		}
-		available = {
-			always = no
-		}
+		prerequisite = { focus = ITA_roccos_conspiracy }
+		relative_position_id = ITA_roccos_conspiracy
 		
-		
-		prerequisite = {
-			focus = ITA_italys_destiny
-		}
-		relative_position_id = ITA_italys_destiny
+
 		ai_will_do = {
 			factor = 1000
 		}
 		completion_reward = {
-			hidden_effect = {
-				set_politics = {
-					ruling_party = ultranationalism
-				}
-				retire_country_leader = yes
+			swap_ideas = {
+				add_idea = Vendetta_Nazionale_2
+				remove_idea = Vendetta_Nazionale
 			}
-			create_country_leader = {
-			name = "Attilio Teruzzi"
-			#desc = "MUSSOLINI_DESC"
-			picture = "gfx/leaders/AttilioTeruzzi.dds"
-			expire = "1965.1.1"
-			ideology = ultranationalist
-			traits = { 
-				
-			}
-		}
-			set_cosmetic_tag = ITA_italian_empire
-		}
-	}
-	shared_focus = {
-		id = ITA_intervene_in_munitions_companies
-		icon = GFX_focus_generic_combined_arms
-		x = 2
-		y = 1
-		cost = 5
-		
-		
-		prerequisite = { focus = ITA_the_dawn_of_the_blueshirts }
-				relative_position_id = ITA_the_dawn_of_the_blueshirts
-
-		ai_will_do = {
-			factor = 500
-		}
-		completion_reward = {
 			swap_ideas = {
 				add_idea = ITA_mass_economic_instability_2
 				remove_idea = ITA_mass_economic_instability
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
-			}
-			random_owned_controlled_state = {
-				add_building_construction = {
-					type = arms_factory
-					level = 1
-					instant_build = yes
-				}
-				add_extra_state_shared_building_slots = 1
 			}
 		}
 	}
@@ -2567,68 +2592,9 @@ shared_focus = {
 	# 	}
 	# }
 	
-	shared_focus = {
-		id = ITA_promote_nationalism
-		icon = GFX_goal_FRA_fraternite
-		x = 0
-		y = 1
-		cost = 5
-		
-		prerequisite = { focus = ITA_roccos_conspiracy }
-		relative_position_id = ITA_roccos_conspiracy
-		
-
-		ai_will_do = {
-			factor = 1000
-		}
-		completion_reward = {
-			swap_ideas = {
-				add_idea = Vendetta_Nazionale_2
-				remove_idea = Vendetta_Nazionale
-			}
-			swap_ideas = {
-				add_idea = ITA_mass_economic_instability_2
-				remove_idea = ITA_mass_economic_instability
-			}
-		}
-	}
 	
-	shared_focus = {
-		id = ITA_italy_first_dbk
-		icon = GFX_ITA_nationalism2
-		x = 1
-		y = 1
-		cost = 5
-		
-		prerequisite = { focus = ITA_flush_out_the_republicans }
-		prerequisite = { focus = ITA_control_the_ovra }
-		relative_position_id = ITA_flush_out_the_republicans
-		
-
-		ai_will_do = {
-			factor = 1000
-		}
-		completion_reward = { 
-			ITA_decrease_party_stability_large = yes
-			add_war_support = 0.1
-			#set_cosmetic_tag = ITA_royal_state
-
-			AUS = {
-				add_opinion_modifier = {
-					target = ITA
-					modifier = mortal_enemies
-				}
-			}
-			ITA = {
-				add_opinion_modifier = {
-					target = AUS
-					modifier = mortal_enemies
-				}
-			}
-			
-		}
-	}
 	
+
 	shared_focus = {
 		id = ITA_national_emergency_security_act
 		icon = GFX_ITA_national_security_act
@@ -2771,6 +2737,42 @@ shared_focus = {
 			add_stability = 0.05
 		}
 	}
+		shared_focus = {
+		id = ITA_italy_first_dbk
+		icon = GFX_ITA_nationalism2
+		x = 1
+		y = 1
+		cost = 5
+		
+		prerequisite = { focus = ITA_flush_out_the_republicans }
+		prerequisite = { focus = ITA_control_the_ovra }
+		relative_position_id = ITA_flush_out_the_republicans
+		
+
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = { 
+			ITA_decrease_party_stability_large = yes
+			add_war_support = 0.1
+			#set_cosmetic_tag = ITA_royal_state
+
+			AUS = {
+				add_opinion_modifier = {
+					target = ITA
+					modifier = mortal_enemies
+				}
+			}
+			ITA = {
+				add_opinion_modifier = {
+					target = AUS
+					modifier = mortal_enemies
+				}
+			}
+			
+		}
+	}
+	
 	
 	# shared_focus = {
 	# 	id = ITA_eliminate_the_radicals
@@ -3131,30 +3133,7 @@ shared_focus = {
 		}
 	}
 
-	shared_focus = {
-		id = ITA_alliance_with_switzerland
-		icon = GFX_goal_ITA_alliance_with_the_swiss
-		x = 0
-		y = 1
-		cost = 5
-
-		prerequisite = { 
-			focus = ITA_invest_piedmont
-		}
-		relative_position_id = ITA_invest_piedmont
-		
-		available = {
-			is_in_faction = yes
-		}	
-		ai_will_do = {
-			factor = 1000
-		}
-		completion_reward = {
-			SWI = {
-				country_event = { id = generic.5 hours = 2 }
-			}
-		}
-	}
+	
 
 	shared_focus = {
 		id = ITA_the_alpine_line
@@ -3246,7 +3225,30 @@ shared_focus = {
 			}
 		}
 	}
+	shared_focus = {
+		id = ITA_alliance_with_switzerland
+		icon = GFX_goal_ITA_alliance_with_the_swiss
+		x = 0
+		y = 1
+		cost = 5
 
+		prerequisite = { 
+			focus = ITA_invest_piedmont
+		}
+		relative_position_id = ITA_invest_piedmont
+		
+		available = {
+			is_in_faction = yes
+		}	
+		ai_will_do = {
+			factor = 1000
+		}
+		completion_reward = {
+			SWI = {
+				country_event = { id = generic.5 hours = 2 }
+			}
+		}
+	}
 	shared_focus = {
 		id = ITA_fortify_west_coast
 		icon = GFX_focus_por_estado_novo
