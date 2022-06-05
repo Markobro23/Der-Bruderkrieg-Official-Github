@@ -6832,11 +6832,25 @@ shared_focus = {
 		ai_will_do = {
 			factor = 1 
 		}
+		available = {
+			ITA = {
+				OR = {
+					owns_state = 805
+					owns_state = 810
+					owns_state = 736
+					owns_state = 160
+				}
+			}
+			NOT = {
+				has_war_with = ITA
+			}
+			ITA = {
+				exists = yes
+			}
+		}
 		completion_reward = {
-			add_manpower= -7000
-			add_to_variable = {
-				tooltip = GER_decrease_austrian_resistance_by_5
-				GER_austrian_resistance = -5
+			ITA = {
+				country_event = germany_slovenia_events.1
 			}
 		}
 	}
