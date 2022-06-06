@@ -58,10 +58,46 @@ country_event = {
 	option = {
 		name = china_in_the_world_war.2.a
 		
-		SOV = {
-			country_event = {
-				id = generic.2
-				days = 3
+		if = {
+			limit = {
+				SOV = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			SOV = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				GER = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			GER = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AIG = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			AIG = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
 			}
 		}
 	}
@@ -85,6 +121,34 @@ country_event = {
 				days = 3
 			}
 		}
+	}
+}
+
+##great china war
+news_event = {
+	id = china_in_the_world_war.4
+	title = china_in_the_world_war.4.t
+	desc = china_in_the_world_war.4.d
+	picture = GFX_halifaxvictory
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = china_in_the_world_war.4.a
+	}
+}
+news_event = {
+	id = china_in_the_world_war.5
+	title = china_in_the_world_war.5.t
+	desc = china_in_the_world_war.5.d
+	picture = GFX_halifaxvictory
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = china_in_the_world_war.5.a
 	}
 }
 
