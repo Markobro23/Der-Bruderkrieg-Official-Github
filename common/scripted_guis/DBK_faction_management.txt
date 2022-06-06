@@ -65,9 +65,6 @@ scripted_gui = {
             WOK_faction_behavoir_maker_tab_switch_click = {
                 set_variable = { WOK_faction_left_tab_switch = 2 }
             }
-            WOK_faction_conflicts_tab_switch_click = {
-                set_variable = { WOK_faction_left_tab_switch = 3 }
-            }
 
             distribute_infantry_button_click = {
                 set_temp_variable = {
@@ -422,6 +419,7 @@ scripted_gui = {
 
         effects = {
             faction_member_entry_behaviour_icon_click = {
+                set_variable = { WOK_faction_left_tab_switch = 3 }
                 
                 THIS = {
                     if = {
@@ -448,6 +446,37 @@ scripted_gui = {
             faction_member_entry_behaviour_icon_visible = {
                 #is_ai = yes
             }
+        }
+    }
+
+    #Members tab
+    WOK_faction_behaviour_selection_window = {
+        window_name = "faction_behaviour_selection_screen"
+        parent_window_name = "WOK_faction_management"
+        context_type = player_context
+
+        visible = {
+            check_variable = { WOK_faction_left_tab_switch = 3 }
+        }
+
+        dynamic_lists = {
+            faction_equipment_pool_gridbox = {
+                array = ROOT.members_of_equipment_pool_array
+                entry_container = faction_conflict_entry
+                change_scope = yes
+            }
+        }
+
+        properties = {
+            
+        }
+
+        effects = {
+
+        }
+
+        triggers = {
+            
         }
     }
 
