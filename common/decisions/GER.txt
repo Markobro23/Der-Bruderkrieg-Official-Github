@@ -4555,6 +4555,70 @@ GER_occupation_of_russia = {
 				}
 				LIT = {
 					transfer_state = 11
+					set_cosmetic_tag = east_europe_prussian_rk
+	        		if = {
+	        			limit = {
+	        				THIS = {
+	        					has_government = democratic
+	        				}
+	        			}
+	        			create_country_leader = {
+		        			name = "Wehrmacht Government"
+		        			picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = paternalistic_conservatism 
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = neutrality }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = despotic 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = ultranationalism }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = ultranationalist 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = fascism }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = fascism_ideology 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = authoritarian_democratic }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = authoritarian_democrat 
+			        		}
+		        		}
+	        		}
+				}
+				puppet = LIT
+			}
+			custom_effect_tooltip = ostland_annex_weissrussland_and_baltikum
+			hidden_effect = {
+				LIT = {
 					annex_country = {
 						target = BLR
 						transfer_troops = yes
@@ -4563,68 +4627,8 @@ GER_occupation_of_russia = {
 						target = FOB
 						transfer_troops = yes
 					}
-					set_cosmetic_tag = east_europe_prussian_rk
-        		if = {
-        			limit = {
-        				THIS = {
-        					has_government = democratic
-        				}
-        			}
-        			create_country_leader = {
-	        			name = "Wehrmacht Government"
-	        			picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-	        			expire = "1965.1.1"
-	        			ideology = paternalistic_conservatism 
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = neutrality }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = despotic 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = ultranationalism }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = ultranationalist 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = fascism }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = fascism_ideology 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = authoritarian_democratic }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = authoritarian_democrat 
-		        		}
-	        		}
-        		}
 				}
-				puppet = LIT
 			}
-			custom_effect_tooltip = ostland_annex_weissrussland_and_baltikum
 		}
 
 	}
