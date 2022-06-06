@@ -446,8 +446,18 @@ on_actions = {
 						}
 					}
 				}
-				AUS = {
-					austria_loses_peace_deal = yes
+				if = {
+					limit = {
+						GER = {
+							is_subject_of = FRA
+						}
+					}
+					france_beats_austria = yes
+				}
+				else = {
+					AUS = {
+						austria_loses_peace_deal = yes
+					}
 				}
 				log = "2nd europa ends: [GetDateText], by [FROM.GetName]"
 			}

@@ -6353,7 +6353,18 @@ instant_build = yes
 			}
 			white_peace = SOV
 			}
-			SOV = { country_event = { id = generic.5 hours = 3 }
+			if = {
+				limit = {
+					SOV = {
+						is_in_faction = no
+					}
+				}
+				SOV = {
+					country_event = france.17
+				}
+			}
+			else = {
+				country_event = generic.27
 			}
 		}
 	}
@@ -6428,7 +6439,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_strengthen_english_collaboration_governments
-      icon = GFX_goal_SOV_promoting_loyal_officers
+      icon = GFX_ITA_purchase_small_arms
       prerequisite = { focus = FRA_invade_britain }
       mutually_exclusive = { focus = FRA_reverse_normandy }
       x = 1
@@ -7250,6 +7261,7 @@ instant_build = yes
 					add_state_core = 52  
 					add_state_core = 53  
 					add_state_core = 60
+					add_state_core = 798
 					set_cosmetic_tag = FGD_RHE
 				}
 				country_event = { id = westfalen_subtree_events.5 hours = 2 }
@@ -7854,7 +7866,19 @@ instant_build = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
 			
 				completion_reward = {
-					add_state_core = 35
+					if = { 
+						limit = { 
+							has_completed_focus = FRA_BRUSSELLS_CONFERENCE 
+						} 
+						BEL = {
+							add_state_core = 35
+						}
+					}
+					else = {
+						FRA = {
+							add_state_core = 35
+						}
+					}
 					hidden_effect = {
 						add_threat = 2
 					}
