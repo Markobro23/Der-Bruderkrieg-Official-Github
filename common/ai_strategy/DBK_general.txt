@@ -16,6 +16,9 @@ dont_spam_divisions = {
 				tag = PER
 				tag = PBC
 				tag = ARG
+				tag = BEI
+				tag = GZC
+				tag = YUN
 			}
 		}
 	}
@@ -34,7 +37,22 @@ dont_spam_divisions = {
 		value = -599
 	}
 }
+
+china_build_divisions = {
+	enable = {
+		OR = {
+			tag = GZC
+			tag = YUN
+			date < 1939.1.1
+		}
+	}
 	
+	ai_strategy = {
+		type = force_build_armies
+		value = 1000
+	}
+}
+
 ##south america 
 bolivia_join_bush_war = {
 	allowed = {

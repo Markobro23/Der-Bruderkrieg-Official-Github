@@ -190,6 +190,21 @@ AIG_worldbuilding_decisions = {
 			create_faction = "Dehli Axis"
 			news_event = indian_civil_war.2 
 			set_country_flag = indian_axis
+			hidden_effect = {
+				every_country = {
+					limit = {
+						OR = {
+							tag = PAK
+							tag = KAS
+							tag = INC
+							tag = DRA
+							tag = KHA
+						}
+						is_ai = yes
+					}
+					add_ideas = brazil_nerf				
+				}
+			}
 		}
 	}
 	AIG_invade_kashmir = {
@@ -651,7 +666,41 @@ AIG_worldbuilding_decisions = {
 
 
 china_worldbuilding_decisions = {
-
+	china_in_the_world_war = {
+		icon = generic_nation
+		available = {
+			NOT = {
+				has_war = yes
+			}
+			NOT = {
+				has_country_flag = AIG_chose_path
+			}
+		}
+		visible = {
+		    OR = {
+				SOV = {
+					has_war_with = JAP
+					has_war_with = AUS
+				}
+				SOV = {
+					has_war_with = TUR
+					has_war_with = AUS
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 500
+		}
+	
+		fire_only_once = yes
+		days_remove = 35
+		remove_effect = {
+			BEI = {
+				country_event = { id = china_in_the_world_war.1 days = 1 }
+			}
+		}
+	
+	}
 	##kmt collapse mission
 	kmt_collapse_timeout = {
 
