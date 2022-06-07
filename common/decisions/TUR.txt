@@ -150,3 +150,46 @@ TUR_ottoman_persian_war = {
 #   		}
 #     }
 # 	}
+
+
+weltkrieg_decisions = {
+	TUR_ai_desperate_defense = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_war_with = SOV
+			surrender_progress > 0.24
+		}
+
+		visible = {
+			is_ai = yes
+		}
+
+		fire_only_once = no
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		modifier = {
+			army_defence_factor = 0.35
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			
+		}
+	}
+}
