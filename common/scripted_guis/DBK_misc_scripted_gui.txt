@@ -312,7 +312,17 @@ Flag_Scripted_Map_Icons = {
 			NOT = {
 				has_country_flag = SOV_national_mission_4_click_flag
 			}
-			num_divisions > 120
+			num_divisions > 199
+			
+			JAP = {
+				is_subject_of = SOV
+			}
+			HUN = {
+				is_subject_of = SOV
+			}
+			TUR = {
+				is_subject_of = SOV
+			}
 		  }
 
 		##cover
@@ -940,29 +950,34 @@ FRA_national_missions_conatiner_scripted_gui = {
 		FRA_national_mission_2_click = {
 			
 			set_country_flag = FRA_national_mission_2_click_flag
-			ALG = {
-				random_owned_controlled_state = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
+			513 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
 				}
-				random_owned_controlled_state = {
-					add_building_construction = {
-						type = industrial_complex
-						level = 2
-						instant_build = yes
-					}
+				add_extra_state_shared_building_slots = 1
+			}
+			458 = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
 				}
-				random_owned_controlled_state = {
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-						instant_build = yes
-					}
+				add_extra_state_shared_building_slots = 2
+			}
+			665 = {
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
 				}
-				
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 2
 			}
 		}
 		FRA_national_mission_3_click = {
@@ -1025,9 +1040,38 @@ FRA_national_missions_conatiner_scripted_gui = {
 				has_country_flag = FRA_national_mission_2_click_flag
 			}
 
-			ALG = {
-				all_owned_state = {
-					infrastructure > 3
+			
+			513 = {
+				infrastructure > 2
+			}
+			458 = {
+				infrastructure > 2
+			}
+			665 = {
+				infrastructure > 2
+			}
+			513 = {
+				owner = {
+					OR = {
+						tag = FRA
+						is_puppet_of = FRA
+					}
+				}
+			}
+			458 = {
+				owner = {
+					OR = {
+						tag = FRA
+						is_puppet_of = FRA
+					}
+				}
+			}
+			665 = {
+				owner = {
+					OR = {
+						tag = FRA
+						is_puppet_of = FRA
+					}
 				}
 			}
 		}
@@ -1038,6 +1082,11 @@ FRA_national_missions_conatiner_scripted_gui = {
 			has_war_support > 0.5
 			has_army_manpower = {
 				size > 799999
+			}
+			OR = {
+				has_war_with = GER
+				has_war_with = AUS
+				has_war_with = SOV
 			}
 		}
 		FRA_national_mission_4_click_enabled = {
