@@ -3,11 +3,11 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10 
+			add = 100
 			tag = SOV
 		}
 	} 
-	default = no
+	default = yes
     shared_focus = SOV_uniting_the_parties_of_the_rsdlp
     shared_focus = SOV_the_beacon_of_socialism
     shared_focus = SOV_kovankos_influence
@@ -1934,7 +1934,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_beacon_of_socialism
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     available = {
         NOT = {
@@ -2122,7 +2122,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_beacon_of_socialism
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     completion_reward = {
         add_political_power = 75
@@ -2185,9 +2185,9 @@ shared_focus = {
     id = SOV_take_mongolia_by_force
     icon = GFX_goal_SOV_take_mongolia_by_force
     
-    x = -1
+    x = 0
     y = 1
-    cost = 5
+    cost = 3
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_the_coup_fails
@@ -2208,9 +2208,9 @@ shared_focus = {
     id = SOV_executing_the_khan
     icon = GFX_goal_SOV_execute_the_khan
     
-    x = 0
+    x = -1
     y = 1
-    cost = 5
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_take_mongolia_by_force
@@ -2263,9 +2263,9 @@ shared_focus = {
     id = SOV_a_friendly_ultimatum
     icon = GFX_goal_SOV_a_friendly_ultimatum
     
-    x = 1
+    x = 0
     y = 1
-    cost = 5
+    cost = 3
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_the_coup_succeeds
@@ -2284,9 +2284,9 @@ shared_focus = {
     id = SOV_peaceful_socialist_education
     icon = GFX_goal_SOV_a_peaceful_socialist_transition
     
-    x = 0
+    x = 1
     y = 1
-    cost = 5
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_a_friendly_ultimatum
@@ -2335,7 +2335,7 @@ shared_focus = {
     id = SOV_continue_intervention_in_east_turkestan
     icon = GFX_goal_SOV_continue_intervention_in_east_turkestan
     
-    x = 1
+    x = 0
     y = 1
     cost = 2.5
     available_if_capitulated = yes
@@ -2344,45 +2344,45 @@ shared_focus = {
     }
     relative_position_id = SOV_opportunity_in_asia
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.6 }
     }
 }
 
-shared_focus = {
-    id = SOV_support_the_east_turkestan_republic
-    icon = GFX_goal_SOV_support_the_etr
+# shared_focus = {
+#     id = SOV_support_the_east_turkestan_republic
+#     icon = GFX_goal_SOV_support_the_etr
     
-    x = 1
-    y = 1
-    cost = 2.5
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = SOV_continue_intervention_in_east_turkestan
-    }
-    relative_position_id = SOV_continue_intervention_in_east_turkestan
-    ai_will_do = {
-        factor = 1000
-    }
-    completion_reward = {
-        NRX = { country_event = { id = SOV_lenin_tree_events.7 } }
-    }
-}
+#     x = 1
+#     y = 1
+#     cost = 2.5
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = SOV_continue_intervention_in_east_turkestan
+#     }
+#     relative_position_id = SOV_continue_intervention_in_east_turkestan
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         NRX = { country_event = { id = SOV_lenin_tree_events.7 } }
+#     }
+# }
 
 shared_focus = {
     id = SOV_in_we_go
     icon = GFX_goal_SOV_in_we_go
     
-    x = 0
-    y = 2
-    cost = 4
+    x = 1
+    y = 1
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = SOV_support_the_east_turkestan_republic
+        focus = SOV_continue_intervention_in_east_turkestan
     }
-    relative_position_id = SOV_support_the_east_turkestan_republic
+    relative_position_id = SOV_continue_intervention_in_east_turkestan
     ai_will_do = {
         factor = 1000
     }
@@ -2428,16 +2428,16 @@ shared_focus = {
     id = SOV_secure_our_southern_border 
     icon = GFX_goal_SOV_recruit_afghani_militants
     
-    x = 1
+    x = 3
     y = 1
-    cost = 5
+    cost = 3.5
     available_if_capitulated = yes
     prerequisite = {
-        focus = SOV_support_the_east_turkestan_republic
+        focus = SOV_opportunity_in_asia
     }
-    relative_position_id = SOV_support_the_east_turkestan_republic
+    relative_position_id = SOV_opportunity_in_asia
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     bypass = {
 		OR = {
@@ -2462,7 +2462,7 @@ shared_focus = {
     id = SOV_renegotiate_persian_oilfields
     icon = GFX_goal_SOV_renegotiate_persian_oilfields
     
-    x = 1
+    x = 0
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2471,7 +2471,7 @@ shared_focus = {
     }
     relative_position_id = SOV_secure_our_southern_border
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     bypass = {
 		OR = {
@@ -2502,7 +2502,7 @@ shared_focus = {
     }
     relative_position_id = SOV_renegotiate_persian_oilfields
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     will_lead_to_war_with = TUR
     completion_reward = {

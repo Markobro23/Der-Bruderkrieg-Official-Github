@@ -910,10 +910,8 @@ FRA_national_missions_conatiner_scripted_gui = {
 		FRA_national_mission_1_click = {
 			set_country_flag = FRA_national_mission_1_click_flag
 			42 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+				add_dynamic_modifier = {
+					modifier = rhine_exploitation_modifier
 				}
 				
 			}
@@ -923,10 +921,8 @@ FRA_national_missions_conatiner_scripted_gui = {
 				amount = 9
 			}
 			51 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+				add_dynamic_modifier = {
+					modifier = rhine_exploitation_modifier
 				}
 			}
 			add_resource = {
@@ -935,10 +931,8 @@ FRA_national_missions_conatiner_scripted_gui = {
 				amount = 9
 			}
 			957 = {
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
+				add_dynamic_modifier = {
+					modifier = rhine_exploitation_modifier
 				}
 			}
 			add_resource = {
@@ -986,6 +980,29 @@ FRA_national_missions_conatiner_scripted_gui = {
 		}
 		FRA_national_mission_4_click = {
 			navy_experience = 50
+			steal_random_tech_bonus = {
+				category = air_equipment
+				folder = naval_folder
+				ahead_reduction = 0.8
+				bonus = 1.2
+				base_bonus = 1.1
+				dynamic = yes
+				name = FRA_national_mission_4_steal_tt
+				target = ENG
+				uses = 2
+			}
+			add_offsite_building = {
+				type = dockyard
+				level = 1
+			}
+			add_offsite_building = {
+				type = dockyard
+				level = 1
+			}
+			add_offsite_building = {
+				type = dockyard
+				level = 1
+			}
 			set_country_flag = FRA_national_mission_4_click_flag
 		}
 	}
