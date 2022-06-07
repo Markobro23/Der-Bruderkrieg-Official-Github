@@ -1900,7 +1900,13 @@ shared_focus = {
     available = {
         has_global_flag = europakrieg_has_started_flag
     }
-   
+    bypass = {
+        OR = {
+            has_global_flag = austria_defeated
+            has_war_with = AUS
+        }
+    }
+    will_lead_to_war_with = AUS
     relative_position_id = SOV_lessons_from_the_europakrieg
     ai_will_do = {
         factor = 2000
@@ -2190,6 +2196,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = MON
     completion_reward = {
         create_wargoal = {
             target = MON
@@ -2379,6 +2386,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = ETR
     completion_reward = {
         create_wargoal = {
             target = ETR
@@ -2496,6 +2504,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = TUR
     completion_reward = {
         TRB = {
             set_politics = {
@@ -2602,7 +2611,7 @@ shared_focus = {
 	relative_position_id = SOV_follow_trotskys_footsteps
 
 	cost = 10		
-	
+	will_lead_to_war_with = FRA
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2721,7 +2730,7 @@ shared_focus = {
 	relative_position_id = SOV_claim_konigsberg
 
 	cost = 10		
-	
+	will_lead_to_war_with = GER
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no

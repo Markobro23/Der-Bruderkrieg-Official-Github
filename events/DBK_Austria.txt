@@ -907,6 +907,23 @@ country_event = {
 			id = "FRA"
 			value = 200
 		}
+		if = {
+			limit = {
+				tag = TUR
+			}
+			add_to_war = {
+				targeted_alliance = AUS
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+			news_event = russian_expansion.2
+			SOV = {
+				country_event = {
+					id = british_inteverntion_in_russian_expansion.2
+					days = 5
+				}
+			}
+		}
 	}
 
 	option = {

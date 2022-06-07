@@ -6264,6 +6264,45 @@ AUS_french_prussian_war_preparations = {
 
 
 weltkrieg_decisions = {
+	AUS_ai_desperate_defense = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = AUS
+		}
+
+		available = { 
+			has_war_with = GER
+			surrender_progress > 0.24
+		}
+
+		visible = {
+			is_ai = yes
+		}
+
+		fire_only_once = no
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		modifier = {
+			army_defence_factor = 0.35
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			
+		}
+	}
 	AUS_pressure_france_to_intervene = {
 
 		icon = generic_army_support

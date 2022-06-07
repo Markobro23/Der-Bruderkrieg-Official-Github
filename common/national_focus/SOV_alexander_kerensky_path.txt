@@ -2285,6 +2285,7 @@ shared_focus = {
 	ai_will_do = {
 		factor = 1000
 	}
+	will_lead_to_war_with = JAP
 	available = {
 		date > 1938.6.1
 		has_army_size = {
@@ -2448,7 +2449,7 @@ shared_focus = {
 	cost = 10
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
-
+	will_lead_to_war_with = TUR
 	available = {
 		TUR = {
 			exists = yes
@@ -3141,16 +3142,25 @@ shared_focus = {
 	cost = 12
 	available_if_capitulated = yes
 	#search_filters = { FOCUS_FILTER_RESEARCH }
-
+	will_lead_to_war_with = GER
 	ai_will_do = {
 		factor = 1000
 	}
 
 	completion_reward = {
-		create_wargoal = {
-			target = GER
-			type = topple_government
+		if = {
+			limit = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
 		}
+		add_ideas = AUS_ending_the_northern_menace
+			
 	}
 }
 
