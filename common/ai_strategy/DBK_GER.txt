@@ -813,3 +813,28 @@ russia_dont_send_volunteers_to_austria = {
 		value = -6060
 	}
 }	
+
+GER_dont_attack_hannover_yet = {
+	allowed = {
+		original_tag = GER
+	}
+	enable = {
+		HAN = {
+			is_guaranteed_by = ENG
+		}
+	}
+
+	abort = {
+		HAN = {
+			NOT = {
+				is_guaranteed_by = ENG
+			}
+		}
+	}
+
+	ai_strategy = {
+        type = ignore_claim
+        id = "HAN"
+        value = 100
+    }
+}
