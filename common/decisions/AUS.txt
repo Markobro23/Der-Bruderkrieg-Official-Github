@@ -7162,22 +7162,6 @@ AUS_creating_raus = {
 					}
 				}
 			}
-        	220 = {
-				CONTROLLER = {
-					OR = {
-						tag = AUS
-						is_in_faction_with = AUS
-					}
-				}
-			}
-        	240 = {
-				CONTROLLER = {
-					OR = {
-						tag = AUS
-						is_in_faction_with = AUS
-					}
-				}
-			}
         	218 = {
 				CONTROLLER = {
 					OR = {
@@ -7274,8 +7258,6 @@ AUS_creating_raus = {
 					add_state_core = 137
 					add_state_core = 227
         			add_state_core = 228
-        			add_state_core = 220
-        			add_state_core = 240
         			add_state_core = 218
         			add_state_core = 234
         			add_state_core = 1085
@@ -7285,8 +7267,6 @@ AUS_creating_raus = {
 				}
 				transfer_state = 227
         		transfer_state = 228
-        		transfer_state = 220
-        		transfer_state = 240
         		transfer_state = 218
         		transfer_state = 234
         		transfer_state = 1085
@@ -7351,21 +7331,10 @@ AUS_creating_raus = {
 					add_state_core = 137
 					add_state_core = 196
         			add_state_core = 200
-        			add_state_core = 220
-        			add_state_core = 240
 				}
 				transfer_state = 137
 				transfer_state = 196
 				transfer_state = 200
-        		if = {
-        			limit = {
-        				NOT = {
-        					LNU = { owns_state = 220 }
-        				}
-        			}
-        			transfer_state = 220
-        			transfer_state = 240
-        		}
 			}
 		}
 	}
@@ -8943,6 +8912,22 @@ AUS_creating_raus = {
 					}
 				}
 			}
+			220 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
+			240 = {
+				CONTROLLER = {
+					OR = {
+						tag = AUS
+						is_in_faction_with = AUS
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -8966,36 +8951,10 @@ AUS_creating_raus = {
         			transfer_state = 224
         			transfer_state = 222
 					set_capital = { state = 219 }
-					if = {
-						limit = { 
-							AUS = { 
-								OR = {
-									has_subject = NYK 
-									has_subject = CRI
-								}
-								220 = {
-									OWNER = {
-										OR = {
-											tag = AUS
-											tag = SOV
-										}
-									}
-								}
-								240 = {
-									OWNER = {
-										OR = {
-											tag = AUS
-											tag = SOV
-										}
-									}
-								}
-							} 
-						}
-						add_state_core = 220
-						transfer_state = 220
-						add_state_core = 240
-						transfer_state = 240
-					}
+					add_state_core = 220
+					transfer_state = 220
+					add_state_core = 240
+					transfer_state = 240
         		if = {
         			limit = {
         				THIS = {
@@ -9179,8 +9138,6 @@ AUS_creating_raus = {
 					add_state_core = 260
 					add_state_core = 239
 					add_state_core = 265
-					add_state_core = 220
-					add_state_core = 240
 					add_state_core = 252
 					add_state_core = 253
 				}
@@ -9194,28 +9151,6 @@ AUS_creating_raus = {
 				transfer_state = 265
 				transfer_state = 252
 				transfer_state = 253
-				if = {
-					limit = {
-						240 = {
-							OWNER = {
-								OR = {
-									tag = AUS
-									tag = SOV
-								}
-							}
-						}
-						220 = {
-							OWNER = {
-								OR = {
-									tag = AUS
-									tag = SOV
-								}
-							}
-						}
-					}
-					transfer_state = 220
-					transfer_state = 240
-				}
 			}
 		}
 
@@ -9334,8 +9269,6 @@ AUS_creating_raus = {
 					add_state_core = 260
 					add_state_core = 239
 					add_state_core = 265
-					add_state_core = 220
-					add_state_core = 240
 					add_state_core = 252
 					add_state_core = 253
 					transfer_state = 250
