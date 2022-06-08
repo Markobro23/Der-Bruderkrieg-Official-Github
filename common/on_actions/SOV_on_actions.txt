@@ -422,6 +422,13 @@ on_actions = {
 
     on_declare_war = {
         effect = { 
+		if = {
+			limit = {
+				tag = SOV
+				FROM = { tag = GER }
+			}
+			news_event = { id = stahlpakt_events.3 days = 1 hours = 5 }
+		}
             if = {
                 limit = {
                     OR = {
