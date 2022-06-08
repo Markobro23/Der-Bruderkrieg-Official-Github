@@ -1367,18 +1367,54 @@ france_loses_peace_deal = {
                 transfer_troops = yes
             }
     	}
+        MLI = {
+            add_state_core = 786
+            add_state_core = 557
+            
+        }
+        NGR = {
+            add_state_core = 781
+        }
+        CHA = {
+            add_state_core = 660
+        }
+        WAS = {
+            add_state_core = 1057
+        }
+        ENG = {
+            transfer_state = 779
+        }
+        if = {
+            limit = {
+                LBA  = {
+                    exists = yes
+                }
+            }
+            LBA = {
+                transfer_state = 1072   
+            }
+        }
+        else = {
+            273 = {
+                owner = {
+                    transfer_state = 1072   
+                }
+            }
+        }
         release = GAB
-        release = MRT
+        
         release = SEN
         release = WAS
         release = VOL
-        release = IVO
+        
         release = MLI
         release = DAH
-        release = NGR
         release = CHA
         release = CMR
-        release = COG
+        GER = {
+            puppet = CMR
+        }
+        release = NGR
         release = CAR
         release = MOR
         release = GHA
@@ -1512,6 +1548,9 @@ france_loses_peace_deal = {
                 has_global_flag = congo_revolt_fired
             }
             add_to_faction = COG
+        }
+        else = {
+            release = COG
         }
     }
     ALG = {
