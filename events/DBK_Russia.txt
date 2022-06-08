@@ -5559,37 +5559,10 @@ country_event = { #SOV offers peace
 				white_peace = PREV
 			}
 		}
-		hidden_effect = {
-			HUN = {
-				if = {
-					limit = {
-						OR = {
-							is_subject_of = SOV
-							is_in_faction_with = SOV
-						}
-					}
-					set_cosmetic_tag = prussian_rk
-					set_country_flag = former_russian_now_german
-				}
-			}
-			SLO = {
-				if = {
-					limit = {
-						OR = {
-							is_subject_of = SOV
-							is_in_faction_with = SOV
-						}
-					}
-					set_cosmetic_tag = prussian_rk
-					set_country_flag = former_russian_now_german
-				}
-			}
+		if = {
+			limit = { ROM = { is_in_faction_with = SOV } }
+			puppet = ROM
 		}
-		every_country = {
-			limit = { has_country_flag = former_russian_now_german }
-			GER = { puppet = PREV }
-		}
-		puppet = ROM
 		puppet = BUL
 		if = {
 			limit = {

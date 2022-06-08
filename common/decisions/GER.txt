@@ -3466,6 +3466,254 @@ atomwaffen_decisions = {
 }
 
 GER_occupation_of_russia = {
+
+	GER_rk_slovakia = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		visible = {
+			SLO = {
+				OR = {
+					is_subject_of = SOV
+					AND = {
+						has_war_with = GER
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		available = {
+			70 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			71 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			slovak_states = yes
+		}
+	}
+
+	GER_rk_ungarn = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		visible = {
+			HUN = {
+				OR = {
+					is_subject_of = SOV
+					AND = {
+						has_war_with = GER
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		available = {
+			154 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			155 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			43 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			664 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			804 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			73 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				HUN = {
+					set_popularities = {
+		            ultranationalism = 54
+		            communism = 12
+		            fascism = 20
+		            democratic = 14
+		        }
+		        keep_current_politics = yes
+				}
+			}
+			HUN = {
+				transfer_state = 154
+		        transfer_state = 155
+		        transfer_state = 43
+		        transfer_state = 664
+		        transfer_state = 804
+		        transfer_state = 73
+			}
+			hidden_effect = {
+				HUN = {
+	                set_cosmetic_tag = prussian_rk
+	                reset_government = yes
+	                set_politics = {
+	                    ruling_party = ultranationalism
+	                }
+	            }
+			}
+		}
+	}
+
+	GER_rk_galizien = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		visible = {
+			GLC = {
+				OR = {
+					is_subject_of = SOV
+					AND = {
+						has_war_with = GER
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		available = {
+			72 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			88 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			89 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			951 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			1123 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				GLC = {
+					set_popularities = {
+			            fascism = 44
+			            communism = 12
+			            ultranationalism = 10
+			            democratic = 14
+			            neutrality = 20
+			        }
+			        keep_current_politics = yes
+				}
+			}
+			GLC = {
+				transfer_state = 72
+		        transfer_state = 88
+		        transfer_state = 951
+		        transfer_state = 89
+		        transfer_state = 1123
+			}
+			hidden_effect = {
+				GLC = {
+	                set_cosmetic_tag = prussian_rk
+	                reset_government = yes
+			        set_politics = {
+			            ruling_party = fascism
+			        }
+	            }
+			}
+		}
+	}
 	
 	GER_rk_polen = {
 
@@ -4137,11 +4385,11 @@ GER_occupation_of_russia = {
 		}
 
 		visible = {
-			78 = {
-				CONTROLLER = {
+			NOT = {
+				ROM = {
 					OR = {
-						tag = GER
-						is_in_faction_with = GER
+						controls_state = 78
+						owns_state = 78
 					}
 				}
 			}
@@ -4567,7 +4815,7 @@ GER_occupation_of_russia = {
 		complete_effect = {
 			hidden_effect = {
 				every_state = {
-					limit = { is_core_of = BLR is_core_of = FOB }
+					limit = { OR = { is_core_of = BLR is_core_of = FOB } }
 					add_core_of = LIT
 				}
 				LIT = {

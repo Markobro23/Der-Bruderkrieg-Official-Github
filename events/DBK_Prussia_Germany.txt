@@ -2446,7 +2446,7 @@ country_event = {
 
 	option = { 
 		name = germany_slovenia_events.1.a 
-		ai_chance = { factor = 90 } 
+		ai_chance = { factor = 75 } 
 		effect_tooltip = {
 			GER = {
 				transfer_state = 810
@@ -2465,7 +2465,7 @@ country_event = {
 	}
 	option = { 
 		name = germany_slovenia_events.1.b 
-		ai_chance = { factor = 90 } 
+		ai_chance = { factor = 125 } 
 		leave_faction = yes
 		news_event =  italy.531
 	}
@@ -2483,15 +2483,27 @@ country_event = {
 	option = { 
 		name = germany_slovenia_events.2.a 
 		ai_chance = { factor = 90 } 
-		GER = {
-			transfer_state = 810
-			add_state_core = 810
-			transfer_state = 736
-			add_state_core = 736
-			transfer_state = 160
-			add_state_core = 160
-			transfer_state = 805
-			add_state_core = 805
+		if = {
+			limit = { NOT = { AUS = { is_subject_of = GER } } }
+			GER = {
+				transfer_state = 810
+				add_state_core = 810
+				transfer_state = 736
+				add_state_core = 736
+				transfer_state = 160
+				add_state_core = 160
+				transfer_state = 805
+				add_state_core = 805
+			}
+			else = {
+				AUS = {
+					transfer_state = 810
+					transfer_state = 736
+					transfer_state = 160
+					add_state_core = 160
+					transfer_state = 805
+				}
+			}
 		}
 	}
 }
