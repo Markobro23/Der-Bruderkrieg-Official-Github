@@ -722,6 +722,40 @@ on_actions = {
 				}
 				france_loses_to_austria_peace_deal = yes
 			}
+
+			if = {
+				limit = {
+					tag = JNE
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				white_peace = GER
+				set_cosmetic_tag = prussian_rk
+				GER = {
+					puppet = JNE
+				}
+			}
+
+			if = {
+				limit = {
+					tag = HOL
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				white_peace = GER
+				set_cosmetic_tag = prussian_rk
+				GER = {
+					puppet = HOL
+				}
+			}
 			
 			if = {
 				limit = {
@@ -1784,5 +1818,34 @@ on_actions = {
 				argentina_beats_bruhzil = yes
 			}		
 		}	
+	}
+
+	on_puppet = { #removing puppet colors when being puppeted by someone else
+		if = {
+			limit = {
+				OR = {
+					has_cosmetic_tag = RAU_hannover 
+					has_cosmetic_tag = RAU_prussia 
+					has_cosmetic_tag = RAU_France 
+					has_cosmetic_tag = prussian_rk 
+					has_cosmetic_tag = GER_parisian_industrial_zone 
+					has_cosmetic_tag = GER_bismarckstadt 
+					has_cosmetic_tag = east_europe_prussian_rk 
+					has_cosmetic_tag = cock_prussian_rk 
+					has_cosmetic_tag = finnish_prussian_rk 
+					has_cosmetic_tag = russian_prussian_rk 
+					has_cosmetic_tag = austrian_rau 
+					has_cosmetic_tag = AUS_kingdom_puppet 
+					has_cosmetic_tag = austrian_pol_lit_kingdom 
+					has_cosmetic_tag = AUS_kingdom_puppet 
+					has_cosmetic_tag = AUS_caucasian_kingdom 
+					has_cosmetic_tag = AUS_MOL_governate
+					has_cosmetic_tag = rau_poland_not_lithuania
+					has_cosmetic_tag = FRA_russian_puppets
+					has_cosmetic_tag = FRA_russian_occupation
+				}
+			}
+			drop_cosmetic_tag = yes
+		}
 	}
 }

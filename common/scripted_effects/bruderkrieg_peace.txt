@@ -1201,10 +1201,6 @@ france_loses_peace_deal = {
     }
     event_target:new_continental_system_leader = {
         set_faction_leader = yes
-        declare_war_on = {
-            target = GER
-            type = topple_government
-        }
         add_war_support = 0.2
     }
     FRA = {
@@ -1371,9 +1367,25 @@ france_loses_peace_deal = {
                 transfer_troops = yes
             }
     	}
+        release = GAB
+        release = MRT
+        release = SEN
+        release = WAS
+        release = VOL
+        release = IVO
+        release = MLI
+        release = DAH
+        release = NGR
+        release = CHA
+        release = CMR
+        release = COG
+        release = CAR
+        release = MOR
+        release = GHA
     }
-    HOL = {
-       drop_cosmetic_tag = yes 
+
+    GHA = {
+        transfer_state = 879
     }
 	
 	every_state = {
@@ -1499,7 +1511,6 @@ france_loses_peace_deal = {
             limit = {
                 has_global_flag = congo_revolt_fired
             }
-            release = COG
             add_to_faction = COG
         }
     }
