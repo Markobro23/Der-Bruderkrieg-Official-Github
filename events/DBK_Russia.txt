@@ -5603,6 +5603,16 @@ country_event = { #SOV offers peace
 				}
 			}
 		}
+		every_country = {
+			limit = { is_subject_of = SOV }
+			SOV = {
+				set_autonomy = {
+					target = PREV
+					autonomy_state = autonomy_free
+					end_wars = yes
+				}
+			}
+		}
 	}
 	option = { #no peace, never!
 		name = SOV_brest_livosk2.2.b
