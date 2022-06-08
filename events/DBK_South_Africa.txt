@@ -20,6 +20,29 @@ country_event = {
             target = BOE
             type = annex_everything
         }
+        hidden_effect = {
+        	BOE = {
+        		division_template = {
+					name = "Nationalist Partisans"			# Civilian Partisans
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+					}
+				}
+        	}
+        	275 = {
+        		create_unit = {
+				    division = "name = \"Nationalist Partisans\" division_template = \"INationalist Partisans\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+				    count = 5
+				    owner = BOE
+				}
+        	}
+        }
 	}
 } 
 

@@ -6747,7 +6747,13 @@ shared_focus = {
 						neutrality = 42
 						democratic = 8
 					}
-					keep_current_politics = yes 
+					keep_current_politics = yes
+					if = {
+						limit = {
+							GER = { owns_state = 39 }
+						}
+						add_state_core = 39
+					}
 				}
 			}
 
@@ -7101,7 +7107,7 @@ shared_focus = {
 			focus = GER_moskowien_awaits
 		}
 		ai_will_do = {
-			factor = 100
+			factor = 1000
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = GER_winter_spring_offensives
@@ -7132,7 +7138,7 @@ shared_focus = {
 		mutually_exclusive = { focus = GER_surpass_general_winter }
 		relative_position_id = GER_streik 
 		ai_will_do = {
-			factor = 100
+			factor = 1000
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = GER_moskowien_offensive

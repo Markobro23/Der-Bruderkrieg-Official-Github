@@ -10,6 +10,7 @@ austria_loses_peace_deal = {
         }
         AUS = {
             dismantle_faction = yes 
+            load_focus_tree = generic_focus
         }
         AUS = {country_event = wiltkrieg.2}
         GER = {country_event = wiltkrieg.3}
@@ -301,7 +302,6 @@ prussia_russia_wins_states = {
                     }
                 }
             }
-            SLO = {
                 set_popularities = {
                     democratic_communism = 54
                     fascism = 19
@@ -312,7 +312,7 @@ prussia_russia_wins_states = {
                 set_politics = {
                     ruling_party = democratic_communism
                 }
-            }
+                keep_current_politics = yes
         }
         else = {
             SLO = {
@@ -326,10 +326,8 @@ prussia_russia_wins_states = {
                 set_politics = {
                     ruling_party = democratic
                 }
+                keep_current_politics = yes
             }
-        }
-        SLO = {
-            keep_current_politics = yes
         }
     }
     SOV = {
@@ -358,6 +356,12 @@ prussia_russia_wins_states = {
             limit = { country_exists = KEN }
             annex_country = {
                 target = KEN
+            }
+        }
+        if = {
+            limit = { country_exists = TZN }
+            annex_country = {
+                target = TZN
             }
         }
     }
@@ -1222,8 +1226,17 @@ france_loses_peace_deal = {
         transfer_state = 51
         if = {
             limit = {
-                BEL = { NOT = { is_in_faction_with = GER }
-                    has_war_with = GER
+                BEL = { 
+                    OR = {
+                        AND = {
+                            NOT = { is_in_faction_with = GER }
+                            has_war_with = GER
+                        }
+                        AND = {
+                            is_in_faction_with = FRA
+                            has_capitulated = yes
+                        }
+                    }
                 }
             }
             transfer_state = 800
@@ -1415,6 +1428,7 @@ france_loses_peace_deal = {
         release = NGR
         release = CAR
         release = MOR
+        release = ALG
         release = GHA
     }
 
