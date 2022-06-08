@@ -367,7 +367,30 @@ AIG_worldbuilding_decisions = {
 			}
 		}
 	}
-
+	AIG_annex_kali = {
+		icon = generic_nation
+		available = {
+			controls_state = 430
+		}
+		visible = {
+		    tag = AIG
+			GAK = {
+				exists = yes
+			}
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		fire_only_once = yes
+		days_remove = 25
+		remove_effect = {
+			annex_country = {
+				target = GAK
+				transfer_troops = yes
+			}
+		}
+	
+	}
 
 	AIG_buff_facories = {
 		icon = generic_nation
