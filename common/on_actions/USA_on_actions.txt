@@ -612,4 +612,46 @@ on_actions = {
         }
     }
 
+    on_declare_war = {
+        effect = {
+            if = {
+                limit = {
+                    OR = {
+                        AND = {
+                            tag = USA
+                            FROM = {
+                                tag = ENG
+                            }
+                        }
+                        AND = {
+                            tag = ENG
+                            FROM = {
+                                tag = USA
+                            }
+                        }
+                    }
+                }
+                news_event = USA_generic_foriegn_policy_tree.12
+            }
+            if = {
+                limit = {
+                    OR = {
+                        AND = {
+                            tag = USA
+                            FROM = {
+                                tag = ARG
+                            }
+                        }
+                        AND = {
+                            tag = ARG
+                            FROM = {
+                                tag = USA
+                            }
+                        }
+                    }
+                }
+                news_event = USA_generic_foriegn_policy_tree.14
+            }1
+        }
+    }
 }
