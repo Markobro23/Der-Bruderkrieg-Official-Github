@@ -3002,6 +3002,12 @@ america_venezuela_peace_deal = {
 }
 
 america_beats_argentina = {
+    annex_country = {
+        target = CHL
+    }
+    annex_country = {
+        target = ARG
+    }
     if = {
         limit = {
             country_exists = PBC
@@ -3012,6 +3018,23 @@ america_beats_argentina = {
         PBC = {
             transfer_state = 998
         }
+        else = {
+            USA = {
+                annex_country = {
+                    target = PRU
+                }
+                annex_country = {
+                    target = BOL
+                }
+            }
+            every_state = {
+                limit = { OR = { is_core_of = BOL is_core_of = PRU } NOT = { is_core_of = PBC } }
+                add_core_of = PBC
+            }
+            USA = {
+                release = PBC
+            }
+        }
     }
     if = {
         limit = {
@@ -3021,7 +3044,15 @@ america_beats_argentina = {
             }
         }
         PAR = { transfer_state = 1015 }
+        else = {
+            release = PAR
+        }
     }
+    if = {
+        limit = { URG = { exists = no } }
+        release = URG
+    }
+
     if = {
         limit = {
             USA = {
@@ -3041,7 +3072,7 @@ america_beats_argentina = {
         ARG = {
             add_popularity = {
                 ideology = neutrality
-                popularity = 0.3
+                popularity = 0.35
             }
             set_politics = {
                 ruling_party = neutrality
@@ -3051,7 +3082,7 @@ america_beats_argentina = {
         CHL = {
             add_popularity = {
                 ideology = neutrality
-                popularity = 0.3
+                popularity = 0.35
             }
             set_politics = {
                 ruling_party = neutrality
