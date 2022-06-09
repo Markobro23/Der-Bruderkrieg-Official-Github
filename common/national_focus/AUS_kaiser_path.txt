@@ -4132,6 +4132,36 @@ shared_focus = {
         value = -70
         localization = AUS_reduce_sgc_autonomy
       }
+      swap_ideas = {
+        remove_idea = GPU_unstable_nation
+        add_idea = GPU_unstable_nation_2
+      }
+    }
+    hidden_effect = {
+      HES = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      NAS = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      WUR = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      BAD = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
     }
 
    }
@@ -4199,6 +4229,23 @@ shared_focus = {
   GPU = {
     remove_ideas = GPU_garrisson_state_3
   }
+  GPU = {
+    remove_ideas = GPU_unstable_nation
+  }
+  hidden_effect = {
+      HES = {
+        remove_ideas = GPU_unstable_nation
+      }
+      NAS = {
+        remove_ideas = GPU_unstable_nation
+      }
+      WUR = {
+        remove_ideas = GPU_unstable_nation
+      }
+      BAD = {
+        remove_ideas = GPU_unstable_nation
+      }
+    }
    }
 }
 
@@ -8109,13 +8156,79 @@ shared_focus = {
         }
       }
     }
+    hidden_effect = {
+      HUN = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+      GLC = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+      CRO = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+    }
+    set_cosmetic_tag = united_kingdoms_of_germany
     release_autonomy = {
       target = HUN
-      autonomy_state = autonomy_integrated_puppet
+      autonomy_state = autonomy_puppet
     }
     release_autonomy = {
       target = CRO
-      autonomy_state = autonomy_integrated_puppet
+      autonomy_state = autonomy_puppet
+    }
+    release_autonomy = {
+      target = GLC
+      autonomy_state = autonomy_puppet
+    }
+    hidden_effect = {
+      HUN = {
+        reset_government = yes
+      }
+      GLC = {
+        reset_government = yes
+      }
+      CRO = {
+        reset_government = yes
+      }
     }
    }
 }

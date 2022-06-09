@@ -3648,7 +3648,7 @@ AUS_managing_bavaria_court_factionalism = {
 
 AUS_foritfying_against_the_fbc = {
 	AUS_the_silesian_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3660,7 +3660,10 @@ AUS_foritfying_against_the_fbc = {
 		fire_only_once = yes
 
 		days_remove = 300
-		cost = 40
+
+		modifier = {
+			civilian_factory_use = 3
+		}
 
 		remove_effect = {
 			
@@ -3693,7 +3696,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_bavarian_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3702,10 +3705,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 2
+		}
+
 		fire_only_once = yes
 
 		days_remove = 200
-		cost = 35
 
 		remove_effect = {
 			every_state = {
@@ -3745,7 +3751,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_danubian_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3754,10 +3760,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 2
+		}
+
 		fire_only_once = yes
 
 		days_remove = 180
-		cost = 30
 
 		remove_effect = {
 			every_state = {
@@ -3786,7 +3795,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_galician_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3795,10 +3804,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 3
+		}
+
 		fire_only_once = yes
 
 		days_remove = 200
-		cost = 40
 
 		remove_effect = {
 			every_state = {
@@ -3827,7 +3839,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_westfalen_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3836,10 +3848,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 3
+		}
+
 		fire_only_once = yes
 
 		days_remove = 220
-		cost = 50
 
 		remove_effect = {
 			every_state = {
@@ -3873,7 +3888,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_venetian_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3882,10 +3897,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 3
+		}
+
 		fire_only_once = yes
 
 		days_remove = 200
-		cost = 40
 
 		remove_effect = {
 			every_state = {
@@ -3914,7 +3932,7 @@ AUS_foritfying_against_the_fbc = {
 		}
 	}
 	AUS_the_serbian_border = {
-
+		icon = generic_prepare_civil_war
 
 		available = {
 			has_war = no
@@ -3923,10 +3941,13 @@ AUS_foritfying_against_the_fbc = {
 			factor = 2
 		}
 
+		modifier = {
+			civilian_factory_use = 2
+		}
+
 		fire_only_once = yes
 
 		days_remove = 180
-		cost = 25
 
 		remove_effect = {
 			every_state = {
@@ -5994,26 +6015,20 @@ AUS_french_prussian_war_preparations = {
 
 		available = {
 			OR = {
-				owns_state = 69
-				69.owner = {
-					is_puppet_of = AUS
-				}
+				has_war_with = GER
+				has_war_with = SOV
 			}
+			surrender_progress > 0.24
 		}
 
 		days_remove = 20
 
+		modifier = {
+			army_morale_factor = 0.1
+		}
+
 		remove_effect = {
-			69 = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-			}
+			
 		}
 
 	}
@@ -6029,12 +6044,9 @@ AUS_french_prussian_war_preparations = {
 		cost = 50
 
 		available = {
-			any_country = {
-				OR = {
-					is_subject_of = AUS
-					tag = AUS
-				}
-				controls_state = 540
+			OR = {
+				has_war_with = FRA
+				has_war_with = GER
 			}
 		}
 
@@ -6045,13 +6057,20 @@ AUS_french_prussian_war_preparations = {
 		days_remove = 30
 
 		remove_effect = {
-			954 = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
+			if = {
+				limit = {
+					has_war_with = FRA
+				}
+				FRA = {
+					every_unit_leader = {
+						add_ideas = AUS_rhine_river_uncrossable_idea
+					}
+				}
+			}
+			else = {
+				GER = {
+					every_unit_leader = {
+						add_ideas = AUS_rhine_river_uncrossable_idea
 					}
 				}
 			}
@@ -6122,26 +6141,18 @@ AUS_french_prussian_war_preparations = {
 		cost = 50
 
 		available = {
-			controls_state = 153
+			has_war_with = ITA
 		}
 
 		modifier = {
-			production_speed_buildings_factor = -0.1
+			terrain_penalty_reduction = 0.15
+			special_forces_attack_factor = 0.2
 		}
 
 		days_remove = 20
 
 		remove_effect = {
-			153 = {
-				add_building_construction = {
-					type = bunker
-					level = 2
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-			}
+			
 		}
 
 	}
