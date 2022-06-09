@@ -3010,6 +3010,18 @@ america_beats_argentina = {
     }
     if = {
         limit = {
+            country_exists = PAR
+            PAR = {
+                has_war_with = ARG
+            }
+        }
+        PAR = { transfer_state = 1015 }
+        else = {
+            release = PAR
+        }
+    }
+    if = {
+        limit = {
             country_exists = PBC
             PBC = {
                 has_war_with = ARG
@@ -3034,18 +3046,6 @@ america_beats_argentina = {
             USA = {
                 release = PBC
             }
-        }
-    }
-    if = {
-        limit = {
-            country_exists = PAR
-            PAR = {
-                has_war_with = ARG
-            }
-        }
-        PAR = { transfer_state = 1015 }
-        else = {
-            release = PAR
         }
     }
     if = {
