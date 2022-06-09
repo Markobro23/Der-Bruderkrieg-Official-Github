@@ -67,8 +67,12 @@ scripted_gui = {
             }
 
             distribute_infantry_button_click = {
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
                 set_temp_variable = {
                     ROOT.faction_infantry_distrubtion = ROOT.num_equipment@infantry_equipment
+                }
+                divide_temp_variable = {
+                    faction_infantry_distrubtion = 2
                 }
                 divide_temp_variable = {
                     faction_infantry_distrubtion = ROOT.members_of_equipment_pool_array^num
@@ -93,13 +97,17 @@ scripted_gui = {
                 
             }
             request_infantry_button_click = {
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
+                # set_temp_variable = {
+                #     ROOT.faction_infantry_request = ROOT.faction_infantry_amount
+                # }
+                # divide_temp_variable = {
+                #     faction_infantry_request = 2
+                # }
                 set_temp_variable = {
-                    ROOT.faction_infantry_request = ROOT.faction_infantry_amount
+                    ROOT.faction_infantry_request = 100
                 }
-                divide_temp_variable = {
-                    faction_infantry_request = 2
-                }
-                log = "[?members_of_equipment_pool_array^num] + [?faction_infantry_distrubtion]"
+                log = "[?members_of_equipment_pool_array^num] + [?faction_infantry_request]"
 
                 add_equipment_to_stockpile = {
                     type = infantry_equipment
@@ -107,24 +115,36 @@ scripted_gui = {
                     producer = ROOT
                 }
 
+                hidden_effect = {
+                    set_variable = {
+                        positive_infantry_countries = 0
+                    }
+                    every_country = {
+                        limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { tooltip = some_infantry_equipment num_equipment@infantry_equipment > 0 } }
+                        add_to_variable = {
+                            ROOT.positive_infantry_countries = 1
+                        }
+                    }
+                }
+
                 set_temp_variable = {
                     faction_infantry_request_taken = faction_infantry_request 
                 }
 
                 divide_temp_variable = {
-                    faction_infantry_request_taken = ROOT.members_of_equipment_pool_array^num
+                    faction_infantry_request_taken = ROOT.positive_infantry_countries
                 }
+                log = "[?positive_infantry_countries]"
                 log = "[?faction_infantry_request_taken]"
                 multiply_temp_variable = {
                     faction_infantry_request_taken = -1
                 }
                 
                 every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { num_equipment@infantry_equipment > 0 } }
                     add_equipment_to_stockpile = {
                         type = infantry_equipment
                         amount = var:faction_infantry_request_taken
-                        producer = THIS
                     }
                     add_opinion_modifier = {
                         target = AUS
@@ -134,14 +154,17 @@ scripted_gui = {
                 set_variable = { ROOT.faction_infantry_amount = 0 }
 				for_each_scope_loop = {
                     array = ROOT.members_of_equipment_pool_array
-                    
                     add_to_variable = { ROOT.faction_infantry_amount = num_equipment@infantry_equipment }
                 }
             }
 
             distribute_armor_button_click = {
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
                 set_temp_variable = {
                     ROOT.faction_armor_distrubtion = ROOT.num_equipment@light_tank_chassis
+                }
+                divide_temp_variable = {
+                    faction_armor_distrubtion = 2
                 }
                 divide_temp_variable = {
                     faction_armor_distrubtion = ROOT.members_of_equipment_pool_array^num
@@ -168,26 +191,42 @@ scripted_gui = {
                 
             }
             request_armor_button_click = {
-                set_temp_variable = {
-                    ROOT.faction_armor_request = ROOT.faction_armor_amount
-                }
-                divide_temp_variable = {
-                    faction_armor_request = 2
-                }
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
+                # set_temp_variable = {
+                #     ROOT.faction_armor_request = ROOT.faction_armor_amount
+                # }
+                # divide_temp_variable = {
+                #     faction_armor_request = 2
+                # }
                 log = "[?members_of_equipment_pool_array^num] + [?faction_armor_distrubtion]"
-
+                set_temp_variable = {
+                    ROOT.faction_armor_request = 100
+                }
                 add_equipment_to_stockpile = {
                     type = light_tank_chassis
                     amount = var:faction_armor_request
                     producer = ROOT
                 }
 
+                hidden_effect = {
+                    set_variable = {
+                        positive_armor_countries = 0
+                    }
+                    every_country = {
+                        limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { num_equipment@light_tank_chassis > 0 } }
+                        add_to_variable = {
+                            ROOT.positive_armor_countries = 1
+                        }
+                    }
+                }
+                log = "[?positive_armor_countries]"
+
                 set_temp_variable = {
                     faction_armor_request_taken = faction_armor_request 
                 }
 
                 divide_temp_variable = {
-                    faction_armor_request_taken = ROOT.members_of_equipment_pool_array^num
+                    faction_armor_request_taken = ROOT.positive_armor_countries
                 }
                 multiply_temp_variable = {
                     faction_armor_request_taken = -1
@@ -196,7 +235,7 @@ scripted_gui = {
 
                 
                 every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { num_equipment@light_tank_chassis > 0 } }
                     add_equipment_to_stockpile = {
                         type = light_tank_chassis
                         amount = var:faction_armor_request_taken
@@ -217,8 +256,12 @@ scripted_gui = {
             }
 
             distribute_support_button_click = {
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
                 set_temp_variable = {
                     ROOT.faction_support_distrubtion = ROOT.num_equipment@support_equipment
+                }
+                divide_temp_variable = {
+                    faction_support_distrubtion = 2
                 }
                 divide_temp_variable = {
                     faction_support_distrubtion = ROOT.members_of_equipment_pool_array^num
@@ -242,11 +285,15 @@ scripted_gui = {
                 
             }
             request_support_button_click = {
+                set_country_flag = { flag = request_every_hundred_days value = 1 days = 100 }
+                # set_temp_variable = {
+                #     ROOT.faction_support_request = ROOT.faction_support_amount
+                # }
+                # divide_temp_variable = {
+                #     faction_support_request = 2
+                # }
                 set_temp_variable = {
-                    ROOT.faction_support_request = ROOT.faction_support_amount
-                }
-                divide_temp_variable = {
-                    faction_support_request = 2
+                    ROOT.faction_support_request = 100
                 }
                 log = "[?members_of_equipment_pool_array^num] + [?faction_support_distrubtion]"
 
@@ -255,13 +302,24 @@ scripted_gui = {
                     amount = var:faction_support_request
                     producer = ROOT
                 }
+                hidden_effect = {
+                    set_variable = {
+                        positive_support_countries = 0
+                    }
+                    every_country = {
+                        limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { num_equipment@support_equipment > 0 } }
+                        add_to_variable = {
+                            ROOT.positive_support_countries = 1
+                        }
+                    }
+                }
 
                 set_temp_variable = {
                     faction_support_request_taken = faction_support_request 
                 }
 
                 divide_temp_variable = {
-                    faction_support_request_taken = ROOT.members_of_equipment_pool_array^num
+                    faction_support_request_taken = positive_support_countries
                 }
                 multiply_temp_variable = {
                     faction_support_request_taken = -1
@@ -270,7 +328,7 @@ scripted_gui = {
 
                 
                 every_country = {
-                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } }
+                    limit = { is_in_faction_with = AUS is_in_array = { array = ROOT.members_of_equipment_pool_array value  = THIS } check_variable = { num_equipment@support_equipment > 0 } }
                     add_equipment_to_stockpile = {
                         type = support_equipment
                         amount = var:faction_support_request_taken
@@ -305,11 +363,17 @@ scripted_gui = {
             }
 
             distribute_infantry_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 has_equipment = {
                     infantry_equipment_1 > 999
                 }    
             }
             request_infantry_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 custom_trigger_tooltip = {
                     tooltip = faction_infantry_amount_greater_than_100
 
@@ -320,11 +384,17 @@ scripted_gui = {
             }
 
             distribute_armor_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 has_equipment = {
                     light_tank_chassis > 999
                 } 
             }
             request_armor_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 custom_trigger_tooltip = {
                     tooltip = faction_armor_amount_greater_than_100
 
@@ -335,11 +405,17 @@ scripted_gui = {
             }
 
             distribute_support_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 has_equipment = {
                     support_equipment > 999
                 }
             }
             request_support_button_click_enabled = {
+                NOT = {
+                    has_country_flag = request_every_hundred_days
+                }
                 custom_trigger_tooltip = {
                     tooltip = faction_support_amount_greater_than_100
 
