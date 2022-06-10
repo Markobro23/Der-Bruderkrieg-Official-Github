@@ -38,6 +38,7 @@ replace_path="common/ai_focuses"
 replace_path="events"
 
 path="H:/Paradox Interactive/Hearts of Iron IV/mod/Der-Bruderkrieg-Official-Github"
+picture="thumbnail.png"
 
 
 supported_version="1.11.11"
