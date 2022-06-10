@@ -329,6 +329,23 @@ GER_halt_light_armor_production_in_transitioning = {
 	}
 }
 
+GER_dont_spam_infantry = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		check_variable = {
+			num_infantry = 100
+		} 
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = infantry
+		value = -10
+	}
+}
+
 GER_stockpile_less_early_game = {
 	allowed = { 
 		original_tag = GER 

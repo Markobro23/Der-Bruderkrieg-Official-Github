@@ -2073,23 +2073,45 @@ country_event = { #Afghanistan, moer like Af-gone-istan
 	option = {
 		name = SOV_lenin_tree_events.9.a
 		ai_chance = { factor = 2 }
+		hidden_effect = {
+			AFG = {
+				set_popularities = {
+					neutrality = 35
+					democratic_communism = 19
+					fascism = 25
+					democratic = 11
+					democratic_liberalism = 10
+				}
+				set_politics = {
+					ruling_party = democratic_communism
+				}
+				AFG = {
+					keep_current_politics = yes
+				}
+			}
+		}
 		SOV = {
 			set_autonomy = { target = AFG autonomy_state = autonomy_satellite }
 			country_event = { id = SOV_lenin_tree_events.32 hours = 3 }
 		}
 		AFG = {
-			hidden_effect = {
-				kill_ideology_leader = democratic_communism 
-			}
 			create_country_leader = {
 				name = "Mohammed Zahir Shah"
 				desc = "POLITICS_MOHAMMED_ZAHIR_SHAH_DESC"
 				picture = "Portrait_Afghanistan_Mohammed_Zahir_Shah.dds"
 				expire = "1965.1.1"
-				ideology = leninism
+				ideology = radical_socialism
 				traits = {
 					#
 				}
+			}
+		}
+		hidden_effect = {
+			AFG = {
+				set_politics = {
+					ruling_party = democratic_communism
+				}
+				reset_government = yes
 			}
 		}
 	}
