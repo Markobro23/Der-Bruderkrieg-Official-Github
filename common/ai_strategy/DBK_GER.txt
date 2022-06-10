@@ -335,14 +335,24 @@ GER_dont_spam_infantry = {
 	}
 	enable = {
 		check_variable = {
-			num_infantry = 100
+			num_armies_with_type@infantry > 99
 		} 
 	}
 
-	ai_strategy = {
-		type = role_ratio
-		id = infantry
-		value = -10
+	ai_strategy = { 
+		type = build_army 
+		id = infantry                              
+		value = -4000
+	}
+	ai_strategy = { 
+		type = build_army 
+		id = armor                              
+		value = 400
+	}
+	ai_strategy = { 
+		type = build_army 
+		id = artillery                              
+		value = 400
 	}
 }
 
