@@ -5133,9 +5133,9 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_intensify_exploitation
 			icon = GFX_goal_FRA_intensify_exploitation
-			x = -1
+			x = 1
 			y = 1
-			cost = 5
+			cost = 6.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_second_france }
 			relative_position_id = FRA_the_second_france
@@ -5145,6 +5145,11 @@ instant_build = yes
 			}
 			completion_reward = {
 				ALG = {
+					remove_ideas = ALG_rising_nationalism
+					swap_ideas = {
+						add_idea = ALG_pied_noir_supremacy
+						remove_idea = ALG_ailing_arab_aristocracy
+					}
 					add_war_support = 0.1
 					add_popularity = {
 						ideology = fascism
@@ -5176,6 +5181,9 @@ instant_build = yes
 			completion_reward = {
 				FEA = {
 					remove_ideas = FEA_overstretched_colonial_empire
+				}
+				FWA = {
+					remove_ideas = FWA_tribal_revolts
 				}
 			}
 		}
@@ -5421,7 +5429,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_violette_proposal
 			icon = GFX_goal_FRA_the_abbas_proposal
-			x = 1
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -5671,7 +5679,7 @@ instant_build = yes
 			prerequisite = {
 				focus = FRA_FRANCE_ALONE
 			}
-			cost = 4
+			cost = 8
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5855,7 +5863,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
 			x = 0
 			y = 1
-			cost = 4
+			cost = 8
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_FRANCE_ALONE }
 			relative_position_id = FRA_FRANCE_ALONE
@@ -6236,9 +6244,9 @@ instant_build = yes
         factor = 2000
       }
       completion_reward = {
-        ENG = { add_ideas = FRA_shutdown_french_trade }
-		FRA = { add_ideas = FRA_shutdown_french_trade }
-		AUS = { add_ideas = FRA_shutdown_french_trade }
+        ENG = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
+		FRA = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
+		AUS = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
       }
     }
 
@@ -6344,6 +6352,11 @@ instant_build = yes
       ai_will_do = {
         factor = 2000
       }
+	  available = {
+		  SOV = {
+			is_puppet = no
+		  }
+	  }
     
       available_if_capitulated = yes
       #search_filters = { FOCUS_FILTER_RESEARCH }
