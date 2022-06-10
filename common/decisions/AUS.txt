@@ -6314,6 +6314,49 @@ weltkrieg_decisions = {
 			
 		}
 	}
+	AUS_ai_desperate_defense_on_steroids = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = AUS
+		}
+
+		available = { 
+			has_war_with = GER
+			has_war_with = ROM
+			OR = {
+				has_war_with = SER
+				has_war_with = YUG
+			}
+		}
+
+		visible = {
+			is_ai = yes
+		}
+
+		fire_only_once = no
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		modifier = {
+			army_defence_factor = 0.7
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			
+		}
+	}
 	AUS_pressure_france_to_intervene = {
 
 		icon = generic_army_support

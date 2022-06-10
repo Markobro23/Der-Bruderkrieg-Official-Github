@@ -604,10 +604,36 @@ croat_states = {
 }
 
 serbia_states = {
-    YUG = {
-        transfer_state = 809
-        transfer_state = 45
-        transfer_state = 764
+    if = {
+        limit = {
+            YUG = {
+                exists = yes
+            }
+        }
+        YUG = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
+    }
+    else_if = {
+        limit = {
+            SER = {
+                exists = yes
+            }
+        }
+        SER = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
+    }
+    else = {
+        CRO = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
     }
 }
 
