@@ -1611,6 +1611,16 @@ shared_focus = {
     available = {
         has_country_flag = SOV_no_they_are_insane_unlocked
     }
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1716,6 +1726,17 @@ shared_focus = {
     prerequisite = {
         focus = SOV_militarlize_the_cossacks
     }
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     relative_position_id = SOV_no_they_are_insane
     
     ai_will_do = {
@@ -1761,6 +1782,17 @@ shared_focus = {
 shared_focus = {
     id = SOV_using_the_seperatists
     icon = GFX_goal_SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     
     x = 2
     y = 1
@@ -1789,6 +1821,17 @@ shared_focus = {
         focus = SOV_using_the_seperatists
     }
     relative_position_id = SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1808,6 +1851,17 @@ shared_focus = {
         focus = SOV_using_the_seperatists
     }
     relative_position_id = SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1902,7 +1956,14 @@ shared_focus = {
     }
     bypass = {
         OR = {
-            has_global_flag = austria_defeated
+            custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
             has_war_with = AUS
         }
     }

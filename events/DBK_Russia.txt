@@ -2075,6 +2075,7 @@ country_event = { #Afghanistan, moer like Af-gone-istan
 		ai_chance = { factor = 2 }
 		SOV = {
 			set_autonomy = { target = AFG autonomy_state = autonomy_satellite }
+			country_event = { id = SOV_lenin_tree_events.32 hours = 3 }
 		}
 		AFG = {
 			hidden_effect = {
@@ -2096,10 +2097,7 @@ country_event = { #Afghanistan, moer like Af-gone-istan
 		name = SOV_lenin_tree_events.9.b
 		ai_chance = { factor = 1 }
 		SOV = {
-			create_wargoal = {
-				target = AFG
-				type = puppet_wargoal_focus
-			}
+			country_event = { id = SOV_lenin_tree_events.25 hours = 2 }
 		}
 	}
 }
@@ -2650,7 +2648,17 @@ country_event = { #invasion of trabzon
 	}
 }
 
-
+country_event = { #FROM accepts subjugation
+	id = SOV_lenin_tree_events.32
+	title = SOV_lenin_tree_events.32.t
+	desc = SOV_lenin_tree_events.32.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = SOV_lenin_tree_events.32.a #epic
+		ai_chance = { factor = 3 }
+	}
+}
 
 add_namespace = SOV_lenin_social_reforms_events
 
