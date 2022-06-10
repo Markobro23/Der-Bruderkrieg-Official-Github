@@ -495,26 +495,8 @@ scripted_gui = {
 
         effects = {
             faction_member_entry_behaviour_icon_click = {
-                set_variable = { WOK_faction_left_tab_switch = 3 }
-                
-                THIS = {
-                    if = {
-                        limit = {
-                            check_variable = {
-                                behavior_garrison = 6
-                            }
-                        }
-                        set_variable = {
-                            behavior_garrison = 0
-                        }
-                    }
-                    else = {
-                        add_to_variable = {
-                            behavior_garrison = 1
-                        }
-                    }
-                    update_ai_strategy_commands = yes
-                }
+                ROOT = { set_variable = { WOK_faction_left_tab_switch = 3 } }
+                save_global_event_target_as = selected_member_behavior_country
             }
         }
 
@@ -535,24 +517,63 @@ scripted_gui = {
             check_variable = { WOK_faction_left_tab_switch = 3 }
         }
 
-        dynamic_lists = {
-            faction_equipment_pool_gridbox = {
-                array = ROOT.members_of_equipment_pool_array
-                entry_container = faction_conflict_entry
-                change_scope = yes
-            }
-        }
-
         properties = {
             
         }
 
         effects = {
-
+            faction_conflict_entry_button_01_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 0 } }
+            }
+            faction_conflict_entry_button_02_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 1 } }
+            }
+            faction_conflict_entry_button_03_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 2 } }
+            }
+            faction_conflict_entry_button_04_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 3 } }
+            }
+            faction_conflict_entry_button_05_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 4 } }
+            }
+            faction_conflict_entry_button_06_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 5 } }
+            }
+            faction_conflict_entry_button_07_click = {
+                event_target:selected_member_behavior_country = { set_variable = { behavior_garrison = 6 } }
+            }
         }
 
         triggers = {
-            
+            faction_member_behaviour_active_stamp_01_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 0 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_02_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 1 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_03_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 2 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_04_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 3 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_05_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 4 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_06_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 5 } }
+                update_ai_strategy_commands = yes
+            }
+            faction_member_behaviour_active_stamp_07_visible = {
+                event_target:selected_member_behavior_country = { check_variable = { behavior_garrison = 6 } }
+                update_ai_strategy_commands = yes
+            }
         }
     }
 
