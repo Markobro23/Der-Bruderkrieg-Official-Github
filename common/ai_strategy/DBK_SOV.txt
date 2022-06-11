@@ -285,3 +285,54 @@ bulgaria_alliance_with_russia = {
         value = 9999
     }
 }
+
+
+russia_get_prussia_military_access = {
+	allowed = {
+		tag = SOV
+	}
+	enable = {
+		OR = {
+			has_war_with = AUS
+			has_war_with = FRA
+		}
+		GER = {
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = GER
+		target = military_access
+		value = 9999
+	}
+}
+
+prussia_get_russia_military_access = {
+	allowed = {
+		tag = GER
+	}
+	enable = {
+		OR = {
+			has_war_with = AUS
+			has_war_with = FRA
+		}
+		SOV = {
+			OR = {
+				has_war_with = AUS
+				has_war_with = FRA
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = diplo_action_desire
+		id = SOV
+		target = military_access
+		value = 9999
+	}
+}

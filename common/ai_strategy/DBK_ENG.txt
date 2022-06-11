@@ -233,3 +233,26 @@ ENG_declare_war_on_russia = {
         value = 6969
     }
 }
+
+britain_dont_send_volunteers_to_prussia = {
+	enable = {
+		tag = ENG
+		NOT = {
+			has_country_flag = UK_chose_mosley
+		}
+	}
+	allowed = {
+		tag = ENG
+	}
+
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = GER
+		value = -6060
+	}
+	ai_strategy = {
+		type = send_volunteers_desire	
+		id = ITA
+		value = -6060
+	}
+}
