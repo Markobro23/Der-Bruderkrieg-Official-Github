@@ -4764,7 +4764,7 @@ SOV_Integration_of_Trapezountos = {
 		icon = generic_civil_support
 		available = {  }
 		cost = 25
-		fire_only_once = no
+		fire_only_once = yes
 		ai_will_do = { factor = 1 }
 		days_remove = 20
 		visible = { 
@@ -4790,7 +4790,7 @@ SOV_Integration_of_Trapezountos = {
 		icon = generic_army_support
 		available = {  }
 		cost = 15
-		fire_only_once = no
+		fire_only_once = yes
 		ai_will_do = { factor = 1 } 
 		days_remove = 20 
 		visible = { 
@@ -4862,7 +4862,7 @@ SOV_Integration_of_Trapezountos = {
 		}
 	}
 	SOV_Building_Russian_Steel_Mills_in_Trapezountos = {
-		icon = generic_steel
+		icon = steel
 		available = {  }
 		cost = 15
 		fire_only_once = no
@@ -4922,13 +4922,17 @@ SOV_Integration_of_Trapezountos = {
 				clr_country_flag = Influencing
 				add_to_variable = { SOV.integration_process_trapezountos = 5 }
 			}
+			set_global_flag = SOV_Russian_Occupation_of_Trapezountos
 		}
 	}
 	SOV_Official_Annexation = {
 		icon = generic_independence
 		available = { 
 			has_global_flag = SOV_Russian_Occupation_of_Trapezountos
-			check_variable = { SOV.integration_process_trapezountos > 30 }
+			custom_trigger_tooltip = {
+				tooltip = SOV_Pontic_Ingegration_At_Least_20
+				check_variable = { SOV.integration_process_trapezountos > 19 }
+			}
 		}
 		cost = 15
 		fire_only_once = yes
