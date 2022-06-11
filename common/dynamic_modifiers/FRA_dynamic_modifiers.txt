@@ -24,10 +24,31 @@ belgian_colonial_society_modifier = {
 	enable = {
 		always = yes
 	}
+	remove_trigger = {
+		NOT = {
+			is_controlled_by = FEA
+		}
+	}
 	icon = GFX_idea_BEL_integralism
 
 	local_resources_factor = -0.5
 	recruitable_population_factor = -0.25
+}
+rhine_exploitation_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		owner = {
+			NOT = {
+				is_in_faction_with = FRA
+			}
+		}
+	}
+	icon = GFX_idea_USA_mcadoo_southern_revival_campaign
+
+	local_resources_factor = 0.25
+	recruitable_population_factor = 0.1
 }
  
 westfalen_dynamic_modifier = {

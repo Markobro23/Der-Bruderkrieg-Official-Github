@@ -648,7 +648,7 @@ news_event = { #florence-berlin split
 	id = italy.531
 	title = italy.531.t
 	desc = italy.531.d
-	#picture = GFX_report_event_eng_dambuster2
+	picture = GFX_italiancivilwar
 	is_triggered_only = yes 
 	major = yes
 
@@ -680,6 +680,14 @@ news_event = { #florence-berlin split
 			OR = {
 				tag = ITA
 				is_subject_of = ITA
+			}
+		}
+		if = {
+			limit = {
+				tag = ITA
+			}
+			ITA = {
+				set_country_flag = dont_join_prussian_faction
 			}
 		}
 	}

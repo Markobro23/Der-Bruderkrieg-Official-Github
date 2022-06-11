@@ -220,3 +220,24 @@ FRA_protect_borders = {
         value = 6999
     }
 }
+
+
+SIA_ignore_HVN = {
+	allowed = {
+		tag = SIA
+	}
+	enable = {
+		has_war_with = HVN
+		NOT = {
+			FRA = {
+				has_completed_focus = FRA_operation_ramayana
+			}
+		}
+	}
+
+	ai_strategy = {
+		type = ignore
+		id = HVN
+		value = 100
+	}
+}

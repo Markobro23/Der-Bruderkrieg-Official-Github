@@ -907,6 +907,23 @@ country_event = {
 			id = "FRA"
 			value = 200
 		}
+		if = {
+			limit = {
+				tag = TUR
+			}
+			add_to_war = {
+				targeted_alliance = AUS
+				enemy = SOV
+				hostility_reason = asked_to_join
+			}
+			news_event = russian_expansion.2
+			SOV = {
+				country_event = {
+					id = british_inteverntion_in_russian_expansion.2
+					days = 5
+				}
+			}
+		}
 	}
 
 	option = {
@@ -3351,7 +3368,10 @@ country_event = {
 
 	option = { #one last dinner before you go?
 		name = austria.207.a
-		ORA_stjepan_sarkotić = { set_nationality = AUS }
+		ORA_stjepan_sarkotic = { set_nationality = AUS }
+		ORA = {
+			remove_ideas = Stepjan_sarkotic 
+		}
 		#add_country_leader_role = {
 		#	character = ORA_alexander_von_falkenhausen 
 		#	promote_leader = yes
@@ -3366,7 +3386,7 @@ country_event = {
 		#hidden_effect = {
 		#	AUS = {
 		#		add_corps_commander_role = {
-		#			character = ORA_stjepan_sarkotić 
+		#			character = ORA_stjepan_sarkotic 
 		#			skill = 3
 		#			attack_skill = 2
 		#			defense_skill = 3
@@ -3402,8 +3422,11 @@ country_event = {
 	option = { #welcome back to military service
 		name = austria.208.a
 		effect_tooltip = {
+			ORA = {
+				remove_ideas = Stepjan_sarkotic 
+			}
 			add_corps_commander_role = {
-				character = ORA_stjepan_sarkotić 
+				character = ORA_stjepan_sarkotic 
 				skill = 3
 				attack_skill = 2
 				defense_skill = 3
@@ -3590,7 +3613,7 @@ country_event = {
 					ruling_party = neutrality
 				}
 				create_country_leader = {
-					name = "Rupprecht, Duke of Bavaria"
+					name = "Rupprecht I"
 					desc = ""
 					picture = "gfx/leaders/Prince_Ruprect.dds"
 					expire = "1965.1.1"
@@ -4851,7 +4874,7 @@ country_event = {
 	id = austria_foriegn_policy.10
 	title = austria_foriegn_policy.10.t
 	desc = austria_foriegn_policy.10.d
-	picture = GFX_report_event_worried_french
+	picture = GFX_report_event_generic_sign_treaty1
 
 	is_triggered_only = yes
 
@@ -4876,7 +4899,7 @@ country_event = {
 	id = austria_foriegn_policy.11
 	title = austria_foriegn_policy.11.t
 	desc = austria_foriegn_policy.11.d
-	picture = GFX_report_event_soldiers_in_russia
+	picture = GFX_report_event_generic_sign_treaty1
 
 	is_triggered_only = yes
 
@@ -4928,6 +4951,15 @@ news_event = { #karl crowned emperor of all germs
 	}
 	option = { #the madman lusts for more power
 		name = austria_post_victory_tree.1.b
+		trigger = {
+			NOT = {
+				OR = {
+					is_in_faction_with = AUS
+					is_subject_of = AUS
+					tag = AUS
+				}
+			}
+		}
 	}
 }
 
@@ -5007,7 +5039,7 @@ country_event = { #the great european game
 
 	option = { #great!
 		name = austria_post_victory_tree.4.a
-		unlock_decision_category_tooltip = AUS_FRA_great_european_game
+		#unlock_decision_category_tooltip = AUS_FRA_great_european_game
 	}
 }
 
@@ -5036,21 +5068,39 @@ country_event = { #Karl gets bombed
 	id = austria_post_victory_tree.6
 	title = austria_post_victory_tree.6.t
 	desc = austria_post_victory_tree.6.d
-	picture = GFX_report_event_finnish_letter
+	picture = GFX_report_event_generic_funeral
 
 	is_triggered_only = yes
 
 	option = { #shizz!
 		name = austria_post_victory_tree.6.a
-		create_country_leader = {
-			name = "Otto I"
-			desc = ""
-			picture = "gfx/leaders/Otto.dds"
-			expire = "1965.1.1"
-			ideology = democratic_conservative
-			traits = {
-				#
-				
+		if = {
+			limit = {
+				has_government = democratic
+			}
+			create_country_leader = {
+				name = "Otto I"
+				desc = ""
+				picture = "gfx/leaders/AUS/OttoVonHabsburg.dds"
+				expire = "1965.1.1"
+				ideology = democratic_conservative
+				traits = {
+					#
+					
+				}
+			}
+		}
+		else = {
+			create_country_leader = {
+				name = "Otto I"
+				desc = ""
+				picture = "gfx/leaders/AUS/OttoVonHabsburg.dds"
+				expire = "1965.1.1"
+				ideology = democratic_liberal
+				traits = {
+					#
+					
+				}
 			}
 		}
 	}

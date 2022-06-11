@@ -2,7 +2,7 @@ guiTypes = {
 	#Faction managament
 	containerWindowType = {
 		name = "WOK_faction_management"
-		position = { x= 537 y= 95 }	
+		position = { x= 537 y= 273 }	
 		show_animation_type = decelerated
 		hide_animation_type = accelerated
 		animation_time = 300
@@ -56,9 +56,9 @@ guiTypes = {
 				# }
 				instantTextboxType = {
 					name = "WOK_faction_name_text"
-					position = { x = 130 y = 5 }
+					position = { x = 125 y = 20 }
 					textureFile = ""
-					font = "hoi_30header"
+					font = "hoi_24header"
 					borderSize = {x = 0 y = 0}
 					text = "[ROOT.GetFactionName]"
 					maxWidth = 265
@@ -119,7 +119,7 @@ guiTypes = {
 					name = "WOK_faction_leader_info"
 					position = { x = 0 y = 6 }
 					textureFile = ""
-					font = "Main_16"
+					font = "hoi_20bs"
 					borderSize = {x = 0 y = 0}
 					text = "[?faction_leader.GetName]"
 					maxWidth = 170
@@ -131,7 +131,7 @@ guiTypes = {
 					name = "WOK_faction_troop_info"
 					position = { x = 178 y = 6 }
 					textureFile = ""
-					font = "Main_16"
+					font = "hoi_20bs"
 					borderSize = {x = 0 y = 0}
 					text = "[?ROOT.faction_troop_amount]"
 					maxWidth = 120
@@ -143,7 +143,7 @@ guiTypes = {
 					name = "WOK_faction_factory_info"
 					position = { x = 300 y = 6 }
 					textureFile = ""
-					font = "Main_16"
+					font = "hoi_20bs"
 					borderSize = {x = 0 y = 0}
 					text = "[?ROOT.faction_factory_amount]"
 					maxWidth = 120
@@ -169,7 +169,7 @@ guiTypes = {
 					name = "WOK_faction_equipment_tab_text"
 					position = { x = 5 y = 6 }
 					textureFile = ""
-					font = "Main_16"
+					font = "hoi_20bs"
 					borderSize = {x = 0 y = 0}
 					text = "FACTION EQUIPMENT"
 					maxWidth = 190
@@ -187,7 +187,7 @@ guiTypes = {
 					name = "WOK_faction_relations_tab_text"
 					position = { x = 220 y = 6 }
 					textureFile = ""
-					font = "Main_16"
+					font = "hoi_20bs"
 					borderSize = {x = 0 y = 0}
 					text = "FACTION RELATIONS"
 					maxWidth = 190
@@ -209,218 +209,259 @@ guiTypes = {
 					quadTextureSprite ="GFX_tiled_research_bg_glow"
 					#quadTextureSprite ="console_background2"
 				}
-				
-				#Infantry
-				instantTextboxType = {
-					name = "WOK_faction_infantry_info"
-					position = { x = 35 y = 16 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "Faction Infantry Equipment: "
-					maxWidth = 250
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
-				}
-				instantTextboxType = {
-					name = "WOK_faction_infantry_num"
-					position = { x = 300 y = 16 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "[?ROOT.faction_infantry_amount]"
-					maxWidth = 120
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
+
+				###ARMOR###
+				containerWindowType = {
+					name = "faction_equipment_tank_container"
+					position = { x= 0 y= 0 }
+					size = { width= 425 height= 476 }
+	
+					background = {
+						name = "Background"
+						spriteType ="GFX_faction_management_tank_header"
+					}
+
+					containerWindowType = {
+						name = "faction_equipment_tank_entry"
+						position = { x= 0 y= 87 }
+						size = { width= 425 height= 51 }
+		
+						background = {
+							name = "Background"
+							spriteType ="GFX_faction_management_equipment_entry"
+						}
+
+						iconType = {
+							name = "faction_equipment_tank_icon"
+							spriteType= "GFX_archetype_light_tank_equipment_medium"
+							position = { x= 12 y= 6 }
+						}
+
+						instantTextboxType = {
+							name = "WOK_faction_armor_num"
+							position = { x = 70 y = 17 }
+							textureFile = ""
+							font = "Main_16"
+							borderSize = {x = 0 y = 0}
+							text = "[?ROOT.faction_armor_amount]"
+							maxWidth = 110
+							maxHeight = 30
+							format = center
+							fixedsize = yes		
+						}
+
+						buttonType = {
+							name = "distribute_armor_button"
+							tooltip = "distribute_armor_button_tt"
+							position = { x = 188 y = 10 }
+							quadTextureSprite = "GFX_button_speeddown"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+						}
+
+						instantTextboxType = {
+							name = "distribute_armor_button_text"
+							position = { x = 232 y = 16 }
+							font = "hoi_16mbs"
+							text = "Distribute"
+							maxWidth = 70
+						}
+
+						buttonType = {
+							name = "request_armor_button"
+							tooltip = "request_armor_button_tt"
+							position = { x = 306 y = 10 }
+							quadTextureSprite = "GFX_button_speedup"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+						}
+		
+						instantTextboxType = {
+							name = "request_armor_button_text"
+							position = { x = 359 y = 16 }
+							font = "hoi_16mbs"
+							text = "Request"
+							maxWidth = 122
+						}
+					}
 				}
 
-				#Infantry Distribution
-				buttonType = {
-					name = "distribute_infantry_button"
-					position = { x = 35 y = 46 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-					tooltip = distribute_infantry_button_tt
-				}
-				instantTextboxType = {
-					name = "distribute_infantry_button_text"
-					position = { x = 52 y = 53 }
-					font = "hoi_16mbs"
-					text = "Distribute Infantry"
-					maxWidth = 122
-					alwaystransparent = yes
-				}
-				#Infantry Requests
-				buttonType = {
-					name = "request_infantry_button"
-					tooltip = "request_infantry_button_tt"
-					position = { x = 235 y = 46 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-				}
-				instantTextboxType = {
-					name = "request_infantry_button_text"
-					position = { x = 260 y = 53 }
-					font = "hoi_16mbs"
-					text = "Request Infantry"
-					maxWidth = 122
-					alwaystransparent = yes
+				###Infantry###
+				containerWindowType = {
+					name = "faction_equipment_infantry_container"
+					position = { x= 0 y= 135 }
+					size = { width= 425 height= 476 }
+	
+					background = {
+						name = "Background"
+						spriteType ="GFX_faction_management_infantry_header"
+					}
+
+					containerWindowType = {
+						name = "faction_equipment_infantry_entry"
+						position = { x= 0 y= 87 }
+						size = { width= 425 height= 51 }
+		
+						background = {
+							name = "Background"
+							spriteType ="GFX_faction_management_equipment_entry"
+						}
+
+						iconType = {
+							name = "faction_equipment_infantry_icon"
+							spriteType= "GFX_archetype_infantry_equipment_medium"
+							scale = 0.7
+							position = { x= 7 y= 18 }
+						}
+						
+						instantTextboxType = {
+							name = "WOK_faction_infantry_num"
+							position = { x = 70 y = 17 }
+							textureFile = ""
+							font = "Main_16"
+							borderSize = {x = 0 y = 0}
+							text = "[?ROOT.faction_infantry_amount]"
+							maxWidth = 110
+							maxHeight = 30
+							format = center
+							fixedsize = yes		
+						}
+
+						buttonType = {
+							name = "distribute_infantry_button"
+							position = { x = 188 y = 10 }
+							quadTextureSprite = "GFX_button_speeddown"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+							tooltip = distribute_infantry_button_tt
+						}
+						instantTextboxType = {
+							name = "distribute_infantry_button_text"
+							position = { x = 232 y = 16 }
+							font = "hoi_16mbs"
+							text = "Distribute"
+							maxWidth = 70
+						}
+
+						buttonType = {
+							name = "request_infantry_button"
+							tooltip = "request_infantry_button_tt"
+							position = { x = 306 y = 10 }
+							quadTextureSprite = "GFX_button_speedup"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+						}
+						instantTextboxType = {
+							name = "request_infantry_button_text"
+							position = { x = 359 y = 16 }
+							font = "hoi_16mbs"
+							text = "Request"
+							maxWidth = 122
+						}
+					}
 				}
 
-				#Armor
-				instantTextboxType = {
-					name = "WOK_faction_armor_info"
-					position = { x = 35 y = 156 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "Faction Tank Equipment: "
-					maxWidth = 250
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
-				}
-				instantTextboxType = {
-					name = "WOK_faction_armor_num"
-					position = { x = 300 y = 156 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "[?ROOT.faction_armor_amount]"
-					maxWidth = 120
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
-				}
+				###Support###
+				containerWindowType = {
+					name = "faction_equipment_support_container"
+					position = { x= 0 y= 270 }
+					size = { width= 425 height= 476 }
+	
+					background = {
+						name = "Background"
+						spriteType ="GFX_faction_management_support_header"
+					}
 
-				#Armor Distribution
-				buttonType = {
-					name = "distribute_armor_button"
-					tooltip = "distribute_armor_button_tt"
-					position = { x = 35 y = 186 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-				}
+					containerWindowType = {
+						name = "faction_equipment_support_entry"
+						position = { x= 0 y= 87 }
+						size = { width= 425 height= 51 }
+		
+						background = {
+							name = "Background"
+							spriteType ="GFX_faction_management_equipment_entry"
+						}
 
-				instantTextboxType = {
-					name = "distribute_armor_button_text"
-					position = { x = 59 y = 193 }
-					font = "hoi_16mbs"
-					text = "Distribute Armor"
-					maxWidth = 122
-					alwaystransparent = yes
-				}
-				
-				
-				#Armor Requests
-				buttonType = {
-					name = "request_armor_button"
-					tooltip = "request_armor_button_tt"
-					position = { x = 235 y = 186 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-				}
+						iconType = {
+							name = "faction_equipment_support_icon"
+							spriteType= "GFX_archetype_support_equipment_medium"
+							scale = 0.7
+							position = { x= 15 y= 13 }
+						}
 
-				instantTextboxType = {
-					name = "request_armor_button_text"
-					position = { x = 265 y = 193 }
-					font = "hoi_16mbs"
-					text = "Request Armor"
-					maxWidth = 122
-					alwaystransparent = yes
-				}
+						instantTextboxType = {
+							name = "WOK_faction_support_num"
+							position = { x = 70 y = 17 }
+							textureFile = ""
+							font = "Main_16"
+							borderSize = {x = 0 y = 0}
+							text = "[?ROOT.faction_support_amount]"
+							maxWidth = 110
+							maxHeight = 30
+							format = center
+							fixedsize = yes		
+						}
 
-				#Support
-				instantTextboxType = {
-					name = "WOK_faction_support_info"
-					position = { x = 35 y = 296 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "Faction Support Equipment: "
-					maxWidth = 250
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
-				}
-				instantTextboxType = {
-					name = "WOK_faction_support_num"
-					position = { x = 300 y = 296 }
-					textureFile = ""
-					font = "Main_16"
-					borderSize = {x = 0 y = 0}
-					text = "[?ROOT.faction_support_amount]"
-					maxWidth = 120
-					maxHeight = 30
-					format = center
-					fixedsize = yes		
-				}
+						buttonType = {
+							name = "distribute_support_button"
+							tooltip = "distribute_support_button_tt"
+							position = { x = 188 y = 10 }
+							quadTextureSprite = "GFX_button_speeddown"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+						}
+						instantTextboxType = {
+							name = "distribute_support_button_text"
+							position = { x = 55 y = 333 }
+							position = { x = 232 y = 16 }
+							font = "hoi_16mbs"
+							text = "Distribute"
+							maxWidth = 70
+						}
 
-				
-				
-				
-
-				#Support Distribution
-				buttonType = {
-					name = "distribute_support_button"
-					tooltip = "distribute_support_button_tt"
-					position = { x = 35 y = 326 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-				}
-				instantTextboxType = {
-					name = "distribute_support_button_text"
-					position = { x = 55 y = 333 }
-					font = "hoi_16mbs"
-					text = "Distribute Support"
-					maxWidth = 122
-					alwaystransparent = yes
-				}
-
-				#Support Requests
-				buttonType = {
-					name = "request_support_button"
-					tooltip = "request_support_button_tt"
-					position = { x = 235 y = 326 }
-					quadTextureSprite = "GFX_button_148x34"
-					buttonFont = "hoi_16mbs"
-					Orientation = "UPPER_LEFT"
-				}
-				instantTextboxType = {
-					name = "request_support_button_text"
-					position = { x = 260 y = 333 }
-					font = "hoi_16mbs"
-					text = "Request Support"
-					maxWidth = 122
-					alwaystransparent = yes
-				}
+						buttonType = {
+							name = "request_support_button"
+							tooltip = "request_support_button_tt"
+							position = { x = 306 y = 10 }
+							quadTextureSprite = "GFX_button_speedup"
+							buttonFont = "hoi_16mbs"
+							Orientation = "UPPER_LEFT"
+						}
+						instantTextboxType = {
+							name = "request_support_button_text"
+							position = { x = 260 y = 333 }
+							position = { x = 359 y = 16 }
+							font = "hoi_16mbs"
+							text = "Request"
+							maxWidth = 122
+						}
+					}
+				}	
 			}
 
 			
 
 			#Divider 01
 			containerWindowType = {
-				name = "faction_management_divider_01"
-				position = { x= 13 y= 640 }
-				size = { width= 425 height= 150 }
+				name = "faction_equipment_pool_members"
+				position = { x= 10 y= 610 }
+				size = { width= 436 height= 187 }
 				
 				background = {
 					name = "Background"
-					quadTextureSprite ="GFX_tiled_frontend_upper_bar"
+					quadTextureSprite ="GFX_air_tiled_marble_bg"
+				}
+				iconType = {
+					name = "faction_equipment_pool_members_header"
+					spriteType= "GFX_faction_equipment_pool_members_header"
+					position = { x= 5 y= 0 }
 				}
 				instantTextBoxType = {
 					name = "members_of_equipment_pool_bg_text"
-					position = { x = 0 y = 10 }
-					font = "Main_16"
+					position = { x = 0 y = 5 }
+					font = "hoi_16mbs"
 					borderSize = {x = 0 y = 0}
-					text = "Our Equipment Pool"
+					text = "Equipment Pool Members"
 					maxWidth = 425
 					maxHeight = 79
 					fixedsize = yes	
@@ -430,35 +471,23 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "members_of_equipment_pool"
-				position = { x= 22 y= 672 }
-				size = { width= 425 height= 150 }
-				clipping = yes
+				position = { x= 4 y= 633 }
+				size = { width= 444 height= 173 }
+				clipping = no
 				verticalScrollbar = "right_vertical_slider"
 				margin = {top= 0 left=0 bottom= 0 right= 0}
 				
 				background = {
 					name = "Background"		
-					quadTextureSprite ="GFX_tiled_window_transparent"
+					quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
 				}
-				
-				##
-				instantTextBoxType = {
-					name = "members_of_equipment_pool_text"
-					position = { x = 0 y = 12 }
-					font = "hoi_18mbs"
-					borderSize = {x = 0 y = 0}
-					text = "Members"
-					maxWidth = 425
-					maxHeight = 79
-					fixedsize = yes	
-					format = center
-				}
+
 				#Faction members gridbox
 				gridboxtype = {
 					name = "faction_equipment_pool_gridbox"
-					position = { x = 69 y = 35 }
+					position = { x = 85 y = 47 }
 					size = { width = 40 height = 150 }
-					slotsize = { width = 40 height = 30 }
+					slotsize = { width = 40 height = 40 }
 					max_slots_horizontal = 7
 					add_horizontal = yes
 				}
@@ -527,7 +556,7 @@ guiTypes = {
 					textureFile = ""
 					font = "hoi_30header"
 					borderSize = {x = 0 y = 0}
-					text = "FACTION MEMBERS"
+					text = "faction_member_or_behavior"
 					maxWidth = 400
 					maxHeight = 50
 					format = left
@@ -559,11 +588,10 @@ guiTypes = {
 					format = center
 					fixedsize = yes	
 				}
-				buttonType = {
+				iconType = {
 					name = "WOK_faction_behavoir_maker_tab_switch"
 					spriteType= "GFX_WOK_faction_members_switch_2"
 					position = { x= 255 y= 0 }
-					clicksound = click_action
 				}
 				instantTextboxType = {
 					name = "WOK_faction_left_switch_tab_02_text"
@@ -850,90 +878,6 @@ guiTypes = {
 			}
 		}
 	}
-	#Faction conflicts tab
-	containerWindowType = {
-		name = "faction_conflicts_tab"
-		position = { x= 450 y= 90 }
-		size = { width= 765 height= 655 }
-		clipping = no
-		
-		background = {
-			name = "Background"		
-			quadTextureSprite ="GFX_tiled_plain_bg_small"
-		}
-
-		containerWindowType = {
-			name = "faction_conflict_entry"
-			position = { x= 0 y= 0 }
-			size = { width= 765 height= 113 }
-	
-			background = {
-				name = "Background"
-				quadTextureSprite ="GFX_tiled_decisions_bg_small"
-			}
-			iconType = {
-				name = "faction_conflict_bg"
-				spriteType = "GFX_WOK_faction_conflict_entry"
-				position = { x = 3 y = 7 }
-			}
-			iconType = {
-				name = "conflict_member_flag1"
-				spriteType = "GFX_shield_medium"
-				position = { x = 29 y = 15 }
-			}
-			iconType = {
-				name = "conflict_member_flag2"
-				spriteType = "GFX_shield_medium"
-				position = { x = 234 y = 15 }
-			}
-			instantTextboxType = {
-				name = "WOK_conflict_members_text"
-				position = { x = 22 y = 83 }
-				textureFile = ""
-				font = "hoi_18mbs"
-				borderSize = {x = 0 y = 0}
-				text = "Finno-Russian Territorial Dispute"
-				maxWidth = 380
-				maxHeight = 50
-				format = center
-				fixedsize = yes		
-			}
-			containerWindowType = {
-				name = "faction_conflict_states"
-				position = { x= 408 y= 0 }
-				size = { width= 357 height= 113 }
-		
-				background = {
-					name = "Background"
-					quadTextureSprite ="GFX_tiled_decisions_bg_small"
-				}
-				#Faction members grid
-				containerWindowType = {
-					name = "faction_conflict_state_bg"
-					position = { x= 0 y= 0 }
-					size = { width= 359 height= 110 }
-					clipping = yes
-					verticalScrollbar = "right_vertical_slider"
-					margin = {top= 0 left=0 bottom= 0 right= 0}
-					
-					background = {
-						name = "Background"		
-						quadTextureSprite ="GFX_tiled_window_transparent"
-					}
-					
-					#Faction members gridbox
-					gridboxtype = {
-						name = "faction_conflicted_states_gridbox"
-						position = { x = 0 y = 0 }
-						size = { width = 359 height = 500 }
-						slotsize = { width = 340 height = 110 }
-						max_slots_horizontal = 1
-						add_horizontal = no
-					}
-				}
-			}
-		}
-	}
 	#Faction member entry
 	containerWindowType = {
 		name = "faction_member_entry"
@@ -1124,13 +1068,495 @@ guiTypes = {
 
 			iconType = {
 				name = "faction_member_entry_behaviour_icon"
-				position = { x = -5 y = 5 }
+				position = { x = 5 y = 15 }
+				scale = 0.8
 				pdx_tooltip = "faction_member_entry_behaviour_icon_desc_loc"
 				spriteType = ""
 			} 
 		}
 		
 	}
+
+		#Faction behaviour selection screen
+		containerWindowType = {
+			name = "faction_behaviour_selection_screen"
+			position = { x= 450 y= 90 }
+			size = { width= 765 height= 655 }
+			verticalScrollbar = "right_vertical_slider"
+			margin = {top= 0 left=0 bottom= 0 right= 10}
+			clipping = yes
+		
+			background = {
+				name = "Background"		
+				quadTextureSprite ="GFX_tiled_window_small_small"
+			}
+
+			containerWindowType = {
+				name = "faction_members_behaviour_screen_filler"
+				position = { x= 628 y= 0 }
+				size = { width = 120 height = 980 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_war_bg_overlay"
+				}
+			}
+
+			###NO ORDNUNG HAHA IM SO FUNNY AM I RIGHT?###
+			containerWindowType = {
+				name = "faction_conflict_entry_01"
+				position = { x= 0 y= 0 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_01"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_01"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_01"
+					position = { x = 24 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_unknown"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_01"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Unassigned"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_01"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command let's the ai to decide on it's own what to do."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_01"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###GARRISON DUTY###
+			containerWindowType = {
+				name = "faction_conflict_entry_02"
+				position = { x= 0 y= 140 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_02"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_02"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_02"
+					position = { x = 22 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_def_against_influence"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_02"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Garrison Duty"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_02"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai to garrison allied territories."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_02"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###UNIT TRAINING###
+			containerWindowType = {
+				name = "faction_conflict_entry_03"
+				position = { x= 0 y= 280 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_03"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_03"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_03"
+					position = { x = 20 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_reduce_training_time"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_03"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Unit Training"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_03"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai increase it's standing army."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_03"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###NAVAL STRIKES###
+			containerWindowType = {
+				name = "faction_conflict_entry_04"
+				position = { x= 0 y= 420 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_04"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_04"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_04"
+					position = { x = 26 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_naval_production"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_04"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Naval Strikes"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_04"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai to seek out and destroy enemy fleets."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_04"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###AIR RAIDS###
+			containerWindowType = {
+				name = "faction_conflict_entry_05"
+				position = { x= 0 y= 560 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_05"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_05"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_05"
+					position = { x = 27 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_air_production"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_05"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Air Raids"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_05"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai to seek out infrastructures vital to the enemy and destroy them. This includes factories, ports, railways..."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_05"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###CIVILIAN CONSTRUCTION###
+			containerWindowType = {
+				name = "faction_conflict_entry_06"
+				position = { x= 0 y= 700 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_06"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_06"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_06"
+					position = { x = 26 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_repairments"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_06"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Civilian Construction"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_06"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai to build up it's civilian sector."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_06"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+
+			###EQUIPMENT OVERDRIVE###
+			containerWindowType = {
+				name = "faction_conflict_entry_07"
+				position = { x= 0 y= 840 }
+				size = { width= 635 height= 140 }
+		
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window2_2b_border"
+				}
+
+				containerWindowType = {
+					name = "faction_conflict_entry_paper_07"
+					position = { x= 12 y= 8 }
+					size = { width= 600 height= 115 }
+			
+					background = {
+						name = "Background"
+						quadTextureSprite ="GFX_WOK_container_04"
+					}
+				}
+				iconType = {
+					name = "faction_member_behaviour_active_stamp_07"
+					position = { x = 510 y = 20 }
+					spriteType = "GFX_faction_behaviour_active_stamp"
+				}
+				iconType = {
+					name = "faction_conflict_entry_icon_07"
+					position = { x = 22 y = 30 }
+					scale = 0.5
+					spriteType = "GFX_goal_continuous_armor_production"
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_name_text_07"
+					position = { x = 90 y = 30 }
+					textureFile = ""
+					font = "hoi_30header"
+					borderSize = {x = 0 y = 0}
+					text = "Military Construction"
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+				instantTextboxType = {
+					name = "faction_conflict_entry_desc_text_07"
+					position = { x = 90 y = 70 }
+					textureFile = ""
+					font = "hoi_26mbs"
+					borderSize = {x = 0 y = 0}
+					text = "This behaviour command orders the ai to build up it's military sector."
+					maxWidth = 380
+					maxHeight = 50
+					format = left
+					fixedsize = yes		
+				}
+
+				buttontype = {
+					name = "faction_conflict_entry_button_07"
+					spriteType = "GFX_faction_behaviour_entry_overlay_button"
+					position = { x = 12 y = 8 }
+					pdx_tooltip = "FACTION_behaviour_button_01_desc"
+				}
+			}
+		}
 
 	# containerWindowType = {
 	# 	name = "faction_member_entry_behaviour_selection_sidebar"
@@ -1161,11 +1587,13 @@ guiTypes = {
 		size = { width= 134 height= 80 }
 
 	
+		
+
 		iconType = {
 			name = "faction_equipment_pool_member_flag"
 			position = { x = 0 y = 0 }
-			quadTextureSprite ="GFX_flag_small"
-			alwaystransparent = yes
+			quadTextureSprite ="GFX_shield_small"
+			pdx_tooltip = "[?THIS.GetName]"
 		}
 		
 	}

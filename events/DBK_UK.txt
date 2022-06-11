@@ -23,6 +23,23 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ENG_Goering.2.a
+		if = {
+			limit = {
+				GER = {
+					is_ai = yes
+				}
+				ENG = {
+					is_ai = yes
+				}
+			}
+			ENG = {
+				diplomatic_relation = {
+					country = HAN
+					relation = guarantee
+					active = no
+				}
+			}
+		}
 		effect_tooltip = {
 			activate_mission = ENG_HAN_withdrawal_mission
 		}
@@ -39,7 +56,30 @@ country_event = {
 	}
 	option = {
 		name = ENG_Goering.2.b
+		ai_chance = {
+			factor = 0
+		}
+		if = {
+			limit = {
+				GER = {
+					is_ai = yes
+				}
+				ENG = {
+					is_ai = yes
+				}
+			}
+			ENG = {
+				diplomatic_relation = {
+					country = HAN
+					relation = guarantee
+					active = no
+				}
+			}
+		}
 		add_political_power = -100
+		GER = {
+			country_event = { id = ENG_Goering.6 hours = 2 }
+		}
 	}
 }
 

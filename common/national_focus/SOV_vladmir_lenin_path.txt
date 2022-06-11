@@ -3,7 +3,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 10 
+			add = 10
 			tag = SOV
 		}
 	} 
@@ -1611,6 +1611,16 @@ shared_focus = {
     available = {
         has_country_flag = SOV_no_they_are_insane_unlocked
     }
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1716,6 +1726,17 @@ shared_focus = {
     prerequisite = {
         focus = SOV_militarlize_the_cossacks
     }
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     relative_position_id = SOV_no_they_are_insane
     
     ai_will_do = {
@@ -1761,6 +1782,17 @@ shared_focus = {
 shared_focus = {
     id = SOV_using_the_seperatists
     icon = GFX_goal_SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     
     x = 2
     y = 1
@@ -1789,6 +1821,17 @@ shared_focus = {
         focus = SOV_using_the_seperatists
     }
     relative_position_id = SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1808,6 +1851,17 @@ shared_focus = {
         focus = SOV_using_the_seperatists
     }
     relative_position_id = SOV_using_the_seperatists
+
+    bypass = {
+        custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+    }
     ai_will_do = {
         factor = 2000
     }
@@ -1900,7 +1954,20 @@ shared_focus = {
     available = {
         has_global_flag = europakrieg_has_started_flag
     }
-   
+    bypass = {
+        OR = {
+            custom_trigger_tooltip = {
+                tooltip = austria_defeated
+                OR = {
+                    has_global_flag = austria_defeated
+                    AUS = { exists = no }
+                    AUS = { is_subject = yes }
+                }
+            }
+            has_war_with = AUS
+        }
+    }
+    will_lead_to_war_with = AUS
     relative_position_id = SOV_lessons_from_the_europakrieg
     ai_will_do = {
         factor = 2000
@@ -1928,7 +1995,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_beacon_of_socialism
     ai_will_do = {
-        factor = 1000
+        factor = 200
     }
     available = {
         NOT = {
@@ -2038,28 +2105,28 @@ shared_focus = {
         unlock_decision_tooltip = SOV_kiev_industry
     }
 }
-shared_focus = {
-    id = SOV_the_kulak_revolt
-    icon = GFX_goal_SOV_kulak_revolt
+# shared_focus = {
+#     id = SOV_the_kulak_revolt
+#     icon = GFX_goal_SOV_kulak_revolt
     
-    x = -1
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = SOV_mass_industralialization_of_kiev
-    }
-    prerequisite = {
-        focus = SOV_build_land_around_warsawa
-    }
-    relative_position_id = SOV_mass_industralialization_of_kiev
-    ai_will_do = {
-        factor = 1000
-    }
+#     x = -1
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = SOV_mass_industralialization_of_kiev
+#     }
+#     prerequisite = {
+#         focus = SOV_build_land_around_warsawa
+#     }
+#     relative_position_id = SOV_mass_industralialization_of_kiev
+#     ai_will_do = {
+#         factor = 1000
+#     }
     
-    completion_reward = {
-    }
-}
+#     completion_reward = {
+#     }
+# }
 
 shared_focus = {
     id = SOV_the_prodnalog_tax
@@ -2116,7 +2183,7 @@ shared_focus = {
     }
     relative_position_id = SOV_the_beacon_of_socialism
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     completion_reward = {
         add_political_power = 75
@@ -2179,9 +2246,9 @@ shared_focus = {
     id = SOV_take_mongolia_by_force
     icon = GFX_goal_SOV_take_mongolia_by_force
     
-    x = -1
+    x = 0
     y = 1
-    cost = 5
+    cost = 3
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_the_coup_fails
@@ -2190,6 +2257,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = MON
     completion_reward = {
         create_wargoal = {
             target = MON
@@ -2201,9 +2269,9 @@ shared_focus = {
     id = SOV_executing_the_khan
     icon = GFX_goal_SOV_execute_the_khan
     
-    x = 0
+    x = -1
     y = 1
-    cost = 5
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_take_mongolia_by_force
@@ -2256,9 +2324,9 @@ shared_focus = {
     id = SOV_a_friendly_ultimatum
     icon = GFX_goal_SOV_a_friendly_ultimatum
     
-    x = 1
+    x = 0
     y = 1
-    cost = 5
+    cost = 3
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_the_coup_succeeds
@@ -2277,9 +2345,9 @@ shared_focus = {
     id = SOV_peaceful_socialist_education
     icon = GFX_goal_SOV_a_peaceful_socialist_transition
     
-    x = 0
+    x = 1
     y = 1
-    cost = 5
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_a_friendly_ultimatum
@@ -2328,7 +2396,7 @@ shared_focus = {
     id = SOV_continue_intervention_in_east_turkestan
     icon = GFX_goal_SOV_continue_intervention_in_east_turkestan
     
-    x = 1
+    x = 0
     y = 1
     cost = 2.5
     available_if_capitulated = yes
@@ -2337,20 +2405,40 @@ shared_focus = {
     }
     relative_position_id = SOV_opportunity_in_asia
     ai_will_do = {
-        factor = 1000
+        factor = 100
     }
     completion_reward = {
         country_event = { id = SOV_lenin_tree_events.6 }
     }
 }
 
+# shared_focus = {
+#     id = SOV_support_the_east_turkestan_republic
+#     icon = GFX_goal_SOV_support_the_etr
+    
+#     x = 1
+#     y = 1
+#     cost = 2.5
+#     available_if_capitulated = yes
+#     prerequisite = {
+#         focus = SOV_continue_intervention_in_east_turkestan
+#     }
+#     relative_position_id = SOV_continue_intervention_in_east_turkestan
+#     ai_will_do = {
+#         factor = 1000
+#     }
+#     completion_reward = {
+#         NRX = { country_event = { id = SOV_lenin_tree_events.7 } }
+#     }
+# }
+
 shared_focus = {
-    id = SOV_support_the_east_turkestan_republic
-    icon = GFX_goal_SOV_support_the_etr
+    id = SOV_in_we_go
+    icon = GFX_goal_SOV_in_we_go
     
     x = 1
     y = 1
-    cost = 2.5
+    cost = 2
     available_if_capitulated = yes
     prerequisite = {
         focus = SOV_continue_intervention_in_east_turkestan
@@ -2359,26 +2447,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
-    completion_reward = {
-        NRX = { country_event = { id = SOV_lenin_tree_events.7 } }
-    }
-}
-
-shared_focus = {
-    id = SOV_in_we_go
-    icon = GFX_goal_SOV_in_we_go
-    
-    x = 0
-    y = 2
-    cost = 4
-    available_if_capitulated = yes
-    prerequisite = {
-        focus = SOV_support_the_east_turkestan_republic
-    }
-    relative_position_id = SOV_support_the_east_turkestan_republic
-    ai_will_do = {
-        factor = 1000
-    }
+    will_lead_to_war_with = ETR
     completion_reward = {
         create_wargoal = {
             target = ETR
@@ -2420,16 +2489,16 @@ shared_focus = {
     id = SOV_secure_our_southern_border 
     icon = GFX_goal_SOV_recruit_afghani_militants
     
-    x = 1
+    x = 3
     y = 1
-    cost = 5
+    cost = 3.5
     available_if_capitulated = yes
     prerequisite = {
-        focus = SOV_support_the_east_turkestan_republic
+        focus = SOV_opportunity_in_asia
     }
-    relative_position_id = SOV_support_the_east_turkestan_republic
+    relative_position_id = SOV_opportunity_in_asia
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     bypass = {
 		OR = {
@@ -2454,7 +2523,7 @@ shared_focus = {
     id = SOV_renegotiate_persian_oilfields
     icon = GFX_goal_SOV_renegotiate_persian_oilfields
     
-    x = 1
+    x = 0
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2463,7 +2532,7 @@ shared_focus = {
     }
     relative_position_id = SOV_secure_our_southern_border
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
     bypass = {
 		OR = {
@@ -2494,8 +2563,9 @@ shared_focus = {
     }
     relative_position_id = SOV_renegotiate_persian_oilfields
     ai_will_do = {
-        factor = 1000
+        factor = 1500
     }
+    will_lead_to_war_with = TUR
     completion_reward = {
         TRB = {
             set_politics = {
@@ -2602,7 +2672,7 @@ shared_focus = {
 	relative_position_id = SOV_follow_trotskys_footsteps
 
 	cost = 10		
-	
+	will_lead_to_war_with = FRA
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no
@@ -2721,7 +2791,7 @@ shared_focus = {
 	relative_position_id = SOV_claim_konigsberg
 
 	cost = 10		
-	
+	will_lead_to_war_with = GER
 
 	cancel_if_invalid = yes
 	continue_if_invalid = no

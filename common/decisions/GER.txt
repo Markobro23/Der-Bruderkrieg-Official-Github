@@ -1984,7 +1984,7 @@ GER_anti_spartakus_category = {
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
-			check_variable = { GER_anti_spartakus > 10 } }
+			check_variable = { GER_anti_spartakus > 9 } }
 			has_equipment = {
 				infantry_equipment > 25
 			}
@@ -2061,7 +2061,7 @@ GER_anti_spartakus_category = {
 		available = {	
 
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_10
-			check_variable = { GER_anti_spartakus > 10 } }
+			check_variable = { GER_anti_spartakus > 9 } }
 		}
 		ai_will_do = {
 			factor = 1000
@@ -2101,7 +2101,7 @@ GER_anti_spartakus_category = {
 
 		available = {
 			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
-			check_variable = { GER_anti_spartakus > 30 } }
+			check_variable = { GER_anti_spartakus > 29 } }
 			has_equipment = {
 				infantry_equipment > 50
 			}
@@ -2136,7 +2136,7 @@ GER_anti_spartakus_category = {
 
 		available = {
 			custom_trigger_tooltip = { tooltip =  GER_anti_spartakus_var_greater_than_30
-			check_variable = { GER_anti_spartakus > 30 } }
+			check_variable = { GER_anti_spartakus > 29 } }
 		}
 
 		complete_effect = {
@@ -2166,7 +2166,7 @@ GER_anti_spartakus_category = {
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
-			check_variable = { GER_anti_spartakus > 60 } }
+			check_variable = { GER_anti_spartakus > 59 } }
 		}
 
 		complete_effect = {
@@ -2195,7 +2195,7 @@ GER_anti_spartakus_category = {
 
 		available = {
 			custom_trigger_tooltip = { tooltip = GER_anti_spartakus_var_greater_than_60
-			check_variable = { GER_anti_spartakus > 60 } }
+			check_variable = { GER_anti_spartakus > 59 } }
 			has_country_flag = GER_lux_trapped
 		}
 
@@ -2747,7 +2747,7 @@ weltkrieg_decisions = {
 	
 		complete_effect = {
 		}
-	
+		will_lead_to_war_with = DEN
 		remove_effect = {
 			create_wargoal = {
 				target = DEN
@@ -3115,6 +3115,14 @@ weltkrieg_decisions = {
 			NOT = {
 				has_completed_focus = GER_negotiate_with_rohm
 			}
+			OR = {
+				AUS = {
+					surrender_progress > 0.49
+				}
+				FRA = {
+					surrender_progress > 0.24
+				}
+			}
 		}
 
 		fire_only_once = yes
@@ -3466,6 +3474,248 @@ atomwaffen_decisions = {
 }
 
 GER_occupation_of_russia = {
+
+	GER_rk_slovakia = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		visible = {
+			SLO = {
+				OR = {
+					is_subject_of = SOV
+					AND = {
+						has_war_with = GER
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		available = {
+			70 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			71 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			slovak_states = yes
+		}
+	}
+
+	GER_rk_ungarn = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		visible = {
+			HUN = {
+				OR = {
+					is_subject_of = SOV
+					AND = {
+						has_war_with = GER
+						has_capitulated = yes
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		available = {
+			154 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			155 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			43 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			664 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			804 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			73 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				HUN = {
+					set_popularities = {
+		            ultranationalism = 54
+		            communism = 12
+		            fascism = 20
+		            democratic = 14
+		        }
+		        keep_current_politics = yes
+				}
+			}
+			HUN = {
+				transfer_state = 154
+		        transfer_state = 155
+		        transfer_state = 43
+		        transfer_state = 664
+		        transfer_state = 804
+		        transfer_state = 73
+			}
+			hidden_effect = {
+				HUN = {
+	                set_cosmetic_tag = prussian_rk
+	                reset_government = yes
+	                set_politics = {
+	                    ruling_party = ultranationalism
+	                }
+	            }
+			}
+		}
+	}
+
+	GER_rk_galizien = {
+
+		icon = ger_reichskommissariats
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		visible = {
+			GLC = {
+				exists = no
+			}
+		}
+
+		available = {
+			72 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			88 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			89 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			951 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+			1123 = {
+				CONTROLLER = {
+					OR = {
+						tag = GER
+						is_in_faction_with = GER
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				GLC = {
+					set_popularities = {
+			            fascism = 44
+			            communism = 12
+			            ultranationalism = 10
+			            democratic = 14
+			            neutrality = 20
+			        }
+			        keep_current_politics = yes
+				}
+			}
+			GLC = {
+				transfer_state = 72
+		        transfer_state = 88
+		        transfer_state = 951
+		        transfer_state = 89
+		        transfer_state = 1123
+			}
+			hidden_effect = {
+				GLC = {
+	                set_cosmetic_tag = prussian_rk
+	                reset_government = yes
+			        set_politics = {
+			            ruling_party = fascism
+			        }
+	            }
+			}
+		}
+	}
 	
 	GER_rk_polen = {
 
@@ -4090,7 +4340,28 @@ GER_occupation_of_russia = {
         		}
 				}
 			}
-			release_puppet_on_controlled = UKR
+			UKR = {
+				transfer_state = 202
+        		transfer_state = 137
+        		transfer_state = 218
+        		transfer_state = 93
+        		transfer_state = 199
+        		transfer_state = 201
+        		transfer_state = 198
+        		transfer_state = 192
+        		transfer_state = 197
+        		transfer_state = 203
+        		transfer_state = 193
+        		transfer_state = 225
+        		transfer_state = 259
+        		transfer_state = 226
+        		transfer_state = 196
+        		transfer_state = 200
+        		transfer_state = 221
+        		transfer_state = 227
+        		transfer_state = 228
+			}
+			puppet = UKR
 			hidden_effect = {
 				UKR = {
 					reset_government = yes
@@ -4116,11 +4387,11 @@ GER_occupation_of_russia = {
 		}
 
 		visible = {
-			78 = {
-				CONTROLLER = {
+			NOT = {
+				ROM = {
 					OR = {
-						tag = GER
-						is_in_faction_with = GER
+						controls_state = 78
+						owns_state = 78
 					}
 				}
 			}
@@ -4541,20 +4812,80 @@ GER_occupation_of_russia = {
 			}
 		}
 
-		ai_will_do = {
-            factor = 1000
-        }
-
 		fire_only_once = yes
 
 		complete_effect = {
 			hidden_effect = {
 				every_state = {
-					limit = { is_core_of = BLR is_core_of = FOB }
+					limit = { OR = { is_core_of = BLR is_core_of = FOB } }
 					add_core_of = LIT
 				}
 				LIT = {
 					transfer_state = 11
+					set_cosmetic_tag = east_europe_prussian_rk
+	        		if = {
+	        			limit = {
+	        				THIS = {
+	        					has_government = democratic
+	        				}
+	        			}
+	        			create_country_leader = {
+		        			name = "Wehrmacht Government"
+		        			picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+		        			expire = "1965.1.1"
+		        			ideology = paternalistic_conservatism 
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = neutrality }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = despotic 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = ultranationalism }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = ultranationalist 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = fascism }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = fascism_ideology 
+			        		}
+		        		}
+		        		else_if = {
+		        			limit = {
+		        				THIS = { has_government = authoritarian_democratic }
+		        			}
+		        			create_country_leader = {
+			        			name = "Wehrmacht Government"
+		        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
+			        			expire = "1965.1.1"
+			        			ideology = authoritarian_democrat 
+			        		}
+		        		}
+	        		}
+				}
+				puppet = LIT
+			}
+			custom_effect_tooltip = ostland_annex_weissrussland_and_baltikum
+			hidden_effect = {
+				LIT = {
 					annex_country = {
 						target = BLR
 						transfer_troops = yes
@@ -4563,68 +4894,8 @@ GER_occupation_of_russia = {
 						target = FOB
 						transfer_troops = yes
 					}
-					set_cosmetic_tag = east_europe_prussian_rk
-        		if = {
-        			limit = {
-        				THIS = {
-        					has_government = democratic
-        				}
-        			}
-        			create_country_leader = {
-	        			name = "Wehrmacht Government"
-	        			picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-	        			expire = "1965.1.1"
-	        			ideology = paternalistic_conservatism 
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = neutrality }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = despotic 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = ultranationalism }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = ultranationalist 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = fascism }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = fascism_ideology 
-		        		}
-	        		}
-	        		else_if = {
-	        			limit = {
-	        				THIS = { has_government = authoritarian_democratic }
-	        			}
-	        			create_country_leader = {
-		        			name = "Wehrmacht Government"
-	        				picture = "gfx/leaders/GER/Portrait_GER_military_government.png"
-		        			expire = "1965.1.1"
-		        			ideology = authoritarian_democrat 
-		        		}
-	        		}
-        		}
 				}
-				puppet = LIT
 			}
-			custom_effect_tooltip = ostland_annex_weissrussland_and_baltikum
 		}
 
 	}

@@ -228,6 +228,15 @@ on_actions = {
                 }
                 SOV_calculate_political_support_modifier = yes
             }
+            if = {
+                limit = {
+                    has_country_leader_with_trait = savior_of_russia
+                }
+                add_to_variable = {
+                    SOV_peoples_support_for_current_regime = 0.5
+                }
+                SOV_calculate_political_support_modifier = yes
+            }
         }
     }
     # on_weekly_SOV = {
@@ -374,45 +383,52 @@ on_actions = {
                     country_event = { id = TUR_arab_revolt.1 days = 8 }
                 }
             }
-            if = {
-                limit = {
-                    tag = SOV
-                    has_war_with = JAP
-                    has_war_with = AUS
-                }
-                BEI = {
-                    country_event = { id = china_in_the_world_war.1 days = 30 }
-                }
-            }
-            if = {
-                limit = {
-                    tag = AUS
-                    has_war_with = SOV
-                    SOV = {
-                        has_war_with = JAP
-                    }
-                }
-                BEI = {
-                    country_event = { id = china_in_the_world_war.1 days = 30 }
-                }
-            }
-            if = {
-                limit = {
-                    tag = JAP
-                    has_war_with = SOV
-                    SOV = {
-                        has_war_with = AUS
-                    }
-                }
-                BEI = {
-                    country_event = { id = china_in_the_world_war.1 days = 30 }
-                }
-            }
+            # if = {
+            #     limit = {
+            #         tag = SOV
+            #         has_war_with = JAP
+            #         has_war_with = AUS
+            #     }
+            #     BEI = {
+            #         country_event = { id = china_in_the_world_war.1 days = 30 }
+            #     }
+            # }
+            # if = {
+            #     limit = {
+            #         tag = AUS
+            #         has_war_with = SOV
+            #         SOV = {
+            #             has_war_with = JAP
+            #         }
+            #     }
+            #     BEI = {
+            #         country_event = { id = china_in_the_world_war.1 days = 30 }
+            #     }
+            # }
+            # if = {
+            #     limit = {
+            #         tag = JAP
+            #         has_war_with = SOV
+            #         SOV = {
+            #             has_war_with = AUS
+            #         }
+            #     }
+            #     BEI = {
+            #         country_event = { id = china_in_the_world_war.1 days = 30 }
+            #     }
+            # }
         }
     }
 
     on_declare_war = {
         effect = { 
+		if = {
+			limit = {
+				tag = SOV
+				FROM = { tag = GER }
+			}
+			news_event = { id = stahlpakt_events.3 days = 1 hours = 5 }
+		}
             if = {
                 limit = {
                     OR = {

@@ -192,15 +192,15 @@ shared_focus = {
 		hidden_effect = {
 			GER = {
 				random_list = {
-					60 = {
+					50 = {
 						set_country_flag = GER_go_down_goering_path
 						log = "GER_go_down_goering_path"
 					}
-					20 = { ##switch to 20 when balanced
+					25 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_sa_path
 						log = "GER_go_down_sa_path"
 					}
-					20 = { ##switch to 20 when balanced
+					25 = { ##switch to 20 when balanced
 						set_country_flag = GER_go_down_freikorps_path
 						log = "GER_go_down_freikorps_path"
 					}
@@ -3007,42 +3007,89 @@ shared_focus = {
 		clr_country_flag = GER_continuing_ataurky_branch_doing
             64 = {
                 if = {
-                    limit = { is_controlled_by = ROOT }
-                    add_building_construction = {
-                        type = infrastructure
-                        level = 3
-                        instant_build = yes
+                    limit = { is_controlled_by = ROOT infrastructure < 5 }
+                    if = {
+                    	limit = {
+                    		infrastructure > 3
+                    	}
+                    	add_building_construction = {
+	                        type = infrastructure
+	                        level = 1
+	                        instant_build = yes
+	                    }
+	                    else = {
+	                    	add_building_construction = {
+		                        type = infrastructure
+		                        level = 2
+		                        instant_build = yes
+		                    }
+	                    }
                     }
                 }
             }
             61 = {
                 if = {
-                    limit = { is_controlled_by = ROOT }
-
-                    add_building_construction = {
-                        type = infrastructure
-                        level = 3
-                        instant_build = yes
+                    limit = { is_controlled_by = ROOT infrastructure < 5 }
+                    if = {
+                    	limit = {
+                    		infrastructure > 3
+                    	}
+                    	add_building_construction = {
+	                        type = infrastructure
+	                        level = 1
+	                        instant_build = yes
+	                    }
+	                    else = {
+	                    	add_building_construction = {
+		                        type = infrastructure
+		                        level = 2
+		                        instant_build = yes
+		                    }
+	                    }
                     }
                 }
             }
             60 = {
                 if = {
-                    limit = { is_controlled_by = ROOT }
-                    add_building_construction = {
-                        type = infrastructure 
-                        level = 3
-                        instant_build = yes
+                    limit = { is_controlled_by = ROOT infrastructure < 5 }
+                    if = {
+                    	limit = {
+                    		infrastructure > 3
+                    	}
+                    	add_building_construction = {
+	                        type = infrastructure
+	                        level = 1
+	                        instant_build = yes
+	                    }
+	                    else = {
+	                    	add_building_construction = {
+		                        type = infrastructure
+		                        level = 2
+		                        instant_build = yes
+		                    }
+	                    }
                     }
                 }
             }
             62 = {
                 if = {
-                    limit = { is_controlled_by = ROOT }
-                    add_building_construction = {
-                        type = infrastructure
-                        level = 3
-                        instant_build = yes
+                    limit = { is_controlled_by = ROOT infrastructure < 5 }
+                    if = {
+                    	limit = {
+                    		infrastructure > 3
+                    	}
+                    	add_building_construction = {
+	                        type = infrastructure
+	                        level = 1
+	                        instant_build = yes
+	                    }
+	                    else = {
+	                    	add_building_construction = {
+		                        type = infrastructure
+		                        level = 2
+		                        instant_build = yes
+		                    }
+	                    }
                     }
                 }
             }
@@ -6724,6 +6771,7 @@ shared_focus = {
 
 			hidden_effect = {
 				CZE = {
+					remove_state_core = 762
 					set_politics = {
 						ruling_party = ultranationalism
 					}
@@ -6746,7 +6794,13 @@ shared_focus = {
 						neutrality = 42
 						democratic = 8
 					}
-					keep_current_politics = yes 
+					keep_current_politics = yes
+					if = {
+						limit = {
+							GER = { owns_state = 39 }
+						}
+						add_state_core = 39
+					}
 				}
 			}
 
@@ -6832,11 +6886,25 @@ shared_focus = {
 		ai_will_do = {
 			factor = 1 
 		}
+		available = {
+			ITA = {
+				OR = {
+					owns_state = 805
+					owns_state = 810
+					owns_state = 736
+					owns_state = 160
+				}
+			}
+			NOT = {
+				has_war_with = ITA
+			}
+			ITA = {
+				exists = yes
+			}
+		}
 		completion_reward = {
-			add_manpower= -7000
-			add_to_variable = {
-				tooltip = GER_decrease_austrian_resistance_by_5
-				GER_austrian_resistance = -5
+			ITA = {
+				country_event = germany_slovenia_events.1
 			}
 		}
 	}
@@ -6958,7 +7026,7 @@ shared_focus = {
 		y = 7
 		cost = 2.5
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		available = { 
 			custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
@@ -6994,7 +7062,7 @@ shared_focus = {
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -7044,7 +7112,7 @@ shared_focus = {
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		completion_reward = {
 			add_ideas = GER_winter_clothing_overdrive
@@ -7063,11 +7131,14 @@ shared_focus = {
 		prerequisite = { focus = GER_prepare_for_the_struggle }
 		relative_position_id = GER_winter_clothing
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		will_lead_to_war_with = SOV
 		completion_reward = {
 			declare_war_on = { target = SOV type = annex_everything }	### Will be changed once Successor states are fully implemented		
+			hidden_effect = {
+				news_event = { id = stahlpakt_events.2 days = 1 hours = 5 }
+			}
 		}
 	}
 
@@ -7083,7 +7154,7 @@ shared_focus = {
 			focus = GER_moskowien_awaits
 		}
 		ai_will_do = {
-			factor = 1 
+			factor = 1000
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = GER_winter_spring_offensives
@@ -7114,7 +7185,7 @@ shared_focus = {
 		mutually_exclusive = { focus = GER_surpass_general_winter }
 		relative_position_id = GER_streik 
 		ai_will_do = {
-			factor = 1 
+			factor = 1000
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = GER_moskowien_offensive
@@ -7177,7 +7248,7 @@ shared_focus = {
 			focus = GER_moskowien_awaits focus = GER_surpass_general_winter
 		}
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		relative_position_id = GER_moskowien_awaits
 		completion_reward = {
@@ -7223,7 +7294,7 @@ shared_focus = {
 		prerequisite = { focus = GER_exploit_separatism }
 		relative_position_id = GER_exploit_separatism
 		ai_will_do = {
-			factor = 1 
+			factor = 100
 		}
 		completion_reward = {
 			swap_ideas = {

@@ -992,8 +992,15 @@ shared_focus = {
            ideology = fascism
            popularity = 0.25
        }
+        if = {
+            limit = {
+                NOT = {
+                    has_cosmetic_tag = united_eurasia
+                }
+            }
+            set_cosmetic_tag = holy_russian_empire
+        }
         
-        set_cosmetic_tag = holy_russian_empire
     }
 }
 
@@ -1260,7 +1267,7 @@ shared_focus = {
         factor = 1000
     }
     available = {
-        
+        has_completed_focus = SOV_prepare_for_the_final_struggle
     }
     completion_reward = {
         AUS = {
@@ -2775,7 +2782,10 @@ shared_focus = {
 			GER = {
 				has_war_with = SOV
 			}
-		}
+            GER = {
+                has_completed_focus = GER_stahlpakt
+            }
+        }
 	}
     mutually_exclusive = {
         
@@ -2941,6 +2951,16 @@ shared_focus = {
                 limit_to_border = yes
             }
         }
+        add_building_construction = {
+            type = naval_base
+            level = 2
+            instant_build = yes
+        }
+        add_building_construction = {
+            type = dockyard
+            level = 2
+            instant_build = yes
+        }
 
         
      }
@@ -3048,6 +3068,7 @@ shared_focus = {
     ai_will_do = {
         factor = 10000
     }
+    will_lead_to_war_with = JAP
     available = {
         if = {
             limit = {
@@ -3217,6 +3238,7 @@ shared_focus = {
 			}
 		}
 	}
+    will_lead_to_war_with = TUR
     available = {
         if = {
             limit = {
@@ -3444,6 +3466,9 @@ shared_focus = {
     # mutually_exclusive = {
     #     focus = SOV_advance_into_europe
     # }
+    available = {
+        
+    }
     completion_reward = {
         set_cosmetic_tag = slavic_federation
         add_ideas = SOV_slavic_unity
@@ -3509,13 +3534,46 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = SOV_unite_the_far_east
+    icon = GFX_goal_SOV_watch_the_manchurian_front
+	prerequisite = {focus = SOV_pursue_slavic_unity }
+ 
+	x = 1
+	y = 1
+    relative_position_id = SOV_pursue_slavic_unity 
+     cost = 9
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1000
+    }
+    bypass = {
+		AND = {
+			MAN = {
+				exists = no
+			}
+			MON = {
+				exists = no
+			}
+          
+		}
+	}
+    completion_reward = {
+        MAN = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+        MON = {
+            country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
+        }
+    }
+}
+shared_focus = {
     id = SOV_unite_central_asia
     icon = GFX_goal_SOV_continue_intervention_in_east_turkestan
-	prerequisite = {focus = SOV_unite_the_balkans }
+	prerequisite = {focus = SOV_unite_the_far_east }
  
 	x = 0
 	y = 1
-    relative_position_id = SOV_unite_the_balkans 
+    relative_position_id = SOV_unite_the_far_east 
      cost = 9
     available_if_capitulated = yes
     ai_will_do = {
@@ -3594,75 +3652,66 @@ shared_focus = {
 shared_focus = {
     id = SOV_unite_the_polish_states
     icon = GFX_goal_SOV_collectivize_polish_farms
-	prerequisite = {focus = SOV_pursue_slavic_unity }
+	prerequisite = {focus = SOV_unite_the_balkans }
  
-	x = 1
+	x = 0
 	y = 1
-    relative_position_id = SOV_pursue_slavic_unity 
+    relative_position_id = SOV_unite_the_balkans 
      cost = 9
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1000
     }
     bypass = {
-		OR = {
-			GLC = {
-				exists = no
-			}
-			GLC = {
-				has_war_with = SOV
-			}
-		}
+		NOT = {
+            OR = {
+                HUN = {
+                is_puppet_of = SOV
+                }
+                SLO = {
+                    is_puppet_of = SOV
+                }
+                GLC = {
+                    is_puppet_of = SOV
+                }
+            }
+        }
 	}
+    available = {
+        OR = {
+            HUN = {
+            is_puppet_of = SOV
+            }
+            SLO = {
+                is_puppet_of = SOV
+            }
+            GLC = {
+                is_puppet_of = SOV
+            }
+        }
+    }
     completion_reward = {
         GLC = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
-       
-    }
-}
-shared_focus = {
-    id = SOV_unite_the_far_east
-    icon = GFX_goal_SOV_watch_the_manchurian_front
-	prerequisite = {focus = SOV_unite_the_polish_states }
- 
-	x = 0
-	y = 1
-    relative_position_id = SOV_unite_the_polish_states 
-     cost = 9
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1000
-    }
-    bypass = {
-		AND = {
-			MAN = {
-				exists = no
-			}
-			MON = {
-				exists = no
-			}
-          
-		}
-	}
-    completion_reward = {
-        MAN = {
+        HUN = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
-        MON = {
+        SLO = {
             country_event = { id = SOV_return_of_the_tsar_path.23 hours = 3 }
         }
     }
 }
+
 shared_focus = {
     id = SOV_the_eurasian_superstate
     icon = GFX_goal_SOV_defender_of_eurasian_freedom
 	prerequisite = {focus = SOV_unite_central_asia }
     prerequisite = {
-        focus = SOV_unite_the_far_east
+        focus = SOV_unite_the_polish_states
     }
  
-	x = 1
+	x = -1
 	y = 1
     relative_position_id = SOV_unite_central_asia 
     cost = 5
@@ -3733,6 +3782,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = GER
     bypass = {
 		OR = {
 			GER = {
@@ -3744,10 +3794,18 @@ shared_focus = {
 		}
 	}
     completion_reward = {
-        create_wargoal = {
-            target = GER
-            type = annex_everything
-        }
+        if = {
+			limit = {
+				NOT = {
+					has_war_with = GER
+				}
+			}
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+		}
+		add_ideas = AUS_ending_the_northern_menace
     }
 }
 shared_focus = {
@@ -3796,6 +3854,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+    will_lead_to_war_with = FRA
     bypass = {
 		OR = {
 			FRA = {
@@ -3839,6 +3898,7 @@ shared_focus = {
             }
 		}
 	}
+    will_lead_to_war_with = ENG
  
 	x = 1
 	y = 1

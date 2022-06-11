@@ -2008,6 +2008,19 @@ shared_focus = {
     y = 0
     cost = 5
     available_if_capitulated = yes
+    available = {
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        hidden_trigger = {
+          OR = {
+            has_completed_focus = AUS_FEDERALISM
+            has_completed_focus = AUS_CENTRALISM
+          }
+        }
+      }
+    }
     #search_filters = { FOCUS_FILTER_INDUSTRY } 
     ai_will_do = {
       factor = 20
@@ -2655,14 +2668,14 @@ shared_focus = {
 
     available_if_capitulated = yes
 
-    bypass = {
-      1059 = {
-        free_building_slots = {
-          building = anti_air_building
-          size < 2
-        }
-      }
-    }
+    # bypass = {
+    #   1059 = {
+    #     free_building_slots = {
+    #       building = anti_air_building
+    #       size < 2
+    #     }
+    #   }
+    # }
 	completion_reward = {
 	1059 = {
        add_building_construction = {
@@ -2682,6 +2695,7 @@ shared_focus = {
         level = 2
         instant_build = yes
       }
+      add_extra_state_shared_building_slots = 2
     }
   }
 }
@@ -2732,7 +2746,7 @@ shared_focus = {
   id = AUS_civilian_economics
   icon = GFX_goal_AUS_fund_civilian_industry
   text = AUS_civilian_economics 
-  prerequisite = { focus = AUS_karl_sietz_focus focus = AUS_karl_sietz_focus }
+  prerequisite = { focus = AUS_karl_sietz_focus }
   x = 1
   y = 1
   relative_position_id = AUS_karl_sietz_focus
@@ -4119,6 +4133,36 @@ shared_focus = {
         value = -70
         localization = AUS_reduce_sgc_autonomy
       }
+      swap_ideas = {
+        remove_idea = GPU_unstable_nation
+        add_idea = GPU_unstable_nation_2
+      }
+    }
+    hidden_effect = {
+      HES = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      NAS = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      WUR = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
+      BAD = {
+        swap_ideas = {
+          remove_idea = GPU_unstable_nation
+          add_idea = GPU_unstable_nation_2
+        }
+      }
     }
 
    }
@@ -4186,6 +4230,23 @@ shared_focus = {
   GPU = {
     remove_ideas = GPU_garrisson_state_3
   }
+  GPU = {
+    remove_ideas = GPU_unstable_nation
+  }
+  hidden_effect = {
+      HES = {
+        remove_ideas = GPU_unstable_nation
+      }
+      NAS = {
+        remove_ideas = GPU_unstable_nation
+      }
+      WUR = {
+        remove_ideas = GPU_unstable_nation
+      }
+      BAD = {
+        remove_ideas = GPU_unstable_nation
+      }
+    }
    }
 }
 
@@ -4383,7 +4444,19 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
-
+  available = {
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        hidden_trigger = {
+          OR = {
+            has_completed_focus = AUS_FEDERALISM
+            has_completed_focus = AUS_CENTRALISM
+          }
+        }
+      }
+    }
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -4798,6 +4871,19 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
+  available = {
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        hidden_trigger = {
+          OR = {
+            has_completed_focus = AUS_FEDERALISM
+            has_completed_focus = AUS_CENTRALISM
+          }
+        }
+      }
+    }
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -5076,7 +5162,19 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
-
+  available = {
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        hidden_trigger = {
+          OR = {
+            has_completed_focus = AUS_FEDERALISM
+            has_completed_focus = AUS_CENTRALISM
+          }
+        }
+      }
+    }
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -6028,7 +6126,7 @@ shared_focus = {
   ai_will_do = {
     factor = 2000
   }
-
+  will_lead_to_war_with = ROM
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -7718,10 +7816,8 @@ shared_focus = {
     factor = 200
   }
   bypass = {
-    NOT = {
-      GER = {
-        is_puppet_of = AUS
-      }
+    GER = {
+      is_subject_of = FRA
     }
   }
 
@@ -7742,9 +7838,9 @@ shared_focus = {
     focus = AUS_stabilizing_europe
   }
    available = {
-    has_global_flag = AUS_FRA_alliance_falls_apart
+    #has_global_flag = AUS_FRA_alliance_falls_apart
     GER = {
-      is_puppet = yes
+      is_subject_of = AUS
     }
   }
   x = 4
@@ -7846,6 +7942,20 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
+    hidden_effect = {
+      GPU = {
+        create_country_leader = {
+					name = "Rupprecht I"
+					desc = ""
+					picture = "gfx/leaders/Prince_Ruprect.dds"
+					expire = "1965.1.1"
+					ideology = despotic
+					traits = {
+						#
+					}
+				}
+      }
+    }
     GPU = {
       set_politics = {
         ruling_party = neutrality
@@ -8059,13 +8169,79 @@ shared_focus = {
         }
       }
     }
+    hidden_effect = {
+      HUN = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+      GLC = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+      CRO = {
+        set_politics = {
+          ruling_party = authoritarian_democratic
+          last_election = "1935.3.31"
+          election_frequency = 48
+          elections_allowed = no
+        }
+        set_popularities = {
+          authoritarian_democratic = 65
+          neutrality = 21
+          communism = 10
+          democratic = 4
+        }
+
+        keep_current_politics = yes
+      }
+    }
+    set_cosmetic_tag = united_kingdoms_of_germany
     release_autonomy = {
       target = HUN
-      autonomy_state = autonomy_integrated_puppet
+      autonomy_state = autonomy_puppet
     }
     release_autonomy = {
       target = CRO
-      autonomy_state = autonomy_integrated_puppet
+      autonomy_state = autonomy_puppet
+    }
+    release_autonomy = {
+      target = GLC
+      autonomy_state = autonomy_puppet
+    }
+    hidden_effect = {
+      HUN = {
+        reset_government = yes
+      }
+      GLC = {
+        reset_government = yes
+      }
+      CRO = {
+        reset_government = yes
+      }
     }
    }
 }
@@ -8083,7 +8259,7 @@ shared_focus = {
   ai_will_do = {
     factor = 200
   }
-
+  will_lead_to_war_with = FRA
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
@@ -8235,8 +8411,9 @@ shared_focus = {
 
   completion_reward = {
     #make decisions for both Austria and France that deal with the variables AUS.total_cold_war_influence and FRA.total_cold_war_influence
-	unlock_decision_category_tooltip = AUS_FRA_great_european_game
-	FRA = { country_event = { id = austria_post_victory_tree.4 days = 1 hours = 3 } }
+	#unlock_decision_category_tooltip = AUS_FRA_great_european_game
+add_ideas = FRA_kalterkrieg_idea
+  FRA = { country_event = { id = austria_post_victory_tree.4 days = 1 hours = 3 } }
    }
 }
 

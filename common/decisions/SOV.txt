@@ -8205,7 +8205,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			219 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8226,7 +8226,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			210 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8247,7 +8247,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			92 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8299,7 +8299,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			259 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8320,7 +8320,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			200 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8341,7 +8341,7 @@ SOV_lenin_collectivization = {
 
 		complete_effect = {
 			199 = {
-				add_extra_state_shared_building_slots = 1
+				add_extra_state_shared_building_slots = 2
 			}
 			add_stability = -0.01
 		}
@@ -8537,7 +8537,7 @@ SOV_peasant_coup_mongolia = {
 		icon = generic_ignite_civil_war
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 			modifier = {
 				factor = 2
 				check_variable = { SOV_MON_COUP > 50 }
@@ -10391,7 +10391,7 @@ SOV_european_development = {
 		days_remove = 100
 
 		modifier = {
-			production_speed_buildings_factor = 0.1
+			production_speed_buildings_factor = 0.035
 		}
 
 		complete_effect = {
@@ -10443,6 +10443,8 @@ SOV_flourishing_oil_industry = {
 		days_remove = 180
 
 		modifier = {
+			political_power_gain = -0.05
+			mobilization_speed = -0.1
 			local_resources_factor = 0.1
 			production_speed_synthetic_refinery_factor = 0.1
 		}
@@ -11936,6 +11938,61 @@ SOV_east_africa_ambitions = {
 }
 
 weltkrieg_decisions = {
+	SOV_ai_intervention = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = SOV
+		}
+
+		available = { 
+			GER = {
+				has_war_with = AUS
+				surrender_progress > 0.3
+			}
+			NOT = {
+				has_war_with = AUS
+			}
+		}
+
+		visible = {
+			is_ai = yes
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 20
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+	
+		complete_effect = {
+		}
+	
+		remove_effect = {
+			SOV = {
+				activate_mission = SOV_complete_mobilization
+				set_country_flag = SOV_activation_complete_mobilization_flag
+				add_ideas = SOV_the_mobilized_forces
+			}
+			hidden_effect = {
+				GER = {
+					country_event = { id = russian_inteverntion_in_europakrieg.3 days = 2 }
+				}
+				AUS = {
+					country_event = {
+						id = russian_inteverntion_in_europakrieg.8
+						days = 3
+					}
+				}
+			}
+		}
+	}
 	SOV_operation_third_rome_decision = {
 
 		icon = generic_army_support
@@ -11949,6 +12006,7 @@ weltkrieg_decisions = {
 				has_war_with = AUS
 			}
 		}
+		will_lead_to_war_with = AUS
 
 		visible = {
 			OR = {

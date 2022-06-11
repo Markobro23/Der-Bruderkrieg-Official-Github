@@ -346,13 +346,16 @@ AUS_managing_bavaria_court_factionalism = {
 	}
 
 	visible = {
-	OR = {	
-		has_country_flag = franz_ferdinand_stays
-		has_country_flag = unlock_sgc_court_factionalism_debug
-	}
-	NOT = { 
-		has_country_flag = SGC_is_fucked
-	}
+		OR = {	
+			has_country_flag = franz_ferdinand_stays
+			has_country_flag = unlock_sgc_court_factionalism_debug
+		}
+		NOT = { 
+			OR = {
+				has_country_flag = SGC_is_fucked
+				has_country_flag = SGC_court_opposition_crushed
+			}
+		}
 	}
 	visible_when_empty = yes
 }
@@ -420,6 +423,7 @@ AUS_french_prussian_war_preparations = {
 	allowed = {
 		tag = AUS
 	}
+	priority = 110
 	visible = {
 		OR = {
 			has_completed_focus = AUS_fate_favors_the_aggressive
@@ -447,9 +451,10 @@ AUS_FRA_great_european_game = { #Why does every country need a cult of personali
 		}
 	}
 	visible = {
-		AUS = {
-			has_completed_focus = AUS_the_coldest_night
-		}
+		# AUS = {
+		# 	has_completed_focus = AUS_the_coldest_night
+		# }
+		always = no
 	}
 }
 

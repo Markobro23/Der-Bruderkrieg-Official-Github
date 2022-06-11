@@ -164,6 +164,26 @@ on_actions = {
 				if = {
 					limit = {
 						ROOT = {
+							tag = PAP
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					PAP = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = PAP
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
 							tag = ALB
 	
 						}
@@ -446,8 +466,18 @@ on_actions = {
 						}
 					}
 				}
-				AUS = {
-					austria_loses_peace_deal = yes
+				if = {
+					limit = {
+						GER = {
+							is_subject_of = FRA
+						}
+					}
+					france_beats_austria = yes
+				}
+				else = {
+					AUS = {
+						austria_loses_peace_deal = yes
+					}
 				}
 				log = "2nd europa ends: [GetDateText], by [FROM.GetName]"
 			}
@@ -692,6 +722,40 @@ on_actions = {
 				}
 				france_loses_to_austria_peace_deal = yes
 			}
+
+			if = {
+				limit = {
+					tag = JNE
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				white_peace = GER
+				set_cosmetic_tag = prussian_rk
+				GER = {
+					puppet = JNE
+				}
+			}
+
+			if = {
+				limit = {
+					tag = HOL
+					FROM = {
+						OR = {
+							tag = GER
+							is_in_faction_with = GER
+						}
+					}
+				}
+				white_peace = GER
+				set_cosmetic_tag = prussian_rk
+				GER = {
+					puppet = HOL
+				}
+			}
 			
 			if = {
 				limit = {
@@ -826,16 +890,42 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
+						tag = ARG
+					}
+					FROM = {
+						OR = { tag = USA is_in_faction_with = USA }
+					}
+				}
+				if = {
+					limit = {
+						ARG = {
+							OR = {
+								is_in_faction_with = BRE
+								is_in_faction_with = SRB
+								is_in_faction_with = BRS
+							}
+						}
+					}
+					america_beats_brazil = yes
+				}
+				america_beats_argentina = yes
+			}
+
+			if = {
+				limit = {
+					ROOT = {
 						tag = BRE
 					}
 					FROM = {
 						tag = UBR
 					}
+				}
+				BRE = {
+					transfer_navy = { target = UBR }
 				}
 				UBR = {
 					annex_country = {
 						target = BRE
-						transfer_troops = yes
 					}
 				}
 			}
@@ -847,11 +937,14 @@ on_actions = {
 					FROM = {
 						tag = UBR
 					}
+				}
+				BRS = {
+					transfer_navy = { target = UBR }
 				}
 				UBR = {
 					annex_country = {
 						target = BRS
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -863,11 +956,14 @@ on_actions = {
 					FROM = {
 						tag = UBR
 					}
+				}
+				SRB = {
+					transfer_navy = { target = UBR }
 				}
 				UBR = {
 					annex_country = {
 						target = SRB
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -881,11 +977,14 @@ on_actions = {
 					FROM = {
 						tag = BRS
 					}
+				}
+				BRE = {
+					transfer_navy = { target = BRS }
 				}
 				BRS = {
 					annex_country = {
 						target = BRE
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -898,10 +997,13 @@ on_actions = {
 						tag = BRS
 					}
 				}
+				UBR = {
+					transfer_navy = { target = BRS }
+				}
 				BRS = {
 					annex_country = {
 						target = UBR
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -914,10 +1016,13 @@ on_actions = {
 						tag = BRS
 					}
 				}
+				SRB = {
+					transfer_navy = { target = BRS }
+				}
 				BRS = {
 					annex_country = {
 						target = SRB
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -932,11 +1037,14 @@ on_actions = {
 					FROM = {
 						tag = SRB
 					}
+				}
+				BRE = {
+					transfer_navy = { target = SRB }
 				}
 				SRB = {
 					annex_country = {
 						target = BRE
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -949,10 +1057,14 @@ on_actions = {
 						tag = SRB
 					}
 				}
+
+				UBR = {
+					transfer_navy = { target = SRB }
+				}
 				SRB = {
 					annex_country = {
 						target = UBR
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -965,10 +1077,13 @@ on_actions = {
 						tag = SRB
 					}
 				}
+				BRS = {
+					transfer_navy = { target = SRB }
+				}
 				SRB = {
 					annex_country = {
 						target = BRS
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -983,11 +1098,14 @@ on_actions = {
 					FROM = {
 						tag = BRE
 					}
+				}
+				SRB = {
+					transfer_navy = { target = BRE }
 				}
 				BRE = {
 					annex_country = {
 						target = SRB
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -1000,10 +1118,13 @@ on_actions = {
 						tag = BRE
 					}
 				}
+				UBR = {
+					transfer_navy = { target = BRE }
+				}
 				BRE = {
 					annex_country = {
 						target = UBR
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -1016,10 +1137,13 @@ on_actions = {
 						tag = BRE
 					}
 				}
+				BRS = {
+					transfer_navy = { target = BRE }
+				}
 				BRE = {
 					annex_country = {
 						target = BRS
-						transfer_troops = yes
+						
 					}
 				}
 			}
@@ -1244,6 +1368,9 @@ on_actions = {
                     FROM = {
                         OR = { tag = SOV is_in_faction_with = SOV }
                     }
+					NOT = {
+						has_global_flag = russia_beats_ottoman_peace_deal_only_once
+					}
                 }
                 russia_beats_ottoman_peace_deal = yes
             }
@@ -1754,5 +1881,34 @@ on_actions = {
 				argentina_beats_bruhzil = yes
 			}		
 		}	
+	}
+
+	on_puppet = { #removing puppet colors when being puppeted by someone else
+		if = {
+			limit = {
+				OR = {
+					has_cosmetic_tag = RAU_hannover 
+					has_cosmetic_tag = RAU_prussia 
+					has_cosmetic_tag = RAU_France 
+					has_cosmetic_tag = prussian_rk 
+					has_cosmetic_tag = GER_parisian_industrial_zone 
+					has_cosmetic_tag = GER_bismarckstadt 
+					has_cosmetic_tag = east_europe_prussian_rk 
+					has_cosmetic_tag = cock_prussian_rk 
+					has_cosmetic_tag = finnish_prussian_rk 
+					has_cosmetic_tag = russian_prussian_rk 
+					has_cosmetic_tag = austrian_rau 
+					has_cosmetic_tag = AUS_kingdom_puppet 
+					has_cosmetic_tag = austrian_pol_lit_kingdom 
+					has_cosmetic_tag = AUS_kingdom_puppet 
+					has_cosmetic_tag = AUS_caucasian_kingdom 
+					has_cosmetic_tag = AUS_MOL_governate
+					has_cosmetic_tag = rau_poland_not_lithuania
+					has_cosmetic_tag = FRA_russian_puppets
+					has_cosmetic_tag = FRA_russian_occupation
+				}
+			}
+			drop_cosmetic_tag = yes
+		}
 	}
 }

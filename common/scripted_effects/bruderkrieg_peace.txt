@@ -10,6 +10,7 @@ austria_loses_peace_deal = {
         }
         AUS = {
             dismantle_faction = yes 
+            load_focus_tree = generic_focus
         }
         AUS = {country_event = wiltkrieg.2}
         GER = {country_event = wiltkrieg.3}
@@ -98,6 +99,7 @@ prussia_russia_wins_states = {
     
 
     set_global_flag = prussia_has_beaten_austria
+    set_global_flag = prussia_has_beaten_austria_with_russian_support
     GER = {
         annex_country =  { target = GPU transfer_troops = no }
         annex_country =  { target = WUR transfer_troops = no }
@@ -300,7 +302,6 @@ prussia_russia_wins_states = {
                     }
                 }
             }
-            SLO = {
                 set_popularities = {
                     democratic_communism = 54
                     fascism = 19
@@ -311,7 +312,7 @@ prussia_russia_wins_states = {
                 set_politics = {
                     ruling_party = democratic_communism
                 }
-            }
+                keep_current_politics = yes
         }
         else = {
             SLO = {
@@ -325,10 +326,8 @@ prussia_russia_wins_states = {
                 set_politics = {
                     ruling_party = democratic
                 }
+                keep_current_politics = yes
             }
-        }
-        SLO = {
-            keep_current_politics = yes
         }
     }
     SOV = {
@@ -357,6 +356,12 @@ prussia_russia_wins_states = {
             limit = { country_exists = KEN }
             annex_country = {
                 target = KEN
+            }
+        }
+        if = {
+            limit = { country_exists = TZN }
+            annex_country = {
+                target = TZN
             }
         }
     }
@@ -599,10 +604,36 @@ croat_states = {
 }
 
 serbia_states = {
-    YUG = {
-        transfer_state = 809
-        transfer_state = 45
-        transfer_state = 764
+    if = {
+        limit = {
+            YUG = {
+                exists = yes
+            }
+        }
+        YUG = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
+    }
+    else_if = {
+        limit = {
+            SER = {
+                exists = yes
+            }
+        }
+        SER = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
+    }
+    else = {
+        CRO = {
+            transfer_state = 809
+            transfer_state = 45
+            transfer_state = 764
+        }
     }
 }
 
@@ -787,6 +818,10 @@ italy_loses_to_austria_peace_deal = {
             transfer_state = 891
             #drop_cosmetic_tag = yes
             set_cosmetic_tag = kingdom_of_north_italy
+		if = { 
+			limit = { NOT = { is_in_faction_with = AUS } }
+			AUS = { add_to_faction = ITF }
+		}
         }
     }
     
@@ -1200,10 +1235,6 @@ france_loses_peace_deal = {
     }
     event_target:new_continental_system_leader = {
         set_faction_leader = yes
-        declare_war_on = {
-            target = GER
-            type = topple_government
-        }
         add_war_support = 0.2
     }
     FRA = {
@@ -1225,8 +1256,17 @@ france_loses_peace_deal = {
         transfer_state = 51
         if = {
             limit = {
-                BEL = { NOT = { is_in_faction_with = GER }
-                    has_war_with = GER
+                BEL = { 
+                    OR = {
+                        AND = {
+                            NOT = { is_in_faction_with = GER }
+                            has_war_with = GER
+                        }
+                        AND = {
+                            is_in_faction_with = FRA
+                            has_capitulated = yes
+                        }
+                    }
                 }
             }
             transfer_state = 800
@@ -1370,9 +1410,60 @@ france_loses_peace_deal = {
                 transfer_troops = yes
             }
     	}
+        MLI = {
+            add_state_core = 786
+            add_state_core = 557
+            
+        }
+        NGR = {
+            add_state_core = 781
+        }
+        CHA = {
+            add_state_core = 660
+        }
+        WAS = {
+            add_state_core = 1057
+        }
+        ENG = {
+            transfer_state = 779
+        }
+        if = {
+            limit = {
+                LBA  = {
+                    exists = yes
+                }
+            }
+            LBA = {
+                transfer_state = 1072   
+            }
+        }
+        else = {
+            273 = {
+                owner = {
+                    transfer_state = 1072   
+                }
+            }
+        }
+        release = GAB
+        
+        release = SEN
+        release = WAS
+        release = VOL
+        
+        release = MLI
+        release = DAH
+        release = CHA
+        release = CMR
+        
+        release = NGR
+        release = CAR
+        release = MOR
+        release = ALG
+        release = GHA
     }
-    HOL = {
-       drop_cosmetic_tag = yes 
+
+    GHA = {
+        transfer_state = 879
     }
 	
 	every_state = {
@@ -1498,8 +1589,10 @@ france_loses_peace_deal = {
             limit = {
                 has_global_flag = congo_revolt_fired
             }
-            release = COG
             add_to_faction = COG
+        }
+        else = {
+            release = COG
         }
     }
     ALG = {
@@ -2008,6 +2101,7 @@ russia_beats_france = {
 }
 
 russia_beats_ottoman_peace_deal = {
+    set_global_flag = russia_beats_ottoman_peace_deal_only_once
     TUR = {
         white_peace = SOV
     }
@@ -2938,6 +3032,24 @@ america_venezuela_peace_deal = {
 }
 
 america_beats_argentina = {
+    annex_country = {
+        target = CHL
+    }
+    annex_country = {
+        target = ARG
+    }
+    if = {
+        limit = {
+            country_exists = PAR
+            PAR = {
+                has_war_with = ARG
+            }
+        }
+        PAR = { transfer_state = 1015 }
+        else = {
+            release = PAR
+        }
+    }
     if = {
         limit = {
             country_exists = PBC
@@ -2948,16 +3060,29 @@ america_beats_argentina = {
         PBC = {
             transfer_state = 998
         }
-    }
-    if = {
-        limit = {
-            country_exists = PAR
-            PAR = {
-                has_war_with = ARG
+        else = {
+            USA = {
+                annex_country = {
+                    target = PRU
+                }
+                annex_country = {
+                    target = BOL
+                }
+            }
+            every_state = {
+                limit = { OR = { is_core_of = BOL is_core_of = PRU } NOT = { is_core_of = PBC } }
+                add_core_of = PBC
+            }
+            USA = {
+                release = PBC
             }
         }
-        PAR = { transfer_state = 1015 }
     }
+    if = {
+        limit = { URG = { exists = no } }
+        release = URG
+    }
+
     if = {
         limit = {
             USA = {
@@ -2977,7 +3102,7 @@ america_beats_argentina = {
         ARG = {
             add_popularity = {
                 ideology = neutrality
-                popularity = 0.3
+                popularity = 0.35
             }
             set_politics = {
                 ruling_party = neutrality
@@ -2987,7 +3112,7 @@ america_beats_argentina = {
         CHL = {
             add_popularity = {
                 ideology = neutrality
-                popularity = 0.3
+                popularity = 0.35
             }
             set_politics = {
                 ruling_party = neutrality
@@ -2996,6 +3121,102 @@ america_beats_argentina = {
         }
     }
 }
+
+america_beats_brazil = {
+    if = {
+        limit = {
+            USA = {
+                OR = {
+                    has_country_leader = {
+                        name = "William Gibbs McAdoo"
+                        ruling_only = yes
+                    }
+                    has_country_flag = USA_vengeful_occupation_arg
+                }
+            }
+        }
+        if = {
+            limit = {
+                BRE = { is_in_faction_with = ARG }
+            }
+            USA = {
+                annex_country = {
+                    target = BRE
+                }
+            }
+        }
+        if = {
+            limit = {
+                BRS = { is_in_faction_with = ARG }
+            }
+            USA = {
+                annex_country = {
+                    target = BRS
+                }
+            }
+        }
+        if = {
+            limit = {
+                SRB = { is_in_faction_with = ARG }
+            }
+            USA = {
+                annex_country = {
+                    target = SRB
+                }
+            }
+        }
+        USA = {
+            release_puppet = FLF
+            release_puppet = UBR
+        }
+        FLF = {
+            add_popularity = {
+                ideology = neutrality
+                popularity = 0.35
+            }
+            set_politics = {
+                ruling_party = neutrality
+            }
+            set_cosmetic_tag = USA_mandate
+        }
+        else = {
+            if = {
+                limit = {
+                    BRE = { is_in_faction_with = ARG }
+                }
+                USA = {
+                    annex_country = {
+                        target = BRE
+                    }
+                    release = UBR
+                }
+            }
+            if = {
+                limit = {
+                    BRS = { is_in_faction_with = ARG }
+                }
+                USA = {
+                    annex_country = {
+                        target = BRS
+                    }
+                    release = UBR
+                }
+            }
+            if = {
+                limit = {
+                    SRB = { is_in_faction_with = ARG }
+                }
+                USA = {
+                    annex_country = {
+                        target = SRB
+                    }
+                    release = UBR
+                }
+            }
+        }
+    }
+}
+
 
 ottoman_recentralization_peace_deal = {
     annex_country = {target = SYR transfer_troops = no }

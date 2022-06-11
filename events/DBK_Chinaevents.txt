@@ -16,7 +16,7 @@ country_event = {
 					exists = yes
 				}
 			}
-			create_wargoal = {
+			declare_war_on = {
 				target = GZC
 				type = annex_everything
 			}
@@ -26,6 +26,7 @@ country_event = {
 			GZC = {
 				country_event = china_in_the_world_war.2
 			}
+			news_event = china_in_the_world_war.4
 		}
 		if = {
 			limit = {
@@ -33,10 +34,11 @@ country_event = {
 					exists = yes
 				}
 			}
-			create_wargoal = {
+			declare_war_on = {
 				target = YUN
 				type = annex_everything
 			}
+			news_event = china_in_the_world_war.5
 			BEI = {
 				country_event = china_in_the_world_war.2
 			}
@@ -58,10 +60,46 @@ country_event = {
 	option = {
 		name = china_in_the_world_war.2.a
 		
-		SOV = {
-			country_event = {
-				id = generic.2
-				days = 3
+		if = {
+			limit = {
+				SOV = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			SOV = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				GER = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			GER = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
+			}
+		}
+		else_if = {
+			limit = {
+				AIG = {
+					is_in_faction = yes
+					is_faction_leader = yes
+				}
+			}
+			AIG = {
+				country_event = {
+					id = generic.2
+					days = 3
+				}
 			}
 		}
 	}
@@ -85,6 +123,34 @@ country_event = {
 				days = 3
 			}
 		}
+	}
+}
+
+##great china war
+news_event = {
+	id = china_in_the_world_war.4
+	title = china_in_the_world_war.4.t
+	desc = china_in_the_world_war.4.d
+	picture = GFX_greatchinawar
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = china_in_the_world_war.4.a
+	}
+}
+news_event = {
+	id = china_in_the_world_war.5
+	title = china_in_the_world_war.5.t
+	desc = china_in_the_world_war.5.d
+	picture = GFX_greatchinawar
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = china_in_the_world_war.5.a
 	}
 }
 
@@ -138,7 +204,10 @@ add_namespace = south_china_war
 			}
 			annex_country = {
 				target = YUN
-				transfer_troops = no
+				transfer_troops = no 
+			}
+			every_controlled_state = {
+				add_core_of = GZC
 			}
 			set_cosmetic_tag = chinese_confederacy
 			save_global_event_target_as = chinese_annex_event_annexer
@@ -175,6 +244,9 @@ add_namespace = south_china_war
 			annex_country = {
 				target = GUC
 				transfer_troops = no
+			}
+			every_controlled_state = {
+				add_core_of = YUN
 			}
 			set_cosmetic_tag = south_chinese_republic
 		}
@@ -673,6 +745,23 @@ country_event = { #puyi flees to Russian Manchuria
  	}
 }
 
+add_namespace = tibet_expansion
+news_event = {
+	id = tibet_expansion.1 
+	title = tibet_expansion.1.t
+	desc = tibet_expansion.1.d
+	picture = GFX_declarationofgreatertibet
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = tibet_expansion.1.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+
+	}
+}
 
 
 add_namespace = focuses

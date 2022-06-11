@@ -26,6 +26,26 @@ defined_text = { #Opinion Text
 		localization_key = GER_YesBecauseNotRoot
 	}
 }
+#Member or behavior?
+defined_text = { 
+	name = WOK_MEMBERorBEHAVIOR
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { WOK_faction_left_tab_switch = 1 }
+			}
+		}
+		localization_key = WOK_Member
+	}
+	text = {
+		trigger = {
+			ROOT = {
+				check_variable = { WOK_faction_left_tab_switch = 3 }
+			}
+		}
+		localization_key = WOK_Behavior
+	}
+}
 #Faction Opinion - or number
 defined_text = { #Faction Opinion Text
 	name = WOK_DontIfRoot2
@@ -165,7 +185,7 @@ defined_text = {
 				behavior_garrison = 6
 			}
 		}
-		localization_key = "Equipment Overdrive"
+		localization_key = "Military Construction"
 	}
 	text = {
 		localization_key = "Unassigned"

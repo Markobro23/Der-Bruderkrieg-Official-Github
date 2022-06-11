@@ -2220,7 +2220,7 @@ shared_focus = {
 		y = 0
 		cost = 2
 		ai_will_do = {
-		  factor = 100
+		  factor = 1000
 		}
 		available = {
 			has_country_flag = FRA_lyon_strike_start
@@ -5133,9 +5133,9 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_intensify_exploitation
 			icon = GFX_goal_FRA_intensify_exploitation
-			x = -1
+			x = 1
 			y = 1
-			cost = 5
+			cost = 6.5
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_the_second_france }
 			relative_position_id = FRA_the_second_france
@@ -5145,6 +5145,11 @@ instant_build = yes
 			}
 			completion_reward = {
 				ALG = {
+					remove_ideas = ALG_rising_nationalism
+					swap_ideas = {
+						add_idea = ALG_pied_noir_supremacy
+						remove_idea = ALG_ailing_arab_aristocracy
+					}
 					add_war_support = 0.1
 					add_popularity = {
 						ideology = fascism
@@ -5176,6 +5181,9 @@ instant_build = yes
 			completion_reward = {
 				FEA = {
 					remove_ideas = FEA_overstretched_colonial_empire
+				}
+				FWA = {
+					remove_ideas = FWA_tribal_revolts
 				}
 			}
 		}
@@ -5357,6 +5365,7 @@ instant_build = yes
 			ai_will_do = {
 				factor = 100
 			}
+			
 			completion_reward = {
 				VIN = {
 					remove_ideas = VIN_hochi_min_terrorists
@@ -5381,11 +5390,19 @@ instant_build = yes
 			ai_will_do = {
 				factor = 100
 			}
+			will_lead_to_war_with = SIA
 			available = {
 				SIA = {
 					has_war_with = HVN
 				}
 			}
+			bypass = {
+				has_global_flag = ho_chi_minh_has_revolted
+				HVN = {
+					exists = no
+				}
+			}
+		
 			completion_reward = {
 				SIA = {
 					country_event = FRA_indochina_events.3
@@ -5420,7 +5437,7 @@ instant_build = yes
 		shared_focus = {
 			id = FRA_violette_proposal
 			icon = GFX_goal_FRA_the_abbas_proposal
-			x = 1
+			x = -1
 			y = 1
 			cost = 5
 			available_if_capitulated = yes
@@ -5590,7 +5607,7 @@ instant_build = yes
 		
 		shared_focus = {
 			id = FRA_ALLY_PORTUGAL
-			icon = GFX_focus_generic_befriend_portugal
+			icon = GFX_goal_FRA_reaching_out_to_dutarte
 			text = FRA_ALLY_PORTUGAL
 			prerequisite = { focus = FRA_FRANCE_ALONE }
 			x = -4
@@ -5626,7 +5643,7 @@ instant_build = yes
 		}
 		shared_focus = {
 			id = FRA_reach_out_to_spain
-			icon = GFX_focus_spa_unify_the_nationalist_front
+			icon = GFX_goal_FRA_alliance_with_spain
 			text = FRA_reach_out_to_spain
 			prerequisite = { focus = FRA_ALLY_PORTUGAL }
 			x = -1 
@@ -5662,7 +5679,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_REESTABLISH_EMPIRE
-			icon = GFX_goal_French_Empire
+			icon = GFX_goal_FRA_continental_ambitions
 			text = FRA_REESTABLISH_EMPIRE
 			x = -2
 			y = 1
@@ -5670,7 +5687,7 @@ instant_build = yes
 			prerequisite = {
 				focus = FRA_FRANCE_ALONE
 			}
-			cost = 4
+			cost = 8
 			ai_will_do = {
 				factor = 2000
 			}
@@ -5693,7 +5710,7 @@ instant_build = yes
 		
 		shared_focus = {
 			id = FRA_ANTI_AUSTRIAN_PACT
-			icon = GFX_goal_Claims_On_Alliance
+			icon = GFX_goal_FRA_break_the_brothers
 			text = FRA_ANTI_AUSTRIAN_PACT
 			prerequisite = { focus = FRA_REESTABLISH_EMPIRE }
 			x = -1
@@ -5726,7 +5743,7 @@ instant_build = yes
 
 		shared_focus = {
 			id = FRA_DEMAND_WEST_ITALY
-			icon = GFX_goal_Demand_Italia
+			icon = GFX_goal_FRA_claims_on_west_italy
 			text = FRA_DEMAND_WEST_ITALY
 			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
 			x = -1
@@ -5771,7 +5788,7 @@ instant_build = yes
 		
 		shared_focus = {
 			id = FRA_MANEGO_CAMPAIGN
-			icon = GFX_goal_Monego_Campaign
+			icon = GFX_goal_FRA_manego_campaign
 			text = FRA_MANEGO_CAMPAIGN
 			prerequisite = { focus = FRA_DEMAND_WEST_ITALY  }
 			x = 0
@@ -5808,7 +5825,7 @@ instant_build = yes
 		
 		shared_focus = {
 			id = FRA_DANUBE_CAMPAIGN
-			icon = GFX_goal_Danubian_Regions
+			icon = GFX_goal_SOV_no_they_are_insane
 			text = FRA_DANUBE_CAMPAIGN
 			prerequisite = { focus = FRA_ANTI_AUSTRIAN_PACT }
 			x = 1
@@ -5854,7 +5871,7 @@ instant_build = yes
 			icon = GFX_goal_FRA_law_for_the_country_in_danger
 			x = 0
 			y = 1
-			cost = 4
+			cost = 8
 			available_if_capitulated = yes
 			prerequisite = { focus = FRA_FRANCE_ALONE }
 			relative_position_id = FRA_FRANCE_ALONE
@@ -6107,10 +6124,13 @@ instant_build = yes
         always = no
       }
       bypass = {
-		GER = {
-			is_puppet = yes
-		}
-        has_global_flag = france_austria_split_deal
+    		GER = {
+    			is_puppet = yes
+    		}
+        OR = {
+          has_global_flag = france_austria_split_deal
+          has_subject = MAS
+        }
       }
 	#   mutually_exclusive = {
 	# 	focus = FRA_across_the_sea
@@ -6235,9 +6255,9 @@ instant_build = yes
         factor = 2000
       }
       completion_reward = {
-        ENG = { add_ideas = FRA_shutdown_french_trade }
-		FRA = { add_ideas = FRA_shutdown_french_trade }
-		AUS = { add_ideas = FRA_shutdown_french_trade }
+        ENG = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
+		FRA = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
+		AUS = { add_timed_idea = { idea = FRA_shutdown_french_trade days = 250 } }
       }
     }
 
@@ -6253,6 +6273,7 @@ instant_build = yes
       ai_will_do = {
         factor = 2000
       }
+	  will_lead_to_war_with = AUS
       available = {
         NOT = {
           has_war_with = GER
@@ -6342,6 +6363,11 @@ instant_build = yes
       ai_will_do = {
         factor = 2000
       }
+	  available = {
+		  SOV = {
+			is_puppet = no
+		  }
+	  }
     
       available_if_capitulated = yes
       #search_filters = { FOCUS_FILTER_RESEARCH }
@@ -6353,7 +6379,18 @@ instant_build = yes
 			}
 			white_peace = SOV
 			}
-			SOV = { country_event = { id = generic.5 hours = 3 }
+			if = {
+				limit = {
+					SOV = {
+						is_in_faction = no
+					}
+				}
+				SOV = {
+					country_event = france.17
+				}
+			}
+			else = {
+				country_event = generic.27
 			}
 		}
 	}
@@ -6370,7 +6407,7 @@ instant_build = yes
       ai_will_do = {
         factor = 2000
       }
-    
+    will_lead_to_war_with = SOV
       available_if_capitulated = yes
       #search_filters = { FOCUS_FILTER_RESEARCH }
     
@@ -6404,6 +6441,7 @@ instant_build = yes
         
         
       }
+	  will_lead_to_war_with = ENG
       available = {
         OR = {
           has_army_manpower = {
@@ -6428,7 +6466,7 @@ instant_build = yes
 
     shared_focus = {
       id = FRA_strengthen_english_collaboration_governments
-      icon = GFX_goal_SOV_promoting_loyal_officers
+      icon = GFX_ITA_purchase_small_arms
       prerequisite = { focus = FRA_invade_britain }
       mutually_exclusive = { focus = FRA_reverse_normandy }
       x = 1
@@ -7250,6 +7288,7 @@ instant_build = yes
 					add_state_core = 52  
 					add_state_core = 53  
 					add_state_core = 60
+					add_state_core = 798
 					set_cosmetic_tag = FGD_RHE
 				}
 				country_event = { id = westfalen_subtree_events.5 hours = 2 }
@@ -7854,7 +7893,19 @@ instant_build = yes
 				#search_filters = { FOCUS_FILTER_RESEARCH }
 			
 				completion_reward = {
-					add_state_core = 35
+					if = { 
+						limit = { 
+							has_completed_focus = FRA_BRUSSELLS_CONFERENCE 
+						} 
+						BEL = {
+							add_state_core = 35
+						}
+					}
+					else = {
+						FRA = {
+							add_state_core = 35
+						}
+					}
 					hidden_effect = {
 						add_threat = 2
 					}

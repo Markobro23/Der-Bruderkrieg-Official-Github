@@ -528,10 +528,22 @@ news_event = {
 	#fire_only_once = yes
 	major = yes
 
-
+	trigger = {
+		NOT = {
+			SOV = {
+				has_country_flag = fire_the_event_only_once_ottoman_capitulation_to_russia
+			}
+		}
+	}
 
 	option = { 
 		name = russian_expansion.2.a
+		if = {
+			limit = {
+				tag = SOV
+			}
+			set_country_flag = fire_the_event_only_once_ottoman_capitulation_to_russia
+		}
 	}
 }
 
@@ -943,7 +955,7 @@ country_event = {
 }
 ##offer to france
 country_event = {
-	id = french_inteverntion_in_prussian_expansion.12
+	id = french_inteverntion_in_prussian_expansion.12 
 	title = french_inteverntion_in_prussian_expansion.12.t
 	desc = french_inteverntion_in_prussian_expansion.12.d
 	#picture = GFX_report_event_czech_soldiers_012.dds
@@ -952,7 +964,7 @@ country_event = {
 	option = {
 		name = french_inteverntion_in_prussian_expansion.12.a
 		ai_chance = {factor = 300}
-		create_wargoal = {
+		declare_war_on = {
 			target = SOV
 			type = topple_government
 		}
@@ -2672,6 +2684,139 @@ news_event = {
 			}
 			hidden_effect = {
 				italy_loses_to_austria_peace_deal = yes
+			}
+		}
+	}
+}
+
+add_namespace = stahlpakt_events
+
+news_event = { #the stahlpakt is created
+	id = stahlpakt_events.1
+	title = stahlpakt_events.1.t
+	desc = stahlpakt_events.1.d
+	picture = GFX_news_event_017
+	
+	major = yes
+	
+	is_triggered_only = yes
+	
+	option = { #frick
+		name = stahlpakt_events.1.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = GER
+					TAG = SOV
+					is_in_faction_with = GER
+					is_in_faction_with = SOV
+				}
+			}
+		}
+	}
+	option = { #a great tool to use against hte habsburgs
+		name = stahlpakt_events.1.b
+		trigger = { 
+			OR = {
+				TAG = GER
+				is_in_faction_with = GER
+			}
+			NOT = {
+				tag = SOV
+			}
+			NOT = {
+				is_in_faction_with = SOV
+			}
+		}
+	}
+	option = { #a great tool to use against the habsburgs
+		name = stahlpakt_events.1.b
+		trigger = { 
+			OR = {
+				TAG = SOV
+				is_in_faction_with = SOV
+			}
+			NOT = {
+				tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+}
+
+# Germany Breaks Molotov-Ribbentrop Pact
+news_event = {
+	id = stahlpakt_events.2
+	title = stahlpakt_events.2.t
+	desc = stahlpakt_events.2.d
+	picture = GFX_news_event_german_inspect_troops
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	option = { #the steel has been broken
+		name = stahlpakt_events.2.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = GER
+					TAG = SOV
+					is_in_faction_with = GER
+					is_in_faction_with = SOV
+				}
+			}
+		}
+	}
+	option = { #the Russian threat will be broken!
+		name = stahlpakt_events.2.b
+		trigger = { OR = { TAG = GER is_in_faction_with = GER } }
+	}
+	option = { #those traitorous Prussians
+		name = stahlpakt_events.2.c
+		trigger = { 
+			OR = {
+				TAG = SOV
+				is_in_faction_with = SOV
+			}
+		}
+	}
+}
+
+# USSR Breaks Molotov-Ribbentrop Pact
+news_event = {
+	id = stahlpakt_events.3
+	title = stahlpakt_events.3.t
+	desc = stahlpakt_events.3.d
+	picture = GFX_news_event_006
+	
+	major = yes
+
+	is_triggered_only = yes
+	
+	option = { 
+		name = stahlpakt_events.2.a
+		trigger = {
+			NOT = {
+				OR = {
+					TAG = GER
+					TAG = SOV
+					is_in_faction_with = GER
+					is_in_faction_with = SOV
+				}
+			}
+		}
+	}
+	option = { #we should have known better than to trust the Russians
+		name = stahlpakt_events.3.b
+		trigger = { OR = { TAG = GER is_in_faction_with = GER } }
+	}
+	option = { #we will crush the german menace
+		name = stahlpakt_events.3.c
+		trigger = { 
+			OR = {
+				TAG = SOV
+				is_in_faction_with = SOV
 			}
 		}
 	}

@@ -1822,7 +1822,7 @@ country_event = {
 			target = LUX
 			transfer_troops = yes
 		}
-
+		add_state_core = 8
 		
 	}
 
@@ -2863,7 +2863,30 @@ country_event = {
 				type = civil_war
 			}
 		}
-		
+		set_global_flag = ho_chi_minh_has_revolted
+		#hidden_effect = {
+        	HVN = {
+        		division_template = {
+					name = "Ho Chi Minh Separatists"			# Civilian Partisans
+
+					regiments = {
+						infantry = { x = 0 y = 0 }
+						infantry = { x = 0 y = 1 }
+						infantry = { x = 0 y = 2 }
+						infantry = { x = 1 y = 0 }
+						infantry = { x = 1 y = 1 }
+						infantry = { x = 1 y = 2 }
+					}
+				}
+        	}
+        	937 = {
+        		create_unit = {
+				    division = "name = \"Ho Chi Minh Separatists\" division_template = \"Ho Chi Minh Separatists\" start_experience_factor = 0.2 start_equipment_factor = 0.5"
+				    count = 5
+				    owner = HVN
+				}
+        	}
+        #}
 	}
 }
 
@@ -2878,12 +2901,18 @@ country_event = {
 
 	option = {
 		name = FRA_indochina_events.3.a
+		ai_chance = {
+			factor = 1 
+		}
 		FRA = {
 			country_event = FRA_indochina_events.4
 		}
 	}
 	option = {
 		name = FRA_indochina_events.3.b
+		ai_chance = {
+			factor = 0
+		}
 		FRA = {
 			country_event = FRA_indochina_events.5
 		}
@@ -3051,7 +3080,7 @@ country_event = {
 	id = FRA_african_colonial_events.1
 	title = FRA_african_colonial_events.1.t
 	desc = FRA_african_colonial_events.1.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3074,7 +3103,7 @@ country_event = {
 	id = FRA_african_colonial_events.2
 	title = FRA_african_colonial_events.2.t
 	desc = FRA_african_colonial_events.2.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3112,7 +3141,7 @@ country_event = {
 	id = FRA_african_colonial_events.3
 	title = FRA_african_colonial_events.3.t
 	desc = FRA_african_colonial_events.3.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3148,7 +3177,7 @@ country_event = {
 	id = FRA_african_colonial_events.4
 	title = FRA_african_colonial_events.4.t
 	desc = FRA_african_colonial_events.4.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3183,7 +3212,7 @@ country_event = {
 	id = FRA_african_colonial_events.5
 	title = FRA_african_colonial_events.5.t
 	desc = FRA_african_colonial_events.5.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3218,7 +3247,7 @@ country_event = {
 	id = FRA_african_colonial_events.6
 	title = FRA_african_colonial_events.6.t
 	desc = FRA_african_colonial_events.6.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
@@ -3233,7 +3262,7 @@ country_event = {
 	id = FRA_african_colonial_events.7
 	title = FRA_african_colonial_events.7.t
 	desc = FRA_african_colonial_events.7.d
-	picture = GFX_report_event_soldiers_in_france
+	#picture = GFX_report_event_soldiers_in_france
 
 	is_triggered_only = yes
 
