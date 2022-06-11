@@ -5459,8 +5459,8 @@ SOV_the_extermination_of_the_communists = {
 		}
 
 		remove_effect = {
-			add_political_power = -50
-			add_stability = -0.05
+			add_political_power = -25
+			add_stability = -0.025
 			add_popularity = {
 				ideology = communism
 				popularity = -0.07
@@ -5499,8 +5499,8 @@ SOV_the_extermination_of_the_communists = {
 		}
 
 		remove_effect = {
-			add_political_power = -50
-			add_stability = -0.05
+			add_political_power = -25
+			add_stability = -0.025
 			add_popularity = {
 				ideology = democratic_communism
 				popularity = -0.07
@@ -5539,16 +5539,16 @@ SOV_the_extermination_of_the_communists = {
 		}
 
 		remove_effect = {
-			add_political_power = -25
-			add_stability = -0.03
+			add_political_power = -10
+			add_stability = -0.01
 			add_popularity = {
 				ideology = democratic_liberalism
 				popularity = -0.04
 			}
-			add_to_variable = {
-				SOV_commie_extermination_progress = 5
-				tooltip = SOV_increase_commie_extermination_progress_by_5
-			}	
+			# add_to_variable = {
+			# 	SOV_commie_extermination_progress = 5
+			# 	tooltip = SOV_increase_commie_extermination_progress_by_5
+			# }	
 		}	
 	}
 
@@ -11797,6 +11797,19 @@ SOV_east_africa_ambitions = {
 						ideology = despotic
 						expire = "1965.1.1"
 					}
+				}
+			}
+			hidden_effect = {
+				DJI = {
+					keep_current_politics = yes
+				}
+			}
+			SOV = {
+				puppet = DJI
+			}
+			hidden_effect = {
+				DJI = {
+					reset_government = yes
 				}
 			}
 		}

@@ -717,6 +717,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.5.a ###yes, he is a true leader
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.6
 			add_to_variable = {
@@ -728,6 +729,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.5.b ###no, impeding on our democratic values too much
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.6
 			add_to_variable = {
@@ -738,6 +740,7 @@ country_event = {
 	option = { 
 		name = SOV_return_of_the_tsar_path.5.c ###yes, yes, in fact lets give him more power and lessen the duma's power like pre-1905
 		ai_chance = { factor = 2}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.6
 			add_to_variable = {
@@ -757,8 +760,9 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.6.a ###yes, fuck the workers
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		hidden_effect = {
-			country_event = SOV_return_of_the_tsar_path.7
+			country_event = SOV_return_of_the_tsar_path.8
 			add_to_variable = {
 				SOV_peoples_support_for_current_regime = -4
 			}
@@ -768,7 +772,7 @@ country_event = {
 		name = SOV_return_of_the_tsar_path.6.b ###no, the workers are too valuable
 		ai_chance = { factor = 1}
 		hidden_effect = {
-			country_event = SOV_return_of_the_tsar_path.7
+			country_event = SOV_return_of_the_tsar_path.8
 
 		}
 
@@ -815,6 +819,8 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.8.a ###yes, lets go nobility!!
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
+		add_political_power = 15
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.9
 			add_to_variable = {
@@ -833,6 +839,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.8.b ###no, we need the goddamn money
 		ai_chance = { factor = 1}
+		add_political_power = -10
 		hidden_effect = {
 			country_event = SOV_return_of_the_tsar_path.9
 		}
@@ -849,6 +856,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.9.a ###yes, lets ban far left newspapers
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		add_to_variable = {
 			SOV_peoples_support_for_current_regime = -3
 		}
@@ -857,6 +865,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.9.b ###no, we cant
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 		add_to_variable = {
 			SOV_peoples_support_for_current_regime = 3
 		}
@@ -865,6 +874,7 @@ country_event = {
 	option = {
 		name = SOV_return_of_the_tsar_path.9.c ###yes, yes, none shall speak out against our tsar!
 		ai_chance = { factor = 1}
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 		add_to_variable = {
 			SOV_peoples_support_for_current_regime = -8
 		}
@@ -2694,6 +2704,7 @@ country_event = { #prohibition
 		name = SOV_lenin_social_reforms_events.1.a
 		add_stability = -0.05
 		add_to_variable = { SOV_peoples_support_for_current_regime = 3 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 	}
 	option = { #it's fine as it is
 		name = SOV_lenin_social_reforms_events.1.b
@@ -2703,6 +2714,7 @@ country_event = { #prohibition
 		name = SOV_lenin_social_reforms_events.1.c
 		add_political_power = 100
 		add_to_variable = { SOV_peoples_support_for_current_regime = -3 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 }
 
@@ -2715,17 +2727,20 @@ country_event = { #political commissars to the army
 	option = { #the army can be trusted
 		name = SOV_lenin_social_reforms_events.2.a
 		add_to_variable = { SOV_military_support_for_current_regime = 3 }
+		add_command_power = 10
 	}
 	option = { #limited power for commissars
 		name = SOV_lenin_social_reforms_events.2.b
 		add_ideas = political_commissars_focus
 		add_to_variable = { SOV_military_support_for_current_regime = -2 }
+		add_command_power = -5
 	}
 	option = { #commissars override military structure
 		name = SOV_lenin_social_reforms_events.2.c
 		add_political_power = 100
 		add_ideas = political_commissars_focus
 		add_to_variable = { SOV_military_support_for_current_regime = -5 }
+		add_command_power = -10
 	}
 }
 
@@ -2768,6 +2783,7 @@ country_event = { #enact civilian nationalization
 			}
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 	option = { #mass nationalization
 		name = SOV_lenin_social_reforms_events.3.b
@@ -2817,6 +2833,7 @@ country_event = { #enact civilian nationalization
 			}
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -4 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 	}
 }
 
@@ -2859,6 +2876,7 @@ country_event = { #enact military nationalization
 			}
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		add_to_variable = { SOV_military_support_for_current_regime = -2 }
 	}
 	option = { #mass nationalization
@@ -2894,6 +2912,7 @@ country_event = { #enact military nationalization
 			}
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 		add_to_variable = { SOV_military_support_for_current_regime = -3 }
 	}
 }
@@ -2908,16 +2927,19 @@ country_event = { #unions
 		name = SOV_lenin_social_reforms_events.5.a
 		add_stability = 0.05
 		add_to_variable = { SOV_peoples_support_for_current_regime = 1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 	}
 	option = { #national union
 		name = SOV_lenin_social_reforms_events.5.b
 		add_political_power = 50
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 	option = { #crush uncooperative unions
 		name = SOV_lenin_social_reforms_events.5.c
 		add_ideas = SOV_crushing_uncooperative_unions
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 	}
 }
 
@@ -2931,6 +2953,7 @@ country_event = { #degeneracy (ie prostitution and marriage stuff)
 		name = SOV_lenin_social_reforms_events.6.a
 		add_political_power = 25
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 	option = { #leave them alone
 		name = SOV_lenin_social_reforms_events.6.b
@@ -2958,6 +2981,7 @@ country_event = { #literature efforts
 		name = SOV_lenin_social_reforms_events.7.b
 		add_research_slot = 1
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 }
 
@@ -2970,6 +2994,7 @@ country_event = { #land reform
 	option = { #break up corporate farms
 		name = SOV_lenin_social_reforms_events.8.a
 		add_to_variable = { SOV_peoples_support_for_current_regime = 1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 		random_owned_controlled_state = {
 			limit = {
 				free_building_slots = {
@@ -2995,6 +3020,7 @@ country_event = { #land reform
 		name = SOV_lenin_social_reforms_events.8.b
 		
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		random_owned_controlled_state = {
 			limit = {
 				free_building_slots = {
@@ -3051,6 +3077,7 @@ country_event = { #healthcare
 	option = { #public healthcare as baseline for private companies
 		name = SOV_lenin_social_reforms_events.9.b
 		add_to_variable = { SOV_peoples_support_for_current_regime = 1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_increase
 		add_political_power = 25
 	}
 	option = { #state healthcare only
@@ -3060,6 +3087,7 @@ country_event = { #healthcare
 			popularity = 0.04
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 }
 
@@ -3079,6 +3107,7 @@ country_event = { #universal suffrage
 	option = { #all russians
 		name = SOV_lenin_social_reforms_events.10.b
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 		add_popularity = {
 			ideology = ROOT
 			popularity = 0.025
@@ -3091,6 +3120,7 @@ country_event = { #universal suffrage
 			popularity = 0.05
 		}
 		add_to_variable = { SOV_peoples_support_for_current_regime = -3 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 	}
 }
 
@@ -3104,6 +3134,7 @@ country_event = { #fighting corruption
 		name = SOV_lenin_social_reforms_events.11.a
 		add_political_power = 25
 		add_to_variable = { SOV_peoples_support_for_current_regime = -1 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease
 	}
 	option = { #fair
 		name = SOV_lenin_social_reforms_events.11.b
@@ -3115,6 +3146,7 @@ country_event = { #fighting corruption
 		add_political_power = 100
 		add_stability = -0.05
 		add_to_variable = { SOV_peoples_support_for_current_regime = -2 }
+		custom_effect_tooltip = SOV_our_presidential_approval_rating_will_decrease_big
 	}
 }
 
