@@ -991,20 +991,35 @@ FRA_national_missions_conatiner_scripted_gui = {
 				target = ENG
 				uses = 2
 			}
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
 			}
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
 			}
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
 			}
 			set_country_flag = FRA_national_mission_4_click_flag
 		}
@@ -1018,16 +1033,16 @@ FRA_national_missions_conatiner_scripted_gui = {
 				has_country_flag = FRA_national_mission_1_click_flag
 			}
 			42 = {
-				industrial_complex > 5
-				arms_factory > 5
+				industrial_complex > 4
+				arms_factory > 4
 			}
 			51 = {
-				industrial_complex > 5
-				arms_factory > 5
+				industrial_complex > 4
+				arms_factory > 4
 			}
 			957 = {
-				industrial_complex > 5
-				arms_factory > 5
+				industrial_complex > 4
+				arms_factory > 4
 			}
 			42 = {
 				owner = {
@@ -1125,28 +1140,29 @@ FRA_national_missions_conatiner_scripted_gui = {
 		FRA_national_mission_1_cover_visible = {
 			NOT = {
 				42 = {
-					industrial_complex > 5
-					arms_factory > 5
+					industrial_complex > 4
+					arms_factory > 4
 				}
 				51 = {
-					industrial_complex > 5
-					arms_factory > 5
+					industrial_complex > 4
+					arms_factory > 4
 				}
 				957 = {
-					industrial_complex > 5
-					arms_factory > 5
+					industrial_complex > 4
+					arms_factory > 4
 				}
-				owns_state = 42
-				owns_state = 51
-				owns_state = 957
 			}
 		}
 		FRA_national_mission_2_cover_visible = {
 			NOT = {
-				ALG = {
-					all_owned_state = {
-						infrastructure > 3
-					}
+				513 = {
+					infrastructure > 2
+				}
+				458 = {
+					infrastructure > 2
+				}
+				665 = {
+					infrastructure > 2
 				}
 			}
 			
@@ -1161,7 +1177,12 @@ FRA_national_missions_conatiner_scripted_gui = {
 			
 		}
 		FRA_national_mission_4_cover_visible = {
-			
+			NOT = {
+				naval_strength_ratio = {
+					tag = ENG
+					ratio > 1
+				}
+			}
 		}
 	} 	
   }
