@@ -1236,9 +1236,29 @@ on_actions = {
 							is_subject_of = FRA
 						}
 					}
+					AUS = { NOT = { has_war_with = GER } }
 				}
 				log = "2nd europa ends for france: [GetDateText]"
 				france_beats_prussia_peace_deal = yes
+			}
+			if = {
+				limit = {
+					ROOT = { tag = GER }
+					FROM = {
+						OR = {
+							tag = FRA
+							AND = {
+								is_in_faction_with = FRA
+								FRA = { is_subject = no }
+							}
+							is_subject_of = FRA
+						}
+					}
+					AUS = { has_war_with = GER }
+				}
+				log = "2nd europa ends for france: [GetDateText]"
+				set_global_flag = france_austria_split_deal
+				prussia_loses_peace_deal = yes
 			}
 			if = {
 				limit = {
