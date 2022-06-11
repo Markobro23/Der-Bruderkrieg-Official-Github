@@ -346,13 +346,16 @@ AUS_managing_bavaria_court_factionalism = {
 	}
 
 	visible = {
-	OR = {	
-		has_country_flag = franz_ferdinand_stays
-		has_country_flag = unlock_sgc_court_factionalism_debug
-	}
-	NOT = { 
-		has_country_flag = SGC_is_fucked
-	}
+		OR = {	
+			has_country_flag = franz_ferdinand_stays
+			has_country_flag = unlock_sgc_court_factionalism_debug
+		}
+		NOT = { 
+			OR = {
+				has_country_flag = SGC_is_fucked
+				has_country_flag = SGC_court_opposition_crushed
+			}
+		}
 	}
 	visible_when_empty = yes
 }

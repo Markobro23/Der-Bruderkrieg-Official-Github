@@ -2668,14 +2668,7 @@ shared_focus = {
 
     available_if_capitulated = yes
 
-    bypass = {
-      1059 = {
-        free_building_slots = {
-          building = anti_air_building
-          size < 2
-        }
-      }
-    }
+    
 	completion_reward = {
 	1059 = {
        add_building_construction = {
@@ -7815,10 +7808,8 @@ shared_focus = {
     factor = 200
   }
   bypass = {
-    NOT = {
-      GER = {
-        is_puppet_of = AUS
-      }
+    GER = {
+      is_subject_of = FRA
     }
   }
 
@@ -7839,9 +7830,9 @@ shared_focus = {
     focus = AUS_stabilizing_europe
   }
    available = {
-    has_global_flag = AUS_FRA_alliance_falls_apart
+    #has_global_flag = AUS_FRA_alliance_falls_apart
     GER = {
-      is_puppet = yes
+      is_subject_of = AUS
     }
   }
   x = 4

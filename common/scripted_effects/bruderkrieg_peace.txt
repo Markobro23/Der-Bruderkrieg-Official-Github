@@ -818,6 +818,10 @@ italy_loses_to_austria_peace_deal = {
             transfer_state = 891
             #drop_cosmetic_tag = yes
             set_cosmetic_tag = kingdom_of_north_italy
+		if = { 
+			limit = { NOT = { is_in_faction_with = AUS } }
+			AUS = { add_to_faction = ITF }
+		}
         }
     }
     
