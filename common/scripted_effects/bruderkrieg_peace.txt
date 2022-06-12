@@ -987,6 +987,49 @@ france_loses_to_austria_peace_deal = {
     }
     if = {
         limit = {
+            FGD = {
+                is_in_faction_with = FRA
+            }
+        }
+        if = {
+            limit = {
+                AUS = {
+                    has_completed_focus = AUS_proclaim_the_grossdeutsches_reich
+                }
+            }
+            AUS = {
+                annex_country = {
+                    target = FGD
+                    transfer_troops = yes
+                }
+            }
+        }
+        else_if = {
+            limit = { 
+                AUS = {
+                    has_completed_focus = AUS_the_german_confederation
+                }
+            }
+            GPU = {
+                annex_country = {
+                    target = FGD
+                    transfer_troops = yes
+                }
+            }
+        }
+    }
+    else = {
+        FGD = {
+            add_state_core = 28
+        }
+        every_state = {
+            limit = { is_core_of = FGD is_owned_by = FRA } 
+            transfer_state_to = FGD
+        }
+        puppet = FGD
+    }
+    if = {
+        limit = {
             BEL = {
                 is_in_faction_with = FRA
             }
@@ -1028,18 +1071,6 @@ france_loses_to_austria_peace_deal = {
         add_state_core = 21
         add_state_core = 735
         set_cosmetic_tag = ADU_marseille_duchy
-    }
-    if = {
-        limit = {
-            FGD = { is_subject_of = FRA }
-        }
-        FGD = {
-            add_state_core = 28
-        }
-        every_state = {
-            limit = { is_core_of = FGD is_owned_by = FRA } 
-            transfer_state_to = FGD
-        }
     }
     FRA = {
         release = ADU
@@ -1087,7 +1118,6 @@ france_loses_to_austria_peace_deal = {
         puppet = LUX
         puppet = BRI
         puppet = OCC
-        puppet = FGD
     }
     FPR = {
         add_ideas = {
