@@ -4218,18 +4218,28 @@ country_event = {
 		name = austriaprussiaoperations.4.a #heisenberg
 		ai_chance = { factor = 1}
 		add_ideas = GER_atomwaffen_heisenberg
-		
+		hidden_effect = {
+			remove_ideas = GER_atomwaffen_von_braun
+			remove_ideas = GER_atomwaffen_goering
+		}
 	}
 	option = {
 		name = austriaprussiaoperations.4.b #braun
 		ai_chance = { factor = 1}
 		add_ideas = GER_atomwaffen_von_braun
+		hidden_effect = {
+			remove_ideas = GER_atomwaffen_heisenberg
+			remove_ideas = GER_atomwaffen_goering
+		}
 	}
 	option = {
 		name = austriaprussiaoperations.4.c #goering himself
 		ai_chance = { factor = 1}
 		add_ideas = GER_atomwaffen_goering
-
+		hidden_effect = {
+			remove_ideas = GER_atomwaffen_heisenberg
+			remove_ideas = GER_atomwaffen_von_braun
+		}
 		trigger = {
 			has_country_leader = {
 				name = "Hermann Goering"
