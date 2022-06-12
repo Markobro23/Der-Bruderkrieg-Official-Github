@@ -538,6 +538,54 @@ weltkrieg_decisions = {
 
 	}
 
+	FRA_reject_austria = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			original_tag = FRA
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = fate_prussia_not_already_decided
+				NOT = {
+					OR = {
+						has_global_flag = france_austria_split_deal
+						has_global_flag = AUS_FRA_alliance_falls_apart
+						has_global_flag = weltkrieg_conference_vienna
+					}
+				}
+			}
+		}
+
+		cost = 25
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		visible = {
+			FRA = {
+				has_war_with = GER
+			}
+			AUS = {
+				has_war_with = GER
+			}
+		}
+
+		complete_effect = {
+			set_global_flag = AUS_FRA_alliance_falls_apart
+			custom_effect_tooltip = make_austria_get_all_of_germany
+			AUS = {
+				country_event = { id = second_treaty_of_vienna.7 hours = 3 }
+			}
+		}
+
+	}
+
 	FRA_pressure_austria_for_sicily = {
 
 		icon = border_war
