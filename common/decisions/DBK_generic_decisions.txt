@@ -30,6 +30,71 @@ political_actions = {
 
 	}
 
+	infrastructure_building_slot = {
+
+		icon = generic_construction
+
+        allowed = {
+            NOT = {
+            	tag = GER
+            }
+        }
+
+        cost = 100
+        fire_only_once = no
+
+        days_re_enable = 30
+
+		available = {
+			any_owned_state = {
+				NOT = { has_state_flag = infrastructure_building_slot_flag }
+				is_fully_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+			}
+		}
+
+		visible = {
+			any_owned_state = {
+				NOT = { has_state_flag = infrastructure_building_slot_flag }
+				is_fully_controlled_by = ROOT
+				free_building_slots = {
+					building = infrastructure
+					size < 1
+				}
+			}
+		}
+
+        complete_effect = {
+			random_owned_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+            		free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = infrastructure
+						size < 1
+					}
+					NOT = { has_state_flag = infrastructure_building_slot_flag }
+				}
+				add_extra_state_shared_building_slots = 1
+				set_state_flag = infrastructure_building_slot_flag
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 10
+				any_owned_state = { free_building_slots = { building = industrial_complex size < 1 include_locked = no } }
+			}
+		}
+    }
+
 	prepare_resistance_cells = {
 
 		icon = generic_industry
@@ -124,10 +189,10 @@ political_actions = {
 
 		days_remove = 70
 
-		days_re_enable = 180
+		days_re_enable = 365
 
 		modifier = {
-			war_support_weekly = 0.005
+			war_support_weekly = 0.003
 		}
 
 	}
@@ -144,7 +209,7 @@ political_actions = {
 
 		days_remove = 100
 
-		days_re_enable = 180
+		days_re_enable = 365
 
 		modifier = {
 			war_support_weekly = 0.003
@@ -694,4 +759,423 @@ weltkrieg_decisions = {
 		}
 
 	}
+}
+
+minor_conent_decisions = {
+	
+	CAN_remove_great_depression = {
+
+		icon = generic_construction
+
+		allowed = {
+			tag = CAN
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 1
+				date > 1937.1.1
+			}
+		}
+
+		cost = 75
+
+		days_remove = 200
+
+		fire_only_once = yes
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			political_power_cost = 0.1
+		}
+
+		remove_effect = {
+			remove_ideas = CAN_scars_of_the_depression
+		}
+
+	}
+
+	NIC_fight_the_libs = {
+
+		icon = generic_prepare_civil_war
+
+		allowed = {
+			tag = NIC
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 75
+
+		days_remove = 365
+
+		fire_only_once = yes
+
+		modifier = {
+			weekly_manpower = -15
+			stability_factor = -0.05
+			industrial_capacity_factor = -0.1
+		}
+
+		remove_effect = {
+			remove_ideas = NIC_liberal_guerrillas
+		}
+
+	}
+
+	COS_strengthen_left_coalition = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = COS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 25
+
+		days_remove = 365
+
+		visible = {
+			NOT = {
+				has_country_flag = COS_turning_conservative
+			}
+		}
+
+		modifier = {
+			political_power_factor = -0.1
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = COS_strengthening_grand_left
+		}
+
+		remove_effect = {
+			remove_ideas = COS_angered_plantation_owners
+			swap_ideas = {
+				remove_idea = COS_communist_coalition
+				add_idea = COS_communist_coalition_2
+			}
+		}
+
+	}
+
+	COS_turn_towards_conservatives = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = COS
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 25
+
+		days_remove = 10
+
+		visible = {
+			NOT = {
+				has_country_flag = COS_strengthening_grand_left
+			}
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			set_country_flag = COS_turning_conservative
+		}
+
+		remove_effect = {
+			remove_ideas = COS_angered_plantation_owners
+			remove_ideas = COS_communist_coalition
+			add_popularity = {
+				ideology = democratic_liberalism
+				popularity = 0.1
+			}
+			set_politics = {
+				ruling_party = democratic_liberalism
+			}
+		}
+
+	}
+
+	COL_solve_great_depression = {
+
+		icon = generic_construction
+
+		allowed = {
+			OR = {
+				tag = COL
+				tag = ECU
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 100
+
+		days_remove = 250
+
+		modifier = {
+			consumer_goods_factor = -0.05
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+			remove_ideas = great_depression
+		}
+
+	}
+
+	COL_stop_venezuelan_commies = {
+
+		icon = generic_industry
+
+		allowed = {
+			tag = COL
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			NOT = {
+				has_idea = great_depression
+			}
+			VEN = {
+				OR = {
+					has_government = communism
+					has_government = democratic_communism
+				}
+			}
+		}
+
+		cost = 100
+
+		days_remove = 30
+
+		war_with_on_remove = VEN
+
+		fire_only_once = yes
+
+		remove_effect = {
+			create_wargoal = {
+				type = topple_government
+				target = VEN
+			}
+		}
+
+	}
+
+	VEN_development_plan = {
+
+		icon = generic_construction
+
+		allowed = {
+			tag = VEN
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 50
+
+		days_remove = 180
+
+		fire_only_once = yes
+
+		modifier = {
+			production_speed_buildings_factor = 0.1
+			consumer_goods_factor = -0.05
+			stability_factor = -0.1
+		}
+
+	}
+
+	VEN_defend_revolution = {
+
+		icon = generic_industry
+
+		allowed = {
+			tag = VEN
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 50
+
+		visible = {
+			has_war = yes
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			capital_scope = {
+				create_unit = {
+					division = "name = \"División de Infanteria\" division_template = \"División de Infanteria\" start_experience_factor = 0.2"
+					count = 3
+					owner = VEN
+				}
+        	}
+		}
+
+	}
+
+	PAR_deal_with_opposition = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = PAR
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		cost = 50
+
+		days_remove = 180
+
+		fire_only_once = yes
+
+		modifier = {
+			political_power_cost = 0.15
+		}
+
+		remove_effect = {
+			remove_ideas = PAR_colorado_opposition
+		}
+
+	}
+
+	CUB_deal_with_students = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = CUB
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				date > 1937.1.1
+			}
+		}
+
+		cost = 100
+
+		days_remove = 180
+
+		fire_only_once = yes
+
+		modifier = {
+			political_power_cost = 0.2
+		}
+
+		remove_effect = {
+			remove_ideas = CUB_feu_resistance
+		}
+
+	}
+
+	ROM_reform_politics = {
+
+		icon = generic_political_discourse
+
+		allowed = {
+			tag = ROM
+		}
+
+		visible = {
+			NOT = {
+				has_government = fascism
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			date > 1937.6.1
+		}
+
+		cancel_trigger = {
+			has_government = fascism
+		}
+
+		fire_only_once = yes
+
+		cost = 150
+
+		days_remove = 365
+
+		remove_effect = {
+			remove_ideas = ROM_romanian_nationalism
+			remove_ideas = Corruption
+		}
+
+	}
+
+	BUL_industrialization_time = {
+
+		icon = generic_construction
+
+		allowed = {
+			OR = {
+				tag = ROM
+				tag = BUL
+				tag = YUG
+			}
+		}
+
+		visible = {
+			has_idea = Agrarianism
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				date > 1938.1.1
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 75
+
+		modifier = {
+			political_power_cost = 0.1
+			production_speed_buildings_factor = 0.1
+		}
+
+		days_remove = 180
+
+		remove_effect = {
+			remove_ideas = Agrarianism
+		}
+
+	}
+
 }
