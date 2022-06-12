@@ -6995,8 +6995,15 @@ shared_focus = {
 					transfer_troops = yes
 				}
 				annex_country = {
-					target = OCC
+					target = WFR
 					transfer_troops = yes
+				}
+				if = {
+					limit = { has_subject = OCC }
+					annex_country = {
+						target = OCC
+						transfer_troops = yes
+					}
 				}
 			}
 			if = {
@@ -7006,8 +7013,13 @@ shared_focus = {
 				BRI = {
 					add_ideas = GER_french_collab_govs_idea
 				}
-				OCC = {
-					add_ideas = GER_french_collab_govs_idea
+				if = {
+					limit = {
+						has_subject = OCC
+					}
+					OCC = {
+						add_ideas = GER_french_collab_govs_idea
+					}
 				}
 				NFR = {
 					add_ideas = GER_french_collab_govs_idea

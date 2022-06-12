@@ -1493,10 +1493,6 @@ GER_french_resistance = {
 	}
 
 	GER_consolidate_power_with_the_gestapo = {
-		available = {
-			tag = GER
-			has_completed_focus = GER_form_the_okf
-		}
 
 		visible = {
 			has_completed_focus = GER_form_the_okf
@@ -1677,10 +1673,6 @@ GER_austrian_resistance = {
 	# 	}
 	# }
 	GER_autonomy_for_ethnic_militias = {
-		available = {
-			tag = GER
-			has_completed_focus = GER_support_ethnic_militias
-		}
 
 		visible = {
 			has_completed_focus = GER_support_ethnic_militias
@@ -1727,10 +1719,6 @@ GER_austrian_resistance = {
 	}
 
 	GER_central_control_decision = {
-		available = {
-			tag = GER
-			has_completed_focus = GER_central_control
-		}
 
 		visible = {
 			has_completed_focus = GER_central_control
@@ -2663,11 +2651,13 @@ weltkrieg_decisions = {
 
 		available = {
 			NOT = {
-				SOV = {
-					has_war_with = AUS
-				}
-				SOV = {
-					has_war_with = GER
+				OR = {
+					SOV = {
+						has_war_with = AUS
+					}
+					SOV = {
+						has_war_with = GER
+					}
 				}
 			}
 		}
@@ -2708,7 +2698,6 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-			has_completed_focus = GER_secure_the_baltic_front
 			SWE = {
 				has_government = fascism
 				is_in_faction = no
@@ -2716,7 +2705,10 @@ weltkrieg_decisions = {
 		}
 
 		visible = {
-			has_completed_focus = GER_bismarks_plan
+			has_completed_focus = GER_secure_the_baltic_front
+			SWE = {
+				is_in_faction = no
+			}
 		}
 
 		fire_only_once = yes
@@ -2751,12 +2743,19 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-			has_completed_focus = GER_secure_the_baltic_front
-			is_in_faction_with = SWE
+			OR = {
+				is_in_faction_with = SWE
+				AUS = {
+					exists = no
+				}
+				AUS = {
+					is_subject_of = GER
+				}
+			}
 		}
 
 		visible = {
-			has_completed_focus = GER_bismarks_plan
+			has_completed_focus = GER_secure_the_baltic_front
 		}
 
 		fire_only_once = yes
@@ -2791,18 +2790,18 @@ weltkrieg_decisions = {
 
 		available = {
 			AIG = {
-				exists = yes
 				has_war_with = ENG
 				has_country_leader = {
 					name = "Subhas Chandra Bose"
 					ruling_only = yes
 				}
 			}
-			has_completed_focus = GER_middle_eastern_prospects
+			has_war_with = ENG
 		}
 
 		visible = {
-			has_war_with = ENG
+			has_completed_focus = GER_middle_eastern_prospects
+			country_exists = AIG
 		}
 
 		fire_only_once = yes
@@ -2877,11 +2876,14 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-			has_completed_focus = GER_the_great_african_revolutions
+			has_war_with = FRA
+			COG = {
+				has_war_with = FEA
+			}
 		}
 
 		visible = {
-			has_war_with = FRA
+			has_completed_focus = GER_the_great_african_revolutions
 		}
 
 		fire_only_once = yes
@@ -2962,9 +2964,6 @@ weltkrieg_decisions = {
 
 		available = {
 			has_war_with = USA
-			ARG = {
-				has_war_with = USA
-			}
 		}
 
 		visible = {
@@ -3005,11 +3004,10 @@ weltkrieg_decisions = {
 			OMA = {
 				exists = yes
 			}
-			has_completed_focus = GER_middle_eastern_prospects
 		}
 
 		visible = {
-			has_war_with = ENG
+			has_completed_focus = GER_middle_eastern_prospects
 		}
 
 		fire_only_once = yes
