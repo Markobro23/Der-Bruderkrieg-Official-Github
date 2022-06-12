@@ -741,6 +741,7 @@ austrian_civil_war_effect = {
 
 
 prussia_loses_peace_deal = {
+
        AUS = { country_event = second_treaty_of_vienna.1 }
        if = {
            limit = {
@@ -767,7 +768,13 @@ prussia_loses_peace_deal = {
            leave_faction = yes
             white_peace = AUS
        }
-       
+       if = {
+		limit = {
+			country_exists = DEN
+			DEN = { NOT = { OR = { has_war_with = FRA has_war_with = AUS is_subject_of = GER } } }
+		}
+		DEN = { transfer_state = 801 }
+	}
 }           
 d_italy_loses_to_austria_peace_deal = {
     italy_loses_to_austria_peace_deal = yes
@@ -1266,6 +1273,7 @@ france_loses_peace_deal = {
                             is_in_faction_with = FRA
                             has_capitulated = yes
                         }
+                        exists = no
                     }
                 }
             }
@@ -1354,7 +1362,20 @@ france_loses_peace_deal = {
             add_state_core = 26
             add_state_core = 20
             else = {
-                keep_current_politics = yes
+                if = {
+                	limit = {
+                		NOT = {
+                			GER = {
+                				OR = {
+                					has_government = neutrality
+                					has_government = fascism
+                					has_government = democratic
+                				}
+                			}
+                		}
+                	}
+                	keep_current_politics = yes
+                }
                 set_cosmetic_tag = prussian_rk
                 add_state_core = 33
                 add_state_core = 25
@@ -1367,7 +1388,20 @@ france_loses_peace_deal = {
         }
     }
     NFR = {
-        keep_current_politics = yes
+        if = {
+            limit = {
+               	NOT = {
+               		GER = {
+               			OR = {
+               				has_government = neutrality
+               				has_government = fascism
+               				has_government = neutrality
+               			}
+               		}
+               	}
+            }
+           	keep_current_politics = yes
+        }
         set_cosmetic_tag = GER_parisian_industrial_zone
         add_ideas = RK_industrial_zone
             #add_state_core = 17
@@ -1476,7 +1510,19 @@ france_loses_peace_deal = {
 		add_state_core = 19
 		add_state_core = 23
 		add_state_core = 30
-        keep_current_politics = yes
+        if = {
+            limit = {
+               	NOT = {
+               		GER = {
+               			OR = {
+               				has_government = neutrality
+               				has_government = democratic
+               			}
+               		}
+               	}
+            }
+           	keep_current_politics = yes
+        }
 	}
     GER = {
         if = {

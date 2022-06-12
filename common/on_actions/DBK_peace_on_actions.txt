@@ -192,22 +192,15 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						ROOT = {
-							tag = ALB
-	
-						}
-						FROM = {
-							tag = ITA
-						}
+						tag = ALB
+						has_war_with = ITA
 					}
 					ALB = {
 						white_peace = ITA
+						set_cosmetic_tag = ITA_south_german_puppets
 					}
 					ITA = {
-						annex_country = {
-							target = ALB
-							transfer_troops = no
-						}
+						puppet = ALB
 					}
 				}
 				if = {
@@ -220,25 +213,53 @@ on_actions = {
 							tag = GER
 						}
 					}
-					DEN = {
-						white_peace = GER
-					}
-					DEN = {
-						set_popularities = {
-							ultranationalism = 45
-							communism = 39
-							democratic_communism = 16
+					if = {
+						limit = {
+							GER = {
+								NOT = {
+									is_subject = yes
+									OR = {
+										has_government = neutrality
+										has_government = democratic
+									}
+								}
+							}
 						}
-						set_politics = {
-							ruling_party = ultranationalism	
+						DEN = {
+							white_peace = GER
 						}
-						keep_current_politics = yes
-					}
-					GER = {
-						puppet = DEN
-					}
-					DEN = {
-						reset_government = yes
+						DEN = {
+							set_popularities = {
+								ultranationalism = 45
+								communism = 39
+								democratic_communism = 16
+							}
+							set_politics = {
+								ruling_party = ultranationalism	
+							}
+							keep_current_politics = yes
+						}
+						GER = {
+							puppet = DEN
+						}
+						DEN = {
+							reset_government = yes
+						}
+						else_if = {
+							limit = { GER = { is_subject = no NOT = { has_war_with = ICE } } }
+							GER = {
+								white_peace = DEN
+							}
+							ICE = {
+								annex_country = {
+									target = DEN
+								}
+								remove_ideas = ICE_royal_loyalists
+							}
+							GER = {
+								add_to_faction = DEN
+							}
+						}
 					}
 				}
 				if = {
