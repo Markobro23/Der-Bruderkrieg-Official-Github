@@ -7026,7 +7026,11 @@ shared_focus = {
 		y = 7
 		cost = 2.5
 		ai_will_do = {
-			factor = 100
+			factor = 250
+			modifier = {
+				factor = 0.5
+				has_war_with = FRA
+			}
 		}
 		available = { 
 			custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
