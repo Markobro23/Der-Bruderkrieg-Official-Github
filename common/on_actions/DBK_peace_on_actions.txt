@@ -229,15 +229,18 @@ on_actions = {
 							white_peace = GER
 						}
 						DEN = {
-							set_popularities = {
-								ultranationalism = 45
-								communism = 39
-								democratic_communism = 16
+							if = {
+								limit = { GER = { has_government = ultranationalism } }
+								set_popularities = {
+									ultranationalism = 45
+									communism = 39
+									democratic_communism = 16
+								}
+								set_politics = {
+									ruling_party = ultranationalism	
+								}
+								keep_current_politics = yes
 							}
-							set_politics = {
-								ruling_party = ultranationalism	
-							}
-							keep_current_politics = yes
 						}
 						GER = {
 							puppet = DEN

@@ -1353,6 +1353,7 @@ GER_french_resistance = {
 			add_manpower = -10000
 			BRI = {
 				every_controlled_state = {
+					limit = { NOT = { is_core_of = BRI } }
 					add_resistance = -10
 				}
 			}
@@ -1360,12 +1361,14 @@ GER_french_resistance = {
 				limit = { has_subject = OCC }
 				OCC = {
 					every_controlled_state = {
+					limit = { NOT = { is_core_of = OCC } }
 						add_resistance = -10
 					}
 				}
 			}
 			NFR = {
 				every_controlled_state = {
+					limit = { NOT = { is_core_of = NFR } }
 					add_resistance = -10
 				}
 			}
@@ -1431,7 +1434,7 @@ GER_french_resistance = {
 			}
 			WFR = {
 				every_controlled_state = {
-					limit = { NOT = { is_core_of = NFR } }
+					limit = { NOT = { is_core_of = WFR } }
 					add_resistance = -3
 				}
 			}
@@ -1454,7 +1457,10 @@ GER_french_resistance = {
 		}
 		visible = {
 			NOT = {
-				has_completed_focus = GER_staatspolezei
+				OR = {
+					has_country_flag = GER_french_resistance_crushed
+					has_completed_focus = GER_staatspolezei
+				}
 			}
 		}
 		priority = 100
@@ -3635,6 +3641,7 @@ GER_occupation_of_russia = {
 		        transfer_state = 804
 		        transfer_state = 73
 			}
+			puppet = HUN
 			hidden_effect = {
 				HUN = {
 	                set_cosmetic_tag = prussian_rk
@@ -3726,6 +3733,7 @@ GER_occupation_of_russia = {
 		        transfer_state = 89
 		        transfer_state = 1123
 			}
+			puppet = GLC
 			hidden_effect = {
 				GLC = {
 	                set_cosmetic_tag = prussian_rk

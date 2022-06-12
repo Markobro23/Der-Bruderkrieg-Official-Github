@@ -3716,7 +3716,12 @@ shared_focus = {
 	}
 	bypass = {
 		JNE = {
-			exists = no
+			OR = {
+				exists = no
+				is_subject_of = FRA
+				is_in_faction_with = FRA
+				has_war_with = GER
+			}
 		}
 	}
 	available = {

@@ -1247,6 +1247,37 @@ france_loses_peace_deal = {
     FRA = {
         white_peace = GER
     }
+    BEL = {
+        if = {
+            limit = {
+               is_in_faction_with = GER
+            }
+            transfer_state = 29
+            white_peace = FRA
+        }
+    }
+    HOL = {
+        if = {
+            limit = {
+               is_in_faction_with = FRA
+            }
+            set_cosmetic_tag = prussian_rk
+            GER = {
+                puppet = HOL
+            }
+        }
+    }
+    JNE = {
+        if = {
+            limit = {
+               is_in_faction_with = FRA
+            }
+            set_cosmetic_tag = prussian_rk
+            GER = {
+                puppet = JNE
+            }
+        }
+    }
     GER = {
         annex_country = {
             target = FGD
@@ -1269,10 +1300,7 @@ france_loses_peace_deal = {
                             NOT = { is_in_faction_with = GER }
                             has_war_with = GER
                         }
-                        AND = {
-                            is_in_faction_with = FRA
-                            has_capitulated = yes
-                        }
+                        is_in_faction_with = FRA
                         exists = no
                     }
                 }
@@ -1293,12 +1321,20 @@ france_loses_peace_deal = {
                     character = BEL_leon_degrelle_actual
                     ideology = fascism_ideology
                 }
+                keep_current_politics = yes
             }
             GER = {
-                puppet = BEL
+                if = {
+                    limit = { country_exists = BEL }
+                    puppet = BEL
+                    else = {
+                        release_puppet = BEL
+                    }
+                }
             }
             BEL = {
                 reset_government = yes
+                set_cosmetic_tag = prussian_rk
             }
         }
         #puppet = FRA
