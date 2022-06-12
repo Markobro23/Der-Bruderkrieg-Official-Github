@@ -7842,9 +7842,18 @@ shared_focus = {
     focus = AUS_stabilizing_europe
   }
    available = {
-    #has_global_flag = AUS_FRA_alliance_falls_apart
-    GER = {
-      is_subject_of = AUS
+    OR = {
+      AND = {
+        NOT = {
+          has_global_flag = france_austria_split_deal
+        }
+        GER = {
+          is_subject_of = AUS
+        }
+      }
+      GER = {
+        is_puppet_of = FRA
+      }
     }
   }
   x = 4
