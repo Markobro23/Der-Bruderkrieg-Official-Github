@@ -8130,9 +8130,34 @@ shared_focus = {
           is_core_of = HES
           is_core_of = FGD
           is_core_of = SAX
+          is_core_of = GPU
         }
       }
       add_core_of = AUS
+    }
+    if = {
+      limit = {
+        CZE = {
+          is_puppet_of = AUS
+        }
+      }
+      CZE = {
+        every_owned_state = {
+          add_core_of = AUS
+        }
+      }
+    }
+    if = {
+      limit = {
+        ITF = {
+          is_puppet_of = AUS
+        }
+      }
+      ITF = {
+        every_owned_state = {
+          add_core_of = AUS
+        }
+      }
     }
 
    }
@@ -8154,105 +8179,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    every_country = {
-      limit = {
-        OR = {
-          tag = HES
-          tag = GPU
-          tag = BAD
-          tag = WUR
-          tag = NAS
-          tag = GER
-          tag = HAN
-          tag = OLD
-          tag = SAX
-        }
-        OR = {
-          is_subject_of = GPU
-          is_subject_of = AUS
-        }
-      }
-      AUS = {
-        annex_country = {
-          target = PREV
-          transfer_troops = yes
-        }
-      }
-    }
-    hidden_effect = {
-      HUN = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-      GLC = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-      CRO = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-    }
-    set_cosmetic_tag = united_kingdoms_of_germany
-    release_autonomy = {
-      target = HUN
-      autonomy_state = autonomy_puppet
-    }
-    release_autonomy = {
-      target = CRO
-      autonomy_state = autonomy_puppet
-    }
-    release_autonomy = {
-      target = GLC
-      autonomy_state = autonomy_puppet
-    }
-    hidden_effect = {
-      HUN = {
-        reset_government = yes
-      }
-      GLC = {
-        reset_government = yes
-      }
-      CRO = {
-        reset_government = yes
-      }
-    }
+    AUS_grossosterriech_effect = yes
    }
 }
 
