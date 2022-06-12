@@ -857,6 +857,13 @@ country_event = {
 		ai_chance = { factor = 0 } 
 		transfer_state = 68
 		transfer_state = 67
+		transfer_state = 66
+		transfer_state = 762
+
+		country_event = {
+			id = GER_goering_path_to_unification.7
+			days = 15
+		}
 	}
 	
  }
@@ -915,6 +922,45 @@ country_event = {
 		ai_chance = { factor = 0 } 
 	}
 	
+ }
+
+  country_event = {
+	id = GER_goering_path_to_unification.7 # Silesia or War pt2
+	title = GER_goering_path_to_unification.7.t
+	desc = GER_goering_path_to_unification.7.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_path_to_unification.7.a
+		ai_chance = { factor = 0 } 
+		create_wargoal = {
+			target = AUS
+			type = annex_everything
+		}
+
+		hidden_effect = {
+			AUS = {
+				country_event = GER_goering_path_to_unification.8
+			}
+		}
+	}
+ }
+
+ country_event = {
+	id = GER_goering_path_to_unification.8 # Silesia or War pt2
+	title = GER_goering_path_to_unification.8.t
+	desc = GER_goering_path_to_unification.8.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_path_to_unification.8.a
+		ai_chance = { factor = 0 } 
+		
+	}
  }
 
 add_namespace = GER_austrian_ethnic_revolts

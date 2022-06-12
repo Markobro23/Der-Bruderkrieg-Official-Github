@@ -245,20 +245,30 @@ on_actions = {
 						DEN = {
 							reset_government = yes
 						}
-						else_if = {
-							limit = { GER = { is_subject = no NOT = { has_war_with = ICE } } }
-							GER = {
-								white_peace = DEN
+					}
+					else_if = {
+						limit = { GER = { is_subject = no NOT = { has_war_with = ICE } } }
+						GER = {
+							white_peace = DEN
+						}
+						ICE = {
+							annex_country = {
+								target = DEN
 							}
-							ICE = {
-								annex_country = {
-									target = DEN
-								}
-								remove_ideas = ICE_royal_loyalists
+							remove_ideas = ICE_royal_loyalists
+						}
+						GER = {
+							add_to_faction = DEN
+						}
+						DEN = {
+							every_controlled_state = {
+								add_core_of = DEN
 							}
-							GER = {
-								add_to_faction = DEN
-							}
+						}
+					}
+					else = {
+						GER = {
+							puppet = DEN
 						}
 					}
 				}
