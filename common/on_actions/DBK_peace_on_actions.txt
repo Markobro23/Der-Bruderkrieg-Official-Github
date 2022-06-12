@@ -3,6 +3,15 @@ on_actions = {
 	##misc
 	on_capitulation = {
 		effect = {
+			every_country = {
+				limit = {
+					has_wargoal_against = ROOT
+				}
+				remove_wargoal = {
+					type = all
+					target = ROOT
+				}
+			}
 			if = {
 				limit = {
 					ROOT = {

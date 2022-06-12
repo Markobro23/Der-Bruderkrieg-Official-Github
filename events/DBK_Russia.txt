@@ -5596,6 +5596,25 @@ country_event = { #SOV offers peace
 		name = SOV_brest_livosk2.2.a
 		ai_chance = {
 			factor = 100
+			modifier = {
+				factor = 0
+				OR = {
+					AND = {
+						tag = FRA
+						AUS = {
+							has_war_with = SOV
+							is_ai = no
+						}
+					}
+					AND = {
+						tag = AUS
+						FRA = {
+							has_war_with = SOV
+							is_ai = no
+						}
+					}
+				}
+			}
 		}
 		news_event = { id = SOV_brest_livosk2.3 hours = 6 }
 		SOV_give_up_to_aa_line = yes
@@ -5684,6 +5703,34 @@ country_event = { #SOV offers peace
 		add_ideas = SOV_forever_war
 		SOV = {
 			country_event = { id = SOV_brest_livosk2.4 hours = 3 }
+		}
+	}
+	option = { #let the player have it
+		name = SOV_brest_livosk2.2.a
+		ai_chance = {
+			factor = 0
+			modifier = {
+				factor = 100
+				OR = {
+					AND = {
+						tag = FRA
+						AUS = {
+							has_war_with = SOV
+							is_ai = no
+						}
+					}
+					AND = {
+						tag = AUS
+						FRA = {
+							has_war_with = SOV
+							is_ai = no
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			is_ai = yes
 		}
 	}
 }
