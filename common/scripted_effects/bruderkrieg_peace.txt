@@ -1442,7 +1442,7 @@ france_loses_peace_deal = {
                 	}
                 	keep_current_politics = yes
                 }
-                set_cosmetic_tag = prussian_rk
+                set_cosmetic_tag = GER_toulusian_france
                 add_state_core = 33
                 add_state_core = 25
                 add_state_core = 31
@@ -3641,16 +3641,17 @@ spain_loses_to_brothers_coalition = {
             white_peace = PREV
         }
     }
-    if = {
-        limit = { OCC = { is_in_faction_with = GER } }
-        OCC = {
-            transfer_state = 165
-            transfer_state = 794
-            transfer_state = 166
-            add_state_core = 165
-            add_state_core = 794
-            add_state_core = 166
-        }
+    CAT = {
+        transfer_state = 165
+        transfer_state = 794
+        transfer_state = 166
+        add_state_core = 165
+        add_state_core = 794
+        add_state_core = 166
+        set_cosmetic_tag = prussian_rk
+    }
+    GER = {
+        puppet = CAT
     }
     NAV = {
         add_state_core = 171
