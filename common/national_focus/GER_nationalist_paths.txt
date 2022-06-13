@@ -2299,6 +2299,11 @@ shared_focus = {
 			}
 			completion_reward = {
 				hidden_effect = { add_dynamic_modifier = { modifier = GER_querfront_modifier } }
+				set_party_name = {
+					ideology = fascism
+					long_name = GER_querfront
+					name = GER_querfront
+				}
 				effect_tooltip = {
 					add_ideas = GER_querfont_idea
 				}
@@ -2323,7 +2328,7 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_industrial_capacity_factory_var = 0.15 }
+				set_variable = { GER_industrial_capacity_factory_var = 0.1 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_a_real_union
@@ -2350,7 +2355,7 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_compliance_gain_var = -0.1 }
+				set_variable = { GER_conscription_var = 0.005 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_no_more_proletarians
@@ -2378,7 +2383,7 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_stability_factor_var1 = 0.1 }
+				add_to_variable = { GER_stability_factor_var1 = 0.1 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_maintain_revolutionary_principles
@@ -2407,7 +2412,7 @@ shared_focus = {
 			}
 			completion_reward = {
 				set_variable = { GER_stability_factor_var1 = -0.05 }
-				set_variable = { GER_conscription_var = 0.015 }
+				add_to_variable = { GER_conscription_var = 0.015 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_for_god_for_kaiser
@@ -2435,8 +2440,8 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_production_speed_buildings_factor_var = 0.1 }
-				set_variable = { GER_army_org_regain_var = 0.1 }
+				add_to_variable = { GER_conscription_var = 0.01 }
+				add_to_variable = { GER_army_org_regain_var = -0.05 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_maintain_the_nation_at_arms
@@ -2464,16 +2469,8 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_army_org_factor_var1 = 0.1 }
-				if = {
-					limit = { 
-						has_completed_focus = GER_no_more_proletarians
-					}
-					add_to_variable = { GER_compliance_gain_var = -0.025 }
-					else = {
-						set_variable = { GER_compliance_growth_on_our_occupied_states_var = -0.025 }
-					}
-				}
+				add_to_variable = { GER_army_org_factor_var1 = 0.1 }
+				add_to_variable = { GER_compliance_gain_var = -0.025 }
 				effect_tooltip = {
 					swap_ideas = {
 						add_idea = GER_querfont_idea_GER_the_professional_core
@@ -2529,10 +2526,10 @@ shared_focus = {
 				factor = 10
 			}
 			completion_reward = {
-				set_variable = { GER_monthly_population_var = 0.2 }
+				set_variable = { GER_monthly_population_var = 0.1 }
 				effect_tooltip = {
 					swap_ideas = {
-						add_idea = GER_querfont_idea_GER_a_real_union
+						add_idea = GER_querfont_idea_GER_full_amnesty
 						remove_idea = GER_querfont_idea
 					}
 				}
@@ -6615,7 +6612,7 @@ shared_focus = {
 			factor = 1 
 		}
 		completion_reward = {
-			add_to_variable = { var = GER_industrial_capacity_factory_var value = 0.15 }
+			add_to_variable = { var = GER_industrial_capacity_factory_var value = 0.1 }
 			effect_tooltip = {
 				swap_ideas = {
 					add_idea = GER_goering_code_idea_GER_the_cartel_economy
