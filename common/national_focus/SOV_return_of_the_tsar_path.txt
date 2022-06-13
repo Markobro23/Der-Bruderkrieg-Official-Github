@@ -2044,7 +2044,10 @@ shared_focus = {
             remove_ideas = Agrarianism
         }
         ROM = {
-            remove_ideas = ROM_Agrarianism
+            if = {
+			limit = { is_in_faction_with = SOV }
+			remove_ideas = ROM_Agrarianism
+		}
         }
         YUG = {
             remove_ideas = Agrarianism
@@ -2193,7 +2196,10 @@ shared_focus = {
     }
     completion_reward = {
         ROM = {
-            country_event = SOV_return_of_the_tsar_path.19
+            if = {
+                limit = { OR = { is_in_faction_with = SOV is_in_faction = no } }
+                country_event = SOV_return_of_the_tsar_path.19
+            }
         }
         BUL = {
             country_event = SOV_return_of_the_tsar_path.19

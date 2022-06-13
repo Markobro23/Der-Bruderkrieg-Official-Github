@@ -5621,6 +5621,12 @@ country_event = { #SOV offers peace
 		hidden_effect = {
 			SOV = { country_event = { id = SOV_brest_livosk2.5 days = 7 random = 48 } }
 		}
+		if = {
+			limit = {
+				has_war_with = JAP
+			}
+			set_country_flag = SOV_JAP_steal_transbaikail
+		}
 		every_country = {
 			limit = {
 				has_war_with = SOV
@@ -5789,7 +5795,7 @@ country_event = { #heehoo collapse go brrrrr
 		SOV_release_YAK = yes
 		SOV_release_ZMU = yes
 		if = {
-			limit = { has_war_with = JAP }
+			limit = { OR = { has_war_with = JAP has_country_flag = SOV_JAP_steal_transbaikail } }
 			JAP = { puppet = ZMU }
 		}
 		SOV_release_KRK = yes
