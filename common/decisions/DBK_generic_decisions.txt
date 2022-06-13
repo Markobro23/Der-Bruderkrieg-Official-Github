@@ -762,6 +762,8 @@ weltkrieg_decisions = {
 }
 
 minor_conent_decisions = {
+
+	#americas
 	
 	CAN_remove_great_depression = {
 
@@ -1099,6 +1101,8 @@ minor_conent_decisions = {
 
 	}
 
+	#european
+
 	ROM_reform_politics = {
 
 		icon = generic_political_discourse
@@ -1158,6 +1162,7 @@ minor_conent_decisions = {
 			factor = 0
 			modifier = {
 				date > 1938.1.1
+				add = 1
 			}
 		}
 
@@ -1174,6 +1179,122 @@ minor_conent_decisions = {
 
 		remove_effect = {
 			remove_ideas = Agrarianism
+		}
+
+	}
+
+	SGC_industrialization = {
+
+		icon = generic_construction
+
+		allowed = {
+			OR = {
+				tag = BAD
+				tag = WUR
+			}
+		}
+
+		visible = {
+			has_idea = WUR_agrarianism
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				date > 1937.1.1
+				add = 2
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 75
+
+		modifier = {
+			political_power_cost = 0.1
+			consumer_goods_factor = 0.05
+		}
+
+		days_remove = 100
+
+		remove_effect = {
+			remove_ideas = WUR_agrarianism
+		}
+
+	}
+
+	POR_beat_corporatists = {
+
+		icon = oppression
+
+		allowed = {
+			tag = POR
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					has_government = fascism
+					has_government = ultranationalism
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				is_in_faction_with = FRA
+				is_in_faction_with = ENG
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 75
+
+		modifier = {
+			political_power_cost = 0.2
+		}
+
+		days_remove = 100
+
+		remove_effect = {
+			remove_ideas = POR_growing_corporatist_movement
+		}
+
+	}
+
+	#middle east
+
+	OMA_answer_immamate_question = {
+
+		icon = generic_nationalism
+
+		allowed = {
+			tag = OMA
+		}
+
+		visible = {
+			is_subject = no
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			controls_state = 658
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+
+		remove_effect = {
+			remove_ideas = OMA_the_unstable_immamate
 		}
 
 	}
