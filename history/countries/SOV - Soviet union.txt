@@ -1,7 +1,10 @@
 capital = 195
+
 starting_train_buffer = 3.0
+
 give_guarantee = SMC
 give_guarantee = SCA
+
 oob = "SOV_1936"
 if = {
 	limit = { has_dlc = "Man the Guns" }
@@ -10,22 +13,27 @@ if = {
 		set_naval_oob = "SOV_1936_naval_legacy"
 	}
 }
-set_autonomy = {
-	target = POL
-	autonomous_state = autonomy_puppet
-}
-set_autonomy = {
-	target = FIN
-	autonomous_state = autonomy_puppet
-}
-set_autonomy = {
-	target = TRB
-	autonomous_state = autonomy_puppet
-}
+
+# set_autonomy = {
+# 	target = FOB
+# 	autonomous_state =  autonomy_puppet
+# }
+
+# set_autonomy = {
+# 	target = FIN
+# 	autonomous_state =  autonomy_puppet
+# }
+
+ set_autonomy = {
+ 	target = TRB
+ 	autonomous_state =  autonomy_puppet
+ }
+
 add_opinion_modifier = {
 	target = AUS
 	modifier = enemy_in_first_wiltkrieg
 }
+
 set_research_slots = 3
 set_stability = 0.45
 set_war_support = 0.35
@@ -53,6 +61,7 @@ set_technology = {
 	fuel_refining = 1
 	basic_train = 1
 }
+
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -60,6 +69,7 @@ if = {
 	set_technology = {
 		gwtank = 1
 		basic_light_tank = 1
+
 	}
 }
 if = {
@@ -74,6 +84,7 @@ if = {
 		engine_tech_2 = 1
 	}
 }
+
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 	set_technology = {
@@ -110,6 +121,7 @@ if = {
 		mtg_transport = 1
 	}
 }
+
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -118,7 +130,11 @@ if = {
 		armored_car1 = 1
 	}
 }
+
+
+
 set_convoys = 300
+
 set_politics = {
 	ruling_party = socialism_democratic
 	
@@ -133,6 +149,10 @@ set_popularities = {
 	communism = 12
 	neutrality = 7
 }
+
+
+
+
 add_ideas = {
 	SOV_ethnic_conflicts
 	SOV_political_divide
@@ -145,6 +165,7 @@ add_ideas = {
 	mikhail_bernatsky
 	aleksey_nikitin
 }
+
 recruit_character = SOV_konstantin_rodzaevsky
 recruit_character = SOV_dmitry_bogrov
 recruit_character = SOV_alexander_kerensky
@@ -213,6 +234,8 @@ recruit_character = SOV_konstantin_nechayev
 recruit_character = SOV_anatoli_rogozhin
 recruit_character = SOV_pavel_zhigarev
 recruit_character = SOV_sergey_khudyakov
+
+
 if = {
 	limit = {
 		has_dlc = "La Resistance"
@@ -225,6 +248,7 @@ if = {
 		available_to_spy_master = yes
 		nationalities = { SOV HUN }
 	}
+
 	create_operative_leader = {
 		name = "Kim Philby"
 		GFX = GFX_portrait_kim_philby
@@ -242,6 +266,7 @@ if = {
 		nationalities = { SOV GER }
 	}
 }
+
 if = {
 	limit = {
 		has_dlc = "No Step Back"
@@ -264,6 +289,7 @@ if = {
 		obsolete = yes
 		icon = "GFX_gwtank_medium"
 	}
+
 	create_equipment_variant = {
 		name = "T-26TU mod. 1933"
 		type = light_tank_chassis_1
@@ -316,6 +342,7 @@ if = {
 		}
 		icon = "GFX_SOV_improved_light_tank_medium"
 	}
+
 	create_equipment_variant = {
 		name = "T-28"
 		type = medium_tank_chassis_0
@@ -358,6 +385,7 @@ if = {
 		icon = "GFX_SOV_basic_heavy_tank_medium"
 	}
 }
+
 ### VARIANTS ###
 # 1936 Start #
 if = {
@@ -774,6 +802,7 @@ if = {
 		obsolete = yes
 	}
 }
+
 # 1939 Start #
 1939.1.1 = {
 	if = {
@@ -789,6 +818,7 @@ if = {
 				sub_torpedo_upgrade = 3
 			}
 		}
+
 		create_equipment_variant = {
 			name = "Maxim Gorky Class"
 			type = heavy_cruiser_2
