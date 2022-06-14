@@ -1,20 +1,14 @@
 ﻿capital = 4
-
 create_faction = AUS_1
 add_to_faction = "AUS"
-
 give_guarantee = PAP
 give_guarantee = ALB
 give_guarantee = SMC
 give_guarantee = SCA
-
 set_variable = { var = riots_stuff value = -50 }
 set_variable = { var = industrial_stuff value = -50 }
 set_variable = { var = AUS_prussian_infil_var value = 7 }
-
 set_variable = { italia_revolt_var = 8 }
-
-
 if = {
 	limit = {
 		NOT = {
@@ -29,73 +23,48 @@ if = {
 	}
 	set_oob = "AUS_1936_nsb"
 }
-
 if = {
 	limit = { has_dlc = "Man the Guns" }
 		set_naval_oob = "AUS_1936_naval_mtg"
 }
 set_country_flag = AUS_imperial_diet_austria_click_flag
-
 set_autonomy = {
 	target = GPU
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = WUR
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = HES
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = BAD
 	autonomous_state =  autonomy_puppet
-} 
-
+}
 set_autonomy = {
 	target = NAS
 	autonomous_state =  autonomy_puppet
-} 
-
-# set_autonomy = {
-# 	target = BOS
-# 	autonomous_state =  autonomy_puppet
-# } 
-
-
+}
 set_autonomy = {
 	target = ORA
 	autonomous_state =  autonomy_colony
 } 
-
-# set_autonomy = {
-# 	target = SWA
-# 	autonomous_state =  autonomy_colony
-# }
-
 set_variable = {karl_mood = 3}
 set_variable = {people_mood = 8}
-
-
-
 set_variable = {austrian_tech_var = 30}
-
 diplomatic_relation = {
 	country = ALB
 	relation = non_aggression_pact
 }
-
 add_ideas = {
 	GroBosterreich
 	Absolutism
 	AUS_a_collapsing_empire_idea
 	AUS_stagnant_economic_growth
 	AUS_treaty_of_vienna
-	
 	wilhelm_miklas
 	ignaz_seipel
 	friedrich_hayek
@@ -103,7 +72,6 @@ add_ideas = {
 	sigmund_freud
 	vacant 
 }
-
 add_dynamic_modifier = {
 	modifier = Bohemian_Outrage
 }
@@ -119,8 +87,6 @@ add_dynamic_modifier = {
 add_dynamic_modifier = {
 	modifier = Polish_Support
 }
-
-
 set_technology = {
 	infantry_weapons = 1
 	infantry_weapons1 = 1
@@ -143,7 +109,6 @@ set_technology = {
 	fuel_refining = 1
 	basic_train = 1
 }
-
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -164,7 +129,6 @@ if = {
 		improved_light_tank_chassis = 1
 	}
 }
-
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
@@ -195,18 +159,15 @@ if = {
 		improved_airplane_launcher = 1
 	}
 }
-
 set_research_slots = 4
 set_stability = 0.35
 set_war_support = 0.25
-
 set_politics = {
 	ruling_party = authoritarian_democratic
 	last_election = "1933.3.5"
 	election_frequency = 48
 	elections_allowed = no
 }
-
 set_popularities = {
 	authoritarian_democratic = 45
 	fascism = 14
@@ -216,9 +177,7 @@ set_popularities = {
 	communism = 6
 	socialism_democratic = 5
 }
-
 set_convoys = 50
-
 recruit_character = AUS_gunther_burstyn
 recruit_character = AUS_lothar_rendulic
 recruit_character = AUS_wilhelm_zehner
@@ -275,7 +234,6 @@ recruit_character = AUS_alexander_lohr
 recruit_character = AUS_heisenberg
 recruit_character = AUS_Alfred_von_Randow
 recruit_character = AUS_nikolaus_von_falkenhorst
-
 if = {
 	limit = {
 		has_dlc = "No Step Back"
@@ -332,8 +290,6 @@ if = {
 		}
 	}
 }
-
-
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	create_equipment_variant = {
@@ -667,7 +623,6 @@ if = {
 			fixed_ship_engine_slot = carrier_ship_engine_1
 			fixed_ship_secondaries_slot = ship_secondaries_2
 			front_1_custom_slot = ship_deck_space
-
 		}
 	}
 }
