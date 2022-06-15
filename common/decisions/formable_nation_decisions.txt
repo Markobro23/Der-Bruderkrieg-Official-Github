@@ -766,7 +766,14 @@ form_germany_category = {
 			OR = {
 				tag = GER
 				tag = GPU
-				tag = FGD
+				if = {
+					limit = {
+						tag = FGD
+					}
+					OR = {
+						has_completed_focus = FGD_german_revanchism
+					}
+				}
 				tag = HAN
 				tag = SAX
 			}

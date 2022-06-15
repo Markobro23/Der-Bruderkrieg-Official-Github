@@ -1,0 +1,384 @@
+FGD_hunting_westfalen_nationalists = {
+	FGD_nationalist_coup = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 350
+	
+		fire_only_once = yes
+	
+		activation = {
+			OR = {
+				has_completed_focus = FGD_end_the_nationalist_threat
+				has_completed_focus = FGD_crush_the_rhine_homefront
+			}
+		}
+	
+		visible = {
+		tag = FGD
+		NOT = {
+			has_country_flag = FGD_westfalen_nationalist_coup_crushed
+		}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			FGD = {
+				country_event = westfalen_subtree_events.3
+			}
+
+		}
+	}
+	FGD_supress_nationalist_rally = {
+		icon = generic_political_rally
+		available = {
+			command_power > 10
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		custom_cost_trigger = {
+			command_power > 10
+		}
+		custom_cost_text = FGD_westflen_cost_text_tt
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		fire_only_once = no
+		days_remove = 10
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+			hidden_effect = {
+				add_command_power = -10
+			}
+		}
+	}
+	FGD_arrest_nationalist_leaders = {
+		icon = eng_trade_unions_demand
+		available = {
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		fire_only_once = no
+		cost = 25
+		days_remove = 10
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+		}
+	}
+	FGD_promoting_invidualism = {
+		icon = generic_decision
+		available = {
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		fire_only_once = no
+		cost = 10
+		days_remove = 10
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+		}
+	}
+	FGD_limiting_german_polticial_rights = {
+		icon = generic_break_treaty
+		available = {
+			
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		fire_only_once = no
+		cost = 15
+		days_remove = 10
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+		}
+	}
+	
+	FGD_ban_fascist_organizings = {
+		icon = generic_political_rally
+		available = {
+			
+			 
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+	
+		fire_only_once = no
+		cost = 30
+		days_remove = 15
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+			
+		}
+	}
+	FGD_hinder_prussian_arms_shipments = {
+		icon = ger_military_buildup
+		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		cost = 20
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+		fire_only_once = no
+		days_remove = 10
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+			hidden_effect = {
+				add_manpower = -100
+			}
+		}
+	}
+	FGD_raid_hideout = {
+		icon = generic_assassination
+		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}	
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_raid_hideout_tt
+		fire_only_once = no
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			add_to_variable = {
+				tooltip = FGD_decrease_westfalen_coup_probality
+				westfalen_coup_probability = -5
+			}
+		}
+	}
+	FGD_stop_the_coup = {
+		icon = generic_operation
+		available = {
+			custom_trigger_tooltip = {
+			tooltip = FGD_all_states_have_been_pacified
+			check_variable = {
+				var = westfalen_coup_probability value = 20 compare = less_than_or_equals
+			}
+		}
+
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}	
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1000
+		}
+		
+		fire_only_once = no
+		cost = 5
+		days_remove = 5
+		remove_effect = {
+			FGD = {
+				remove_ideas = Nationalist_Sympathisers
+			}
+			set_country_flag = FGD_westfalen_nationalist_coup_crushed
+		}
+	}
+}
+
+
+FGD_elections = {
+	FGD_election_timeout = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 120
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = FGD
+		has_completed_focus = FGD_the_dawn_of_the_republic
+		}
+	
+		visible = {
+			
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			set_country_flag = FGD_elections_are_over
+			hidden_effect = {
+				if = {
+				limit = {
+					check_variable = {
+					var = FGD_elections_conservative_support 
+					compare = greater_than
+					value = FGD_elections_liberal_support
+					}
+				}
+				country_event = FGD_adenaur_republic.4
+				}
+				else_if = {
+				limit = {
+					check_variable = {
+					var = FGD_elections_liberal_support 
+					compare = greater_than
+					value = FGD_elections_conservative_support
+					}
+				}
+				country_event = FGD_adenaur_republic.5
+				}
+				else = {
+				country_event = FGD_adenaur_republic.6
+				}
+			}			
+		}
+	}
+}
