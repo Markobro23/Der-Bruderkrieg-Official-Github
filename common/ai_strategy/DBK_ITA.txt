@@ -15,3 +15,42 @@ ITA_dont_whitepeace_with_cmi = {
         value = 6969
     } 
 }
+
+ITA_invade_austria = {
+    allowed = {
+        tag = AUS
+    }
+    enable = {
+        has_war_with = AUS
+    }
+
+    ai_strategy = {
+		type = front_unit_request
+		tag = AUS
+		value = 40
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = ITF
+		value = 40
+	}
+	ai_strategy = {
+		type = front_control
+		tag = AUS
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+    ai_strategy = {
+		type = front_control
+		tag = ITF
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "AUS"
+		value = 100
+	}
+}

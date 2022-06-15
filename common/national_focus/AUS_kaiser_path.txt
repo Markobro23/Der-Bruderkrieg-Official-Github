@@ -1231,6 +1231,7 @@ shared_focus = {
             owner = GLC
           }
         }
+        add_ideas = AUS_crownland_idea
       }
       multiply_variable = {
         AUS_Polish_Support_war_support_factor = 1.5
@@ -1251,6 +1252,7 @@ shared_focus = {
             owner = CZE
           }
         }
+        add_ideas = AUS_crownland_idea
       }
     }
   }
@@ -1324,6 +1326,7 @@ shared_focus = {
             owner = HUN
           }
         }
+        add_ideas = AUS_crownland_idea
       }
     }
   }
@@ -1381,6 +1384,7 @@ shared_focus = {
             owner = ITF
           }
         }
+        add_ideas = AUS_crownland_idea
       }
     }
   }
@@ -6129,7 +6133,6 @@ shared_focus = {
   will_lead_to_war_with = ROM
   available_if_capitulated = yes
   #search_filters = { FOCUS_FILTER_RESEARCH }
-
   completion_reward = {
     ROM = {
       country_event = austria.200
@@ -7838,9 +7841,18 @@ shared_focus = {
     focus = AUS_stabilizing_europe
   }
    available = {
-    #has_global_flag = AUS_FRA_alliance_falls_apart
-    GER = {
-      is_subject_of = AUS
+    OR = {
+      AND = {
+        NOT = {
+          has_global_flag = france_austria_split_deal
+        }
+        GER = {
+          is_subject_of = AUS
+        }
+      }
+      GER = {
+        is_puppet_of = FRA
+      }
     }
   }
   x = 4
@@ -7875,9 +7887,7 @@ shared_focus = {
     factor = 200
   }
 
-  available = {
-    has_completed_focus = AUS_ABSOLUTISM
-  }
+ 
 
   available_if_capitulated = yes 
   #search_filters = { FOCUS_FILTER_INDUSTRY }
@@ -7904,7 +7914,6 @@ shared_focus = {
     factor = 200
   }
   available = {
-    has_completed_focus = AUS_concessions_to_people
     GPU = {
       is_subject_of = AUS
     }
@@ -8120,9 +8129,34 @@ shared_focus = {
           is_core_of = HES
           is_core_of = FGD
           is_core_of = SAX
+          is_core_of = GPU
         }
       }
       add_core_of = AUS
+    }
+    if = {
+      limit = {
+        CZE = {
+          is_puppet_of = AUS
+        }
+      }
+      CZE = {
+        every_owned_state = {
+          add_core_of = AUS
+        }
+      }
+    }
+    if = {
+      limit = {
+        ITF = {
+          is_puppet_of = AUS
+        }
+      }
+      ITF = {
+        every_owned_state = {
+          add_core_of = AUS
+        }
+      }
     }
 
    }
@@ -8144,105 +8178,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_INDUSTRY }
 
   completion_reward = {
-    every_country = {
-      limit = {
-        OR = {
-          tag = HES
-          tag = GPU
-          tag = BAD
-          tag = WUR
-          tag = NAS
-          tag = GER
-          tag = HAN
-          tag = OLD
-          tag = SAX
-        }
-        OR = {
-          is_subject_of = GPU
-          is_subject_of = AUS
-        }
-      }
-      AUS = {
-        annex_country = {
-          target = PREV
-          transfer_troops = yes
-        }
-      }
-    }
-    hidden_effect = {
-      HUN = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-      GLC = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-      CRO = {
-        set_politics = {
-          ruling_party = authoritarian_democratic
-          last_election = "1935.3.31"
-          election_frequency = 48
-          elections_allowed = no
-        }
-        set_popularities = {
-          authoritarian_democratic = 65
-          neutrality = 21
-          communism = 10
-          democratic = 4
-        }
-
-        keep_current_politics = yes
-      }
-    }
-    set_cosmetic_tag = united_kingdoms_of_germany
-    release_autonomy = {
-      target = HUN
-      autonomy_state = autonomy_puppet
-    }
-    release_autonomy = {
-      target = CRO
-      autonomy_state = autonomy_puppet
-    }
-    release_autonomy = {
-      target = GLC
-      autonomy_state = autonomy_puppet
-    }
-    hidden_effect = {
-      HUN = {
-        reset_government = yes
-      }
-      GLC = {
-        reset_government = yes
-      }
-      CRO = {
-        reset_government = yes
-      }
-    }
+    AUS_grossosterriech_effect = yes
    }
 }
 
@@ -8325,7 +8261,7 @@ shared_focus = {
   }
 
   available = {
-    has_war_with = SOV
+    #has_war_with = SOV
   }
 
   available_if_capitulated = yes
@@ -8583,6 +8519,7 @@ shared_focus = {
       }
     }  
     else = {
+      set_cosmetic_tag = united_states_of_greater_austria
       annex_country = {
         target = HUN
         transfer_troops = yes

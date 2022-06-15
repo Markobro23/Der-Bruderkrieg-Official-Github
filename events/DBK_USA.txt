@@ -132,7 +132,7 @@ country_event = {
 	id = USA_starting_events.8
 	title = USA_starting_events.8.t
 	desc = USA_starting_events.8.d
-    #picture = 
+    #picture =  
 	
 	is_triggered_only = yes 
 	fire_only_once = yes
@@ -144,6 +144,35 @@ country_event = {
 				ruling_party = neutrality
 			}
 			remove_ideas = LIB_slavery_allegations
+		}
+		random_list = { 
+			50 = {
+				LIB = {
+					create_country_leader = {
+						name = "Teddy Roosevelt Jr."
+						picture = "gfx/leaders/TRII.dds"
+						ideology = despotic
+					}
+				}
+			}
+			50 = {
+				LIB = {
+					create_country_leader = {
+						name = "Harry Truman"
+						picture = "gfx/leaders/Harry_Truman.png"
+						ideology = despotic
+					}
+				}
+			}
+			50 = {
+				LIB = {
+					create_country_leader = {
+						name = "Harry Truman"
+						picture = "gfx/leaders/USA/HarryTruman.dds"
+						ideology = despotic
+					}
+				}
+			}
 		}
 	}
 }
@@ -755,7 +784,6 @@ news_event = {
 	desc = USA_democratic_national_convention.17.d
 	picture = GFX_fdrwinsdnc
 	is_triggered_only = yes
-	major = yes
 	option = {
 		name = USA_democratic_national_convention.17.a
 	}
@@ -767,7 +795,6 @@ news_event = {
 	desc = USA_democratic_national_convention.18.d
 	picture = GFX_alsmithinaugaration
 	is_triggered_only = yes
-	major = yes
 	option = {
 		name = USA_democratic_national_convention.18.a
 	}

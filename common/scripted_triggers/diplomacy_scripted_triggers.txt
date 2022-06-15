@@ -584,7 +584,17 @@ DIPLOMACY_GENERATE_WARGOAL_ENABLE_TRIGGER = {
 	}
 	else_if = {
 		limit = {
+			NOT = {
+				has_focus_tree = generic_focus
+			}
 			date > 1941.1.1
+		}
+		always = yes
+	}
+	else_if = {
+		limit = {
+			is_ai = no
+			has_focus_tree = generic_focus
 		}
 		always = yes
 	}

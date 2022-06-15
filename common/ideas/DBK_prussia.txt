@@ -1476,7 +1476,7 @@ ideas = {
 
       modifier = {
         political_power_gain = 0.1
-		surrender_limit = 0.2
+		surrender_limit = 0.05
       }
 	}
 	GER_National_Revolution1 = {
@@ -2740,7 +2740,7 @@ ideas = {
 		}
 		removal_cost = -1
 		modifier = {
-			industrial_capacity_factory = 0.15
+			industrial_capacity_factory = 0.1
 		}
 	}
 	GER_goering_code_idea_GER_young_eagles = {
@@ -2804,7 +2804,7 @@ ideas = {
 		}
 		removal_cost = -1
 		modifier = {
-			industrial_capacity_factory =  0.15
+			industrial_capacity_factory =  0.1
 		}
 	}
 
@@ -2839,7 +2839,7 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			political_power_gain = 0.1
-			industrial_capacity_factory = 0.15
+			industrial_capacity_factory = 0.1
 		}
 	}
 	GER_querfont_idea_GER_no_more_proletarians = {
@@ -2856,7 +2856,7 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			political_power_gain = 0.1
-			compliance_gain = -0.1
+			conscription = 0.005
 		}
 	}
 	GER_querfont_idea_GER_maintain_revolutionary_principles = {
@@ -2907,8 +2907,8 @@ ideas = {
 		}
 		removal_cost = -1
 		modifier = {
-			production_speed_buildings_factor = 0.1
-			army_org_regain = 0.1
+			conscription = 0.01
+			army_org_regain = -0.05
 		}
 	}
 	GER_querfont_idea_GER_the_professional_core = {
@@ -2942,6 +2942,22 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			stability_weekly = 0.003
+		}
+	}
+	GER_querfont_idea_GER_full_amnesty = {
+		name = GER_querfront_modifier
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		 cancel = {
+			is_subject = yes
+		}
+		removal_cost = -1
+		modifier = {
+			monthly_population = 0.1
 		}
 	}
 

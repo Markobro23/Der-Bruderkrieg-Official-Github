@@ -2,7 +2,9 @@ d_austria_loses_peace_deal = {
     austria_loses_peace_deal = yes
 }
 austria_loses_peace_deal = {
-   
+    GER = {
+        transfer_state = 743
+    }
     log = "austria post war peace deal"
     if = {
         limit = { 
@@ -741,6 +743,7 @@ austrian_civil_war_effect = {
 
 
 prussia_loses_peace_deal = {
+
        AUS = { country_event = second_treaty_of_vienna.1 }
        if = {
            limit = {
@@ -767,7 +770,13 @@ prussia_loses_peace_deal = {
            leave_faction = yes
             white_peace = AUS
        }
-       
+       if = {
+		limit = {
+			country_exists = DEN
+			DEN = { NOT = { OR = { has_war_with = FRA has_war_with = AUS is_subject_of = GER } } }
+		}
+		DEN = { transfer_state = 801 }
+	}
 }           
 d_italy_loses_to_austria_peace_deal = {
     italy_loses_to_austria_peace_deal = yes
@@ -980,6 +989,55 @@ france_loses_to_austria_peace_deal = {
     }
     if = {
         limit = {
+            FGD = {
+                is_in_faction_with = FRA
+            }
+        }
+        if = {
+            limit = {
+                AUS = {
+                    has_completed_focus = AUS_proclaim_the_grossdeutsches_reich
+                }
+            }
+            AUS = {
+                annex_country = {
+                    target = FGD
+                    transfer_troops = yes
+                }
+            }
+            AUS = {
+                transfer_state = 42
+            }
+        }
+        else_if = {
+            limit = { 
+                AUS = {
+                    has_completed_focus = AUS_the_german_confederation
+                }
+            }
+            GPU = {
+                annex_country = {
+                    target = FGD
+                    transfer_troops = yes
+                }
+            }
+            GPU = {
+                transfer_state = 42
+            }
+        }
+    }
+    else = {
+        FGD = {
+            add_state_core = 28
+        }
+        every_state = {
+            limit = { is_core_of = FGD is_owned_by = FRA } 
+            transfer_state_to = FGD
+        }
+        puppet = FGD
+    }
+    if = {
+        limit = {
             BEL = {
                 is_in_faction_with = FRA
             }
@@ -1013,26 +1071,12 @@ france_loses_to_austria_peace_deal = {
         add_state_core = 33
         set_cosmetic_tag = OCC_anton
     }
-    GPU = {
-        transfer_state = 42
-    }
+    
     ADU = {
         add_state_core = 32
         add_state_core = 21
         add_state_core = 735
         set_cosmetic_tag = ADU_marseille_duchy
-    }
-    if = {
-        limit = {
-            FGD = { is_subject_of = FRA }
-        }
-        FGD = {
-            add_state_core = 28
-        }
-        every_state = {
-            limit = { is_core_of = FGD is_owned_by = FRA } 
-            transfer_state_to = FGD
-        }
     }
     FRA = {
         release = ADU
@@ -1080,7 +1124,6 @@ france_loses_to_austria_peace_deal = {
         puppet = LUX
         puppet = BRI
         puppet = OCC
-        puppet = FGD
     }
     FPR = {
         add_ideas = {
@@ -1240,6 +1283,37 @@ france_loses_peace_deal = {
     FRA = {
         white_peace = GER
     }
+    BEL = {
+        if = {
+            limit = {
+               is_in_faction_with = GER
+            }
+            transfer_state = 29
+            white_peace = FRA
+        }
+    }
+    HOL = {
+        if = {
+            limit = {
+               is_in_faction_with = FRA
+            }
+            set_cosmetic_tag = prussian_rk
+            GER = {
+                puppet = HOL
+            }
+        }
+    }
+    JNE = {
+        if = {
+            limit = {
+               is_in_faction_with = FRA
+            }
+            set_cosmetic_tag = prussian_rk
+            GER = {
+                puppet = JNE
+            }
+        }
+    }
     GER = {
         annex_country = {
             target = FGD
@@ -1262,10 +1336,8 @@ france_loses_peace_deal = {
                             NOT = { is_in_faction_with = GER }
                             has_war_with = GER
                         }
-                        AND = {
-                            is_in_faction_with = FRA
-                            has_capitulated = yes
-                        }
+                        is_in_faction_with = FRA
+                        exists = no
                     }
                 }
             }
@@ -1285,12 +1357,20 @@ france_loses_peace_deal = {
                     character = BEL_leon_degrelle_actual
                     ideology = fascism_ideology
                 }
+                keep_current_politics = yes
             }
             GER = {
-                puppet = BEL
+                if = {
+                    limit = { country_exists = BEL }
+                    puppet = BEL
+                    else = {
+                        release_puppet = BEL
+                    }
+                }
             }
             BEL = {
                 reset_government = yes
+                set_cosmetic_tag = prussian_rk
             }
         }
         #puppet = FRA
@@ -1354,8 +1434,21 @@ france_loses_peace_deal = {
             add_state_core = 26
             add_state_core = 20
             else = {
-                keep_current_politics = yes
-                set_cosmetic_tag = prussian_rk
+                if = {
+                	limit = {
+                		NOT = {
+                			GER = {
+                				OR = {
+                					has_government = neutrality
+                					has_government = fascism
+                					has_government = democratic
+                				}
+                			}
+                		}
+                	}
+                	keep_current_politics = yes
+                }
+                set_cosmetic_tag = GER_toulusian_france
                 add_state_core = 33
                 add_state_core = 25
                 add_state_core = 31
@@ -1367,7 +1460,20 @@ france_loses_peace_deal = {
         }
     }
     NFR = {
-        keep_current_politics = yes
+        if = {
+            limit = {
+               	NOT = {
+               		GER = {
+               			OR = {
+               				has_government = neutrality
+               				has_government = fascism
+               				has_government = neutrality
+               			}
+               		}
+               	}
+            }
+           	keep_current_politics = yes
+        }
         set_cosmetic_tag = GER_parisian_industrial_zone
         add_ideas = RK_industrial_zone
             #add_state_core = 17
@@ -1476,7 +1582,19 @@ france_loses_peace_deal = {
 		add_state_core = 19
 		add_state_core = 23
 		add_state_core = 30
-        keep_current_politics = yes
+        if = {
+            limit = {
+               	NOT = {
+               		GER = {
+               			OR = {
+               				has_government = neutrality
+               				has_government = democratic
+               			}
+               		}
+               	}
+            }
+           	keep_current_politics = yes
+        }
 	}
     GER = {
         if = {
@@ -2037,6 +2155,23 @@ france_beats_netherlands = {
             set_cosmetic_tag = holland
         }
     }
+    else_if = {
+        limit = {
+            35 = {
+                is_core_of = BEL
+            }
+        }
+        BEL = {
+            add_state_core = 35
+            transfer_state = 35
+        }
+        FRA = {    
+            puppet = HOL
+        }
+        HOL = {
+            set_cosmetic_tag = holland
+        }
+    }
     else = {
         HOL = {
             set_cosmetic_tag = holland
@@ -2068,11 +2203,13 @@ france_beats_netherlands_commie = {
         }
         JNE = {
             set_cosmetic_tag = holland
+            remove_ideas = JNE_for_the_republic
         }
     }
     else = {
         JNE = {
             set_cosmetic_tag = holland
+            remove_ideas = JNE_for_the_republic
         }
         FRA = {
             puppet = JNE
@@ -3510,16 +3647,17 @@ spain_loses_to_brothers_coalition = {
             white_peace = PREV
         }
     }
-    if = {
-        limit = { OCC = { is_in_faction_with = GER } }
-        OCC = {
-            transfer_state = 165
-            transfer_state = 794
-            transfer_state = 166
-            add_state_core = 165
-            add_state_core = 794
-            add_state_core = 166
-        }
+    CAT = {
+        transfer_state = 165
+        transfer_state = 794
+        transfer_state = 166
+        add_state_core = 165
+        add_state_core = 794
+        add_state_core = 166
+        set_cosmetic_tag = prussian_rk
+    }
+    GER = {
+        puppet = CAT
     }
     NAV = {
         add_state_core = 171

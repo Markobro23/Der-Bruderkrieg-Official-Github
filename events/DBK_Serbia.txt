@@ -1003,11 +1003,29 @@ country_event = {
 		name = serbia_the_mad_king.5.a #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 		add_ideas = Serbian_Civil_War
+		if = {
+			limit = {
+				tag = GER
+				has_government = neutrality
+			}
+			hidden_effect = {
+				add_ideas = GER_neutrality_volunteer_thingy
+			}
+		}
 	}
 	option = { # Only one option, just an acknowledgment by the player
 		name = serbia_the_mad_king.5.b #needs to be localized
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 		add_ideas = Serbian_Civil_War_2
+		if = {
+			limit = {
+				tag = GER
+				has_government = neutrality
+			}
+			hidden_effect = {
+				add_ideas = GER_neutrality_volunteer_thingy
+			}
+		}
 	}
 	option = { # Only one option, just an acknowledgment by the player
 		name = serbia_the_mad_king.5.c #needs to be localized
