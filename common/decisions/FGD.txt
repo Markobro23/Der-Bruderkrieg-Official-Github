@@ -382,3 +382,43 @@ FGD_elections = {
 		}
 	}
 }
+
+FGD_preparing_the_rhine_homefront_revolt = {
+	FGD_boost_hideout = {
+		icon = generic_assassination
+		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
+		}
+		visible = {
+			tag = FGD
+			#has_event_target = current_westfalen_gui_state
+		}	
+		complete_effect = {
+			set_country_flag = FGD_currently_doing_westfalen_operation_in_state
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				add = 1000
+			}
+			modifier = {
+				add = 500
+			}
+		}
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_raid_hideout_tt
+		fire_only_once = no
+		cost = 10
+		days_remove = 5
+		remove_effect = {
+			
+		}
+	}
+}

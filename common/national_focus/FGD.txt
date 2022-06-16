@@ -519,6 +519,7 @@ shared_focus = {
 		focus = FGD_loyalty_to_the_bonapartes
 	}
     completion_reward = {
+      country_event = FGD_the_rhine_homefront_path.1
     }
 }
 shared_focus = {
@@ -533,7 +534,12 @@ shared_focus = {
     mutually_exclusive = {
 		focus = FGD_heydrich
 	}
+    available = {
+      has_country_flag = FGD_sided_with_speer
+    }
     completion_reward = {
+      add_ideas = FGD_rhine_homefront_idea_moderate_1
+      
     }
 }
 shared_focus = {
@@ -547,6 +553,13 @@ shared_focus = {
     available_if_capitulated = yes
   
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_moderate_1
+          add_idea = FGD_rhine_homefront_idea_moderate_2
+        }
+      }
     }
 }
 shared_focus = {
@@ -560,6 +573,13 @@ shared_focus = {
     available_if_capitulated = yes
   
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_moderate_2
+          add_idea = FGD_rhine_homefront_idea_moderate_3
+        }
+      }
     }
 }
 shared_focus = {
@@ -573,6 +593,13 @@ shared_focus = {
     available_if_capitulated = yes
   
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_moderate_3
+          add_idea = FGD_rhine_homefront_idea_moderate_4
+        }
+      }
     }
 }
 
@@ -586,10 +613,18 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = FGD_speer
 	}
+    available = {
+      has_country_flag = FGD_sided_with_heydrich
+    }
     cost = 5
     available_if_capitulated = yes
     
     completion_reward = {
+      add_ideas = FGD_rhine_homefront_idea_hardline_1
+      # custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      # effect_tooltip = {
+      #   add_ideas = FGD_rhine_homefront_idea_hardline_1
+      # }
     }
 }
 shared_focus = {
@@ -604,6 +639,13 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_hardline_1
+          add_idea = FGD_rhine_homefront_idea_hardline_2
+        }
+      }
     }
 }
 shared_focus = {
@@ -618,6 +660,13 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_hardline_2
+          add_idea = FGD_rhine_homefront_idea_hardline_3
+        }
+      }
     }
 }
 shared_focus = {
@@ -632,6 +681,13 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      custom_effect_tooltip = FGD_when_rhine_revolt_starts
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = FGD_rhine_homefront_idea_hardline_3
+          add_idea = FGD_rhine_homefront_idea_hardline_4
+        }
+      }
     }
 }
 
@@ -648,6 +704,16 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      956 = {
+        add_dynamic_modifier = {
+          modifier = rhine_resistance_modifier
+        }
+      }
+      42 = {
+        add_dynamic_modifier = {
+          modifier = rhine_resistance_modifier
+        }
+      }
     }
 }
 shared_focus = {
@@ -662,16 +728,22 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      GER = {
+        country_event = {
+          id = FGD_the_rhine_homefront_path.2
+          days = 1
+        }
+      }
     }
 }
 
 shared_focus = {
     id = FGD_march_on_cologne
     icon = GFX_focus_FGD_march_on_cologne
-	prerequisite = {focus = FGD_a_letter_to_goering  }
     prerequisite = {
         focus = FGD_enforce_the_rule_of_the_heydrich_gang
         focus = FGD_attract_europakrieg_veterans
+        focus = FGD_a_letter_to_goering
     }
     x = 0
     y = 2
@@ -681,6 +753,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      country_event = FGD_the_rhine_homefront_path.6
     }
 }
 
