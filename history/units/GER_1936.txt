@@ -85,6 +85,8 @@ division_template = {
 	}
 }
 
+
+
 division_template = {
 	name = "Reserve-Division"
 	regiments = { 
@@ -111,6 +113,18 @@ division_template = {
 		mountaineers = { x = 1 y = 2 }
 	}
 }
+
+division_template = { 						
+	name = "Fallschirmjäger-Division"				# Represents Fallschirm-jaeger Rgts 1
+	division_names_group = GER_PAR_01
+
+	regiments = {
+		paratrooper = { x = 0 y = 0 }
+		paratrooper = { x = 0 y = 1 }
+		paratrooper = { x = 0 y = 2 }
+	}
+}
+
 division_template = {
 	name = "Kavallerie-Brigade"
 
@@ -130,6 +144,13 @@ division_template = {
 
 
 units = {
+
+	division= {	
+		name = "7. Flieger-Division"
+		location = 6521  # Berlin
+		division_template = "Fallschirmjäger-Division"
+		start_experience_factor = 0.3
+	}
 
 	##### Oberkommando des Heeres #####
 	### 1. Armee (Wehrmacht-Gruppenkommando) ###
@@ -525,7 +546,7 @@ air_wings = {
 	}
 
 	### III. Luftkreiskommando -- Breslau ###
-	66 = {
+	86 = {
 		# Kampfgeschwader 253 'General Wever'
 		tac_bomber_equipment_0 = {		# He 45 or Do 23 ?
 			owner = "GER"
