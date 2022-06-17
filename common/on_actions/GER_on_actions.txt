@@ -196,6 +196,15 @@ on_actions = {
     ###BELGIUM CODE
     on_declare_war = {
         effect = {
+		if = {
+			limit = {
+				tag = GER
+				FROM = { tag = AUS }
+				is_in_faction_with = ITA
+				ITA = { NOT = { has_war_with = AUS } }
+			}
+			ITA = { declare_war_on = { target = AUS type = annex_everything } }
+		}
             if = {
                 limit = {
                     tag = GER

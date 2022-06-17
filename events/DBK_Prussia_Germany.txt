@@ -1092,11 +1092,11 @@ country_event = {
 	fire_only_once = no  
 	is_triggered_only = yes 
 	trigger = {
-		OR = {
-			NOT = {
+		NOT = {
+			OR = {
 				has_completed_focus = GER_staatspolezei
+				has_country_flag = GER_formed_french_collab_govs
 			}
-			has_country_flag = GER_formed_french_collab_govs
 		}
 	} 
 	immediate = {
@@ -1170,11 +1170,99 @@ country_event = {
 		
 	
 		hidden_effect = {
-			country_event = { id = GER_goering_post_unification.4 days = 55 }
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_completed_focus = GER_staatspolezei
+							has_country_flag = GER_formed_french_collab_govs
+						}
+					}
+				}
+				country_event = { id = GER_goering_post_unification.4 days = 55 }
+			}
 		}
 	}
 }
 
+country_event = { #religious tensions rising
+	id = GER_goering_post_unification.5
+	title = GER_goering_post_unification.5.t
+	desc = GER_goering_post_unification.5.d
+
+	fire_only_once = yes 
+	is_triggered_only = yes 
+
+	option = { 
+		name = GER_goering_post_unification.5.a
+		add_timed_idea = {
+			idea = GER_religious_divide
+			days = 1460
+		}
+		hidden_effect = {
+			country_event = { id = GER_goering_post_unification.6 days = 360 random = 12 }
+		}
+	}
+}
+
+country_event = { #religious tensions lowering
+	id = GER_goering_post_unification.6
+	title = GER_goering_post_unification.6.t
+	desc = GER_goering_post_unification.6.d
+	is_triggered_only = yes 
+
+	trigger = {
+		OR = {
+			has_idea = GER_religious_divide
+			has_idea = GER_religious_divide_2
+			has_idea = GER_religious_divide_3
+		}
+	}
+
+	option = { 
+		name = GER_goering_post_unification.5.a
+		if = {
+			limit = {
+				has_idea = GER_religious_divide_3
+			}
+			remove_ideas = GER_religious_divide_3
+			add_timed_idea = {
+				idea = GER_religious_divide_4
+				days = 365
+			}
+		}
+		if = {
+			limit = {
+				has_idea = GER_religious_divide_2
+			}
+			remove_ideas = GER_religious_divide_2
+			add_timed_idea = {
+				idea = GER_religious_divide_3
+				days = 730
+			}
+		}
+		if = {
+			limit = {
+				has_idea = GER_religious_divide
+			}
+			remove_ideas = GER_religious_divide
+			add_timed_idea = {
+				idea = GER_religious_divide_2
+				days = 1095
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_idea = GER_religious_divide_4
+				}
+			}
+			hidden_effect = {
+				country_event = { id = GER_goering_post_unification.6 days = 360 random = 12 }
+			}
+		}
+	}
+}
 
 add_namespace = militia_revolts
 
