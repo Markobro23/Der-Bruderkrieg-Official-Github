@@ -2304,11 +2304,9 @@ ideas = {
 		removal_cost = -1
 		modifier = {
 			army_morale_factor = 0.05
-			war_support_factor = 0.05
-			consumer_goods_factor = -0.05
 			industrial_capacity_factory = 0.05
-			conscription = 0.01
-			army_org_regain = 0.1
+			conscription = 0.005
+			army_org_regain = 0.05
 		}
 	}
 	GER_winter_clothing_overdrive = {
@@ -3084,14 +3082,120 @@ ideas = {
 			war_support_factor = 0.1
 		}
 	}
+	GER_anti_russian_initiatives = {
 
+		picture = GER_Clash_Of_The_Militias
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		 cancel = {
+			OR = {
+				is_subject = yes
+				is_in_faction_with = SOV
+			}
+		}
+		removal_cost = -1
+		modifier = {
+			send_volunteer_factor = 0.15
+		}
+	}
 
+	GER_united_front_idea = {
 
+		picture = GER_Clash_Of_The_Militias
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		 cancel = {
+			OR = {
+				has_war_with = GER
+				has_war = no
+			}
+		}
+		removal_cost = -1
+		modifier = {
+			army_attack_factor = 0.05
+			industrial_capacity_factory = 0.05
+			consumer_goods_factor = -0.05
+		}
+	}
 
+	GER_consolidated_economic_communities = {
+		allowed = {
+			always = no
+		}
 
+		picture = GER_syndicalist_system
+		allowed_civil_war = {
+			always = yes
+		}
+		 cancel = {
+			OR = {
+				has_war_with = GER
+				has_war_with = SOV
+			}
+		}
+		removal_cost = -1
+		modifier = {
+			min_export = 0.1
+			local_resources_factor = 0.10
+			consumer_goods_factor = -0.05
+			production_speed_buildings_factor = 0.1
+			industrial_capacity_factory = 0.05
+		}
+	}
 
+	GER_uneasy_peace_idea = {
 
+		picture = SOV_ethnic_conflicts
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+		 cancel = {
+			OR = {
+				has_war_with = GER
+				has_war_with = SOV
+			}
+		}
+		removal_cost = -1
+		modifier = {
+			war_support_factor = -0.1
+			production_speed_buildings_factor = 0.05
+			local_resources_factor = 0.1
+		}
+	}
 
+	GER_embargo_on_russia = {
+		allowed = {
+			always = no
+		}
+
+		picture = GER_syndicalist_system
+		allowed_civil_war = {
+			always = yes
+		}
+		cancel = {
+			OR = {
+				has_war_with = GER
+				is_in_faction_with = GER
+				is_subject = yes
+			}
+		}
+		removal_cost = -1
+		modifier = {
+			min_export = -0.1
+			consumer_goods_factor = 0.1
+		}
+	}
 
 
 
