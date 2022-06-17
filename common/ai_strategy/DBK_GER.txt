@@ -925,20 +925,3 @@ GER_Invade_UK_after_France = {
 		execute_order = yes
 	}
 }
-
-prussia_trolling_russia_stahlpakt = {
-	reversed = yes
-	enable_reverse = {
-		GER = { has_idea = GER_anti_russian_initiatives }
-	}
-	enable = {
-		has_war_with = SOV
-		NOT = { OR = { has_war_with = GER is_in_faction_with = GER } }
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = send_volunteers_desire	
-		id = GER
-		value = 100
-	}
-}
