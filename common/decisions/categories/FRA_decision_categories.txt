@@ -223,7 +223,13 @@ FRA_securing_russian_advance = {
 	}
 
 	visible = {
-		has_completed_focus = FRA_accomplish_what_bonaparte_could_not
+		OR = {
+			has_completed_focus = FRA_accomplish_what_bonaparte_could_not
+			AND = {
+				has_war_with = SOV
+				surrender_progress > 0.5
+			}
+		}
 		is_subject = no
 	}
 }
