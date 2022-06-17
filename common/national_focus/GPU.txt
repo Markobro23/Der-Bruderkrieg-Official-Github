@@ -82,7 +82,11 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+  add_political_power = 35
+  add_to_variable = {
+    tooltip = GPU_increase_our_influence_in_court_by_5
+    court_influence_var =  5
+  }
 }
 }
 
@@ -102,7 +106,11 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+  add_manpower = 5000
+  swap_ideas = {
+    remove_idea = GPU_garrisson_state
+    add_idea = GPU_heimwehr
+  }
 }
 }
 
@@ -131,7 +139,10 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+   swap_ideas = {
+    remove_idea = GPU_heimwehr
+    add_idea = GPU_heimwehr_2
+  }
 }
 }
 
@@ -177,7 +188,12 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+add_political_power = 50
+add_stability = -0.025
+  add_to_variable = {
+    tooltip = GPU_increase_our_influence_in_court_by_5
+    court_influence_var =  5
+  }
 }
 }
 
@@ -197,7 +213,10 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+  swap_ideas = {
+    remove_idea = GPU_garrisson_state
+    add_idea = GPU_garrisson_state_2
+  }
 }
 }
 
@@ -226,7 +245,22 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
+  GPU = {
+      random_owned_controlled_state = {
+        create_unit = {
+			  division = "name = \"King's Guard Division 2\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
 
+			  owner = PREV
+		    }
+      }
+      random_owned_controlled_state = {
+        create_unit = {
+			  division = "name = \"King's Guard Division 2\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+			  owner = PREV
+		    }
+      }
+    }
 }
 }
 
@@ -272,7 +306,12 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+add_manpower = -2500
+add_political_power = 50
+add_to_variable = {
+    tooltip = GPU_increase_our_influence_in_court_by_5
+    court_influence_var =  5
+  }
 }
 }
 
@@ -292,7 +331,12 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+add_command_power = 5
+army_experience = 5
+swap_ideas = {
+  remove_idea = GPU_garrisson_state
+  add_idea = GPU_sueddeutche_weir
+}
 }
 }
 
@@ -321,7 +365,10 @@ available_if_capitulated = yes
 search_filters = { FOCUS_FILTER_POLITICAL }
 
 completion_reward = {
-
+swap_ideas = {
+  remove_idea = GPU_sueddeutche_weir
+  add_idea = GPU_sueddeutche_weir_2
+}
 }
 }
 
@@ -1091,150 +1138,150 @@ prerequisite = {focus = GPU_anti_prussian_poropoganda}
 }
 }
 
-shared_focus = {
-  id = GPU_anchluss_saxony
-  icon = unkown
-prerequisite = { focus = GPU_united_empire}
-  x = 0
-  y = 1
-  relative_position_id = GPU_united_empire
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_anchluss_saxony
+#   icon = unkown
+# prerequisite = { focus = GPU_united_empire}
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_united_empire
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
   
-}
-}
+# }
+# }
 
-shared_focus = {
-  id = GPU_aggressive_expansion
-  icon = unkown
-prerequisite = { focus = GPU_anchluss_saxony}
-  x = -1
-  y = 1
-  relative_position_id = GPU_anchluss_saxony
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_aggressive_expansion
+#   icon = unkown
+# prerequisite = { focus = GPU_anchluss_saxony}
+#   x = -1
+#   y = 1
+#   relative_position_id = GPU_anchluss_saxony
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
-  mutually_exclusive = {
-    focus = GPU_diplomatic_expansion
-  }
-    completion_reward = {
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
+#   mutually_exclusive = {
+#     focus = GPU_diplomatic_expansion
+#   }
+#     completion_reward = {
   
-}
-}
+# }
+# }
 
-shared_focus = {
-  id = GPU_subjugate_the_weaker_neighbors
-  icon = unkown
-prerequisite = { focus = GPU_aggressive_expansion}
-  x = -1
-  y = 1
-  relative_position_id = GPU_aggressive_expansion
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_subjugate_the_weaker_neighbors
+#   icon = unkown
+# prerequisite = { focus = GPU_aggressive_expansion}
+#   x = -1
+#   y = 1
+#   relative_position_id = GPU_aggressive_expansion
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
   
-}
-}
+# }
+# }
 
-shared_focus = {
-  id = GPU_diplomatic_expansion
-  icon = unkown
-prerequisite = { focus = GPU_anchluss_saxony}
-  x = 1
-  y = 1
-  relative_position_id = GPU_anchluss_saxony
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_diplomatic_expansion
+#   icon = unkown
+# prerequisite = { focus = GPU_anchluss_saxony}
+#   x = 1
+#   y = 1
+#   relative_position_id = GPU_anchluss_saxony
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
-mutually_exclusive = {
-    focus = GPU_aggressive_expansion
-  }
-  completion_reward = {
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
+# mutually_exclusive = {
+#     focus = GPU_aggressive_expansion
+#   }
+#   completion_reward = {
   
-}
-}
+# }
+# }
 
-shared_focus = {
-  id = GPU_protect_weaker_neighbors
-  icon = unkown
-prerequisite = { focus = GPU_diplomatic_expansion}
-  x = 1
-  y = 1
-  relative_position_id = GPU_diplomatic_expansion
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_protect_weaker_neighbors
+#   icon = unkown
+# prerequisite = { focus = GPU_diplomatic_expansion}
+#   x = 1
+#   y = 1
+#   relative_position_id = GPU_diplomatic_expansion
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
   
-}
-}
+# }
+# }
 
-shared_focus = {
-  id = GPU_department_of_defense
-  icon = unkown
-prerequisite = { focus = GPU_anchluss_saxony}
-  x = 0
-  y = 2
-  relative_position_id = GPU_anchluss_saxony
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_department_of_defense
+#   icon = unkown
+# prerequisite = { focus = GPU_anchluss_saxony}
+#   x = 0
+#   y = 2
+#   relative_position_id = GPU_anchluss_saxony
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
   
-  }
-}
+#   }
+# }
 
-shared_focus = {
-  id = GPU_true_germany
-  icon = unkown
-prerequisite = { focus = GPU_department_of_defense}
-prerequisite = {focus = GPU_protect_weaker_neighbors focus = GPU_subjugate_the_weaker_neighbors}
-  x = 0
-  y = 1
-  relative_position_id = GPU_department_of_defense
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_true_germany
+#   icon = unkown
+# prerequisite = { focus = GPU_department_of_defense}
+# prerequisite = {focus = GPU_protect_weaker_neighbors focus = GPU_subjugate_the_weaker_neighbors}
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_department_of_defense
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
     
-  }
-}
+#   }
+# }
 
 shared_focus = {
   id = GPU_modernizing_the_bundesheer
