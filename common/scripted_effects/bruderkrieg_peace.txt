@@ -901,7 +901,7 @@ italy_loses_to_austria_peace_deal = {
             reset_government = yes
         }
     }
-    if = {
+    else_if = {
         limit = {
             has_global_flag = weltkrieg_AUS_gets_sicily
         }
@@ -911,6 +911,20 @@ italy_loses_to_austria_peace_deal = {
         }
         SCI = {
             reset_government = yes
+        }
+        ITA = {
+            reset_government = yes
+        }
+    }
+    else = {
+        FRA = {
+            puppet = SCI
+        }
+        SCI = {
+            reset_government = yes
+        }
+        AUS = {
+            puppet = ITA
         }
         ITA = {
             reset_government = yes
