@@ -440,8 +440,12 @@ shared_focus = {
   icon = unkown
   #prerequisite = { focus = GPU_state_of_the_confederation_economy }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 21
-  y = 0
+# prerequisite = {
+#   focus = GPU_garrison_primacy
+# }
+relative_position_id = GPU_garrison_primacy
+  x = 0
+  y = 2
   cost = 10
   ai_will_do = {
     factor = 1
@@ -466,8 +470,12 @@ shared_focus = {
   icon = unkown
   #prerequisite = { focus = GPU_state_of_the_confederation_economy }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 13
-  y = 0
+# prerequisite = {
+#   focus = GPU_the_home_army
+# }
+relative_position_id = GPU_the_home_army
+  x = -3
+  y = 2
   cost = 10
   ai_will_do = {
     factor = 1
@@ -630,6 +638,12 @@ shared_focus = {
   completion_reward = {
     remove_ideas = GPU_unstable_nation_3
       GPU_increase_confederation_unity_large = yes
+      WUR = {
+        annex_country = {
+          target = BAD
+          transfer_troops = yes
+        }
+      }
   }
 }
 
@@ -1822,14 +1836,18 @@ prerequisite = {focus = GPU_expand_german_court}
 shared_focus = {
     id = GPU_the_marshals_coup
     icon = GFX_focus_GPU_the_marshals_coup
-    x = 32
-    y = 0
+    x = 7
+    y = 2
     cost = 5
     available_if_capitulated = yes
      available = {
     has_completed_focus = GPU_appoint_von_rundstent
      has_completed_focus = GPU_okh_control
   }
+  # prerequisite = {
+  #   focus = GPU_okh_control
+  # }
+  relative_position_id = GPU_okh_control
     completion_reward = {
     }
 }
@@ -1912,9 +1930,76 @@ shared_focus = {
       }
     }
 }
+# shared_focus = {
+#     id = GPU_assert_equality_with_austria
+#     icon = GFX_focus_GPU_assert_equality_with_austria
+#     x = -1
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+# 	relative_position_id = GPU_quiet_populists
+# 	prerequisite = {
+# 		focus = GPU_quiet_populists
+# 	}
+# 	prerequisite = {
+# 		focus = GPU_fan_nationalism
+# 	}
+  
+#     completion_reward = {
+#       remove_ideas = GPU_unstable_nation_5
+
+#       add_stability = 0.1
+#       AUS = {
+#         add_opinion_modifier = {
+#           target = GPU
+#           modifier = faction_traitor
+#         }
+#       }
+#     }
+# }
+
+# shared_focus = {
+#     id = GPU_compromise
+#     icon = GFX_focus_GPU_compromise
+#     x = 2
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+# 	relative_position_id = GPU_assert_equality_with_austria
+# 	prerequisite = {
+# 		focus = GPU_assert_equality_with_austria
+# 	}
+# 	mutually_exclusive = {
+# 		focus = GPU_the_break
+# 	}
+#     completion_reward = {
+#       country_event = GPU_von_rundstent_path.1
+#     }
+# }
+
+# shared_focus = {
+#     id = GPU_the_break
+#     icon = GFX_focus_GPU_the_break
+#     x = -2
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+# 	relative_position_id = GPU_assert_equality_with_austria
+# 	prerequisite = {
+# 		focus = GPU_assert_equality_with_austria
+# 	}
+# 	mutually_exclusive = {
+# 		focus = GPU_compromise
+# 	}
+  
+#     completion_reward = {
+#       country_event = GPU_von_rundstent_path.4
+#     }
+# }
+
 shared_focus = {
-    id = GPU_assert_equality_with_austria
-    icon = GFX_focus_GPU_assert_equality_with_austria
+    id = GPU_prepare_for_restoration
+    icon = GFX_focus_GPU_prepare_for_restoration
     x = -1
     y = 1
     cost = 5
@@ -1925,72 +2010,6 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = GPU_fan_nationalism
-	}
-  
-    completion_reward = {
-      remove_ideas = GPU_unstable_nation_5
-
-      add_stability = 0.1
-      AUS = {
-        add_opinion_modifier = {
-          target = GPU
-          modifier = faction_traitor
-        }
-      }
-    }
-}
-
-shared_focus = {
-    id = GPU_compromise
-    icon = GFX_focus_GPU_compromise
-    x = 2
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-	relative_position_id = GPU_assert_equality_with_austria
-	prerequisite = {
-		focus = GPU_assert_equality_with_austria
-	}
-	mutually_exclusive = {
-		focus = GPU_the_break
-	}
-    completion_reward = {
-      country_event = GPU_von_rundstent_path.1
-    }
-}
-
-shared_focus = {
-    id = GPU_the_break
-    icon = GFX_focus_GPU_the_break
-    x = -2
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-	relative_position_id = GPU_assert_equality_with_austria
-	prerequisite = {
-		focus = GPU_assert_equality_with_austria
-	}
-	mutually_exclusive = {
-		focus = GPU_compromise
-	}
-  
-    completion_reward = {
-      country_event = GPU_von_rundstent_path.4
-    }
-}
-
-shared_focus = {
-    id = GPU_prepare_for_restoration
-    icon = GFX_focus_GPU_prepare_for_restoration
-    x = 2
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-	relative_position_id = GPU_the_break
-	prerequisite = {
-		focus = GPU_the_break
-		focus = GPU_compromise
-
 	}
 	mutually_exclusive = {
 	}
@@ -2006,32 +2025,32 @@ shared_focus = {
     add_country_leader_trait = kroprinz
     }
 }
-shared_focus = {
-    id = GPU_the_waystation
-    icon = GFX_focus_GPU_the_waystation
-    x = -1
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-	relative_position_id = GPU_prepare_for_restoration
-	prerequisite = {
-		focus = GPU_prepare_for_restoration
+# shared_focus = {
+#     id = GPU_the_waystation
+#     icon = GFX_focus_GPU_the_waystation
+#     x = -1
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+# 	relative_position_id = GPU_prepare_for_restoration
+# 	prerequisite = {
+# 		focus = GPU_prepare_for_restoration
 
-	}
-	mutually_exclusive = {
-	}
+# 	}
+# 	mutually_exclusive = {
+# 	}
   
-    completion_reward = {
-      create_wargoal = {
-        target = SAX
-        type = annex_everything
-      }
-    }
-}
+#     completion_reward = {
+#       create_wargoal = {
+#         target = SAX
+#         type = annex_everything
+#       }
+#     }
+# }
 shared_focus = {
     id = GPU_unite_the_exiles
     icon = GFX_focus_GPU_unite_the_exiles
-    x = 1
+    x = 0
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2051,21 +2070,22 @@ shared_focus = {
 shared_focus = {
     id = GPU_zum_sieg
     icon = GFX_focus_GPU_zum_sieg
-    x = -1
+    x = 1
     y = 1
     cost = 5
     available_if_capitulated = yes
 	
 	mutually_exclusive = {
+    focus = GPU_assume_the_throne
 	}
   	relative_position_id = GPU_unite_the_exiles
 	prerequisite = {
 		focus = GPU_unite_the_exiles
 
 	}
-	prerequisite = {
-		focus = GPU_the_waystation
-	}
+	# prerequisite = {
+	# 	focus = GPU_the_waystation
+	# }
     completion_reward = {
       create_wargoal = {
         target = GER
@@ -2073,18 +2093,51 @@ shared_focus = {
       }
     }
 }
+shared_focus = {
+    id = GPU_assume_the_throne
+    icon = GFX_focus_GPU_zum_sieg
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = {
+      focus = GPU_zum_sieg
+    }
+    available = {
+      GER = {
+        has_country_leader = {
+          name = "August von Mackensen"
+          ruling_only = yes
+        }
+      }
+    }
+	mutually_exclusive = {
+	}
+  	relative_position_id = GPU_unite_the_exiles
+	prerequisite = {
+		focus = GPU_unite_the_exiles
+
+	}
+	# prerequisite = {
+	# 	focus = GPU_the_waystation
+	# }
+    completion_reward = {
+     
+    }
+}
+
 
 shared_focus = {
     id = GPU_einheit
     icon = GFX_focus_GPU_einheit
-    x = 0
-    y = 2
+    x = -1
+    y = 1
     cost = 5
     available_if_capitulated = yes
 	relative_position_id = GPU_zum_sieg
 	prerequisite = {
 		focus = GPU_zum_sieg
-
+    focus = GPU_assume_the_throne
 	}
 
 	mutually_exclusive = {
