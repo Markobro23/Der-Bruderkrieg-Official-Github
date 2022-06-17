@@ -3,11 +3,11 @@
 import sys
 #myFile = open(r"C:\Users\17138\Documents\Paradox Interactive\Hearts of Iron IV\mod\dbkgithub\common\national_focus\ITA_socialist_paths.txt") ##file path
 
-myFile = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\Der-Bruderkrieg-Official-Github\common\national_focus\FRA_conservative.txt") ##file path
+myFile = open(r"c:\Users\imait\Dropbox\My PC (DESKTOP-0IC55Q4)\Documents\Paradox Interactive\Hearts of Iron IV\mod\DBKGithub\common\national_focus\GPU.txt") ##file path
 #myFile = open("common\national_focus\USA_warren_path.txt") ##file path")
 substring = "id =" 
 substring2 = "relative"
-substring3 = "FRA_" ##put your country tag here
+substring3 = "GPU_" ##put your country tag here
 
 for line in myFile:
     if(substring in line):

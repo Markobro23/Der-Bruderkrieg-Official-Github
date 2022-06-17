@@ -14,6 +14,7 @@ focus_tree = {
 	shared_focus = GPU_state_of_the_confederation_economy
 	shared_focus = GPU_the_marshals_coup
 	shared_focus = GPU_rule_of_house_wittlebach
+  shared_focus = GPU_preparing_for_german_unification
 }
 
 
@@ -444,7 +445,7 @@ shared_focus = {
 #   focus = GPU_garrison_primacy
 # }
 relative_position_id = GPU_garrison_primacy
-  x = 0
+  x = 6
   y = 2
   cost = 10
   ai_will_do = {
@@ -474,7 +475,7 @@ shared_focus = {
 #   focus = GPU_the_home_army
 # }
 relative_position_id = GPU_the_home_army
-  x = -3
+  x = 3
   y = 2
   cost = 10
   ai_will_do = {
@@ -517,6 +518,27 @@ shared_focus = {
 } 
 
 
+
+shared_focus = {
+  id = GPU_royalism
+  icon = unkown
+  prerequisite = { focus = GPU_austrian_ally }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -3
+  y = 1
+  relative_position_id = GPU_austrian_ally
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    add_ideas = GPU_king_and_country
+  }
+}
 
 shared_focus = {
   id = GPU_begin_federalism
@@ -648,27 +670,6 @@ shared_focus = {
 }
 
 
-
-shared_focus = {
-  id = GPU_royalism
-  icon = unkown
-  prerequisite = { focus = GPU_austrian_ally }
-#mutually_exclusive = { focus = GPU_ASSERT }
-  x = -3
-  y = 1
-  relative_position_id = GPU_austrian_ally
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
-
-  completion_reward = {
-    add_ideas = GPU_king_and_country
-  }
-}
 
 shared_focus = {
   id = GPU_restart_the_ludwig_porjects
@@ -1836,7 +1837,7 @@ prerequisite = {focus = GPU_expand_german_court}
 shared_focus = {
     id = GPU_the_marshals_coup
     icon = GFX_focus_GPU_the_marshals_coup
-    x = 7
+    x = 12
     y = 2
     cost = 5
     available_if_capitulated = yes
@@ -1854,7 +1855,7 @@ shared_focus = {
 shared_focus = {
     id = GPU_stay_with_kroprinz
     icon = GFX_focus_GPU_stay_with_kroprinz
-    x = -3
+    x = -2
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2151,7 +2152,7 @@ shared_focus = {
 shared_focus = {
     id = GPU_deutchsland_uber_allies
     icon = GFX_focus_GPU_deutchsland_uber_allies
-    x = 3
+    x = 2
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2288,6 +2289,277 @@ shared_focus = {
     completion_reward = {
     }
 }
+
+
+
+shared_focus = {
+  id = GPU_preparing_for_german_unification
+  icon = GFX_goal_GPU_preparing_for_german_unification 
+  x = 13
+  y = 0
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+    OR = {
+      has_completed_focus = GPU_the_two_kings
+      has_completed_focus = GPU_united_empire
+      has_completed_focus = GPU_einheit
+      has_completed_focus = GPU_the_dresden_putsch
+    }
+  }
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_curbing_prussonationalism
+  icon = GFX_goal_GPU_curbing_prussonationalism 
+  x = -4
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_preparing_for_german_unification
+  }
+  relative_position_id = GPU_preparing_for_german_unification
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_preserve_the_prussian_generals_corp
+  icon = GFX_goal_GPU_preserve_the_prussian_generals_corp 
+  x = -1
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  mutually_exclusive = {
+    focus = GPU_purges_in_the_prussian_state
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_curbing_prussonationalism
+  }
+  relative_position_id = GPU_curbing_prussonationalism
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_incorporate_prussian_tactics
+  icon = GFX_goal_GPU_incorporate_prussian_tactics 
+  x = 0
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_preserve_the_prussian_generals_corp
+  }
+  relative_position_id = GPU_preserve_the_prussian_generals_corp
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_purges_in_the_prussian_state
+  icon = GFX_goal_GPU_purges_in_the_prussian_state 
+  x = 1
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  mutually_exclusive = {
+    focus = GPU_preserve_the_prussian_generals_corp
+  }
+  prerequisite = {
+    focus = GPU_curbing_prussonationalism
+  }
+  relative_position_id = GPU_curbing_prussonationalism
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_complete_army_purification
+  icon = GFX_goal_GPU_complete_army_purification 
+  x = 0
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_purges_in_the_prussian_state
+  }
+  relative_position_id = GPU_purges_in_the_prussian_state
+  completion_reward = {
+    
+  }
+}
+
+
+shared_focus = {
+  id = GPU_the_religious_divide
+  icon = GFX_goal_GPU_the_religious_divide 
+  x = 0
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_preparing_for_german_unification
+  }
+  relative_position_id = GPU_preparing_for_german_unification
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_mantain_strong_catholicism
+  icon = GFX_goal_GPU_mantain_strong_catholicism 
+  x = -1
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  mutually_exclusive = {
+    focus = GPU_protestant_representation
+  }
+  prerequisite = {
+    focus = GPU_the_religious_divide
+  }
+  relative_position_id = GPU_the_religious_divide
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_catholic_charity_iniatives
+  icon = GFX_goal_GPU_catholic_charity_iniatives 
+  x = 0
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_mantain_strong_catholicism
+  }
+  relative_position_id = GPU_mantain_strong_catholicism
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_protestant_representation
+  icon = GFX_goal_GPU_protestant_representation 
+  x = 1
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  mutually_exclusive = {
+    focus = GPU_mantain_strong_catholicism
+  }
+  prerequisite = {
+    focus = GPU_the_religious_divide
+  }
+  relative_position_id = GPU_the_religious_divide
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_complete_kulturkampf
+  icon = GFX_goal_GPU_complete_kulturkampf 
+  x = 0
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_protestant_representation
+  }
+  relative_position_id = GPU_protestant_representation
+  completion_reward = {
+    
+  }
+}
+shared_focus = {
+  id = GPU_the_frankfurt_parliament
+  icon = GFX_goal_GPU_the_frankfurt_parliament 
+  x = 3
+  y = 1
+  cost = 3
+  ai_will_do = {
+    factor = 100
+  }
+  available = {
+  }
+  prerequisite = {
+    focus = GPU_incorporate_prussian_tactics
+    focus = GPU_complete_army_purification
+  }
+  prerequisite = {
+    focus = GPU_catholic_charity_iniatives
+    focus = GPU_complete_kulturkampf
+  }
+  relative_position_id = GPU_incorporate_prussian_tactics
+  completion_reward = {
+    
+  }
+}
+
+
+shared_focus = {
+    id = GPU_national_revolution
+    icon = GFX_focus_GPU_national_revolution
+    x = 4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+	relative_position_id = GPU_preparing_for_german_unification
+	prerequisite = {
+		focus = GPU_preparing_for_german_unification
+	}
+
+
+  
+    completion_reward = {
+    }
+}
 shared_focus = {
     id = GPU_isolating_goering
     icon = GFX_focus_GPU_isolating_goering
@@ -2295,9 +2567,9 @@ shared_focus = {
     y = 1
     cost = 5
     available_if_capitulated = yes
-	relative_position_id = GPU_the_dresden_putsch
+	relative_position_id = GPU_national_revolution
 	prerequisite = {
-		focus = GPU_the_dresden_putsch
+		focus = GPU_national_revolution
 	}
   mutually_exclusive = {
     focus = GPU_prepare_the_army
@@ -2333,9 +2605,9 @@ shared_focus = {
     y = 1
     cost = 5
     available_if_capitulated = yes
-	relative_position_id = GPU_the_dresden_putsch
+	relative_position_id = GPU_national_revolution
 	prerequisite = { 
-		focus = GPU_the_dresden_putsch
+		focus = GPU_national_revolution
 	}
 	mutually_exclusive = {
 		focus = GPU_isolating_goering
@@ -2362,24 +2634,7 @@ shared_focus = {
     completion_reward = {
     }
 }
-shared_focus = {
-    id = GPU_national_revolution
-    icon = GFX_focus_GPU_national_revolution
-    x = -1
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-	relative_position_id = GPU_ein_volk_ein_reich_ein_fuhrer
-	prerequisite = {
-		focus = GPU_ein_volk_ein_reich_ein_fuhrer
-		focus = GPU_left_nsp_revolt
-	}
 
-
-  
-    completion_reward = {
-    }
-}
 
 ###ECON
 
