@@ -2848,6 +2848,28 @@ country_event = { #germany embargoes Russia
 	}
 }
 
+country_event = { #german-russian economic zone
+	id = GER_wiltkrieg_faction_events.32
+	title = GER_wiltkrieg_faction_events.32.t
+	desc = GER_wiltkrieg_faction_events.32.d
+	#picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #nice
+		name = GER_wiltkrieg_faction_events.32.a
+		if = {
+			limit = {
+				has_country_flag = GER_agree_SOV_industrial_zone
+			}
+			add_ideas = GER_russian_economic_ties
+			else = {
+				unlock_decision_category_tooltip = SOV_prussian_russian_industry
+			}
+		}
+	}
+}
+
 add_namespace = germany_slovenia_events
 country_event = {
 	id = germany_slovenia_events.1
