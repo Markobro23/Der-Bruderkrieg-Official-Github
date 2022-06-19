@@ -5,7 +5,7 @@ GPU_ministry_category = {
 		icon = decision_revolt
 	
 		available = {
-			hidden_trigger = { always = no }
+			hidden_trigger = { always = yes }
 		}
 	
 		days_mission_timeout = 150
@@ -376,7 +376,7 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		}
 
 		visible = {
-			always = no
+			always = yes
 		}
 
 		days_remove = 100 
@@ -388,12 +388,26 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		ai_will_do = {
 			factor = 100
 		}
-
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
-
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
 		remove_effect = {
 			BAD = {
+				set_country_flag = SGC_von_rundstedt_integrated
 				set_politics = {
 					ruling_party = ultranationalism
 				}
@@ -408,7 +422,7 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		}
 
 		visible = {
-			always = no
+			always = yes
 		}
 
 		days_remove = 100 
@@ -421,11 +435,26 @@ GPU_von_rundstedt_fuhrer_revolt = {
 			factor = 100
 		}
 
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
-
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
 		remove_effect = {
 			WUR = {
+				set_country_flag = SGC_von_rundstedt_integrated
 				set_politics = {
 					ruling_party = ultranationalism
 				}
@@ -440,7 +469,7 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		}
 
 		visible = {
-			always = no
+			always = yes
 		}
 
 		days_remove = 100 
@@ -453,11 +482,27 @@ GPU_von_rundstedt_fuhrer_revolt = {
 			factor = 100
 		}
 
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
 
 		remove_effect = {
 			HES = {
+				set_country_flag = SGC_von_rundstedt_integrated
 				set_politics = {
 					ruling_party = ultranationalism
 				}
@@ -472,7 +517,7 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		}
 
 		visible = {
-			always = no
+			always = yes
 		}
 
 		days_remove = 100 
@@ -485,11 +530,27 @@ GPU_von_rundstedt_fuhrer_revolt = {
 			factor = 100
 		}
 
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
 
 		remove_effect = {
-			HES = {
+			NAS = {
+				set_country_flag = SGC_von_rundstedt_integrated
 				set_politics = {
 					ruling_party = ultranationalism
 				}

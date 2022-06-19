@@ -2165,6 +2165,10 @@ shared_focus = {
 	}
     completion_reward = {
       country_event = GPU_von_rundstedt_path.1
+      swap_ideas = {
+        remove_idea = GPU_unstable_nation
+        add_idea = GPU_unstable_nation_von_rundstedt
+      }
     }
 }
 shared_focus = {
@@ -2203,6 +2207,7 @@ shared_focus = {
 	}
   
     completion_reward = {
+      unlock_decision_category_tooltip = GPU_von_rundstedt_fuhrer_revolt
     }
 }
 shared_focus = {
@@ -2210,14 +2215,25 @@ shared_focus = {
     icon = GFX_focus_GPU_destroy_enemies
     x = 1
     y = 1
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
 	relative_position_id = GPU_the_volksfuhrer_triumphant
 	prerequisite = {
 		focus = GPU_the_volksfuhrer_triumphant
 	}
-  
+    available = {
+      GPU = {
+        all_owned_state = {
+          set_temp_variable = { DUMB = THIS }
+          custom_trigger_tooltip = { tooltip = at_least_4_divisions check_variable = { SOV.num_armies_in_state@var:DUMB > 3 } }
+        }
+      }
+    }
     completion_reward = {
+      swap_ideas = {
+        remove_idea = GPU_unstable_nation_von_rundstedt
+        add_idea = GPU_unstable_nation_von_rundstedt_2
+      }
     }
 }
 shared_focus = {
@@ -2236,11 +2252,12 @@ shared_focus = {
 	}
   
     completion_reward = {
+      remove_ideas = GPU_unstable_nation_von_rundstedt_2
     }
 }
 shared_focus = {
-    id = GPU_denounce_traditionalists
-    icon = GFX_focus_GPU_denounce_traditionalists
+    id = GPU_embrace_traditionalists
+    icon = GFX_focus_GPU_embrace_traditionalists
     x = -1
     y = 1
     cost = 5
@@ -2249,9 +2266,16 @@ shared_focus = {
 	prerequisite = {
 		focus = GPU_our_reich_secured
 	}
-
+  mutually_exclusive = {
+    focus = GPU_invite_rohm
+  }
   
     completion_reward = {
+      GER = {
+        GER_erich_von_manstein = {
+          set_nationality = GPU
+        }
+      }
     }
 }
 shared_focus = {
@@ -2265,9 +2289,17 @@ shared_focus = {
 	prerequisite = {
 		focus = GPU_our_reich_secured
 	}
+  mutually_exclusive = {
+    focus = GPU_embrace_traditionalists
+  }
 
   
     completion_reward = {
+      GER = {
+        GER_ernst_rohm = {
+          set_nationality = GPU
+        }
+      }
     }
 }
 
@@ -2283,11 +2315,45 @@ shared_focus = {
 		focus = GPU_invite_rohm
 	}
 	prerequisite = {
-		focus = GPU_denounce_traditionalists
+		focus = GPU_embrace_traditionalists
 	}
 
   
     completion_reward = {
+      if = {
+        limit = {
+          BAD = {
+            has_government = ultranationalism
+          }
+        }
+        annex_country = {
+          target = BAD
+          transfer_troops = yes
+        }
+      }
+      if = {
+        limit = {
+          HES = {
+            has_government = ultranationalism
+          }
+        }
+        annex_country = {
+          target = HES
+          transfer_troops = yes
+        }
+      }
+      if = {
+        limit = {
+          NAS = {
+            has_government = ultranationalism
+          }
+        }
+        annex_country = {
+          target = NAS
+          transfer_troops = yes
+        }
+      }
+      set_cosmetic_tag = GPU_suddeutches_reich
     }
 }
 
@@ -2556,7 +2622,9 @@ shared_focus = {
 		focus = GPU_preparing_for_german_unification
 	}
 
-
+  available = {
+    has_government = fascism
+  }
   
     completion_reward = {
     }
