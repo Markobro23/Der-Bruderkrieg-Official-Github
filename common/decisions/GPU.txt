@@ -558,3 +558,40 @@ GPU_von_rundstedt_fuhrer_revolt = {
 		}
 	}
 }
+
+GPU_a_new_german_state = {
+	GPU_recruit_von_kluge = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			GER = {
+				is_puppet_of = AUS
+			}
+		}
+		visible = {
+			has_completed_focus = GPU_preserve_the_prussian_generals_corp
+		}
+		remove_effect = {
+			GER = {
+				GER_gunther_von_kluge = {
+					set_nationality = GPU
+				}
+			}
+		}
+	}
+}
