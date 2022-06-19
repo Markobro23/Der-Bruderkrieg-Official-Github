@@ -2864,8 +2864,23 @@ weltkrieg_decisions = {
 			factor = 1000
 		}
 	
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GER_congo_revolt_tt
 	
 		remove_effect = {
 			FEA = {
