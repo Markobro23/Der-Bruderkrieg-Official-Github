@@ -917,17 +917,63 @@ italy_loses_to_austria_peace_deal = {
         }
     }
     else = {
-        FRA = {
-            puppet = SCI
+        if = {
+            limit = {
+                AUS = {
+                    is_ai = no
+                }
+                FRA = {
+                    is_ai = yes
+                }
+            }
+            AUS = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            AUS = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
         }
-        SCI = {
-            reset_government = yes
+        else_if = {
+            limit = { 
+                FRA = {
+                    is_ai = no
+                }
+                AUS = {
+                    is_ai = yes
+                }
+            }
+            FRA = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            FRA = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
         }
-        AUS = {
-            puppet = ITA
-        }
-        ITA = {
-            reset_government = yes
+        else = {
+            FRA = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            AUS = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
         }
     }
     
