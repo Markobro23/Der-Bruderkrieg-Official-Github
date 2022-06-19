@@ -495,38 +495,38 @@ relative_position_id = GPU_the_home_army
   }
 } 
 
-shared_focus = {
-  id = GPU_austrian_ally
-  icon = GFX_goal_diplo_austria
-  prerequisite = { focus = GPU_rule_of_house_wittlebach }
-  mutually_exclusive = {focus = GPU_sever_ties_with_austria}
-#mutually_exclusive = { focus = GPU_ASSERT }
-  x = 0
-  y = 1
-  relative_position_id = GPU_rule_of_house_wittlebach
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_austrian_ally
+#   icon = GFX_goal_diplo_austria
+#   prerequisite = { focus = GPU_rule_of_house_wittlebach }
+#   mutually_exclusive = {focus = GPU_sever_ties_with_austria}
+# #mutually_exclusive = { focus = GPU_ASSERT }
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_rule_of_house_wittlebach
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
+#   completion_reward = {
 
-  }
-} 
+#   }
+# } 
 
 
 
 shared_focus = {
   id = GPU_royalism
   icon = unkown
-  prerequisite = { focus = GPU_austrian_ally }
+  prerequisite = { focus = GPU_rule_of_house_wittlebach }
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = -3
   y = 1
-  relative_position_id = GPU_austrian_ally
+  relative_position_id = GPU_rule_of_house_wittlebach
   cost = 10
   ai_will_do = {
     factor = 1
@@ -934,10 +934,10 @@ shared_focus = {
 shared_focus = {
   id = GPU_continue_the_dual_system
   icon = GFX_goal_support_democracy
-  prerequisite = { focus = GPU_franz_ferdinand_reforms focus = GPU_austrian_ally }
-  x = 4
+  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd focus = GPU_rule_of_house_wittlebach }
+  x = -3
   y = 1
-  relative_position_id = GPU_austrian_ally
+  relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
   cost = 10
   ai_will_do = {
     factor = 1
@@ -963,10 +963,10 @@ GPU_increase_confederation_unity_small = yes
 shared_focus = {
   id = GPU_stabilitize_the_deutcher_bund
   icon = unkown
-  prerequisite = { focus = GPU_franz_ferdinand_reforms }
+  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
   x = 3
   y = 1
-  relative_position_id = GPU_franz_ferdinand_reforms
+  relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1318,25 +1318,25 @@ shared_focus = {
 }
 }
 
-shared_focus = {
-  id = GPU_franz_ferdinand_reforms
-  icon = unkown
-  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
-  x = 0
-  y = 1
-  relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_franz_ferdinand_reforms
+#   icon = unkown
+#   prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
-    add_ideas = GPU_franz_ferdinand_reforms_idea
-  } 
-}
+#   completion_reward = {
+#     add_ideas = GPU_franz_ferdinand_reforms_idea
+#   } 
+# }
 
 shared_focus = {
   id = GPU_austrian_close_air_support
@@ -2110,6 +2110,7 @@ shared_focus = {
           name = "August von Mackensen"
           ruling_only = yes
         }
+        has_war_with = AUS
       }
     }
 	mutually_exclusive = {
@@ -2123,7 +2124,16 @@ shared_focus = {
 	# 	focus = GPU_the_waystation
 	# }
     completion_reward = {
-     
+      goto_state = 64
+      GER = {
+        change_tag_from = GPU
+      }
+      GER = {
+        annex_country = {
+          target = GPU
+          transfer_troops = yes
+        }
+      }
     }
 }
 
@@ -2131,14 +2141,13 @@ shared_focus = {
 shared_focus = {
     id = GPU_einheit
     icon = GFX_focus_GPU_einheit
-    x = -1
+    x = 0
     y = 1
     cost = 5
     available_if_capitulated = yes
 	relative_position_id = GPU_zum_sieg
 	prerequisite = {
 		focus = GPU_zum_sieg
-    focus = GPU_assume_the_throne
 	}
 
 	mutually_exclusive = {
