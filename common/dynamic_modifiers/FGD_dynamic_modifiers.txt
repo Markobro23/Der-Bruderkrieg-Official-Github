@@ -14,3 +14,20 @@ rhine_resistance_modifier = {
 	local_resources_factor = -0.5
 	recruitable_population_factor = -0.5
 }
+
+hannover_home_army = {
+    enable = { always = yes }
+
+	remove_trigger = {
+		NOT = {
+			is_controlled_by = GER
+		}
+	}
+
+    icon = GFX_idea_Riots
+
+    army_speed_factor_for_controller = -0.75
+    local_manpower = -0.75
+    local_factories = -0.75
+	mobilization_speed = -0.5
+}

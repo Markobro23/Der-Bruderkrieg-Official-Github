@@ -8,6 +8,8 @@ focus_tree = {
 		}
 	}
 	shared_focus = FGD_the_chaotic_westfalen
+  shared_focus = FGD_defense_at_all_costs
+  shared_focus = FGD_proclaim_a_rhine_confederation
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -757,9 +759,305 @@ shared_focus = {
     }
 }
 
+## FP
+shared_focus = {
+    id = FGD_defense_at_all_costs
+    icon = GFX_focus_FGD_defense_at_all_costs
+    x = 4
+    y = 8
+    mutually_exclusive = {
+      focus = FGD_proclaim_a_rhine_confederation
+    }
+    available = {
+      OR = {
+        has_completed_focus = FGD_the_prussian_threat
+        has_completed_focus = FGD_crush_the_rhine_homefront
+      }
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_ideas = Generic_Foritication_Idea
+    }
+}
+shared_focus = {
+    id = FGD_proclaim_a_rhine_confederation
+    icon = GFX_focus_FGD_defense_at_all_costs
+    x = 6
+    y = 8
+    mutually_exclusive = {
+      focus = FGD_defense_at_all_costs
+    }
+    available = {
+      OR = {
+        has_completed_focus = FGD_the_prussian_threat
+        has_completed_focus = FGD_crush_the_rhine_homefront
+      }
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      set_cosmetic_tag = FGD_RHE
+      add_war_support = 0.05
+    }
+}
+shared_focus = {
+    id = FGD_rhine_river_fallback
+    icon = GFX_focus_FGD_rhine_river_fallback
+	prerequisite = {focus = FGD_defense_at_all_costs}
+    x = -1
+    y = 1
+    relative_position_id = FGD_defense_at_all_costs
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     51 = {
+      add_building_construction = {
+        type = bunker
+        level = 3
+        province = 3444
+      }
+      add_building_construction = {
+        type = bunker
+        level = 3
+        province = 587
+      }
+      add_building_construction = {
+        type = bunker
+        level = 3
+        province = 3547
+      }
+      add_building_construction = {
+        type = bunker
+        level = 3
+        province = 11494
+      }
+      add_building_construction = {
+        type = bunker
+        level = 3
+        province = 3423
+      }
+     }
+    }
+}
+shared_focus = {
+    id = FGD_holding_the_prussians
+    icon = GFX_focus_FGD_holding_the_prussians
+	prerequisite = {focus = FGD_rhine_river_fallback}
+    x = 0
+    y = 1
+    relative_position_id = FGD_rhine_river_fallback
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     swap_ideas = {
+      remove_idea = Generic_Foritication_Idea
+      add_idea = FGD_Generic_Foritication_Idea
+     }
+    }
+}
+shared_focus = {
+    id = FGD_fund_hannover_rebels
+    icon = GFX_focus_FGD_fund_hannover_rebels
+	prerequisite = {focus = FGD_holding_the_prussians}
+    x = 0
+    y = 1
+    relative_position_id = FGD_holding_the_prussians
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     56 = {
+      add_dynamic_modifier = {
+        modifier = hannover_home_army
+      }
+     }
+     59 = {
+      add_dynamic_modifier = {
+        modifier = hannover_home_army
+      }
+     }
+     817 = {
+      add_dynamic_modifier = {
+        modifier = hannover_home_army
+      }
+     }
+    }
+}
 
+shared_focus = {
+    id = FGD_request_luxembourg
+    icon = GFX_focus_FGD_request_luxembourg
+	prerequisite = {focus = FGD_proclaim_a_rhine_confederation }
+    x = 1
+    y = 1
+    relative_position_id = FGD_proclaim_a_rhine_confederation 
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     FRA = {
+      country_event = FGD_saarland_conference.1
+     }
+    }
+}
+shared_focus = {
+    id = FGD_cores_on_north_germany
+    icon = GFX_focus_FGD_cores_on_north_germany
+	prerequisite = {focus = FGD_request_luxembourg}
+    x = 0
+    y = 1
+    relative_position_id = FGD_request_luxembourg
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     56 = {
+      add_core_of = FGD
+     }
+     59 = {
+      add_core_of = FGD
+     }
+     817 = {
+      add_core_of = FGD
+    }
+  }
+}
+shared_focus = {
+    id = FGD_cores_on_south_germany
+    icon = GFX_focus_FGD_cores_on_south_germany
+	prerequisite = {focus = FGD_cores_on_north_germany}
+    x = 0
+    y = 1
+    relative_position_id = FGD_cores_on_north_germany
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     GPU = {
+			every_owned_state = {
+				add_core_of = FGD
+			}
+		}
+		HES = {
+			every_owned_state = {
+				add_core_of = FGD
+			}
+		}
+		NAS = {
+			every_owned_state = {
+				add_core_of = FGD
+			}
+		}
+		BAD = {
+			every_owned_state = {
+				add_core_of = FGD
+			}
+		}
+		WUR = {
+			every_owned_state = {
+				add_core_of = FGD
+			}
+		}
+    }
+}
 
-
+shared_focus = {
+    id = FGD_the_saarland_conference
+    icon = GFX_focus_FGD_the_saarland_conference
+	prerequisite = {focus = FGD_proclaim_a_rhine_confederation focus = FGD_defense_at_all_costs }
+    x = -1
+    y = 1
+    relative_position_id = FGD_proclaim_a_rhine_confederation 
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     FRA = {
+      country_event = FGD_saarland_conference.4
+     }
+    }
+}
+shared_focus = {
+    id = FGD_mobilize_the_rhine_guard
+    icon = GFX_focus_FGD_mobilize_the_rhine_guard
+	prerequisite = {focus = FGD_the_saarland_conference}
+    x = 0
+    y = 1
+    relative_position_id = FGD_the_saarland_conference
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     random_owned_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 1
+          instant_build = yes
+  
+        }
+        add_extra_state_shared_building_slots = 1
+        create_unit = {
+          division = "name = \"King's Guard Division 1\" division_template = \"Guard Division\" start_experience_factor = 0.5 start_equipment_factor = 1"
+        
+          owner = FGD
+        }
+      }
+    }
+}
+shared_focus = {
+    id = FGD_invite_de_gaulle
+    icon = GFX_focus_FGD_invite_de_gaulle
+	prerequisite = {focus = FGD_mobilize_the_rhine_guard}
+    x = 0
+    y = 1
+    relative_position_id = FGD_mobilize_the_rhine_guard
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     		create_corps_commander = {
+					name = "Charles De Gaulle"
+					picture = "Portrait_France_Charles_De_Gaulle.dds"
+					traits = {  armor_officer harsh_leader media_personality }
+					id = 101
+					skill = 4
+					attack_skill = 4
+					defense_skill = 4
+					planning_skill = 3
+					logistics_skill = 2
+				}
+    }
+}
+shared_focus = {
+    id = FGD_found_west_germany
+    icon = GFX_focus_FGD_found_west_germany
+	prerequisite = {focus = FGD_invite_de_gaulle focus = FGD_fund_hannover_rebels focus = FGD_cores_on_south_germany }
+    x = 0
+    y = 1
+    relative_position_id = FGD_invite_de_gaulle
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+     add_political_power = 100
+     set_cosmetic_tag = united_west_germany
+    }
+}
 
 
 ###INDUSTRY

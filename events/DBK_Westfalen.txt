@@ -347,3 +347,146 @@ country_event = { # March on Cologne
 		}
 	}
 }
+
+add_namespace = FGD_saarland_conference
+##luxembourg
+country_event = {
+	id = FGD_saarland_conference.1
+	title = FGD_saarland_conference.1.t
+	desc = FGD_saarland_conference.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FGD = {
+				annex_country = {
+					target = LUX
+					transfer_troops = yes
+				}
+			}
+		}
+		FGD = {
+			country_event = FGD_saarland_conference.2
+		}
+	}
+	option = { 
+		name = FGD_saarland_conference.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		FGD = {
+			country_event = FGD_saarland_conference.3
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.2
+	title = FGD_saarland_conference.2.t
+	desc = FGD_saarland_conference.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.2.a 
+		ai_chance = { factor = 90 } 
+		FGD = {
+			annex_country = {
+				target = LUX
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.3
+	title = FGD_saarland_conference.3.t
+	desc = FGD_saarland_conference.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+##saarland
+country_event = {
+	id = FGD_saarland_conference.4
+	title = FGD_saarland_conference.4.t
+	desc = FGD_saarland_conference.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.4.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FGD = {
+				transfer_state = 51
+				transfer_state = 956
+			}
+		}
+		FGD = {
+			country_event = FGD_saarland_conference.5
+		}
+	}
+	option = { 
+		name = FGD_saarland_conference.4.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		FGD = {
+			country_event = FGD_saarland_conference.6
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.5
+	title = FGD_saarland_conference.5.t
+	desc = FGD_saarland_conference.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.5.a 
+		ai_chance = { factor = 90 } 
+		FGD = {
+			transfer_state = 51
+			transfer_state = 956
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.6
+	title = FGD_saarland_conference.6.t
+	desc = FGD_saarland_conference.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.6.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
