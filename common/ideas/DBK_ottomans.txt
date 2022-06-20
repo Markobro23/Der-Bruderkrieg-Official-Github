@@ -1054,6 +1054,29 @@ TUR_conscription_idea_3 =  {
 				factor = 1
 			}
 		}
+		turkish_airlines = {
+
+			picture = generic_air_manufacturer_1
+
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				air_equipment = 0.15
+			}
+
+			traits = { heavy_aircraft_manufacturer }
+
+			equipment_bonus = {
+				# 
+			}
+
+			ai_will_do = {
+				factor = 1
+			}
+		}
 	}
 
 	naval_manufacturer = {
@@ -1074,7 +1097,24 @@ TUR_conscription_idea_3 =  {
 				naval_equipment = 0.15
 			}
 
-			traits = { naval_manufacturer }
+			traits = { mediterranean_naval_manufacturer }
+		}
+
+		taskizak = {
+
+			picture = generic_naval_manufacturer_1
+
+
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_navy_industry
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+
+			traits = { black_sea_naval_manufacturer }
 		}
 	}
 
@@ -1082,7 +1122,7 @@ TUR_conscription_idea_3 =  {
 
 		designer = yes
 
-		istanbul_military_industries = {
+		sarsilmaz = {
 
 			picture = generic_infantry_equipment_manufacturer_3
 
@@ -1100,6 +1140,23 @@ TUR_conscription_idea_3 =  {
 			}
 
 			traits = { infantry_equipment_manufacturer }
+		}
+
+		zeytinburnu = {
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				artillery = 0.15
+			}
+
+			traits = { artillery_manufacturer }
+
+			modifier = {
+				# +10% arty/at/aa research speed
+			}
 		}
 	}
 	industrial_concern = {
@@ -1171,6 +1228,48 @@ TUR_conscription_idea_3 =  {
 			}
 
 			traits = { construction_company }
+		}
+	}
+	tank_manufacturer = { 
+	
+		designer = yes
+		
+		basak = {
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { fast_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 10
+			}
+
+		}
+
+		osmanli = {
+
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
+
+			ai_will_do = {
+				factor = 10
+			}
+
 		}
 	}
 }
