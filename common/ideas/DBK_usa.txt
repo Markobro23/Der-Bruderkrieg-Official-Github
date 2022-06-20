@@ -2582,23 +2582,7 @@ economic_minister = {
   
     designer = yes
   
-    marmon_herrington = {
-      
-      
-      allowed = {
-        original_tag = USA
-      }     
-
-      
-      research_bonus = {
-        armor = 0.15
-      }
-      
-      traits = { fast_tank_manufacturer }
-      
-      modifier = {
-      }
-    }
+    
     
     chrysler = {
       
@@ -2613,36 +2597,28 @@ economic_minister = {
         armor = 0.15
       }
       
-      traits = { medium_tank_manufacturer }
+      traits = { fast_tank_manufacturer }
       
       modifier = {
       }
     }
-    detroit_arsenal = {
+    USA_general_motors = {
       
-      picture = generic_industrial_concern_1
+      picture = usa_general_motors
       allowed = {
         original_tag = USA
       }
+      
 
       
       research_bonus = {
         armor = 0.15
       }
       
-      traits = { }
+      traits = { detroit_arsenal }
       
-      equipment_bonus = {
-        medium_tank_chassis = {
-          build_cost_ic = -0.1
-        }
-        light_tank_chassis = {
-          build_cost_ic = -0.1
-        }
-      }
-
       modifier = {
-
+        industrial_capacity_factory = 0.05
       }
     }
     tank_destroyer_board = {
@@ -2682,7 +2658,7 @@ economic_minister = {
       }
     }
     
-    army_ordnance_department = {
+    ford_motor_company = {
       
       
       allowed = {
@@ -2806,24 +2782,24 @@ economic_minister = {
       }
     }
     
-    #bell = {
-    # 
-    # 
-    # allowed = {
-    #   original_tag = USA
-    # }
-    # 
-    #
-    # 
-    # research_bonus = {
-    #   air_equipment = 0.15
-    # }
-    # 
-    # traits = { light_aircraft_manufacturer }  #TODO, make different from north american
-    # 
-    # modifier = {
-    # }
-    #}  
+    bell = {
+    
+    
+      allowed = {
+        original_tag = USA
+      }
+    
+  
+    
+      research_bonus = {
+        air_equipment = 0.15
+      }
+     
+      traits = { light_aircraft_manufacturer }  #TODO, make different from north american
+    
+      modifier = {
+      }
+    }  
     
     lockheed = {
       
@@ -2883,24 +2859,24 @@ economic_minister = {
       }
     }
     
-    #consolidated_aircraft = {
-    # 
-    # 
-    # allowed = {
-    #   original_tag = USA
-    # }
-    # 
-    #
-    # 
-    # research_bonus = {
-    #   air_equipment = 0.15
-    # }
-    # 
-    # traits = { heavy_aircraft_manufacturer } #TODO remove?
-    # 
-    # modifier = {
-    # }
-    #}
+    consolidated_aircraft = {
+     
+     
+     allowed = {
+       original_tag = USA
+     }
+     
+    
+     
+     research_bonus = {
+       air_equipment = 0.15
+     }
+     
+     traits = { heavy_aircraft_manufacturer } #TODO remove?
+     
+     modifier = {
+     }
+    }
     grumman = {
       
       
@@ -2945,24 +2921,7 @@ economic_minister = {
       }
     }
     
-    ford_motor_company = {
-      
-      
-      allowed = {
-        original_tag = USA
-      }
-      
-
-      
-      research_bonus = {
-        motorized_equipment = 0.15
-      }
-      
-      traits = { motorized_equipment_manufacturer }
-      
-      modifier = {
-      }
-    }
+    
     
   
     
@@ -2980,6 +2939,42 @@ economic_minister = {
       }
       
       traits = { artillery_manufacturer }
+      
+      modifier = {
+      }
+    }
+
+    army_ordnance_department = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }
+      
+
+      
+      research_bonus = {
+        artillery = 0.15
+      }
+      
+      traits = { artillery_manufacturer }
+      
+      modifier = {
+      }
+    }
+    marmon_herrington = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }     
+
+      
+      research_bonus = {
+        motorized_equipment = 0.10
+      }
+      
+      traits = { armored_car_manufacturer }
       
       modifier = {
       }
@@ -3009,6 +3004,25 @@ economic_minister = {
       modifier = {
       }
     }
+
+    bethlehem = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }
+      
+
+      
+      research_bonus = {
+        industry = 0.15
+      }
+      
+      traits = { industrial_concern }
+      
+      modifier = {
+      }
+    }
     
     general_electric = {
       
@@ -3028,25 +3042,20 @@ economic_minister = {
       modifier = {
       }
     }
-    USA_general_motors = {
-      
-      picture = usa_general_motors
+    baldwin_locomotive_works = {
+
       allowed = {
         original_tag = USA
       }
-      
 
-      
       research_bonus = {
-        industry = 0.15
+        train_tech = 0.15
+
       }
-      
-      traits = { industrial_concern }
-      
-      modifier = {
-        industrial_capacity_factory = 0.05
-      }
+
+      traits = { railway_company }
     }
+    
   } 
 }
  
