@@ -1105,7 +1105,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-      
+      unlock_decision_category_tooltip = FGD_the_cologne_conference
     }
 } 
 
@@ -1125,6 +1125,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_austrian_preparations_2
+        remove_idea = FGD_austrian_preparations
+      }
     }
 }
 shared_focus = {
@@ -1143,6 +1147,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_austrian_preparations_3
+        remove_idea = FGD_austrian_preparations
+      }
     }
 }
 shared_focus = {
@@ -1160,6 +1168,9 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      set_major = yes
+      add_political_power = 100
+      add_command_power = 35
     }
 }
 
@@ -1179,6 +1190,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_to_variable = {
+        tooltip = cologneconferenceprussiansupport_increase_by_5
+        global.cologneconferenceprussiansupport = 5
+      }
     }
 }
 shared_focus = {
@@ -1197,6 +1212,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_to_variable = {
+        tooltip = cologneconferencesgcsupport_increase_by_5
+        global.cologneconferencesgcsupport = 5
+      }
     }
 }
 shared_focus = {
@@ -1209,11 +1228,15 @@ shared_focus = {
         focus = FGD_crown_rupprecht_king
         focus = FGD_spread_pro_napoleonic_propaganda
     }
-	
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    }
     cost = 5
     available_if_capitulated = yes
     
     completion_reward = {
+      add_war_support = 0.05
+      add_stability = 0.05
     }
 }
 
