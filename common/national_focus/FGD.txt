@@ -10,6 +10,8 @@ focus_tree = {
 	shared_focus = FGD_the_chaotic_westfalen
   shared_focus = FGD_defense_at_all_costs
   shared_focus = FGD_proclaim_a_rhine_confederation
+  shared_focus = FGD_preparing_for_the_austrian_struggle
+  shared_focus = FGD_host_the_cologne_conference
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -1059,6 +1061,161 @@ shared_focus = {
     }
 }
 
+
+##post austria tree
+shared_focus = {
+    id = FGD_preparing_for_the_austrian_struggle
+    icon = GFX_focus_FGD_preparing_for_the_austrian_struggle
+    x = -2
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_host_the_cologne_conference
+    }
+    prerequisite = {
+      focus = FGD_found_west_germany
+    }
+    relative_position_id = FGD_found_west_germany
+    available = {
+      has_global_flag = AUS_FRA_alliance_falls_apart
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      
+    }
+} 
+
+shared_focus = {
+    id = FGD_host_the_cologne_conference
+    icon = GFX_focus_FGD_host_the_cologne_conference
+    x = 2
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_preparing_for_the_austrian_struggle
+    }
+    available = {
+      has_global_flag = france_austria_split_deal
+    }
+    prerequisite = {
+      focus = FGD_found_west_germany
+    }
+    relative_position_id = FGD_found_west_germany
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      
+    }
+} 
+
+shared_focus = {
+    id = FGD_guarding_the_east_german_front
+    icon = GFX_focus_FGD_guarding_the_east_german_front
+    x = -1
+    y = 1
+    relative_position_id = FGD_preparing_for_the_austrian_struggle
+    prerequisite = {
+        focus = FGD_preparing_for_the_austrian_struggle
+    }
+    mutually_exclusive = {
+      focus = FGD_push_to_vienna
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_push_to_vienna
+    icon = GFX_focus_FGD_push_to_vienna
+    x = 1
+    y = 1
+    relative_position_id = FGD_preparing_for_the_austrian_struggle
+    prerequisite = {
+        focus = FGD_preparing_for_the_austrian_struggle
+    }
+    mutually_exclusive = {
+      focus = FGD_guarding_the_east_german_front
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_berlin_is_ours
+    icon = GFX_focus_FGD_berlin_is_ours
+    x = -1
+    y = 1
+    relative_position_id = FGD_push_to_vienna
+    prerequisite = {
+        focus = FGD_push_to_vienna
+        focus = FGD_guarding_the_east_german_front
+    }
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_spread_pro_napoleonic_propaganda
+    icon = GFX_focus_FGD_spread_pro_napoleonic_propaganda
+    x = -1
+    y = 1
+    relative_position_id = FGD_host_the_cologne_conference
+    prerequisite = {
+        focus = FGD_host_the_cologne_conference
+    }
+    mutually_exclusive = {
+      focus = FGD_crown_rupprecht_king
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_crown_rupprecht_king
+    icon = GFX_focus_FGD_crown_rupprecht_king
+    x = 1
+    y = 1
+    relative_position_id = FGD_host_the_cologne_conference
+    prerequisite = {
+        focus = FGD_host_the_cologne_conference
+    }
+    mutually_exclusive = {
+      focus = FGD_spread_pro_napoleonic_propaganda
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_a_new_dawn_for_germany
+    icon = GFX_focus_FGD_a_new_dawn_for_germany
+    x = -1
+    y = 1
+    relative_position_id = FGD_crown_rupprecht_king
+    prerequisite = {
+        focus = FGD_crown_rupprecht_king
+        focus = FGD_spread_pro_napoleonic_propaganda
+    }
+	
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
 
 ###INDUSTRY
 shared_focus = {
