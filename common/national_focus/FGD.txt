@@ -10,8 +10,7 @@ focus_tree = {
 	shared_focus = FGD_the_chaotic_westfalen
   shared_focus = FGD_defense_at_all_costs
   shared_focus = FGD_proclaim_a_rhine_confederation
-  shared_focus = FGD_preparing_for_the_austrian_struggle
-  shared_focus = FGD_host_the_cologne_conference
+  shared_focus = FGD_king_of_the_germans
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -1237,6 +1236,143 @@ shared_focus = {
     completion_reward = {
       add_war_support = 0.05
       add_stability = 0.05
+    }
+}
+
+shared_focus = {
+    id = FGD_king_of_the_germans
+    icon = GFX_focus_FGD_king_of_the_germans
+    x = 12
+    y = 8
+  
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+      has_government = neutrality
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_country_leader_trait = napoleon_king_of_da_germans
+    }
+}
+shared_focus = {
+    id = FGD_betray_the_french
+    icon = GFX_focus_FGD_betray_the_french
+    x = -1
+    y = 1
+    prerequisite = {
+      focus = FGD_king_of_the_germans
+    }
+    mutually_exclusive = {
+      focus = FGD_reward_paris
+    }
+    relative_position_id = FGD_king_of_the_germans
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      country_event = FGD_betrayal_of_france.1
+    }
+}
+shared_focus = {
+    id = FGD_the_secret_coronation
+    icon = GFX_focus_FGD_the_secret_coronation
+    x = 0
+    y = 1
+    prerequisite = {
+      focus = FGD_betray_the_french
+    }
+    relative_position_id = FGD_betray_the_french
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      country_event = FGD_betrayal_of_france.2
+    }
+}
+shared_focus = {
+    id = FGD_for_a_free_germany
+    icon = GFX_focus_FGD_for_a_free_germany
+    x = 0
+    y = 1
+    prerequisite = {
+      focus = FGD_the_secret_coronation
+    }
+    relative_position_id = FGD_the_secret_coronation
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      country_event = FGD_betrayal_of_france.3
+    }
+}
+
+shared_focus = {
+    id = FGD_reward_paris
+    icon = GFX_focus_FGD_reward_paris
+    x = 1
+    y = 1
+    prerequisite = {
+      focus = FGD_king_of_the_germans
+    }
+    mutually_exclusive = {
+      focus = FGD_betray_the_french
+    }
+    relative_position_id = FGD_king_of_the_germans
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      swap_country_leader_traits = {
+        remove = napoleon_king_of_da_germans_2
+        add = napoleon_king_of_da_germans
+      }
+      
+    }
+}
+shared_focus = {
+    id = FGD_crush_the_resistance_of_the_duchies
+    icon = GFX_focus_FGD_crush_the_resistance_of_the_duchies
+    x = 0
+    y = 1
+    prerequisite = {
+      focus = FGD_reward_paris
+    }
+    relative_position_id = FGD_reward_paris
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      remove_ideas = FGD_unstable_confederation
+    }
+}
+shared_focus = {
+    id = FGD_a_loyal_bonapartist_military
+    icon = GFX_focus_FGD_a_loyal_bonapartist_military
+    x = 0
+    y = 1
+    prerequisite = {
+      focus = FGD_crush_the_resistance_of_the_duchies
+    }
+    relative_position_id = FGD_crush_the_resistance_of_the_duchies
+    available = {
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      
     }
 }
 

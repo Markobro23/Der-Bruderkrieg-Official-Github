@@ -492,3 +492,70 @@ country_event = {
 		
 	}
 }
+
+
+add_namespace = FGD_betrayal_of_france
+
+## plot
+country_event = {
+	id = FGD_betrayal_of_france.1
+	title = FGD_betrayal_of_france.1.t
+	desc = FGD_betrayal_of_france.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.1.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+##coronationb
+country_event = {
+	id = FGD_betrayal_of_france.2
+	title = FGD_betrayal_of_france.2.t
+	desc = FGD_betrayal_of_france.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.2.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+country_event = {
+	id = FGD_betrayal_of_france.3
+	title = FGD_betrayal_of_france.3.t
+	desc = FGD_betrayal_of_france.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.3.a 
+		ai_chance = { factor = 90 } 
+		FRA = {
+			set_autonomy = {
+				target = FGD
+				autonomous_state = autonomy_free
+			}
+		}
+		FGD = {
+			leave_faction = yes
+		}
+		FRA = {
+			declare_war_on = {
+				target = FGD
+				type = annex_everything
+			}
+		}
+	}
+}
