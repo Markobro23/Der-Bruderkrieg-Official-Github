@@ -11,6 +11,7 @@ focus_tree = {
   shared_focus = FGD_defense_at_all_costs
   shared_focus = FGD_proclaim_a_rhine_confederation
   shared_focus = FGD_king_of_the_germans
+  shared_focus = FGD_the_rhine_revolt
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -1376,6 +1377,429 @@ shared_focus = {
     }
 }
 
+## Revolutions
+shared_focus = {
+    id = FGD_the_rhine_revolt
+    icon = GFX_focus_FGD_the_rhine_revolt
+    x = 19
+    y = 8
+  
+    available = {
+      always = no
+    }
+    bypass = {
+      has_completed_focus = FGD_march_on_cologne
+      has_war_with = FRA
+    }
+    cost = 0
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_the_nation_at_arms
+    icon = GFX_focus_FGD_the_nation_at_arms
+    x = -2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_rhine_revolt
+    }
+    relative_position_id = FGD_the_rhine_revolt
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      random_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 1
+          instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+      random_controlled_state = {
+        add_building_construction = {
+          type = arms_factory
+          level = 1
+          instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+    }
+}
+shared_focus = {
+    id = FGD_moderate_corporatism
+    icon = GFX_focus_FGD_moderate_corporatism
+    x = 1
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_follow_strasserism
+    }
+    prerequisite = {
+      focus = FGD_the_nation_at_arms
+    }
+    relative_position_id = FGD_the_nation_at_arms
+    cost = 5
+    available_if_capitulated = yes
+    available = {
+      has_country_leader = {
+        name = "Albert Speer"
+      }
+    }
+    completion_reward = {
+      ##advisor
+    }
+}
+shared_focus = {
+    id = FGD_westphalian_autarky
+    icon = GFX_focus_FGD_westphalian_autarky
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_moderate_corporatism
+    }
+    relative_position_id = FGD_moderate_corporatism
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      modify_building_resources = {
+          building = synthetic_refinery
+          resource = oil
+          amount = 2
+      }
+      modify_building_resources = {
+          building = industrial_complex
+          resource = steel
+          amount = 1
+      }
+    }
+}
+shared_focus = {
+    id = FGD_the_trans_rhine_railroad
+    icon = GFX_focus_FGD_the_trans_rhine_railroad
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_westphalian_autarky
+    }
+    relative_position_id = FGD_westphalian_autarky
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      random_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 3
+          instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+      random_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 3
+          instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_follow_strasserism
+    icon = GFX_focus_FGD_follow_strasserism
+    x = -1
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_moderate_corporatism
+    }
+    prerequisite = {
+      focus = FGD_the_nation_at_arms
+    }
+    relative_position_id = FGD_the_nation_at_arms
+    cost = 5
+    available_if_capitulated = yes
+    available = {
+      has_country_leader = {
+        name = "Reinhard Heydrich"
+      }
+    }
+    completion_reward = {
+      ##advisor
+    }
+}
+shared_focus = {
+    id = FGD_work_with_the_rhine_labour_front
+    icon = GFX_focus_FGD_work_with_the_rhine_labour_front
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_follow_strasserism
+    }
+    relative_position_id = FGD_follow_strasserism
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_ideas = FGD_deutsches_arbeitsfront
+      
+    }
+}
+shared_focus = {
+    id = FGD_finish_nationalization
+    icon = GFX_focus_FGD_finish_nationalization
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_work_with_the_rhine_labour_front
+    }
+    relative_position_id = FGD_work_with_the_rhine_labour_front
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_deutsches_arbeitsfront_2
+        remove_idea = FGD_deutsches_arbeitsfront
+      }
+    }
+}
+
+
+shared_focus = {
+    id = FGD_the_saar_offensive
+    icon = GFX_focus_FGD_the_saar_offensive
+    x = 2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_rhine_revolt
+    }
+    relative_position_id = FGD_the_rhine_revolt
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      every_unit_leader = {
+        add_temporary_buff_to_units = {
+              combat_offense = 0.15
+              combat_breakthrough = 0.15
+              org_damage_multiplier = -1.0
+              str_damage_multiplier = 0.25
+              war_support_reduction_on_damage = 0.2
+              cannot_retreat_while_attacking = 1.0
+                  
+              days = 40
+              tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+          }
+      }
+    }
+}
+shared_focus = {
+    id = FGD_mantain_guerilla_tactics
+    icon = GFX_focus_FGD_mantain_guerilla_tactics
+    x = -1
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_the_professional_corps
+    }
+    prerequisite = {
+      focus = FGD_the_saar_offensive
+    }
+    relative_position_id = FGD_the_saar_offensive
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      
+      every_unit_leader = {
+        add_defense = 1
+      }
+    }
+}
+shared_focus = {
+    id = FGD_sneak_behind_french_lines
+    icon = GFX_focus_FGD_sneak_behind_french_lines
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_mantain_guerilla_tactics
+    }
+    relative_position_id = FGD_mantain_guerilla_tactics
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      FRA = {
+        every_controlled_state = {
+          limit = {
+            is_core_of = FGD
+          }
+          damage_building = {
+              type = infrastructure
+              damage = 1
+          }
+        }
+      }
+    }
+}
+shared_focus = {
+    id = FGD_the_ghost_of_cologne
+    icon = GFX_focus_FGD_the_ghost_of_cologne
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_sneak_behind_french_lines
+    }
+    relative_position_id = FGD_sneak_behind_french_lines
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      unlock_decision_category_tooltip = FGD_french_assasination_decisions
+    }
+}
+
+shared_focus = {
+    id = FGD_the_professional_corps
+    icon = GFX_focus_FGD_the_professional_corps
+    x = 1
+    y = 1
+    mutually_exclusive = {
+      focus = FGD_mantain_guerilla_tactics
+    }
+    prerequisite = {
+      focus = FGD_the_saar_offensive
+    }
+    relative_position_id = FGD_the_saar_offensive
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      every_unit_leader = {
+        add_logistics = 1
+      }
+    }
+}
+shared_focus = {
+    id = FGD_recruit_prussian_officers
+    icon = GFX_focus_FGD_recruit_prussian_officers
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_professional_corps
+    }
+    relative_position_id = FGD_the_professional_corps
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_ideas = ITA_lessons_from_prussia
+
+      if = {
+        limit = {
+          GER = {
+            has_completed_focus = GER_negotiate_with_rohm
+            has_country_leader = {
+              name = "Hermann Goering"
+            }
+          }
+          has_country_leader = {
+            name = "Albert Speer"
+          }
+        }
+        GER = {
+          GER_erich_von_manstein = {
+            set_nationality = FGD
+          }
+        }
+      }
+      else_if = {
+        limit = {
+          GER = {
+            has_completed_focus = GER_reintegrate_the_freikorps
+            has_country_leader = {
+              name = "Hermann Goering"
+            }
+          }
+          has_country_leader = {
+            name = "Reinhard Heydrich"
+          }
+        }
+        GER = {
+          GER_ernst_rohm = {
+            set_nationality = FGD
+          }
+        }
+      }
+      else = {
+        effect_tooltip = {
+          GER = {
+            GER_erich_von_manstein = {
+              set_nationality = FGD
+            }
+          }
+        }
+      }
+    }
+}
+shared_focus = {
+    id = FGD_open_the_arsenal_reserves
+    icon = GFX_focus_FGD_open_the_arsenal_reserves
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_recruit_prussian_officers
+    }
+    relative_position_id = FGD_recruit_prussian_officers
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_war_support = -0.05
+      supply_units = 120
+      add_ideas = war_economy
+    }
+}
+shared_focus = {
+    id = FGD_an_offer_to_the_prussians
+    icon = GFX_focus_FGD_an_offer_to_the_prussians
+    x = -3
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_open_the_arsenal_reserves
+      focus = FGD_the_ghost_of_cologne
+    }
+    prerequisite = {
+      focus = FGD_the_trans_rhine_railroad
+      focus = FGD_finish_nationalization
+    }
+    available = {
+      GER = {
+        has_war_with = FRA
+      }
+    }
+    relative_position_id = FGD_open_the_arsenal_reserves
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
 ###INDUSTRY
 shared_focus = {
     id = FGD_continue_the_public_works
@@ -1437,30 +1861,15 @@ shared_focus = {
     completion_reward = {
     }
 }
-shared_focus = {
-    id = FGD_westphalian_autarky
-    icon = GFX_focus_FGD_westphalian_autarky
-    x = -2
-    y = 1
-    relative_position_id = FGD_industrial_advances
-    prerequisite = {
-        focus = FGD_industrial_advances
-    }
-	
-    cost = 5
-    available_if_capitulated = yes
-    
-    completion_reward = {
-    }
-}
+
 shared_focus = {
     id = FGD_importing_resources
     icon = GFX_focus_FGD_importing_resources
     x = 0
     y = 1
-    relative_position_id = FGD_westphalian_autarky
+    relative_position_id = FGD_rhineland_industrial_project
     prerequisite = {
-        focus = FGD_westphalian_autarky
+        focus = FGD_rhineland_industrial_project
     }
 	
     cost = 5
