@@ -203,3 +203,30 @@ country_event = { #Austria looks to all of Italy
 		}
 	}
 }
+
+country_event = { #hidden event for removing wargoals
+	id = weltkrieg_peace.11
+	title = weltkrieg_peace.11.t
+	desc = weltkrieg_peace.11.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		every_country = {
+				limit = {
+					has_wargoal_against = ROOT
+				}
+				remove_wargoal = {
+					type = all
+					target = ROOT
+				}
+			}
+	}
+
+	option = { #booya!
+		name = weltkrieg_peace.11.a
+		
+	}
+}

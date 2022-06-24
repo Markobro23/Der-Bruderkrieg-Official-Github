@@ -4,6 +4,7 @@ d_austria_loses_peace_deal = {
 austria_loses_peace_deal = {
     GER = {
         transfer_state = 743
+        country_event = { id = GER_goering_post_unification.5 days = 20 random = 480 }
     }
     log = "austria post war peace deal"
     if = {
@@ -97,6 +98,7 @@ prussia_russia_wins_states = {
     GER = {
         transfer_state = 66
         transfer_state = 67
+        country_event = { id = GER_goering_post_unification.5 days = 20 random = 480 }
     }
     
 
@@ -868,7 +870,7 @@ italy_loses_to_austria_peace_deal = {
         load_focus_tree = generic_focus
     }
     SCI = {
-        set_cosmetic_tag = ITA_two_sicilies
+        #set_cosmetic_tag = ITA_two_sicilies
         set_politics = {
             ruling_party = neutrality
         }
@@ -899,7 +901,7 @@ italy_loses_to_austria_peace_deal = {
             reset_government = yes
         }
     }
-    if = {
+    else_if = {
         limit = {
             has_global_flag = weltkrieg_AUS_gets_sicily
         }
@@ -912,6 +914,66 @@ italy_loses_to_austria_peace_deal = {
         }
         ITA = {
             reset_government = yes
+        }
+    }
+    else = {
+        if = {
+            limit = {
+                AUS = {
+                    is_ai = no
+                }
+                FRA = {
+                    is_ai = yes
+                }
+            }
+            AUS = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            AUS = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
+        }
+        else_if = {
+            limit = { 
+                FRA = {
+                    is_ai = no
+                }
+                AUS = {
+                    is_ai = yes
+                }
+            }
+            FRA = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            FRA = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
+        }
+        else = {
+            FRA = {
+                puppet = SCI
+            }
+            SCI = {
+                reset_government = yes
+            }
+            AUS = {
+                puppet = ITA
+            }
+            ITA = {
+                reset_government = yes
+            }
         }
     }
     
@@ -1255,7 +1317,7 @@ d_france_loses_peace_deal = {
 }
 france_loses_peace_deal = {
     set_global_flag = prussia_has_beaten_france
-   
+   news_event = prussian_expansion.5
     if = {
         limit = { SPR = { is_in_faction_with = FRA } }
         SPR = {
@@ -1566,10 +1628,6 @@ france_loses_peace_deal = {
         release = MOR
         release = ALG
         release = GHA
-    }
-
-    GHA = {
-        transfer_state = 879
     }
 	
 	every_state = {

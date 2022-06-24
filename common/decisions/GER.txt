@@ -2225,6 +2225,14 @@ GER_anti_spartakus_category = {
 				min = 0
 				max = 100
 			}
+			add_country_leader_role = {
+				character = GER_paul_frolich 
+				promote_leader = yes
+				country_leader = {
+					ideology = marxism
+					expire = "1965.1.1"
+				}
+			}
 		}
 
 	}
@@ -2864,8 +2872,23 @@ weltkrieg_decisions = {
 			factor = 1000
 		}
 	
-		complete_effect = {
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
 		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GER_congo_revolt_tt
 	
 		remove_effect = {
 			FEA = {
@@ -3236,7 +3259,7 @@ anthrax_decisions = {
 		}
 		visible = {
 		}
-		fire_only_once = yes
+		fire_only_once = no
 		cost = 10
 		modifier = {
 			production_factory_efficiency_gain_factor = -0.05

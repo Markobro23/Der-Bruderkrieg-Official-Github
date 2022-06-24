@@ -2136,7 +2136,14 @@ shared_focus = {
     }
 
 	available = {
-		ultranationalism > 0.2
+		if = {
+			limit = {
+				has_completed_focus = FRA_NOBLE_RULE
+			}
+		}
+		else = {
+			ultranationalism > 0.2
+		}
 	}
 
     available_if_capitulated = yes
