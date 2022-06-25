@@ -12,6 +12,7 @@ focus_tree = {
   shared_focus = FGD_proclaim_a_rhine_confederation
   shared_focus = FGD_king_of_the_germans
   shared_focus = FGD_the_rhine_revolt
+  shared_focus = FGD_heydrichs_germany
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -1797,8 +1798,337 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+    } 
+}
+
+##hdeyrich
+shared_focus = {
+    id = FGD_heydrichs_germany
+    icon = GFX_focus_FGD_heydrichs_germany
+    x = 27
+    y = 8
+  
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    }
+    # bypass = {
+    #   has_completed_focus = FGD_march_on_cologne
+    #   has_war_with = FRA
+    # }
+    cost = 2
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_political_power = 25
     }
 }
+shared_focus = {
+    id = FGD_project_android
+    icon = GFX_focus_FGD_project_android
+    x = -2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_heydrichs_germany
+    }
+
+    relative_position_id = FGD_heydrichs_germany
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_we_need_your_steel
+    icon = GFX_focus_FGD_we_need_your_steel
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_project_android
+    }
+
+    relative_position_id = FGD_project_android
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_we_need_your_science
+    icon = GFX_focus_FGD_we_need_your_science
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_project_android
+    }
+
+    relative_position_id = FGD_project_android
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_deploy_the_race_of_devils
+    icon = GFX_focus_FGD_deploy_the_race_of_devils
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_we_need_your_science
+      focus = FGD_we_need_your_steel
+    }
+
+    relative_position_id = FGD_we_need_your_science
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_crushing_speer
+    icon = GFX_focus_FGD_crushing_speer
+    x = 2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_heydrichs_germany
+    }
+
+    relative_position_id = FGD_heydrichs_germany
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_declare_a_state_of_emergency
+    icon = GFX_focus_FGD_declare_a_state_of_emergency
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_crushing_speer
+    }
+
+    relative_position_id = FGD_crushing_speer
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_destroy_the_junkers
+    icon = GFX_focus_FGD_destroy_the_junkers
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_crushing_speer
+    }
+
+    relative_position_id = FGD_crushing_speer
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_the_man_with_the_iron_heart
+    icon = GFX_focus_FGD_the_man_with_the_iron_heart
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_destroy_the_junkers
+      focus = FGD_declare_a_state_of_emergency
+    }
+
+    relative_position_id = FGD_destroy_the_junkers
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_the_final_threat
+    icon = GFX_focus_FGD_the_final_threat
+    x = 2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_man_with_the_iron_heart
+    }
+    prerequisite = {
+      focus = FGD_deploy_the_race_of_devils
+    }
+
+    relative_position_id = FGD_the_man_with_the_iron_heart
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+
+## America  tree
+shared_focus = {
+    id = FGD_destruction_from_within
+    icon = GFX_focus_FGD_destruction_from_within
+    x = -2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_final_threat
+    }
+    mutually_exclusive = {
+      focus = FGD_operation_atlantika
+    }
+    relative_position_id = FGD_the_final_threat
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_spread_the_german_american_bund
+    icon = GFX_focus_FGD_spread_the_german_american_bund
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_destruction_from_within
+    }
+
+    relative_position_id = FGD_destruction_from_within
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_mobilize_distraught_unions
+    icon = GFX_focus_FGD_mobilize_distraught_unions
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_destruction_from_within
+    }
+
+    relative_position_id = FGD_destruction_from_within
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_agent_zeros_revolution
+    icon = GFX_focus_FGD_agent_zeros_revolution
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_mobilize_distraught_unions
+      focus = FGD_spread_the_german_american_bund
+    }
+
+    relative_position_id = FGD_mobilize_distraught_unions
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = FGD_operation_atlantika
+    icon = GFX_focus_FGD_operation_atlantika
+    x = 2
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_the_final_threat
+    }
+    mutually_exclusive = {
+      focus = FGD_destruction_from_within
+    }
+    relative_position_id = FGD_the_final_threat
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_ally_argentinian_syndicalists
+    icon = GFX_focus_FGD_ally_argentinian_syndicalists
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_operation_atlantika
+    }
+
+    relative_position_id = FGD_operation_atlantika
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_demand_iceland
+    icon = GFX_focus_FGD_demand_iceland
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_operation_atlantika
+    }
+
+    relative_position_id = FGD_operation_atlantika
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = FGD_establish_local_governments
+    icon = GFX_focus_FGD_establish_local_governments
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_demand_iceland
+      focus = FGD_ally_argentinian_syndicalists
+    }
+
+    relative_position_id = FGD_demand_iceland
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+    }
+}
+
 
 ###INDUSTRY
 shared_focus = {
