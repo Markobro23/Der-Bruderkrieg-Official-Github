@@ -560,3 +560,133 @@ country_event = {
 		}
 	}
 }
+
+add_namespace = FGD_heydrichs_germany
+##heydrichs germany
+country_event = {
+	id = FGD_heydrichs_germany.1
+	title = FGD_heydrichs_germany.1.t
+	desc = FGD_heydrichs_germany.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.1.a 
+		ai_chance = { factor = 90 } 
+		add_ideas = FGD_speerist_resistance
+	}
+}
+
+##state of emergency
+country_event = {
+	id = FGD_heydrichs_germany.2
+	title = FGD_heydrichs_germany.2.t
+	desc = FGD_heydrichs_germany.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.2.a 
+		ai_chance = { factor = 90 } 
+		set_country_flag = FGD_state_of_emergency
+	}
+}
+
+## project android
+country_event = {
+	id = FGD_heydrichs_germany.3
+	title = FGD_heydrichs_germany.3.t
+	desc = FGD_heydrichs_germany.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.3.a 
+		ai_chance = { factor = 90 } 
+	}
+}
+
+##meeting with agent zero
+country_event = {
+	id = FGD_heydrichs_germany.4
+	title = FGD_heydrichs_germany.4.t
+	desc = FGD_heydrichs_germany.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.4.a 
+		ai_chance = { factor = 90 } 
+		unlock_decision_category_tooltip = FGD_agent_zero_revolution
+	}
+}
+country_event = {
+	id = FGD_heydrichs_germany.5
+	title = FGD_heydrichs_germany.5.t
+	desc = FGD_heydrichs_germany.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.5.a 
+		ai_chance = { factor = 90 } 
+		CSA = {
+			add_state_core = 360
+		}
+		if = {
+			limit = {
+				FGD = {
+					has_completed_focus = FGD_spread_the_german_american_bund
+				}
+			}
+			389 = {
+				add_core_Of = CSA
+			}
+			390 = {
+				add_core_Of = CSA
+			}
+			391 = {
+				add_core_Of = CSA
+			}
+			392 = {
+				add_core_Of = CSA
+			}
+		}
+		if = {
+			limit = {
+				FGD = {
+					has_completed_focus = FGD_mobilize_distraught_unions
+				}
+			}
+			394 = {
+				add_core_of = CSA
+			}
+			395 = {
+				add_core_of = CSA
+			}
+			396 = {
+				add_core_of = CSA
+			}
+			393 = {
+				add_core_of = CSA
+			}
+		}
+		USA = {
+			release = CSA
+			declare_war_on = {
+				target = CSA
+				type = civil_war
+			}
+		}
+	}
+}

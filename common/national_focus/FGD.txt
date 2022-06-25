@@ -1837,6 +1837,8 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      country_event = FGD_heydrichs_germany.3
+      unlock_decision_category_tooltip = FGD_operation_android
     }
 }
 shared_focus = {
@@ -1907,6 +1909,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_speerist_resistance_2
+        remove_idea = FGD_speerist_resistance
+      }
     }
 }
 shared_focus = {
@@ -1924,6 +1930,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      country_event = FGD_heydrichs_germany.2
+      swap_ideas = {
+        add_idea = FGD_speerist_resistance_3
+        remove_idea = FGD_speerist_resistance_2
+      }
     }
 }
 shared_focus = {
@@ -1935,12 +1946,19 @@ shared_focus = {
     prerequisite = {
       focus = FGD_crushing_speer
     }
+    available = {
+      has_country_flag = FGD_state_of_emergency
+    }
 
     relative_position_id = FGD_crushing_speer
     cost = 5
     available_if_capitulated = yes
     
     completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_speerist_resistance_4
+        remove_idea = FGD_speerist_resistance_3
+      }
     }
 }
 shared_focus = {
@@ -1959,6 +1977,16 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      set_popularities = {
+        democratic = 0
+        socialism_democratic = 0
+        democratic_liberalism = 0
+        ultranationalism = 100
+        communism = 0
+        neutrality = 0
+        fascism = 0
+      }
+      remove_ideas = FGD_speerist_resistance_4
     }
 }
 
@@ -1980,6 +2008,18 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      USA = {
+        add_opinion_modifier = {
+          target = GER
+          modifier = mortal_enemies
+        }
+      }
+      GER = {
+        add_opinion_modifier = {
+          target = USA
+          modifier = mortal_enemies
+        }
+      }
     }
 }
 
@@ -2002,6 +2042,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      country_event = FGD_heydrichs_germany.4
     }
 }
 shared_focus = {
@@ -2019,6 +2060,18 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      389 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      390 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      391 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      392 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
     }
 }
 shared_focus = {
@@ -2036,6 +2089,21 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      394 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      395 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      396 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      393 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
+      261 = {
+        custom_effect_tooltip = FGD_will_join_agent_zero_revolution
+      }
     }
 }
 shared_focus = {
@@ -2048,12 +2116,24 @@ shared_focus = {
       focus = FGD_mobilize_distraught_unions
       focus = FGD_spread_the_german_american_bund
     }
-
+    available = {
+      CSA = {
+        has_war_with = USA
+      }
+    }
     relative_position_id = FGD_mobilize_distraught_unions
     cost = 5
     available_if_capitulated = yes
     
     completion_reward = {
+      add_to_faction = CSA
+      FGD = {
+        add_to_war = {
+          targeted_alliance = CSA
+          enemy = USA
+          hostility_reason = asked_to_join
+        }
+      }
     }
 }
 
