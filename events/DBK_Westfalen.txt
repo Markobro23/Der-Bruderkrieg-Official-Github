@@ -690,3 +690,59 @@ country_event = {
 		}
 	}
 }
+
+##demand iceland
+country_event = {
+	id = FGD_heydrichs_germany.6
+	title = FGD_heydrichs_germany.6.t
+	desc = FGD_heydrichs_germany.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.6.a 
+		ai_chance = { factor = 90 } 
+		country_event = FGD_heydrichs_germany.7
+	}
+	option = { 
+		name = FGD_heydrichs_germany.6.b
+		ai_chance = { factor = 0 } 
+		country_event = FGD_heydrichs_germany.8
+	}
+}
+
+country_event = {
+	id = FGD_heydrichs_germany.7
+	title = FGD_heydrichs_germany.7.t
+	desc = FGD_heydrichs_germany.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.7.a 
+		ai_chance = { factor = 90 } 
+		transfer_state = 100
+	}
+}
+country_event = {
+	id = FGD_heydrichs_germany.8
+	title = FGD_heydrichs_germany.8.t
+	desc = FGD_heydrichs_germany.8.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.8.a 
+		ai_chance = { factor = 90 } 
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
