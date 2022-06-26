@@ -1838,7 +1838,12 @@ shared_focus = {
     
     completion_reward = {
       country_event = FGD_heydrichs_germany.3
-      unlock_decision_category_tooltip = FGD_operation_android
+      unlock_decision_category_tooltip = superhuman_decision_category
+      clamp_variable = {
+        var = superhuman_decision_category_progress
+        min = 0
+        max = 100
+      }
     }
 }
 shared_focus = {
@@ -1856,6 +1861,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_to_variable = {
+				tooltip = superhuman_decision_category_progress_increase_by_5
+				superhuman_decision_category_progress = 5
+			}
     }
 }
 shared_focus = {
@@ -1873,6 +1882,10 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_to_variable = {
+				tooltip = superhuman_decision_category_progress_increase_by_5
+				superhuman_decision_category_progress = 5
+			}
     }
 }
 shared_focus = {
@@ -1885,7 +1898,9 @@ shared_focus = {
       focus = FGD_we_need_your_science
       focus = FGD_we_need_your_steel
     }
-
+    available = {
+      has_country_flag = unlock_superhuman_divisions
+    }
     relative_position_id = FGD_we_need_your_science
     cost = 5
     available_if_capitulated = yes
