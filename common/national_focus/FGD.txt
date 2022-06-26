@@ -13,6 +13,7 @@ focus_tree = {
   shared_focus = FGD_king_of_the_germans
   shared_focus = FGD_the_rhine_revolt
   shared_focus = FGD_heydrichs_germany
+  shared_focus = FGD_speers_germany
     shared_focus = FGD_continue_the_public_works
     shared_focus = FGD_the_sea_at_last
     shared_focus = FGD_luftwaffe
@@ -2041,6 +2042,330 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = FGD_speers_germany
+    icon = GFX_focus_FGD_heydrichs_germany
+    x = 37
+    y = 8
+  
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+        has_country_leader = {
+            name = "Albert Speer"
+        }
+    }
+    cost = 2
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_political_power = 25
+    }
+}
+
+shared_focus = {
+    id = FGD_rebuilding_germany
+    icon = GFX_goal_generic_construction2
+    x = 3
+    y = 1
+    relative_position_id = FGD_speers_germany
+    prerequisite = {
+        focus = FGD_speers_germany
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_ideas = FGD_reichsarbeitsdienst
+      random_owned_controlled_state = {
+        limit = {
+            is_core_of = ROOT
+            free_building_slots = {
+                building = industrial_complex
+                size > 0
+                include_locked = yes
+            }
+        }
+        add_extra_state_shared_building_slots = 1
+        add_building_construction = {
+            type = industrial_complex
+            level = 1
+            instant_build = yes
+        }
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_colossus_of_germania
+    icon = GFX_goal_generic_construct_civ_factory
+    x = -2
+    y = 1
+    relative_position_id = FGD_rebuilding_germany
+    prerequisite = {
+        focus = FGD_rebuilding_germany
+    }
+    available = {
+        controls_state = 64
+    }
+    cost = 10
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      64 = {
+        limit = {
+            free_building_slots = {
+                building = industrial_complex
+                size > 1
+                include_locked = yes
+            }
+        }
+        add_extra_state_shared_building_slots = 2
+        add_building_construction = {
+            type = industrial_complex
+            level = 2
+            instant_build = yes
+        }
+      }
+      if = {
+        limit = {
+            NOT = {
+                has_completed_focus = FGD_koln_megaproject
+            }
+        }
+        set_capital = { state = 64 }
+        64 = {
+            #add a cool state modifier
+        }
+        set_province_name = {
+            id = 6521
+            name = Germania
+        }
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_koln_megaproject
+    icon = GFX_goal_generic_construct_civ_factory
+    x = 2
+    y = 1
+    relative_position_id = FGD_rebuilding_germany
+    prerequisite = {
+        focus = FGD_rebuilding_germany
+    }
+    available = {
+        controls_state = 51
+    }
+    cost = 10
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      51 = {
+        if = {
+            limit = {
+                NOT = {
+                    has_completed_focus = FGD_colossus_of_germania
+                }
+            }
+            set_state_category = megalopolis
+            #add a cool state modifier
+          }
+        add_extra_state_shared_building_slots = 2
+        add_building_construction = {
+            type = industrial_complex
+            level = 2
+            instant_build = yes
+        }
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_finishing_prussian_reichsautobahnen
+    icon = GFX_goal_generic_construct_infrastructure
+    x = 0
+    y = 1
+    relative_position_id = FGD_rebuilding_germany
+    prerequisite = {
+        focus = FGD_rebuilding_germany
+    }
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      every_state = {
+        limit = {
+            is_owned_by = ROOT
+            is_core_of = ROOT
+            is_controlled_by = ROOT
+            free_building_slots = {
+                building = infrastructure
+                size > 0
+                include_locked = yes
+            }
+        }
+        add_extra_state_shared_building_slots = 1
+        add_building_construction = {
+            type = infrastructure
+            level = 1
+            instant_build = yes
+        }
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_weaponizing_reichsarbeitsdienst
+    icon = GFX_goal_AUS_gross_kaiserwerke
+    x = 0
+    y = 1
+    relative_position_id = FGD_finishing_prussian_reichsautobahnen
+    prerequisite = {
+        focus = FGD_koln_megaproject
+    }
+    prerequisite = {
+        focus = FGD_colossus_of_germania
+    }
+    prerequisite = {
+        focus = FGD_finishing_prussian_reichsautobahnen
+    }
+    cost = 3
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      swap_ideas = {
+        remove_idea = FGD_reichsarbeitsdienst
+        add_idea = FGD_reichsarbeitsdienst_2
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_reorganize_board
+    icon = GFX_goal_AUS_federalism
+    x = -3
+    y = 1
+    relative_position_id = FGD_speers_germany
+    prerequisite = {
+        focus = FGD_speers_germany
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      add_ideas = FGD_board_political_organization
+      #unlock decisions to do political scheming stuff
+    }
+}
+
+shared_focus = {
+    id = FGD_empower_industrialists
+    icon = GFX_DBK_generic_industry
+    x = 0
+    y = 1
+    relative_position_id = FGD_reorganize_board
+    prerequisite = {
+        focus = FGD_reorganize_board
+    }
+    mutually_exclusive = {
+        focus = FGD_central_economic_control
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      swap_ideas = {
+        remove_idea = FGD_board_political_organization
+        add_idea = FGD_board_political_organization_industrialist
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_central_economic_control
+    icon = GFX_goal_FRA_ruhr_development
+    x = -2
+    y = 1
+    relative_position_id = FGD_reorganize_board
+    prerequisite = {
+        focus = FGD_reorganize_board
+    }
+    mutually_exclusive = {
+        focus = FGD_empower_industrialists
+    }
+
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = FGD_speer_influence_greater_than_industrialist
+            check_variable = {
+                FGD_speer_influence_var > FGD_industrialist_influence_var
+            }
+        }
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      swap_ideas = {
+        remove_idea = FGD_board_political_organization
+        add_idea = FGD_board_political_organization_centralist
+      }
+    }
+}
+
+shared_focus = {
+    id = FGD_use_junkers
+    icon = GFX_goal_GER_restoration_day
+    x = 2
+    y = 1
+    relative_position_id = FGD_reorganize_board
+    prerequisite = {
+        focus = FGD_reorganize_board
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      #unlocks decisions about asking for junker funds and using their political influence
+    }
+}
+
+shared_focus = {
+    id = FGD_night_long_knives
+    icon = GFX_goal_GER_dochloslegende
+    x = -2
+    y = 1
+    relative_position_id = FGD_use_junkers
+    prerequisite = {
+        focus = FGD_use_junkers
+    }
+    prerequisite = {
+        focus = FGD_central_economic_control
+        focus = FGD_empower_industrialists
+    }
+
+    available = {
+        custom_trigger_tooltip = {
+            tooltip = FGD_speer_influence_greater_than_militias
+            check_variable = {
+                FGD_speer_influence_var > FGD_militia_influence_var
+            }
+        }
+    }
+
+    cost = 5
+    available_if_capitulated = yes
+    
+    completion_reward = {
+      #event about the purging of pro-heydrich militias
+    }
+}
+
+shared_focus = {
     id = FGD_the_final_threat
     icon = GFX_focus_FGD_the_final_threat
     x = 2
@@ -2048,8 +2373,10 @@ shared_focus = {
   
     prerequisite = {
       focus = FGD_the_man_with_the_iron_heart
+      focus = FGD_night_long_knives
     }
     prerequisite = {
+      focus = FGD_weaponizing_reichsarbeitsdienst
       focus = FGD_deploy_the_race_of_devils
     }
 

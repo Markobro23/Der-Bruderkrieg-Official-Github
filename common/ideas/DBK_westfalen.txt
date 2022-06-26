@@ -579,6 +579,146 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
+
+		FGD_reichsarbeitsdienst = {
+
+			allowed = {
+				always = yes
+			}
+
+			picture = generic_exploit_mines
+
+			cancel = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.05
+				conscription_factor = -0.05
+			}
+		}
+
+		FGD_reichsarbeitsdienst_2 = {
+
+			allowed = {
+				always = yes
+			}
+
+			picture = generic_exploit_mines
+		
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				conscription_factor = 0.05
+				dig_in_speed_factor = 0.1
+				mobilization_speed = 0.1
+			}
+		}
+
+		FGD_board_political_organization = {
+
+			allowed = {
+				always = yes
+			}
+
+			cancel = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+
+			picture = generic_pp_unity_bonus
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				political_power_factor = 0.1
+				fascism_drift = 0.05
+			}
+		}
+
+		FGD_board_political_organization_industrialist = {
+
+			name = FGD_board_political_organization
+
+			allowed = {
+				always = yes
+			}
+
+			cancel = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+
+			picture = generic_pp_unity_bonus
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				political_power_factor = 0.1
+				fascism_drift = 0.05
+				consumer_goods_factor = 0.03
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		FGD_board_political_organization_centralist = {
+
+			name = FGD_board_political_organization
+
+			allowed = {
+				always = yes
+			}
+
+			cancel = {
+				NOT = {
+					has_government = fascism
+				}
+			}
+
+			picture = generic_pp_unity_bonus
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				political_power_factor = 0.15
+				fascism_drift = 0.1
+				industrial_capacity_factory = 0.05
+			}
+		}
 	}
 
 	head_of_government = {
