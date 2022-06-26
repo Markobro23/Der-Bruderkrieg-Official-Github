@@ -1,0 +1,110 @@
+scripted_gui = {
+	FGD_openelectionsbutton_scripted_gui = {
+		window_name = "FGD_open_parliament_election_window"
+		parent_window_token = politics_tab
+		visible = {
+			tag = FGD
+			is_ai = no
+		}
+		effects = {
+			FGD_openelectionsbutton_click = {
+				set_country_flag = FGD_open_election_view_GUI
+			}
+		}
+	}
+	FGD_electionsview_scripted_gui = {
+		window_name = "FGD_electionsview"
+		visible = {
+			has_country_flag = FGD_open_election_view_GUI
+		}
+		effects = {
+			close_button_click = {
+				clr_country_flag = FGD_open_election_view_GUI
+			}
+			FGD_election_map_north_westfalen_button_click = {
+				set_country_flag = { flag = FGD_already_campaigning_in_north_westfalen value = 1 days = 25 }
+				FGD_increase_election_support = yes
+				set_temp_variable = {
+					temp_westfalen_campaign_cost = westfalen_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_westfalen_campaign_cost = -1
+				}
+				add_political_power = var:temp_westfalen_campaign_cost	
+			}
+			FGD_election_map_cologne_button_click = {
+				set_country_flag = { flag = FGD_already_campaigning_in_cologne value = 1 days = 25 }
+				FGD_increase_election_support = yes
+				set_temp_variable = {
+					temp_westfalen_campaign_cost = westfalen_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_westfalen_campaign_cost = -1
+				}
+				add_political_power = var:temp_westfalen_campaign_cost	
+			}
+			FGD_election_map_dusseldorf_button_click = {
+				set_country_flag = { flag = FGD_already_campaigning_in_dusseldorf value = 1 days = 25 }
+				FGD_increase_election_support = yes
+				set_temp_variable = {
+					temp_westfalen_campaign_cost = westfalen_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_westfalen_campaign_cost = -1
+				}
+				add_political_power = var:temp_westfalen_campaign_cost	
+			}
+			FGD_election_map_moselle_button_click = {
+				set_country_flag = { flag = FGD_already_campaigning_in_moselle value = 1 days = 25 }
+				FGD_increase_election_support = yes
+				set_temp_variable = {
+					temp_westfalen_campaign_cost = westfalen_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_westfalen_campaign_cost = -1
+				}
+				add_political_power = var:temp_westfalen_campaign_cost	
+			}
+			FGD_election_map_aachen_button_click = {
+				set_country_flag = { flag = FGD_already_campaigning_in_aachen value = 1 days = 25 }
+				FGD_increase_election_support = yes
+				set_temp_variable = {
+					temp_westfalen_campaign_cost = westfalen_campaign_cost
+				}
+				multiply_temp_variable = {
+					temp_westfalen_campaign_cost = -1
+				}
+				add_political_power = var:temp_westfalen_campaign_cost	
+			}
+
+			FGD_election_map_conservative_button_click = {
+				if = {
+					limit = {
+						has_country_flag = FGD_election_map_liberal_button_selected
+					}
+					clr_country_flag = FGD_election_map_liberal_button_selected
+				}
+				set_country_flag = FGD_election_map_conservative_button_selected
+			}
+			FGD_election_map_liberal_button_click = {
+				if = {
+					limit = {
+						has_country_flag = FGD_election_map_conservative_button_selected
+					}
+					clr_country_flag = FGD_election_map_conservative_button_selected
+				}
+				set_country_flag = FGD_election_map_liberal_button_selected
+			}
+		}
+
+		properties = {
+			parliament_elections_adenaur_progress_bar =  {
+				frame = FGD_elections_conservative_support
+			}
+			parliament_elections_steinhoff_progress_bar =  {
+				frame = FGD_elections_liberal_support
+			}
+		
+		}
+	}
+}

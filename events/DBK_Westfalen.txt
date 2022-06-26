@@ -105,9 +105,30 @@ country_event = { #conservative vic
 		set_politics = {
 			ruling_party = democratic_liberalism
 		}
-	}
+	}	
+}
 
-	
+
+country_event = { #candidate chooser
+	id = FGD_adenaur_republic.7
+	title = FGD_adenaur_republic.7.t
+	desc = FGD_adenaur_republic.7.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.7.a 
+		ai_chance = { factor = 3 }
+		set_variable = {
+			FGD_chosen_candidate = 1
+		}
+	}
+	option = {
+		name = FGD_adenaur_republic.7.a 
+		ai_chance = { factor = 3 }
+		set_variable = {
+			FGD_chosen_candidate = 2
+		}
+	}
 }
 
 

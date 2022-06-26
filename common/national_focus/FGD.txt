@@ -284,6 +284,7 @@ shared_focus = {
     
     completion_reward = {
       country_event = FGD_adenaur_republic.1
+      remove_ideas = Neue_Code_Napoleon
     } 
 }
 shared_focus = {
@@ -373,14 +374,23 @@ shared_focus = {
     
     completion_reward = {
       remove_ideas = Nationalist_Sympathisers
-      remove_ideas = Neue_Code_Napoleon
+      add_popularity = {
+        ideology = fascism
+        popularity = 0.15
+      }
+      add_popularity = {
+        ideology = ultranationalism
+        popularity = 0.05
+      }
+      add_political_power = -80
     }
 }
 shared_focus = {
     id = FGD_the_prussian_threat
     icon = GFX_focus_FGD_the_prussian_threat
-	prerequisite = {focus = FGD_incorporate_moderate_nationalists}
+	prerequisite = {}
   prerequisite = {
+    focus = FGD_incorporate_moderate_nationalists
     focus = FGD_end_the_nationalist_threat
   }
     x = -1
@@ -390,7 +400,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-      add_ideas = FGD_the_rheinish_fortress
+      remove_ideas = FGD_legacy_of_traveluer_coup
     }
 }
 
@@ -407,6 +417,16 @@ shared_focus = {
     completion_reward = {
       unlock_decision_category_tooltip = FGD_elections
       activate_decision = FGD_election_timeout
+      country_event = FGD_adenaur_republic.7
+      set_variable = {
+        FGD_elections_conservative_support = 60
+      }
+      set_variable = {
+        FGD_elections_liberal_support = 40
+      }
+      set_variable = {
+        westfalen_campaign_cost = 20
+      }
     }
 }
 shared_focus = {
@@ -781,7 +801,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-      add_ideas = Generic_Foritication_Idea
+      add_ideas = FGD_the_rheinish_fortress
     }
 }
 shared_focus = {
