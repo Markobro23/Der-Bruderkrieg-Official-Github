@@ -2311,6 +2311,9 @@ shared_focus = {
     completion_reward = {
       add_ideas = FGD_board_political_organization
       #unlock decisions to do political scheming stuff
+      set_variable = { FGD_speer_influence_var = 2 }
+      set_variable = { FGD_industrialist_influence_var = 5 }
+      set_variable = { FGD_worker_influence_var = 3 }
       unlock_decision_category_tooltip = FGD_speers_unity_board
     }
 }
@@ -2386,7 +2389,8 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-      #unlocks decisions about asking for junker funds and using their political influence
+      unlock_decision_tooltip = FGD_use_junker_funds
+      unlock_decision_tooltip = FGD_sic_der_stahlhelm_on_radicals
     }
 }
 
@@ -2406,9 +2410,9 @@ shared_focus = {
 
     available = {
         custom_trigger_tooltip = {
-            tooltip = FGD_speer_influence_greater_than_militias
+            tooltip = FGD_speer_influence_greater_than_workers
             check_variable = {
-                FGD_speer_influence_var > FGD_militia_influence_var
+                FGD_speer_influence_var > FGD_worker_influence_var
             }
         }
     }

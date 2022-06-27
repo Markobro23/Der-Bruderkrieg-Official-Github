@@ -489,3 +489,245 @@ FGD_agent_zero_revolution = {
 		
 	}
 }
+
+FGD_speers_unity_board = {
+	
+	FGD_create_state_union = {
+
+		icon = generic_political_discourse
+
+		cost = 30
+
+		days_remove = 14
+
+		fire_only_once = yes
+
+		modifier = {
+			consumer_goods_factor = 0.05
+			production_factory_efficiency_gain_factor = 0.1
+		}
+
+		visible = {
+			NOT = {
+				OR = {
+					has_completed_focus = FGD_empower_industrialists
+					has_completed_focus = FGD_night_long_knives
+				}
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = FGD_speer_state_union
+			add_to_variable = {
+				tooltip = FGD_increase_speer_influence
+				FGD_speer_influence_var = 1
+			}
+			add_to_variable = {
+				tooltip = FGD_increase_worker_influence
+				FGD_worker_influence_var = 1
+			}
+			add_to_variable = {
+				tooltip = FGD_decrease_industrialist_influence
+				FGD_industrialist_influence_var = -1
+			}
+		}
+
+	}
+
+	FGD_crush_strikers = {
+
+		icon = generic_industry
+
+		cost = 30
+
+		days_remove = 14
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				OR = {
+					has_country_flag = FGD_speer_state_union
+					has_completed_focus = FGD_night_long_knives
+				}
+			}
+		}
+
+		modifier = {
+			stability_weekly = -0.02
+			industrial_capacity_factory = 0.1
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = FGD_increase_speer_influence
+				FGD_speer_influence_var = 1
+			}
+			add_to_variable = {
+				tooltip = FGD_decrease_worker_influence
+				FGD_worker_influence_var = -1
+			}
+			add_to_variable = {
+				tooltip = FGD_increase_industrialist_influence
+				FGD_industrialist_influence_var = 1
+			}
+		}
+
+	}
+
+	FGD_offer_company_contracts = {
+
+		icon = generic_construction
+
+		cost = 30
+
+		days_remove = 30
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				OR = {
+					has_completed_focus = FGD_central_economic_control
+					has_completed_focus = FGD_night_long_knives
+				}
+			}
+		}
+
+		modifier = {
+			production_speed_buildings_factor = -0.15
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = FGD_increase_industrialist_influence
+				FGD_industrialist_influence_var = 1
+			}
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				limit = {
+					free_building_slots = {
+		                building = industrial_complex
+		                size > 0
+		                include_locked = yes
+		            }
+				}
+				add_extra_state_shared_building_slots = 1
+		        add_building_construction = {
+		            type = industrial_complex
+		            level = 1
+		            instant_build = yes
+		        }
+			}
+		}
+
+	}
+
+	FGD_use_radicals_terrorize_corporations = {
+
+		icon = generic_industry
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				OR = {
+					has_completed_focus = FGD_empower_industrialists
+					has_completed_focus = FGD_night_long_knives
+				}
+			}
+		}
+
+		complete_effect = {
+			random_owned_controlled_state = {
+				limit = {
+					industrial_complex > 1
+					arms_factory > 0
+				}
+				damage_building = {
+					type = industrial_complex
+					damage = 0.75
+				}
+				damage_building = {
+					type = arms_factory
+					damage = 0.5
+				}
+			}
+			add_to_variable = {
+				tooltip = FGD_decrease_industrialist_influence
+				FGD_industrialist_influence_var = -1
+			}
+			add_to_variable = {
+				tooltip = FGD_increase_worker_influence
+				FGD_worker_influence_var = 1
+			}
+		}
+
+	}
+
+	FGD_use_junker_funds = {
+
+		icon = generic_political_discourse
+
+		cost = 25
+
+		days_remove = 14
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				has_completed_focus = FGD_night_long_knives
+			}
+		}
+
+		available = {
+			has_completed_focus = FGD_use_junkers
+		}
+
+		modifier = {
+			consumer_goods_factor = -0.05
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = FGD_increase_speer_influence
+				FGD_speer_influence_var = 1
+			}
+		}
+
+	}
+
+	FGD_sic_der_stahlhelm_on_radicals = {
+
+		icon = generic_industry
+
+		cost = 25
+
+		fire_only_once = yes
+
+		visible = {
+			NOT = {
+				has_completed_focus = FGD_night_long_knives
+			}
+		}
+
+		available = {
+			has_completed_focus = FGD_use_junkers
+		}
+
+		complete_effect = {
+			#maybe create franz seldte or theodor duesterberg as generals?
+			add_to_variable = {
+				tooltip = FGD_decrease_worker_influence
+				FGD_worker_influence_var = -1
+			}
+		}
+
+	}
+
+}
