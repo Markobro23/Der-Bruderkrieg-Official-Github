@@ -13,6 +13,137 @@ country_event = {
 	}
 }
 
+add_namespace = GPU_franz_ferdinand_path
+
+##dealing with wurttemburg
+country_event = {
+	id = GPU_franz_ferdinand_path.1
+	title = GPU_franz_ferdinand_path.1.t
+	desc = GPU_franz_ferdinand_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_franz_ferdinand_path.1.a ##concessions
+		custom_effect_tooltip = GPU_when_unifying_confederation
+		effect_tooltip = {
+			50 = {
+				add_dynamic_modifier = {
+					modifier = GPU_wurttemburg_baden_concessions
+				}
+			}
+			954 = {
+				add_dynamic_modifier = {
+					modifier = GPU_wurttemburg_baden_concessions
+				}
+			}
+		}
+		set_country_flag = GPU_WUR_concessions
+	}
+	option = {
+		name = GPU_franz_ferdinand_path.1.b ##demand adbciation	
+		WUR = {
+			country_event = GPU_franz_ferdinand_path.2
+		}
+	}
+}
+
+country_event = {
+	id = GPU_franz_ferdinand_path.2
+	title = GPU_franz_ferdinand_path.2.t
+	desc = GPU_franz_ferdinand_path.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.2.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			create_country_leader = {
+				name = "Erwin Rommel"
+				desc = ""
+				picture = "gfx/leaders/Erwin_Rommel.dds"
+				expire = "1965.1.1"
+				ideology = despotic
+				traits = {
+					#
+				}
+			}
+		}
+		GPU = {
+			country_event = GPU_franz_ferdinand_path.3
+		}
+	}
+	option = { 
+		name = GPU_franz_ferdinand_path.2.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 GPU = { is_ai = no }
+		} } 
+		GPU = {
+			country_event = GPU_franz_ferdinand_path.4
+		}
+	}
+}
+
+country_event = {
+	id = GPU_franz_ferdinand_path.3
+	title = GPU_franz_ferdinand_path.3.t
+	desc = GPU_franz_ferdinand_path.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.3.a 
+		ai_chance = { factor = 90 } 
+		WUR = {
+			set_politics = {
+				ruling_party = neutrality
+			}
+			create_country_leader = {
+				name = "Erwin Rommel"
+				desc = ""
+				picture = "gfx/leaders/Erwin_Rommel.dds"
+				expire = "1965.1.1"
+				ideology = despotic
+				traits = {
+					#
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = GPU_franz_ferdinand_path.4
+	title = GPU_franz_ferdinand_path.4.t
+	desc = GPU_franz_ferdinand_path.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.4.a 
+		ai_chance = { factor = 90 } 
+		WUR = {
+			leave_faction = yes
+		}
+		BAD = {
+			leave_faction = yes
+		}
+		WUR = {
+			create_faction = "Anti-Bavarian League"
+			add_to_faction = BAD
+			declare_war_on = {
+				target = GPU
+				type = civil_war
+			}
+		}
+	}
+}
 
 add_namespace = GPU_german_unification_events
 ## Junker issue

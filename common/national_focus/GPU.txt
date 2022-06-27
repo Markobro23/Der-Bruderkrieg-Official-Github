@@ -992,12 +992,14 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
-
+  available = {
+   
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
+    country_event = GPU_franz_ferdinand_path.1
   }
 }
 
@@ -1023,36 +1025,36 @@ shared_focus = {
     }
 }
 }
+# shared_focus = {
+#   id = GPU_he_can_rot_in_hell
+#   icon = unkown
+#   prerequisite = { focus = GPU_dealing_with_pro_goring_riots }
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_dealing_with_pro_goring_riots
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
+
+#   completion_reward = {
+#     swap_ideas = {
+#       add_idea = GPU_growing_nationalist_movement_3
+#       remove_idea = GPU_growing_nationalist_movement_2
+#     }
+# }
+# }
+
 shared_focus = {
-  id = GPU_he_can_rot_in_hell
+  id = GPU_anti_prussian_poropoganda
   icon = unkown
   prerequisite = { focus = GPU_dealing_with_pro_goring_riots }
   x = 0
   y = 1
   relative_position_id = GPU_dealing_with_pro_goring_riots
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
-
-  completion_reward = {
-    swap_ideas = {
-      add_idea = GPU_growing_nationalist_movement_3
-      remove_idea = GPU_growing_nationalist_movement_2
-    }
-}
-}
-
-shared_focus = {
-  id = GPU_anti_prussian_poropoganda
-  icon = unkown
-  prerequisite = { focus = GPU_he_can_rot_in_hell }
-  x = 0
-  y = 1
-  relative_position_id = GPU_he_can_rot_in_hell
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1078,12 +1080,21 @@ shared_focus = {
   id = GPU_centralize_the_government
   icon = unkown
   prerequisite = { focus = GPU_wurtemmburg_problem }
+
   x = 0
   y = 1
   relative_position_id = GPU_wurtemmburg_problem
   cost = 20
   ai_will_do = {
     factor = 1
+  }
+  available = {
+     OR = {
+      has_country_flag = GPU_WUR_concessions
+      WUR = {
+        has_government = neutrality
+      }
+    }
   }
 
   available_if_capitulated = yes
@@ -1092,7 +1103,27 @@ shared_focus = {
   completion_reward = {
     swap_ideas = {
       add_idea = GPU_unstable_nation_3
-      remove_idea = GPU_unstable_nation_2
+      remove_idea = GPU_unstable_nation
+    }
+    BAD = {
+      BAD_walther_von_reichenau = {
+        set_nationality = GPU
+      }
+    }
+    BAD = {
+      BAD_Ernst_Juenger = {
+        set_nationality = GPU
+      }
+    }
+    HES = {
+      HES_heinrich_von_vietinghoff = {
+        set_nationality = GPU
+      }
+    }
+    HES = {
+      HES_georg_von_kuchler = {
+        set_nationality = GPU
+      }
     }
   }
 }
@@ -1101,7 +1132,10 @@ shared_focus = {
   id = GPU_all_power_lies_in_munich
   icon = unkown
 prerequisite = { focus = GPU_centralize_the_government }
-  x = 0
+  prerequisite = {
+    focus = GPU_anti_prussian_poropoganda
+  }
+  x = 1
   y = 1
   relative_position_id = GPU_centralize_the_government
   cost = 15
@@ -1113,8 +1147,13 @@ prerequisite = { focus = GPU_centralize_the_government }
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-add_stability  = 0.1
-  add_political_power = 150
+   52 = {
+     add_victory_points = {
+      province = 692
+      value = 15
+    }
+   }
+  remove_ideas = GPU_unstable_nation_3
 }
 }
 
@@ -1124,10 +1163,9 @@ shared_focus = {
   id = GPU_united_empire
   icon = unkown
 prerequisite = { focus = GPU_all_power_lies_in_munich }
-prerequisite = {focus = GPU_anti_prussian_poropoganda}
-  x = -1
+  x = 0
   y = 1
-  relative_position_id = GPU_anti_prussian_poropoganda
+  relative_position_id = GPU_all_power_lies_in_munich
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1149,7 +1187,26 @@ prerequisite = {focus = GPU_anti_prussian_poropoganda}
     target = HES
     transfer_troops = yes
   }
+  annex_country = {
+    target = NAS
+    transfer_troops = yes
+  }
   set_cosmetic_tag = south_german_confederation
+  if = {
+    limit = {
+      has_country_flag = GPU_WUR_concessions
+    }
+    50 = {
+				add_dynamic_modifier = {
+					modifier = GPU_wurttemburg_baden_concessions
+				}
+			}
+			954 = {
+				add_dynamic_modifier = {
+					modifier = GPU_wurttemburg_baden_concessions
+				}
+			}
+  }
 }
 }
 
