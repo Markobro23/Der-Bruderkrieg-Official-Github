@@ -121,12 +121,24 @@ country_event = { #candidate chooser
 		set_variable = {
 			FGD_chosen_candidate = 1
 		}
+		set_variable = {
+			FGD_elections_conservative_support = 40
+		}
+		set_variable = {
+			FGD_elections_liberal_support = 60
+		}
 	}
 	option = {
 		name = FGD_adenaur_republic.7.b 
 		ai_chance = { factor = 3 }
 		set_variable = {
 			FGD_chosen_candidate = 2
+		}
+		set_variable = {
+			FGD_elections_conservative_support = 60
+		}
+		set_variable = {
+			FGD_elections_liberal_support = 40
 		}
 	}
 }
@@ -765,5 +777,40 @@ country_event = {
 			target = FROM
 			type = annex_everything
 		}
+	}
+}
+
+add_namespace = FGD_french_loyalty_path
+
+##napoelon king
+country_event = {
+	id = FGD_french_loyalty_path.1
+	title = FGD_french_loyalty_path.1.t
+	desc = FGD_french_loyalty_path.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_french_loyalty_path.1.a 
+		ai_chance = { factor = 90 } 
+		remove_country_leader_trait = regent
+	}
+}
+country_event = {
+	id = FGD_french_loyalty_path.2
+	title = FGD_french_loyalty_path.2.t
+	desc = FGD_french_loyalty_path.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_french_loyalty_path.2.a 
+		ai_chance = { factor = 90 } 
+		set_cosmetic_tag = westfalen_junta
+		remove_country_leader_trait = regent
 	}
 }

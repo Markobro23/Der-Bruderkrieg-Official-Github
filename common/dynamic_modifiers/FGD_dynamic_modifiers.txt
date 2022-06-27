@@ -43,3 +43,25 @@ FGD_megacity_modifier = {
 	local_supplies = -0.05
 	state_production_speed_buildings_factor = 0.2
 }
+
+FGD_new_republic_modifier = {
+	remove_trigger = {
+		OR = {
+			has_government = despotic
+			has_government = fascism
+			has_government = ultranationalism
+		}
+	}
+
+	production_speed_infrastructure_factor = FGD_new_republic_modifier_production_speed_infrastructure_factor
+	global_building_slots_factor = FGD_new_republic_modifier_global_building_slots_factor
+
+	consumer_goods_factor = FGD_new_republic_modifier_consumer_goods_factor
+	political_power_gain = FGD_new_republic_modifier_political_power_gain
+
+	defensive_war_stability_factor = FGD_new_republic_modifier_defensive_war_stability_factor
+	army_core_defence_factor = FGD_new_republic_modifier_army_core_defence_factor
+
+	industrial_capacity_factory = FGD_new_republic_modifier_industrial_capacity_factory
+	resistance_target = FGD_new_republic_modifier_resistance_target
+}

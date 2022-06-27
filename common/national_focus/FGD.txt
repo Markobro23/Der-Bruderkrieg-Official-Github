@@ -73,6 +73,7 @@ shared_focus = {
 		focus = FGD_strengthen_karl_josefs_power
 	  }
     completion_reward = {
+      country_event = FGD_french_loyalty_path.2
     }
 }
 shared_focus = {
@@ -152,6 +153,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      country_event = FGD_french_loyalty_path.1
     }
 }
 shared_focus = {
@@ -419,14 +421,19 @@ shared_focus = {
       unlock_decision_category_tooltip = FGD_elections
       activate_decision = FGD_election_timeout
       country_event = FGD_adenaur_republic.7
-      set_variable = {
-        FGD_elections_conservative_support = 60
-      }
-      set_variable = {
-        FGD_elections_liberal_support = 40
-      }
+      
       set_variable = {
         westfalen_campaign_cost = 20
+      }
+
+      effect_tooltip = {
+        add_ideas = FGD_the_new_republic_idea
+      }
+
+      hidden_effect = {
+        add_dynamic_modifier = {
+          modifier = FGD_new_republic_modifier
+        }
       }
     }
 }
@@ -444,8 +451,20 @@ shared_focus = {
     }
     completion_reward = {
       add_to_variable = {
-        tooltip = FGD_elections_liberal_support_increase_by_1
-        FGD_elections_liberal_support = 1
+        tooltip = FGD_elections_liberal_support_increase_by_5
+        FGD_elections_liberal_support = 5
+      }
+      effect_tooltip = {
+        swap_ideas = {
+          add_idea = FGD_the_new_republic_idea_welfare
+          remove_idea = FGD_the_new_republic_idea
+        }
+      }
+      set_variable = {
+        FGD_new_republic_modifier_production_speed_infrastructure_factor = 0.15
+      }
+      set_variable = {
+        FGD_new_republic_modifier_global_building_slots_factor = 0.1
       }
     }
 }
@@ -463,8 +482,20 @@ shared_focus = {
     }
     completion_reward = {
       add_to_variable = {
-        tooltip = FGD_elections_conservative_support_increase_by_1
-        FGD_elections_conservative_support = 1
+        tooltip = FGD_elections_conservative_support_increase_by_5
+        FGD_elections_conservative_support = 5
+      }
+      effect_tooltip = {
+        swap_ideas = {
+          add_idea = FGD_the_new_republic_idea_austerity
+          remove_idea = FGD_the_new_republic_idea
+        }
+      }
+      set_variable = {
+        FGD_new_republic_modifier_consumer_goods_factor = -0.05
+      }
+      set_variable = {
+        FGD_new_republic_modifier_political_power_gain = 0.1
       }
     }
 }
@@ -482,9 +513,21 @@ shared_focus = {
     }
     completion_reward = {
       add_to_variable = {
-        tooltip = FGD_elections_conservative_support_increase_by_1
-        FGD_elections_conservative_support = 1
+        tooltip = FGD_elections_conservative_support_increase_by_5
+        FGD_elections_conservative_support = 5
       }
+     effect_tooltip = {
+        swap_ideas = {
+          add_idea = FGD_the_new_republic_idea_police
+          remove_idea = FGD_the_new_republic_idea
+        }
+      }
+    }
+    set_variable = {
+      FGD_new_republic_modifier_industrial_capacity_factory = 0.075
+    }
+    set_variable = {
+      FGD_new_republic_modifier_resistance_target = -0.2
     }
 }
 shared_focus = {
@@ -501,8 +544,20 @@ shared_focus = {
     }
     completion_reward = {
       add_to_variable = {
-        tooltip = FGD_elections_liberal_support_increase_by_1
-        FGD_elections_liberal_support = 1
+        tooltip = FGD_elections_liberal_support_increase_by_5
+        FGD_elections_liberal_support = 5
+      }
+      effect_tooltip = {
+        swap_ideas = {
+          add_idea = FGD_the_new_republic_idea_democracy
+          remove_idea = FGD_the_new_republic_idea
+        }
+      }
+      set_variable = {
+        FGD_new_republic_modifier_defensive_war_stability_factor = 0.25
+      }
+      set_variable = {
+        FGD_new_republic_modifier_army_core_defence_factor = 0.05
       }
     }
 }
