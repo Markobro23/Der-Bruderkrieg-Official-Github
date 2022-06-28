@@ -145,6 +145,73 @@ country_event = {
 	}
 }
 
+##request tyrol
+country_event = {
+	id = GPU_franz_ferdinand_path.5
+	title = GPU_franz_ferdinand_path.5.t
+	desc = GPU_franz_ferdinand_path.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.5.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			GPU = {
+				transfer_state = 153
+			}
+		}
+		GPU = {
+			country_event = GPU_franz_ferdinand_path.6
+		}
+	}
+	option = { 
+		name = GPU_franz_ferdinand_path.5.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 GPU = { is_ai = no }
+		} } 
+		GPU = {
+			country_event = GPU_franz_ferdinand_path.7
+		}
+	}
+}
+
+country_event = {
+	id = GPU_franz_ferdinand_path.6
+	title = GPU_franz_ferdinand_path.6.t
+	desc = GPU_franz_ferdinand_path.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.6.a 
+		ai_chance = { factor = 90 } 
+		GPU = {
+			transfer_state = 153
+			add_state_core = 153
+		}
+	}
+}
+
+country_event = {
+	id = GPU_franz_ferdinand_path.7
+	title = GPU_franz_ferdinand_path.7.t
+	desc = GPU_franz_ferdinand_path.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = GPU_franz_ferdinand_path.7.a 
+		ai_chance = { factor = 90 } 
+	}
+}
+
 add_namespace = GPU_german_unification_events
 ## Junker issue
 country_event = {

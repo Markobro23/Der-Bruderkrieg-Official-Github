@@ -445,7 +445,7 @@ shared_focus = {
 #   focus = GPU_garrison_primacy
 # }
 relative_position_id = GPU_garrison_primacy
-  x = -1
+  x = -2
   y = 2
   cost = 10
   ai_will_do = {
@@ -589,10 +589,11 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    swap_ideas = {
-      add_idea = GPU_unstable_nation_2
-      remove_idea = GPU_unstable_nation
-    }
+    leave_faction = yes
+    create_faction = "Anti-Berlin Protocols"
+    add_to_faction = WUR
+    add_to_faction = HES
+    add_to_faction = NAS
   }
 }
 
@@ -606,18 +607,17 @@ shared_focus = {
   relative_position_id = GPU_anti_berlin_protocols
   cost = 10
   ai_will_do = {
-    factor = 1
+    factor = 0
   }
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    swap_ideas = {
-      add_idea = GPU_king_and_country_2
-      remove_idea = GPU_king_and_country
+    SAX = {
+      country_event = generic.5
     }
-    GPU_increase_confederation_unity_large = yes
+    unlock_decision_tooltip = GPU_invite_hannover
   }
 }
 
@@ -634,14 +634,16 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
-
+  available = {
+    has_war_with = GER
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-        GPU_increase_confederation_unity_medium = yes
-        ##enable decisions for improving the confederation
-        
+     
+        unlock_decision_tooltip = GPU_order_66
+        unlock_decision_tooltip = GPU_order_69
   }
 }
 
@@ -662,10 +664,8 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    ###special puppet type
-    swap_ideas = {
-      add_idea = GPU_unstable_nation_3
-      remove_idea = GPU_unstable_nation_2
+    SWI = {
+      country_event = generic.5
     }
   }
 }
@@ -691,10 +691,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    swap_ideas = {
-      add_idea = GPU_unstable_nation_2
-      remove_idea = GPU_unstable_nation
-    }
+    custom_effect_tooltip = GPU_loyalty_to_vienna_tt
   }
 }
 
@@ -715,11 +712,22 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    swap_ideas = {
-      add_idea = GPU_king_and_country_2
-      remove_idea = GPU_king_and_country
-    }
-    GPU_increase_confederation_unity_large = yes
+    build_railway = {
+					level = 3
+					build_only_on_allied = yes
+					controller_priority = {
+						base = 1
+						
+						modifier = {
+						tag = FRA
+						add = 2
+						}
+					}
+					fallback = yes
+					path = { 6488 6594 9557 9572 11544 561 6540 3705 692 9652 707 688 3684 11651 704 14543 11666 }
+					start_province = 6488
+					target_province = 11666
+				}
   }
 }
 
@@ -741,7 +749,26 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-        GPU_increase_confederation_unity_medium = yes
+    custom_effect_tooltip = all_members_of_equipment_pool_tt
+    effect_tooltip = {
+      add_ideas = GPU_pakt_der_freundschaft_tech_bonus
+    }
+    for_each_scope_loop = {
+      array = ROOT.members_of_equipment_pool_array
+      add_ideas = GPU_pakt_der_freundschaft_tech_bonus
+    }
+
+    52 = {
+      add_dynamic_modifier = {
+        modifier = GPU_thriving_electronics_industry
+      }
+    }
+    53 = {
+      add_dynamic_modifier = {
+        modifier = GPU_thriving_electronics_industry
+      }
+    }
+      
         ##enable decisions for improving the confederation
         
   }
@@ -765,10 +792,7 @@ shared_focus = {
 
   completion_reward = {
     ###special puppet type
-    swap_ideas = {
-      add_idea = GPU_unstable_nation_3
-      remove_idea = GPU_unstable_nation_2
-    }
+    AUS = { country_event = GPU_franz_ferdinand_path.5 }
   }
 }
 
@@ -859,9 +883,9 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-     swap_ideas = {
-      add_idea = GPU_growing_nationalist_movement_3
-      remove_idea = GPU_growing_nationalist_movement_2
+    swap_ideas = {
+      add_idea = GPU_king_and_country_2
+      remove_idea = GPU_king_and_country
     }
   }
 }
@@ -888,7 +912,7 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    remove_ideas = GPU_growing_nationalist_movement_3
+    remove_ideas = GPU_growing_nationalist_movement_2
     GPU_increase_confederation_unity_large = yes
   }
 }
@@ -1164,7 +1188,7 @@ shared_focus = {
   id = GPU_anti_prussian_poropoganda
   icon = unkown
   prerequisite = { focus = GPU_dealing_with_pro_goring_riots }
-  x = 0
+  x = 1
   y = 1
   relative_position_id = GPU_dealing_with_pro_goring_riots
   cost = 10
@@ -1193,7 +1217,7 @@ shared_focus = {
   icon = unkown
   prerequisite = { focus = GPU_wurtemmburg_problem }
 
-  x = 0
+  x = 1
   y = 1
   relative_position_id = GPU_wurtemmburg_problem
   cost = 20
