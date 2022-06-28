@@ -445,7 +445,7 @@ shared_focus = {
 #   focus = GPU_garrison_primacy
 # }
 relative_position_id = GPU_garrison_primacy
-  x = 6
+  x = -1
   y = 2
   cost = 10
   ai_will_do = {
@@ -466,34 +466,34 @@ relative_position_id = GPU_garrison_primacy
   }
 } 
 
-shared_focus = {
-  id = GPU_rule_of_house_wittlebach
-  icon = unkown
-  #prerequisite = { focus = GPU_state_of_the_confederation_economy }
-#mutually_exclusive = { focus = GPU_ASSERT }
-# prerequisite = {
-#   focus = GPU_the_home_army
-# }
-relative_position_id = GPU_the_home_army
-  x = 3
-  y = 2
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_rule_of_house_wittlebach
+#   icon = unkown
+#   #prerequisite = { focus = GPU_state_of_the_confederation_economy }
+# #mutually_exclusive = { focus = GPU_ASSERT }
+# # prerequisite = {
+# #   focus = GPU_the_home_army
+# # }
+# relative_position_id = GPU_the_home_army
+#   x = 2
+#   y = 2
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  available = {
-    has_completed_focus = GPU_keep_vohn_car
-     has_completed_focus = GPU_the_home_army
-  }
+#   available = {
+#     has_completed_focus = GPU_keep_vohn_car
+#      has_completed_focus = GPU_the_home_army
+#   }
 
-  completion_reward = {
+#   completion_reward = {
 
-  }
-} 
+#   }
+# } 
 
 # shared_focus = {
 #   id = GPU_austrian_ally
@@ -520,13 +520,15 @@ relative_position_id = GPU_the_home_army
 
 
 shared_focus = {
-  id = GPU_royalism
+  id = GPU_rule_of_house_wittlebach
   icon = unkown
-  prerequisite = { focus = GPU_rule_of_house_wittlebach }
-#mutually_exclusive = { focus = GPU_ASSERT }
-  x = -3
-  y = 1
-  relative_position_id = GPU_rule_of_house_wittlebach
+  available = {
+    has_completed_focus = GPU_keep_vohn_car
+     has_completed_focus = GPU_the_home_army
+  }
+relative_position_id = GPU_the_home_army
+  x = -2
+  y = 2
   cost = 10
   ai_will_do = {
     factor = 1
@@ -541,18 +543,48 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_begin_federalism
+  id = GPU_the_two_kings
   icon = unkown
-  prerequisite = { focus = GPU_royalism }
+  prerequisite = { focus = GPU_rule_of_house_wittlebach }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -2
+  x = 2
   y = 1
-  relative_position_id = GPU_royalism
+  relative_position_id = GPU_rule_of_house_wittlebach
   cost = 10
   ai_will_do = {
     factor = 1
   }
 
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    remove_ideas = GPU_unstable_nation
+      GPU_increase_confederation_unity_large = yes
+      WUR = {
+        annex_country = {
+          target = BAD
+          transfer_troops = yes
+        }
+      }
+  }
+}
+
+shared_focus = {
+  id = GPU_anti_berlin_protocols
+  icon = unkown
+  prerequisite = { focus = GPU_the_two_kings }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_the_two_kings
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+  mutually_exclusive = {
+    focus = GPU_loyalty_to_vienna
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -565,13 +597,13 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_draft_a_new_constitution
+  id = GPU_our_german_friends
   icon = unkown
-  prerequisite = { focus = GPU_begin_federalism }
+  prerequisite = { focus = GPU_anti_berlin_protocols }
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = -1
   y = 1
-  relative_position_id = GPU_begin_federalism
+  relative_position_id = GPU_anti_berlin_protocols
   cost = 10
   ai_will_do = {
     factor = 1
@@ -591,13 +623,13 @@ shared_focus = {
 
 
 shared_focus = {
-  id = GPU_talks_with_william
+  id = GPU_hold_the_reichsarmee
   icon = unkown
-  prerequisite = { focus = GPU_begin_federalism }
+  prerequisite = { focus = GPU_our_german_friends }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 1
+  x = 0
   y = 1
-  relative_position_id = GPU_begin_federalism
+  relative_position_id = GPU_our_german_friends
   cost = 10
   ai_will_do = {
     factor = 1
@@ -614,14 +646,13 @@ shared_focus = {
 }
 
 shared_focus = {
-  id = GPU_split_the_confederation
+  id = GPU_woo_the_swiss
   icon = unkown
-  prerequisite = { focus = GPU_talks_with_william  }
-  prerequisite = {focus = GPU_draft_a_new_constitution }
+  prerequisite = { focus = GPU_hold_the_reichsarmee  }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -1
+  x = 1
   y = 1
-  relative_position_id = GPU_talks_with_william
+  relative_position_id = GPU_hold_the_reichsarmee
   cost = 10
   ai_will_do = {
     factor = 1
@@ -642,13 +673,39 @@ shared_focus = {
 
 
 shared_focus = {
-  id = GPU_the_two_kings
+  id = GPU_loyalty_to_vienna
   icon = unkown
-  prerequisite = { focus = GPU_split_the_confederation }
+  prerequisite = { focus = GPU_the_two_kings focus = GPU_stabilitize_the_deutcher_bund }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 0
+  x = 1
   y = 1
-  relative_position_id = GPU_split_the_confederation
+  relative_position_id = GPU_the_two_kings
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+  mutually_exclusive = {
+    focus = GPU_anti_berlin_protocols
+  }
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    swap_ideas = {
+      add_idea = GPU_unstable_nation_2
+      remove_idea = GPU_unstable_nation
+    }
+  }
+}
+
+shared_focus = {
+  id = GPU_from_frankfurt_to_vienna
+  icon = unkown
+  prerequisite = { focus = GPU_loyalty_to_vienna }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 1
+  y = 1
+  relative_position_id = GPU_loyalty_to_vienna
   cost = 10
   ai_will_do = {
     factor = 1
@@ -658,14 +715,60 @@ shared_focus = {
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-    remove_ideas = GPU_unstable_nation_3
-      GPU_increase_confederation_unity_large = yes
-      WUR = {
-        annex_country = {
-          target = BAD
-          transfer_troops = yes
-        }
-      }
+    swap_ideas = {
+      add_idea = GPU_king_and_country_2
+      remove_idea = GPU_king_and_country
+    }
+    GPU_increase_confederation_unity_large = yes
+  }
+}
+
+
+shared_focus = {
+  id = GPU_sell_electronics
+  icon = unkown
+  prerequisite = { focus = GPU_from_frankfurt_to_vienna }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = 0
+  y = 1
+  relative_position_id = GPU_from_frankfurt_to_vienna
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+        GPU_increase_confederation_unity_medium = yes
+        ##enable decisions for improving the confederation
+        
+  }
+}
+
+shared_focus = {
+  id = GPU_request_tyrol
+  icon = unkown
+  prerequisite = { focus = GPU_sell_electronics  }
+#mutually_exclusive = { focus = GPU_ASSERT }
+  x = -1
+  y = 1
+  relative_position_id = GPU_sell_electronics
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    ###special puppet type
+    swap_ideas = {
+      add_idea = GPU_unstable_nation_3
+      remove_idea = GPU_unstable_nation_2
+    }
   }
 }
 
@@ -674,11 +777,11 @@ shared_focus = {
 shared_focus = {
   id = GPU_restart_the_ludwig_porjects
   icon = unkown
-  prerequisite = { focus = GPU_royalism }
+  prerequisite = { focus = GPU_rule_of_house_wittlebach }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 2
+  x = -2
   y = 1
-  relative_position_id = GPU_royalism
+  relative_position_id = GPU_rule_of_house_wittlebach
   cost = 7
   ai_will_do = {
     factor = 1
@@ -720,11 +823,11 @@ shared_focus = {
 shared_focus = {
   id = GPU_expand_the_agricultural_industry
   icon = unkown
-  prerequisite = { focus = GPU_restart_the_ludwig_porjects }
+  prerequisite = { focus = GPU_anti_berlin_protocols focus = GPU_loyalty_to_vienna }
 #mutually_exclusive = { focus = GPU_ASSERT }
   x = 1
   y = 1
-  relative_position_id = GPU_restart_the_ludwig_porjects
+  relative_position_id = GPU_anti_berlin_protocols
   cost = 10
   ai_will_do = {
     factor = 1
@@ -741,14 +844,12 @@ shared_focus = {
   id = GPU_support_the_landlords
   icon = unkown
 
-  prerequisite = { focus = GPU_expand_the_agricultural_industry }
-  prerequisite = {
-    focus = GPU_water_projects
-  }
+  prerequisite = { focus = GPU_restart_the_ludwig_porjects }
+ 
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = -1
+  x = 1
   y = 1
-  relative_position_id = GPU_expand_the_agricultural_industry
+  relative_position_id = GPU_restart_the_ludwig_porjects
   cost = 10
   ai_will_do = {
     factor = 1
@@ -768,11 +869,14 @@ shared_focus = {
   id = GPU_pro_feuadlism
   icon = unkown
   prerequisite = { focus = GPU_support_the_landlords }
-  prerequisite = {
+   prerequisite = {
     focus = GPU_water_projects
   }
+  # prerequisite = {
+  #   focus = GPU_expand_the_agricultural_industry
+  # }
 #mutually_exclusive = { focus = GPU_ASSERT }
-  x = 0
+  x = -1
   y = 1
   relative_position_id = GPU_support_the_landlords
   cost = 10
@@ -798,11 +902,11 @@ shared_focus = {
 # shared_focus = {
 #   id = GPU_restore_charlegmenges_hre
 #   icon = unkown
-#   prerequisite = {focus = GPU_royalism}
+#   prerequisite = {focus = GPU_rule_of_house_wittlebach}
 # #mutually_exclusive = { focus = GPU_ASSERT }
 #   x = -1
 #   y = 1
-#   relative_position_id = GPU_royalism
+#   relative_position_id = GPU_rule_of_house_wittlebach
 #   cost = 10
 #   ai_will_do = {
 #     factor = 1
@@ -934,13 +1038,21 @@ shared_focus = {
 shared_focus = {
   id = GPU_continue_the_dual_system
   icon = GFX_goal_support_democracy
-  prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd focus = GPU_rule_of_house_wittlebach }
-  x = -3
-  y = 1
-  relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
+  x = 26
+  y = 5
   cost = 10
   ai_will_do = {
     factor = 1
+  }
+  available = {
+    if = {
+      limit = {
+        has_completed_focus = GPU_rule_of_house_wittlebach
+      }
+    }
+  }
+  mutually_exclusive = {
+    focus = GPU_modernizing_the_bundesheer
   }
 
   available_if_capitulated = yes
@@ -964,7 +1076,7 @@ shared_focus = {
   id = GPU_stabilitize_the_deutcher_bund
   icon = unkown
   prerequisite = { focus = GPU_continue_the_rule_of_franz_ferdiannd }
-  x = 3
+  x = 0
   y = 1
   relative_position_id = GPU_continue_the_rule_of_franz_ferdiannd
   cost = 10
@@ -985,7 +1097,7 @@ shared_focus = {
   id = GPU_wurtemmburg_problem
   icon = unkown
   prerequisite = { focus = GPU_stabilitize_the_deutcher_bund }
-  x = -1
+  x = 1
   y = 1
   relative_position_id = GPU_stabilitize_the_deutcher_bund
   cost = 10
@@ -1007,7 +1119,7 @@ shared_focus = {
   id = GPU_dealing_with_pro_goring_riots
   icon = unkown
   prerequisite = { focus = GPU_stabilitize_the_deutcher_bund }
-  x = 1
+  x = 3
   y = 1
   relative_position_id = GPU_stabilitize_the_deutcher_bund
   cost = 10
@@ -1358,21 +1470,26 @@ prerequisite = { focus = GPU_all_power_lies_in_munich }
 shared_focus = {
   id = GPU_modernizing_the_bundesheer
   icon = unkown
-  prerequisite = { focus = GPU_continue_the_dual_system }
-  x = 0
-  y = 1
-  relative_position_id = GPU_continue_the_dual_system
+  x = 22
+  y = 5
   cost = 10
   ai_will_do = {
     factor = 1
+  }
+  mutually_exclusive = {
+    focus = GPU_continue_the_dual_system
   }
 
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-
-}
+    add_doctrine_cost_reduction = {
+        cost_reduction = 0.5
+        uses = 1
+        category = land_doctrine
+      }
+  }
 }
 
 # shared_focus = {
@@ -1398,10 +1515,10 @@ shared_focus = {
 shared_focus = {
   id = GPU_austrian_close_air_support
   icon = unkown
-  prerequisite = { focus = GPU_modernizing_the_bundesheer }
-  x = 0
+  prerequisite = { focus = GPU_continue_the_dual_system }
+  x = 1
   y = 1
-  relative_position_id = GPU_modernizing_the_bundesheer
+  relative_position_id = GPU_continue_the_dual_system
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1422,10 +1539,10 @@ shared_focus = {
 shared_focus = {
   id = GPU_austrian_military_school
   icon = unkown
-  prerequisite = { focus = GPU_modernizing_the_bundesheer }
-  x = -2
+  prerequisite = { focus = GPU_continue_the_dual_system }
+  x = -1
   y = 1
-  relative_position_id = GPU_modernizing_the_bundesheer
+  relative_position_id = GPU_continue_the_dual_system
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1439,146 +1556,127 @@ shared_focus = {
   }
 }
 
-shared_focus = {
-  id = GPU_krupp_arms_factories
-  icon = unkown
-prerequisite = { focus = GPU_modernizing_the_bundesheer }
-  x = 2
-  y = 1
-  relative_position_id = GPU_modernizing_the_bundesheer
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
+# shared_focus = {
+#   id = GPU_krupp_arms_factories
+#   icon = unkown
+# prerequisite = { focus = GPU_modernizing_the_bundesheer }
+#   x = 2
+#   y = 1
+#   relative_position_id = GPU_modernizing_the_bundesheer
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
-    random_owned_controlled_state = {
-      add_building_construction = {
-        type = arms_factory
-        level = 2
-        instant_build = yes
-      }
-      add_extra_state_shared_building_slots = 1
-    }
-    random_owned_controlled_state = {
-      add_building_construction = {
-        type = arms_factory
-        level = 2
-        instant_build = yes
-      }
-      add_extra_state_shared_building_slots = 1
-    }
-    random_owned_controlled_state = {
-      add_building_construction = {
-        type = arms_factory
-        level = 2
-        instant_build = yes
-      }
-      add_extra_state_shared_building_slots = 1
-    }
-  }
-}
+#   completion_reward = {
+#     random_owned_controlled_state = {
+#       add_building_construction = {
+#         type = arms_factory
+#         level = 2
+#         instant_build = yes
+#       }
+#       add_extra_state_shared_building_slots = 1
+#     }
+#     random_owned_controlled_state = {
+#       add_building_construction = {
+#         type = arms_factory
+#         level = 2
+#         instant_build = yes
+#       }
+#       add_extra_state_shared_building_slots = 1
+#     }
+#     random_owned_controlled_state = {
+#       add_building_construction = {
+#         type = arms_factory
+#         level = 2
+#         instant_build = yes
+#       }
+#       add_extra_state_shared_building_slots = 1
+#     }
+#   }
+# }
 
-shared_focus = {
-  id = GPU_expand_munich_university
-  icon = unkown
-prerequisite = { focus = GPU_krupp_arms_factories }
-prerequisite = {focus = GPU_austrian_close_air_support}
-  x = -1
-  y = 1
-  relative_position_id = GPU_krupp_arms_factories
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
 
-  completion_reward = {
-    add_research_slot = 1
-  }
-}
+# shared_focus = {
+#   id = GPU_build_the_bavarian_railway_system
+#   icon = GFX_goal_generic_construct_infrastructure
+#   text = GPU_build_the_bavarian_railway_system
+#   prerequisite = { focus = GPU_krupp_arms_factories }
+#   x = 1
+#   y = 1
+#   relative_position_id = GPU_krupp_arms_factories
+#   cost = 10
 
-shared_focus = {
-  id = GPU_build_the_bavarian_railway_system
-  icon = GFX_goal_generic_construct_infrastructure
-  text = GPU_build_the_bavarian_railway_system
-  prerequisite = { focus = GPU_krupp_arms_factories }
-  x = 1
-  y = 1
-  relative_position_id = GPU_krupp_arms_factories
-  cost = 10
+#   ai_will_do = {
+#     factor = 10
+#   }
 
-  ai_will_do = {
-    factor = 10
-  }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_INDUSTRY }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
+#   completion_reward = {
+#     #	Adds a civilian Factory (Warsaw)
+#       every_state = {
+#         limit = {
+#           is_owned_by = GPU
+#         }
+#         add_building_construction = {
+#           type = infrastructure
+#           level = 4
+#           instant_build = yes
+#         }
+#       }
+#     }
+#   }
 
-  completion_reward = {
-    #	Adds a civilian Factory (Warsaw)
-      every_state = {
-        limit = {
-          is_owned_by = GPU
-        }
-        add_building_construction = {
-          type = infrastructure
-          level = 4
-          instant_build = yes
-        }
-      }
-    }
-  }
+#   shared_focus = {
+#   id = GPU_bavarian_steel
+#   icon = GFX_focus_generic_steel
+#   text = GPU_bavarian_steel
+#   prerequisite = { focus = GPU_build_the_bavarian_railway_system }
+#   x = 1
+#   y = 1
+#   relative_position_id = GPU_build_the_bavarian_railway_system
+#   cost = 10
 
-  shared_focus = {
-  id = GPU_bavarian_steel
-  icon = GFX_focus_generic_steel
-  text = GPU_bavarian_steel
-  prerequisite = { focus = GPU_build_the_bavarian_railway_system }
-  x = 1
-  y = 1
-  relative_position_id = GPU_build_the_bavarian_railway_system
-  cost = 10
+#   ai_will_do = {
+#     factor = 10
+#   }
 
-  ai_will_do = {
-    factor = 10
-  }
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_INDUSTRY }
 
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_INDUSTRY }
-
-    completion_reward = {
-    random_owned_controlled_state = {
-      add_resource = {
-        type = steel
-        amount = 12
-        state = THIS  
-      }
-    }
-    random_owned_controlled_state = {
-      add_resource = {
-        type = steel
-        amount = 12
-        state = THIS  
-      }
-    }
+#     completion_reward = {
+#     random_owned_controlled_state = {
+#       add_resource = {
+#         type = steel
+#         amount = 12
+#         state = THIS  
+#       }
+#     }
+#     random_owned_controlled_state = {
+#       add_resource = {
+#         type = steel
+#         amount = 12
+#         state = THIS  
+#       }
+#     }
   
-    }
-  }
+#     }
+#   }
 
   shared_focus = {
   id = GPU_excavation_tactics
   icon = GFX_focus_generic_steel
   text = GPU_excavation_tactics
-  prerequisite = { focus = GPU_build_the_bavarian_railway_system }
-  x = -1
+  prerequisite = { focus = GPU_expand_the_agricultural_industry }
+  x = 0
   y = 1
-  relative_position_id = GPU_build_the_bavarian_railway_system
+  relative_position_id = GPU_expand_the_agricultural_industry
   cost = 10
 
   ai_will_do = {
@@ -1894,7 +1992,7 @@ prerequisite = {focus = GPU_expand_german_court}
 shared_focus = {
     id = GPU_the_marshals_coup
     icon = GFX_focus_GPU_the_marshals_coup
-    x = 12
+    x = 3
     y = 2
     cost = 5
     available_if_capitulated = yes
@@ -2813,7 +2911,7 @@ shared_focus = {
   id = GPU_state_of_the_confederation_economy
   icon = unkown
   #prerequisite = { focus = ITA_industrial_effort_2 }
-  x = 44
+  x = 24
   y = 0
   cost = 10
   ai_will_do = {
@@ -2835,7 +2933,9 @@ shared_focus = {
   x = 4
   y = 1
   cost = 7
-
+  allow_branch = {
+    always = no
+  }
   ai_will_do = {
     factor = 10
   }
@@ -3057,6 +3157,25 @@ shared_focus = {
   
   }
 }
+shared_focus = {
+  id = GPU_expand_munich_university
+  icon = unkown
+prerequisite = { focus = GPU_invite_foreign_investors }
+  x = 0
+  y = 1
+  relative_position_id = GPU_invite_foreign_investors
+  cost = 10
+  ai_will_do = {
+    factor = 1
+  }
+
+  available_if_capitulated = yes
+  search_filters = { FOCUS_FILTER_POLITICAL }
+
+  completion_reward = {
+    add_research_slot = 1
+  }
+}
 
 shared_focus = {
   id = GPU_audi_factories
@@ -3275,11 +3394,11 @@ shared_focus = {
   id = GPU_FOCUS_ON_BATTLEPLAN
   icon = GFX_goal_generic_army_doctrines
   text = GPU_FOCUS_ON_BATTLEPLAN
-  prerequisite = { focus = GPU_austrian_generals_corp }
+  prerequisite = { focus = GPU_modernizing_the_bundesheer }
   mutually_exclusive = { focus = GPU_FOCUS_ON_FIREPOWER }
   x = -1
   y = 1
-  relative_position_id = GPU_austrian_generals_corp
+  relative_position_id = GPU_modernizing_the_bundesheer
   cost = 10
   ai_will_do = {
     factor = 1
@@ -3331,12 +3450,12 @@ shared_focus = {
   id = GPU_FOCUS_ON_FIREPOWER
   icon = GFX_goal_generic_army_artillery2
   text = GPU_FOCUS_ON_FIREPOWER
-  prerequisite = { focus = GPU_austrian_generals_corp }
+  prerequisite = { focus = GPU_modernizing_the_bundesheer }
   mutually_exclusive = { focus = GPU_FOCUS_ON_BATTLEPLAN }
 
   x = 1
   y = 1
-  relative_position_id = GPU_austrian_generals_corp
+  relative_position_id = GPU_modernizing_the_bundesheer
   cost = 10
   ai_will_do = {
     factor = 1
