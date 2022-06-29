@@ -1274,7 +1274,7 @@ prerequisite = { focus = GPU_centralize_the_government }
   x = 1
   y = 1
   relative_position_id = GPU_centralize_the_government
-  cost = 15
+  cost = 20
   ai_will_do = {
     factor = 1
   }
@@ -1283,35 +1283,7 @@ prerequisite = { focus = GPU_centralize_the_government }
   search_filters = { FOCUS_FILTER_POLITICAL }
 
   completion_reward = {
-   52 = {
-     add_victory_points = {
-      province = 692
-      value = 15
-    }
-   }
-  remove_ideas = GPU_unstable_nation_3
-}
-}
-
-
-
-shared_focus = {
-  id = GPU_united_empire
-  icon = unkown
-prerequisite = { focus = GPU_all_power_lies_in_munich }
-  x = 0
-  y = 1
-  relative_position_id = GPU_all_power_lies_in_munich
-  cost = 10
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  search_filters = { FOCUS_FILTER_POLITICAL }
-
-  completion_reward = {
-  annex_country = {
+    annex_country = {
     target = WUR
     transfer_troops = yes
   }
@@ -1343,8 +1315,37 @@ prerequisite = { focus = GPU_all_power_lies_in_munich }
 				}
 			}
   }
+   52 = {
+     add_victory_points = {
+      province = 692
+      value = 15
+    }
+   }
+  remove_ideas = GPU_unstable_nation_3
 }
 }
+
+
+
+# shared_focus = {
+#   id = GPU_united_empire
+#   icon = unkown
+# prerequisite = { focus = GPU_all_power_lies_in_munich }
+#   x = 0
+#   y = 1
+#   relative_position_id = GPU_all_power_lies_in_munich
+#   cost = 10
+#   ai_will_do = {
+#     factor = 1
+#   }
+
+#   available_if_capitulated = yes
+#   search_filters = { FOCUS_FILTER_POLITICAL }
+
+#   completion_reward = {
+  
+# }
+# }
 
 # shared_focus = {
 #   id = GPU_anchluss_saxony
@@ -2558,8 +2559,8 @@ shared_focus = {
   }
   available = {
     OR = {
-      has_completed_focus = GPU_the_two_kings
-      has_completed_focus = GPU_united_empire
+      has_completed_focus = GPU_pro_feuadlism
+      has_completed_focus = GPU_all_power_lies_in_munich
       has_completed_focus = GPU_einheit
       has_completed_focus = GPU_the_dresden_putsch
     }
@@ -2595,6 +2596,9 @@ shared_focus = {
     factor = 100
   }
   available = {
+    GER = {
+      is_puppet_of = AUS
+    }
   }
   prerequisite = {
     focus = GPU_preparing_for_german_unification
@@ -2625,6 +2629,14 @@ shared_focus = {
   relative_position_id = GPU_curbing_prussonationalism
   completion_reward = {
     unlock_decision_tooltip = GPU_recruit_von_kluge
+    add_popularity = {
+      ideology = fascism
+      popularity = 0.05
+    }
+    add_popularity = {
+      ideology = ultranationalism
+      popularity = 0.05
+    }
   }
 }
 shared_focus = {
@@ -2646,6 +2658,14 @@ shared_focus = {
     every_unit_leader = {
       add_logistics = 1
       add_planning = 1
+    }
+
+    custom_effect_tooltip = GPU_incorporate_prussian_tactics_tt
+    hidden_effect = {
+      country_event = {
+        id = GPU_german_unification_events.2
+        days = 365
+      }
     }
   }
 }
@@ -2672,18 +2692,7 @@ shared_focus = {
     add_ideas = FRA_one_crown_no_king_2
     country_lock_all_division_template = yes
 
-    if = {
-      limit = {
-        has_country_leader = {
-          name = "Rupprecht I"
-          ruling_only = yes
-        }
-      }
-      add_to_variable = {
-        GPU_austria_will_accept_rupprecht_offer = 1
-        tooltip = GPU_austria_will_accept_rupprecht_offer_plus_1
-      }
-    }
+    
   }
 }
 shared_focus = {
@@ -2702,7 +2711,21 @@ shared_focus = {
   }
   relative_position_id = GPU_purges_in_the_prussian_state
   completion_reward = {
-    
+    remove_ideas = FRA_one_crown_no_king_2
+    country_lock_all_division_template = no
+
+    if = {
+      limit = {
+        has_country_leader = {
+          name = "Rupprecht I"
+          ruling_only = yes
+        }
+      }
+      add_to_variable = {
+        GPU_austria_will_accept_rupprecht_offer = 1
+        tooltip = GPU_austria_will_accept_rupprecht_offer_plus_1
+      }
+    }
   }
 }
 
@@ -2723,7 +2746,7 @@ shared_focus = {
   }
   relative_position_id = GPU_preparing_for_german_unification
   completion_reward = {
-    
+    country_event = GPU_german_unification_events.3
   }
 }
 shared_focus = {
@@ -2736,6 +2759,7 @@ shared_focus = {
     factor = 100
   }
   available = {
+    has_country_flag = GPU_sided_with_catholics
   }
   mutually_exclusive = {
     focus = GPU_protestant_representation
@@ -2745,7 +2769,7 @@ shared_focus = {
   }
   relative_position_id = GPU_the_religious_divide
   completion_reward = {
-    
+    add_ideas = Deus_Omnia_Vincit
   }
 }
 shared_focus = {
@@ -2764,7 +2788,10 @@ shared_focus = {
   }
   relative_position_id = GPU_mantain_strong_catholicism
   completion_reward = {
-    
+    swap_ideas = {
+      add_idea = Deus_Omnia_Vincit_2
+      remove_idea = Deus_Omnia_Vincit
+    }
   }
 }
 shared_focus = {
@@ -2777,6 +2804,7 @@ shared_focus = {
     factor = 100
   }
   available = {
+    has_country_flag = GPU_sided_with_protestants
   }
   mutually_exclusive = {
     focus = GPU_mantain_strong_catholicism
