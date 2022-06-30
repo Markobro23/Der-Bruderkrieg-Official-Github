@@ -230,6 +230,15 @@ on_actions = {
             }
             if = {
                 limit = {
+                    OR = { has_idea = SOV_tsars_lineage }
+                }
+                add_to_variable = {
+                    SOV_peoples_support_for_current_regime = 0.5
+                }
+                SOV_calculate_political_support_modifier = yes
+            }
+            if = {
+                limit = {
                     has_country_leader_with_trait = savior_of_russia
                 }
                 add_to_variable = {
