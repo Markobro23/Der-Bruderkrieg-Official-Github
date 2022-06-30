@@ -15,6 +15,7 @@ focus_tree = {
 	shared_focus = GPU_the_marshals_coup
 	shared_focus = GPU_rule_of_house_wittlebach
   shared_focus = GPU_preparing_for_german_unification
+  shared_focus = GPU_an_absolutist_germany
 }
 
 
@@ -2956,6 +2957,222 @@ shared_focus = {
     }
 }
 
+
+##absolutist germany
+shared_focus = {
+  id = GPU_an_absolutist_germany
+  icon = GFX_focus_GPU_an_absolutist_germany
+  x = 14
+  y = 5
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  # prerequisite = {
+  #   focus = GPU_okh_control
+  # }
+  completion_reward = {
+    add_popularity = {
+      ideology = neutrality
+      popularity = 0.05
+    }
+  }
+}
+shared_focus = {
+  id = GPU_visit_the_depths_of_kyffhauser
+  icon = GFX_focus_GPU_visit_the_depths_of_kyffhauser
+  x = -1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_an_absolutist_germany
+  }
+  relative_position_id = GPU_an_absolutist_germany
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_the_new_barbarossa
+  icon = GFX_focus_GPU_the_new_barbarossa
+  x = -1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_visit_the_depths_of_kyffhauser
+  }
+  relative_position_id = GPU_visit_the_depths_of_kyffhauser
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_convince_the_pope
+  icon = GFX_focus_GPU_convince_the_pope
+  x = 0
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_the_new_barbarossa
+  }
+  relative_position_id = GPU_the_new_barbarossa
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_the_coronation
+  icon = GFX_focus_GPU_the_coronation
+  x = 1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_convince_the_pope
+  }
+  relative_position_id = GPU_convince_the_pope
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = GPU_a_new_monarchy
+  icon = GFX_focus_GPU_a_new_monarchy
+  x = 1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_an_absolutist_germany
+  }
+  relative_position_id = GPU_an_absolutist_germany
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_crush_the_revolutionaries
+  icon = GFX_focus_GPU_crush_the_revolutionaries
+  x = 1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_a_new_monarchy
+  }
+  relative_position_id = GPU_a_new_monarchy
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_deploy_the_secret_police
+  icon = GFX_focus_GPU_deploy_the_secret_police
+  x = 0
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_crush_the_revolutionaries
+  }
+  relative_position_id = GPU_crush_the_revolutionaries
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_the_state_secured
+  icon = GFX_focus_GPU_the_state_secured
+  x = -1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_deploy_the_secret_police
+  }
+  relative_position_id = GPU_deploy_the_secret_police
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = GPU_assert_control_of_denmark
+  icon = GFX_focus_GPU_assert_control_of_denmark
+  x = 1
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_visit_the_depths_of_kyffhauser
+    focus = GPU_a_new_monarchy
+  }
+  relative_position_id = GPU_visit_the_depths_of_kyffhauser
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_claim_the_benelux
+  icon = GFX_focus_GPU_claim_the_benelux
+  x = 0
+  y = 1
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_assert_control_of_denmark
+  }
+  relative_position_id = GPU_assert_control_of_denmark
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = GPU_the_habsburg_question
+  icon = GFX_focus_GPU_the_habsburg_question
+  x = 0
+  y = 2
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  prerequisite = {
+    focus = GPU_claim_the_benelux
+  }
+  prerequisite = {
+    focus = GPU_the_coronation
+    focus = GPU_the_state_secured
+  }
+  relative_position_id = GPU_claim_the_benelux
+  completion_reward = {
+  }
+}
 
 ###ECON
 
