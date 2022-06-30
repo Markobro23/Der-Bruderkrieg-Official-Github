@@ -717,3 +717,35 @@ GPU_anti_berlin_protocols_category = {
 		}
 	}
 }
+
+GPU_great_purge_decision_category = {
+	GPU_pierced_wings_completed = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = yes }
+		}
+	
+		days_mission_timeout = 30
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = GPU_deploy_the_secret_police
+		}
+	
+		visible = {
+			tag = GPU
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			country_event = GPU_absolutist_germany.5
+		}
+	}
+}

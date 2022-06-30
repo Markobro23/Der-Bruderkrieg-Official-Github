@@ -2987,13 +2987,17 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_an_absolutist_germany
   }
+  mutually_exclusive = {
+    focus = GPU_a_new_monarchy
+  }
   relative_position_id = GPU_an_absolutist_germany
   completion_reward = {
+    country_event = GPU_absolutist_germany.1
   }
 }
 shared_focus = {
@@ -3004,13 +3008,41 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_visit_the_depths_of_kyffhauser
   }
   relative_position_id = GPU_visit_the_depths_of_kyffhauser
   completion_reward = {
+    add_country_leader_role = {
+      character = GPU_prince_rupprecht_of_bavaria
+      promote_leader = yes
+      country_leader = {
+        ideology = fascism_ideology
+        expire = "1965.1.1.1"
+        traits = {  }
+      }
+    }
+    set_politics = {
+      ruling_party = fascism
+    }
+    hidden_effect = {
+      set_temp_variable = {neu_pop = party_popularity@ruling_party}
+
+			add_popularity = {
+				popularity = neu_pop
+				ideology = fascism
+			}
+
+			set_temp_variable = {sub_neu_pop = party_popularity@ruling_party}
+			multiply_temp_variable = {sub_neu_pop = -1}
+
+			add_popularity = {
+				popularity = sub_neu_pop
+				ideology = neutrality
+			}
+    }
   }
 }
 shared_focus = {
@@ -3021,13 +3053,14 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_the_new_barbarossa
   }
   relative_position_id = GPU_the_new_barbarossa
   completion_reward = {
+    country_event = GPU_absolutist_germany.2
   }
 }
 shared_focus = {
@@ -3038,13 +3071,15 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_convince_the_pope
   }
   relative_position_id = GPU_convince_the_pope
   completion_reward = {
+    set_cosmetic_tag = HRE_UNIFIED
+    add_political_power = 100
   }
 }
 
@@ -3056,13 +3091,17 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
+  }
+  mutually_exclusive = {
+    focus = GPU_visit_the_depths_of_kyffhauser
   }
   prerequisite = {
     focus = GPU_an_absolutist_germany
   }
   relative_position_id = GPU_an_absolutist_germany
   completion_reward = {
+    country_event = GPU_absolutist_germany.4
   }
 }
 shared_focus = {
@@ -3073,13 +3112,31 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_a_new_monarchy
   }
+  available = {
+    divisions_in_state = {
+      size = 5
+      state = 188
+    }
+    divisions_in_state = {
+      size = 5
+      state = 763
+    }
+    divisions_in_state = {
+      size = 5
+      state = 5
+    }
+  }
   relative_position_id = GPU_a_new_monarchy
   completion_reward = {
+    swap_ideas = {
+      add_idea = GPU_the_new_monarchy_2
+      remove_idea = GPU_the_new_monarchy
+    }
   }
 }
 shared_focus = {
@@ -3090,13 +3147,16 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_crush_the_revolutionaries
   }
   relative_position_id = GPU_crush_the_revolutionaries
   completion_reward = {
+    unlock_decision_category_tooltip = GPU_great_purge_decision_category
+    activate_mission = GPU_pierced_wings_completed
+    
   }
 }
 shared_focus = {
@@ -3107,13 +3167,18 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
+    has_country_flag = GPU_pierced_wings_completed
   }
   prerequisite = {
     focus = GPU_deploy_the_secret_police
   }
   relative_position_id = GPU_deploy_the_secret_police
   completion_reward = {
+    swap_ideas = {
+      add_idea = GPU_the_new_monarchy_3
+      remove_idea = GPU_the_new_monarchy_2
+    }
   }
 }
 
@@ -3125,7 +3190,7 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_visit_the_depths_of_kyffhauser
@@ -3133,6 +3198,14 @@ shared_focus = {
   }
   relative_position_id = GPU_visit_the_depths_of_kyffhauser
   completion_reward = {
+    37 = {
+      controller = {
+        country_event = {
+          id = generic.20
+          days = 1
+        }
+      }
+    }
   }
 }
 shared_focus = {
@@ -3143,13 +3216,31 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_assert_control_of_denmark
   }
   relative_position_id = GPU_assert_control_of_denmark
   completion_reward = {
+    HOL = {
+      country_event = {
+        id = generic.20
+        days = 1
+      }
+    }
+    LUX = {
+      country_event = {
+        id = generic.20
+        days = 1
+      }
+    }
+    BEL = {
+      country_event = {
+        id = generic.20
+        days = 1
+      }
+    }
   }
 }
 shared_focus = {
@@ -3160,7 +3251,7 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    
   }
   prerequisite = {
     focus = GPU_claim_the_benelux
@@ -3171,6 +3262,7 @@ shared_focus = {
   }
   relative_position_id = GPU_claim_the_benelux
   completion_reward = {
+    country_event = GPU_absolutist_germany.3
   }
 }
 

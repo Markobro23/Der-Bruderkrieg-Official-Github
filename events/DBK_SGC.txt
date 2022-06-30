@@ -272,3 +272,165 @@ country_event = {
 		set_country_flag = GPU_sided_with_protestants
 	}
 }
+
+add_namespace = GPU_absolutist_germany
+
+##kyffhauyser
+country_event = {
+	id = GPU_absolutist_germany.1
+	title = GPU_absolutist_germany.1.t
+	desc = GPU_absolutist_germany.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.1.a
+		set_party_name = { 
+			ideology = fascism 
+			long_name = GPU_barbarossa_movement_long 
+			name = GPU_barbarossa_movement 
+		}
+		GPU = { add_state_core =  822}
+		GPU = { add_state_core =  152}
+		GPU = { add_state_core =  4}
+		GPU = { add_state_core =  820}
+		GPU = { add_state_core =  102}
+		GPU = { add_state_core =  9}
+		GPU = { add_state_core =  958}
+		GPU = { add_state_core =  75}
+		GPU = { add_state_core =  74}
+		GPU = { add_state_core =  39}
+		GPU = { add_state_core =  822}
+		GPU = { add_state_core =  152}
+		GPU = { add_state_core =  4}
+		GPU = { add_state_core =  820}
+		GPU = { add_state_core =  102}
+		GPU = { add_state_core =  9}
+		GPU = { add_state_core =  958}
+		GPU = { add_state_core =  75}
+		GPU = { add_state_core =  74}
+		GPU = { add_state_core =  39}
+	}
+}
+
+##pope meeting
+country_event = {
+	id = GPU_absolutist_germany.2
+	title = GPU_absolutist_germany.2.t
+	desc = GPU_absolutist_germany.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.2.a
+		add_opinion_modifier = {
+			target = PAP
+			modifier = large_increase
+		}
+	}
+}
+
+#kaiser question
+country_event = {
+	id = GPU_absolutist_germany.3
+	title = GPU_absolutist_germany.3.t
+	desc = GPU_absolutist_germany.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.3.a
+		add_ideas = SOV_foreign_investment_idea
+	}
+	option = {
+		name = GPU_absolutist_germany.3.b
+		if = {
+			limit = {
+				is_in_faction_with = AUS
+			}
+			leave_faction = yes
+			
+		}
+		create_wargoal = {
+			target = AUS
+			type = topple_government
+		}
+	}
+}
+
+##the hugenberg deal
+country_event = {
+	id = GPU_absolutist_germany.4
+	title = GPU_absolutist_germany.4.t
+	desc = GPU_absolutist_germany.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.4.a
+		add_ideas = GPU_the_new_monarchy
+	}
+}
+
+##the great purge
+country_event = {
+	id = GPU_absolutist_germany.5
+	title = GPU_absolutist_germany.5.t
+	desc = GPU_absolutist_germany.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.5.a
+		every_owned_state = {
+			limit = {
+				divisions_in_state = {
+				size = 5
+				state = THIS
+				}
+			}
+			add_to_variable = {
+				GPU_great_purge_outcome = 1
+			}
+			add_dynamic_modifier = {
+				modifier = under_the_kings_thumb_state_modifier
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					GPU_great_purge_outcome > 4
+				}
+			}
+			country_event = GPU_absolutist_germany.6
+		}
+		else = {
+			country_event = GPU_absolutist_germany.7
+		}
+	}
+}
+
+country_event = {
+	id = GPU_absolutist_germany.6
+	title = GPU_absolutist_germany.6.t
+	desc = GPU_absolutist_germany.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.6.a
+		set_country_flag = GPU_pierced_wings_completed
+	}
+	option = {
+		name = GPU_absolutist_germany.6.b
+		add_political_power = -150
+		set_country_flag = GPU_pierced_wings_completed
+	}
+}
+
+country_event = {
+	id = GPU_absolutist_germany.7
+	title = GPU_absolutist_germany.7.t
+	desc = GPU_absolutist_germany.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_absolutist_germany.7.a
+		add_political_power = 100
+		set_country_flag = GPU_pierced_wings_completed
+	}
+}
