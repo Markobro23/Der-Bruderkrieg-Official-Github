@@ -1325,6 +1325,46 @@ minor_conent_decisions = {
 
 	}
 
+	IRE_put_down_IRA = {
+
+		icon = oppression
+
+		allowed = {
+			tag = IRE
+		}
+
+		visible = {
+			has_idea = IRE_impending_uprising
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		available = {
+			OR = {
+				has_war = yes
+				date > 1938.1.1
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		modifier = {
+			party_popularity_stability_factor = 0.1
+		}
+
+		days_remove = 100
+
+		remove_effect = {
+			remove_ideas = IRE_impending_uprising
+			remove_ideas = IRE_reliance_on_london
+		}
+
+	}
+
 	#middle east
 
 	OMA_answer_immamate_question = {
@@ -1353,6 +1393,163 @@ minor_conent_decisions = {
 
 		remove_effect = {
 			remove_ideas = OMA_the_unstable_immamate
+		}
+
+	}
+
+	#asia
+
+	ETR_fix_schism = {
+
+		cost = 75
+
+		days_remove = 30
+
+		allowed = {
+			tag = ETR
+		}
+
+		modifier = {
+			stability_weekly = 0.005
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			remove_ideas = ETR_damolla_schism
+		}
+
+	}
+
+	CHI_shoot_protestors = {
+
+		days_remove = 70
+
+		available = {
+			has_equipment = {
+				infantry_equipment > 2000
+			}
+		}
+
+		allowed = {
+			tag = CHI
+		}
+
+		visible = { has_idea = CHI_mass_instability }
+
+		modifier = {
+			stability_factor = -0.1
+			political_power_gain = 0.1
+		}
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment
+				amount = -2000
+			}
+		}
+
+		remove_effect = {
+			remove_ideas = CHI_mass_instability
+		}
+
+	}
+
+	SIC_centralize_state = {
+
+		cost = 75
+
+		allowed = {
+			tag = SIC
+		}
+
+		available = {
+			num_divisions > 6
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			weekly_manpower = -200
+		}
+
+		complete_effect = {
+			remove_ideas = SIC_warlord_bonanza 
+		}
+
+	}
+
+	YUC_transform_to_democracy = {
+
+		days_remove = 70
+
+		cost = 50
+
+		available = {
+			is_subject = no
+			OR = {
+				democratic > 0.2
+				democratic_liberalism > 0.2
+				socialism_democratic > 0.2
+			}
+		}
+
+		allowed = {
+			tag = YUC
+		}
+
+		visible = { has_idea = YUC_delayed_republicanism }
+
+		modifier = {
+			political_power_cost = 0.1
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+			remove_ideas = YUC_delayed_republicanism
+			set_politics = {
+				ruling_party = var:highest_party_ideology@exclude_ruling_party
+				elections_allowed = yes
+			}
+			hidden_effect = {
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+		}
+
+	}
+
+	YUC_put_down_protestors = {
+
+		days_remove = 70
+
+		cost = 50
+
+		available = {
+			date > 1939.1.1
+			num_divisons > 10
+		}
+
+		allowed = {
+			tag = YUC
+		}
+
+		visible = { has_idea = YUC_delayed_republicanism }
+
+		modifier = {
+			political_power_cost = -0.1
+			stability_factor = -0.1
+		}
+
+		fire_only_once = yes
+
+		remove_effect = {
+			remove_ideas = YUC_delayed_republicanism
 		}
 
 	}

@@ -904,6 +904,10 @@ ideas = {
 				always = no
 			}
 
+			cancel = {
+				NOT = { has_government = neutrality }
+			}
+
 			allowed_civil_war = {
 				always = no
 			}
@@ -925,6 +929,13 @@ ideas = {
 
 			allowed_civil_war = {
 				always = no
+			}
+
+			cancel = {
+				OR = {
+					GUC = { exists = no }
+					BEI = { exists = no }
+				}
 			}
 
 			removal_cost = -1
@@ -1054,6 +1065,10 @@ ideas = {
 
 			allowed = {
 				always = no
+			}
+
+			cancel = {
+				NOT = { has_government = authoritarian_democratic }
 			}
 
 			allowed_civil_war = {
