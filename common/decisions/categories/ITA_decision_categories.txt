@@ -10,27 +10,6 @@ ITA_content_decisions = {
 	priority = 10000
 }
 
-ITA_incoming_socialist_revolution = {
-	icon = army_reform
-	allowed = {
-    tag = ITA
-	}
-
-	scripted_gui = italy_civil_war_decision_gui
-
-	visible = {
-		OR = {
-			has_completed_focus = ITA_purge_the_socialist_remnants
-		}
-		NOT = {
-			OR = {
-				has_completed_focus = ITA_resources_in_ethiopia 
-				has_completed_focus = ITA_end_the_rivalry
-			}
-		}
-	}
-	priority = 100 
-}
 
 ITA_risorgemento_decisions = {
 	allowed = {
@@ -111,38 +90,8 @@ ITA_the_next_grand_council_of_fascism_elections = {
 	}
 }
 
-ITA_road_to_recovery = {
-	icon = army_reform
-	allowed = {
-	tag = ITA
-	has_completed_focus = ITA_northern_investments
-	}
-
-	#scripted_gui = kings_men_gui
-
-	visible = {
-	tag = ITA
-	has_completed_focus = ITA_northern_investments
-	}
-
-	visible_when_empty = yes
-}
 
 
-
-
-
-ITA_northern_investments_decision = {
-	icon = army_reform
-	allowed = {
-    tag = ITA
-	}
-
-	visible = {
-    tag = ITA
-		has_completed_focus = ITA_northern_investments
-	}
-} 
 
 ITA_factory_repairing = {
 	icon = army_reform
@@ -162,35 +111,10 @@ ITA_iron_guard = {
 	}
 
 	visible = {
-    	tag = ITA
-    	OR = { has_completed_focus = ITA_a_route_through_romania has_completed_focus = ITA_fund_legionaires_in_romania }
-	}
-}
-
-ITA_evola_neo_feudalist_reforms = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_establish_a_neo_feudalist_society
-	}
-}
-
-ITA_evolas_political_reforms_decisions = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_strengthen_the_regime
-	}
-}
-
-ITA_evola_romano_germanic_figure_of_worship = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_our_romano_germanic_identity
+    	always = no
+    	OR = {
+    		#something here
+    	}
 	}
 }
 
@@ -198,12 +122,6 @@ ITA_maintaining_unity = {
 	icon = power_struggle
 	allowed = {
 		tag = ITA
-	}
-	visible = {
-		OR = {
-			has_idea = ITA_socialist_revolt
-			has_idea = ITA_socialist_revolt_2
-		}
 	}
 	priority = 250
 }
@@ -214,7 +132,8 @@ ITA_balkan_decision_cat = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_albanian_expansion
+		#has_completed_focus = ITA_albanian_expansion
+		always = no
 	}
 	priority = 20
 }
@@ -235,7 +154,7 @@ ITA_portugese_corporatists = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_fortify_west_coast
+		#has_completed_focus = ITA_fortify_west_coast
 		has_country_leader = {
 			name = "Costanzo Ciano"
 		}
@@ -247,11 +166,11 @@ ITA_portugese_syndaclists = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_fortify_west_coast
+		#has_completed_focus = ITA_fortify_west_coast
 		OR = {
-			has_country_leader = {
-				name = "Michele Bianchi"
-			}
+			#has_country_leader = {
+			#	name = "Michele Bianchi"
+			#}
 			has_country_leader = {
 				name = "Attilio Teruzzi"
 			}
