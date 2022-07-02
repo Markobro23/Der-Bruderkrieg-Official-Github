@@ -2812,7 +2812,7 @@ shared_focus = {
   icon = GFX_goal_GPU_protestant_representation 
   x = 1
   y = 1
-  cost = 3
+  cost = 2
   ai_will_do = {
     factor = 100
   }
@@ -2831,6 +2831,7 @@ shared_focus = {
       tooltip = GPU_increase_unification_level_by_half
       GPU_unification_outcome = 5
     }
+    add_ideas = BAD_church_clashes
   }
 }
 shared_focus = {
@@ -2838,7 +2839,7 @@ shared_focus = {
   icon = GFX_goal_GPU_complete_kulturkampf 
   x = 0
   y = 1
-  cost = 3
+  cost = 6
   ai_will_do = {
     factor = 100
   }
@@ -2849,6 +2850,7 @@ shared_focus = {
   }
   relative_position_id = GPU_protestant_representation
   completion_reward = {
+    remove_ideas = BAD_church_clashes
     add_to_variable = {
       tooltip = GPU_increase_unification_level_by_half
       GPU_unification_outcome = 5

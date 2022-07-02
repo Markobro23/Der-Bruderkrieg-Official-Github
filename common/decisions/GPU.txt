@@ -589,6 +589,12 @@ GPU_a_new_german_state = {
 		timeout_effect = {
 			complete_national_focus = GPU_the_frankfurt_parliament
 			country_event = GPU_german_unification_events.4
+			if = {
+				limit = {
+					has_idea = BAD_church_clashes
+				}
+				remove_ideas = BAD_church_clashes
+			}
 		}
 	}
 	GPU_recruit_von_kluge = {
