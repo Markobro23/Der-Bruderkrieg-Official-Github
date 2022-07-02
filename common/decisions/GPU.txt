@@ -5,7 +5,7 @@ GPU_ministry_category = {
 		icon = decision_revolt
 	
 		available = {
-			hidden_trigger = { always = yes }
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 150
@@ -560,6 +560,37 @@ GPU_von_rundstedt_fuhrer_revolt = {
 }
 
 GPU_a_new_german_state = {
+	GPU_the_frankfurt_parliament_mission = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 250
+	
+		fire_only_once = yes
+	
+		activation = {
+			tag = GPU
+			has_completed_focus = GPU_preparing_for_german_unification
+		}
+	
+		visible = {
+			tag = GPU
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			complete_national_focus = GPU_the_frankfurt_parliament
+			country_event = GPU_german_unification_events.4
+		}
+	}
 	GPU_recruit_von_kluge = {
 
 		icon = eng_trade_unions_demand
@@ -725,7 +756,7 @@ GPU_great_purge_decision_category = {
 		icon = decision_revolt
 	
 		available = {
-			hidden_trigger = { always = yes }
+			hidden_trigger = { always = no }
 		}
 	
 		days_mission_timeout = 30

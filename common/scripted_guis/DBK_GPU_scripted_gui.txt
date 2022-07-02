@@ -8,4 +8,64 @@ scripted_gui = {
 		}
 		context_type = player_context
 	}
+
+	GPU_german_unification_scripted_gui = {
+		window_name = "GPU_german_unification_level_gui"
+		visible = {
+			tag = GPU
+		}
+		triggers = {
+			GPU_german_unification_level_gui_bg_level_1_visible = {
+				check_variable = {
+					GPU_unification_outcome < 11
+				}
+			}
+			GPU_german_unification_level_gui_bg_level_2_visible = {
+				check_variable = {
+					GPU_unification_outcome > 10
+				}
+				check_variable = {
+					GPU_unification_outcome < 21
+				}
+			}
+			GPU_german_unification_level_gui_bg_level_3_visible = {
+				check_variable = {
+					GPU_unification_outcome > 20
+				}
+				check_variable = {
+					GPU_unification_outcome < 31
+				}
+			}
+			GPU_german_unification_level_gui_bg_visible = {
+				check_variable = {
+					GPU_unification_outcome > 30
+				}
+				check_variable = {
+					GPU_unification_outcome < 41
+				}
+			}
+			GPU_german_unification_level_gui_bg_level_5_visible = {
+				check_variable = {
+					GPU_unification_outcome > 40
+				}
+				check_variable = {
+					GPU_unification_outcome < 51
+				}
+			}
+			GPU_german_unification_level_gui_bg_level_6_visible = {
+				check_variable = {
+					GPU_unification_outcome > 50
+				}
+				check_variable = {
+					GPU_unification_outcome < 61
+				}
+			}
+			GPU_german_unification_level_gui_bg_level_7_visible = {
+				check_variable = {
+					GPU_unification_outcome > 60
+				}
+			}
+		}
+		context_type = decision_category
+	}
 }

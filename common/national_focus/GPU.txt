@@ -15,6 +15,8 @@ focus_tree = {
 	shared_focus = GPU_the_marshals_coup
 	shared_focus = GPU_rule_of_house_wittlebach
   shared_focus = GPU_preparing_for_german_unification
+  shared_focus = GPU_national_revolution
+  shared_focus = GPU_the_first_german_elections
   shared_focus = GPU_an_absolutist_germany
 }
 
@@ -1063,8 +1065,8 @@ shared_focus = {
 shared_focus = {
   id = GPU_continue_the_dual_system
   icon = GFX_goal_support_democracy
-  x = 26
-  y = 5
+  x = 35
+  y = 0
   cost = 10
   ai_will_do = {
     factor = 1
@@ -1496,8 +1498,8 @@ prerequisite = { focus = GPU_centralize_the_government }
 shared_focus = {
   id = GPU_modernizing_the_bundesheer
   icon = unkown
-  x = 22
-  y = 5
+  x = 31
+  y = 0
   cost = 10
   ai_will_do = {
     factor = 1
@@ -2552,7 +2554,7 @@ shared_focus = {
 shared_focus = {
   id = GPU_preparing_for_german_unification
   icon = GFX_goal_GPU_preparing_for_german_unification 
-  x = 13
+  x = 11
   y = 0
   cost = 3
   ai_will_do = {
@@ -2562,35 +2564,22 @@ shared_focus = {
     OR = {
       has_completed_focus = GPU_pro_feuadlism
       has_completed_focus = GPU_all_power_lies_in_munich
-      has_completed_focus = GPU_einheit
-      has_completed_focus = GPU_the_dresden_putsch
     }
   }
   completion_reward = {
     add_political_power = 25
     unlock_decision_category_tooltip = GPU_a_new_german_state
+    effect_tooltip = { activate_mission = GPU_the_frankfurt_parliament_mission }
+
     set_variable = {
-      GPU_german_unification_modifier_state_resources_factor = -0.1
-    }
-    set_variable = {
-      GPU_german_unification_modifier_recruitable_population_factor = -0.1
-    }
-    set_variable = {
-      GPU_german_unification_modifier_local_building_slots_factor = -0.1
-    }
-    set_variable = {
-      GPU_german_unification_modifier_industrial_capacity_factory = -0.1
-    }
-    custom_effect_tooltip = GPU_preparing_for_german_unification_tt
-    effect_tooltip = {
-      add_ideas = GPU_german_unification_modifier_idea
+      GPU_unification_outcome = 40
     }
   }
 }
 shared_focus = {
   id = GPU_curbing_prussonationalism
   icon = GFX_goal_GPU_curbing_prussonationalism 
-  x = -4
+  x = -2
   y = 1
   cost = 3
   ai_will_do = {
@@ -2612,7 +2601,7 @@ shared_focus = {
 shared_focus = {
   id = GPU_preserve_the_prussian_generals_corp
   icon = GFX_goal_GPU_preserve_the_prussian_generals_corp 
-  x = 1
+  x = -1
   y = 1
   cost = 3
   ai_will_do = {
@@ -2638,6 +2627,11 @@ shared_focus = {
       ideology = ultranationalism
       popularity = 0.05
     }
+
+    add_to_variable = {
+      tooltip = GPU_decrease_unification_level_by_half
+      GPU_unification_outcome = -5
+    }
   }
 }
 shared_focus = {
@@ -2660,6 +2654,10 @@ shared_focus = {
       add_logistics = 1
       add_planning = 1
     }
+    add_to_variable = {
+      tooltip = GPU_decrease_unification_level_by_half
+      GPU_unification_outcome = -5
+    }
 
     custom_effect_tooltip = GPU_incorporate_prussian_tactics_tt
     hidden_effect = {
@@ -2673,7 +2671,7 @@ shared_focus = {
 shared_focus = {
   id = GPU_purges_in_the_prussian_state
   icon = GFX_goal_GPU_purges_in_the_prussian_state 
-  x = -1
+  x = 1
   y = 1
   cost = 3
   ai_will_do = {
@@ -2692,7 +2690,10 @@ shared_focus = {
   completion_reward = {
     add_ideas = FRA_one_crown_no_king_2
     country_lock_all_division_template = yes
-
+    add_to_variable = {
+      tooltip = GPU_increase_unification_level_by_half
+      GPU_unification_outcome = 5
+    }
     
   }
 }
@@ -2714,7 +2715,10 @@ shared_focus = {
   completion_reward = {
     remove_ideas = FRA_one_crown_no_king_2
     country_lock_all_division_template = no
-
+    add_to_variable = {
+      tooltip = GPU_increase_unification_level_by_half
+      GPU_unification_outcome = 5
+    }
     if = {
       limit = {
         has_country_leader = {
@@ -2734,7 +2738,7 @@ shared_focus = {
 shared_focus = {
   id = GPU_the_religious_divide
   icon = GFX_goal_GPU_the_religious_divide 
-  x = 0
+  x = 2
   y = 1
   cost = 3
   ai_will_do = {
@@ -2771,6 +2775,10 @@ shared_focus = {
   relative_position_id = GPU_the_religious_divide
   completion_reward = {
     add_ideas = Deus_Omnia_Vincit
+    add_to_variable = {
+      tooltip = GPU_decrease_unification_level_by_half
+      GPU_unification_outcome = -5
+    }
   }
 }
 shared_focus = {
@@ -2792,6 +2800,10 @@ shared_focus = {
     swap_ideas = {
       add_idea = Deus_Omnia_Vincit_2
       remove_idea = Deus_Omnia_Vincit
+    }
+    add_to_variable = {
+      tooltip = GPU_decrease_unification_level_by_half
+      GPU_unification_outcome = -5
     }
   }
 }
@@ -2815,7 +2827,10 @@ shared_focus = {
   }
   relative_position_id = GPU_the_religious_divide
   completion_reward = {
-    
+    add_to_variable = {
+      tooltip = GPU_increase_unification_level_by_half
+      GPU_unification_outcome = 5
+    }
   }
 }
 shared_focus = {
@@ -2834,15 +2849,21 @@ shared_focus = {
   }
   relative_position_id = GPU_protestant_representation
   completion_reward = {
-    
+    add_to_variable = {
+      tooltip = GPU_increase_unification_level_by_half
+      GPU_unification_outcome = 5
+    }
   }
 }
 shared_focus = {
   id = GPU_the_frankfurt_parliament
   icon = GFX_goal_GPU_the_frankfurt_parliament 
-  x = 1
+  x = 3
   y = 1
-  cost = 3
+  cost = 0
+  available = {
+    always = no
+  }
   ai_will_do = {
     factor = 100
   }
@@ -2866,17 +2887,17 @@ shared_focus = {
 shared_focus = {
     id = GPU_national_revolution
     icon = GFX_focus_GPU_national_revolution
-    x = 4
-    y = 1
+    x = 17
+    y = 0
     cost = 5
     available_if_capitulated = yes
-	relative_position_id = GPU_preparing_for_german_unification
-	prerequisite = {
-		focus = GPU_preparing_for_german_unification
-	}
+
 
   available = {
-    has_government = fascism
+    OR = {
+          has_completed_focus = GPU_einheit
+        has_completed_focus = GPU_the_dresden_putsch
+    }
   }
   
     completion_reward = {
@@ -2967,6 +2988,10 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
+    OR = {
+      has_country_flag = GPU_ultraconservatives_take_power
+      has_country_flag = GPU_absolutists_take_power
+    }
     custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
   }
   # prerequisite = {
@@ -2987,7 +3012,7 @@ shared_focus = {
   cost = 5
   available_if_capitulated = yes
   available = {
-    
+    has_country_flag = GPU_ultraconservatives_take_power
   }
   prerequisite = {
     focus = GPU_an_absolutist_germany
@@ -3263,6 +3288,30 @@ shared_focus = {
   relative_position_id = GPU_claim_the_benelux
   completion_reward = {
     country_event = GPU_absolutist_germany.3
+  }
+}
+
+##democratic germany
+shared_focus = {
+  id = GPU_the_first_german_elections
+  icon = GFX_focus_GPU_the_first_german_elections
+  x = 21
+  y = 5
+  cost = 5
+  available_if_capitulated = yes
+  available = {
+    OR = {
+      has_country_flag = GPU_conservatives_take_power
+      has_country_flag = GPU_liberals_take_power
+      has_country_flag = GPU_socialists_take_power
+    }
+    custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+  }
+  # prerequisite = {
+  #   focus = GPU_okh_control
+  # }
+  completion_reward = {
+    custom_effect_tooltip = GPU_the_first_german_elections_tt
   }
 }
 

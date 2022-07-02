@@ -273,6 +273,165 @@ country_event = {
 	}
 }
 
+##frankfurt parliament
+country_event = {
+	id = GPU_german_unification_events.4
+	title = GPU_german_unification_events.4.t
+	desc = GPU_german_unification_events.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	## ultracon
+	option = {
+		name = GPU_german_unification_events.4.a
+		
+		trigger = {
+			OR = {
+				check_variable = {
+					GPU_unification_outcome = 10
+				}
+				check_variable = {
+					GPU_unification_outcome = 20
+				}
+			}
+		}
+		set_country_flag = GPU_ultraconservatives_take_power
+		set_variable = {
+			GPU_german_unification_modifier_state_resources_factor = -0.2
+		}
+		set_variable = {
+			GPU_german_unification_modifier_recruitable_population_factor = -0.2
+		}
+		set_variable = {
+			GPU_german_unification_modifier_local_building_slots_factor = -0.2
+		}
+		set_variable = {
+			GPU_german_unification_modifier_industrial_capacity_factory = -0.2
+		}
+		custom_effect_tooltip = GPU_preparing_for_german_unification_tt
+		every_controlled_state = {
+			add_dynamic_modifier = {
+				modifier = GPU_german_unification_modifier
+			}
+		}
+	}
+
+	## absolute con
+	option = {
+		name = GPU_german_unification_events.4.b
+		
+		trigger = {
+			OR = {
+				check_variable = {
+					GPU_unification_outcome = 20
+				}
+				check_variable = {
+					GPU_unification_outcome = 30
+				}
+				check_variable = {
+					GPU_unification_outcome = 40
+				}
+			}
+		}
+		set_country_flag = GPU_absolutists_take_power
+		set_variable = {
+			GPU_german_unification_modifier_state_resources_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_recruitable_population_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_local_building_slots_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_industrial_capacity_factory = -0.1
+		}
+		custom_effect_tooltip = GPU_preparing_for_german_unification_tt
+		every_controlled_state = {
+			add_dynamic_modifier = {
+				modifier = GPU_german_unification_modifier
+			}
+		}
+	}
+
+	## normal con
+	option = {
+		name = GPU_german_unification_events.4.c
+		
+		trigger = {
+			OR = {
+				check_variable = {
+					GPU_unification_outcome = 40
+				}
+				check_variable = {
+					GPU_unification_outcome = 50
+				}
+				check_variable = {
+					GPU_unification_outcome = 60
+				}
+			}
+		}
+		set_country_flag = GPU_conservatives_take_power
+	}
+
+	## normal lib
+	option = {
+		name = GPU_german_unification_events.4.dd
+		
+		trigger = {
+			OR = {
+				check_variable = {
+					GPU_unification_outcome = 40
+				}
+				check_variable = {
+					GPU_unification_outcome = 50
+				}
+				check_variable = {
+					GPU_unification_outcome = 60
+				}
+				check_variable = {
+					GPU_unification_outcome = 70
+				}
+			}
+		}
+		set_variable = {
+			GPU_german_unification_modifier_state_resources_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_recruitable_population_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_local_building_slots_factor = -0.1
+		}
+		set_variable = {
+			GPU_german_unification_modifier_industrial_capacity_factory = -0.1
+		}
+		custom_effect_tooltip = GPU_preparing_for_german_unification_tt
+		every_controlled_state = {
+			add_dynamic_modifier = {
+				modifier = GPU_german_unification_modifier
+			}
+		}
+		set_country_flag = GPU_liberals_take_power
+	}
+	## normal soc
+	option = {
+		name = GPU_german_unification_events.4.e
+		
+		trigger = {
+			OR = {
+				check_variable = {
+					GPU_unification_outcome = 60
+				}
+				check_variable = {
+					GPU_unification_outcome = 70
+				}
+			}
+		}
+		set_country_flag = GPU_socialists_take_power
+	}
+}
+
 add_namespace = GPU_absolutist_germany
 
 ##kyffhauyser
@@ -309,6 +468,8 @@ country_event = {
 		GPU = { add_state_core =  75}
 		GPU = { add_state_core =  74}
 		GPU = { add_state_core =  39}
+		GPU = { add_state_core =  69}
+		GPU = { add_state_core =  85}
 	}
 }
 
