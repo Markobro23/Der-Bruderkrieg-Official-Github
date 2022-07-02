@@ -2262,6 +2262,9 @@ shared_focus = {
 	mutually_exclusive = {
     focus = GPU_assume_the_throne
 	}
+  bypass = {
+    has_war_with = GER
+  }
   	relative_position_id = GPU_unite_the_exiles
 	prerequisite = {
 		focus = GPU_unite_the_exiles
@@ -2332,11 +2335,18 @@ shared_focus = {
 	prerequisite = {
 		focus = GPU_zum_sieg
 	}
+  available = {
+    has_war_with = GER
+  }
 
 	mutually_exclusive = {
 	}
   
     completion_reward = {
+      swap_ideas = {
+        remove_idea = GPU_the_exiles_mustered
+        add_idea = GPU_the_exiles_mustered_2
+      }
     }
 }
 
@@ -2564,6 +2574,7 @@ shared_focus = {
     OR = {
       has_completed_focus = GPU_pro_feuadlism
       has_completed_focus = GPU_all_power_lies_in_munich
+      has_completed_focus = GPU_einheit
     }
   }
   completion_reward = {
@@ -2897,12 +2908,14 @@ shared_focus = {
 
   available = {
     OR = {
-          has_completed_focus = GPU_einheit
+          
         has_completed_focus = GPU_the_dresden_putsch
     }
+    has_war_with = AUS
   }
   
     completion_reward = {
+      news_event = GPU_von_rundstedt_path.2
     }
 }
 shared_focus = {
@@ -2919,10 +2932,15 @@ shared_focus = {
   mutually_exclusive = {
     focus = GPU_prepare_the_army
   }
+  available = {
+    has_war_with = AUS
+  }
+  
 
 
   
     completion_reward = {
+      country_event = GPU_von_rundstedt_path.3
     }
 }
 shared_focus = {
@@ -2936,10 +2954,22 @@ shared_focus = {
 	prerequisite = {
 		focus = GPU_isolating_goering
 	}
-
+  available = {
+    has_war_with = AUS
+    GER = {
+      has_war_with = AUS
+    }
+    AUS = {
+      surrender_progress > 0.29
+    }
+  }
 
   
     completion_reward = {
+      create_wargoal = {
+        target = GER
+        type = topple_government
+      }
     }
 }
 
@@ -2957,10 +2987,37 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = GPU_isolating_goering
 	}
+  available = {
+    GER = {
+      OR = {
+        has_country_leader = {
+          name = "Hermann Goering"
+          ruling_only = yes
+        }
+        has_country_leader = {
+          name = "Ernst Rohm"
+          ruling_only = yes
+        }
+      }
+    }
+  }
 
   
-    completion_reward = {
-    }
+  completion_reward = {
+    every_unit_leader = {
+        add_temporary_buff_to_units = {
+          combat_offense = 0.25
+          combat_breakthrough = 0.25
+          org_damage_multiplier = -1.0
+          str_damage_multiplier = 0.25
+          war_support_reduction_on_damage = 0.2
+          cannot_retreat_while_attacking = 1.0
+                
+          days = 25
+          tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+        }
+      }
+  }
 }
 shared_focus = {
     id = GPU_ein_volk_ein_reich_ein_fuhrer
@@ -2977,6 +3034,16 @@ shared_focus = {
 
   
     completion_reward = {
+      goto_state = 64
+      GER = {
+        change_tag_from = GPU
+      }
+      GER = {
+        annex_country = {
+          target = GPU
+          transfer_troops = yes
+        }
+      }
     }
 }
 
