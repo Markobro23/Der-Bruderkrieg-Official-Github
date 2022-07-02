@@ -1198,6 +1198,13 @@ shared_focus = {
 
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH
+					option = ITA_BIANCHIS_BROTHERHOOD_PATH
+				}
+			}
 		}
 		completion_reward = {
 			country_event = { id = italy_power_struggle.8 hours = 1 }
@@ -1467,6 +1474,28 @@ shared_focus = {
 		relative_position_id = ITA_italys_destiny
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH
+					option = ITA_EMPHASIZE_NATIONALISM_PATH
+				}
+			}
+			
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = ITA_end_bianchis_rule }
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
 		}
 		completion_reward = {
 			country_event = { id = italy_power_struggle.6 hours = 1 }
@@ -1838,6 +1867,27 @@ shared_focus = {
 		}
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH
+					option = ITA_CIANOS_CORPORATISM_PATH
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { has_completed_focus = ITA_end_bianchis_rule }
+				OR = {
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH
+						option = ITA_EMPHASIZE_NATIONALISM_PATH
+					}
+					has_game_rule = {
+						rule = DBK_ITALIAN_PATH
+						option = ITA_EVOLAS_ESOTERICISM_PATH
+					}
+				}
+			}
 		}
 		completion_reward = {
 			country_event = { id = italy_power_struggle.4 hours = 1 }
@@ -2172,6 +2222,13 @@ shared_focus = {
 		}
 		ai_will_do = {
 			factor = 1000
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = DBK_ITALIAN_PATH
+					option = ITA_EVOLAS_ESOTERICISM_PATH
+				}
+			}
 		}
 		completion_reward = {
 			country_event = { id = italy_power_struggle.2 hours = 1 }
