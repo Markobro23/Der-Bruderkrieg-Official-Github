@@ -1,0 +1,59 @@
+scripted_gui = {
+	ENG_openelectionsbutton_scripted_gui = {
+		window_name = "ENG_open_duma_election_window"
+		parent_window_token = politics_tab
+		visible = {
+			tag = ENG
+			is_ai = no
+		}
+		effects = {
+			ENG_openelectionsbutton_click = {
+				set_country_flag = ENG_open_election_view_GUI
+			}
+		}
+	}
+
+	###new election GUI
+	ENG_electionsview_scripted_gui = {
+		window_name = "ENG_electionsview"
+		visible = {
+			has_country_flag = ENG_open_election_view_GUI
+		}
+		effects = {
+			close_button_click = {
+				clr_country_flag = ENG_open_election_view_GUI
+			}
+		}
+
+		dynamic_lists = {
+			ENG_election_state_buttons_gridbox = {
+				array = ENG.election_states
+				entry_container = "ENG_election_state_entry"
+				change_scope = yes
+			}
+		}
+
+		properties = {
+			parliament_elections_halifax_progress_bar =  {
+				frame = halifax_support
+			}
+			parliament_elections_churchill_progress_bar =  {
+				frame = churchill_support
+			}
+			parliament_elections_attlee_progress_bar =  {
+				frame = attlee_support
+			}
+			parliament_elections_mosley_progress_bar =  {
+				frame = mosley_support
+			}
+		}
+		effects = {
+			ENG_election_map_state_button_click = {
+				ENG = {
+					log = "hi"
+					ENG_level_up_duma_large_decision = yes
+				}
+			}
+		}
+	}
+}

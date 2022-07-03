@@ -1,0 +1,315 @@
+ENG_level_up_duma_decision = {
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_halifax_campaign
+		}
+		add_to_variable = {
+			tooltip = ENG_increase_halifaxs_support_by_1
+			halifax_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_chose_churchill
+		}
+		add_to_variable = {
+			tooltip = ENG_increase_churchills_support_by_1
+			churchill_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_attlee_campaign
+		}
+		add_to_variable = {
+			tooltip = ENG_increase_attlees_support_by_1
+			attlee_support = 1
+		}
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_mosley_campaign
+		}
+		add_to_variable = {
+			tooltip = ENG_increase_mosleys_support_by_1
+			mosley_support = 1
+		}
+	}
+}
+
+ENG_level_up_duma_large_decision = {
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_halifax_campaign
+		}
+		ENG_halifax_level_up_duma_large_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_chose_churchill
+		}
+		ENG_churchill_level_up_duma_large_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_attlee_campaign
+		}
+		ENG_attlee_level_up_duma_large_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_mosley_campaign
+		}
+		ENG_mosley_level_up_duma_large_decision = yes
+	}
+}
+
+ENG_halifax_level_up_duma_large_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_halifaxs_support_by_3
+		halifax_support = 3
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_attlee_support_by_1
+		attlee_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_churchills_support_by_1
+		churchill_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+		mosley_support = -1
+	}
+}
+
+ENG_attlee_level_up_duma_large_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_attlees_support_by_3
+		attlee_support = 3
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_halifaxs_support_by_1
+		halifax_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_churchills_support_by_1
+		churchill_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+		mosley_support = -1
+	}
+}
+
+ENG_churchill_level_up_duma_large_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_churchills_support_by_3
+		churchill_support = 3
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_halifaxs_support_by_1
+		halifax_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_attlee_support_by_1
+		attlee_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+		mosley_support = -1
+	}
+}
+
+ENG_mosley_level_up_duma_large_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_mosleys_support_by_3
+		mosley_support = 3
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_halifaxs_support_by_1
+		halifax_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_attlee_support_by_1
+		attlee_support = -1
+	}
+	add_to_variable = {
+		tooltip = ENG_decrease_churchills_support_by_1
+		churchill_support = -1
+	}
+}
+
+
+
+ENG_level_up_duma_small_decision = {
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_halifax_campaign
+		}
+		ENG_halifax_level_up_duma_small_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_chose_churchill
+		}
+		ENG_churchill_level_up_duma_small_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_attlee_campaign
+		}
+		ENG_attlee_level_up_duma_small_decision = yes
+	}
+	if = {
+		limit = {
+			has_country_flag = ENG_sided_with_mosley_campaign
+		}
+		ENG_mosley_level_up_duma_small_decision = yes
+	}
+}
+
+ENG_halifax_level_up_duma_small_decision = {
+
+	add_to_variable = {
+		tooltip = ENG_increase_halifaxs_support_by_1
+		halifax_support = 1
+	}
+	
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_decrease_attlee_support_by_1
+				attlee_support = -1
+			}
+		}
+		50 = {
+		add_to_variable = {
+			tooltip = ENG_decrease_churchills_support_by_1
+			churchill_support = -1
+		}
+		}
+		50 = {
+		add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+			mosley_support = -1
+		}
+		}
+	}
+}
+
+
+ENG_halifax_level_down_duma_small_decision  = {
+
+	add_to_variable = {
+		tooltip = ENG_decrease_halifaxs_support_by_1
+		halifax_support = -1
+	}
+	
+
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_increase_attlees_support_by_1
+				attlee_support = 1
+			}
+		}
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_increase_churchills_support_by_1
+				churchill_support = 1
+			}
+		}
+		50 = {
+			add_to_variable = {
+			tooltip = ENG_increase_mosleys_support_by_1
+				mosley_support = 1
+			}
+		}
+	}
+
+}
+
+ENG_attlee_level_up_duma_small_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_attlees_support_by_1
+		attlee_support = 1
+	}
+	
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_decrease_halifaxs_support_by_1
+				halifax_support = -1
+			}
+		}
+		50 = {
+		add_to_variable = {
+			tooltip = ENG_decrease_churchills_support_by_1
+			churchill_support = -1
+		}
+		}
+		50 = {
+		add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+			mosley_support = -1
+		}
+		}
+	}
+}
+
+ENG_churchill_level_up_duma_small_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_churchills_support_by_1
+		churchill_support = 1
+	}
+	
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_decrease_halifaxs_support_by_1
+				halifax_support = -1
+			}
+		}
+		50 = {
+		add_to_variable = {
+			tooltip = ENG_decrease_attlee_support_by_1
+			attlee_support = -1
+		}
+		}
+		50 = {
+		add_to_variable = {
+		tooltip = ENG_decrease_mosleys_support_by_1
+			mosley_support = -1
+		}
+		}
+	}
+}
+
+ENG_mosley_level_up_duma_small_decision = {
+	add_to_variable = {
+		tooltip = ENG_increase_mosleys_support_by_1
+		mosley_support = 1
+	}
+	
+	random_list = {
+		50 = {
+			add_to_variable = {
+				tooltip = ENG_decrease_halifaxs_support_by_1
+				halifax_support = -1
+			}
+		}
+		50 = {
+		add_to_variable = {
+			tooltip = ENG_decrease_attlee_support_by_1
+			attlee_support = -1
+		}
+		}
+		50 = {
+		add_to_variable = {
+			tooltip = ENG_decrease_churchills_support_by_1
+			churchill_support = -1
+		}
+		}
+	}
+}
