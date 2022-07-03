@@ -49,8 +49,8 @@ scripted_gui = {
 		}
 		effects = {
 			ENG_election_map_state_button_click = {
+				set_state_flag = { flag = ENG_already_campaigning_in_state value = 1 days = 15 }
 				ENG = {
-					log = "hi"
 					ENG_level_up_duma_large_decision = yes
 				}
 			}
@@ -79,9 +79,114 @@ scripted_gui = {
 				clr_country_flag = ENG_attlee_party_selected_in_gui
 				clr_country_flag = ENG_churchill_party_selected_in_gui
 			}
+
+			ENG_attack_halifax_policies_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_halifaxs_support_by_1
+					halifax_support = -1
+				}
+			}
+			ENG_attack_halifax_ireland_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_halifaxs_support_by_1
+					halifax_support = -1
+				}
+			}
+			ENG_highlight_his_indecisiveness_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_halifaxs_support_by_1
+					halifax_support = -1
+				}
+			}
+			ENG_attack_churchill_policies_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_churchills_support_by_1
+					churchill_support = -1
+				}
+			}
+			ENG_point_out_their_impracticalness_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_churchills_support_by_1
+					churchill_support = -1
+				}
+			}
+			ENG_paint_him_as_aloof_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_churchills_support_by_1
+					churchill_support = -1
+				}
+			}
+			ENG_labour_will_be_the_end_of_britain_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_attlee_support_by_1
+					attlee_support = -1
+				}
+			}
+			ENG_socialism_will_never_work_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_attlee_support_by_1
+					attlee_support = -1
+				}
+			}
+			ENG_rally_pro_monarchists_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_mosleys_support_by_1
+					mosley_support = -1
+				}
+			}
+			ENG_denouncing_mosley_as_an_autocrat_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_mosleys_support_by_1
+					mosley_support = -1
+				}
+			}
+			ENG_condemn_his_radical_ties_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_mosleys_support_by_1
+					mosley_support = -1
+				}
+			}
+			ENG_attacking_his_extremist_policies_click = {
+				ENG_level_up_duma_decision = yes
+				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
+				add_to_variable = {
+					tooltip = ENG_decrease_mosleys_support_by_1
+					mosley_support = -1
+				}
+			}
 		}
 
 		triggers = {
+			ENG_election_map_state_button_click_enabled = {
+				NOT = {
+					has_state_flag = ENG_already_campaigning_in_state
+				}
+				ENG = {
+					has_political_power > 20
+				}
+			}
 			ENG_attack_churchill_policies_visible = {
 				has_country_flag = ENG_churchill_party_selected_in_gui
 			}
@@ -108,6 +213,77 @@ scripted_gui = {
 			}
 			ENG_attacking_his_extremist_policies_visible = {
 				has_country_flag = ENG_mosley_party_selected_in_gui
+			}
+			
+
+			ENG_attack_halifax_policies_click_enabled = {
+				has_political_power > 19
+			}
+			ENG_attack_halifax_ireland_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_highlight_his_indecisiveness_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_attack_churchill_policies_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_point_out_their_impracticalness_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_paint_him_as_aloof_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_labour_will_be_the_end_of_britain_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_socialism_will_never_work_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_rally_pro_monarchists_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_denouncing_mosley_as_an_autocrat_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_condemn_his_radical_ties_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
+			}
+			ENG_attacking_his_extremist_policies_click_enabled = {
+				has_political_power > 19
+				NOT = {
+					has_country_flag = ENG_already_doing_anti_campaign_action
+				}
 			}
 		}
 	}
