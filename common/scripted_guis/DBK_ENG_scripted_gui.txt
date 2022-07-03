@@ -54,6 +54,61 @@ scripted_gui = {
 					ENG_level_up_duma_large_decision = yes
 				}
 			}
+
+			ENG_election_map_halifax_button_click = {
+				set_country_flag = ENG_halifax_party_selected_in_gui
+				clr_country_flag = ENG_churchill_party_selected_in_gui
+				clr_country_flag = ENG_attlee_party_selected_in_gui
+				clr_country_flag = ENG_mosley_party_selected_in_gui
+			}
+			ENG_election_map_tories_button_click = {
+				set_country_flag = ENG_churchill_party_selected_in_gui
+				clr_country_flag = ENG_halifax_party_selected_in_gui
+				clr_country_flag = ENG_attlee_party_selected_in_gui
+				clr_country_flag = ENG_mosley_party_selected_in_gui
+			}
+			ENG_election_map_labour_button_click = {
+				set_country_flag = ENG_attlee_party_selected_in_gui
+				clr_country_flag = ENG_halifax_party_selected_in_gui
+				clr_country_flag = ENG_mosley_party_selected_in_gui
+				clr_country_flag = ENG_churchill_party_selected_in_gui
+			}
+			ENG_election_map_new_labour_button_click = {
+				set_country_flag = ENG_mosley_party_selected_in_gui
+				clr_country_flag = ENG_halifax_party_selected_in_gui
+				clr_country_flag = ENG_attlee_party_selected_in_gui
+				clr_country_flag = ENG_churchill_party_selected_in_gui
+			}
+		}
+
+		triggers = {
+			ENG_attack_churchill_policies_visible = {
+				has_country_flag = ENG_churchill_party_selected_in_gui
+			}
+			ENG_point_out_their_impracticalness_visible = {
+				has_country_flag = ENG_churchill_party_selected_in_gui
+			}
+			ENG_paint_him_as_aloof_visible = {
+				has_country_flag = ENG_churchill_party_selected_in_gui
+			}
+			ENG_labour_will_be_the_end_of_britain_visible = {
+				has_country_flag = ENG_attlee_party_selected_in_gui
+			}
+			ENG_socialism_will_never_work_visible = {
+				has_country_flag = ENG_attlee_party_selected_in_gui
+			}
+			ENG_rally_pro_monarchists_visible = {
+				has_country_flag = ENG_attlee_party_selected_in_gui
+			}
+			ENG_denouncing_mosley_as_an_autocrat_visible = {
+				has_country_flag = ENG_mosley_party_selected_in_gui
+			}
+			ENG_condemn_his_radical_ties_visible = {
+				has_country_flag = ENG_mosley_party_selected_in_gui
+			}
+			ENG_attacking_his_extremist_policies_visible = {
+				has_country_flag = ENG_mosley_party_selected_in_gui
+			}
 		}
 	}
 }
