@@ -468,6 +468,7 @@ country_event = {
 	option = {
 		name = USA_republican_national_convention.2.a
 		set_country_flag = USA_the_warren_campaign_unlock
+		set_country_flag = USA_the_warren_campaign_flag
 	}
 }
 
@@ -685,6 +686,11 @@ country_event = {
 		}
 		}
 	}
+	option = {
+		name = USA_democratic_national_convention.12.a
+		
+		set_country_flag = USA_longs_tour_of_america_flag
+	}
 }
 ##long leavs the democratic parrty
 country_event = {
@@ -761,6 +767,7 @@ country_event = {
 		news_event = USA_democratic_national_convention.18
 		set_country_flag = USA_dnc_has_ended
 		set_country_flag = USA_smith_wins_dnc
+		set_country_flag = USA_smith_campaign_flag
 		log = "DNC END"
 		ai_chance = {
 			factor = 100
@@ -1167,7 +1174,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = usa_smith_presidency_tree
+			#load_focus_tree = usa_smith_presidency_tree
 			set_politics = {
 				ruling_party = democratic
 			}
@@ -1193,7 +1200,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = USA_warren_presidency_tree
+			#load_focus_tree = USA_warren_presidency_tree
 		}
 	}
 }
@@ -1211,7 +1218,7 @@ country_event = {
 		set_country_flag = USA_1936_elections_over
 		if = {
 			limit = {
-				has_completed_focus = USA_longs_campaign_speech
+				has_country_flag = USA_longs_tour_of_america_flag
 			}
 			set_country_flag = USA_long_wins_elections
 			hidden_effect = {
@@ -1223,7 +1230,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = USA_smith_campaign
+				has_country_flag = USA_smith_campaign_flag
 			}
 			set_country_flag = USA_smith_wins_elections
 			hidden_effect = {
@@ -1235,7 +1242,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				has_completed_focus = USA_the_warren_campaign
+				has_country_flag = USA_the_warren_campaign_flag
 			}
 			set_country_flag = USA_borah_wins_elections
 			hidden_effect = {
@@ -1289,7 +1296,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			load_focus_tree = usa_long_new_deal_tree
+			#load_focus_tree = usa_long_new_deal_tree
 		}
 		
 	}
@@ -4614,7 +4621,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_debug_events.1.a
-		load_focus_tree = usa_long_new_deal_tree
+		#load_focus_tree = usa_long_new_deal_tree
 	}
 	option = {
 		name = USA_debug_events.1.b
