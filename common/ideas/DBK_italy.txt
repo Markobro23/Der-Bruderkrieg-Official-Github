@@ -133,9 +133,9 @@ ideas = {
 			allowed = {
 				always = yes
 			}
-			 cancel = {
-		  is_subject = yes
-	  }
+			cancel = {
+				is_subject = yes
+			}
 			allowed_civil_war = {
 				always = yes
 			}
@@ -144,18 +144,19 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = -0.1
-				production_speed_buildings_factor = -0.1
-				stability_factor = -0.1
+				production_speed_buildings_factor = -0.15
+				stability_factor = -0.15
 			}
 		}
 
 		Southern_Problem_2 = {
+			name = Southern_Problem
 			allowed = {
 				always = yes 
 			}
-			 cancel = {
-		  is_subject = yes
-	  }
+			cancel = {
+				is_subject = yes
+			}
 			allowed_civil_war = {
 				always = yes
 			}
@@ -164,14 +165,72 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = -0.05
-				production_speed_buildings_factor = -0.05
-				stability_factor = -0.05
-				
-				
+				production_speed_buildings_factor = -0.1
+				stability_factor = -0.1
 			}
 		}
 
-		
+		Southern_Problem_3 = {
+			name = Southern_Problem
+			allowed = {
+				always = yes 
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+
+		Southern_Problem_but_worse = {
+			name = Southern_Problem
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_speed_buildings_factor = -0.15
+				stability_factor = -0.2
+			}
+		}
+
+		Southern_Problem_but_worse_2 = {
+			name = Southern_Problem
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.2
+				production_speed_buildings_factor = -0.2
+				stability_factor = -0.25
+			}
+		}
 
 		ITA_mafia_idea = {
 
@@ -556,8 +615,8 @@ ideas = {
   
 		}
 	  }
-	  ITA_mass_economic_instability_2 = {
-
+	  ITA_mass_economic_instability_2 = { #pro ciano
+	  	name = ITA_mass_economic_instability
 		allowed = {
 		  always = yes
 		}
@@ -572,9 +631,27 @@ ideas = {
   
 		modifier = {
 	    consumer_goods_factor = 0.05
-		production_factory_start_efficiency_factor = -0.5
-		  production_lack_of_resource_penalty_factor = 0.05
+		production_factory_start_efficiency_factor = -0.1
   
+		}
+	  }
+
+	  ITA_mass_economic_instability_3 = { #pro bianchi
+	  	name = ITA_mass_economic_instability
+		allowed = {
+		  always = yes
+		}
+		 cancel = {
+		  is_subject = yes
+	  }
+		allowed_civil_war = {
+		  always = yes
+		}
+  
+		removal_cost = -1
+  
+		modifier = {
+	    consumer_goods_factor = 0.1
 		}
 	  }
 
@@ -2072,11 +2149,106 @@ ideas = {
 			}
 		}
 		
+		ITA_2_year_plan = {
+			
+			allowed = {
+				always = no
+			}
 
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+			
+			removal_cost = -1
 
+			picture = generic_production_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.1
+			}
+		}
 
+		ITA_2_year_plan_2 = {
 
+			name = ITA_2_year_plan
+			
+			allowed = {
+				always = no
+			}
 
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_production_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		ITA_benefitting_industrialists = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_consumer_goods
+	
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+				political_power_cost = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		ITA_north_syndicalist_powerhouse = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_consumer_goods
+	
+			modifier = {
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				ultranationalism_drift = 0.05
+			}
+		}
 
 
 		}

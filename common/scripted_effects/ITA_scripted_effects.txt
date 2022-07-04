@@ -648,3 +648,87 @@ ITA_mercenary_raid_effect = {
 		}
 	}
 }
+
+ITA_solve_southern_problem = {
+	if = {
+		limit = {
+			has_idea = Southern_Problem_3
+		}
+		remove_ideas = Southern_Problem_3
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem_2
+		}
+		swap_ideas = {
+			remove_idea = Southern_Problem_2
+			add_idea = Southern_Problem_3
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem
+		}
+		swap_ideas = {
+			remove_idea = Southern_Problem
+			add_idea = Southern_Problem_2
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem_but_worse
+		}
+		swap_ideas = {
+			remove_idea = Southern_Problem_but_worse
+			add_idea = Southern_Problem
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem_but_worse_2
+		}
+		swap_ideas = {
+			remove_idea = Southern_Problem_but_worse_2
+			add_idea = Southern_Problem_but_worse
+		}
+	}
+}
+
+ITA_worsen_southern_problem = {
+	if = {
+		limit = {
+			has_idea = Southern_Problem_but_worse
+		}
+		swap_ideas = {
+			add_idea = Southern_Problem_but_worse_2
+			remove_idea = Southern_Problem_but_worse
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem
+		}
+		swap_ideas = {
+			add_idea = Southern_Problem_but_worse
+			remove_idea = Southern_Problem
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem_2
+		}
+		swap_ideas = {
+			add_idea = Southern_Problem
+			remove_idea = Southern_Problem_2
+		}
+	}
+	if = {
+		limit = {
+			has_idea = Southern_Problem_3
+		}
+		swap_ideas = {
+			add_idea = Southern_Problem
+			remove_idea = Southern_Problem_3
+		}
+	}
+}
