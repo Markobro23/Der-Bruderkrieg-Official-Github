@@ -1,3 +1,792 @@
-# GPU_ministry_category = {
+GPU_ministry_category = {
+	GPU_opposition_coup = {
 	
-# }
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = GPU_the_ministry_question
+		}
+	
+		visible = {
+		tag = GPU
+		NOT = {
+			has_country_flag = SGC_court_opposition_crushed
+		}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			GPU = {
+				SGC_court_coup_effect = yes
+				remove_ideas = GPU_court_factionalism
+			}
+			set_country_flag = SGC_is_fucked
+
+		}
+	}
+	GPU_calm_the_people = {
+		icon = generic_civil_support
+
+		available = { 
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		cost = 15
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = GPU_opposition_coup
+				days = 30
+			}
+		}
+	}
+
+	GPU_bribe_courtiers = {
+		icon = generic_operation
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		#cost = 30
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 20
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_5
+				court_influence_var =  5
+			}
+			#calc_court_influence = yes
+		}
+		complete_effect = {
+			
+		}
+	}
+	GPU_medium_bribe = {
+		icon = generic_operation
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		#cost = 30
+		days_remove = 20
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 50
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_10
+				court_influence_var =  10
+			}
+			#calc_court_influence = yes
+		}
+		complete_effect = {
+			
+		}
+	}
+	GPU_massive_bribe = {
+		icon = generic_operation
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		#cost = 30
+		days_remove = 40
+		ai_will_do = {
+			factor = 100
+		}
+		cost = 100
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_10
+				court_influence_var =  10
+			}
+			#calc_court_influence = yes
+		}
+		complete_effect = {
+			
+		}
+	}
+	GPU_dismiss_hate_courtiers = {
+		icon = generic_political_discourse
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		cost = 25
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_5
+				court_influence_var =  5
+			}
+			#calc_court_influence = yes
+		}
+		complete_effect = {
+			
+		}
+	}
+	GPU_support_loyalists = {
+		icon = generic_independence
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		cost = 30
+		days_remove = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			clr_country_flag = support_loyalists_decision_flag
+		}
+		complete_effect = {
+			set_country_flag = support_loyalists_decision_flag
+		}
+	}
+	GPU_arrest_court_dissenters = {
+		icon = generic_nationalism
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		cost = 35
+		days_remove = 35
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			clr_country_flag = arrest_courrt_distenter_flag
+		}
+		complete_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_5
+				court_influence_var = 5
+			}
+			#calc_court_influence = yes
+
+			
+		}
+	}
+	
+	GPU_dissenters_in_munich = {
+		icon = generic_ignite_civil_war
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		cost = 25
+		days_remove = 35
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			clr_country_flag = arrest_courrt_distenter_flag
+		}
+		complete_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_5
+				court_influence_var = 5
+			}
+			
+			GPU = {
+				add_stability = -0.03
+			}
+		}
+	}
+	GPU_show_of_force = {
+		icon = generic_army_support
+
+		available = {
+
+		}
+		visible = {
+			OR = {
+				has_completed_focus = GPU_keep_vohn_car
+				has_completed_focus = GPU_appoint_franz_ferdinand
+				has_completed_focus = GPU_appoint_von_rundstent
+			}
+		}
+		fire_only_once = yes
+		cost = 75
+		days_remove = 35
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = GPU_increase_our_influence_in_court_by_5
+				court_influence_var = 10
+			}
+			add_manpower = -1000
+		}
+		complete_effect = {
+			
+		}
+	}
+
+	GPU_franz_rule_secured = {
+		icon = generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GPU_court_influence_over_70
+				check_variable = { court_influence_var > 69 }
+			}
+		}
+		visible = {
+			has_completed_focus = GPU_appoint_franz_ferdinand
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = { id = southgermanconfederationcoup.5 hours = 1 }
+		}
+	}
+	GPU_von_cahr_rule_secured = {
+		icon = generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GPU_court_influence_over_70
+				check_variable = { court_influence_var > 69 }
+			}
+		}
+		visible = {
+			has_completed_focus = GPU_keep_vohn_car
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = { id = southgermanconfederationcoup.1 hours = 1 }
+		}
+	}
+	GPU_von_rundstent_rule_secured = {
+		icon = generic_army_support
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = GPU_court_influence_over_70
+				check_variable = { court_influence_var > 69 }
+			}
+		}
+		visible = {
+			has_completed_focus = GPU_appoint_von_rundstent
+		}
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			country_event = { id = southgermanconfederationcoup.3 hours = 1 }
+		}
+	}
+}
+
+GPU_von_rundstedt_fuhrer_revolt = {
+	GPU_convert_baden_to_nationalism = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		visible = {
+			always = yes
+		}
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
+		remove_effect = {
+			BAD = {
+				set_country_flag = SGC_von_rundstedt_integrated
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+			}
+		}
+	}
+	GPU_convert_wur_to_nationalism = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		visible = {
+			always = yes
+		}
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
+		remove_effect = {
+			WUR = {
+				set_country_flag = SGC_von_rundstedt_integrated
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+			}
+		}
+	}
+	GPU_convert_hes_to_nationalism = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		visible = {
+			always = yes
+		}
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
+
+		remove_effect = {
+			HES = {
+				set_country_flag = SGC_von_rundstedt_integrated
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+			}
+		}
+	}
+	GPU_convert_nas_to_nationalism = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+		visible = {
+			always = yes
+		}
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		available = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = infantry_equipment_1
+				amount = -500
+			}
+		}
+		custom_cost_trigger = {
+			has_equipment = {
+				infantry_equipment_1 > 499
+			}
+		}
+		custom_cost_text = GPU_convert_sgc_to_nationalism_tt
+
+		remove_effect = {
+			NAS = {
+				set_country_flag = SGC_von_rundstedt_integrated
+				set_politics = {
+					ruling_party = ultranationalism
+				}
+			}
+		}
+	}
+}
+
+GPU_a_new_german_state = {
+	GPU_the_frankfurt_parliament_mission = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 250
+	
+		fire_only_once = yes
+	
+		activation = {
+			tag = GPU
+			has_completed_focus = GPU_preparing_for_german_unification
+		}
+	
+		visible = {
+			tag = GPU
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			complete_national_focus = GPU_the_frankfurt_parliament
+			country_event = GPU_german_unification_events.4
+			if = {
+				limit = {
+					has_idea = BAD_church_clashes
+				}
+				remove_ideas = BAD_church_clashes
+			}
+		}
+	}
+	GPU_recruit_von_kluge = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			GER = {
+				is_puppet_of = AUS
+			}
+		}
+		visible = {
+			has_completed_focus = GPU_preserve_the_prussian_generals_corp
+		}
+		remove_effect = {
+			GER = {
+				GER_gunther_von_kluge = {
+					set_character_flag = GPU_former_prussian_general_now_bavarian
+					set_nationality = GPU
+				}
+			}
+		}
+	}
+}
+
+GPU_anti_berlin_protocols_category = {
+	GPU_invite_hannover = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			NOT = {
+				HAN = {
+					is_guaranteed_by = ENG
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = GER_our_german_friends
+		}
+		complete_effect = {
+			HAN = {
+				country_event = generic.5
+			}
+		}
+	}
+	GPU_order_66 = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_war_with = GER
+		}
+		visible = {
+			has_completed_focus = GPU_hold_the_reichsarmee
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = GPU
+				}
+				every_unit_leader = {
+					add_temporary_buff_to_units = {
+						combat_defense = 0.25
+						org_damage_multiplier = -1.0
+						str_damage_multiplier = 0.25
+						war_support_reduction_on_damage = 0.2
+
+						days = 100
+						tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+					}
+				}
+			}
+		}
+	}
+	GPU_order_69 = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			has_war_with = GER
+		}
+		visible = {
+			has_completed_focus = GPU_hold_the_reichsarmee
+		}
+		complete_effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = GPU
+				}
+				every_unit_leader = {
+					add_temporary_buff_to_units = {
+						combat_offense = 0.25
+						combat_breakthrough = 0.25
+						org_damage_multiplier = -1.0
+						str_damage_multiplier = 0.25
+						war_support_reduction_on_damage = 0.2
+						cannot_retreat_while_attacking = 1.0
+									
+						days = 100
+						tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+					}
+				}
+			}
+		}
+	}
+}
+
+GPU_great_purge_decision_category = {
+	GPU_pierced_wings_completed = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 30
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = GPU_deploy_the_secret_police
+		}
+	
+		visible = {
+			tag = GPU
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			country_event = GPU_absolutist_germany.5
+		}
+	}
+}

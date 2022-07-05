@@ -1526,6 +1526,9 @@ minor_conent_decisions = {
 
 	}
 
+
+
+
 	#asia
 
 	ETR_fix_schism = {
@@ -1685,3 +1688,69 @@ minor_conent_decisions = {
 
 }
 
+superhuman_decision_category = {
+	increase_superhuman_decision_category_progress = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = superhuman_decision_category_progress_increase_by_5
+				superhuman_decision_category_progress = 5
+			}
+			clamp_variable = {
+				var = superhuman_decision_category_progress
+				min = 0
+				max = 100
+			}
+		}
+	}
+	first_prototype = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			check_variable = {
+				superhuman_decision_category_progress = 100
+			}
+		}
+		visible = {
+		}
+		remove_effect = {
+			country_event = superhumans.1
+		}
+	}
+}

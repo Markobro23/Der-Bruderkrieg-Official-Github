@@ -1,0 +1,35 @@
+halifax_wins_elections = {
+	check_variable = { var = halifax_support value = churchill_support compare = greater_than_or_equals }
+	check_variable = { var = halifax_support value = attlee_support compare = greater_than_or_equals }
+	check_variable = { var = halifax_support value = mosley_support compare = greater_than_or_equals }
+}
+
+churchill_wins_elections = {
+	check_variable = { churchill_support > halifax_support }
+	check_variable = {
+		churchill_support > attlee_support
+	}
+	check_variable = {
+		churchill_support > mosley_support
+	}
+}
+
+attlee_wins_elections = {
+	check_variable = { attlee_support > halifax_support }
+	check_variable = {
+		attlee_support > churchill_support
+	}
+	check_variable = {
+		attlee_support > mosley_support
+	}
+}
+
+mosley_wins_elections = {
+	check_variable = { mosley_support > halifax_support }
+	check_variable = {
+		mosley_support > churchill_support
+	}
+	check_variable = {
+		mosley_support > attlee_support
+	}
+}

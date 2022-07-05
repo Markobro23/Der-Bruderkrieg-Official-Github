@@ -30,13 +30,12 @@ DBK_USA_election = {
 			limit = {
 				is_ai = no
 			}
-			# USA = {
-			# 	OR = {
-			# 		has_completed_focus = USA_1936_DNC
-			# 		has_completed_focus = USA_1936_RNC
-			# 	}
-			# }
-
+			USA = {
+				OR = {
+					has_completed_focus = USA_1936_DNC
+					has_completed_focus = USA_1936_RNC
+				}
+			}
 		}
 	}
 
@@ -71,7 +70,6 @@ USA_the_mafia = {
 
 	visible = {
 		#has_completed_focus = USA_the_end_of_prohibition
-		always = no
 		NOT = {
 			has_country_flag = USA_nyc_mafia_crushed
 		}
@@ -87,7 +85,7 @@ USA_the_das_problem = {
 	visible_when_empty = yes
 
 	visible = {
-		always = no
+		has_completed_focus = USA_land_of_the_rising_moon
 	}
 	scripted_gui = USA_das_problem_scripted_gui
 }
@@ -98,11 +96,10 @@ USA_mexico_rebels = {
 	}
 	visible_when_empty =  yes
 	visible = {
-		# OR = {
-		# 	has_completed_focus = USA_the_continent_down_south
-		# 	has_completed_focus = USA_crush_mexican_rebels
-		# }
-		always = no
+		OR = {
+			has_completed_focus = USA_the_continent_down_south
+			has_completed_focus = USA_crush_mexican_rebels
+		}
 		MEX = {
 			has_idea = MEX_mass_banditry
 		}
@@ -125,8 +122,7 @@ USA_the_banana_war = {
 	visible_when_empty = yes
 
 	visible = {
-		#has_completed_focus = USA_fund_united_fruits_interests
-		always = no
+		has_completed_focus = USA_fund_united_fruits_interests
 	}
 }
 
@@ -145,8 +141,7 @@ USA_supporting_the_IRA = {
 	visible_when_empty = yes
 
 	visible = {
-		#has_completed_focus = USA_ireland
-		always = no
+		has_completed_focus = USA_ireland
 	}
 }
 
@@ -163,12 +158,12 @@ USA_decision_electoral_ai_smith = {
 		NOT = {
 			has_country_flag = USA_1936_elections_over
 		}
-		# USA = {
-		# 	OR = {
-		# 		has_completed_focus = USA_1936_DNC
-		# 		has_completed_focus = USA_1936_RNC
-		# 	}
-		# }
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
+		}
 	}
 }
 
@@ -182,12 +177,12 @@ USA_decision_electoral_ai_borah = {
 		NOT = {
 			has_country_flag = USA_1936_elections_over
 		}
-		# USA = {
-		# 	OR = {
-		# 		has_completed_focus = USA_1936_DNC
-		# 		has_completed_focus = USA_1936_RNC
-		# 	}
-		# }
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
+		}
 	}
 }
 
@@ -207,12 +202,12 @@ USA_decision_electoral_ai_long = {
 				}
 			}
 		}
-		# USA = {
-		# 	OR = {
-		# 		has_completed_focus = USA_1936_DNC
-		# 		has_completed_focus = USA_1936_RNC
-		# 	}
-		# }
+		USA = {
+			OR = {
+				has_completed_focus = USA_1936_DNC
+				has_completed_focus = USA_1936_RNC
+			}
+		}
 	}
 }
 
@@ -224,16 +219,15 @@ USA_the_venezuelan_issue = {
 	priority = 10000
 
 	visible = {
-		# has_completed_focus = USA_the_venezuelan_disaster
-		# AND = {
-		# 	NOT = {
-		# 		has_completed_focus = USA_the_venezuelan_disaster
-		# 	}
-		# 	NOT = {
-		# 		has_completed_focus = USA_the_caracas_conference
-		# 	}
-		# }
-		has_war_with = VEN
+		has_completed_focus = USA_the_venezuelan_disaster
+		AND = {
+			NOT = {
+				has_completed_focus = USA_the_venezuelan_disaster
+			}
+			NOT = {
+				has_completed_focus = USA_the_caracas_conference
+			}
+		}
 	}
 }
 
@@ -243,8 +237,7 @@ USA_huey_longs_road_plan = {
 		original_tag = USA
 	}
 	visible = {
-		#has_completed_focus = USA_new_roads
-		always = no
+		has_completed_focus = USA_new_roads
 	}
 }
 
@@ -271,18 +264,9 @@ USA_generic_foreign_far_east_decisions = {
 		tag = USA
 	}
 	visible = {
-		#has_completed_focus = USA_the_far_east
-		always = no
+		has_completed_focus = USA_the_far_east
 	}
-
 	visible_when_empty = yes
 
 	priority = 50
-}
-
-DBK_USA_content_category = {
-	allowed = {
-		tag = USA
-	}
-	priority = 10000
 }

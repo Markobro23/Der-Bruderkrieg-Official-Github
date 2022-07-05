@@ -292,45 +292,129 @@ defined_text = {
     text = { localization_key = "" }
 }
 
+
 defined_text = {
-    name = GetItalianFigureofWorship
+    name = GetHeadOfTriumvirate
     text = {
         trigger = {
-            has_decision = "ITA_the_political_strength_of_augustus"
+            has_country_flag = ITA_bianchi_leads_triumvirate
         }
-        localization_key = "the great Roman Emperor Augustus"
-    }
-    text = {
-        trigger = {
-            has_decision = "ITA_the_military_strength_of_caesar"
-        }
-        localization_key = "the great Roman General Caesar"
+        localization_key = Bianchi
     }
     text = {
         trigger = {
-            has_decision = "ITA_the_roads_of_hadrian"
+            has_country_flag = ITA_ciano_leads_triumvirate
         }
-        localization_key = "the great Roman Builder Hadrian"
+        localization_key = Ciano
     }
     text = {
         trigger = {
-            has_decision = "ITA_the_fierceness_of_alaric"
+            has_country_flag = ITA_teruzzi_leads_triumvirate
         }
-        localization_key = "the great Germanic Warrior Alaric"
+        localization_key = Teruzzi
     }
     text = {
         trigger = {
-            has_decision = "ITA_the_cultural_renissance_of_charlegmagne"
+            has_country_flag = ITA_evola_leads_triumvirate
         }
-        localization_key = "the great Germanic Patriot Charlegmagne"
+        localization_key = Evola
+    }
+
+}
+
+defined_text = {
+    name = GetSecondTriumvirateMember
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_country_flag = ITA_teruzzi_leads_triumvirate
+                    has_country_flag = ITA_teruzzi_eliminated
+                }
+            }
+        }
+        localization_key = Teruzzi
     }
     text = {
         trigger = {
-            has_decision = "ITA_the_diplomacy_of_bismarck"
+            has_country_flag = ITA_bianchi_leads_triumvirate
+            has_country_flag = ITA_teruzzi_eliminated
         }
-        localization_key = "the great Germanic Negotiator Bismarck"
+        localization_key = Cavallero
     }
     text = {
-        localization_key = "no one"
+        trigger = {
+            OR = {
+                has_country_flag = ITA_teruzzi_leads_triumvirate
+                has_country_flag = ITA_evola_leads_triumvirate
+            }
+        }
+        localization_key = Borghese
     }
+
+}
+
+defined_text = {
+    name = GetThirdTriumvirateMember
+    text = {
+        trigger = {
+            has_country_flag = ITA_bianchi_leads_triumvirate
+            NOT = {
+                OR = {
+                    has_country_flag = ITA_ciano_leads_triumvirate
+                    has_country_flag = ITA_ciano_eliminated
+                }
+            }
+        }
+        localization_key = Ciano
+    }
+    text = {
+        trigger = {
+            has_country_flag = ITA_bianchi_leads_triumvirate
+            has_country_flag = ITA_ciano_eliminated
+        }
+        localization_key = Rossoni
+    }
+    text = {
+        trigger = {
+            has_country_flag = ITA_evola_member_of_triumvirate
+            NOT = {
+                has_country_flag = ITA_evola_leads_triumvirate
+            }
+        }
+        localization_key = Evola
+    }
+    text = {
+        trigger = {
+            NOT = {
+                has_country_flag = ITA_bianchi_leads_triumvirate
+                OR = {
+                    has_country_flag = ITA_evola_member_of_triumvirate
+                    has_country_flag = ITA_evola_leads_triumvirate
+                }
+            }
+            has_country_flag = ITA_ciano_leads_triumvirate
+        }
+        localization_key = Badoglio
+    }
+    text = {
+        trigger = {
+            NOT = {
+                has_country_flag = ITA_bianchi_leads_triumvirate
+                OR = {
+                    has_country_flag = ITA_evola_member_of_triumvirate
+                    has_country_flag = ITA_evola_leads_triumvirate
+                }
+            }
+            has_country_flag = ITA_teruzzi_leads_triumvirate
+        }
+        localization_key = Graziani
+    }
+    text = {
+        trigger = {
+            has_country_flag = ITA_evola_leads_triumvirate
+        }
+        localization_key = Umberto
+    }
+
 }

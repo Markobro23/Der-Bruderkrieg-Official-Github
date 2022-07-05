@@ -999,290 +999,277 @@ TUR_conscription_idea_3 =  {
 # 	}
 # }
 
-theorist = {
 
-TUR_mehmet_gunaltay = {
-	ledger = army
 
-	picture = generic_army_europe_2
 
-	allowed = {
-		original_tag = TUR
-	}
+	aircraft_manufacturer = {
 
-	research_bonus = {
-		land_doctrine = 0.10
-	}
+		designer = yes
 
-	traits = { military_theorist }
-}
+		thk = {
 
-TUR_refik_saydam = {
-	ledger = air
+			picture = generic_air_manufacturer_2
 
-	picture = generic_political_advisor_europe_1
 
-	allowed = {
-		original_tag = TUR
-	}
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_air_industry
+			}
 
-	research_bonus = {
-		air_doctrine = 0.10
-	}
+			research_bonus = {
+				air_equipment = 0.15
+			}
 
-	traits = { air_warfare_theorist }
-}
-}
+			traits = { medium_aircraft_manufacturer }
 
-army_chief = {
+			equipment_bonus = {
+				# trainers, and air ambulances?
+			}
 
-	TUR_kazim_orbay = {
-
-		picture = generic_army_europe_1
-
-		allowed = {
-			original_tag = TUR
+			ai_will_do = {
+				factor = 1
+			}
 		}
 
+		tomtas = {
+
+			picture = generic_air_manufacturer_1
 
 
-		traits = { army_chief_offensive_2 }
+			allowed = {
+				original_tag = TUR
+			}
 
-		ai_will_do = {
-			factor = 1
+			research_bonus = {
+				air_equipment = 0.15
+			}
+
+			traits = { light_aircraft_manufacturer }
+
+			equipment_bonus = {
+				# assembled license aircrafts from across the world
+			}
+
+			ai_will_do = {
+				factor = 1
+			}
 		}
-	}
-}
+		turkish_airlines = {
 
-air_chief = {
-
-	TUR_memduh_tagmac = {
-
-		picture = generic_air_europe_3
-
-		allowed = {
-			original_tag = TUR
-		}
+			picture = generic_air_manufacturer_1
 
 
+			allowed = {
+				original_tag = TUR
+			}
 
-		traits = { air_chief_night_operations_2 }
+			research_bonus = {
+				air_equipment = 0.15
+			}
 
-		ai_will_do = {
-			factor = 1
-		}
-	}
+			traits = { heavy_aircraft_manufacturer }
 
-	TUR_ali_orlungat = {
+			equipment_bonus = {
+				# 
+			}
 
-		picture = generic_air_europe_1
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { air_chief_ground_support_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-navy_chief = {
-
-
-	TUR_mehmet_ali_ungen = {
-
-		picture = generic_navy_europe_3
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { navy_chief_decisive_battle_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-high_command = {
-
-	TUR_sabiha_gokcen = {
-		ledger = air
-
-		picture = sabiha_gocen
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { air_strategic_bombing_3 }
-
-		ai_will_do = {
-			factor = 1
+			ai_will_do = {
+				factor = 1
+			}
 		}
 	}
 
-	TUR_abdurrahman_gurman = {
-		ledger = army
+	naval_manufacturer = {
 
-		picture = generic_army_europe_3
+		designer = yes
 
-		allowed = {
-			original_tag = TUR
+		golcuk_nsy = {
+
+			picture = generic_naval_manufacturer_1
+
+
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_navy_industry
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+
+			traits = { mediterranean_naval_manufacturer }
 		}
 
+		taskizak = {
 
-		traits = { army_armored_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	TUR_ali_fuat_cebesoy = {
-		ledger = navy
-
-		picture = generic_navy_europe_1
-
-		allowed = {
-			original_tag = TUR
-		}
+			picture = generic_naval_manufacturer_1
 
 
-		traits = { navy_screen_2 }
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_navy_industry
+			}
 
-		ai_will_do = {
-			factor = 1
-		}
-	}
+			research_bonus = {
+				naval_equipment = 0.15
+			}
 
-	TUR_erkan_gataly = {
-		ledger = navy
-
-		picture = generic_navy_europe_2
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-		traits = { navy_fleet_logistics_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-
-aircraft_manufacturer = {
-
-	designer = yes
-
-	thk = {
-
-		picture = generic_air_manufacturer_2
-
-
-		allowed = {
-			original_tag = TUR
-			#has_completed_focus = TUR_air_industry
-		}
-
-		research_bonus = {
-			air_equipment = 0.15
-		}
-
-		traits = { light_aircraft_manufacturer }
-
-		equipment_bonus = {
-			# trainers, and air ambulances?
-		}
-
-		ai_will_do = {
-			factor = 1
+			traits = { black_sea_naval_manufacturer }
 		}
 	}
 
-	ktf = {
+	materiel_manufacturer = {
 
-		picture = generic_air_manufacturer_1
+		designer = yes
+
+		sarsilmaz = {
+
+			picture = generic_infantry_equipment_manufacturer_3
 
 
-		allowed = {
-			original_tag = TUR
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+
+			equipment_bonus = {
+				# rifles and pistols
+			}
+
+			traits = { infantry_equipment_manufacturer }
 		}
 
-		research_bonus = {
-			air_equipment = 0.15
-		}
+		zeytinburnu = {
 
-		traits = { medium_aircraft_manufacturer }
+			allowed = {
+				original_tag = TUR
+			}
 
-		equipment_bonus = {
-			# assembled license aircrafts from across the world
-		}
+			research_bonus = {
+				artillery = 0.15
+			}
 
-		ai_will_do = {
-			factor = 1
+			traits = { artillery_manufacturer }
+
+			modifier = {
+				# +10% arty/at/aa research speed
+			}
 		}
 	}
-}
-
-naval_manufacturer = {
-
-	designer = yes
-
-	golcuk_nsy = {
-
-		picture = generic_naval_manufacturer_1
-
-
-		allowed = {
-			original_tag = TUR
-			#has_completed_focus = TUR_navy_industry
+	industrial_concern = {
+	
+		
+		karabuk_demir = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { industrial_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		postahane = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
 		}
 
-		research_bonus = {
-			naval_equipment = 0.15
-		}
+		TUR_tpc = {
+			
+			
+			allowed = {
+				original_tag = TUR
+			}
 
-		traits = { naval_manufacturer }
+			
+
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.15
+			}
+			
+			traits = { refinery_concern }
+			
+			modifier = {
+			}
+		}
+		ddum = {
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				train_tech = 0.15
+
+			}
+
+			traits = { railway_company }
+		}
 	}
-}
+	tank_manufacturer = { 
+	
+		designer = yes
+		
+		basak = {
 
-materiel_manufacturer = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { fast_tank_manufacturer }
 
-	designer = yes
+			ai_will_do = {
+				factor = 10
+			}
 
-	istanbul_military_industries = {
-
-		picture = generic_infantry_equipment_manufacturer_3
-
-
-		allowed = {
-			original_tag = TUR
 		}
 
-		research_bonus = {
-			infantry_weapons = 0.15
-		}
+		osmanli = {
 
-		equipment_bonus = {
-			# rifles and pistols
-		}
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
 
-		traits = { infantry_equipment_manufacturer }
+			ai_will_do = {
+				factor = 10
+			}
+
+		}
 	}
-}
 }

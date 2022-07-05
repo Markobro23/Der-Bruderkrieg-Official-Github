@@ -1,0 +1,816 @@
+add_namespace = FGD_adenaur_republic
+country_event = { #rip Napoleon
+	id = FGD_adenaur_republic.1
+	title = FGD_adenaur_republic.1.t
+	desc = FGD_adenaur_republic.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.1.a
+		ai_chance = { factor = 3 }
+		add_ideas = FGD_royalist_opposition
+	}
+}
+
+country_event = { #rip Napoleon
+	id = FGD_adenaur_republic.2
+	title = FGD_adenaur_republic.2.t
+	desc = FGD_adenaur_republic.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.2.a ##accepts abdication
+		ai_chance = { factor = 3 }
+	}
+	option = {
+		name = FGD_adenaur_republic.2.b ##the fight for westfalen
+		ai_chance = { factor = 3 }
+	}
+}
+
+country_event = { #forcing karl josephs hand
+	id = FGD_adenaur_republic.3
+	title = FGD_adenaur_republic.3.t
+	desc = FGD_adenaur_republic.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.3.a ##accepts abdication
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.1
+		}
+	}
+	
+}
+
+##elections
+country_event = { #conservative vic
+	id = FGD_adenaur_republic.4
+	title = FGD_adenaur_republic.4.t
+	desc = FGD_adenaur_republic.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.4.a 
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+	}
+}
+
+country_event = { #conservative vic
+	id = FGD_adenaur_republic.5
+	title = FGD_adenaur_republic.5.t
+	desc = FGD_adenaur_republic.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.5.a 
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = democratic_liberalism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = democratic_liberalism
+		}
+	}
+}
+
+country_event = { #conservative vic
+	id = FGD_adenaur_republic.6
+	title = FGD_adenaur_republic.6.t
+	desc = FGD_adenaur_republic.6.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.6.a 
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+	}
+	option = {
+		name = FGD_adenaur_republic.6.b 
+		ai_chance = { factor = 3 }
+		add_popularity = {
+			ideology = democratic_liberalism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = democratic_liberalism
+		}
+	}	
+}
+
+
+country_event = { #candidate chooser
+	id = FGD_adenaur_republic.7
+	title = FGD_adenaur_republic.7.t
+	desc = FGD_adenaur_republic.7.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_adenaur_republic.7.a 
+		ai_chance = { factor = 3 }
+		set_variable = {
+			FGD_chosen_candidate = 1
+		}
+		set_variable = {
+			FGD_elections_conservative_support = 40
+		}
+		set_variable = {
+			FGD_elections_liberal_support = 60
+		}
+	}
+	option = {
+		name = FGD_adenaur_republic.7.b 
+		ai_chance = { factor = 3 }
+		set_variable = {
+			FGD_chosen_candidate = 2
+		}
+		set_variable = {
+			FGD_elections_conservative_support = 60
+		}
+		set_variable = {
+			FGD_elections_liberal_support = 40
+		}
+	}
+}
+
+
+add_namespace = FGD_the_rhine_homefront_path
+country_event = { #rhine homefront intro
+	id = FGD_the_rhine_homefront_path.1
+	title = FGD_the_rhine_homefront_path.1.t
+	desc = FGD_the_rhine_homefront_path.1.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.1.a 
+		ai_chance = { factor = 3 }
+		set_country_flag = FGD_sided_with_speer
+	}
+	option = {
+		name = FGD_the_rhine_homefront_path.1.b
+		ai_chance = { factor = 3 }
+		set_country_flag = FGD_sided_with_heydrich
+	}
+}
+
+country_event = { #to hermann goering
+	id = FGD_the_rhine_homefront_path.2
+	title = FGD_the_rhine_homefront_path.2.t
+	desc = FGD_the_rhine_homefront_path.2.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.2.a 
+		ai_chance = { factor = 3 }
+		FGD = {
+			country_event = {
+				id = FGD_the_rhine_homefront_path.3
+				hours = 10
+			}
+		}
+	}
+	option = {
+		name = FGD_the_rhine_homefront_path.2.b 
+		ai_chance = { factor = 3 }
+		FGD = {
+			country_event = {
+				id = FGD_the_rhine_homefront_path.4
+				hours = 10
+			}
+		}
+	}
+	option = {
+		name = FGD_the_rhine_homefront_path.2.c 
+		ai_chance = { factor = 3 }
+		FGD = {
+			country_event = {
+				id = FGD_the_rhine_homefront_path.5
+				hours = 10
+			}
+		}
+	}
+}
+
+country_event = { #to hermann goering - volunteers
+	id = FGD_the_rhine_homefront_path.3
+	title = FGD_the_rhine_homefront_path.3.t
+	desc = FGD_the_rhine_homefront_path.3.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.3.a 
+		ai_chance = { factor = 3 }
+		set_country_flag = FGD_prussia_sending_volunteers
+	}
+}
+
+country_event = { #to hermann goering - eq
+	id = FGD_the_rhine_homefront_path.4
+	title = FGD_the_rhine_homefront_path.4.t
+	desc = FGD_the_rhine_homefront_path.4.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.4.a 
+		ai_chance = { factor = 3 }
+		set_country_flag = FGD_prussia_sending_equipment
+	}
+}
+
+country_event = { #to hermann goering - nothing
+	id = FGD_the_rhine_homefront_path.5
+	title = FGD_the_rhine_homefront_path.5.t
+	desc = FGD_the_rhine_homefront_path.5.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.5.a 
+		ai_chance = { factor = 3 }
+	}
+}
+
+
+country_event = { # March on Cologne
+	id = FGD_the_rhine_homefront_path.6
+	title = FGD_the_rhine_homefront_path.6.t
+	desc = FGD_the_rhine_homefront_path.6.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.6.a 
+		ai_chance = { factor = 3 }
+
+		if = {
+			limit = {
+				has_completed_focus = FGD_speer
+			}
+			set_politics = {
+				ruling_party = fascism
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.1
+			}
+		}
+		else = {
+			set_politics = {
+				ruling_party = ultranationalism
+			}
+			add_popularity = {
+				ideology = ultranationalism
+				popularity = 0.1
+			}
+		}
+
+		FRA = {
+			country_event = FGD_the_rhine_homefront_path.7
+		}
+	}
+}
+
+country_event = { # March on Cologne
+	id = FGD_the_rhine_homefront_path.7
+	title = FGD_the_rhine_homefront_path.7.t
+	desc = FGD_the_rhine_homefront_path.7.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.7.a 
+		ai_chance = { factor = 3 }
+		FRA = {
+			create_wargoal = {
+				target = FGD
+				type = topple_government
+			}
+		}
+		FRA = {
+			set_autonomy = {
+			target = FGD
+			autonomous_state =  autonomy_free
+			}
+		}
+		FGD = {
+			country_event = FGD_the_rhine_homefront_path.8
+		}
+	}
+}
+
+country_event = { # March on Cologne
+	id = FGD_the_rhine_homefront_path.8
+	title = FGD_the_rhine_homefront_path.8.t
+	desc = FGD_the_rhine_homefront_path.8.d
+	#picture = GFX_hitlerartisteventpic
+	is_triggered_only = yes
+	option = {
+		name = FGD_the_rhine_homefront_path.8.a 
+		ai_chance = { factor = 3 }
+		leave_faction = yes
+		hidden_effect = {
+			if = {
+				limit = {
+					has_completed_focus = FGD_speer
+				}
+				if = {
+					limit = {
+						has_completed_focus = FGD_attract_europakrieg_veterans
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_moderate_1
+						add_idea = FGD_rhine_homefront_idea_moderate_4
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = FGD_embrace_populism
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_moderate_1
+						add_idea = FGD_rhine_homefront_idea_moderate_3
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = FGD_the_negotiator
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_moderate_1
+						add_idea = FGD_rhine_homefront_idea_moderate_2
+					}
+				}
+			}
+			else = {
+				if = {
+					limit = {
+						has_completed_focus = FGD_enforce_the_rule_of_the_heydrich_gang
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_hardline_1
+						add_idea = FGD_rhine_homefront_idea_hardline_4
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = FGD_embrace_national_revolution
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_hardline_1
+						add_idea = FGD_rhine_homefront_idea_hardline_3
+					}
+				}
+				else_if = {
+					limit = {
+						has_completed_focus = FGD_the_icon
+					}
+					swap_ideas = {
+						remove_idea = FGD_rhine_homefront_idea_hardline_1
+						add_idea = FGD_rhine_homefront_idea_hardline_2
+					}
+				}
+			}
+			
+		}
+	}
+}
+
+add_namespace = FGD_saarland_conference
+##luxembourg
+country_event = {
+	id = FGD_saarland_conference.1
+	title = FGD_saarland_conference.1.t
+	desc = FGD_saarland_conference.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FGD = {
+				annex_country = {
+					target = LUX
+					transfer_troops = yes
+				}
+			}
+		}
+		FGD = {
+			country_event = FGD_saarland_conference.2
+		}
+	}
+	option = { 
+		name = FGD_saarland_conference.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		FGD = {
+			country_event = FGD_saarland_conference.3
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.2
+	title = FGD_saarland_conference.2.t
+	desc = FGD_saarland_conference.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.2.a 
+		ai_chance = { factor = 90 } 
+		FGD = {
+			annex_country = {
+				target = LUX
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.3
+	title = FGD_saarland_conference.3.t
+	desc = FGD_saarland_conference.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+##saarland
+country_event = {
+	id = FGD_saarland_conference.4
+	title = FGD_saarland_conference.4.t
+	desc = FGD_saarland_conference.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.4.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FGD = {
+				transfer_state = 51
+				transfer_state = 956
+				transfer_state = 42
+			}
+		}
+		FGD = {
+			country_event = FGD_saarland_conference.5
+		}
+	}
+	option = { 
+		name = FGD_saarland_conference.4.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		FGD = {
+			country_event = FGD_saarland_conference.6
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.5
+	title = FGD_saarland_conference.5.t
+	desc = FGD_saarland_conference.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.5.a 
+		ai_chance = { factor = 90 } 
+		FGD = {
+			transfer_state = 51
+			transfer_state = 956
+			transfer_state = 42
+		}
+	}
+}
+
+country_event = {
+	id = FGD_saarland_conference.6
+	title = FGD_saarland_conference.6.t
+	desc = FGD_saarland_conference.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_saarland_conference.6.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+
+add_namespace = FGD_betrayal_of_france
+
+## plot
+country_event = {
+	id = FGD_betrayal_of_france.1
+	title = FGD_betrayal_of_france.1.t
+	desc = FGD_betrayal_of_france.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.1.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+##coronationb
+country_event = {
+	id = FGD_betrayal_of_france.2
+	title = FGD_betrayal_of_france.2.t
+	desc = FGD_betrayal_of_france.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.2.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+country_event = {
+	id = FGD_betrayal_of_france.3
+	title = FGD_betrayal_of_france.3.t
+	desc = FGD_betrayal_of_france.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_betrayal_of_france.3.a 
+		ai_chance = { factor = 90 } 
+		FRA = {
+			set_autonomy = {
+				target = FGD
+				autonomous_state = autonomy_free
+			}
+		}
+		FGD = {
+			leave_faction = yes
+		}
+		FRA = {
+			declare_war_on = {
+				target = FGD
+				type = annex_everything
+			}
+		}
+	}
+}
+
+add_namespace = FGD_heydrichs_germany
+##heydrichs germany
+country_event = {
+	id = FGD_heydrichs_germany.1
+	title = FGD_heydrichs_germany.1.t
+	desc = FGD_heydrichs_germany.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.1.a 
+		ai_chance = { factor = 90 } 
+		add_ideas = FGD_speerist_resistance
+	}
+}
+
+##state of emergency
+country_event = {
+	id = FGD_heydrichs_germany.2
+	title = FGD_heydrichs_germany.2.t
+	desc = FGD_heydrichs_germany.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.2.a 
+		ai_chance = { factor = 90 } 
+		set_country_flag = FGD_state_of_emergency
+	}
+}
+
+## project android
+country_event = {
+	id = FGD_heydrichs_germany.3
+	title = FGD_heydrichs_germany.3.t
+	desc = FGD_heydrichs_germany.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.3.a 
+		ai_chance = { factor = 90 } 
+	}
+}
+
+##meeting with agent zero
+country_event = {
+	id = FGD_heydrichs_germany.4
+	title = FGD_heydrichs_germany.4.t
+	desc = FGD_heydrichs_germany.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.4.a 
+		ai_chance = { factor = 90 } 
+		unlock_decision_category_tooltip = FGD_agent_zero_revolution
+	}
+}
+country_event = {
+	id = FGD_heydrichs_germany.5
+	title = FGD_heydrichs_germany.5.t
+	desc = FGD_heydrichs_germany.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.5.a 
+		ai_chance = { factor = 90 } 
+		CSA = {
+			add_state_core = 360
+		}
+		if = {
+			limit = {
+				FGD = {
+					has_completed_focus = FGD_spread_the_german_american_bund
+				}
+			}
+			389 = {
+				add_core_Of = CSA
+			}
+			390 = {
+				add_core_Of = CSA
+			}
+			391 = {
+				add_core_Of = CSA
+			}
+			392 = {
+				add_core_Of = CSA
+			}
+		}
+		if = {
+			limit = {
+				FGD = {
+					has_completed_focus = FGD_mobilize_distraught_unions
+				}
+			}
+			394 = {
+				add_core_of = CSA
+			}
+			395 = {
+				add_core_of = CSA
+			}
+			396 = {
+				add_core_of = CSA
+			}
+			393 = {
+				add_core_of = CSA
+			}
+		}
+		USA = {
+			release = CSA
+			declare_war_on = {
+				target = CSA
+				type = civil_war
+			}
+		}
+	}
+}
+
+##demand iceland
+country_event = {
+	id = FGD_heydrichs_germany.6
+	title = FGD_heydrichs_germany.6.t
+	desc = FGD_heydrichs_germany.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.6.a 
+		ai_chance = { factor = 90 } 
+		country_event = FGD_heydrichs_germany.7
+	}
+	option = { 
+		name = FGD_heydrichs_germany.6.b
+		ai_chance = { factor = 0 } 
+		country_event = FGD_heydrichs_germany.8
+	}
+}
+
+country_event = {
+	id = FGD_heydrichs_germany.7
+	title = FGD_heydrichs_germany.7.t
+	desc = FGD_heydrichs_germany.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.7.a 
+		ai_chance = { factor = 90 } 
+		transfer_state = 100
+	}
+}
+country_event = {
+	id = FGD_heydrichs_germany.8
+	title = FGD_heydrichs_germany.8.t
+	desc = FGD_heydrichs_germany.8.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_heydrichs_germany.8.a 
+		ai_chance = { factor = 90 } 
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+add_namespace = FGD_french_loyalty_path
+
+##napoelon king
+country_event = {
+	id = FGD_french_loyalty_path.1
+	title = FGD_french_loyalty_path.1.t
+	desc = FGD_french_loyalty_path.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_french_loyalty_path.1.a 
+		ai_chance = { factor = 90 } 
+		remove_country_leader_trait = regent
+	}
+}
+country_event = {
+	id = FGD_french_loyalty_path.2
+	title = FGD_french_loyalty_path.2.t
+	desc = FGD_french_loyalty_path.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_french_loyalty_path.2.a 
+		ai_chance = { factor = 90 } 
+		set_cosmetic_tag = westfalen_junta
+		remove_country_leader_trait = regent
+	}
+}

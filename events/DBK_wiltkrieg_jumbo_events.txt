@@ -2830,3 +2830,113 @@ news_event = {
 		}
 	}
 }
+
+add_namespace = superhumans
+
+## project completion
+country_event = {
+	id = superhumans.1
+	title = superhumans.1.t
+	desc = superhumans.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.1.a 
+		ai_chance = { factor = 90 } 
+		set_country_flag = unlock_superhuman_divisions
+	}
+}
+
+country_event = {
+	id = superhumans.2
+	title = superhumans.2.t
+	desc = superhumans.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.2.a 
+		ai_chance = { factor = 90 } 
+		random_owned_controlled_state = {
+			add_core_of = SUP
+		}
+		release = SUP
+		SUP = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			division_template = {
+					name = "Android Division"
+					is_locked = no
+					priority = 0
+					template_counter = 0
+					regiments = {
+						superhuman_subtype = { x = 0 y = 0 }
+						superhuman_subtype = { x = 0 y = 1 }
+						superhuman_subtype = { x = 0 y = 2 }
+						superhuman_subtype = { x = 0 y = 3 }
+					}
+					support = { 
+						military_police = { x = 0 y = 0 }
+					} 
+				}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Superhuman Division\" division_template = \"Android Division\" start_experience_factor = 1 start_equipment_factor = 1 start_manpower_factor = 1"
+					count = 100
+					owner = SUP 
+				}
+			}
+			add_ideas = war_of_the_worlds
+		}
+
+		every_country = {
+			limit = {
+				NOT = {
+					tag = ROOT
+					tag = SUP
+				}
+			}
+			country_event = superhumans.3
+		}
+		set_cosmetic_tag = world_state
+	}
+}
+
+
+country_event = {
+	id = superhumans.3
+	title = superhumans.3.t
+	desc = superhumans.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = no  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.3.a 
+		ai_chance = { factor = 90 } 
+		FROM = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+	option = { 
+		name = superhumans.3.b
+		ai_chance = { factor = 45 } 
+		SUP = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = no
+			}
+		}
+	}
+}

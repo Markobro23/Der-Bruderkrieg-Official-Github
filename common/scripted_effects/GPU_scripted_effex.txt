@@ -74,7 +74,35 @@ SGC_court_coup_effect = {
 		}
 	}
 }
+ 
+ GPU_increase_confederation_unity_small = {
+	add_to_variable = {
+		tooltip = GPU_increase_confederation_unity_small_tt
+		confederation_stability = 2
+	}
+	GPU_calculate_confederation_unity_modifier = yes
 
+}
+
+GPU_increase_confederation_unity_medium = {
+	add_to_variable = {
+		tooltip = GPU_increase_confederation_unity_medium_tt
+		confederation_stability = 4 
+	}
+	GPU_calculate_confederation_unity_modifier = yes
+
+}
+
+GPU_increase_confederation_unity_large = {
+	add_to_variable = {
+		tooltip = GPU_increase_confederation_unity_large_tt
+		confederation_stability = 6
+	}
+	GPU_calculate_confederation_unity_modifier = yes
+}
+
+GPU_calculate_confederation_unity_modifier = {
+}
 
 d_SGC_court_coup_effect = {
 	SGC_court_coup_effect = yes
@@ -104,4 +132,19 @@ GPU_update_unstable_nation = {
 		}
 		
 	}
+}
+
+GPU_update_german_unification_modifier = {
+	set_variable = {
+      GPU_german_unification_modifier_state_resources_factor = GPU_german_unification_modifier_var
+    }
+    set_variable = {
+      GPU_german_unification_modifier_recruitable_population_factor = GPU_german_unification_modifier_var
+    }
+    set_variable = {
+      GPU_german_unification_modifier_local_building_slots_factor = GPU_german_unification_modifier_var
+    }
+    set_variable = {
+      GPU_german_unification_modifier_industrial_capacity_factory = GPU_german_unification_modifier_var
+    }
 }

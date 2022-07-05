@@ -1,0 +1,33 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			GPU = {
+				set_variable = { confederation_stability = 25 }
+			}
+		}
+	}
+	on_monthly_GPU = {
+		effect = {
+			if = {
+				limit = {
+					has_idea = GPU_king_and_country_2
+				}
+				add_to_variable = {
+					confederation_stability = 0.5
+				}
+			}
+		}
+	}
+	on_army_leader_won_combat = {
+		effect = {
+			if = {
+				limit = {
+					has_character_flag = GPU_former_prussian_general_now_bavarian
+				}
+				add_to_variable = {
+					GPU_used_prussian_tactics_way_too_much = 1
+				}
+			}
+		}
+	}
+}

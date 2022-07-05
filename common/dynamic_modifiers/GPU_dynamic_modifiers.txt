@@ -1,0 +1,48 @@
+GPU_german_unification_modifier = {
+	remove_trigger = {
+		NOT = {
+			is_controlled_by = GPU
+		}
+	}
+	state_resources_factor = GPU_german_unification_modifier_state_resources_factor
+	recruitable_population_factor = GPU_german_unification_modifier_recruitable_population_factor
+	local_building_slots_factor = GPU_german_unification_modifier_local_building_slots_factor
+	industrial_capacity_factory = GPU_german_unification_modifier_industrial_capacity_factory
+}
+
+GPU_wurttemburg_baden_concessions = {
+	icon = GFX_idea_GPU_unstable_nation
+	remove_trigger = {
+		NOT = {
+			is_controlled_by = GPU
+		}
+	}
+	local_resources_factor = -0.25
+    local_manpower = -0.25
+    local_factories = -0.25
+}
+
+GPU_thriving_electronics_industry = {
+	remove_trigger = {
+		NOT = {
+			is_controlled_by = GPU
+		}
+	}
+
+	state_resources_factor = 0.15
+	recruitable_population_factor = 0.2
+	local_building_slots_factor = 0.25
+	industrial_capacity_factory = 0.15
+}
+
+under_the_kings_thumb_state_modifier = {
+    enable = { always = yes }
+
+    icon = GFX_idea_Riots
+
+    local_resources_factor = 0.65
+    recruitable_population_factor = 0.65
+	resistance_growth = -0.5
+	resistance_target = -0.5
+	
+}
