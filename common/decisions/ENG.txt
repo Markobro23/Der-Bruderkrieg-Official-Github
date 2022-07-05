@@ -1,4 +1,4 @@
-UK_chose_victor_of_elections = {
+ENG_chose_victor_of_elections = {
 	ENG_election_timeout = {
 	
 		priority = 10
@@ -45,7 +45,7 @@ UK_chose_victor_of_elections = {
 		fire_only_once = yes
 
 		ai_will_do = {
-			factor = 10000
+			factor = 0
 			modifier = {
 				factor = 0
 				has_game_rule = {
@@ -70,16 +70,14 @@ UK_chose_victor_of_elections = {
 		}
 
 		cost = 0
-		days_remove = 345
+		days_remove = 0
 
 		complete_effect = {
 			set_country_flag = UK_chose_candidate
 		}
 
 		remove_effect = {
-			set_country_flag = ENG_elections_are_over	
-			set_country_flag = UK_chose_halifax
-			news_event = ENG_elections.1
+			load_focus_tree = ENG_halifax_tree
 		}
 	}
 	UK_chose_churchill = {
@@ -286,704 +284,123 @@ UK_chose_victor_of_elections = {
 	}
 }
 
-
-
-
-UK_halifax_decisions = {
-	UK_halifax_declare_on_russia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		available = {
-			check_variable = {
-				var = russian_anger
-				value = 2
-				compare = greater_than_or_equals
-			}
-			SOV = {
-				OR = {
-					has_war_with = AUS
-					has_war_with = FRA
-				}
-			}
-		} 
-
-		days_remove = 60 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			create_wargoal = {
-				target = SOV
-				type = topple_government
-			}
-		}
-	}
-	UK_halifax_centralization_south_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 750 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = SAF
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = ZIM
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = BOT
-					transfer_troops = yes
-				}
-			}
-		}
-	}
-	UK_halifax_centralization_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 1000 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = EGY
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = SUD
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = NGA
-					transfer_troops = yes
-				}
-			}
-		}
-	}
-	UK_halifax_centralization_canada = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 1250 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = CAN
-					transfer_troops = yes
-				}
-			}
-		}
-	}
-	UK_halifax_centralization_australia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 1500 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = AST
-					transfer_troops = yes
-				}
-			}
-		}
-	}
-	UK_halifax_blockade_prussia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			AUS = {
-				has_war_with = GER
-			}
-		}
-
-		days_remove = 50 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			news_event = ENG_elections.6
-			set_global_flag = operation_walross_blockade
-			add_threat = 5
-		}
-	}
-}
-
-UK_churchill_decisions = {
-	UK_churchill_declare_on_russia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		available = {
-			check_variable = {
-				var = russian_anger
-				value = 2
-				compare = greater_than_or_equals
-			}
-			SOV = {
-				OR = {
-					has_war_with = AUS
-					has_war_with = FRA
-				}
-			}
-		} 
-
-		days_remove = 60 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			create_wargoal = {
-				target = SOV
-				type = topple_government
-			}
-		}
-	}
-	UK_churchill_centralization_south_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 500 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = SAF
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = ZIM
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = BOT
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_churchill_centralization_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 750 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = EGY
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = SUD
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = NGA
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_churchill_centralization_canada = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 900 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = CAN
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.1
-		}
-	}
-	UK_churchill_centralization_australia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 1050 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = AST
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_churchill_blockade_prussia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			AUS = {
-				has_war_with = GER
-			}
-		}
-
-		days_remove = 50 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			news_event = ENG_elections.6
-			set_global_flag = operation_walross_blockade
-			add_threat = 5
-		}
-	}	
-}
-
-UK_mosley_decisions = {
-	UK_mosley_centralization_south_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 500 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = SAF
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = ZIM
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = BOT
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_mosley_centralization_africa = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 750 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = EGY
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = SUD
-					transfer_troops = yes
-				}
-				annex_country = {
-					target = NGA
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_mosley_centralization_canada = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 900 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = CAN
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.1
-		}
-	}
-	UK_mosley_centralization_australia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			always = no
-		}
-
-		days_remove = 1050 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-			ENG = {
-				annex_country = {
-					target = AST
-					transfer_troops = yes
-				}
-			}
-			add_stability = -0.05
-		}
-	}
-	UK_mosley_national_security_act = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		visible = {
-			
-		}
-
-		days_remove = 250
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			
-		}
-	}
-}
-
-UK_attlee_decisions = {
-	UK_attlee_declare_on_russia = {
-
-		icon = eng_trade_unions_demand
-
-		allowed = {
-		}
-
-		available = {
-			check_variable = {
-				var = russian_anger
-				value = 2
-				compare = greater_than_or_equals
-			}
-			SOV = {
-				OR = {
-					has_war_with = AUS
-					has_war_with = FRA
-				}
-			}
-		} 
-
-		days_remove = 60 
-
-		cost = 0
-
-		fire_only_once = yes
-
-		ai_will_do = {
-			factor = 100
-		}
-
-		complete_effect = {
-		}
-
-		remove_effect = {
-			create_wargoal = {
-				target = SOV
-				type = topple_government
-			}
-		}
-	}
-}
-
-UK_benett_eden_decisions = {
+ENG_halifax_war_in_ireland = {
+	ENG_ireland_protest_mission = {
 	
-}
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 330
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_continue_the_war_in_ireland
+		}
+	
+		visible = {
+			NOT = {
+				has_country_flag = ENG_irish_protests_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+		}
+	}
+	ENG_ireland_attack_mission = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 25
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_continue_the_war_in_ireland
+		}
+	
+		visible = {
+			NOT = {
+				has_completed_focus = ENG_complete_irish_integration
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+		}
+	}
 
+	##Crush Riots
+	ENG_crush_riots = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100 
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_array = IRE.owned_states
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = ira_attack_modifier
+				}
+			}
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+		complete_effect = {
+			FROM = {
+				remove_dynamic_modifier = {
+					modifier = ira_attack_modifier
+				}
+			}
+		}
+	}
+}
 
 
 weltkrieg_decisions = {
@@ -1073,7 +490,7 @@ weltkrieg_decisions = {
 	}
 }
 
-UK_withdraw_from_hanover_cat = {
+ENG_withdraw_from_hanover_cat = {
 	
 	ENG_HAN_withdrawal_mission = {
 
