@@ -430,3 +430,229 @@ shared_focus = {
     completion_reward = {
     }
 }
+
+##RAJ tree
+shared_focus = {
+    id = ENG_broken_crown_jewel
+    icon = GFX_goal_ENG_broken_crown_jewel
+    x = 23
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_bolster_the_bengal_garrisson
+    icon = GFX_goal_ENG_bolster_the_bengal_garrisson
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_work_with_the_united_front
+    }
+    prerequisite = {
+        focus = ENG_broken_crown_jewel
+    }
+    relative_position_id = ENG_broken_crown_jewel
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_strengthen_burma
+    icon = GFX_goal_ENG_strengthen_burma
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_bolster_the_bengal_garrisson
+    }
+    relative_position_id = ENG_bolster_the_bengal_garrisson
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_ally_nepal
+    icon = GFX_goal_ENG_ally_nepal
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_strengthen_burma
+    }
+    relative_position_id = ENG_strengthen_burma
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_the_return_of_the_raj
+    icon = GFX_goal_ENG_the_return_of_the_raj
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_ally_nepal
+    }
+    relative_position_id = ENG_ally_nepal
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_work_with_the_united_front
+    icon = GFX_goal_ENG_work_with_the_united_front
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_bolster_the_bengal_garrisson
+    }
+    prerequisite = {
+        focus = ENG_broken_crown_jewel
+    }
+    relative_position_id = ENG_broken_crown_jewel
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_crush_boses_lackies
+    icon = GFX_goal_ENG_crush_boses_lackies
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_work_with_the_united_front
+    }
+    relative_position_id = ENG_work_with_the_united_front
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_an_indian_commonwealth
+    icon = GFX_goal_ENG_an_indian_commonwealth
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_crush_boses_lackies
+    }
+    relative_position_id = ENG_crush_boses_lackies
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_the_lucknow_declaration
+    icon = GFX_goal_ENG_the_lucknow_declaration
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_an_indian_commonwealth
+    }
+    relative_position_id = ENG_an_indian_commonwealth
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_the_calcutta_modernization_project
+    icon = GFX_goal_ENG_the_calcutta_modernization_project
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_bolster_the_bengal_garrisson
+        focus = ENG_work_with_the_united_front
+    }
+    relative_position_id = ENG_bolster_the_bengal_garrisson
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_heal_the_scars_of_the_famine
+    icon = GFX_goal_ENG_heal_the_scars_of_the_famine
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_the_calcutta_modernization_project
+    }
+    relative_position_id = ENG_the_calcutta_modernization_project
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_begin_the_second_great_game
+    icon = GFX_goal_ENG_begin_the_second_great_game
+    x = 0
+    y = 2
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_heal_the_scars_of_the_famine
+    }
+    prerequisite = {
+        focus = ENG_the_return_of_the_raj
+        focus = ENG_the_lucknow_declaration
+    }
+    relative_position_id = ENG_heal_the_scars_of_the_famine
+    
+    completion_reward = {
+    }
+}
