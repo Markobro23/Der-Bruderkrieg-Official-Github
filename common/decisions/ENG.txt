@@ -305,7 +305,7 @@ ENG_halifax_war_in_ireland = {
 	
 		visible = {
 			NOT = {
-				has_country_flag = ENG_irish_protests_crushed
+				has_completed_focus = ENG_complete_irish_integration
 			}
 		} 
 	
@@ -314,7 +314,17 @@ ENG_halifax_war_in_ireland = {
 		is_good = yes
 	 
 		timeout_effect = {
-			
+			custom_effect_tooltip = USA_the_irish_civil_war_will_begin
+			hidden_effect = {
+				IRA = {
+					transfer_state = 134
+					transfer_state = 135
+					declare_war_on = {
+						target = IRE
+						type = civil_war
+					}
+				}
+			}
 		}
 	}
 	ENG_ireland_attack_mission = {
@@ -346,7 +356,13 @@ ENG_halifax_war_in_ireland = {
 		is_good = yes
 	 
 		timeout_effect = {
-			
+			IRE = {
+				random_owned_controlled_state = {
+					add_dynamic_modifier = {
+						modifier = ira_attack_modifier
+					}
+				}
+			}
 		}
 	}
 
@@ -360,11 +376,9 @@ ENG_halifax_war_in_ireland = {
 
 	
 
-		days_remove = 100 
+		days_remove = 0 
 
-		cost = 0
 
-		fire_only_once = yes
 
 		ai_will_do = {
 			factor = 100
@@ -384,9 +398,13 @@ ENG_halifax_war_in_ireland = {
 					modifier = ira_attack_modifier
 				}
 			}
+			
 		}
 
 		available = {
+			ENG = {
+				has_completed_focus = ENG_crush_the_sein_fienn_rioters
+			}
 			divisions_in_state = {
 				size > 3
 				state = FROM
@@ -397,6 +415,45 @@ ENG_halifax_war_in_ireland = {
 				remove_dynamic_modifier = {
 					modifier = ira_attack_modifier
 				}
+			}
+			ENG = {
+				add_to_variable = {
+					tooltip = ENG_irish_integration_increase_by_5
+					ENG_irish_integration = 5
+				}
+			}
+		}
+	}
+
+	## End
+	ENG_increase_integration_for_ireland = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 50
+		days_re_enable = 15 
+
+		cost = 25
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_5
+				ENG_irish_integration = 5
 			}
 		}
 	}

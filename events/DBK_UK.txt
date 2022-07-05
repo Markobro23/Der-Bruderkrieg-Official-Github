@@ -1,5 +1,132 @@
-add_namespace = ENG_Goering
+add_namespace = ENG_elections
 
+##Halifax victory
+news_event = {
+	id = ENG_elections.1
+	title = ENG_elections.1.t
+	desc = ENG_elections.1.d
+	picture = GFX_halifaxvictory
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.1.a
+	}
+}
+
+##churchill victory
+news_event = {
+	id = ENG_elections.2
+	title = ENG_elections.2.t
+	desc = ENG_elections.2.d
+	picture = GFX_churchillvictory
+	
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.2.a
+	}
+}
+
+##Mosley victory
+news_event = {
+	id = ENG_elections.3
+	title = ENG_elections.3.t
+	desc = ENG_elections.3.d
+	picture = GFX_mosleyvictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.3.a
+	}
+}
+
+##attlee victory
+news_event = {
+	id = ENG_elections.4
+	title = ENG_elections.4.t
+	desc = ENG_elections.4.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.4.a
+	}
+}
+
+##benett-eden victory
+news_event = {
+	id = ENG_elections.5
+	title = ENG_elections.5.t
+	desc = ENG_elections.5.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.5.a
+	}
+}
+
+##blockade
+news_event = {
+	id = ENG_elections.6
+	title = ENG_elections.6.t
+	desc = ENG_elections.6.d
+	picture = GFX_britishembargo
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.6.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = uk_embargo
+			}
+		}
+	}
+}
+
+
+add_namespace = ENG_halifax_path
+
+##irish traitors executed
+country_event = {
+	id = ENG_halifax_path.1
+	title = ENG_halifax_path.1.t
+	desc = ENG_halifax_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_halifax_path.1.a
+		ENG = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_10
+				ENG_irish_integration = 10
+			}
+		}
+	}
+}
+
+##Prussian stuff
+add_namespace = ENG_Goering
 country_event = {
 	id = ENG_Goering.1
 	title = ENG_Goering.1.t
@@ -350,108 +477,3 @@ news_event = {
 	}
 }
 
-add_namespace = ENG_elections
-
-##Halifax victory
-news_event = {
-	id = ENG_elections.1
-	title = ENG_elections.1.t
-	desc = ENG_elections.1.d
-	picture = GFX_halifaxvictory
-	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.1.a
-	}
-}
-
-##churchill victory
-news_event = {
-	id = ENG_elections.2
-	title = ENG_elections.2.t
-	desc = ENG_elections.2.d
-	picture = GFX_churchillvictory
-	
-	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.2.a
-	}
-}
-
-##Mosley victory
-news_event = {
-	id = ENG_elections.3
-	title = ENG_elections.3.t
-	desc = ENG_elections.3.d
-	picture = GFX_mosleyvictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.3.a
-	}
-}
-
-##attlee victory
-news_event = {
-	id = ENG_elections.4
-	title = ENG_elections.4.t
-	desc = ENG_elections.4.d
-	picture = GFX_attleevictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.4.a
-	}
-}
-
-##benett-eden victory
-news_event = {
-	id = ENG_elections.5
-	title = ENG_elections.5.t
-	desc = ENG_elections.5.d
-	picture = GFX_attleevictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.5.a
-	}
-}
-
-##blockade
-news_event = {
-	id = ENG_elections.6
-	title = ENG_elections.6.t
-	desc = ENG_elections.6.d
-	picture = GFX_britishembargo
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.6.a
-		if = {
-			limit = {
-				tag = GER
-			}
-			add_opinion_modifier = {
-				target = ENG
-				modifier = uk_embargo
-			}
-		}
-	}
-}
