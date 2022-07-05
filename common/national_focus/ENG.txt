@@ -196,3 +196,237 @@ shared_focus = {
         #country_event = ENG_starting_evnets.9
     }
 }
+
+
+
+
+
+##HALIFAX TREE
+shared_focus = {
+    id = ENG_halifaxs_presidency
+    icon = GFX_goal_ENG_halifaxs_presidency
+    x = 15
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_continue_the_war_in_ireland
+    icon = GFX_goal_ENG_continue_the_war_in_ireland
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_halifaxs_presidency
+    }
+    relative_position_id = ENG_halifaxs_presidency
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_execute_the_traitors
+    icon = GFX_goal_ENG_execute_the_traitors
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_continue_the_war_in_ireland
+    }
+    relative_position_id = ENG_continue_the_war_in_ireland
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_crush_the_sein_fienn_rioters
+    icon = GFX_goal_ENG_crush_the_sein_fienn_rioters
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_continue_the_war_in_ireland
+    }
+    relative_position_id = ENG_continue_the_war_in_ireland
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_complete_irish_integration
+    icon = GFX_goal_ENG_complete_irish_integration
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_crush_the_sein_fienn_rioters
+    }
+    prerequisite = {
+        focus = ENG_execute_the_traitors
+    }
+    relative_position_id = ENG_crush_the_sein_fienn_rioters
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_belfast_shipyards
+    icon = GFX_goal_ENG_belfast_shipyards
+    x = 0
+    y = 2
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_execute_the_traitors
+    }
+    prerequisite = {
+        focus = ENG_execute_the_traitors
+    }
+    relative_position_id = ENG_execute_the_traitors
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_convene_the_national_governments
+    icon = GFX_goal_ENG_convene_the_national_governments
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_halifaxs_presidency
+    }
+    relative_position_id = ENG_halifaxs_presidency
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_embrace_the_tories
+    icon = GFX_goal_ENG_embrace_the_tories
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_convene_the_national_governments
+    }
+    mutually_exclusive = {
+        focus = ENG_embrace_the_liberals
+    }
+    relative_position_id = ENG_convene_the_national_governments
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_gradual_rearmenent
+    icon = GFX_goal_ENG_gradual_rearmenent
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_embrace_the_tories
+    }
+    
+    relative_position_id = ENG_embrace_the_tories
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_embrace_the_liberals
+    icon = GFX_goal_ENG_embrace_the_liberals
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_convene_the_national_governments
+    }
+    mutually_exclusive = {
+        focus = ENG_embrace_the_tories
+    }
+    relative_position_id = ENG_convene_the_national_governments
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_found_the_nhs
+    icon = GFX_goal_ENG_found_the_nhs
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_embrace_the_liberals
+    }
+    
+    relative_position_id = ENG_embrace_the_liberals
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_denounce_the_king
+    icon = GFX_goal_ENG_denounce_the_king
+    x = 0
+    y = 2
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_embrace_the_liberals
+    }
+    
+    relative_position_id = ENG_embrace_the_liberals
+    
+    completion_reward = {
+    }
+}
