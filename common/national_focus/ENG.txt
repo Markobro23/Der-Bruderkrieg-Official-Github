@@ -40,7 +40,7 @@ focus_tree = {
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
-	id = ENG_mosley_tree
+	id = ENG_hamsworth_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -88,7 +88,7 @@ shared_focus = {
             attlee_support = 25
         }
         set_variable = {
-            mosley_support = 25
+            hamsworth_support = 25
         }
         
 			#country_event = ENG_starting_evnets.1
@@ -168,7 +168,7 @@ shared_focus = {
         focus = ENG_halifaxs_victory
     }
 	mutually_exclusive = {
-        focus = ENG_mosleys_victory
+        focus = ENG_hamsworths_victory
     }
 	mutually_exclusive = {
         focus = ENG_atlees_victory
@@ -192,7 +192,7 @@ shared_focus = {
         focus = ENG_churchills_victory
     }
 	mutually_exclusive = {
-        focus = ENG_mosleys_victory
+        focus = ENG_hamsworths_victory
     }
 	mutually_exclusive = {
         focus = ENG_atlees_victory
@@ -204,7 +204,7 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = ENG_mosleys_victory
+    id = ENG_hamsworths_victory
     icon = unkown
 	prerequisite = {focus = ENG_general_elections}
     x = 3
@@ -243,7 +243,7 @@ shared_focus = {
         focus = ENG_halifaxs_victory
     }
 	mutually_exclusive = {
-        focus = ENG_mosleys_victory
+        focus = ENG_hamsworths_victory
     }
     
     completion_reward = {
@@ -268,6 +268,7 @@ shared_focus = {
     }
     
     completion_reward = {
+        add_political_power = 50
     }
 }
 shared_focus = {
@@ -427,13 +428,15 @@ shared_focus = {
                 remove_idea = ENG_convene_national_governments_idea_original
                 add_idea = ENG_convene_national_governments_idea_new
             }
-            add_to_variable = {
-                ENG_current_government_modifier_stability_factor = 0.05
-            }
-            add_to_variable = {
-                ENG_current_government_modifier_production_speed_buildings_factor = 0.05
-            }
+            
         }
+        add_to_variable = {
+            ENG_current_government_modifier_stability_factor = 0.05
+        }
+        add_to_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = 0.05
+        }
+        country_event = ENG_halifax_path.3
     }
 }
 shared_focus = {
@@ -452,9 +455,16 @@ shared_focus = {
     mutually_exclusive = {
         focus = ENG_embrace_the_liberals
     }
+    available = {
+        has_country_flag = ENG_chose_tories_ng
+    }
     relative_position_id = ENG_convene_the_national_governments
     
     completion_reward = {
+        add_to_variable = {
+            tooltip = ENG_the_kings_mental_state_will_stop_decreasing
+            ENG_kings_approval_var_change = 1
+        }
     }
 }
 shared_focus = {
@@ -493,9 +503,16 @@ shared_focus = {
     mutually_exclusive = {
         focus = ENG_embrace_the_tories
     }
+    available = {
+        has_country_flag = ENG_chose_liberals_ng
+    }
     relative_position_id = ENG_convene_the_national_governments
     
     completion_reward = {
+        add_to_variable = {
+            tooltip = ENG_the_kings_mental_state_will_decrease_by_more
+            ENG_kings_approval_var_change = -1
+        }
     }
 }
 shared_focus = {
@@ -546,6 +563,7 @@ shared_focus = {
     relative_position_id = ENG_embrace_the_liberals
     
     completion_reward = {
+        country_event = ENG_halifax_path.4
     }
 }
 

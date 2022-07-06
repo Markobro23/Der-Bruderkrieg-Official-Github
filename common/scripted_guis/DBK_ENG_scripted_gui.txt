@@ -3,6 +3,9 @@ scripted_gui = {
 		window_name = "Kings_Approval_container"
 		visible = {
 			tag = ENG
+			has_dynamic_modifier = {
+				modifier = ENG_current_government_modifier
+			}
 		}
 		context_type = player_context
 	}
@@ -57,8 +60,8 @@ scripted_gui = {
 			parliament_elections_attlee_progress_bar =  {
 				frame = attlee_support
 			}
-			parliament_elections_mosley_progress_bar =  {
-				frame = mosley_support
+			parliament_elections_hamsworth_progress_bar =  {
+				frame = hamsworth_support
 			}
 		}
 		effects = {
@@ -73,22 +76,22 @@ scripted_gui = {
 				set_country_flag = ENG_halifax_party_selected_in_gui
 				clr_country_flag = ENG_churchill_party_selected_in_gui
 				clr_country_flag = ENG_attlee_party_selected_in_gui
-				clr_country_flag = ENG_mosley_party_selected_in_gui
+				clr_country_flag = ENG_hamsworth_party_selected_in_gui
 			}
 			ENG_election_map_tories_button_click = {
 				set_country_flag = ENG_churchill_party_selected_in_gui
 				clr_country_flag = ENG_halifax_party_selected_in_gui
 				clr_country_flag = ENG_attlee_party_selected_in_gui
-				clr_country_flag = ENG_mosley_party_selected_in_gui
+				clr_country_flag = ENG_hamsworth_party_selected_in_gui
 			}
 			ENG_election_map_labour_button_click = {
 				set_country_flag = ENG_attlee_party_selected_in_gui
 				clr_country_flag = ENG_halifax_party_selected_in_gui
-				clr_country_flag = ENG_mosley_party_selected_in_gui
+				clr_country_flag = ENG_hamsworth_party_selected_in_gui
 				clr_country_flag = ENG_churchill_party_selected_in_gui
 			}
 			ENG_election_map_new_labour_button_click = {
-				set_country_flag = ENG_mosley_party_selected_in_gui
+				set_country_flag = ENG_hamsworth_party_selected_in_gui
 				clr_country_flag = ENG_halifax_party_selected_in_gui
 				clr_country_flag = ENG_attlee_party_selected_in_gui
 				clr_country_flag = ENG_churchill_party_selected_in_gui
@@ -162,32 +165,32 @@ scripted_gui = {
 				ENG_level_up_duma_decision = yes
 				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
 				add_to_variable = {
-					tooltip = ENG_decrease_mosleys_support_by_1
-					mosley_support = -1
+					tooltip = ENG_decrease_hamsworths_support_by_1
+					hamsworth_support = -1
 				}
 			}
-			ENG_denouncing_mosley_as_an_autocrat_click = {
+			ENG_denouncing_hamsworth_as_an_autocrat_click = {
 				ENG_level_up_duma_decision = yes
 				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
 				add_to_variable = {
-					tooltip = ENG_decrease_mosleys_support_by_1
-					mosley_support = -1
+					tooltip = ENG_decrease_hamsworths_support_by_1
+					hamsworth_support = -1
 				}
 			}
 			ENG_condemn_his_radical_ties_click = {
 				ENG_level_up_duma_decision = yes
 				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
 				add_to_variable = {
-					tooltip = ENG_decrease_mosleys_support_by_1
-					mosley_support = -1
+					tooltip = ENG_decrease_hamsworths_support_by_1
+					hamsworth_support = -1
 				}
 			}
 			ENG_attacking_his_extremist_policies_click = {
 				ENG_level_up_duma_decision = yes
 				set_country_flag = { flag = ENG_already_doing_anti_campaign_action value = 1 days = 25 }
 				add_to_variable = {
-					tooltip = ENG_decrease_mosleys_support_by_1
-					mosley_support = -1
+					tooltip = ENG_decrease_hamsworths_support_by_1
+					hamsworth_support = -1
 				}
 			}
 		}
@@ -219,14 +222,14 @@ scripted_gui = {
 			ENG_rally_pro_monarchists_visible = {
 				has_country_flag = ENG_attlee_party_selected_in_gui
 			}
-			ENG_denouncing_mosley_as_an_autocrat_visible = {
-				has_country_flag = ENG_mosley_party_selected_in_gui
+			ENG_denouncing_hamsworth_as_an_autocrat_visible = {
+				has_country_flag = ENG_hamsworth_party_selected_in_gui
 			}
 			ENG_condemn_his_radical_ties_visible = {
-				has_country_flag = ENG_mosley_party_selected_in_gui
+				has_country_flag = ENG_hamsworth_party_selected_in_gui
 			}
 			ENG_attacking_his_extremist_policies_visible = {
-				has_country_flag = ENG_mosley_party_selected_in_gui
+				has_country_flag = ENG_hamsworth_party_selected_in_gui
 			}
 			
 
@@ -281,7 +284,7 @@ scripted_gui = {
 					has_country_flag = ENG_already_doing_anti_campaign_action
 				}
 			}
-			ENG_denouncing_mosley_as_an_autocrat_click_enabled = {
+			ENG_denouncing_hamsworth_as_an_autocrat_click_enabled = {
 				has_political_power > 19
 				NOT = {
 					has_country_flag = ENG_already_doing_anti_campaign_action

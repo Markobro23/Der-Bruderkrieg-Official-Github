@@ -5,7 +5,7 @@ ENG_elections_timeout_effect = {
 			NOT = {
 				has_country_flag = ENG_sided_with_attlee_campaign
 				has_country_flag = ENG_sided_with_churchill_campaign
-				has_country_flag = ENG_sided_with_mosley_campaign
+				has_country_flag = ENG_sided_with_hamsworth_campaign
 			}
 		}
 		complete_national_focus = ENG_halifaxs_victory
@@ -57,9 +57,9 @@ ENG_elections_timeout_effect = {
 				if = {
 					limit = {
 						#is_ai = yes
-						has_country_flag = ENG_sided_with_mosley_campaign
+						has_country_flag = ENG_sided_with_hamsworth_campaign
 					}
-					complete_national_focus = ENG_mosleys_victory
+					complete_national_focus = ENG_hamsworths_victory
 				
 					add_popularity = {
 						ideology = democratic
@@ -105,9 +105,9 @@ ENG_elections_timeout_effect = {
 	}
 	if = {
 		limit = {
-			mosley_wins_elections = yes
+			hamsworth_wins_elections = yes
 		}
-		complete_national_focus = ENG_mosleys_victory
+		complete_national_focus = ENG_hamsworths_victory
 
 		set_politics = {
 			ruling_party = democratic_communism
@@ -148,11 +148,11 @@ ENG_level_up_duma_decision = {
 	}
 	if = {
 		limit = {
-			has_country_flag = ENG_sided_with_mosley_campaign
+			has_country_flag = ENG_sided_with_hamsworth_campaign
 		}
 		add_to_variable = {
-			tooltip = ENG_increase_mosleys_support_by_1
-			mosley_support = 1
+			tooltip = ENG_increase_hamsworths_support_by_1
+			hamsworth_support = 1
 		}
 	}
 }
@@ -178,9 +178,9 @@ ENG_level_up_duma_large_decision = {
 	}
 	if = {
 		limit = {
-			has_country_flag = ENG_sided_with_mosley_campaign
+			has_country_flag = ENG_sided_with_hamsworth_campaign
 		}
-		ENG_mosley_level_up_duma_large_decision = yes
+		ENG_hamsworth_level_up_duma_large_decision = yes
 	}
 }
 
@@ -198,8 +198,8 @@ ENG_halifax_level_up_duma_large_decision = {
 		churchill_support = -1
 	}
 	add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-		mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+		hamsworth_support = -1
 	}
 }
 
@@ -217,8 +217,8 @@ ENG_attlee_level_up_duma_large_decision = {
 		churchill_support = -1
 	}
 	add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-		mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+		hamsworth_support = -1
 	}
 }
 
@@ -236,15 +236,15 @@ ENG_churchill_level_up_duma_large_decision = {
 		attlee_support = -1
 	}
 	add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-		mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+		hamsworth_support = -1
 	}
 }
 
-ENG_mosley_level_up_duma_large_decision = {
+ENG_hamsworth_level_up_duma_large_decision = {
 	add_to_variable = {
-		tooltip = ENG_increase_mosleys_support_by_3
-		mosley_support = 3
+		tooltip = ENG_increase_hamsworths_support_by_3
+		hamsworth_support = 3
 	}
 	add_to_variable = {
 		tooltip = ENG_decrease_halifaxs_support_by_1
@@ -283,9 +283,9 @@ ENG_level_up_duma_small_decision = {
 	}
 	if = {
 		limit = {
-			has_country_flag = ENG_sided_with_mosley_campaign
+			has_country_flag = ENG_sided_with_hamsworth_campaign
 		}
-		ENG_mosley_level_up_duma_small_decision = yes
+		ENG_hamsworth_level_up_duma_small_decision = yes
 	}
 }
 
@@ -311,8 +311,8 @@ ENG_halifax_level_up_duma_small_decision = {
 		}
 		50 = {
 		add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-			mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+			hamsworth_support = -1
 		}
 		}
 	}
@@ -342,8 +342,8 @@ ENG_halifax_level_down_duma_small_decision  = {
 		}
 		50 = {
 			add_to_variable = {
-			tooltip = ENG_increase_mosleys_support_by_1
-				mosley_support = 1
+			tooltip = ENG_increase_hamsworths_support_by_1
+				hamsworth_support = 1
 			}
 		}
 	}
@@ -371,8 +371,8 @@ ENG_attlee_level_up_duma_small_decision = {
 		}
 		50 = {
 		add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-			mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+			hamsworth_support = -1
 		}
 		}
 	}
@@ -399,17 +399,17 @@ ENG_churchill_level_up_duma_small_decision = {
 		}
 		50 = {
 		add_to_variable = {
-		tooltip = ENG_decrease_mosleys_support_by_1
-			mosley_support = -1
+		tooltip = ENG_decrease_hamsworths_support_by_1
+			hamsworth_support = -1
 		}
 		}
 	}
 }
 
-ENG_mosley_level_up_duma_small_decision = {
+ENG_hamsworth_level_up_duma_small_decision = {
 	add_to_variable = {
-		tooltip = ENG_increase_mosleys_support_by_1
-		mosley_support = 1
+		tooltip = ENG_increase_hamsworths_support_by_1
+		hamsworth_support = 1
 	}
 	
 	random_list = {

@@ -148,8 +148,67 @@ country_event = {
 				add_idea = ENG_remove_national_government_idea_debuff_new
 			}
 		}
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_change_by_1
+			ENG_kings_approval_var_change = 1
+		}
 	}
 }
+##the new cabinet
+country_event = {
+	id = ENG_halifax_path.3
+	title = ENG_halifax_path.3.t
+	desc = ENG_halifax_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.3.a
+		set_country_flag = ENG_chose_tories_ng
+	}
+	## labour
+	option = {
+		name = ENG_halifax_path.3.b
+		set_country_flag = ENG_chose_liberals_ng
+	}
+}
+
+##this will not go well
+country_event = {
+	id = ENG_halifax_path.4
+	title = ENG_halifax_path.4.t
+	desc = ENG_halifax_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.4.a
+		add_political_power = 100
+		add_war_support = 0.03
+		hidden_effect = {
+			country_event = {
+				id = ENG_halifax_path.5
+			}
+		}
+	}
+}
+country_event = {
+	id = ENG_halifax_path.5
+	title = ENG_halifax_path.5.t
+	desc = ENG_halifax_path.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.5.a
+		
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
 
 ##Kings coup
 add_namespace = ENG_alberts_coup
@@ -218,6 +277,19 @@ country_event = {
 			}
 		}
 	}
+}
+
+country_event = {
+	id = ENG_alberts_coup.2
+	title = ENG_alberts_coup.2.t
+	desc = ENG_alberts_coup.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_alberts_coup.2.a
+		remove_country_leader_trait = paranoid_monarch
+	}
+	
 }
 
 

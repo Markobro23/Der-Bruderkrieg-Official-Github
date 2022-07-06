@@ -18,7 +18,10 @@ on_actions = {
 				}
 
 				set_variable = {
-					ENG_kings_approval_var = 55
+					ENG_kings_approval_var = 40
+				}
+				set_variable = {
+					ENG_kings_approval_var_change = -1
 				}
 
 				set_variable = {
@@ -49,6 +52,20 @@ on_actions = {
 				country_event = {
 					id = ENG_alberts_coup.1
 				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ENG_kings_approval_var > 74
+					}
+				}
+				country_event = {
+					id = ENG_alberts_coup.2
+				}
+			}
+
+			add_to_variable = {
+				ENG_kings_approval_var = ENG_kings_approval_var_change
 			}
 		}
 	}
