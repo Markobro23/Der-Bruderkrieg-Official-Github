@@ -151,6 +151,76 @@ country_event = {
 	}
 }
 
+##Kings coup
+add_namespace = ENG_alberts_coup
+country_event = {
+	id = ENG_alberts_coup.1
+	title = ENG_alberts_coup.1.t
+	desc = ENG_alberts_coup.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_alberts_coup.1.a
+		set_politics = {
+			ruling_party = neutrality
+		}
+		#load new tree
+	}
+	option = {
+		name = ENG_alberts_coup.1.b
+		add_political_power = -50
+		add_command_power = -25
+		army_experience = -10
+
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				ideology=democratic_conservative
+				expire="1938.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=democratic_liberal
+				expire="1965.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology= social_democratic
+				expire="1965.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=libertarian_socialism
+				expire="1965.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=despotic
+				expire="1965.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=authoritarian_democrat
+				expire="1965.1.1.1"
+				id=-1
+			}
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=fascism_ideology
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+	}
+}
+
+
 ##Prussian stuff
 add_namespace = ENG_Goering
 country_event = {

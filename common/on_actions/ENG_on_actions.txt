@@ -37,4 +37,19 @@ on_actions = {
 			}
 		}
 	}
+
+	on_monthly_ENG = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = {
+						ENG_kings_approval_var < 21
+					}
+				}
+				country_event = {
+					id = ENG_alberts_coup.1
+				}
+			}
+		}
+	}
 }
