@@ -1238,42 +1238,6 @@ ITA_iron_guard = {
 ITA_balkan_decision_cat = {
 
   ##albania
-  ITA_albanian_expansion_decision = {
-    allowed = {
-      tag = ITA
-
-    }
-    visible = { 
-      tag = ITA 
-      
-    }
-    ai_will_do = {
-      factor = 1000
-    }
-
-    cost = 35
-    days_remove = 40
-
-    fire_only_once = yes
-
-    remove_effect = {
-      if = {
-        limit = {
-          NOT = {
-            ALB = {
-              is_in_faction_with = AUS
-            }
-          }
-          ITA = { is_ai = no }
-        }
-        ALB = {
-          country_event = {
-            id = italy.3 hours = 2
-          }
-        }
-      }
-    }
-  }
   ITA_albanian_integration = {
     available = {
       controls_state = 44
@@ -1331,67 +1295,105 @@ ITA_balkan_decision_cat = {
       }
     }
   }
-
-  ITA_promote_chetnik_resistance = {
-
-  	icon = generic_industry
-
-  	visible = {
-  		CRO = {
-  			OR = {
-  				exists = no
-  				is_subject_of = AUS
-  			}
-  		}
-  	}
-
-  	cost = 50
-
-  	complete_effect = {
-  		set_variable = { var_chetnik_resistance = -0.25 }
-  		every_state = {
-  			limit = {
-  				is_core_of = CRO
-  			}
-  			add_dynamic_modifier = {
-  				modifier = ITA_chetnik_resistance_modifier
-  			}
-  		}
-  	}
-
-  }
-
-  ITA_promote_bosniak_resistance = {
-
-  	icon = generic_industry
-
-  	visible = {
-  		BOS = {
-  			OR = {
-  				exists = no
-  				is_subject_of = AUS
-  			}
-  		}
-  	}
-
-  	cost = 50
-
-  	complete_effect = {
-  		set_variable = { var_bosniak_resistance = -0.15 }
-  		every_state = {
-  			limit = {
-  				is_core_of = BOS
-  			}
-  			add_dynamic_modifier = {
-  				modifier = ITA_bosniak_resistance_modifier
-  			}
-  		} 
-  	}
-
-  }
   
 }
 
+ITA_seize_ottoman_cities_cat = {
+
+  ITA_seize_tripoli = {
+
+    visible = {
+      NOT = {
+        OR = {
+          owns_state = 448
+          controls_state = 448
+          has_war_with = TUR
+        }
+      }
+    }
+
+    fire_only_once = yes
+
+    icon = border_war
+
+    cost = 25
+
+    available = {
+      divisions_in_state = {
+        size > 2
+        state = 661
+      }
+    }
+
+    complete_effect = {
+      start_border_war = {
+        change_state_after_war = no
+        attacker = {
+          state = 661
+          num_provinces = 3
+          on_win = ITA_border_conflicts.3
+          on_lose = ITA_border_conflicts.1
+          on_cancel = ITA_border_conflicts.1
+        }
+        attacker = {
+          state = 448
+          num_provinces = 1
+          on_win = ITA_border_conflicts.1
+          on_lose = ITA_border_conflicts.3
+          on_cancel = ITA_border_conflicts.1
+        }
+      }
+    }
+
+  }
+
+  ITA_seize_benghazi = {
+
+    visible = {
+      NOT = {
+        OR = {
+          owns_state = 450
+          controls_state = 450
+          has_war_with = TUR
+        }
+      }
+    }
+
+    fire_only_once = yes
+    icon = border_war
+
+    cost = 25
+
+    available = {
+      divisions_in_state = {
+        size > 2
+        state = 451
+      }
+    }
+
+    complete_effect = {
+      start_border_war = {
+        change_state_after_war = no
+        attacker = {
+          state = 451
+          num_provinces = 1
+          on_win = ITA_border_conflicts.2
+          on_lose = ITA_border_conflicts.1
+          on_cancel = ITA_border_conflicts.1
+        }
+        attacker = {
+          state = 450
+          num_provinces = 1
+          on_win = ITA_border_conflicts.1
+          on_lose = ITA_border_conflicts.2
+          on_cancel = ITA_border_conflicts.1
+        }
+      }
+    }
+
+  }
+
+}
 
 
 ITA_risorgemento_decisions = {

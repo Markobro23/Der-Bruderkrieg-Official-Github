@@ -96,15 +96,7 @@ country_event = {
 						ITA = { is_faction_leader = yes }
 					}
 					is_historical_focus_on = yes
-					AND = {
-						is_in_faction = no
-						NOT = {
-							any_other_country = {
-								NOT = { tag = ITA }
-								has_guaranteed = ALB
-							}
-						}
-					}
+					is_in_faction = yes
 				}
 			}
 		}
@@ -729,6 +721,29 @@ country_event = { # Prussia refuses to add Hellenic Front to the faction
 		add_opinion_modifier = {
 			target = FROM
 			modifier = small_decrease
+		}
+	}
+}
+
+country_event = { #asking Prussia to pretty please add Albania to the faction
+	id = italy.534
+	title = italy.534.t
+	desc = italy.534.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #yeah
+		name = italy.534.a 
+		ai_chance = { factor = 90 } 
+		ALB = {
+			country_event = { id = GER_wiltkrieg_faction_events.17 hours = 2 }
+		}
+	}
+	option = {  #no
+		name = italy.532.b 
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = { id = italy.533 hours = 2 }
 		}
 	}
 }
@@ -2073,6 +2088,235 @@ country_event = {
 	option = { 
 		name = ITA_fascist_tree_events.10.a 
 		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #italy demanding benghazi and tripoli
+	id = ITA_fascist_tree_events.11
+	title = ITA_fascist_tree_events.11.t
+	desc = ITA_fascist_tree_events.11.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = ITA_fascist_tree_events.11.a 
+		ai_chance = { factor = 120 } 
+		ITA = {
+			transfer_state = 448
+			transfer_state = 450
+			country_event = { id = ITA_fascist_tree_events.12 hours = 2 }
+		}
+	}
+	option = { 
+		name = ITA_fascist_tree_events.11.b 
+		ai_chance = { factor = 80 } 
+		ITA = { 
+			country_event = { id = ITA_fascist_tree_events.13 hours = 2 }
+			set_country_flag = ITA_ottomans_refused_us_cities
+			add_ai_strategy = {
+				id = TUR
+				type = prepare_for_war
+				value = 50
+			}
+		}
+	}
+}
+
+country_event = { #ottomans accepted
+	id = ITA_fascist_tree_events.12
+	title = ITA_fascist_tree_events.12.t
+	desc = ITA_fascist_tree_events.12.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = {  #nice
+		name = ITA_fascist_tree_events.12.a 
+		ai_chance = { factor = 120 }
+	}
+}
+
+country_event = { #ottomans denied
+	id = ITA_fascist_tree_events.13
+	title = ITA_fascist_tree_events.13.t
+	desc = ITA_fascist_tree_events.13.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = {  #we'll show them! *proceeds to lose both border conflicts*
+		name = ITA_fascist_tree_events.13.a 
+		ai_chance = { factor = 120 } 
+		unlock_decision_tooltip = ITA_seize_tripoli
+		unlock_decision_tooltip = ITA_seize_benghazi
+	}
+}
+
+country_event = { #what to do with Croatia
+	id = ITA_fascist_tree_events.14
+	title = ITA_fascist_tree_events.14.t
+	desc = ITA_fascist_tree_events.14.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #leave them as is
+		name = ITA_fascist_tree_events.14.a 
+		CRO = {
+			add_stability = 0.1
+		}
+	}
+	option = {  #give amadeo the croatian crown
+		name = ITA_fascist_tree_events.14.b
+		trigger = {
+			OR = {
+				has_government = neutrality
+				has_completed_focus = ITA_protections_for_king
+			}
+		}
+		CRO = {
+			create_country_leader = {
+	            name = "Amadeo I"
+	            ideology = despotic
+	            picture = "gfx/leaders/Amadeo.dds"
+	        }
+	        hidden_effect = {
+	        	add_popularity = {
+		        	ideology = neutrality
+		        	popularity = 0.25
+		        }
+		        set_cosmetic_tag = savoy_croatia
+	        }
+	        set_politics = {
+	        	ruling_party = neutrality
+	        	elections_allowed = no
+	        }
+		}
+	}
+	option = {  #make it commie
+		name = ITA_fascist_tree_events.14.c
+		trigger = {
+			has_country_leader = {
+				name = "Michele Bianchi"
+				ruling_only = yes
+			}
+		}
+		CRO = {
+	        hidden_effect = {
+	        	add_popularity = {
+		        	ideology = communism
+		        	popularity = 0.35
+		        }
+	        }
+	        set_politics = {
+	        	ruling_party = communism
+	        	elections_allowed = no
+	        }
+		}
+	}
+	option = {  #croat megacorp
+		name = ITA_fascist_tree_events.14.e
+		trigger = {
+			has_government = fascism
+			check_variable = { ITA_head_tri_power = 100 }
+		}
+		CRO = {
+			create_country_leader = {
+	            name = "Guido Jung"
+	            ideology = corporatism
+	            picture = "gfx/leaders/ITA/Portrait_SRI_Inigo_Campioni.png"
+	        }
+	        hidden_effect = {
+	        	add_popularity = {
+		        	ideology = neutrality
+		        	popularity = 0.25
+		        }
+	        }
+	        set_politics = {
+	        	ruling_party = neutrality
+	        	elections_allowed = no
+	        }
+	        set_cosmetic_tag = CRO_corporation
+	        add_ideas = ITA_megacorporation
+		}
+	}
+}
+
+country_event = { #italy demands economic concessions from Albania
+	id = ITA_fascist_tree_events.15
+	title = ITA_fascist_tree_events.15.t
+	desc = ITA_fascist_tree_events.15.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = {  #dang now we gotta be a sugar daddy
+		name = ITA_fascist_tree_events.15.a 
+		ai_chance = { factor = 120 } 
+		ITA = {
+			country_event = { id = ITA_fascist_tree_events.16 hours = 2 }
+		}
+		add_ideas = ITA_economic_concessions
+	}
+	option = {  #nah bro
+		name = ITA_fascist_tree_events.15.a 
+		ai_chance = {
+			factor = 50
+			modifier = {
+				is_guaranteed_by = AUS
+				add = 20
+			}
+			modifier = {
+				is_in_faction_with = AUS
+				factor = 2
+			}
+		} 
+		ITA = {
+			country_event = { id = ITA_fascist_tree_events.17 hours = 2 }
+		}
+		add_war_support = 0.05
+	}
+}
+
+country_event = { #albania accepts
+	id = ITA_fascist_tree_events.16
+	title = ITA_fascist_tree_events.16.t
+	desc = ITA_fascist_tree_events.16.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #got dat dough
+		name = ITA_fascist_tree_events.16.a 
+		ai_chance = { factor = 120 } 
+		add_offsite_building = {
+			type = industrial_complex
+			level = 2
+		}
+	}
+}
+
+country_event = { #albania refuses
+	id = ITA_fascist_tree_events.17
+	title = ITA_fascist_tree_events.17.t
+	desc = ITA_fascist_tree_events.17.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #got dat dough
+		name = ITA_fascist_tree_events.16.a 
+		ai_chance = { factor = 120 } 
+		add_opinion_modifier = {
+			target = ALB
+			modifier = medium_decrease
+		}
+		set_country_flag = ITA_albania_refuses_concessions
 	}
 }
 
@@ -3520,18 +3764,93 @@ country_event = { #voting out the impostor bianchi
 			popularity = 0.05
 		}
 		add_to_variable = { 
-				tooltip = ITA_decreases_bianchis_influence
-				ITA_head_tri_power = -5 
-			}
-			hidden_effect = {
-				random_list = {
-					50 = {
-						add_to_variable = { ITA_second_tri_power = 5 }
-					}
-					50 = {
-						add_to_variable = { ITA_third_tri_power = 5 }
-					}
+			tooltip = ITA_decreases_bianchis_influence
+			ITA_head_tri_power = -5 
+		}
+		hidden_effect = {
+			random_list = {
+				50 = {
+					add_to_variable = { ITA_second_tri_power = 5 }
+				}
+				50 = {
+					add_to_variable = { ITA_third_tri_power = 5 }
 				}
 			}
+		}
+	}
+}
+
+add_namespace = ITA_border_conflicts
+
+country_event = { #ottomans win
+	id = ITA_border_conflicts.1
+	title = ITA_border_conflicts.1.t
+	desc = ITA_border_conflicts.1.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #yay!
+		name = ITA_border_conflicts.1.a 
+		trigger = {
+			tag = TUR
+		}
+		add_political_power = 15
+		add_war_support = 0.02
+	}
+	option = { #no!
+		name = ITA_border_conflicts.1.b
+		trigger = {
+			tag = ITA
+		}
+		add_war_support = -0.05
+	}
+}
+
+country_event = { #italians win benghazi
+	id = ITA_border_conflicts.2
+	title = ITA_border_conflicts.2.t
+	desc = ITA_border_conflicts.2.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #yay!
+		name = ITA_border_conflicts.1.a
+		trigger = {
+			tag = ITA
+		}
+		transfer_state = 450
+	}
+	option = { #no!
+		name = ITA_border_conflicts.1.b
+		trigger = {
+			tag = TUR
+		}
+		add_war_support = -0.05
+	}
+}
+
+country_event = { #italians win tripoli
+	id = ITA_border_conflicts.3
+	title = ITA_border_conflicts.3.t
+	desc = ITA_border_conflicts.3.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #yay!
+		name = ITA_border_conflicts.1.a
+		trigger = {
+			tag = ITA
+		}
+		transfer_state = 448
+	}
+	option = { #no!
+		name = ITA_border_conflicts.1.b
+		trigger = {
+			tag = TUR
+		}
+		add_war_support = -0.05
 	}
 }

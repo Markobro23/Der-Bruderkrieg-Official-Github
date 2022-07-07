@@ -130,14 +130,33 @@ ITA_maintaining_unity = {
 	priority = 250
 }
 
+ITA_seize_ottoman_cities_cat = {
+	icon = border_war
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		NOT = {
+			AND = {
+				owns_state = 450
+				owns_state = 448
+			}
+		}
+		has_country_flag = ITA_ottomans_refused_us_cities
+	}
+	priority = 20
+}
+
 ITA_balkan_decision_cat = {
 	icon = border_war
 	allowed = {
 		tag = ITA
 	}
 	visible = {
-		#has_completed_focus = ITA_albanian_expansion
-		always = no
+		OR = {
+			has_completed_focus = ITA_demand_albanian_economic_concessions
+			has_completed_focus = ITA_invest_into_croatia
+		}
 	}
 	priority = 20
 }
