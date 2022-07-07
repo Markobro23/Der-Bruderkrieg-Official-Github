@@ -693,6 +693,46 @@ news_event = { #florence-berlin split
 	}
 }
 
+country_event = { #asking Prussia to pretty please add Hellenic Front to the faction
+	id = italy.532
+	title = italy.532.t
+	desc = italy.532.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #yeah
+		name = italy.532.a 
+		ai_chance = { factor = 90 } 
+		ATH = {
+			country_event = { id = GER_wiltkrieg_faction_events.17 hours = 2 }
+		}
+	}
+	option = {  #no
+		name = italy.532.b 
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = { id = italy.533 hours = 2 }
+		}
+	}
+}
+
+country_event = { # Prussia refuses to add Hellenic Front to the faction
+	id = italy.533
+	title = italy.533.t
+	desc = italy.533.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #bruh tf
+		name = italy.533.a 
+		ai_chance = { factor = 90 } 
+		add_opinion_modifier = {
+			target = FROM
+			modifier = small_decrease
+		}
+	}
+}
+
 add_namespace = ITA_starting_tree_events
 ##the italian mess
 country_event = {

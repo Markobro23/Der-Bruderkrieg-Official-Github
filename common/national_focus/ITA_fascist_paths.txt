@@ -17,6 +17,7 @@
 	shared_focus = ITA_INVEST_IN_SOUTH
 	shared_focus = ITA_begin_the_recovery_process
 	shared_focus = ITA_the_italian_mess
+	shared_focus = ITA_fund_rrl
 	continuous_focus_position = { x = 5300 y = 2000 }
 }
 
@@ -3067,6 +3068,269 @@ shared_focus = {
 		
 	}
 }
+	#foreign policy
+	shared_focus = {
+		id = ITA_fund_rrl
+		icon = GFX_goal_ITA_send_military_advisors
+		x = 8
+		y = 8
+		cost = 5
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_least_one_consul_dealt_with
+				check_variable = { ITA_consuls_dealt_with > 0 }
+			}
+		}
+
+		bypass = {
+			OR = {
+				ROM = { has_government = fascism }
+				has_global_flag = ROM_iron_guard_coup_failed
+			}
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			unlock_decision_category_tooltip = ITA_iron_guard
+			hidden_effect = {
+				ROM = {
+					country_event = { id = romania_iron_guard_coup.7 days = 3 }
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_invite_hellenic_front
+		icon = GFX_Diplo_Greece
+		x = -2
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_fund_rrl }
+		relative_position_id = ITA_fund_rrl
+		ai_will_do = {
+			factor = 10
+		}
+
+		bypass = {
+			ATH = {
+				OR = {
+					exists = no
+					is_in_faction_with = ITA
+				}
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { is_in_faction_with = GER }
+				GER = {
+					country_event = { id = italy.532 hours = 2 }
+				}
+				else_if = {
+					limit = {
+						is_in_faction = yes
+						is_faction_leader = no
+					}
+					FACTION_LEADER = {
+						country_event = { id = italy.532 hours = 2 }
+					}
+				}
+				else = {
+					if = {
+						limit = { is_in_faction = no }
+						create_faction = mediterranean_bloc
+					}
+					ATH = {
+						country_event = { id = generic.5 hours = 2 }
+					}
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_fund_croatian_nationalists
+		icon = GFX_goal_SOV_hierarchy_of_loyalty
+		x = -2
+		y = 1
+		cost = 3
+		prerequisite = { focus = ITA_invite_hellenic_front }
+		relative_position_id = ITA_invite_hellenic_front
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			if = {
+				limit = {
+					AUS = {
+						has_completed_focus = AUS_concessions_to_people
+					}
+				}
+				CRO = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		bypass = {
+			CRO = {
+				exists = yes
+				is_subject = yes
+				NOT = {
+					is_subject_of = AUS
+				}
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					CRO = { exists = no }
+				}
+				every_state = {
+					limit = {
+						is_owned_by = AUS
+						is_core_of = CRO
+					}
+					add_dynamic_modifier = {
+						modifier = croatian_nationalists_modifier
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					CRO = { is_subject_of = AUS }
+				}
+				CRO = {
+					add_ideas = ITA_croatian_nationalists
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_establish_croat_blueshirt_divisions
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = -2
+		y = 1
+		cost = 2
+		prerequisite = { focus = ITA_fund_croatian_nationalists }
+		relative_position_id = ITA_fund_croatian_nationalists
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			has_war_with = AUS
+			any_controlled_state = {
+				is_core_of = CRO
+			}
+			OR = {
+				has_completed_focus = ITA_incorporate_blueshirt_officers_into_grand_council
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
+
+		bypass = {
+			AUS = {
+				exists = no
+			}
+		}
+
+		completion_reward = {
+			every_controlled_state = {
+				limit = { is_core_of = CRO }
+				add_resistance = -10
+				add_compliance = 10
+				#create a unit
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_demand_albanian_economic_concessions
+		icon = GFX_focus_eng_concessions_to_the_trade_unions
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_invite_hellenic_front }
+		relative_position_id = ITA_invite_hellenic_front
+		ai_will_do = {
+			factor = 10
+		}
+
+		bypass = {
+			ALB = {
+				OR = {
+					exists = no
+					has_war_with = ITA
+				}
+			}
+		}
+
+		completion_reward = {
+			#albania gets an event demanding italian economic concessions
+		}
+	}
+
+	shared_focus = {
+		id = ITA_align_albania
+		icon = GFX_goal_AUS_protect_albania
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
+		mutually_exclusive = { focus = ITA_step_on_albania }
+		relative_position_id = ITA_demand_albanian_economic_concessions
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = {
+				OR = {
+					has_country_flag = ITA_albania_refuses_concessions
+					has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+					has_war_with = ALB
+					ALB = { is_in_faction = yes }
+				}
+			}
+		}
+
+		completion_reward = {
+			#albania gets an event demanding them to join the second brother's coalition
+		}
+	}
+
+	shared_focus = {
+		id = ITA_step_on_albania
+		icon = GFX_goal_generic_political_pressure
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
+		mutually_exclusive = { focus = ITA_align_albania }
+		relative_position_id = ITA_demand_albanian_economic_concessions
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			#albania gets an event demanding they become a subject to Italy
+		}
+	}
 
   #####Industrial path
   shared_focus = {

@@ -17,6 +17,7 @@ country_event = {
 			ideology = fascism
 			popularity = -0.1
 		}
+		set_global_flag = ROM_iron_guard_coup_failed
 		if = {
 			limit = {
 				ROM = {
@@ -172,3 +173,19 @@ news_event = {
 
 	}
 }
+
+country_event = { #italy's funding the RRL
+	id = romania_iron_guard_coup.7
+	title = romania_iron_guard_coup.7.t
+	desc = romania_iron_guard_coup.7.d
+	picture = GFX_report_event_vienna_award_hungary
+  
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = romania_iron_guard_coup.7.a #needs to be localized
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this onero
+		unlock_decision_tooltip = ROM_point_out_russian_benevolence
+		unlock_decision_tooltip = ROM_promote_democracy
+	}
+} 

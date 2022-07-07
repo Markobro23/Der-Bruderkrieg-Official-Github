@@ -2250,6 +2250,105 @@ ideas = {
 			}
 		}
 
+		ITA_croatian_nationalists = {
+			
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			cancel = {
+				is_subject_of = ITA
+			}
+
+			picture = generic_fascism_drift_bonus
+			
+			modifier = {
+				fascism_drift = 0.1
+				conscription_factor = -0.2
+				industrial_capacity_factory = -0.1
+			}
+		}
+
+		ITA_crushing_paramilitary_fights = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				conscription_factor = -0.05
+				stability_weekly = 0.005
+			}
+		}
+
+		ITA_cordon_sanitaire = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				OR = {
+					is_subject = yes
+					NOT = { has_government = ultranationalism }
+				}
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_cost = 0.2
+			}
+		}
+
+		ITA_reactionary_support = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				neutrality_acceptance = 25
+				political_power_gain = 0.1
+				war_support_factor = 0.05
+			}
+		}
+
+		ITA_umberto_ii = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.1
+				party_popularity_stability_factor = 0.15
+			}
+		}
 
 		}
 

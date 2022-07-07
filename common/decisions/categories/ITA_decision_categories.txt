@@ -110,10 +110,15 @@ ITA_iron_guard = {
 	}
 
 	visible = {
-    	always = no
-    	OR = {
-    		#something here
+    	ROM = {
+    		NOT = {
+    			has_government = fascism
+    		}
     	}
+    	NOT = {
+    		has_global_flag = ROM_iron_guard_coup_failed
+    	}
+    	has_completed_focus = ITA_fund_rrl
 	}
 }
 
