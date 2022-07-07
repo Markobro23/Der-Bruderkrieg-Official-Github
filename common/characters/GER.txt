@@ -179,13 +179,27 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ trait_cautious armor_officer }
-			skill=1
-			attack_skill=1
-			defense_skill=1
-			planning_skill=1
-			logistics_skill=1
+			traits={ trait_cautious infantry_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
 			legacy_id=3
+		}
+		advisor={	
+			slot = army_chief
+			idea_token = friedrich_paulus
+			allowed = {
+				original_tag = GER
+			}
+			traits = {
+				army_chief_morale_1
+			}
+			cost = 50
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	GER_erich_von_manstein={
@@ -563,6 +577,38 @@ characters={
 			ai_will_do = {
 				factor = 0.500
 			}
+		}
+	}
+	GER_dietrich_von_saucken = {
+		name = "Dietrich von Saucken"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_GEA_Dietrich_von_Saucken.png"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	GER_hermann_voigt_ruscheweyh = {   #### Luftwaffe Boy
+		name = "Hermann Voigt-Ruscheweyh"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_GEA_Hermann_Voigt_Ruscheweyh.png"
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
 	GER_karl_dönitz={
