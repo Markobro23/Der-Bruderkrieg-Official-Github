@@ -583,6 +583,16 @@ shared_focus = {
     
     completion_reward = {
         add_political_power = 50
+
+        set_variable = {
+            ENG_current_government_modifier_stability_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = -0.05
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = -0.1
+        }
     }
 }
 shared_focus = {
@@ -604,7 +614,7 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
-        
+        country_event = ENG_churchill_path.1
     }
 }
 shared_focus = {
@@ -624,7 +634,23 @@ shared_focus = {
     relative_position_id = ENG_rescue_alberts_mind
     
     completion_reward = {
-        
+        ##cabinet
+        add_to_variable = {
+			tooltip = ENG_kings_approval_var_increase_by_15
+			ENG_kings_approval_var = 15
+		}
+        effect_tooltip = {
+			swap_ideas = {
+				add_idea = ENG_churchill_remove_debuffs_new
+				remove_idea = ENG_churchill_remove_debuffs_original
+			}
+		}
+		set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = 0
+        }
     }
 }
 shared_focus = {
@@ -646,7 +672,7 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
-        
+        country_event = ENG_churchill_path.2
     }
 }
 shared_focus = {
@@ -659,14 +685,19 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    available = {
+        has_country_leader = {
+            name = "Henry IX"
+            ruling_only = yes
+        }
+    }
     prerequisite = {
         focus = ENG_work_with_the_prince_of_wales
     }
     relative_position_id = ENG_work_with_the_prince_of_wales
     
     completion_reward = {
-        
+        country_event = ENG_churchill_path.3
     }
 }
 shared_focus = {
@@ -687,7 +718,18 @@ shared_focus = {
     relative_position_id = ENG_sideline_the_tories
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                add_idea = ENG_churchill_anti_extremism_new
+                remove_idea = ENG_churchill_anti_extremism_original
+            }
+        }
+        set_variable = {
+            ENG_current_government_modifier_party_popularity_stability_factor = 0.35
+        }
+        set_variable = {
+            ENG_current_government_modifier_economy_cost_factor = -0.15
+        }
     }
 }
 
@@ -708,7 +750,7 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
-        
+        add_ideas = FRA_deregulation
     }
 }
 shared_focus = {
@@ -728,7 +770,7 @@ shared_focus = {
     relative_position_id = ENG_expand_the_free_market
     
     completion_reward = {
-        
+        ITA_level_up_conscription_law = yes
     }
 }
 shared_focus = {
@@ -748,7 +790,12 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
-        
+        release = IRE
+        IRE = {
+            set_politics = {
+                ruling_party = socialism_democratic
+            }
+        }
     }
 }
 shared_focus = {
@@ -762,7 +809,7 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-        focus = ENG_end_the_war_in_ireland
+        focus = ENG_expand_the_free_market
     }
     prerequisite = {
         focus = ENG_end_the_war_in_ireland
@@ -800,7 +847,13 @@ shared_focus = {
     relative_position_id = ENG_end_the_war_in_ireland
     
     completion_reward = {
-        
+        IRE = {
+            add_opinion_modifier = {
+                target = ENG
+                modifier = large_increase
+            }
+            country_event = generic.5
+        }
     }
 }
 # shared_focus = {
