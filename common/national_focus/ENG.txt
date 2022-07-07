@@ -37,7 +37,7 @@ focus_tree = {
 			tag = ENG
 		}
 	}
-	
+	shared_focus = ENG_the_bulldog_rises
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
 	continuous_focus_position = { x = -50 y = 2400 } 
@@ -344,6 +344,35 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = ENG_irish_army_training
+    icon = GFX_goal_ENG_irish_army_training
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_execute_the_traitors
+    }
+    relative_position_id = ENG_execute_the_traitors
+    
+    completion_reward = {
+        IRE = {
+            army_experience = 25
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 2
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
+    }
+}
+shared_focus = {
     id = ENG_complete_irish_integration
     icon = GFX_goal_ENG_complete_irish_integration
     x = -1
@@ -377,38 +406,7 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = ENG_belfast_shipyards
-    icon = GFX_goal_ENG_belfast_shipyards
-    x = 0
-    y = 2
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-        focus = ENG_execute_the_traitors
-    }
-    prerequisite = {
-        focus = ENG_execute_the_traitors
-    }
-    relative_position_id = ENG_execute_the_traitors
-    
-    completion_reward = {
-        119 = {
-            add_building_construction = {
-                type = dockyard
-                level = 2
-                instant_build = yes
-            }
-            add_extra_state_shared_building_slots = 2
-            add_dynamic_modifier = {
-                modifier = thriving_industrial_zone
-            }
-        }
-    }
-}
+
 
 shared_focus = {
     id = ENG_convene_the_national_governments
@@ -570,6 +568,265 @@ shared_focus = {
     }
 }
 
+
+## Churchill
+shared_focus = {
+    id = ENG_the_bulldog_rises
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 5
+    y = 0
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        add_political_power = 50
+    }
+}
+shared_focus = {
+    id = ENG_rescue_alberts_mind
+    icon = GFX_goal_ENG_rescue_alberts_mind
+    x = -3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_work_with_the_prince_of_wales
+    }
+    prerequisite = {
+        focus = ENG_the_bulldog_rises
+    }
+    relative_position_id = ENG_the_bulldog_rises
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_form_the_war_cabinet
+    icon = GFX_goal_ENG_form_the_war_cabinet
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rescue_alberts_mind
+    }
+    relative_position_id = ENG_rescue_alberts_mind
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_work_with_the_prince_of_wales
+    icon = GFX_goal_ENG_work_with_the_prince_of_wales
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_rescue_alberts_mind
+    }
+    prerequisite = {
+        focus = ENG_the_bulldog_rises
+    }
+    relative_position_id = ENG_the_bulldog_rises
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_sideline_the_tories
+    icon = GFX_goal_ENG_sideline_the_tories
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_work_with_the_prince_of_wales
+    }
+    relative_position_id = ENG_work_with_the_prince_of_wales
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_crush_the_extremist_threat
+    icon = GFX_goal_ENG_crush_the_extremist_threat
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_form_the_war_cabinet
+        focus = ENG_sideline_the_tories
+    }
+    relative_position_id = ENG_sideline_the_tories
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_expand_the_free_market
+    icon = GFX_goal_ENG_expand_the_free_market
+    x = 3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+   
+    prerequisite = {
+        focus = ENG_the_bulldog_rises
+    }
+    relative_position_id = ENG_the_bulldog_rises
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_national_mobilization_act
+    icon = GFX_goal_ENG_national_mobilization_act
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+   
+    prerequisite = {
+        focus = ENG_expand_the_free_market
+    }
+    relative_position_id = ENG_expand_the_free_market
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_end_the_war_in_ireland
+    icon = GFX_goal_ENG_end_the_war_in_ireland
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+   
+    prerequisite = {
+        focus = ENG_the_bulldog_rises
+    }
+    relative_position_id = ENG_the_bulldog_rises
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_belfast_shipyards
+    icon = GFX_goal_ENG_belfast_shipyards
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_end_the_war_in_ireland
+    }
+    prerequisite = {
+        focus = ENG_end_the_war_in_ireland
+    }
+    relative_position_id = ENG_end_the_war_in_ireland
+    
+    completion_reward = {
+        119 = {
+            add_building_construction = {
+                type = dockyard
+                level = 2
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 2
+            add_dynamic_modifier = {
+                modifier = thriving_industrial_zone
+            }
+        }
+    }
+}
+shared_focus = {
+    id = EMG_work_with_the_sienn_fein
+    icon = GFX_goal_EMG_work_with_the_sienn_fein
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_end_the_war_in_ireland
+    }
+    relative_position_id = ENG_end_the_war_in_ireland
+    
+    completion_reward = {
+        
+    }
+}
+# shared_focus = {
+#     id = ENG_prepare_for_the_final_battle
+#     icon = GFX_goal_ENG_prepare_for_the_final_battle
+#     x = -1
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+
+#     prerequisite = {
+#         focus = ENG_national_mobilization_act
+#         focus = EMG_work_with_the_sienn_fein
+#     }
+#     prerequisite = {
+#         focus = ENG_crush_the_extremist_threat
+#     }
+#     relative_position_id = EMG_work_with_the_sienn_fein
+    
+#     completion_reward = {
+        
+#     }
+# }
 
 ## FP
 shared_focus = {
