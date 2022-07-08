@@ -38,6 +38,7 @@ focus_tree = {
 		}
 	}
 	shared_focus = ENG_the_bulldog_rises
+    shared_focus = ENG_end_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
 	continuous_focus_position = { x = -50 y = 2400 } 
@@ -64,8 +65,10 @@ focus_tree = {
 			tag = ENG
 		}
 	}
-	
+	shared_focus = ENG_transform_the_union
+    shared_focus = ENG_end_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
+    shared_focus = ENG_stayin_steady
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 
@@ -517,8 +520,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = ENG_found_the_nhs
-    icon = GFX_goal_ENG_found_the_nhs
+    id = ENG_expand_welfare
+    icon = GFX_goal_ENG_expand_welfare
     x = 1
     y = 1
     cost = 5
@@ -535,8 +538,8 @@ shared_focus = {
     completion_reward = {
         effect_tooltip = {
             swap_ideas = {
-                add_idea = ENG_found_the_nhs_new
-                remove_idea = ENG_found_the_nhs_original
+                add_idea = ENG_expand_welfare_new
+                remove_idea = ENG_expand_welfare_original
             }
         }
         set_variable = {
@@ -783,8 +786,17 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-   
+    offset = {
+        trigger = {
+            OR = {
+                has_government = socialism_democratic
+                has_government = democratic_socialism
+            }
+        }
+        x = 3
+    }
     prerequisite = {
+        focus = ENG_transform_the_union
         focus = ENG_the_bulldog_rises
     }
     relative_position_id = ENG_the_bulldog_rises
@@ -881,6 +893,278 @@ shared_focus = {
 #     }
 # }
 
+
+## Attlee
+shared_focus = {
+    id = ENG_transform_the_union
+    icon = GFX_goal_ENG_transform_the_union
+    x = 7
+    y = 0
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        add_political_power = 50
+
+        set_variable = {
+            ENG_current_government_modifier_stability_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = -0.05
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = -0.1
+        }
+    }
+}
+shared_focus = {
+    id = ENG_to_a_republic
+    icon = GFX_goal_ENG_to_a_republic
+    x = -3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_mantain_the_crown
+    }
+    prerequisite = {
+        focus = ENG_transform_the_union
+    }
+    relative_position_id = ENG_transform_the_union
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_light_the_torch
+    icon = GFX_goal_ENG_light_the_torch
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_to_a_republic
+    }
+    relative_position_id = ENG_to_a_republic
+    
+    completion_reward = {
+        
+        add_country_leader_role = {
+			character = ENG_clement_attlee
+			promote_leader = yes
+			country_leader={
+				ideology=attlee_republican_socialism
+				expire="1938.1.1.1"
+				id=-1
+			}
+		}
+        effect_tooltip = { set_cosmetic_tag = british_republic }
+
+    }
+}
+shared_focus = {
+    id = ENG_quell_the_fires
+    icon = GFX_goal_ENG_quell_the_fires
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_light_the_torch
+    }
+    relative_position_id = ENG_light_the_torch
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_enshrine_the_british_worker
+    icon = GFX_goal_ENG_enshrine_the_british_worker
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_isolate_horner
+    }
+    prerequisite = {
+        focus = ENG_quell_the_fires
+    }
+    prerequisite = {
+        focus = ENG_found_the_nhs
+    }
+    relative_position_id = ENG_quell_the_fires
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_mantain_the_crown
+    icon = GFX_goal_ENG_mantain_the_crown
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_to_a_republic
+    }
+    prerequisite = {
+        focus = ENG_transform_the_union
+    }
+    relative_position_id = ENG_transform_the_union
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_safeguard_parliament
+    icon = GFX_goal_ENG_safeguard_parliament
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        has_country_leader = {
+            name = "Henry IX"
+            ruling_only = yes
+        }
+    }
+    prerequisite = {
+        focus = ENG_mantain_the_crown
+    }
+    relative_position_id = ENG_mantain_the_crown
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_the_second_english_bill_of_rights
+    icon = GFX_goal_ENG_the_second_english_bill_of_rights
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_safeguard_parliament
+    }
+    relative_position_id = ENG_safeguard_parliament
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_isolate_horner
+    icon = GFX_goal_ENG_isolate_horner
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_enshrine_the_british_worker
+    }
+    prerequisite = {
+        focus = ENG_quell_the_fires
+        focus = ENG_the_second_english_bill_of_rights
+    }
+    prerequisite = {
+        focus = ENG_found_the_nhs
+    }
+    relative_position_id = ENG_the_second_english_bill_of_rights
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_nationalize_major_industries
+    icon = GFX_goal_ENG_nationalize_major_industries
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_mantain_the_crown
+        focus = ENG_to_a_republic
+    }
+    relative_position_id = ENG_to_a_republic
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_found_the_nhs
+    icon = GFX_goal_ENG_found_the_nhs
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_nationalize_major_industries
+    }
+    relative_position_id = ENG_nationalize_major_industries
+    
+    completion_reward = {
+        effect_tooltip = {
+            swap_ideas = {
+                add_idea = ENG_expand_welfare_new
+                remove_idea = ENG_expand_welfare_original
+            }
+        }
+        set_variable = {
+            ENG_current_government_modifier_monthly_population = 0.35
+        }
+        set_variable = {
+            ENG_current_government_modifier_global_building_slots_factor = 0.15
+        }
+    }
+}
 ## FP
 shared_focus = {
     id = ENG_stayin_steady
