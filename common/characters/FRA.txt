@@ -49,6 +49,9 @@ characters={
 			civilian={
 				large="gfx/leaders/Phillipe_Petain.dds"
 			}
+			army = {
+				large="gfx/leaders/FRA/Portrait_NFA_Petain_Army.png"
+			}
 		}
 		country_leader={
 			#desc="POLITICS_PHILIPPE_PÉTAIN_DESC"
@@ -61,6 +64,14 @@ characters={
 			ideology=ultranationalist
 			expire="1965.1.1.1"
 			id=-1
+		}
+		field_marshal = {
+			traits = { old_guard inflexible_strategist war_hero media_personality unyielding_defender }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
 		}
 		
 		
@@ -296,6 +307,40 @@ characters={
 			legacy_id=-1
 		}
 	}
+	FRA_charles_de_gaulle={
+		name="Charles De Gaulle"
+		portraits={
+			army={
+				large="gfx/leaders/FRA/Portrait_NFA_Charles_de_Gaulle.png"
+				small="GFX_idea_charles_de_gaulle"
+			}
+		}
+		corps_commander={
+			traits={ media_personality career_officer harsh_leader armor_officer panzer_leader }
+			skill=4
+			attack_skill=4
+			defense_skill=4
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = charles_de_gaulle
+			ledger = army
+			allowed = {
+				original_tag = FRA
+			}
+			
+			traits = {
+				blitzkrieg_theorist
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
 	FRA_charles_huntziger={
 		name="Charles Huntziger"
 		portraits={
@@ -338,7 +383,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ old_guard trait_cautious infantry_officer }
+			traits={ old_guard trait_cautious infantry_officer career_officer }
 			skill=2
 			attack_skill=1
 			defense_skill=3
