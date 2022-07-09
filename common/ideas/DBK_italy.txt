@@ -2427,6 +2427,33 @@ ideas = {
 			}
 		}
 
+		ITA_mediterranean_trade_bloc_ENG = {
+
+			name = ITA_mediterranean_trade_bloc
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				has_war_with = ITA
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.1
+				min_export = 0.05
+			}
+		}
+
 		ITA_economic_concessions = {
 			
 			allowed = {
@@ -2456,6 +2483,61 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = 0.05
 				industrial_capacity_factory = -0.1
+			}
+		}
+
+		ITA_dominate_mediterranean = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = MTG_naval_treaty_adherent_reduced
+	
+			modifier = {
+				war_support_factor = 0.1
+				industrial_capacity_dockyard = 0.15
+				production_speed_dockyard_factor = 0.15
+			}
+		}
+
+		ITA_prussian_industrial_aid = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				OR = {
+					is_subject = yes
+					GER = {
+						is_subject = yes
+					}
+					has_war_with = GER
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.05
 			}
 		}
 

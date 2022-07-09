@@ -1237,65 +1237,189 @@ ITA_iron_guard = {
 
 ITA_balkan_decision_cat = {
 
-  ##albania
-  ITA_albanian_integration = {
-    available = {
-      controls_state = 44
+  ITA_provide_albanian_weapons = {
 
-    }
-    visible = { 
-      tag = ITA 
-    }
-    ai_will_do = {
-      factor = 1000
-    }
+    icon = generic_industry
 
-    cost = 50
-    days_remove = 25
+    cost = 25
 
-    fire_only_once = yes
-
-    remove_effect = {
-      add_state_core = 44
-    }
-  }
-  ITA_fortify_against_vlore_and_greece = {
-    available = {
-      controls_state = 44
-
-    }
-    visible = { 
-      tag = ITA 
-    }
-    ai_will_do = {
-      factor = 1000
-    }
-
-    cost = 50
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      every_owned_state = {
-				limit = {
-					any_neighbor_state = {
-						is_controlled_by = GRE
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 3
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
-				}
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
       }
     }
+
+    available = {
+      has_equipment = {
+        infantry_equipment > 100
+      }
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = -100
+      }
+      ALB = {
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.03
+        }
+      }
+    }
+
+  }  
+
+  ITA_ALB_spread_anti_austrian_propaganda = {
+
+    icon = generic_political_discourse
+
+    cost = 50
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+      AUS = {
+        OR = {
+          is_in_faction_with = ALB
+          has_guaranteed = ALB
+        }
+      }
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      ALB = {
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.05
+        }
+      }
+    }
+
+  }  
+
+  ITA_inspire_ALB_irredentist_rhetoric = {
+
+    icon = generic_nationalism
+
+    cost = 50
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      ALB = {
+        add_war_support = 0.05
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.05
+        }
+      }
+    }
+
   }
-  
+
+  ITA_balli_coup = {
+
+    icon = generic_prepare_civil_war
+
+    cost = 50
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+    }
+
+    available = {
+      ALB = {
+        fascism > 0.3
+      }
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      ALB = {
+        country_event = { id = italy.535 hours = 2 }
+      }
+    }
+
+  }
+
+  ITA_add_FROM_to_mediterranean_bloc = {
+
+    icon = generic_construction
+
+    cost = 25
+
+    fire_only_once = yes
+
+    visible = {
+      has_idea = ITA_mediterranean_trade_bloc
+    }
+
+    target_trigger = {
+      FROM = {
+        is_subject_of = ITA
+        capital_scope = {
+          is_on_continent = europe
+        }
+        any_owned_state = {
+          is_coastal = yes
+        }
+        NOT = {
+          has_idea = ITA_mediterranean_trade_bloc
+        }
+      }
+    }
+
+    complete_effect = {
+      FROM = {
+        add_ideas = ITA_mediterranean_trade_bloc
+      }
+    }
+
+  }
+
 }
 
 ITA_seize_ottoman_cities_cat = {
@@ -2368,13 +2492,12 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-      PAP = {
-        exists = yes
-      }
+      country_exists = PAP
 		}
 
 		visible = {
 			has_war_with = FRA
+      country_exists = PAP
 		}
 
 		fire_only_once = yes
@@ -2389,6 +2512,11 @@ weltkrieg_decisions = {
 		}
 	
 		complete_effect = {
+      add_ai_strategy = {
+        id = PAP
+        type = prepare_for_war
+        value = 50
+      }
 		}
 	
 		remove_effect = {
