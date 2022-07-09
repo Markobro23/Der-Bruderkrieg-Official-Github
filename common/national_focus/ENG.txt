@@ -8,7 +8,7 @@ focus_tree = {
 		}
 	}
 	
-    shared_focus =  ENG_the_king_is_dead
+    shared_focus =  ENG_state_of_the_empire
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
     shared_focus = ENG_the_imperial_federation
@@ -57,6 +57,8 @@ focus_tree = {
 	}
 	
     shared_focus = ENG_broken_crown_jewel
+    shared_focus = ENG_stayin_steady
+    shared_focus = ENG_the_imperial_federation
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
@@ -76,16 +78,15 @@ focus_tree = {
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 
+
+
 shared_focus = {
-    id = ENG_the_king_is_dead
-    icon = GFX_focus_eng_the_kings_party
+    id = ENG_state_of_the_empire
+    icon = unkown
     x = 5
     y = 0
-    cost = 5
+    cost = 50
     available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
     
     completion_reward = {
         set_variable = {
@@ -100,38 +101,7 @@ shared_focus = {
         set_variable = {
             hamsworth_support = 25
         }
-        
-			#country_event = ENG_starting_evnets.1
-    }
-}
-
-shared_focus = {
-    id = ENG_god_save_the_king
-    icon = GFX_focus_eng_god_save_the_king
-	prerequisite = {focus = ENG_the_king_is_dead}
-    x = 0
-    y = 1
-    relative_position_id = ENG_the_king_is_dead
-    cost = 5
-    available_if_capitulated = yes
-    
-    completion_reward = {
-        #country_event = ENG_starting_evnets.2
-    }
-}
-
-shared_focus = {
-    id = ENG_state_of_the_empire
-    icon = unkown
-	prerequisite = {focus = ENG_god_save_the_king}
-    x = 0
-    y = 1
-    relative_position_id = ENG_god_save_the_king
-    cost = 50
-    available_if_capitulated = yes
-    
-    completion_reward = {
-        #country_event = ENG_starting_evnets.3
+        country_event = ENG_elections.7
     }
 }
 
@@ -146,7 +116,8 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.4
+        
+       country_event = ENG_elections.8
     }
 }
 
@@ -161,7 +132,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.5
+        country_event = ENG_elections.11
     }
 }
 
@@ -185,7 +156,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.6
+        load_focus_tree = ENG_churchill_tree
     }
 }
 
@@ -209,7 +180,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.7
+        load_focus_tree = ENG_halifax_tree
     }
 }
 
@@ -233,7 +204,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.8
+        load_focus_tree = ENG_hamsworth_tree
     }
 }
 
@@ -257,7 +228,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        #country_event = ENG_starting_evnets.9
+        load_focus_tree = ENG_attlee_tree
     }
 }
 
@@ -1421,6 +1392,14 @@ shared_focus = {
         focus = ENG_stayin_steady
     }
     relative_position_id = ENG_stayin_steady
+    available = {
+
+        ## Replace With Rearememnt
+        OR = {
+            has_completed_focus = ENG_crush_the_extremist_threat
+            has_completed_focus = ENG_gradual_rearmenent
+        }
+    }
     
     completion_reward = {
         set_faction_name = "Niko Defence League"

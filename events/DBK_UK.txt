@@ -104,6 +104,99 @@ news_event = {
 	}
 }
 
+## state of empire
+country_event = {
+	id = ENG_elections.7
+	title = ENG_elections.7.t
+	desc = ENG_elections.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.7.a
+		add_political_power = 20
+	}
+}
+
+## king in dublin
+country_event = {
+	id = ENG_elections.8
+	title = ENG_elections.8.t
+	desc = ENG_elections.8.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.8.a
+
+		hidden_effect = {
+			country_event = {
+				id = ENG_elections.9
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ENG_elections.9
+	title = ENG_elections.9.t
+	desc = ENG_elections.9.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.9.a
+
+		hidden_effect = {
+			country_event = {
+				id = ENG_elections.10
+				days = 1
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = ENG_elections.10
+	title = ENG_elections.10.t
+	desc = ENG_elections.10.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.10.a
+
+		add_ideas = ENG_the_irish_question
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
+country_event = {
+	id = ENG_elections.11
+	title = ENG_elections.11.t
+	desc = ENG_elections.11.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	#suport halifax
+	option = {
+		name = ENG_elections.11.a
+		set_country_flag = ENG_sided_with_halifax_campaign
+	}
+	option = {
+		name = ENG_elections.11.b
+		set_country_flag = ENG_sided_with_churchill_campaign
+	}
+	option = {
+		name = ENG_elections.11.c
+		set_country_flag = ENG_sided_with_attlee_campaign
+	}
+	option = {
+		name = ENG_elections.11.dd
+		set_country_flag = ENG_sided_with_hamsworth_campaign
+	}
+}
+
 
 add_namespace = ENG_halifax_path
 
