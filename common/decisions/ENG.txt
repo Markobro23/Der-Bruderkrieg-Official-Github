@@ -638,3 +638,61 @@ ENG_withdraw_from_hanover_cat = {
 	}
 
 }
+
+
+ENG_crushing_bose_rebels = {
+	ENG_crushing_bose_rebels_in_FROM = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 0 
+
+
+
+		ai_will_do = {
+			factor = 100
+		}
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+			
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+		complete_effect = {
+			FROM = {
+				remove_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+			
+		}
+	}
+}

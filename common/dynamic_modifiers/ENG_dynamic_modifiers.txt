@@ -43,3 +43,23 @@ ira_attack_modifier = {
 	local_resources_factor = -0.5
 	recruitable_population_factor = -0.5
 }
+
+bose_is_annoying_attack_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		NOT = {
+			OR = {
+				is_owned_by = AIG
+			}
+			OR = {
+				is_owned_by = RAJ
+			}
+		}
+	}
+	icon = GFX_idea_USA_mcadoo_southern_revival_campaign
+
+	local_resources_factor = -0.5
+	recruitable_population_factor = -0.5
+}

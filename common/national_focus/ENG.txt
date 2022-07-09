@@ -11,6 +11,7 @@ focus_tree = {
     shared_focus =  ENG_the_king_is_dead
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
+    shared_focus = ENG_the_imperial_federation
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
@@ -26,6 +27,7 @@ focus_tree = {
     shared_focus =  ENG_halifaxs_presidency
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
+    shared_focus = ENG_the_imperial_federation
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
@@ -41,6 +43,7 @@ focus_tree = {
     shared_focus = ENG_end_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
+    shared_focus = ENG_the_imperial_federation
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
@@ -69,6 +72,7 @@ focus_tree = {
     shared_focus = ENG_end_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
+    shared_focus = ENG_the_imperial_federation
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 
@@ -1607,6 +1611,7 @@ shared_focus = {
     }
     
     completion_reward = {
+        country_event = ENG_india_tree.1
     }
 }
 shared_focus = {
@@ -1628,6 +1633,25 @@ shared_focus = {
     relative_position_id = ENG_broken_crown_jewel
     
     completion_reward = {
+        RAJ = {
+            swap_ideas = {
+                add_idea = RAJ_reorganized_royal_indian_army_2
+                remove_idea = RAJ_reorganized_royal_indian_army
+            }
+        }
+        430 = {
+            
+            create_unit = {
+                division = "name = \"British Indian Garrisson\" division_template = \"Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+                
+                owner = ENG
+            }
+            create_unit = {
+                division = "name = \"British Indian Garrisson\" division_template = \"Infantry Division\" start_experience_factor = 1 start_equipment_factor = 1"
+                
+                owner = ENG
+            }
+        }
     }
 }
 shared_focus = {
@@ -1646,6 +1670,30 @@ shared_focus = {
     relative_position_id = ENG_bolster_the_bengal_garrisson
     
     completion_reward = {
+        every_state = {
+            limit = {
+                any_neighbor_state = {
+                    OR = {
+                        is_controlled_by = RAJ
+                    } 
+                    
+                }
+                owner = {
+                    OR = {
+                        tag = ENG
+                    }
+                }
+            }
+            add_building_construction = {
+                type = bunker
+                level = 3
+                instant_build = yes
+                province = {
+                    all_provinces = yes
+                    limit_to_border = yes
+                }
+            }
+        }
     }
 }
 shared_focus = {
@@ -1664,6 +1712,12 @@ shared_focus = {
     relative_position_id = ENG_strengthen_burma
     
     completion_reward = {
+        NEP = {
+            country_event = generic.5
+        }
+        BHU = {
+            country_event = generic.5
+        }
     }
 }
 shared_focus = {
@@ -1682,6 +1736,10 @@ shared_focus = {
     relative_position_id = ENG_ally_nepal
     
     completion_reward = {
+        remove_ideas = ENG_broken_crown_jewel
+        RAJ = {
+            remove_ideas = RAJ_foreigners_in_a_distant_land
+        }
     }
 }
 
@@ -1701,9 +1759,15 @@ shared_focus = {
     prerequisite = {
         focus = ENG_broken_crown_jewel
     }
+    available = {
+        AIG = {
+            has_country_flag = AIG_chose_united_front_path
+        }
+    }
     relative_position_id = ENG_broken_crown_jewel
     
     completion_reward = {
+        AIG = { country_event = ENG_india_tree.2 }
     }
 }
 shared_focus = {
@@ -1720,8 +1784,12 @@ shared_focus = {
         focus = ENG_work_with_the_united_front
     }
     relative_position_id = ENG_work_with_the_united_front
-    
+    available = {
+        has_country_flag = ENG_nehru_accepts_offer
+    }
     completion_reward = {
+        unlock_decision_category_tooltip = ENG_crushing_bose_rebels
+        #unlock_decision_tooltip = ENG_crushing_bose_rebels_in_FROM
     }
 }
 shared_focus = {
@@ -1734,12 +1802,33 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
+    available = {
+        RAJ = {
+            all_owned_state = {
+                NOT = {
+                    has_dynamic_modifier = {
+                        modifier = bose_is_annoying_attack_modifier
+                    }
+                }
+            }
+        }
+        AIG = {
+            all_owned_state = {
+                NOT = {
+                    has_dynamic_modifier = {
+                        modifier = bose_is_annoying_attack_modifier
+                    }
+                }
+            }
+        }
+    }
     prerequisite = {
         focus = ENG_crush_boses_lackies
     }
     relative_position_id = ENG_crush_boses_lackies
     
     completion_reward = {
+        country_event = ENG_india_tree.5
     }
 }
 shared_focus = {
@@ -1755,9 +1844,18 @@ shared_focus = {
     prerequisite = {
         focus = ENG_an_indian_commonwealth
     }
+    prerequisite = {
+        focus = ENG_heal_the_scars_of_the_famine
+    }
     relative_position_id = ENG_an_indian_commonwealth
     
     completion_reward = {
+        
+        remove_ideas = ENG_broken_crown_jewel
+        AIG = {
+            country_event = ENG_india_tree.6
+        }
+       
     }
 }
 shared_focus = {
@@ -1777,6 +1875,40 @@ shared_focus = {
     relative_position_id = ENG_bolster_the_bengal_garrisson
     
     completion_reward = {
+        RAJ = {
+            swap_ideas = {
+                add_idea = RAJ_legacy_of_great_famine_2
+                remove_idea = RAJ_legacy_of_great_famine
+            }
+        }
+        431 = {
+            add_victory_points = {
+                province = 4245
+                value = 10
+            }
+        }
+
+        431 = {
+            add_dynamic_modifier = {
+                modifier = thriving_industrial_zone
+            }
+            add_building_construction = {
+                type = infrastructure
+                level = 3
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = naval_base
+                level = 2
+                instant_build = yes
+            }
+            add_building_construction = {
+                type = industrial_complex
+                level = 2
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 2
+        }
     }
 }
 shared_focus = {
@@ -1795,6 +1927,23 @@ shared_focus = {
     relative_position_id = ENG_the_calcutta_modernization_project
     
     completion_reward = {
+        RAJ = {
+            remove_ideas = RAJ_legacy_of_great_famine_2
+            
+           
+        }
+        RAJ = {
+            add_war_support = 0.1
+
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 1
+            }
+        }
     }
 }
 shared_focus = {
@@ -1815,6 +1964,351 @@ shared_focus = {
         focus = ENG_the_lucknow_declaration
     }
     relative_position_id = ENG_heal_the_scars_of_the_famine
+    
+    completion_reward = {
+    }
+}
+
+## Imperial Policy
+shared_focus = {
+    id = ENG_the_imperial_federation
+    icon = GFX_goal_ENG_the_imperial_federation
+    x = 35
+    y = 0
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_national_centralization_act
+    icon = GFX_goal_ENG_national_centralization_act
+    x = -4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_the_imperial_federation
+    }
+    mutually_exclusive = {
+        focus = ENG_imperial_centralization_act
+    }
+    relative_position_id = ENG_the_imperial_federation
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_return_of_the_boers
+    icon = GFX_goal_ENG_return_of_the_boers
+    x = -3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_national_centralization_act
+    }
+ 
+    relative_position_id = ENG_national_centralization_act
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_implement_rhodes_vision
+    icon = GFX_goal_ENG_implement_rhodes_vision
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_return_of_the_boers
+    }
+ 
+    relative_position_id = ENG_return_of_the_boers
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_work_with_the_canadian_union
+    icon = GFX_goal_ENG_work_with_the_canadian_union
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_national_centralization_act
+    }
+ 
+    relative_position_id = ENG_national_centralization_act
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_safeguard_the_american_border
+    icon = GFX_goal_ENG_safeguard_the_american_border
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_work_with_the_canadian_union
+    }
+ 
+    relative_position_id = ENG_work_with_the_canadian_union
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_deposing_lang
+    icon = GFX_goal_ENG_deposing_lang
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_safeguard_the_american_border
+    }
+    prerequisite = {
+        focus = ENG_implement_rhodes_vision
+    }
+    relative_position_id = ENG_safeguard_the_american_border
+    
+    completion_reward = {
+    }
+}   
+
+
+shared_focus = {
+    id = ENG_imperial_centralization_act
+    icon = GFX_goal_ENG_imperial_centralization_act
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_the_imperial_federation
+    }
+    mutually_exclusive = {
+        focus = ENG_national_centralization_act
+    }
+    relative_position_id = ENG_the_imperial_federation
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_pan_imperial_propaganda
+    icon = GFX_goal_ENG_pan_imperial_propaganda
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_imperial_centralization_act
+    }
+ 
+    relative_position_id = ENG_imperial_centralization_act
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_curb_colonial_nationalism
+    icon = GFX_goal_ENG_curb_colonial_nationalism
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_pan_imperial_propaganda
+    }
+ 
+    relative_position_id = ENG_pan_imperial_propaganda
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_fight_against_extremists
+    icon = GFX_goal_ENG_fight_against_extremists
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_curb_colonial_nationalism
+    }
+ 
+    relative_position_id = ENG_curb_colonial_nationalism
+    
+    completion_reward = {
+    }
+}
+
+
+shared_focus = {
+    id = ENG_crafting_a_common_identity
+    icon = GFX_goal_ENG_crafting_a_common_identity
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_national_centralization_act
+        focus = ENG_imperial_centralization_act
+    }
+ 
+    relative_position_id = ENG_imperial_centralization_act
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_expand_the_sterling_area
+    icon = GFX_goal_ENG_expand_the_sterling_area
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_crafting_a_common_identity
+    }
+ 
+    relative_position_id = ENG_crafting_a_common_identity
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_unify_the_chiefs_of_staffs
+    icon = GFX_goal_ENG_unify_the_chiefs_of_staffs
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_expand_the_sterling_area
+    }
+ 
+    relative_position_id = ENG_expand_the_sterling_area
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_invest_in_the_dominions
+    icon = GFX_goal_ENG_invest_in_the_dominions
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_crafting_a_common_identity
+    }
+ 
+    relative_position_id = ENG_crafting_a_common_identity
+    
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = ENG_commonwealth_research_committee
+    icon = GFX_goal_ENG_commonwealth_research_committee
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_invest_in_the_dominions
+    }
+ 
+    relative_position_id = ENG_invest_in_the_dominions
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = ENG_convene_the_first_imperial_parliament
+    icon = GFX_goal_ENG_convene_the_first_imperial_parliament
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+        focus = ENG_commonwealth_research_committee
+    }
+    prerequisite = {
+         focus = ENG_unify_the_chiefs_of_staffs
+    }
+
+    prerequisite = {
+        focus = ENG_fight_against_extremists
+        focus = ENG_deposing_lang   
+    }
+ 
+    relative_position_id = ENG_commonwealth_research_committee
     
     completion_reward = {
     }

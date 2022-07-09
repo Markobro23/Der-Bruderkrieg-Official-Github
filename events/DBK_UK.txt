@@ -269,6 +269,215 @@ country_event = {
 	}
 }
 
+## India Tree
+add_namespace = ENG_india_tree
+
+## Indian Situation
+country_event = {
+	id = ENG_india_tree.1
+	title = ENG_india_tree.1.t
+	desc = ENG_india_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.1.a
+		
+	}
+}
+
+## Offer To Nehur
+country_event = {
+	id = ENG_india_tree.2
+	title = ENG_india_tree.2.t
+	desc = ENG_india_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.2.a
+		ENG = {
+			country_event = ENG_india_tree.3
+		}
+	}
+	option = {
+		name = ENG_india_tree.2.b
+		ai_chance = {
+			factor = 0
+		}
+		ENG = {
+			country_event = ENG_india_tree.4
+		}
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.3
+	title = ENG_india_tree.3.t
+	desc = ENG_india_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.3.a
+		set_country_flag = ENG_nehru_accepts_offer
+		add_political_power = 25
+		diplomatic_relation = {
+			country = AIG
+			relation = non_aggression_pact
+			active = yes
+		}
+		ENG = {
+			diplomatic_relation = {
+				country = AIG
+				relation = military_access
+				active = yes
+			}
+		}
+		ENG = {
+			add_opinion_modifier = {
+				modifier = medium_increase
+				target = AIG
+			}
+		}
+		AIG = {
+			add_opinion_modifier = {
+				modifier = medium_increase
+				target = ENG
+			}
+		}
+
+		RAJ = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+		AIG = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.4
+	title = ENG_india_tree.4.t
+	desc = ENG_india_tree.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.4.a
+		uncomplete_national_focus = ENG_work_with_the_united_front
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.5
+	title = ENG_india_tree.5.t
+	desc = ENG_india_tree.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		RAJ = {
+			transfer_units_fraction= {
+				target = ENG
+				size = 1
+				stockpile_ratio = 1
+				army_ratio = 1
+				navy_ratio = 1
+				air_ratio = 1
+			}
+			
+		}
+		ENG = {
+			add_to_faction = AIG
+		}
+		RAJ = {
+			RAJ_noel_beresfordpeirse = {
+				set_nationality = ENG
+			}
+			RAJ_frank_messervy = {
+				set_nationality = ENG
+			}
+			RAJ_douglas_gracey = {
+				set_nationality = ENG
+			}
+			RAJ_herbert_fitzherbert = {
+				set_nationality = ENG
+			}
+			RAJ_philip_walhouse_chetwode = {
+				set_nationality = ENG
+			}
+			RAJ_thomas_wynford_rees = {
+				set_nationality = ENG
+			}
+			RAJ_hastings_ismay = {
+				set_nationality = ENG
+			}
+			RAJ_geoffrey_scoones = {
+				set_nationality = ENG
+			}
+			RAJ_charles_hamilton_boucher = {
+				set_nationality = ENG
+			}
+			RAJ_francis_tuker = {
+				set_nationality = ENG
+			}
+			RAJ_walter_lentaigne = {
+				set_nationality = ENG
+			}
+			RAJ_john_henry_godfrey = {
+				set_nationality = ENG
+			}
+			RAJ_william_slim = {
+				set_nationality = ENG
+			}
+			RAJ_archibald_wavell = {
+				set_nationality = ENG
+			}
+		}
+		AIG = {
+			annex_country = {
+				target = RAJ
+				transfer_troops = no
+			}
+			remove_ideas = AIG_recovering_from_war
+		}
+		name = ENG_india_tree.5.a
+	}
+}
+
+##consolidating india
+country_event = {
+	id = ENG_india_tree.6
+	title = ENG_india_tree.6.t
+	desc = ENG_india_tree.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.6.a
+		KHA = {
+            country_event = chinese_annex_event.1
+        }
+
+        INC = {
+            country_event = chinese_annex_event.1
+        }
+		PAK = {
+            country_event = chinese_annex_event.1
+        }
+
+		KAS = {
+            country_event = chinese_annex_event.1
+        }
+		DRA = {
+            country_event = chinese_annex_event.1
+        }
+	}
+}
+
 ##Kings coup
 add_namespace = ENG_alberts_coup
 country_event = {
