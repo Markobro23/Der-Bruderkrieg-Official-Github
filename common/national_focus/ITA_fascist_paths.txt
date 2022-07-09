@@ -2614,13 +2614,65 @@ shared_focus = {
 	}
 
 	shared_focus = { #let's find out how many divisions the pope has
-		id = ITA_council_of_rome
-		icon = GFX_focus_por_concordat
-		x = 0
+		id = ITA_invade_papacy
+		icon = GFX_goal_generic_major_war
+		x = 1
 		y = 1
 		cost = 5
 		prerequisite = { focus = ITA_demand_ottoman_north_africa }
 		relative_position_id = ITA_demand_ottoman_north_africa
+		mutually_exclusive = {
+			focus = ITA_council_of_rome
+		}
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			AUS = {
+				OR = {
+					has_war_with = ITA
+					exists = no
+					is_subject_of = GER
+				}
+			}
+			has_war_with = FRA
+		}
+
+		bypass = {
+			OR = {
+				has_war_with = PAP
+				PAP = { exists = no }
+			}
+		}
+
+		select_effect = {
+			add_ai_strategy = {
+		        id = PAP
+		        type = prepare_for_war
+		        value = 50
+		    }
+		}
+
+		completion_reward = {
+			declare_war_on = {
+				target = PAP
+				type = annex_everything
+			}
+		}
+	}
+
+	shared_focus = { #let's find out how many divisions the pope has
+		id = ITA_council_of_rome
+		icon = GFX_focus_por_concordat
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_demand_ottoman_north_africa }
+		relative_position_id = ITA_demand_ottoman_north_africa
+		mutually_exclusive = {
+			focus = ITA_invade_papacy
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -2644,7 +2696,7 @@ shared_focus = {
 
 		completion_reward = {
 			PAP = {
-				country_event = { id = ITA_fascist_tree_events.3 hours = 2 }
+				country_event = { id = ITA_fascist_tree_events.2 hours = 2 }
 			}
 		}
 	}
@@ -2837,7 +2889,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_invest_into_croatia
-		icon = GFX_goal_AUS_sign_a_new_constitution
+		icon = GFX_goal_generic_construction2
 		x = -1
 		y = 1
 		cost = 5
@@ -2873,7 +2925,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_annex_dalmatia
-		icon = GFX_goal_AUS_sign_a_new_constitution
+		icon = GFX_goal_ITA_claim_dalmatia
 		x = 1
 		y = 1
 		cost = 5
@@ -2924,7 +2976,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_expand_croatia
-		icon = GFX_goal_AUS_sign_a_new_constitution
+		icon = GFX_goal_AUS_the_bosnian_question
 		x = 0
 		y = 2
 		cost = 4
@@ -2978,13 +3030,12 @@ shared_focus = {
 	}
 
 	shared_focus = {
-		id = ITA_align_albania
+		id = ITA_fund_balli_kombetar
 		icon = GFX_goal_AUS_protect_albania
-		x = 1
+		x = -1
 		y = 1
 		cost = 5
 		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
-		mutually_exclusive = { focus = ITA_step_on_albania }
 		relative_position_id = ITA_demand_albanian_economic_concessions
 		ai_will_do = {
 			factor = 10
@@ -2992,63 +3043,241 @@ shared_focus = {
 
 		available = {
 			NOT = {
+				has_war_with = ALB
+			}
+		}
+
+		bypass = {
+			ALB = {
 				OR = {
-					has_country_flag = ITA_albania_refuses_concessions
-					has_country_leader = {
-						name = "Attilio Teruzzi"
-						ruling_only = yes
-					}
-					has_war_with = ALB
-					ALB = { is_in_faction = yes }
+					is_subject_of = ITA
+					exists = no
 				}
 			}
 		}
 
 		completion_reward = {
-			if = {
-				limit = { is_in_faction_with = GER }
-				GER = {
-					country_event = { id = italy.534 hours = 2 }
-				}
-				else_if = {
-					limit = {
-						is_in_faction = yes
-						is_faction_leader = no
-					}
-					FACTION_LEADER = {
-						country_event = { id = italy.534 hours = 2 }
-					}
-				}
-				else = {
-					if = {
-						limit = { is_in_faction = no }
-						create_faction = mediterranean_bloc
-					}
-					ALB = {
-						country_event = { id = generic.5 hours = 2 }
-					}
-				}
-			}
+			unlock_decision_category_tooltip = ITA_balkan_decision_cat
 		}
 	}
 
 	shared_focus = {
-		id = ITA_step_on_albania
-		icon = GFX_goal_generic_political_pressure
-		x = -1
+		id = ITA_stresa_conference
+		icon = GFX_Diplo_Britain
+		x = 1
 		y = 1
 		cost = 5
 		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
-		mutually_exclusive = { focus = ITA_align_albania }
 		relative_position_id = ITA_demand_albanian_economic_concessions
 		ai_will_do = {
 			factor = 10
 		}
 
-		completion_reward = {
-			ALB = {
-				country_event = { id = italy.3 hours = 2 }
+		available = {
+			ENG = {
+				#check for hamsworth here
 			}
+		}
+
+		completion_reward = {
+			ENG = {
+				country_event = { id = italy.537 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_mare_nostrum #more like nostril amirite
+		icon = GFX_Italian_Navy
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_stresa_conference }
+		mutually_exclusive = {
+			focus = ITA_share_mediterranean
+		}
+		relative_position_id = ITA_stresa_conference
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
+			}
+		}
+
+		completion_reward = {
+			add_ideas = ITA_dominate_mediterranean
+			ENG = {
+				#event demanding crete and all that
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_share_mediterranean
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_stresa_conference }
+		mutually_exclusive = {
+			focus = ITA_mare_nostrum
+		}
+		relative_position_id = ITA_stresa_conference
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = {
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+			has_idea = ITA_mediterranean_trade_bloc
+		}
+
+		completion_reward = {
+			ENG = {
+				country_event = { id = italy.540 hours = 2 }
+			}
+		}
+	}
+
+	###post war FP
+	shared_focus = {
+		id = ITA_the_question_alliance
+		icon = GFX_goal_SOV_no_they_are_insane
+		x = 6
+		y = 1
+		cost = 3
+		prerequisite = { focus = ITA_fund_rrl }
+		relative_position_id = ITA_fund_rrl
+		ai_will_do = {
+			factor = 100
+		}
+
+		available = {
+			AUS = {
+				OR = {
+					exists = no
+					is_subject_of = GER
+				}
+			}
+		}
+
+		bypass = {
+			NOT = {
+				is_in_faction_with = GER
+			}
+		}
+
+		completion_reward = {
+			#event deciding whether to split with Germany or not
+		}
+	}
+
+	shared_focus = {
+		id = ITA_second_brothers_forever
+		icon = GFX_goal_GER_supporting_the_italians
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_the_question_alliance }
+		relative_position_id = ITA_the_question_alliance
+		mutually_exclusive = { focus = ITA_florence_berlin_split }
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			is_in_faction_with = GER
+			is_subject = no
+			OR = {
+				AND = {
+					has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_last_hussars_prussia
+						}
+					}
+				}
+				AND = {
+					has_government = neutrality
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_brownshirts_prussia
+						}
+					}
+				}
+				AND = {
+					has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_brownshirts_prussia
+						}
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			
+		}
+	}
+
+	shared_focus = {
+		id = ITA_florence_berlin_split
+		icon = GFX_goal_GER_push_for_worldwide_revolution
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_the_question_alliance }
+		relative_position_id = ITA_the_question_alliance
+		mutually_exclusive = { focus = ITA_second_brothers_forever }
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			is_in_faction_with = GER
+			is_subject = no
+		}
+
+		bypass = {
+			NOT = {
+				is_in_faction_with = GER
+			}
+		}
+
+		completion_reward = {
+			#unlock decisions for swaying the other faction members for the duration of the focus
+			leave_faction = yes
+			add_ai_strategy = {
+		        type = alliance
+		        id = "GER"  
+		        value = -9999
+    		}
+    		every_country = {
+    			limit = {
+    				has_war_with = GER
+    				has_war_with = ITA
+    			}
+    			white_peace = ITA
+    		}
+    		news_event = { id = italy.531 hours = 3 }
 		}
 	}
 
@@ -3056,7 +3285,7 @@ shared_focus = {
   shared_focus = {
 	id = ITA_INVEST_IN_SOUTH
 	icon = GFX_focus_generic_industry_2
-	x = 20
+	x = 24
 	y = 8
 	cost = 3
 	ai_will_do = {
@@ -3108,6 +3337,33 @@ shared_focus = {
 		} 
 	  }
 	  ITA_solve_southern_problem = yes
+	}
+  }
+
+  shared_focus = {
+	id = ITA_ask_prussian_investment
+	icon = GFX_goal_GER_nationalsocialistworkpolicies
+	prerequisite = { focus = ITA_INVEST_IN_SOUTH }
+	x = -3
+	y = 1
+	relative_position_id = ITA_INVEST_IN_SOUTH
+	cost = 5
+	ai_will_do = {
+	  factor = 10
+	}
+
+	available = {
+		is_in_faction_with = GER
+		is_subject = no
+		GER = {
+			is_subject = no
+		}
+	}
+
+	completion_reward = {
+	  GER = {
+	  	country_event = { id = italy.541 hours = 2 }
+	  }
 	}
   }
 
@@ -3188,8 +3444,12 @@ shared_focus = {
 	}
 
 	available = {
-		NOT = {
-			has_country_flag = ITA_ciano_eliminated
+		OR = {
+			has_country_leader = {
+				name = "Costanzo Ciano"
+				ruling_only = yes
+			}
+			has_completed_focus = ITA_speak_with_industrialists
 		}
 	}
 
@@ -3482,6 +3742,58 @@ shared_focus = {
 		add_timed_idea = {
 			idea = ITA_2_year_plan_2
 			days = 720
+		}
+	}
+  }
+
+  shared_focus = {
+	id = ITA_end_corradinis_influence
+	icon = GFX_goal_generic_construct_civ_factory
+	prerequisite = { focus = ITA_encourage_civilian_privatization focus = ITA_renew_two_year_plan }
+	x = 1
+	y = 1
+	relative_position_id = ITA_renew_two_year_plan
+	cost = 5
+	ai_will_do = {
+	  factor = 1
+	}
+
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = ITA_at_least_two_consul_dealt_with
+			check_variable = { ITA_consuls_dealt_with > 1 }
+		}
+		num_of_civilian_factories > 24
+		OR = {
+			has_country_flag = ITA_ciano_eliminated
+			has_country_leader = {
+				name = "Costanzo Ciano"
+				ruling_only = yes
+			}
+		}
+	}
+
+	available_if_capitulated = yes
+	search_filters = { FOCUS_FILTER_RESEARCH }
+
+	completion_reward = {
+		if = {
+			limit = {
+				has_idea = ITA_mass_economic_instability
+			}
+			remove_ideas = ITA_mass_economic_instability
+		}
+		if = {
+			limit = {
+				has_idea = ITA_mass_economic_instability_2
+			}
+			remove_ideas = ITA_mass_economic_instability_2
+		}
+		if = {
+			limit = {
+				has_idea = ITA_mass_economic_instability_3
+			}
+			remove_ideas = ITA_mass_economic_instability_3
 		}
 	}
   }

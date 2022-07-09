@@ -748,6 +748,234 @@ country_event = { #asking Prussia to pretty please add Albania to the faction
 	}
 }
 
+country_event = { #Albania coup
+	id = italy.535
+	title = italy.535.t
+	desc = italy.535.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #rip
+		name = italy.535.a 
+		ai_chance = { factor = 90 } 
+		if = {
+			limit = { is_in_faction_with = AUS }
+			leave_faction = yes
+		}
+		ITA = {
+			puppet = ALB
+		}
+		set_politics = {
+			ruling_party = fascism
+		}
+		hidden_effect = {
+			set_popularities = {
+				communism = 2
+				democratic_communism = 3
+				socialism_democratic = 5
+				democratic_liberalism = 15
+				democratic = 5
+				authoritarian_democratic = 1
+				neutrality = 4
+				fascism = 47
+				ultranationalism = 13
+			}
+		}
+		news_event = { id = italy.536 hours = 3 }
+	}
+}
+
+news_event = { #Albania coup
+	id = italy.536
+	title = italy.536.t
+	desc = italy.536.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+	major = yes
+
+	option = {  #rip
+		name = italy.536.a 
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					is_in_faction_with = GER
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_guaranteed = ALB
+			}
+			diplomatic_relation = {
+				country = ALB
+				relation = guarantee
+				active = no
+			}
+		}
+		
+	}
+	option = {  #yoooooo
+		name = italy.536.b 
+		trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER
+			}
+		}
+	}
+}
+
+country_event = { #stresa conference
+	id = italy.537
+	title = italy.537.t
+	desc = italy.537.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #focus on military cooperation
+		name = italy.537.a 
+		ai_chance = { factor = 90 } 
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 1
+			category = land_doctrine
+		}
+		give_military_access = ITA
+		ITA = {
+			country_event = { id = italy.538 hours = 2 }
+		}
+	}
+	option = {  #we will not agree with anything
+		name = italy.537.b
+		ai_chance = { factor = 0 } 
+		ITA = {
+			country_event = { id = italy.539 hours = 2 }
+		}
+	}
+}
+
+country_event = { #stresa conference success
+	id = italy.538
+	title = italy.538.t
+	desc = italy.538.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #focus on military cooperation
+		name = italy.538.a 
+		ai_chance = { factor = 90 } 
+		add_doctrine_cost_reduction = {
+			name = land_doc_bonus
+			cost_reduction = 0.5
+			uses = 1
+			category = land_doctrine
+		}
+		give_military_access = ENG
+	}
+}
+
+country_event = { #stresa conference failure
+	id = italy.539
+	title = italy.539.t
+	desc = italy.539.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #focus on military cooperation
+		name = italy.539.a 
+		ai_chance = { factor = 90 } 
+		add_opinion_modifier = {
+			target = ENG
+			modifier = small_decrease
+		}
+	}
+}
+
+country_event = { #join the mediterreanfajksdfa economic bloc?
+	id = italy.540
+	title = italy.540.t
+	desc = italy.540.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #focus on military cooperation
+		name = italy.540.a 
+		ai_chance = { factor = 90 } 
+		add_opinion_modifier = {
+			target = ITA
+			modifier = medium_increase
+		}
+		add_ideas = ITA_mediterranean_trade_bloc_ENG
+	}
+	option = {  #nah bro
+		name = italy.540.b
+		ai_chance = { factor = 0 } 
+	}
+}
+
+country_event = { #ITA asks GER for help building stuff
+	id = italy.541
+	title = italy.541.t
+	desc = italy.541.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.541.a 
+		ai_chance = { factor = 90 } 
+		add_timed_idea = {
+			idea = ITA_economic_concessions
+			days = 60
+		}
+		ITA = {
+			country_event = { id = italy.542 hours = 2 }
+		}
+	}
+	option = {  #nah bro
+		name = italy.541.b
+		ai_chance = { factor = 10 } 
+		ITA = {
+			country_event = { id = italy.543 hours = 2 }
+		}
+	}
+}
+
+country_event = { #GER gibs industrial aid
+	id = italy.542
+	title = italy.542.t
+	desc = italy.542.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.542.a 
+		ai_chance = { factor = 90 } 
+		add_timed_idea = {
+			idea = ITA_prussian_industrial_aid
+			days = 120
+		}
+	}
+}
+
+country_event = { #GER dont gibs industrial aid
+	id = italy.543
+	title = italy.543.t
+	desc = italy.543.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.543.a 
+		ai_chance = { factor = 90 } 
+		add_opinion_modifier = {
+			target = GER
+			modifier = small_decrease
+		}
+	}
+}
+
 add_namespace = ITA_starting_tree_events
 ##the italian mess
 country_event = {
