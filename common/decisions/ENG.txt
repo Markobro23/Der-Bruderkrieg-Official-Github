@@ -697,3 +697,43 @@ ENG_crushing_bose_rebels = {
 		}
 	}
 }
+
+ENG_imperial_federation_category = {
+	ENG_imperial_federation_nationalization_act = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 1
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_national_centralization_act
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			AST = {
+				country_event = ENG_imperial_federation_tree.1
+			}
+			SAF = {
+				country_event = ENG_imperial_federation_tree.1
+			}
+			CAN = {
+				country_event = ENG_imperial_federation_tree.1
+			}
+		}
+	}
+}

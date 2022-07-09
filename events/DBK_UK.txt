@@ -571,6 +571,32 @@ country_event = {
 	}
 }
 
+add_namespace = ENG_imperial_federation_tree
+
+## invitation to imperial fed
+country_event = {
+	id = ENG_imperial_federation_tree.1
+	title = ENG_imperial_federation_tree.1.t
+	desc = ENG_imperial_federation_tree.1.d
+	is_triggered_only = yes
+	option = {
+		name = ENG_imperial_federation_tree.1.a
+		keep_current_politics = yes
+		drop_cosmetic_tag = yes
+		ENG = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_imperial_federation_member
+			}
+		}
+		reset_government = yes
+	}
+	option = {
+		name = ENG_imperial_federation_tree.1.b
+		
+	}
+}
+
 ##Kings coup
 add_namespace = ENG_alberts_coup
 country_event = {

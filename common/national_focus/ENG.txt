@@ -1961,6 +1961,7 @@ shared_focus = {
     }
     
     completion_reward = {
+        unlock_decision_category_tooltip = ENG_imperial_federation_category
     }
 }
 shared_focus = {
@@ -1985,6 +1986,7 @@ shared_focus = {
     relative_position_id = ENG_the_imperial_federation
     
     completion_reward = {
+        activate_mission = ENG_imperial_federation_nationalization_act
     }
 }
 shared_focus = {
@@ -2004,6 +2006,11 @@ shared_focus = {
     relative_position_id = ENG_national_centralization_act
     
     completion_reward = {
+        SAF = {
+            set_politics = {
+                ruling_party = fascism
+            }
+        }
     }
 }
 shared_focus = {
@@ -2023,6 +2030,21 @@ shared_focus = {
     relative_position_id = ENG_return_of_the_boers
     
     completion_reward = {
+        275 = {
+            add_dynamic_modifier = {
+                modifier = luxury_good_diamond_modifier
+            }
+        }
+        542 = {
+            add_dynamic_modifier = {
+                modifier = luxury_good_diamond_modifier
+            }
+        }
+        545 = {
+            add_dynamic_modifier = {
+                modifier = luxury_good_diamond_modifier
+            }
+        }
     }
 }
 
@@ -2043,6 +2065,11 @@ shared_focus = {
     relative_position_id = ENG_national_centralization_act
     
     completion_reward = {
+        CAN = {
+            set_politics = {
+                ruling_party = fascism
+            }
+        }
     }
 }
 shared_focus = {
@@ -2062,6 +2089,46 @@ shared_focus = {
     relative_position_id = ENG_work_with_the_canadian_union
     
     completion_reward = {
+        add_ideas = ENG_operation_st_lawrence
+        CAN = {
+            add_ideas = ENG_operation_st_lawrence
+        }
+        every_state = {
+            limit = {
+                any_neighbor_state = {
+                    OR = {
+                        is_controlled_by = CAN
+                        THIS.owner = {
+                            is_in_faction_with = CAN
+                        }
+                    } 
+                    
+                }
+                owner = {
+                    OR = {
+                        tag = USA
+                        is_in_faction_with = USA
+                    }
+                }
+            }
+            add_building_construction = {
+                type = bunker
+                level = 3
+                instant_build = yes
+                province = {
+                    all_provinces = yes
+                    limit_to_border = yes
+                }
+            }
+            add_building_construction = {
+                type = coastal_bunker
+                level = 3
+                instant_build = yes
+                province = {
+                    limit_to_coastal = yes
+                }
+            }
+        }
     }
 }
 shared_focus = {
@@ -2083,6 +2150,11 @@ shared_focus = {
     relative_position_id = ENG_safeguard_the_american_border
     
     completion_reward = {
+        AST = {
+            set_politics = {
+                ruling_party = fascism
+            }
+        }
     }
 }   
 
