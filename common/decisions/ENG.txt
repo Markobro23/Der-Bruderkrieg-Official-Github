@@ -208,6 +208,122 @@ ENG_halifax_war_in_ireland = {
 	}
 }
 
+ENG_bring_albert_from_his_paranoia = {
+	ENG_monthly_meeting_with_albert = {
+
+		icon = generic_civil_support
+
+		cost = 0
+
+		fire_only_once = no
+
+		days_remove = 30
+
+		complete_effect = {
+			
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_5
+				ENG_kings_approval_var = 5
+			}
+		}
+
+	}
+	ENG_albert_defender_of_britain = {
+
+		icon = generic_civil_support
+
+		cost = 15
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.025
+			}
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+		}
+
+	}
+
+	ENG_albert_protector_of_windsor = {
+
+		icon = generic_civil_support
+
+		cost = 25
+
+		fire_only_once = yes
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+			add_war_support = 0.03
+		}
+
+	}
+
+	ENG_fight_for_albert = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+		}
+
+		days_remove = 100
+
+		modifier = {
+			weekly_manpower = 100
+			mobilization_speed = 0.1
+		}
+
+	}
+
+	ENG_alberts_europakrieg_knowledge = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+	}
+
+}
 
 weltkrieg_decisions = {
 	ENG_complete_mobilization = {
@@ -728,6 +844,42 @@ ENG_imperial_federation_category = {
 			AST = {
 				country_event = ENG_imperial_federation_tree.1
 			}
+			SAF = {
+				country_event = ENG_imperial_federation_tree.1
+			}
+			CAN = {
+				country_event = ENG_imperial_federation_tree.1
+			}
+		}
+	}
+
+	ENG_imperial_federation_centralization_act = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 1
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_imperial_centralization_act
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+		
 			SAF = {
 				country_event = ENG_imperial_federation_tree.1
 			}

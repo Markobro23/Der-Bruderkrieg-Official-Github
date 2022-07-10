@@ -43,6 +43,7 @@ ENG_democratic_communism_party:0 "SDF"
  ENG_democratic_communism_party_long:0 "Social Democratic Federation"
 
 ## Current Government
+ENG_current_government_modifier:0 "Our Current Government"
 ENG_current_government_gui_tt:0 "[GetENG_current_government_gui_tt]"
 ENG_current_government_gui_national_government_tt:0 "§CThe National Government§!\n\nEffects:\nPolitical Power Factor: [?ENG_current_government_modifier_political_power_factor|2+%]\nStability: [?ENG_current_government_modifier_stability_factor|2+%]\nConstruction Speed: [?ENG_current_government_modifier_production_speed_buildings_factor|2+%][GetENG_current_government_gui_tt_NHS][GetENG_current_government_gui_tt_refugees]"
 
@@ -55,7 +56,7 @@ GetENG_current_government_gui_tt_NHS_active:0 "\nMonthly Population Gain: [?ENG_
 
 GetENG_current_government_gui_tt_refugees_active:0 "\nResearch Speed: [?ENG_current_government_modifier_research_speed_factor|2+%]\nDivision Recovery Rate: [?ENG_current_government_modifier_army_morale_factor|2+%]"
 
-GetENG_current_government_gui_tt_anti_extremist:0 "\nRuling Party Stability: [?ENG_current_government_modifier_party_popularity_stability_factor|2+%]\nEconomy Laws Cost: [?ENG_current_government_modifier_economy_cost_factor|2+%]"
+GetENG_current_government_gui_tt_anti_extremist_active:0 "\nRuling Party Stability: [?ENG_current_government_modifier_party_popularity_stability_factor|2+%]\nEconomy Laws Cost: [?ENG_current_government_modifier_economy_cost_factor|2+%]"
 
 
 
@@ -64,8 +65,8 @@ Kings_Approval_tt:0 "The King is a paranoid person. Dont let his mental state ge
 
 ENG_alberts_coup.1.t:0 "Albert's Coup"
 ENG_alberts_coup.1.d:0 ""
-ENG_alberts_coup.1.a:0 "Stop This Madman!"
-ENG_alberts_coup.1.b:0 "The Military Takes Over."
+ENG_alberts_coup.1.a:0 "The Military Takes Over."
+ENG_alberts_coup.1.b:0 "Stop This Madman!"
 
 ENG_alberts_coup.2.t:0 "Albert Returns To Normal Mental State"
 ENG_alberts_coup.2.d:0 ""
@@ -76,6 +77,15 @@ ENG_kings_approval_var_change_by_1:0 "§GThe King's Mental State Will Increase b
 ENG_the_kings_mental_state_will_decrease_by_more:0 "§RThe King's Mental State Will Grow Worse Every Month§!"
 ENG_kings_approval_var_decrease_by_15:0 "§RThe King's Mental State Will Decrease by 15%!§!"
 ENG_kings_approval_var_increase_by_15:0 "§GThe King's Mental State Will Increase by 15%!§!"
+ENG_kings_approval_var_increase_by_10:0 "§GThe King's Mental State Will Increase by 10%!§!"
+
+ENG_bring_albert_from_his_paranoia:0 "Bring Albert Out Of His Paranoia"
+ENG_bring_albert_from_his_paranoia_desc:0 "Deep down, before he was conquered by disease and corruption, Albert Victor was a good man. But the past few years, he has descended into insanity and madness. We must invest all of our efforts to stabilize his thoughts so we have a true king during the harsh times to come."
+ENG_monthly_meeting_with_albert:0 "Monthly Meeting with Albert"
+ENG_albert_defender_of_britain:0 "Albert, Defender Of The Isles"
+ENG_albert_protector_of_windsor:0 "Albert, Legitimate King of Windsor"
+ENG_fight_for_albert:0 "Fight In The Name of Albert"
+ENG_alberts_europakrieg_knowledge:0 "Albert On The Front Lines"
 
 ##ELECTIONS
 
@@ -403,8 +413,9 @@ ENG_the_imperial_federation_desc:0 ""
 
 
 ENG_imperial_federation_category:0 "Completing Imperial Reform"
-ENG_imperial_federation_category_desc:0 ""
+ENG_imperial_federation_category_desc:0 "[AST.GetFlag] Australia: [?AST.GetImperialFedAcceptChance]\n[CAN.GetFlag] Canada: [?CAN.GetImperialFedAcceptChance]\n[SAF.GetFlag] South Africa: [?SAF.GetImperialFedAcceptChance]"
 
+ENG_increase_imperial_fed_acceptance_chance_by_5:0 "Increase Imperial Federation Acceptance Chance by 5%"
 
 ENG_imperial_federation_tree.1.t:0 "Invitation to the Imperial Federation"
 ENG_imperial_federation_tree.1.d:0 "Invitation to the Imperial Federation"
@@ -414,7 +425,7 @@ ENG_imperial_federation_tree.1.b:0 "Deny"
 ENG_national_centralization_act:0 "National Centralization Act"
 ENG_national_centralization_act_desc:0 ""
 
-ENG_imperial_federation_nationalization_act:0 "Nationalization Act"
+ENG_imperial_federation_nationalization_act:0 "National Centralization Act"
 
 ENG_return_of_the_boers:0 "Return Of The Boers"
 ENG_return_of_the_boers_desc:0 ""
@@ -430,6 +441,9 @@ ENG_deposing_lang_desc:0 ""
 
 ENG_imperial_centralization_act:0 "Imperial Centralization Act"
 ENG_imperial_centralization_act_desc:0 ""
+
+ENG_imperial_federation_centralization_act:0 "Imperial Centralization Act"
+
 ENG_pan_imperial_propaganda:0 "Pan Imperial Propaganda"
 ENG_pan_imperial_propaganda_desc:0 ""
 ENG_curb_colonial_nationalism:0 "Curb Colonial Nationalism"

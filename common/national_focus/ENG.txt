@@ -85,7 +85,7 @@ shared_focus = {
     icon = unkown
     x = 5
     y = 0
-    cost = 50
+    cost = 2
     available_if_capitulated = yes
     
     completion_reward = {
@@ -112,7 +112,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = ENG_state_of_the_empire
-    cost = 50
+    cost = 2
     available_if_capitulated = yes
     
     completion_reward = {
@@ -128,7 +128,7 @@ shared_focus = {
     x = 0
     y = 1
     relative_position_id = ENG_kings_speech
-    cost = 50
+    cost = 2
     available_if_capitulated = yes
     
     completion_reward = {
@@ -154,7 +154,9 @@ shared_focus = {
 	mutually_exclusive = {
         focus = ENG_atlees_victory
     }
-    
+    available = {
+        always = no
+    }
     completion_reward = {
         load_focus_tree = ENG_churchill_tree
     }
@@ -178,7 +180,9 @@ shared_focus = {
 	mutually_exclusive = {
         focus = ENG_atlees_victory
     }
-    
+    available = {
+        always = no
+    }
     completion_reward = {
         load_focus_tree = ENG_halifax_tree
     }
@@ -202,7 +206,9 @@ shared_focus = {
 	mutually_exclusive = {
         focus = ENG_halifaxs_victory
     }
-    
+    available = {
+        always = no
+    }
     completion_reward = {
         load_focus_tree = ENG_hamsworth_tree
     }
@@ -226,7 +232,9 @@ shared_focus = {
 	mutually_exclusive = {
         focus = ENG_hamsworths_victory
     }
-    
+    available = {
+        always = no
+    }
     completion_reward = {
         load_focus_tree = ENG_attlee_tree
     }
@@ -378,6 +386,7 @@ shared_focus = {
         }
     }
     completion_reward = {
+        remove_ideas = ENG_the_irish_question
         annex_country = {
             target = IRE
             transfer_troops = yes
@@ -777,10 +786,24 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
-        release = IRE
+        remove_ideas = ENG_the_irish_question
+        set_autonomy = {
+            target = IRE
+            autonomy_state = autonomy_free
+        }
         IRE = {
             set_politics = {
                 ruling_party = socialism_democratic
+            }
+        }
+        hidden_effect = {
+            IRE = {
+                set_popularities = {
+                    socialism_democratic = 37
+                    democratic = 22
+                    fascism = 20
+                    communism = 21
+                }
             }
         }
     }
@@ -1151,7 +1174,15 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        OR = {
+            has_completed_focus = ENG_crush_the_extremist_threat
+            has_completed_focus = ENG_gradual_rearmenent
+            has_completed_focus = ENG_denounce_the_king
+            has_completed_focus = ENG_enshrine_the_british_worker
+            has_completed_focus = ENG_isolate_horner
+        }
+    }
     completion_reward = {
         add_war_support = 0.1
     }
@@ -1588,7 +1619,15 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        OR = {
+            has_completed_focus = ENG_crush_the_extremist_threat
+            has_completed_focus = ENG_gradual_rearmenent
+            has_completed_focus = ENG_denounce_the_king
+            has_completed_focus = ENG_enshrine_the_british_worker
+            has_completed_focus = ENG_isolate_horner
+        }
+    }
     completion_reward = {
         country_event = ENG_india_tree.1
     }
@@ -1959,9 +1998,27 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        OR = {
+            has_completed_focus = ENG_crush_the_extremist_threat
+            has_completed_focus = ENG_gradual_rearmenent
+            has_completed_focus = ENG_denounce_the_king
+            has_completed_focus = ENG_enshrine_the_british_worker
+            has_completed_focus = ENG_isolate_horner
+        }
+    }
     completion_reward = {
         unlock_decision_category_tooltip = ENG_imperial_federation_category
+        
+        set_variable = {
+            AST.GetImperialFedAcceptChance = 5
+        }
+        set_variable = {
+            SAF.GetImperialFedAcceptChance = 10
+        }
+        set_variable = {
+            CAN.GetImperialFedAcceptChance = 15
+        }
     }
 }
 shared_focus = {
@@ -2262,6 +2319,25 @@ shared_focus = {
     relative_position_id = ENG_imperial_centralization_act
     
     completion_reward = {
+
+        AST = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        SAF = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        CAN = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
     }
 }
 
