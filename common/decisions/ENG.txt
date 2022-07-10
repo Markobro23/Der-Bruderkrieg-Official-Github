@@ -888,7 +888,106 @@ ENG_imperial_federation_category = {
 			}
 		}
 	}
+	
+	ENG_south_african_propaganda = {
 
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		remove_effect = {
+			SAF = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			SAF = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_australian_propaganda = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		remove_effect = {
+			AST = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			AST = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_canadian_propaganda = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		remove_effect = {
+			CAN = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			CAN = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
 	ENG_south_african_investments = {
 
 		allowed = {
@@ -1041,5 +1140,269 @@ ENG_imperial_federation_category = {
 			production_factory_max_efficiency_factor = -0.05
 			civilian_factory_use = 2
 		}
+	}
+
+	ENG_imperial_federation_crackdown_south_africa = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_south_africa
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_south_africa
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			SAF = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_south_african_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_south_africa
+			}
+			SAF = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		
+	}
+	ENG_imperial_federation_crackdown_australia = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_australia
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_australia
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_australia
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			AST = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_australia
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_australian_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_australia
+			}
+			AST = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		
+	}
+	ENG_imperial_federation_crackdown_canada = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_canada
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_canada
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_canada
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			CAN = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_canada
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_canadian_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_canada
+			}
+			CAN = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_canada
+				}
+			}
+		}
+		
+	}
+
+	ENG_targeted_crush_anti_imperial_federation_riots = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 0
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				OR = {
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				owner = {
+					add_to_variable = {
+						tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+						GetImperialFedAcceptChance = 5
+					}
+				}
+			}
+		}
+
 	}
 }

@@ -2228,6 +2228,7 @@ shared_focus = {
     relative_position_id = ENG_the_imperial_federation
     
     completion_reward = {
+        activate_mission = ENG_imperial_federation_centralization_act
     }
 }
 shared_focus = {
@@ -2247,6 +2248,9 @@ shared_focus = {
     relative_position_id = ENG_imperial_centralization_act
     
     completion_reward = {
+        unlock_decision_tooltip = ENG_south_african_propaganda
+        unlock_decision_tooltip = ENG_australian_propaganda
+        unlock_decision_tooltip = ENG_canadian_propaganda
     }
 }
 shared_focus = {
@@ -2266,6 +2270,9 @@ shared_focus = {
     relative_position_id = ENG_pan_imperial_propaganda
     
     completion_reward = {
+        unlock_decision_tooltip = ENG_south_african_crackdown_on_nationalists
+        unlock_decision_tooltip = ENG_australian_crackdown_on_nationalists
+        unlock_decision_tooltip = ENG_canadian_crackdown_on_nationalists
     }
 }
 
@@ -2287,6 +2294,46 @@ shared_focus = {
     relative_position_id = ENG_curb_colonial_nationalism
     
     completion_reward = {
+        every_country = {
+            limit = {
+                is_in_faction_with = ENG
+            }
+            add_popularity = {
+                ideology = fascism
+                popularity = -0.05
+            }
+            add_popularity = {
+                ideology = ultranationalism
+                popularity = -0.05
+            }
+            add_popularity = {
+                ideology = communism
+                popularity = -0.05
+            }
+        }
+        if = {
+            limit = {
+                has_completed_focus = ENG_imperial_centralization_act
+            }
+            AST = { 
+                add_to_variable = {
+                    tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                    GetImperialFedAcceptChance = 3
+                }
+            }
+            SAF = { 
+                add_to_variable = {
+                    tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                    GetImperialFedAcceptChance = 3
+                }
+            }
+            CAN = { 
+                add_to_variable = {
+                    tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                    GetImperialFedAcceptChance = 3
+                }
+            }
+        }
     }
 }
 
