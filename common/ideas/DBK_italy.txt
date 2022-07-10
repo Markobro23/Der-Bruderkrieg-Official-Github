@@ -620,6 +620,8 @@ ideas = {
 		allowed = {
 		  always = yes
 		}
+
+		picture = ITA_mass_economic_instability
 		 cancel = {
 		  is_subject = yes
 	  }
@@ -647,6 +649,8 @@ ideas = {
 		allowed_civil_war = {
 		  always = yes
 		}
+
+		picture = ITA_mass_economic_instability
   
 		removal_cost = -1
   
@@ -2306,6 +2310,8 @@ ideas = {
 
 			removal_cost = -1
 
+			picture = Conte_Tyrannie
+
 			modifier = {
 				political_power_cost = 0.2
 			}
@@ -2508,6 +2514,34 @@ ideas = {
 				war_support_factor = 0.1
 				industrial_capacity_dockyard = 0.15
 				production_speed_dockyard_factor = 0.15
+			}
+		}
+
+		ITA_cutting_blueshirt_costs = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				OR = {
+					is_subject = yes
+					has_completed_focus = ITA_declare_blueshirts_counter_revolutionaries
+					has_completed_focus = ITA_bind_blueshirts_to_party
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = -0.03
+				industrial_capacity_factory = 0.1
 			}
 		}
 

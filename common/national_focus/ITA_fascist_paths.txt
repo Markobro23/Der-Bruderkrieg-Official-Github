@@ -790,8 +790,8 @@ shared_focus = {
 		}
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = ITA_bianchi_influence_less_45
-				check_variable = { ITA_head_tri_power < 45 }
+				tooltip = ITA_bianchi_influence_less_40
+				check_variable = { ITA_head_tri_power < 40 }
 			}
 		}
 		completion_reward = {
@@ -880,6 +880,7 @@ shared_focus = {
 		}
 		completion_reward = {
 			country_event = { id = italy_power_struggle.7 hours = 1 }
+			add_to_variable = { ITA_consuls_dealt_with = 1 }
 		}
 	}
 
@@ -1286,8 +1287,10 @@ shared_focus = {
 		available = {
 			hidden_trigger = {
 				NOT = {
-					has_country_flag = ITA_ciano_leads_triumvirate
-					check_variable = { ITA_head_tri_power = 100 }
+					AND = {
+						has_country_flag = ITA_ciano_leads_triumvirate
+						check_variable = { ITA_head_tri_power = 100 }
+					}
 				}
 			}
 			custom_trigger_tooltip = {
@@ -1332,8 +1335,7 @@ shared_focus = {
 						has_completed_focus = ITA_end_bianchis_rule
 						has_completed_focus = ITA_motion_no_confidence
 					}
-					count_triggers = {
-						amount = 0
+					NOT = {
 						has_completed_focus = ITA_end_bianchis_rule
 						has_completed_focus = ITA_motion_no_confidence
 					}
@@ -3153,7 +3155,7 @@ shared_focus = {
 	###post war FP
 	shared_focus = {
 		id = ITA_the_question_alliance
-		icon = GFX_goal_SOV_no_they_are_insane
+		icon = GFX_goal_SOV_the_prussian_question
 		x = 6
 		y = 1
 		cost = 3
@@ -3240,7 +3242,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_florence_berlin_split
-		icon = GFX_goal_GER_push_for_worldwide_revolution
+		icon = GFX_goal_SOV_no_they_are_insane
 		x = 1
 		y = 1
 		cost = 5
@@ -3449,6 +3451,7 @@ shared_focus = {
 				name = "Costanzo Ciano"
 				ruling_only = yes
 			}
+			has_government = neutrality
 			has_completed_focus = ITA_speak_with_industrialists
 		}
 	}

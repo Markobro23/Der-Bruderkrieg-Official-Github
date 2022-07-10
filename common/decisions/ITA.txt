@@ -1541,6 +1541,12 @@ ITA_maintaining_unity = {
       }
     }
 
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 1
+      }
+    }
+
     complete_effect = {
       ITA_decrease_party_stability_small = yes
     }
@@ -1561,6 +1567,12 @@ ITA_maintaining_unity = {
 
     complete_effect = {
       ITA_decrease_party_stability_medium = yes
+    }
+
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 3
+      }
     }
 
     ai_will_do ={
@@ -1590,6 +1602,12 @@ ITA_maintaining_unity = {
     }
     ai_will_do ={
       factor = 1000
+    }
+
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 5
+      }
     }
 
     available = {
