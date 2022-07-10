@@ -182,18 +182,67 @@ country_event = {
 	option = {
 		name = ENG_elections.11.a
 		set_country_flag = ENG_sided_with_halifax_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
+
 	}
 	option = {
 		name = ENG_elections.11.b
 		set_country_flag = ENG_sided_with_churchill_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
 	}
 	option = {
 		name = ENG_elections.11.c
 		set_country_flag = ENG_sided_with_attlee_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
 	}
 	option = {
 		name = ENG_elections.11.dd
 		set_country_flag = ENG_sided_with_hamsworth_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
 	}
 }
 
@@ -245,6 +294,7 @@ country_event = {
 			tooltip = ENG_kings_approval_var_change_by_1
 			ENG_kings_approval_var_change = 1
 		}
+		unlock_decision_category_tooltip = ENG_bring_albert_from_his_paranoia
 	}
 }
 ##the new cabinet
@@ -590,10 +640,25 @@ country_event = {
 			}
 		}
 		reset_government = yes
+
+		ai_chance = {
+			factor = var:GetImperialFedAcceptChance
+		}
 	}
 	option = {
 		name = ENG_imperial_federation_tree.1.b
-		
+		ai_chance = {
+			set_temp_variable = {
+				GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+			}
+			multiply_temp_variable = {
+				GetImperialFedAcceptChanceOpposite = -1
+			}
+			add_to_temp_variable = {
+				GetImperialFedAcceptChanceOpposite = 100
+			}
+			factor = var:GetImperialFedAcceptChanceOpposite
+		}
 	}
 }
 

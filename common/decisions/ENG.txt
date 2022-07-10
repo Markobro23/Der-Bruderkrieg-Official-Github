@@ -9,7 +9,7 @@ ENG_chose_victor_of_elections = {
 			hidden_trigger = { always = no }
 		}
 	
-		days_mission_timeout = 345
+		days_mission_timeout = 100
 	
 		fire_only_once = yes
 	
@@ -886,6 +886,160 @@ ENG_imperial_federation_category = {
 			CAN = {
 				country_event = ENG_imperial_federation_tree.1
 			}
+		}
+	}
+
+	ENG_south_african_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			SAF = { add_ideas = SOV_foreign_investment_idea }
+		}
+		remove_effect = {
+			SAF = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			SAF = { remove_ideas = SOV_foreign_investment_idea }
+			SAF = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_australian_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			AST = { add_ideas = SOV_foreign_investment_idea }
+		}
+		remove_effect = {
+			AST = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			AST = { remove_ideas = SOV_foreign_investment_idea }
+			AST = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_canadian_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			CAN = { add_ideas = SOV_foreign_investment_idea }
+		}
+		remove_effect = {
+			CAN = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			CAN = { remove_ideas = SOV_foreign_investment_idea }
+			CAN = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
 		}
 	}
 }

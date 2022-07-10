@@ -89,18 +89,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-        set_variable = {
-            halifax_support = 25
-        }
-        set_variable = {
-            churchill_support = 25
-        }
-        set_variable = {
-            attlee_support = 25
-        }
-        set_variable = {
-            hamsworth_support = 25
-        }
+        
         country_event = ENG_elections.7
     }
 }
@@ -601,6 +590,7 @@ shared_focus = {
     relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
+        unlock_decision_category_tooltip = ENG_bring_albert_from_his_paranoia
         country_event = ENG_churchill_path.1
     }
 }
@@ -2319,7 +2309,7 @@ shared_focus = {
     relative_position_id = ENG_imperial_centralization_act
     
     completion_reward = {
-
+        add_political_power = -25
         AST = { 
             add_to_variable = {
                 tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
@@ -2358,6 +2348,33 @@ shared_focus = {
     relative_position_id = ENG_crafting_a_common_identity
     
     completion_reward = {
+        CAN = {
+            add_ideas = ENG_sterling_bloc
+        }
+        AST = {
+            add_ideas = ENG_sterling_bloc
+        }
+        SAF = {
+            add_ideas = ENG_sterling_bloc
+        }
+        AST = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        SAF = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        CAN = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
     }
 }
 
@@ -2378,6 +2395,51 @@ shared_focus = {
     relative_position_id = ENG_expand_the_sterling_area
     
     completion_reward = {
+        AST = {
+            every_unit_leader = {
+                set_nationality = ENG
+                add_dynamic_modifier = {
+                    modifier = ENG_unit_leader_imperial_federation_modifier
+                    days = 100
+                }
+            }
+        }
+        CAN = {
+            every_unit_leader = {
+                set_nationality = ENG
+                add_dynamic_modifier = {
+                    modifier = ENG_unit_leader_imperial_federation_modifier
+                    days = 100
+                }
+            }
+        }
+        SAF = {
+            every_unit_leader = {
+                set_nationality = ENG
+                add_dynamic_modifier = {
+                    modifier = ENG_unit_leader_imperial_federation_modifier
+                    days = 100
+                }
+            }
+        }
+        AST = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        SAF = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
+        CAN = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+                GetImperialFedAcceptChance = 5
+            }
+        }
     }
 }
 
@@ -2398,6 +2460,9 @@ shared_focus = {
     relative_position_id = ENG_crafting_a_common_identity
     
     completion_reward = {
+        unlock_decision_tooltip = ENG_south_african_investments
+        unlock_decision_tooltip = ENG_australian_investments
+        unlock_decision_tooltip = ENG_canadian_investments
     }
 }
 
