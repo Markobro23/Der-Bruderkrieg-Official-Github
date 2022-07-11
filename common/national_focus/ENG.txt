@@ -56,6 +56,7 @@ focus_tree = {
 		}
 	}
 	
+	shared_focus = ENG_court_the_king
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
     shared_focus = ENG_the_imperial_federation
@@ -2848,5 +2849,389 @@ shared_focus = {
     relative_position_id = ENG_defend_our_democracies
     
     completion_reward = {
+    }
+}
+
+## Hamsworth
+shared_focus = {
+    id = ENG_court_the_king
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 5
+    y = 0
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_the_grand_rebirth
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_court_the_king }
+    relative_position_id = ENG_court_the_king
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_a_national_revolution
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -3
+    y = 1
+    prerequisite = { focus = ENG_the_grand_rebirth }
+    mutually_exclusive = { focus = ENG_the_grand_ham_prevails }
+    relative_position_id = ENG_the_grand_rebirth
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_the_grand_ham_prevails
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 3
+    y = 1
+    prerequisite = { focus = ENG_the_grand_rebirth }
+    mutually_exclusive = { focus = ENG_a_national_revolution }
+    relative_position_id = ENG_the_grand_rebirth
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_all_british_union_state
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_a_national_revolution }
+    relative_position_id = ENG_a_national_revolution
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_work_for_the_masses
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_all_british_union_state }
+    relative_position_id = ENG_all_british_union_state
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_new_lords_new_man
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -1
+    y = 1
+    prerequisite = { focus = ENG_work_for_the_masses }
+    relative_position_id = ENG_work_for_the_masses
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_found_imperial_council_natsynd
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 1
+    y = 1
+    prerequisite = { focus = ENG_work_for_the_masses }
+    relative_position_id = ENG_work_for_the_masses
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_class_unity_and_brotherhood
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_new_lords_new_man }
+    relative_position_id = ENG_new_lords_new_man
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_friends_in_the_military
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -2
+    y = 1
+    prerequisite = { focus = ENG_the_grand_ham_prevails }
+    relative_position_id = ENG_the_grand_ham_prevails
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_control_parliament
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 1
+    y = 1
+    prerequisite = { focus = ENG_the_grand_ham_prevails }
+    relative_position_id = ENG_the_grand_ham_prevails
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_execute_labour_scum
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_control_parliament }
+    relative_position_id = ENG_control_parliament
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_cult_of_albert_i
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_execute_labour_scum }
+    relative_position_id = ENG_execute_labour_scum
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_harris_top_gun_boys
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -1
+    y = 1
+    mutually_exclusive = { focus = ENG_mountbattens_strong_hand }
+    prerequisite = { focus = ENG_friends_in_the_military }
+    relative_position_id = ENG_friends_in_the_military
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_mountbattens_strong_hand
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 1
+    y = 1
+    mutually_exclusive = { focus = ENG_harris_top_gun_boys }
+    prerequisite = { focus = ENG_friends_in_the_military }
+    relative_position_id = ENG_friends_in_the_military
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_call_on_the_jingoists
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_mountbattens_strong_hand }
+    relative_position_id = ENG_mountbattens_strong_hand
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_expand_air_force_budget
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_harris_top_gun_boys }
+    relative_position_id = ENG_harris_top_gun_boys
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_most_royal_of_marriages
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -1
+    y = 1
+    prerequisite = { focus = ENG_call_on_the_jingoists focus = ENG_expand_air_force_budget }
+    prerequisite = { focus = ENG_cult_of_albert_i }
+    mutually_exclusive = { focus = ENG_pact_of_london }
+    relative_position_id = ENG_cult_of_albert_i
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_pact_of_london
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 1
+    y = 1
+    prerequisite = { focus = ENG_found_imperial_council_natsynd focus = ENG_expand_air_force_budget }
+    mutually_exclusive = { focus = ENG_most_royal_of_marriages }
+    relative_position_id = ENG_found_imperial_council_natsynd
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_empire_strikes_back
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = -2
+    y = 1
+    prerequisite = { focus = ENG_pact_of_london focus = ENG_most_royal_of_marriages }
+    relative_position_id = ENG_most_royal_of_marriages
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
+    }
+}
+
+shared_focus = {
+    id = ENG_britain_lives_and_marches_on
+    icon = GFX_goal_ENG_the_bulldog_rises
+    x = 0
+    y = 1
+    prerequisite = { focus = ENG_pact_of_london }
+    relative_position_id = ENG_pact_of_london
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+        
     }
 }
