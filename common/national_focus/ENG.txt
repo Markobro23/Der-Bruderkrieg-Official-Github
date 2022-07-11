@@ -2728,6 +2728,14 @@ shared_focus = {
     relative_position_id = ENG_the_imperial_federation
     
     completion_reward = {
+        CAN = {
+            drop_cosmetic_tag = yes
+        }
+        set_autonomy = {
+            target = CAN
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = CAN
     }
 }
 shared_focus = {
@@ -2747,6 +2755,35 @@ shared_focus = {
     relative_position_id = ENG_home_rule_act
     
     completion_reward = {
+        hidden_effect = {
+            ZAM = {
+                add_state_core = 1050
+                add_state_core = 770
+                add_state_core = 1062
+                add_state_core = 1063
+
+            }
+        }
+        ZAM = {
+            drop_cosmetic_tag = yes
+        }
+        release = ZAM
+        set_autonomy = {
+            target = ZAM
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = ZAM
+
+        UGA = {
+            drop_cosmetic_tag = yes
+        }
+        release = UGA
+        set_autonomy = {
+            target = UGA
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = UGA
+
     }
 }
 shared_focus = {
@@ -2766,6 +2803,33 @@ shared_focus = {
     relative_position_id = ENG_freedom_for_africa
     
     completion_reward = {
+        SAF = {
+            drop_cosmetic_tag = yes
+        }
+        set_autonomy = {
+            target = SAF
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = SAF
+
+        BOT = {
+            drop_cosmetic_tag = yes
+        }
+        set_autonomy = {
+            target = BOT
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = BOT
+
+        ZIM = {
+            drop_cosmetic_tag = yes
+        }
+        set_autonomy = {
+            target = ZIM
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = ZIM
+        
     }
 }
 shared_focus = {
@@ -2785,6 +2849,22 @@ shared_focus = {
     relative_position_id = ENG_home_rule_act
     
     completion_reward = {
+        AST = {
+            drop_cosmetic_tag = yes
+        }
+        set_autonomy = {
+            target = AST
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = AST
+
+        AST = {
+            set_cosmetic_tag = indoaustralia
+            annex_country = {
+                target = MAL
+                transfer_troops = yes
+            }
+        }
     }
 }
 shared_focus = {
@@ -2856,7 +2936,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_court_the_king
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 5
+    x = 4
     y = 0
     cost = 5
     available_if_capitulated = yes
@@ -2890,7 +2970,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_a_national_revolution
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = -3
+    x = -1
     y = 1
     prerequisite = { focus = ENG_the_grand_rebirth }
     mutually_exclusive = { focus = ENG_the_grand_ham_prevails }
@@ -2909,7 +2989,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_the_grand_ham_prevails
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 3
+    x = 1
     y = 1
     prerequisite = { focus = ENG_the_grand_rebirth }
     mutually_exclusive = { focus = ENG_a_national_revolution }
@@ -2928,7 +3008,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_all_british_union_state
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 0
+    x = -1
     y = 1
     prerequisite = { focus = ENG_a_national_revolution }
     relative_position_id = ENG_a_national_revolution
@@ -3000,7 +3080,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_class_unity_and_brotherhood
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 0
+    x = 1
     y = 1
     prerequisite = { focus = ENG_new_lords_new_man }
     relative_position_id = ENG_new_lords_new_man
@@ -3018,7 +3098,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_friends_in_the_military
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = -2
+    x = 1
     y = 1
     prerequisite = { focus = ENG_the_grand_ham_prevails }
     relative_position_id = ENG_the_grand_ham_prevails
@@ -3036,7 +3116,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_control_parliament
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 1
+    x = 4
     y = 1
     prerequisite = { focus = ENG_the_grand_ham_prevails }
     relative_position_id = ENG_the_grand_ham_prevails
@@ -3221,9 +3301,12 @@ shared_focus = {
 shared_focus = {
     id = ENG_britain_lives_and_marches_on
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 0
+    x = -1
     y = 1
     prerequisite = { focus = ENG_pact_of_london }
+    prerequisite = {
+        focus = ENG_class_unity_and_brotherhood
+    }
     relative_position_id = ENG_pact_of_london
     cost = 5
     available_if_capitulated = yes
