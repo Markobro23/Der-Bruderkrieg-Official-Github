@@ -898,7 +898,7 @@ shared_focus = {
         add_political_power = 50
 
         set_variable = {
-            ENG_current_government_modifier_stability_factor = 0
+            ENG_current_government_modifier_stability_factor = -0.0
         }
         set_variable = {
             ENG_current_government_modifier_production_speed_buildings_factor = -0.05
@@ -927,7 +927,11 @@ shared_focus = {
     relative_position_id = ENG_transform_the_union
     
     completion_reward = {
-        
+        set_variable = {
+            ENG_abolish_monarchy_referrendum_support = 20
+        }
+        unlock_decision_category_tooltip = ENG_referendum_on_the_monarchy
+        activate_mission = ENG_referendum_on_the_monarchy_mission
     }
 }
 shared_focus = {
@@ -940,7 +944,9 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        has_country_flag = ENG_abolish_monarchy_referendum_succeeds
+    }
     prerequisite = {
         focus = ENG_to_a_republic
     }
@@ -958,7 +964,12 @@ shared_focus = {
 			}
 		}
         effect_tooltip = { set_cosmetic_tag = british_republic }
-
+        hidden_effect = {
+            country_event = {
+                id = ENG_attlee_path.3
+                days = 2
+            }
+        }
     }
 }
 shared_focus = {
@@ -976,9 +987,11 @@ shared_focus = {
         focus = ENG_light_the_torch
     }
     relative_position_id = ENG_light_the_torch
-    
-    completion_reward = {
-        
+    available = {
+        has_idea = ENG_unstable_new_republic
+    }
+    completion_reward = {   
+        remove_ideas = ENG_unstable_new_republic
     }
 }
 shared_focus = {
@@ -1003,7 +1016,37 @@ shared_focus = {
     relative_position_id = ENG_quell_the_fires
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_workers_original
+                add_idea = ENG_pro_workers_new
+            }
+        }
+
+        set_variable = {
+            ENG_current_government_modifier_production_factory_max_efficiency_factor = 0.1
+        }
+        set_variable = {
+            ENG_current_government_modifier_local_resources_factor = 0.15
+        }
+
+        if = {
+            limit = {
+                has_completed_focus = ENG_to_a_republic
+            }
+            effect_tooltip = {
+                swap_ideas = {
+                    add_idea = ENG_churchill_remove_debuffs_new
+                    remove_idea = ENG_churchill_remove_debuffs_original
+                }
+            }
+            set_variable = {
+                ENG_current_government_modifier_production_speed_buildings_factor = 0
+            }
+            set_variable = {
+                ENG_current_government_modifier_political_power_factor = 0
+            }
+        }
     }
 }
 shared_focus = {
@@ -1025,7 +1068,7 @@ shared_focus = {
     relative_position_id = ENG_transform_the_union
     
     completion_reward = {
-        
+        country_event = ENG_attlee_path.4
     }
 }
 shared_focus = {
@@ -1050,7 +1093,18 @@ shared_focus = {
     relative_position_id = ENG_mantain_the_crown
     
     completion_reward = {
-        
+        effect_tooltip = {
+			swap_ideas = {
+				add_idea = ENG_churchill_remove_debuffs_new
+				remove_idea = ENG_churchill_remove_debuffs_original
+			}
+		}
+		set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = 0
+        }
     }
 }
 shared_focus = {
@@ -1070,7 +1124,18 @@ shared_focus = {
     relative_position_id = ENG_safeguard_parliament
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                add_idea = ENG_churchill_anti_extremism_new
+                remove_idea = ENG_churchill_anti_extremism_original
+            }
+        }
+        set_variable = {
+            ENG_current_government_modifier_party_popularity_stability_factor = 0.35
+        }
+        set_variable = {
+            ENG_current_government_modifier_economy_cost_factor = -0.15
+        }
     }
 }
 shared_focus = {
@@ -1096,7 +1161,35 @@ shared_focus = {
     relative_position_id = ENG_the_second_english_bill_of_rights
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_corp_original
+                add_idea = ENG_pro_corp_new
+            }
+        }
+        set_variable = {
+            ENG_current_government_modifier_consumer_goods_factor = -0.05
+        }
+        set_variable = {
+            ENG_current_government_modifier_industrial_concern_cost_factor = -0.15
+        }
+        if = {
+            limit = {
+                has_completed_focus = ENG_to_a_republic
+            }
+            effect_tooltip = {
+                swap_ideas = {
+                    add_idea = ENG_churchill_remove_debuffs_new
+                    remove_idea = ENG_churchill_remove_debuffs_original
+                }
+            }
+            set_variable = {
+                ENG_current_government_modifier_production_speed_buildings_factor = 0
+            }
+            set_variable = {
+                ENG_current_government_modifier_political_power_factor = 0
+            }
+        }
     }
 }
 
@@ -1118,7 +1211,30 @@ shared_focus = {
     relative_position_id = ENG_to_a_republic
     
     completion_reward = {
-        
+        random_owned_controlled_state = {
+            add_building_construction = {
+                type = industrial_complex 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        random_owned_controlled_state = {
+            add_building_construction = {
+                type = industrial_complex 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        random_owned_controlled_state = {
+            add_building_construction = {
+                type = arms_factory 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
     }
 }
 
@@ -2530,6 +2646,28 @@ shared_focus = {
     relative_position_id = ENG_invest_in_the_dominions
     
     completion_reward = {
+        modify_tech_sharing_bonus = {
+            id = commonwealth_research
+            bonus = 0.25
+        }
+        AST = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                GetImperialFedAcceptChance = 3
+            }
+        }
+        SAF = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                GetImperialFedAcceptChance = 3
+            }
+        }
+        CAN = { 
+            add_to_variable = {
+                tooltip = ENG_increase_imperial_fed_acceptance_chance_by_3
+                GetImperialFedAcceptChance = 3
+            }
+        }
     }
 }
 shared_focus = {
@@ -2548,7 +2686,14 @@ shared_focus = {
     prerequisite = {
          focus = ENG_unify_the_chiefs_of_staffs
     }
-
+    available = {
+        NOT = {
+            OR = {
+                has_active_mission = ENG_imperial_federation_centralization_act
+                has_active_mission = ENG_imperial_federation_nationalization_act
+            }
+        }
+    }
     prerequisite = {
         focus = ENG_fight_against_extremists
         focus = ENG_deposing_lang   

@@ -1406,3 +1406,47 @@ ENG_imperial_federation_category = {
 
 	}
 }
+
+ENG_referendum_on_the_monarchy = {
+	ENG_referendum_on_the_monarchy_mission = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 1
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_to_a_republic
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = {
+							ENG_abolish_monarchy_referrendum_support > 49
+						}
+					}
+					country_event = ENG_attlee_path.1
+				}
+				else = {
+					country_event = ENG_attlee_path.2
+				}
+			}
+		}
+	}
+}

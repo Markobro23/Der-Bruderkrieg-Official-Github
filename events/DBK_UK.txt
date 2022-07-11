@@ -412,6 +412,72 @@ country_event = {
 	}
 }
 
+add_namespace = ENG_attlee_path
+
+##Referrendum
+country_event = {
+	id = ENG_attlee_path.1
+	title = ENG_attlee_path.1.t
+	desc = ENG_attlee_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.1.a
+		set_country_flag = ENG_abolish_monarchy_referendum_succeeds
+	}
+}
+
+
+##Referrendum Fails
+country_event = {
+	id = ENG_attlee_path.2
+	title = ENG_attlee_path.2.t
+	desc = ENG_attlee_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.2.a
+		
+	}
+	option = {
+		name = ENG_attlee_path.2.b
+		
+	}
+}
+
+## resistance rises
+country_event = {
+	id = ENG_attlee_path.3
+	title = ENG_attlee_path.3.t
+	desc = ENG_attlee_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.3.a	
+		add_ideas = ENG_unstable_new_republic
+	}
+}
+
+## workin with henry
+country_event = {
+	id = ENG_attlee_path.4
+	title = ENG_attlee_path.4.t
+	desc = ENG_attlee_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.4.a	
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
 ## India Tree
 add_namespace = ENG_india_tree
 
