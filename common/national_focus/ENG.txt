@@ -2868,8 +2868,8 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = ENG_hong_kong_lease
-    icon = GFX_goal_ENG_hong_kong_lease
+    id = ENG_the_burmese_question
+    icon = GFX_goal_ENG_the_burmese_question
     x = 0
     y = 1
     cost = 5
@@ -2884,6 +2884,11 @@ shared_focus = {
     relative_position_id = ENG_concessions_to_jack_lang
     
     completion_reward = {
+        593 = {
+            controller = {
+                transfer_state = 326
+            }
+        }
     }
 }
 shared_focus = {
@@ -2897,15 +2902,30 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-        focus = ENG_hong_kong_lease
+        focus = ENG_the_burmese_question
     }
     prerequisite = {
         focus = ENG_boot_out_the_apartheidists
     }
+    available = {
+        any_enemy_country = {
+            is_major = yes
+        }
+    }
    
-    relative_position_id = ENG_hong_kong_lease
+    relative_position_id = ENG_the_burmese_question
     
     completion_reward = {
+        set_faction_name = "Earth's Bastion of Liberty"
+        every_country = {
+            limit = {
+                is_in_faction_with = ENG
+                NOT = {
+                    tag = ENG
+                }
+            }
+            add_ideas = GER_british_advisors
+        }
     }
 }
 
@@ -2929,6 +2949,7 @@ shared_focus = {
     relative_position_id = ENG_defend_our_democracies
     
     completion_reward = {
+        add_ideas = ENG_true_beacon_of_democracy
     }
 }
 
