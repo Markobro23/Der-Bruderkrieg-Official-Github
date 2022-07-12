@@ -50,7 +50,10 @@ defined_text = {
 
 	text = {
 		trigger = {
-			has_completed_focus = ENG_enshrine_the_british_worker
+			OR = {
+				has_completed_focus = ENG_enshrine_the_british_worker
+				has_completed_focus = ENG_work_for_the_masses
+			}
 		}
 		localization_key = "GetENG_current_government_gui_tt_pro_workers_active"
 	}
@@ -64,6 +67,28 @@ defined_text = {
 			has_completed_focus = ENG_isolate_horner
 		}
 		localization_key = "GetENG_current_government_gui_tt_pro_corp_active"
+	}
+}
+
+defined_text = {
+	name= GetENG_current_government_gui_tt_pro_military
+
+	text = {
+		trigger = {
+			has_completed_focus = ENG_friends_in_the_military
+		}
+		localization_key = "GetENG_current_government_gui_tt_pro_military_active"
+	}
+}
+
+defined_text = {
+	name= GetENG_current_government_gui_tt_pro_air
+
+	text = {
+		trigger = {
+			has_completed_focus = ENG_friends_in_the_air
+		}
+		localization_key = "GetENG_current_government_gui_tt_pro_air_active"
 	}
 }
 

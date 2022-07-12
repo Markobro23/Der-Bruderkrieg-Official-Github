@@ -13,8 +13,6 @@ ENG_GATHERING_STORM_DESC:0 "The United Kingdom, the world's most powerful empire
   ENG_broken_crown_jewel_desc:0 "On March 12th, 1930, Mahatma Gandhi and 300 others were shot marching to the shores of Dandhi. It would be one of our biggest mistakes in our long history.\n\nIndia was once our pride and joy. Pumping out riches for the British Empire which spanned the seas, a model of civilized native princes and the divide and rule strategy - truly a symbol for all Britannia! The Jewel in our Crown, India was always our priority number one. Now India has fallen. The Crown Jewel lies in the dust, with only a small loyalist force in Bengal, our first conquest, remaining loyal to the crown. The Empire is all the weaker for it, as it has broken our profits, our alliance with America, and our international credibility.\n\nBut the biggest thing it has destroyed is our morale and cohesion. Far-right Tories demand the resumption of war, far-left Union Laborists demand withdrawal and acceptance, with the National Government under Halifax caught in the middle. Meanwhile, the average Briton lives in poverty on the streets, disgusted or apathetic to democracy in Britain, having lost all hope of carrying the British torch forward. It is a dark night of the soul for Britain and for the Empire.\n\n§RUntil the Raj is recovered and united, our jewel shall remain shattered.§!"
  RAJ_adwaita:0 "Adwaita"
 
-  ENG_british_jingoism:0 "British Jingoism"
-  ENG_british_jingoism_desc:0 "The disgraceful display of the great Indian revolt has put Britain to shame, and has stirred up British jingoism and nationalism. Despite the majority of the populace being anti-war and non-interventionist, a small group of colonial bulldogs under the likes of Winston Churchill have tried to rouse up a bigger army on a journey to retake the Raj."
 
 
   ENG_federalism:0 "The Imperial Federation"
@@ -49,8 +47,9 @@ ENG_current_government_gui_national_government_tt:0 "§CThe National Government�
 
 ENG_current_government_gui_liberal_party_tt:0 "§YThe Liberal Party§!\n\nEffects:\nPolitical Power Factor: [?ENG_current_government_modifier_political_power_factor|2+%]\nStability: [?ENG_current_government_modifier_stability_factor|2+%]\nConstruction Speed: [?ENG_current_government_modifier_production_speed_buildings_factor|2+%][GetENG_current_government_gui_tt_anti_extremist][GetENG_current_government_gui_tt_refugees]"
 
-ENG_current_government_gui_labour_party_tt:0 "§tThe Labour Party§!\n\nEffects:\nPolitical Power Factor: [?ENG_current_government_modifier_political_power_factor|2+%]\nStability: [?ENG_current_government_modifier_stability_factor|2+%]\nConstruction Speed: [?ENG_current_government_modifier_production_speed_buildings_factor|2+%][GetENG_current_government_gui_tt_NHS][GetENG_current_government_gui_tt_pro_corp][GetENG_current_government_gui_tt_refugees]"
+ENG_current_government_gui_labour_party_tt:0 "§tThe Labour Party§!\n\nEffects:\nPolitical Power Factor: [?ENG_current_government_modifier_political_power_factor|2+%]\nStability: [?ENG_current_government_modifier_stability_factor|2+%]\nConstruction Speed: [?ENG_current_government_modifier_production_speed_buildings_factor|2+%][GetENG_current_government_gui_tt_NHS][GetENG_current_government_gui_tt_pro_corp][GetENG_current_government_gui_tt_pro_workers][GetENG_current_government_gui_tt_refugees]"
 
+ENG_current_government_gui_uep_party_tt:0 "§tThe United Empire Party§!\n\nEffects:\nPolitical Power Factor: [?ENG_current_government_modifier_political_power_factor|2+%]\nStability: [?ENG_current_government_modifier_stability_factor|2+%]\nConstruction Speed: [?ENG_current_government_modifier_production_speed_buildings_factor|2+%][GetENG_current_government_gui_tt_pro_workers][GetENG_current_government_gui_tt_pro_military][GetENG_current_government_gui_tt_pro_air][GetENG_current_government_gui_tt_refugees]"
 
 GetENG_current_government_gui_tt_NHS_active:0 "\nMonthly Population Gain: [?ENG_current_government_modifier_monthly_population|2+%]\nMax Factories In State: [?ENG_current_government_modifier_global_building_slots_factor|2+%]"
 
@@ -61,6 +60,10 @@ GetENG_current_government_gui_tt_anti_extremist_active:0 "\nRuling Party Stabili
 GetENG_current_government_gui_tt_pro_workers_active:0 "\nGrowth: [?ENG_current_government_modifier_production_factory_max_efficiency_factor|2+%]\nResource Gain: [?ENG_current_government_modifier_local_resources_factor|2+%]"
 
 GetENG_current_government_gui_tt_pro_corp_active:0 "\nConsumer Goods: [?ENG_current_government_modifier_consumer_goods_factor|2+%]\nIndustrial Concern Cost: [?ENG_current_government_modifier_local_resources_factor|2+%]"
+
+GetENG_current_government_gui_tt_pro_military_active:0 "\nCommand Power Gain: [?ENG_current_government_modifier_command_power_gain_mult|2+%]\nRecruitable Population: [?conscription_factor|2+%]"
+
+GetENG_current_government_gui_tt_pro_air_active:0 "\nAir Attack: [?ENG_current_government_modifier_air_attack_factor|2+%]\nAir Defense: [?ENG_current_government_modifier_air_defence_factor|2+%]\nAir Intercept Efficiency: [?ENG_current_government_modifier_air_intercept_efficiency|2+%]"
 
 
 ## Kings Paranoia
@@ -352,6 +355,12 @@ ENG_court_the_king:0 "Court The King"
 ENG_court_the_king_desc:0 ""
 ENG_the_grand_rebirth:0 "The Grand Rebirth"
 ENG_the_grand_rebirth_desc:0 ""
+
+ENG_hamsworth_path.1.t:0 "The King Addresses The Empire"
+ENG_hamsworth_path.1.d:0 ""
+ENG_hamsworth_path.1.a:0 "The King's Speech Goes Amazing!"
+ENG_hamsworth_path.1.b:0 "The King is Struck Down..."
+
 ENG_a_national_revolution:0 "A National Revolution"
 ENG_a_national_revolution_desc:0 ""
 ENG_the_grand_ham_prevails:0 "The Grand Ham Prevails"
@@ -366,24 +375,49 @@ ENG_found_imperial_council_natsynd:0 "Found Imperial Council of National Syndica
 ENG_found_imperial_council_natsynd_desc:0 ""
 ENG_class_unity_and_brotherhood:0 "Class Unity And Brotherhood"
 ENG_class_unity_and_brotherhood_desc:0 ""
-ENG_friends_in_the_military:0 "Friends In The Military"
+ENG_friends_in_the_military:0 "Friends In The Royal Military"
 ENG_friends_in_the_military_desc:0 ""
-ENG_control_parliament:0 "Control Parliament"
+ENG_control_parliament:0 "Control The Imperial Parliament"
 ENG_control_parliament_desc:0 ""
+
+ENG_hamsworth_path.2.t:0 "Emergency Powers To Hamsworth!"
+ENG_hamsworth_path.2.d:0 ""
+ENG_hamsworth_path.2.a:0 "A Strong Leader For Britain."
+ENG_leader_to_lord_protector:0 "Hamsworth Will Now Be Known As The Lord Protector!"
+
 ENG_execute_labour_scum:0 "Execute Labour Scum"
 ENG_execute_labour_scum_desc:0 ""
+
+ENG_hamsworth_path.3.t:0 "The End of the Socialists"
+ENG_hamsworth_path.3.d:0 ""
+ENG_hamsworth_path.3.a:0 "A Necessary Step"
+
 ENG_cult_of_albert_i:0 "Cult Of Albert I"
 ENG_cult_of_albert_i_desc:0 ""
 ENG_harris_top_gun_boys:0 "Harris' Top Gun Boys" 
 ENG_harris_top_gun_boys_desc:0 ""
 ENG_mountbattens_strong_hand:0 "Mountbatten's Strong Hand"
 ENG_mountbattens_strong_hand_desc:0 ""
+
+
+ENG_british_jingoism:0 "The Storm Troopers"
+ENG_british_jingoism_desc:0 "The disgraceful display of the great Indian revolt has put Britain to shame, and has stirred up British jingoism and nationalism. Despite the majority of the populace being anti-war and non-interventionist, a small group of colonial bulldogs called the Storm Troopers have tried to rouse up a bigger army on a journey to retake the Raj."
+
 ENG_call_on_the_jingoists:0 "Call On The Jingoists"
 ENG_call_on_the_jingoists_desc:0 ""
+
 ENG_expand_air_force_budget:0 "Expand Air Force Budget"
 ENG_expand_air_force_budget_desc:0 ""
+
+ENG_rogue_squadron:0 "The Rogue Squadron"
+
 ENG_most_royal_of_marriages:0 "A Most Royal Of Marriages"
 ENG_most_royal_of_marriages_desc:0 ""
+
+ENG_hamsworth_path.4.t:0 "The Marriage of Elizabeth Marie and Otto von Habsburg"
+ENG_hamsworth_path.4.d:0 ""
+ENG_hamsworth_path.4.a:0 "A Powerful Bond!"
+
 ENG_pact_of_london:0 "Pact Of London"
 ENG_pact_of_london_desc:0 ""
 ENG_empire_strikes_back:0 "The Empire Strikes Back"

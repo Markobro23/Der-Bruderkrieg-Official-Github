@@ -1288,6 +1288,7 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
+            has_completed_focus = ENG_empire_strikes_back
         }
     }
     completion_reward = {
@@ -1733,6 +1734,7 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
+            has_completed_focus = ENG_empire_strikes_back
         }
     }
     completion_reward = {
@@ -2112,6 +2114,7 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
+            has_completed_focus = ENG_empire_strikes_back
         }
     }
     completion_reward = {
@@ -2966,7 +2969,20 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_political_power = 50
+        add_to_variable = {
+			tooltip = ENG_kings_approval_var_increase_by_15
+			ENG_kings_approval_var = 15
+		}
+        set_variable = {
+            ENG_current_government_modifier_stability_factor = -0.05
+        }
+        set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = -0.05
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = -0.1
+        }
     }
 }
 
@@ -2984,7 +3000,19 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        country_event = ENG_hamsworth_path.1
+         effect_tooltip = {
+			swap_ideas = {
+				add_idea = ENG_churchill_remove_debuffs_new
+				remove_idea = ENG_churchill_remove_debuffs_original
+			}
+		}
+		set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = 0
+        }
     }
 }
 
@@ -3003,7 +3031,13 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_popularity = {
+            ideology = ultranationalism
+            popularity = 0.2
+        }
+        set_politics = {
+            ruling_party = ultranationalism
+        }
     }
 }
 
@@ -3022,14 +3056,20 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+         add_popularity = {
+            ideology = fascism
+            popularity = 0.25
+        }
+        set_politics = {
+            ruling_party = fascism
+        }
     }
 }
 
 shared_focus = {
     id = ENG_all_british_union_state
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = -1
+    x = 0
     y = 1
     prerequisite = { focus = ENG_a_national_revolution }
     relative_position_id = ENG_a_national_revolution
@@ -3040,14 +3080,22 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_remove_hamsworth_original
+                add_idea = ENG_remove_hamsworth_new
+            }
+        }
+        set_variable = {
+            ENG_current_government_modifier_stability_factor = 0
+        }
     }
 }
 
 shared_focus = {
     id = ENG_work_for_the_masses
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 0
+    x = -1
     y = 1
     prerequisite = { focus = ENG_all_british_union_state }
     relative_position_id = ENG_all_british_union_state
@@ -3058,7 +3106,19 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_workers_original
+                add_idea = ENG_pro_workers_new
+            }
+        }
+
+        set_variable = {
+            ENG_current_government_modifier_production_factory_max_efficiency_factor = 0.1
+        }
+        set_variable = {
+            ENG_current_government_modifier_local_resources_factor = 0.15
+        }
     }
 }
 
@@ -3076,7 +3136,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        unlock_decision_category_tooltip = superhuman_decision_category
     }
 }
 
@@ -3094,7 +3154,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_ideas = AUS_councilism
     }
 }
 
@@ -3112,6 +3172,26 @@ shared_focus = {
     }
     
     completion_reward = {
+        remove_ideas = ENG_the_irish_question
+        set_autonomy = {
+            target = IRE
+            autonomy_state = autonomy_free
+        }
+        IRE = {
+            set_politics = {
+                ruling_party = ultranationalism
+            }
+        }
+        hidden_effect = {
+            IRE = {
+                set_popularities = {
+                    ultranationalism = 37
+                    democratic = 22
+                    fascism = 20
+                    communism = 21
+                }
+            }
+        }
         
     }
 }
@@ -3130,14 +3210,26 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_military_original
+                add_idea = ENG_pro_military_new
+            }
+        }
+
+        set_variable = {
+            ENG_current_government_modifier_command_power_gain_mult = 0.15
+        }
+        set_variable = {
+            ENG_current_government_modifier_concscription_factor = 0.075
+        }
     }
 }
 
 shared_focus = {
     id = ENG_control_parliament
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 4
+    x = 3
     y = 1
     prerequisite = { focus = ENG_the_grand_ham_prevails }
     relative_position_id = ENG_the_grand_ham_prevails
@@ -3148,14 +3240,14 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        country_event = ENG_hamsworth_path.2
     }
 }
 
 shared_focus = {
     id = ENG_execute_labour_scum
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 0
+    x = 1
     y = 1
     prerequisite = { focus = ENG_control_parliament }
     relative_position_id = ENG_control_parliament
@@ -3166,7 +3258,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        country_event = ENG_hamsworth_path.3
     }
 }
 
@@ -3184,7 +3276,11 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_to_variable = {
+            tooltip = ENG_the_kings_mental_state_will_stop_decreasing
+            ENG_kings_approval_var_change = 1
+        }
+        unlock_decision_category_tooltip = ENG_bring_albert_from_his_paranoia
     }
 }
 
@@ -3203,7 +3299,22 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_air_original
+                add_idea = ENG_pro_air_new
+            }
+        }
+
+        set_variable = {
+            ENG_current_government_modifier_air_attack_factor = 0.15
+        }
+        set_variable = {
+            ENG_current_government_modifier_air_defence_factor = 0.15
+        }
+        set_variable = {
+            ENG_current_government_modifier_air_intercept_efficiency = 0.15
+        }
     }
 }
 
@@ -3222,7 +3333,14 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        every_unit_leader = {
+            limit = {
+                is_army_leader = yes
+            }
+            add_dynamic_modifier = {
+                modifier = ENG_unit_leader_good_modifier
+            }
+        }
     }
 }
 
@@ -3240,7 +3358,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_ideas = ENG_british_jingoism
     }
 }
 
@@ -3258,7 +3376,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_ideas = ENG_rogue_squadron
     }
 }
 
@@ -3297,7 +3415,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        country_event = prussia_britain_pact.1   
     }
 }
 
@@ -3315,7 +3433,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        set_cosmetic_tag = british_empire
     }
 }
 
@@ -3336,6 +3454,6 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        add_war_support = 0.1
     }
 }

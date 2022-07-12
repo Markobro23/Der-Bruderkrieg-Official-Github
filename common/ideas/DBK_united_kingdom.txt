@@ -68,8 +68,37 @@ ideas = {
 		    is_subject = yes
 	     }
       modifier = {
-        conscription = 0.01
       }
+	  equipment_bonus = {
+		infantry_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+	}
+   }
+   ENG_rogue_squadron = {
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+       cancel = {
+		    is_subject = yes
+	     }
+      modifier = {
+      }
+	  equipment_bonus = {
+		CAS_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+		strat_bomber_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+	}
    }
 
    ENG_federalism = {
@@ -365,6 +394,103 @@ ideas = {
 		modifier = {
 			consumer_goods_factor = -0.05
 			industrial_concern_cost_factor = -0.15
+		}
+	}
+	ENG_remove_hamsworth_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_remove_hamsworth_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			stability_factor = 0.1
+		}
+	}
+	ENG_pro_military_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_military_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			command_power_gain_mult = 0.15
+			conscription_factor = 0.075
+		}
+	}
+
+	ENG_pro_air_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_air_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			air_attack_factor = 0.15
+			air_defence_factor = 0.15
+			air_intercept_efficiency = 0.25
 		}
 	}
 	ENG_unstable_new_republic = {
