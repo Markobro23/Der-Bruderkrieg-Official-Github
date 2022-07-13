@@ -9,13 +9,352 @@ focus_tree = {
 	}
 	
 	continuous_focus_position = { x = -50 y = 2400 } 
+  shared_focus = TUR_the_falling_moon
+  shared_focus = TUR_TANZIMAT_FOCUS
+
 	shared_focus = TUR_national_defense_department
 	shared_focus = TUR_AIRLAND_BATTLE
 	shared_focus = TUR_invest_in_bombers
-	shared_focus = TUR_TANZIMAT_FOCUS
 	shared_focus = TUR_modernize_the_ottoman_fleet
 } 
 
+
+## Starting Tree
+shared_focus = {
+    id = TUR_the_falling_moon
+    icon = GFX_goal_TUR_the_falling_moon
+    x = 5
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_wisdom_of_the_old_guard
+    icon = GFX_goal_TUR_the_wisdom_of_the_old_guard
+    x = -3
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+      focus = TUR_no_country_for_old_men
+    }
+    prerequisite = {
+      focus = TUR_the_falling_moon
+    }
+    relative_position_id = TUR_the_falling_moon
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_gray_wolfs_howl
+    icon = GFX_goal_TUR_the_gray_wolfs_howl
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_wisdom_of_the_old_guard
+    }
+    mutually_exclusive = {
+      focus = TUR_revival_of_the_house_of_osman
+    }
+    relative_position_id = TUR_the_wisdom_of_the_old_guard
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_zafer_riots
+    icon = GFX_goal_TUR_zafer_riots
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_gray_wolfs_howl
+    }
+    relative_position_id = TUR_the_gray_wolfs_howl
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_plot_detat
+    icon = GFX_goal_TUR_plot_detat
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_gray_wolfs_howl
+    }
+    relative_position_id = TUR_the_gray_wolfs_howl
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = TUR_storming_the_palace
+    icon = GFX_goal_TUR_storming_the_palace
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_plot_detat
+    }
+    prerequisite = {
+      focus = TUR_zafer_riots
+    }
+    relative_position_id = TUR_plot_detat
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_pasha_triumvirate
+    icon = GFX_goal_TUR_the_pasha_triumvirate
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_storming_the_palace
+    }
+    
+    relative_position_id = TUR_storming_the_palace
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = TUR_revival_of_the_house_of_osman
+    icon = GFX_goal_TUR_revival_of_the_house_of_osman
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_wisdom_of_the_old_guard
+    }
+    relative_position_id = TUR_the_wisdom_of_the_old_guard
+    mutually_exclusive = {
+      focus = TUR_the_gray_wolfs_howl
+    }
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_plotting_from_the_shadows
+    icon = GFX_goal_TUR_plotting_from_the_shadows
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_revival_of_the_house_of_osman
+    }
+    relative_position_id = TUR_revival_of_the_house_of_osman
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_death_of_abdulmejid_ii
+    icon = GFX_goal_TUR_the_death_of_abdulmejid_ii
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_revival_of_the_house_of_osman
+    }
+    relative_position_id = TUR_revival_of_the_house_of_osman
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = TUR_the_warrior_prince
+    icon = GFX_goal_TUR_the_warrior_prince
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_death_of_abdulmejid_ii
+    }
+    prerequisite = {
+      focus = TUR_plotting_from_the_shadows
+    }
+    relative_position_id = TUR_the_death_of_abdulmejid_ii
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_control_of_the_caliphate
+    icon = GFX_goal_TUR_control_of_the_caliphate
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_warrior_prince
+    }
+    
+    relative_position_id = TUR_the_warrior_prince
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = TUR_no_country_for_old_men
+    icon = GFX_goal_TUR_no_country_for_old_men
+    x = 3
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+      focus = TUR_the_wisdom_of_the_old_guard
+    }
+    prerequisite = {
+      focus = TUR_the_falling_moon
+    }
+    relative_position_id = TUR_the_falling_moon
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_every_man_a_king
+    icon = GFX_goal_TUR_every_man_a_king
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_no_country_for_old_men
+    }
+    relative_position_id = TUR_no_country_for_old_men
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_suffrage_of_man
+    icon = GFX_goal_TUR_suffrage_of_man
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_no_country_for_old_men
+    }
+    relative_position_id = TUR_no_country_for_old_men
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_formation_of_the_ottoman_national_congress
+    icon = GFX_goal_TUR_formation_of_the_ottoman_national_congress
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_suffrage_of_man
+    }
+    prerequisite = {
+      focus = TUR_every_man_a_king
+    }
+    relative_position_id = TUR_suffrage_of_man
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_crown_the_empress
+    icon = GFX_goal_TUR_crown_the_empress
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_formation_of_the_ottoman_national_congress
+    }
+
+    relative_position_id = TUR_formation_of_the_ottoman_national_congress
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_an_ottoman_democratic_state
+    icon = GFX_goal_TUR_an_ottoman_democratic_state
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_crown_the_empress
+    }
+
+    relative_position_id = TUR_crown_the_empress
+    completion_reward = {
+    }
+}
+
+
+## TANZIMAT
 shared_focus = {
 	  id = TUR_TANZIMAT_FOCUS
 	  icon = GFX_goal_Cabinet
