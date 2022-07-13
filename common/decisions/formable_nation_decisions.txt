@@ -1038,6 +1038,12 @@ form_serbia_category = {
 		ai_will_do = { factor = 100 }
 
 		complete_effect = {
+			every_state = {
+				limit = {
+					is_core_of = YUG
+				}
+				add_core_of = ROOT
+			}
 			set_global_flag = form_serbia_flag
 			drop_cosmetic_tag = yes
 			add_state_core = 818
