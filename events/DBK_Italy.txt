@@ -652,6 +652,15 @@ news_event = { #florence-berlin split
 				is_in_faction_with = GER
 			}
 		}
+		if = {
+			limit = {
+				has_country_flag = GER_leaving_faction
+			}
+			leave_faction = yes
+			ITA = {
+				give_guarantee = ROOT
+			}
+		}
 	}
 	option = {  #the second brother's coaltion begins to collapse
 		name = italy.531.b
@@ -2538,13 +2547,311 @@ country_event = { #albania refuses
 	is_triggered_only = yes 
 
 	option = {  #got dat dough
-		name = ITA_fascist_tree_events.16.a 
+		name = ITA_fascist_tree_events.17.a 
 		ai_chance = { factor = 120 } 
 		add_opinion_modifier = {
 			target = ALB
 			modifier = medium_decrease
 		}
 		set_country_flag = ITA_albania_refuses_concessions
+	}
+}
+
+country_event = { #make like a banana and split
+	id = ITA_fascist_tree_events.18
+	title = ITA_fascist_tree_events.18.t
+	desc = ITA_fascist_tree_events.18.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #stay senpai uwu
+		name = ITA_fascist_tree_events.18.a 
+		ai_chance = {
+			factor = 100
+			modifier = {
+				AND = {
+					has_subject = HUN
+					has_subject = OCC
+				}
+				factor = 10
+			}
+		} 
+		trigger = {
+			is_in_faction_with = GER
+			GER = {
+				is_subject = no
+			}
+			is_subject = no
+			OR = {
+				AND = {
+					has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_last_hussars_prussia
+						}
+					}
+				}
+				AND = {
+					has_government = neutrality
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_brownshirts_prussia
+						}
+					}
+				}
+				AND = {
+					has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+					GER = {
+						NOT = {
+							has_completed_focus = GER_the_brownshirts_prussia
+						}
+					}
+				}
+			}
+		}
+		complete_national_focus = ITA_second_brothers_forever
+	}
+	option = {  #make like a banana and split
+		name = ITA_fascist_tree_events.18.b
+		ai_chance = {
+			factor = 100
+			modifier = {
+				AND = {
+					has_subject = HUN
+					has_subject = OCC
+				}
+				factor = 0.5
+			}
+			modifier = {
+				NOT = {
+					OR = {
+						has_subject = HUN
+						has_subject = OCC
+					}
+				}
+				factor = 5
+			}
+		}
+		set_country_flag = ITA_betray_germany
+	}
+}
+
+country_event = { #deciding who to betray Germany with
+	id = ITA_fascist_tree_events.19
+	title = ITA_fascist_tree_events.19.t
+	desc = ITA_fascist_tree_events.19.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #Morocco
+		name = ITA_fascist_tree_events.19.a 
+		ai_chance = {
+			factor = 10
+			modifier = {
+				MOR = { surrender_progress > 0.2 }
+			}
+			factor = 0.2
+		} 
+		trigger = {
+			MOR = {
+				is_subject = no
+				has_war_with = GER
+			}
+			FRA = {
+				OR = {
+					exists = no
+					capital_scope = {
+						NOT = { is_on_continent = europe }
+					}
+				}
+			}
+		}
+		MOR = {
+			FACTION_LEADER = {
+				country_event = { id = generic.2 hours = 2 }
+			}
+		}
+	}
+	option = {  #France
+		name = ITA_fascist_tree_events.19.a 
+		ai_chance = {
+			factor = 10
+			modifier = {
+				FRA = { surrender_progress > 0.2 }
+			}
+			factor = 0.2
+		} 
+		trigger = {
+			FRA = {
+				has_war_with = GER
+			}
+		}
+		FRA = {
+			country_event = { id = generic.2 hours = 2 }
+		}
+	}
+	option = {  #Britain
+		name = ITA_fascist_tree_events.19.b
+		ai_chance = {
+			factor = 10
+			modifier = {
+				ENG = { surrender_progress > 0.2 }
+			}
+			factor = 0.2
+		} 
+		trigger = {
+			ENG = {
+				has_war_with = GER
+			}
+		}
+		ENG = {
+			country_event = { id = generic.2 hours = 2 }
+		}
+	}
+	option = {  #Russia
+		name = ITA_fascist_tree_events.19.c
+		ai_chance = {
+			factor = 10
+			modifier = {
+				SOV = { surrender_progress > 0.2 }
+			}
+			factor = 0.2
+		} 
+		trigger = {
+			SOV = {
+				has_war_with = GER
+			}
+		}
+		SOV = {
+			country_event = { id = generic.2 hours = 2 }
+		}
+	}
+	option = {  #make our own way
+		name = ITA_fascist_tree_events.19.e
+		ai_chance = {
+			factor = 10
+		}
+		create_faction = mediterranean_bloc
+		every_country = {
+			limit = {
+				NOT = {
+					has_war_with = ITA
+				}
+				has_country_flag = GER_leaving_faction
+			}
+			ITA = {
+				add_to_faction = PREV
+			}
+		}
+	}
+}
+
+country_event = { #nonag pact with ITA?
+	id = ITA_fascist_tree_events.20
+	title = ITA_fascist_tree_events.20.t
+	desc = ITA_fascist_tree_events.20.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #yes
+		name = ITA_fascist_tree_events.20.a 
+		ai_chance = {
+			factor = 10
+		} 
+		trigger = {
+			NOT = {
+				focus_progress = {
+					focus = GER_deploy_the_orpo
+					progress > 0
+				}
+			}
+		}
+		diplomatic_relation = {
+			country = ITA
+			relation = non_aggression_pact
+			active = yes
+		}
+		ITA = {
+			country_event = { id = ITA_fascist_tree_events.22 hours = 2 }
+		}
+	}
+	option = {  #no
+		name = ITA_fascist_tree_events.20.b
+		ai_chance = {
+			factor = 10
+		}
+		ITA = {
+			country_event = { id = ITA_fascist_tree_events.21 hours = 2 }
+		}
+	}
+}
+
+country_event = { #Germany denies NAP
+	id = ITA_fascist_tree_events.21
+	title = ITA_fascist_tree_events.21.t
+	desc = ITA_fascist_tree_events.21.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #dang
+		name = ITA_fascist_tree_events.21.a 
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = GER_non_aggression_pact_failed
+		uncomplete_national_focus = {
+			focus = ITA_formin_ribbentrop_pact
+		}
+	}
+}
+
+country_event = { #Germany accepts NAP
+	id = ITA_fascist_tree_events.22
+	title = ITA_fascist_tree_events.22.t
+	desc = ITA_fascist_tree_events.22.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #yay
+		name = ITA_fascist_tree_events.22.a 
+		ai_chance = {
+			factor = 10
+		}
+		
+	}
+}
+
+country_event = { #ITA is leaving, wants to take us with them
+	id = ITA_fascist_tree_events.23
+	title = ITA_fascist_tree_events.23.t
+	desc = ITA_fascist_tree_events.23.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #sure bro
+		name = ITA_fascist_tree_events.23.a 
+		ai_chance = {
+			factor = 10
+		}
+		set_country_flag = GER_leaving_faction
+	}
+	option = {  #bRO WHAT
+		name = ITA_fascist_tree_events.23.b
+		ai_chance = {
+			factor = 5
+		}
 	}
 }
 
@@ -4090,5 +4397,142 @@ country_event = { #italians win tripoli
 			tag = TUR
 		}
 		add_war_support = -0.05
+	}
+}
+
+###Italian demands 'rightful' puppets from GER
+country_event = { #kinda hungary
+	id = ITA_border_conflicts.4
+	title = ITA_border_conflicts.4.t
+	desc = ITA_border_conflicts.4.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #sure thing homeslice
+		name = ITA_border_conflicts.4.a
+		ai_chance = {
+			factor = 25
+		}
+		ITA = {
+			puppet = HUN
+			country_event = { id = ITA_border_conflicts.5 hours = 1 }
+		}
+		hidden_effect = {
+			HUN = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = ITA_south_german_puppets
+			}
+		}
+	}
+	option = { #no!
+		name = ITA_border_conflicts.4.b
+		ai_chance = {
+			factor = 5
+		}
+		ITA = {
+			country_event = { id = ITA_border_conflicts.6 hours = 1 }
+		}
+	}
+}
+
+country_event = { #GER gives us the puppet we want
+	id = ITA_border_conflicts.5
+	title = ITA_border_conflicts.5.t
+	desc = ITA_border_conflicts.5.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #coolio
+		name = ITA_border_conflicts.5.a
+		ai_chance = {
+			factor = 25
+		}
+	}
+}
+
+country_event = { #GER no gives us the puppet we want
+	id = ITA_border_conflicts.6
+	title = ITA_border_conflicts.6.t
+	desc = ITA_border_conflicts.6.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #coolio
+		name = ITA_border_conflicts.6.a
+		ai_chance = {
+			factor = 25
+		}
+	}
+}
+
+country_event = { #want south baguettes
+	id = ITA_border_conflicts.7
+	title = ITA_border_conflicts.7.t
+	desc = ITA_border_conflicts.7.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #sure thing homeslice
+		name = ITA_border_conflicts.4.a
+		ai_chance = {
+			factor = 25
+		}
+		ITA = {
+			puppet = OCC
+			country_event = { id = ITA_border_conflicts.5 hours = 1 }
+		}
+		hidden_effect = {
+			OCC = {
+				drop_cosmetic_tag = yes
+				set_cosmetic_tag = ITA_south_german_puppets
+			}
+		}
+	}
+	option = { #no!
+		name = ITA_border_conflicts.4.b
+		ai_chance = {
+			factor = 5
+		}
+		ITA = {
+			country_event = { id = ITA_border_conflicts.6 hours = 1 }
+		}
+	}
+}
+
+country_event = { #want northern spain
+	id = ITA_border_conflicts.8
+	title = ITA_border_conflicts.8.t
+	desc = ITA_border_conflicts.8.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes 
+
+	option = { #sure thing homeslice
+		name = ITA_border_conflicts.4.a
+		ai_chance = {
+			factor = 25
+		}
+		ITA = {
+			puppet = NAV
+			country_event = { id = ITA_border_conflicts.5 hours = 1 }
+		}
+		hidden_effect = {
+			NAV = {
+				drop_cosmetic_tag = yes
+			}
+		}
+	}
+	option = { #no!
+		name = ITA_border_conflicts.4.b
+		ai_chance = {
+			factor = 5
+		}
+		ITA = {
+			country_event = { id = ITA_border_conflicts.6 hours = 1 }
+		}
 	}
 }

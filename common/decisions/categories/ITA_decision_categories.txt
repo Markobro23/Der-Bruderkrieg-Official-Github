@@ -208,14 +208,44 @@ ITA_establish_stato_gemelli = {
 	}
 
 	visible = {
-		OR = {
-			has_war_with = GER
-			any_owned_state = {
-				is_core_of = GER
+		has_completed_focus = ITA_savior_of_catholic_germans
+		NOT = {
+			has_country_leader = {
+				name = "Julius Evola"
+				ruling_only = yes
 			}
-			any_controlled_state = {
-				is_core_of = GER
-			}
+		}
+	}
+}
+
+ITA_asserting_ourselves_in_coalition = {
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		has_completed_focus = ITA_second_brothers_forever
+		is_in_faction_with = GER
+	}
+}
+
+
+ITA_turncoats_apprectiation_society = { #please help me I am dying by the second
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		focus_progress = {
+			focus = ITA_florence_berlin_split
+			progress > 0
+		}
+		NOT = {
+			has_completed_focus = ITA_florence_berlin_split
 		}
 	}
 }

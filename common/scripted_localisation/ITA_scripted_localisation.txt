@@ -425,3 +425,44 @@ defined_text = {
     }
 
 }
+
+defined_text = {
+    name = GetItalianForeignMinister
+    text = {
+        trigger = {
+            has_idea = ITA_achille_starace
+        }
+        localization_key = Starace
+    }
+    text = {
+        trigger = {
+            has_idea = ITA_galeazzo_ciano
+        }
+        localization_key = Ciano
+    }
+    text = {
+        trigger = {
+            has_idea = ITA_dino_grandi
+        }
+        localization_key = Grandi
+    }
+    text = {
+        trigger = {
+            has_idea = ITA_renzo_montagna
+        }
+        localization_key = Montagna
+    }
+    text = {
+        trigger = {
+            NOT = {
+                OR = {
+                    has_idea = ITA_galeazzo_ciano
+                    has_idea = ITA_achille_starace
+                    has_idea = ITA_renzo_montagna
+                    has_idea = ITA_dino_grandi
+                }
+            }
+        }
+        localization_key = ITA_leader_loc_key
+    }
+}
