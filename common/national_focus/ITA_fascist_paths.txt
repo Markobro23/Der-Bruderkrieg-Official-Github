@@ -539,11 +539,14 @@ shared_focus = {
 	prerequisite = {
 		focus = ITA_the_italian_mess
 	}
+	select_effect = {
+		transfer_state = 451
+	}
 	relative_position_id = ITA_the_italian_mess
 	completion_reward = {
 		declare_war_on = {
 			target = LBA
-			type = puppet_wargoal_focus
+			type = annex_everything
 		}
 		add_threat = 3
 		ENG = {
@@ -563,9 +566,6 @@ shared_focus = {
 				target = ITA
 				modifier = protest_action
 			}
-		}
-		ITA = {
-			set_state_controller = 451
 		}
 		451 = {
 			create_unit = {
@@ -1112,9 +1112,17 @@ shared_focus = {
 			factor = 10
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = political_commissars_focus
-				add_idea = ITA_blueshirt_loyalty
+			if = {
+				limit = {
+					has_idea = political_commissars_focus
+				}
+				swap_ideas = {
+					remove_idea = political_commissars_focus
+					add_idea = ITA_blueshirt_loyalty
+				}
+				else = {
+					add_ideas = political_commissars_focus
+				}
 			}
 			add_popularity = {
 				ideology = ROOT

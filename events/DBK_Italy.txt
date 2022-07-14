@@ -798,7 +798,7 @@ news_event = { #Albania coup
 	id = italy.536
 	title = italy.536.t
 	desc = italy.536.d
-	#picture = GFX_report_event_eng_dambuster2
+	picture = GFX_fallofviennageneric
 	is_triggered_only = yes 
 	major = yes
 
@@ -830,6 +830,15 @@ news_event = { #Albania coup
 			OR = {
 				tag = GER
 				is_in_faction_with = GER
+			}
+		}
+		if = {
+			limit = {
+				tag = ALB
+				add_autonomy_ratio = {
+					value = -0.5
+					localization = lol
+				}
 			}
 		}
 	}
@@ -4098,6 +4107,13 @@ country_event = { #ciano getting couped
 			drop_cosmetic_tag = yes
 			set_cosmetic_tag = ITA_italian_empire
 		}
+		add_ideas = {
+			ITA_attilio_teruzzi_hog
+			ITA_renzo_montagna
+			ITA_cesare_maria_de_vecchi
+			ITA_tullio_tamburini
+			ITA_renato_ricci
+		}
 	}
 	option = { #evola
 		name = italy_power_struggle.3.b
@@ -4127,6 +4143,13 @@ country_event = { #ciano getting couped
 		}
 		set_variable = {
 			ITA_third_tri_power = 0
+		}
+		add_ideas = {
+			ITA_julius_evola
+			ITA_dino_grandi
+			ITA_evola_intmin
+			ITA_augusto_turati
+			ITA_ferruccio_lantini
 		}
 	}
 }
@@ -4290,6 +4313,13 @@ country_event = { #voting out the impostor bianchi
 			set_variable = { ITA_head_tri_power = 50 }
 			set_variable = { ITA_second_tri_power = 30 }
 			set_variable = { ITA_third_tri_power = 20 }
+		}
+		add_ideas = {
+			ITA_constanzo_ciano
+			ITA_galeazzo_ciano
+			ITA_guido_guidi
+			ITA_carlo_alberto_biggini
+			ITA_ferruccio_lantini
 		}
 	}
 }

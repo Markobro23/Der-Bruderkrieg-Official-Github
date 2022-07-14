@@ -616,17 +616,8 @@ weltkrieg_decisions = {
 
 		complete_effect = {
 			set_global_flag = weltrieg_someone_deciding_balkans
-			if = {
-				limit = {
-					tag = GER
-				}
+			GER = {
 				country_event = { id = weltkrieg_peace.1 }
-			}
-			if = {
-				limit = {
-					tag = ITA
-				}
-				country_event = { id = weltkrieg_peace.2 }
 			}
 		}
 

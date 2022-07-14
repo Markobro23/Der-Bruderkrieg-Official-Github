@@ -10,6 +10,9 @@ country_event = { #the fate of the balkans
 	option = { #screw over russia
 		name = weltkrieg_peace.1.a
 		#italy gets an event promising more of the balkans, if they accept, russia gets an event about how they've been screwed over
+		ai_chance = {
+			factor = 5
+		}
 		ITA = {
 			country_event = { id = weltkrieg_peace.6 hours = 1 }
 		}
@@ -27,6 +30,15 @@ country_event = { #the fate of the balkans
 	}
 	option = { #screw over italy
 		name = weltkrieg_peace.1.b
+		ai_chance = {
+			factor = 3
+			modifier = {
+				factor = 0
+				ITA = {
+					is_ai = no
+				}
+			}
+		}
 		trigger = {
 			SOV = {
 				has_war_with = AUS
@@ -42,6 +54,9 @@ country_event = { #the fate of the balkans
 	}
 	option = { #it's good as is
 		name = weltkrieg_peace.1.c
+		ai_chance = {
+			factor = 5
+		}
 		FROM = {
 			country_event = { id = weltkrieg_peace.5 hours = 1 }
 		}
@@ -61,7 +76,9 @@ country_event = { #italy wanting to change the peace deal for Austria
 	}
 	option = { #more of balkans
 		name = weltkrieg_peace.2.b
-		country_event = { id = weltkrieg_peace.1 hours = 1 }
+		GER = {
+			country_event = { id = weltkrieg_peace.1 hours = 1 }
+		}
 	}
 }
 
@@ -104,12 +121,24 @@ country_event = { #italy wanting to change the peace deal for France
 	option = { #split france
 		name = weltkrieg_peace.4.a
 		set_global_flag = weltkrieg_ITA_gets_occitania
+		ai_chance = {
+			factor = 5
+		}
 		ITA = {
 			country_event = { id = weltkrieg_peace.7 hours = 1 }
 		}
 	}
 	option = { #No
 		name = weltkrieg_peace.4.b
+		ai_chance = {
+			factor = 5
+			modifier = {
+				factor = 0
+				ITA = {
+					is_ai = no
+				}
+			}
+		}
 		ITA = {
 			country_event = { id = weltkrieg_peace.5 hours = 1 }
 		}
