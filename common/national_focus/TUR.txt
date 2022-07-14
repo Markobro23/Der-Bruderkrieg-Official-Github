@@ -19,6 +19,48 @@ focus_tree = {
 	shared_focus = TUR_modernize_the_ottoman_fleet
 } 
 
+focus_tree = {
+	id = TUR_monarchy_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = TUR
+		}
+	}
+	
+	continuous_focus_position = { x = -50 y = 2400 } 
+  shared_focus = TUR_the_empire_has_gotta_chill
+  shared_focus = TUR_the_arab_chaos
+  shared_focus = TUR_TANZIMAT_FOCUS
+
+	shared_focus = TUR_national_defense_department
+	shared_focus = TUR_AIRLAND_BATTLE
+	shared_focus = TUR_invest_in_bombers
+	shared_focus = TUR_modernize_the_ottoman_fleet
+} 
+
+focus_tree = {
+	id = TUR_cup_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = TUR
+		}
+	}
+	
+	continuous_focus_position = { x = -50 y = 2400 } 
+  shared_focus = TUR_all_power_the_to_the_unionists
+  shared_focus = TUR_the_arab_chaos
+  shared_focus = TUR_TANZIMAT_FOCUS
+
+	shared_focus = TUR_national_defense_department
+	shared_focus = TUR_AIRLAND_BATTLE
+	shared_focus = TUR_invest_in_bombers
+	shared_focus = TUR_modernize_the_ottoman_fleet
+} 
+
 
 ## Starting Tree
 shared_focus = {
@@ -355,6 +397,227 @@ shared_focus = {
 }
 
 
+## Fuad
+shared_focus = {
+    id = TUR_the_empire_has_gotta_chill
+    icon = GFX_goal_TUR_the_empire_has_gotta_chill
+    x = 5
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_train_the_arabian_cavalry
+    icon = GFX_goal_TUR_train_the_arabian_cavalry
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_empire_has_gotta_chill
+    }
+
+    relative_position_id = TUR_the_empire_has_gotta_chill
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_recruit_jihad_warriors
+    icon = GFX_goal_TUR_recruit_jihad_warriors
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_train_the_arabian_cavalry
+    }
+
+    relative_position_id = TUR_train_the_arabian_cavalry
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_strengthen_the_ministry_of_war
+    icon = GFX_goal_TUR_strengthen_the_ministry_of_war
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_train_the_arabian_cavalry
+    }
+
+    relative_position_id = TUR_train_the_arabian_cavalry
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_anatolian_gold_mines
+    icon = GFX_goal_TUR_anatolian_gold_mines
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_strengthen_the_ministry_of_war
+    }
+    prerequisite = {
+      focus = TUR_recruit_jihad_warriors
+    }
+
+    relative_position_id = TUR_strengthen_the_ministry_of_war
+    completion_reward = {
+    }
+}
+
+shared_focus = {
+    id = TUR_dismiss_the_pashas
+    icon = GFX_goal_TUR_dismiss_the_pashas
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_empire_has_gotta_chill
+    }
+
+    relative_position_id = TUR_the_empire_has_gotta_chill
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_operation_sledgehammer
+    icon = GFX_goal_TUR_operation_sledgehammer
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_dismiss_the_pashas
+    }
+
+    relative_position_id = TUR_dismiss_the_pashas
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_royal_benefits
+    icon = GFX_goal_TUR_royal_benefits
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_dismiss_the_pashas
+    }
+
+    relative_position_id = TUR_dismiss_the_pashas
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_unlimited_power
+    icon = GFX_goal_TUR_unlimited_power
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_royal_benefits
+    }
+    prerequisite = {
+      focus = TUR_operation_sledgehammer
+    }
+    
+
+    relative_position_id = TUR_royal_benefits
+    completion_reward = {
+    }
+}
+
+## Pashas
+shared_focus = {
+    id = TUR_all_power_the_to_the_unionists
+    icon = GFX_goal_TUR_all_power_the_to_the_unionists
+    x = 5
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_controlling_the_people
+    icon = GFX_goal_TUR_controlling_the_people
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_all_power_the_to_the_unionists
+    }
+    
+
+    relative_position_id = TUR_all_power_the_to_the_unionists
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_a_brutal_reign
+    icon = GFX_goal_TUR_a_brutal_reign
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_controlling_the_people
+    }
+    
+
+    relative_position_id = TUR_controlling_the_people
+    completion_reward = {
+    }
+}
 ## ARAB
 shared_focus = {
     id = TUR_the_arab_chaos
