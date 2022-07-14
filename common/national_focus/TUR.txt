@@ -61,6 +61,26 @@ focus_tree = {
 	shared_focus = TUR_modernize_the_ottoman_fleet
 } 
 
+focus_tree = {
+	id = TUR_attaturk_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = TUR
+		}
+	}
+	
+	continuous_focus_position = { x = -50 y = 2400 } 
+  shared_focus = TUR_the_arab_chaos
+  shared_focus = TUR_TANZIMAT_FOCUS
+
+	shared_focus = TUR_national_defense_department
+	shared_focus = TUR_AIRLAND_BATTLE
+	shared_focus = TUR_invest_in_bombers
+	shared_focus = TUR_modernize_the_ottoman_fleet
+} 
+
 
 ## Starting Tree
 shared_focus = {
@@ -188,6 +208,7 @@ shared_focus = {
     
     relative_position_id = TUR_storming_the_palace
     completion_reward = {
+      load_focus_tree = TUR_cup_tree
     }
 }
 
@@ -282,6 +303,7 @@ shared_focus = {
     
     relative_position_id = TUR_the_warrior_prince
     completion_reward = {
+      load_focus_tree = TUR_monarchy_tree
     }
 }
 
@@ -393,6 +415,7 @@ shared_focus = {
 
     relative_position_id = TUR_crown_the_empress
     completion_reward = {
+      load_focus_tree = TUR_attaturk_tree
     }
 }
 
@@ -583,7 +606,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_controlling_the_people
     icon = GFX_goal_TUR_controlling_the_people
-    x = -1
+    x = -2
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -615,6 +638,250 @@ shared_focus = {
     
 
     relative_position_id = TUR_controlling_the_people
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_a_turkey_for_turks_only
+    icon = GFX_goal_TUR_a_turkey_for_turks_only
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_brutal_reign  
+    }
+    mutually_exclusive = {
+      focus = TUR_favor_forced_assimilation
+    }
+
+    relative_position_id = TUR_a_brutal_reign 
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_favor_forced_assimilation
+    icon = GFX_goal_TUR_favor_forced_assimilation
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_brutal_reign  
+    }
+    mutually_exclusive = {
+      focus = TUR_a_turkey_for_turks_only
+    }
+
+    relative_position_id = TUR_a_brutal_reign 
+    completion_reward = {
+    }
+}
+
+
+shared_focus = {
+    id = TUR_ally_the_germans
+    icon = GFX_goal_TUR_ally_the_germans
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_turkey_for_turks_only
+    }
+
+
+    relative_position_id = TUR_a_turkey_for_turks_only 
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_pursue_pan_turanism
+    icon = GFX_goal_TUR_pursue_pan_turanism
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_favor_forced_assimilation
+    }
+   
+
+    relative_position_id = TUR_favor_forced_assimilation 
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_a_night_at_topkapi
+    icon = GFX_goal_TUR_a_night_at_topkapi
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_ally_the_germans
+      focus = TUR_pursue_pan_turanism
+    }
+   
+
+    relative_position_id = TUR_pursue_pan_turanism 
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_a_new_empire
+    icon = GFX_goal_TUR_a_new_empire
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_all_power_the_to_the_unionists
+    }
+    
+
+    relative_position_id = TUR_all_power_the_to_the_unionists
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_puppet_king
+    icon = GFX_goal_TUR_the_puppet_king
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_new_empire
+    }
+    mutually_exclusive = {
+      focus = TUR_death_of_house_osman
+    }
+
+    relative_position_id = TUR_a_new_empire
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_death_of_house_osman
+    icon = GFX_goal_TUR_death_of_house_osman
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_new_empire
+    }
+    mutually_exclusive = {
+      focus = TUR_the_puppet_king
+    }
+
+    relative_position_id = TUR_a_new_empire
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_cult_of_science
+    icon = GFX_goal_TUR_cult_of_science
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_puppet_king
+      focus = TUR_death_of_house_osman
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_death_of_house_osman
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_adopt_the_bushido_code
+    icon = GFX_goal_TUR_adopt_the_bushido_code
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_a_new_empire
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_a_new_empire
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_host_japanese_exiles
+    icon = GFX_goal_TUR_host_japanese_exiles
+    x = 0
+    y = 2
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_adopt_the_bushido_code
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_adopt_the_bushido_code
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_nation_at_arms
+    icon = GFX_goal_TUR_the_nation_at_arms
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_adopt_the_bushido_code
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_adopt_the_bushido_code
     completion_reward = {
     }
 }
