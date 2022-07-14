@@ -72,6 +72,7 @@ focus_tree = {
 	}
 	
 	continuous_focus_position = { x = -50 y = 2400 } 
+  shared_focus = TUR_kemals_revisions
   shared_focus = TUR_the_arab_chaos
   shared_focus = TUR_TANZIMAT_FOCUS
 
@@ -882,6 +883,455 @@ shared_focus = {
     }
 
     relative_position_id = TUR_adopt_the_bushido_code
+    completion_reward = {
+    }
+}
+
+## KEMAL
+shared_focus = {
+    id = TUR_kemals_revisions
+    icon = GFX_goal_TUR_kemals_revisions
+    x = 5
+    y = 0
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_reforming_from_the_top
+    icon = GFX_goal_TUR_reforming_from_the_top
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_kemals_revisions
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_kemals_revisions
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_promoting_freedom_of_the_press
+    icon = GFX_goal_TUR_promoting_freedom_of_the_press
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_reforming_from_the_top
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_deploy_the_meh
+    }
+    relative_position_id = TUR_reforming_from_the_top
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_deploy_the_meh
+    icon = GFX_goal_TUR_deploy_the_meh
+    x = 1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_reforming_from_the_top
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_promoting_freedom_of_the_press
+    }
+    relative_position_id = TUR_reforming_from_the_top
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_cooperate_with_foreign_companies
+    icon = GFX_goal_TUR_cooperate_with_foreign_companies
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_promoting_freedom_of_the_press
+      focus = TUR_deploy_the_meh
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_construct_istanbul_airfield
+    }
+    relative_position_id = TUR_promoting_freedom_of_the_press
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_construct_istanbul_airfield
+    icon = GFX_goal_TUR_construct_istanbul_airfield
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_promoting_freedom_of_the_press
+      focus = TUR_deploy_the_meh
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_cooperate_with_foreign_companies
+    }
+    relative_position_id = TUR_promoting_freedom_of_the_press
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_promote_the_free_market
+    icon = GFX_goal_TUR_promote_the_free_market
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_cooperate_with_foreign_companies
+      focus = TUR_construct_istanbul_airfield
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_establish_a_central_bank
+    }
+    relative_position_id = TUR_cooperate_with_foreign_companies
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_establish_a_central_bank
+    icon = GFX_goal_TUR_establish_a_central_bank
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_cooperate_with_foreign_companies
+      focus = TUR_construct_istanbul_airfield
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_promote_the_free_market
+    }
+    relative_position_id = TUR_cooperate_with_foreign_companies
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_turkeys_first_elections
+    icon = GFX_goal_TUR_turkeys_first_elections
+    x = 1 
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_promote_the_free_market
+      focus = TUR_establish_a_central_bank
+    }
+    prerequisite = {
+    }
+    
+    relative_position_id = TUR_promote_the_free_market
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_show_off_the_sultana
+    icon = GFX_goal_TUR_show_off_the_sultana
+    x = 3
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_kemals_revisions
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_kemals_revisions
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_italian_exile
+    icon = GFX_goal_TUR_the_italian_exile
+    x = -2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_show_off_the_sultana
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_the_shah_of_persia
+    }
+    mutually_exclusive = {
+      focus = TUR_fat_farouk_will_do
+    }
+    relative_position_id = TUR_show_off_the_sultana
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_pan_roman_propaganda
+    icon = GFX_goal_TUR_pan_roman_propaganda
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_italian_exile
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_the_italian_exile
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_legionnaire_training
+    icon = GFX_goal_TUR_legionnaire_training
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_pan_roman_propaganda
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_pan_roman_propaganda
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_rome_with_an_ottoman_style
+    icon = GFX_goal_TUR_rome_with_an_ottoman_style
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_legionnaire_training
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_legionnaire_training
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_the_shah_of_persia
+    icon = GFX_goal_TUR_the_shah_of_persia
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_show_off_the_sultana
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_fat_farouk_will_do
+    }
+    mutually_exclusive = {
+      focus = TUR_the_italian_exile
+    }
+    relative_position_id = TUR_show_off_the_sultana
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_spread_pro_ottoman_sentiment
+    icon = GFX_goal_TUR_spread_pro_ottoman_sentiment
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_the_shah_of_persia
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_the_shah_of_persia
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_otto_persian_personal_union
+    icon = GFX_goal_TUR_otto_persian_personal_union
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_spread_pro_ottoman_sentiment
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_spread_pro_ottoman_sentiment
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_fat_farouk_will_do
+    icon = GFX_goal_TUR_fat_farouk_will_do
+    x = 2
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_show_off_the_sultana
+    }
+    prerequisite = {
+    }
+    mutually_exclusive = {
+      focus = TUR_the_shah_of_persia
+    }
+    mutually_exclusive = {
+      focus = TUR_the_italian_exile
+    }
+    relative_position_id = TUR_show_off_the_sultana
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_pull_egypt_away_from_britain
+    icon = GFX_goal_TUR_pull_egypt_away_from_britain
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_fat_farouk_will_do
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_fat_farouk_will_do
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_reestablish_the_khedivate
+    icon = GFX_goal_TUR_reestablish_the_khedivate
+    x = 0
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_pull_egypt_away_from_britain
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_pull_egypt_away_from_britain
+    completion_reward = {
+    }
+}
+shared_focus = {
+    id = TUR_connecting_the_middle_east
+    icon = GFX_goal_TUR_connecting_the_middle_east
+    x = -1
+    y = 1
+    cost = 1
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_reestablish_the_khedivate
+      focus = TUR_otto_persian_personal_union
+    }
+    prerequisite = {
+    }
+
+    relative_position_id = TUR_reestablish_the_khedivate
     completion_reward = {
     }
 }
