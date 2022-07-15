@@ -5,23 +5,136 @@ TUR_arab_tension = {
 TUR_preparing_the_pashas_coup = {
 	TUR_boost_cup_coup_popularity = {
 
-    icon = generic_industry
+		icon = generic_industry
 
-    cost = 25
+		cost = 25
 
-	modifier = {
-		fascism_drift = 0.05
+		modifier = {
+			fascism_drift = 0.05
+		}
+
+		days_remove = 30
+
+		fire_only_once = no
+
+		complete_effect = {
+		
+		}
+
 	}
 
-	days_remove = 30
+	TUR_rally_the_young_turks = {
 
-    fire_only_once = yes
+		icon = generic_industry
 
-    complete_effect = {
-     
-    }
+		cost = 15
 
-  }
+		modifier = {
+		}
+		available = {
+			has_completed_focus = TUR_zafer_riots
+		}
+		days_remove = 0
+		days_re_enable = 30
+
+		fire_only_once = no
+
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.075
+			}
+		}
+	}
+
+	TUR_cup_secure_istanbul = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 4
+				state = 341
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			341 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	TUR_cup_secure_ankara = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = 49
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			49 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+
+	TUR_cup_secure_izmir = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 2
+				state = 339
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			339 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+		}
+	}
 }
 
 TUR_ottoman_persian_war = {
