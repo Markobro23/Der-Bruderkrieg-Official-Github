@@ -7021,3 +7021,43 @@ GER_occupation_of_russia = {
 	}
 
 }
+
+GER_sponsor_anti_russian_rebels = {
+	
+	GER_sponsor_anti_russian_rebels_decision = {
+
+		target_trigger = {
+			FROM = {
+				capital_scope = {
+					is_on_continent = europe
+				}
+				is_subject_of = SOV
+				NOT = {
+					OR = {
+						has_idea = HUN_post_war_rebels
+						has_cosmetic_tag = occupied_slovakia_russia
+						has_cosmetic_tag = occupied_hungary_russia
+					}
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 50
+
+		days_remove = 14
+
+		remove_effect = {
+			FROM = {
+				add_ideas = HUN_post_war_rebels
+				add_popularity = {
+					ideology = ROOT
+					popularity = 0.1
+				}
+			}
+		}
+
+	}
+
+}

@@ -2,7 +2,7 @@
  #  ## # #  # #  # #     #  #  #  # #     #  # #    #    #  # #  # #  #  #   #  #  # ## #
  #  # ## #  # #  #   #   #  ###    #      ###  ##   #    #  # #    ####  #   #  #  # # ##
  #  #  # #  # #  #    #  #  #  #   #      #  # #    #    #  # #  # #  #  #   #  #  # #  #
-### #  # ###   ##  ###   #  #  #   #      #  # #### ####  ##   ##  #  #  #  ###  ##  #  #
+### #  # ###   ##  ###   #  #  #   # c     #  # #### ####  ##   ##  #  #  #  ###  ##  #  #
 
 #Category only allowed for SOV
 SOV_industry_relocation = {
@@ -10659,7 +10659,15 @@ SOV_solving_the_ethnic_conflicts = {
 
 		remove_effect = {
 			set_country_flag = SOV_ukrainian_pole_dispute_solved
-			add_stability = 0.02
+			every_state = {
+				limit = {
+					is_owned_by = SOV
+					has_dynamic_modifier = { modifier = SOV_rising_ukrainian_nationalism }
+				}
+				remove_dynamic_modifier = {
+					modifier = SOV_rising_ukrainian_nationalism
+				}
+			}
 		}
 
 	}
@@ -10719,112 +10727,16 @@ SOV_solving_the_ethnic_conflicts = {
 		}
 
 		remove_effect = {
-			set_country_flag = SOV_cossack_problem_solved
-			add_stability = 0.02
-		}
-
-	}
-	SOV_send_soldiers_to_the_finns = {
-
-		icon = generic_industry
-
-		fire_only_once = yes
-
-		cost = 5
-
-		on_map_mode = map_and_decisions_view
-
-		ai_will_do = {
-			factor = 1000
-		}
-
-		days_remove = 35
-
-		available = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				divisions_in_state = {
-					state = 111	
-					size > 4
-				}
-			}
-			else = {
-				always = yes
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 111
-			}
-		}
-
-		visible = {
-			has_completed_focus = SOV_crushing_finnish_resistance_movements
-		}
-
-		modifier = {
-			command_power_gain = -0.25
-		}
-
-		remove_effect = {
-			set_country_flag = SOV_finnish_problem_solved
-			add_stability = 0.02
-		}
-	}
-	SOV_the_belarussian_lithuanian_dispute = {
-
-		icon = generic_political_discourse
-
-		fire_only_once = yes
-
-		cost = 5
-
-		on_map_mode = map_and_decisions_view
-
-		ai_will_do = {
-			factor = 1000
-		}
-
-		days_remove = 35
-
-		available = {
-			if = {
-				limit = {
-					is_ai = no
-				}
-				divisions_in_state = {
-					state = 784	
-					size > 4
-				}
-			}
-			else = {
-				always = yes
-			}
-		}
-
-		visible = {
-			OR = {
-				has_completed_focus = SOV_pro_rsdlp_agenda 
-				has_completed_focus = SOV_unify_the_duma
-			}
-		}
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 784
-			}
-		}
-
-		modifier = {
-			command_power_gain = -0.25
-		}
-
-		remove_effect = {
 			set_country_flag = SOV_belarussian_lithuanian_dispute_solved
-			add_stability = 0.02
+			every_state = {
+				limit = {
+					is_owned_by = SOV
+					has_dynamic_modifier = { modifier = SOV_ethnic_conflicts }
+				}
+				remove_dynamic_modifier = {
+					modifier = SOV_ethnic_conflicts
+				}
+			}
 		}
 
 	}
@@ -10878,7 +10790,15 @@ SOV_solving_the_ethnic_conflicts = {
 
 		remove_effect = {
 			set_country_flag = SOV_latvian_problem_solved
-			add_stability = 0.02
+			every_state = {
+				limit = {
+					is_owned_by = SOV
+					has_dynamic_modifier = { modifier = SOV_baltic_separatism }
+				}
+				remove_dynamic_modifier = {
+					modifier = SOV_baltic_separatism
+				}
+			}
 		}
 	}
 	SOV_send_soldiers_to_the_caucusus = {
@@ -10937,7 +10857,15 @@ SOV_solving_the_ethnic_conflicts = {
 
 		remove_effect = {
 			set_country_flag = SOV_azerbaijian_armenian_problem_solved
-			add_stability = 0.02
+			every_state = {
+				limit = {
+					is_owned_by = SOV
+					has_dynamic_modifier = { modifier = SOV_caucasian_discord }
+				}
+				remove_dynamic_modifier = {
+					modifier = SOV_caucasian_discord
+				}
+			}
 		}
 	}
 

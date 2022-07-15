@@ -2627,6 +2627,248 @@ country_event = {
 	}
 }
 
+country_event = { #German proposal for EU but Racist
+	id = GER_wiltkrieg_faction_events.23
+	title = GER_wiltkrieg_faction_events.23.t
+	desc = GER_wiltkrieg_faction_events.23.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #yes
+		name = GER_wiltkrieg_faction_events.23.a
+		ai_chance = {
+			factor = 5
+		}
+		every_country = {
+			limit = {
+				OR = {
+					tag = SOV
+					is_in_faction_with = SOV
+				}
+			}
+			GER = {
+				add_to_faction = PREV
+			}
+		}
+		GER = {
+			country_event = { id = GER_wiltkrieg_faction_events.24 hours = 2 }
+		}
+	}
+	option = { #no
+		name = GER_wiltkrieg_faction_events.23.b
+		ai_chance = {
+			factor = 10
+		}
+		GER = {
+			country_event = { id = GER_wiltkrieg_faction_events.19 hours = 2 }
+		}
+	}
+}
+
+country_event = { #EU but racist formed
+	id = GER_wiltkrieg_faction_events.24
+	title = GER_wiltkrieg_faction_events.24.t
+	desc = GER_wiltkrieg_faction_events.24.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #yOOOOOOO
+		name = GER_wiltkrieg_faction_events.24.a
+		ai_chance = {
+			factor = 5
+		}
+		set_faction_name = european_confederation
+		news_event = { id = GER_wiltkrieg_faction_events.25 hours = 6 }
+	}
+}
+
+news_event = { #EU but racist formed
+	id = GER_wiltkrieg_faction_events.25
+	title = GER_wiltkrieg_faction_events.25.t
+	desc = GER_wiltkrieg_faction_events.25.d
+	picture = GFX_news_event_017
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { #bro wtf
+		name = GER_wiltkrieg_faction_events.25.a
+		
+	}
+}
+
+country_event = { #Germany proposes the consolidation of the economic communities
+	id = GER_wiltkrieg_faction_events.26
+	title = GER_wiltkrieg_faction_events.26.t
+	desc = GER_wiltkrieg_faction_events.26.d
+	picture = GFX_report_event_finnish_letter
+
+	is_triggered_only = yes
+
+	option = { #yes
+		name = GER_wiltkrieg_faction_events.26.a
+		ai_chance = {
+			factor = 10
+		}
+		every_country = {
+			limit = {
+				has_idea = GER_syndicalist_system
+			}
+			swap_ideas = {
+				remove_idea = GER_syndicalist_system
+				add_idea = GER_consolidated_economic_communities
+			}
+		}
+		every_country = {
+			limit = {
+				has_idea = GER_syndicalist_system_2
+			}
+			swap_ideas = {
+				remove_idea = GER_syndicalist_system_2
+				add_idea = GER_consolidated_economic_communities
+			}
+		}
+		every_country = {
+			limit = {
+				has_idea = SOV_european_economic_zone
+			}
+			swap_ideas = {
+				remove_idea = SOV_european_economic_zone
+				add_idea = GER_consolidated_economic_communities
+			}
+		}
+		every_country = {
+			limit = {
+				has_idea = GER_consolidated_economic_communities
+			}
+			news_event = { id = GER_wiltkrieg_faction_events.27 hours = 3 }
+		}
+	}
+	option = { #no
+		name = GER_wiltkrieg_faction_events.26.b
+		ai_chance = {
+			factor = 10
+		}
+		GER = {
+			country_event = { id = GER_wiltkrieg_faction_events.28 hours = 2 }
+		}
+	}
+}
+
+news_event = { #EU economy but racist formed
+	id = GER_wiltkrieg_faction_events.27
+	title = GER_wiltkrieg_faction_events.27.t
+	desc = GER_wiltkrieg_faction_events.27.d
+	picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #bro wtf
+		name = GER_wiltkrieg_faction_events.27.a
+		
+	}
+}
+
+country_event = { #EU economy but racist denied
+	id = GER_wiltkrieg_faction_events.28
+	title = GER_wiltkrieg_faction_events.28.t
+	desc = GER_wiltkrieg_faction_events.28.d
+	#picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #T_T
+		name = GER_wiltkrieg_faction_events.28.a
+		set_country_flag = GER_consolidated_economies_rejected
+	}
+}
+
+news_event = { #Steel Curtain
+	id = GER_wiltkrieg_faction_events.29
+	title = GER_wiltkrieg_faction_events.29.t
+	desc = GER_wiltkrieg_faction_events.29.d
+	picture = GFX_news_event_017
+
+	is_triggered_only = yes
+	major = yes
+
+	option = { #bro wtf
+		name = GER_wiltkrieg_faction_events.29.a
+		trigger = {
+			OR = {
+				is_in_faction_with = SOV
+				is_in_faction_with = GER
+			}
+		}
+	}
+	option = { #so no war? *smashes skateboard and phone*
+		name = GER_wiltkrieg_faction_events.29.b
+		trigger = {
+			NOT = {
+				OR = {
+					is_in_faction_with = SOV
+					is_in_faction_with = GER
+				}
+			}
+		}
+	}
+}
+
+country_event = { #germany offers aid
+	id = GER_wiltkrieg_faction_events.30
+	title = GER_wiltkrieg_faction_events.30.t
+	desc = GER_wiltkrieg_faction_events.30.d
+	#picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #pogchamp
+		name = GER_wiltkrieg_faction_events.30.a
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 500
+			producer = GER
+		}
+	}
+}
+
+country_event = { #germany embargoes Russia
+	id = GER_wiltkrieg_faction_events.31
+	title = GER_wiltkrieg_faction_events.31.t
+	desc = GER_wiltkrieg_faction_events.31.d
+	#picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #bro I thought we were chill
+		name = GER_wiltkrieg_faction_events.31.a
+		add_ideas = GER_embargo_on_russia
+	}
+}
+
+country_event = { #german-russian economic zone
+	id = GER_wiltkrieg_faction_events.32
+	title = GER_wiltkrieg_faction_events.32.t
+	desc = GER_wiltkrieg_faction_events.32.d
+	#picture = GFX_news_event_017
+
+	is_triggered_only = yes
+
+	option = { #nice
+		name = GER_wiltkrieg_faction_events.32.a
+		if = {
+			limit = {
+				has_country_flag = GER_agree_SOV_industrial_zone
+			}
+			add_ideas = GER_russian_economic_ties
+			else = {
+				unlock_decision_category_tooltip = SOV_prussian_russian_industry
+			}
+		}
+	}
+}
 
 add_namespace = germany_slovenia_events
 country_event = {
