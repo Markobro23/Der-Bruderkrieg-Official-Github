@@ -27,3 +27,19 @@ TUR_ottoman_persian_war = {
 		}
 	}
 }
+
+TUR_preparing_the_pashas_coup = {
+	icon = army_reform
+
+	allowed = {
+		tag = TUR
+	}
+
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = TUR_the_gray_wolfs_howl
+		NOT = {
+			has_completed_focus = TUR_storming_the_palace
+		}
+	}
+}

@@ -31,6 +31,53 @@ country_event = {
 
 	option = {
 		name = TUR_starting_tree.1.a
+		hidden_effect = {
+			country_event = {
+				id = TUR_starting_tree.2
+				days = 5
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	
+}
+
+## King is dead
+country_event = {
+	id = TUR_starting_tree.2
+	title = TUR_starting_tree.2.t
+	desc = TUR_starting_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_starting_tree.2.a
+		add_country_leader_role = {
+			character = TUR_regency_council
+			promote_leader = yes
+			country_leader = {
+				ideology = despotic
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	
+}
+
+add_namespace = TUR_pashas_path
+country_event = {
+	id = TUR_pashas_path.1
+	title = TUR_pashas_path.1.t
+	desc = TUR_pashas_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_pashas_path.1.a
 
 		ai_chance = {
 			factor = 1000
@@ -39,7 +86,7 @@ country_event = {
 	
 }
 
- add_namespace = TUR_arab_revolt 
+add_namespace = TUR_arab_revolt 
 
 ##russia one
  country_event = {

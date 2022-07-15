@@ -87,7 +87,7 @@ focus_tree = {
 shared_focus = {
     id = TUR_the_falling_moon
     icon = GFX_goal_TUR_the_falling_moon
-    x = 5
+    x = -3
     y = 0
     cost = 1
     available_if_capitulated = yes
@@ -102,7 +102,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_the_wisdom_of_the_old_guard
     icon = GFX_goal_TUR_the_wisdom_of_the_old_guard
-    x = -3
+    x = -6
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -115,6 +115,14 @@ shared_focus = {
     prerequisite = {
       focus = TUR_the_falling_moon
     }
+    available = {
+      NOT = {
+        has_country_leader = {
+          name = "Abdulmejid II"
+          ruling_only = yes
+        }
+      }
+    }
     relative_position_id = TUR_the_falling_moon
     completion_reward = {
       add_timed_idea = {
@@ -126,7 +134,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_the_gray_wolfs_howl
     icon = GFX_goal_TUR_the_gray_wolfs_howl
-    x = -2
+    x = -3
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -141,6 +149,7 @@ shared_focus = {
     }
     relative_position_id = TUR_the_wisdom_of_the_old_guard
     completion_reward = {
+      unlock_decision_category_tooltip = TUR_preparing_the_pashas_coup
     }
 }
 shared_focus = {
@@ -194,8 +203,18 @@ shared_focus = {
     prerequisite = {
       focus = TUR_zafer_riots
     }
+    available = {
+      fascism > 0.39
+    }
     relative_position_id = TUR_plot_detat
     completion_reward = {
+      add_popularity = {
+        ideology = fascism
+        popularity = 0.25
+      }
+      set_politics = {
+        ruling_party = fascism
+      }
     }
 }
 shared_focus = {
@@ -214,14 +233,14 @@ shared_focus = {
     
     relative_position_id = TUR_storming_the_palace
     completion_reward = {
-      load_focus_tree = TUR_cup_tree
+
     }
 }
 
 shared_focus = {
     id = TUR_revival_of_the_house_of_osman
     icon = GFX_goal_TUR_revival_of_the_house_of_osman
-    x = 2
+    x = 3
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -238,45 +257,45 @@ shared_focus = {
     completion_reward = {
     }
 }
-shared_focus = {
-    id = TUR_plotting_from_the_shadows
-    icon = GFX_goal_TUR_plotting_from_the_shadows
-    x = -1
-    y = 1
-    cost = 1
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-      focus = TUR_revival_of_the_house_of_osman
-    }
-    relative_position_id = TUR_revival_of_the_house_of_osman
-    completion_reward = {
-    }
-}
-shared_focus = {
-    id = TUR_the_death_of_abdulmejid_ii
-    icon = GFX_goal_TUR_the_death_of_abdulmejid_ii
-    x = 1
-    y = 1
-    cost = 1
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-      focus = TUR_revival_of_the_house_of_osman
-    }
-    relative_position_id = TUR_revival_of_the_house_of_osman
-    completion_reward = {
-    }
-}
+# shared_focus = {
+#     id = TUR_plotting_from_the_shadows
+#     icon = GFX_goal_TUR_plotting_from_the_shadows
+#     x = -1
+#     y = 1
+#     cost = 1
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     prerequisite = {
+#       focus = TUR_revival_of_the_house_of_osman
+#     }
+#     relative_position_id = TUR_revival_of_the_house_of_osman
+#     completion_reward = {
+#     }
+# }
+# shared_focus = {
+#     id = TUR_the_death_of_abdulmejid_ii
+#     icon = GFX_goal_TUR_the_death_of_abdulmejid_ii
+#     x = 1
+#     y = 1
+#     cost = 1
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     prerequisite = {
+#       focus = TUR_revival_of_the_house_of_osman
+#     }
+#     relative_position_id = TUR_revival_of_the_house_of_osman
+#     completion_reward = {
+#     }
+# }
 
 shared_focus = {
     id = TUR_the_warrior_prince
     icon = GFX_goal_TUR_the_warrior_prince
-    x = -1
+    x = 0
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -284,12 +303,10 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-      focus = TUR_the_death_of_abdulmejid_ii
+      focus = TUR_revival_of_the_house_of_osman
     }
-    prerequisite = {
-      focus = TUR_plotting_from_the_shadows
-    }
-    relative_position_id = TUR_the_death_of_abdulmejid_ii
+
+    relative_position_id = TUR_revival_of_the_house_of_osman
     completion_reward = {
       add_country_leader_role = {
 				character = TUR_osman_fuad_efendi
@@ -318,14 +335,14 @@ shared_focus = {
     
     relative_position_id = TUR_the_warrior_prince
     completion_reward = {
-      load_focus_tree = TUR_monarchy_tree
+      
     }
 }
 
 shared_focus = {
     id = TUR_no_country_for_old_men
     icon = GFX_goal_TUR_no_country_for_old_men
-    x = 3
+    x = 7
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -334,6 +351,12 @@ shared_focus = {
     }
     mutually_exclusive = {
       focus = TUR_the_wisdom_of_the_old_guard
+    }
+    NOT = {
+      has_country_leader = {
+        name = "Abdulmejid II"
+        ruling_only = yes
+      }
     }
     prerequisite = {
       focus = TUR_the_falling_moon
@@ -359,9 +382,26 @@ shared_focus = {
     completion_reward = {
     }
 }
+# shared_focus = {
+#     id = TUR_suffrage_of_man
+#     icon = GFX_goal_TUR_suffrage_of_man
+#     x = 1
+#     y = 1
+#     cost = 1
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     prerequisite = {
+#       focus = TUR_no_country_for_old_men
+#     }
+#     relative_position_id = TUR_no_country_for_old_men
+#     completion_reward = {
+#     }
+# }
 shared_focus = {
-    id = TUR_suffrage_of_man
-    icon = GFX_goal_TUR_suffrage_of_man
+    id = TUR_formation_of_the_ottoman_national_congress
+    icon = GFX_goal_TUR_formation_of_the_ottoman_national_congress
     x = 1
     y = 1
     cost = 1
@@ -377,29 +417,9 @@ shared_focus = {
     }
 }
 shared_focus = {
-    id = TUR_formation_of_the_ottoman_national_congress
-    icon = GFX_goal_TUR_formation_of_the_ottoman_national_congress
-    x = -1
-    y = 1
-    cost = 1
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-      focus = TUR_suffrage_of_man
-    }
-    prerequisite = {
-      focus = TUR_every_man_a_king
-    }
-    relative_position_id = TUR_suffrage_of_man
-    completion_reward = {
-    }
-}
-shared_focus = {
     id = TUR_crown_the_empress
     icon = GFX_goal_TUR_crown_the_empress
-    x = 0
+    x = -1
     y = 1
     cost = 1
     available_if_capitulated = yes
@@ -409,28 +429,19 @@ shared_focus = {
     prerequisite = {
       focus = TUR_formation_of_the_ottoman_national_congress
     }
+    prerequisite = {
+      focus = TUR_every_man_a_king
+    }
 
     relative_position_id = TUR_formation_of_the_ottoman_national_congress
     completion_reward = {
-    }
-}
-shared_focus = {
-    id = TUR_an_ottoman_democratic_state
-    icon = GFX_goal_TUR_an_ottoman_democratic_state
-    x = 0
-    y = 1
-    cost = 1
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-      focus = TUR_crown_the_empress
-    }
-
-    relative_position_id = TUR_crown_the_empress
-    completion_reward = {
-      load_focus_tree = TUR_attaturk_tree
+      add_popularity = {
+        ideology = authoritarian_democratic
+        popularity = 0.25
+      }
+      set_politics = {
+        ruling_party = authoritarian_democratic
+      }
     }
 }
 
@@ -439,14 +450,17 @@ shared_focus = {
 shared_focus = {
     id = TUR_the_empire_has_gotta_chill
     icon = GFX_goal_TUR_the_empire_has_gotta_chill
-    x = 5
-    y = 0
+    x = 2
+    y = 1
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
-    
+    prerequisite = {
+      focus = TUR_the_warrior_prince
+    }
+    relative_position_id = TUR_the_warrior_prince
     completion_reward = {
     }
 }
@@ -629,11 +643,11 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-      focus = TUR_all_power_the_to_the_unionists
+      focus = TUR_the_pasha_triumvirate
     }
     
 
-    relative_position_id = TUR_all_power_the_to_the_unionists
+    relative_position_id = TUR_the_pasha_triumvirate
     completion_reward = {
     }
 }
@@ -769,11 +783,11 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-      focus = TUR_all_power_the_to_the_unionists
+      focus = TUR_the_pasha_triumvirate
     }
     
 
-    relative_position_id = TUR_all_power_the_to_the_unionists
+    relative_position_id = TUR_the_pasha_triumvirate
     completion_reward = {
     }
 }
@@ -905,13 +919,17 @@ shared_focus = {
 shared_focus = {
     id = TUR_kemals_revisions
     icon = GFX_goal_TUR_kemals_revisions
-    x = 5
-    y = 0
+    x = 0
+    y = 1
     cost = 1
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
     }
+    prerequisite = {
+      focus = TUR_crown_the_empress
+    }
+    relative_position_id = TUR_crown_the_empress
     
     completion_reward = {
     }
