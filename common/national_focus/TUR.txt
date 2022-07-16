@@ -220,6 +220,47 @@ shared_focus = {
       set_politics = {
         ruling_party = fascism
       }
+      set_character_name = {
+        character = TUR_sehzade_omer_faruk
+        name = "Omer Faruk I"
+      }
+
+      341 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          add_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
+      49 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          add_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
+      339 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          add_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
     }
 }
 shared_focus = {
@@ -238,7 +279,13 @@ shared_focus = {
     
     relative_position_id = TUR_storming_the_palace
     completion_reward = {
+      country_event = TUR_pashas_path.2
 
+      hidden_effect = {
+        add_dynamic_modifier = {
+          modifier = TUR_current_government_modifier
+        }
+      }
     }
 }
 
@@ -676,6 +723,18 @@ shared_focus = {
 
     relative_position_id = TUR_the_pasha_triumvirate
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_secret_police_original
+          add_idea = TUR_secret_police_new
+        }
+      }
+      set_variable = {
+        TUR_current_government_modifier_industrial_capacity_factory = 0.05
+      }
+      set_variable = {
+        TUR_current_government_modifier_resistance_target = -0.2
+      }
     }
 }
 shared_focus = {
@@ -695,6 +754,62 @@ shared_focus = {
 
     relative_position_id = TUR_controlling_the_people
     completion_reward = {
+      352 = {
+        add_dynamic_modifier = {
+          modifier = cup_exploitation_modifier
+        }
+      }
+      353 = {
+        add_dynamic_modifier = {
+          modifier = cup_exploitation_modifier
+        }
+      }
+      857 = {
+        add_dynamic_modifier = {
+          modifier = cup_exploitation_modifier
+        }
+      }
+      656 = {
+        add_dynamic_modifier = {
+          modifier = cup_exploitation_modifier
+        }
+      }
+      341 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          remove_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
+      49 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          remove_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
+      339 = {
+        if = {
+          limit = {
+            NOT = {
+              has_state_flag = TUR_secured_by_the_cup
+            }
+          }
+          remove_dynamic_modifier = {
+            modifier = cup_monarchy_discontent_modifier
+          }
+        }
+      }
     }
 }
 shared_focus = {
@@ -716,6 +831,19 @@ shared_focus = {
 
     relative_position_id = TUR_a_brutal_reign 
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          add_idea = TUR_turkification_original
+          remove_idea = TUR_turkification_new
+        }
+      }
+
+      set_variable = {
+        TUR_current_government_modifier_monthly_population = -0.05
+      }
+      set_variable = {
+        TUR_current_government_modifier_fuel_gain_from_states = 0.1
+      }
     }
 }
 shared_focus = {
@@ -737,6 +865,19 @@ shared_focus = {
 
     relative_position_id = TUR_a_brutal_reign 
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_assimilation_original
+          add_idea = TUR_assimilation_new
+        }
+      }
+
+      set_variable = {
+        TUR_current_government_modifier_political_power_gain = 0.1
+      }
+      set_variable = {
+        TUR_current_government_modifier_production_factory_max_efficiency_factor = 0.075
+      }
     }
 }
 
@@ -758,11 +899,14 @@ shared_focus = {
 
     relative_position_id = TUR_a_turkey_for_turks_only 
     completion_reward = {
+      GER = {
+        country_event = generic.2
+      }
     }
 }
 shared_focus = {
     id = TUR_pursue_pan_turanism
-    icon = GFX_goal_TUR_pursue_pan_turanism
+    icon = GFX_focus_TUR_turanist_ambition
     x = 0
     y = 1
     cost = 1
@@ -777,6 +921,11 @@ shared_focus = {
 
     relative_position_id = TUR_favor_forced_assimilation 
     completion_reward = {
+      add_state_core = 231
+      add_state_core = 230
+      add_state_core = 1083
+      add_state_core = 229
+      add_state_core = 1084
     }
 }
 shared_focus = {
@@ -792,6 +941,12 @@ shared_focus = {
     prerequisite = {
       focus = TUR_ally_the_germans
       focus = TUR_pursue_pan_turanism
+    }
+    available = {
+      OR = {
+        has_completed_focus = TUR_death_of_house_osman
+        has_completed_focus = TUR_the_puppet_king
+      }
     }
    
 
@@ -816,6 +971,8 @@ shared_focus = {
 
     relative_position_id = TUR_the_pasha_triumvirate
     completion_reward = {
+      add_war_support = 0.05
+      add_political_power = 100
     }
 }
 shared_focus = {
@@ -837,6 +994,7 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      add_country_leader_trait = military_puppet
     }
 }
 shared_focus = {
@@ -858,6 +1016,16 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      ##CUP Triumvirate becomes leader
+      add_country_leader_role = {
+        character = TUR_cup_triumvirate
+        promote_leader = yes
+				country_leader={
+					ideology= fascism_ideology
+					expire="1965.1.1.1"
+					id=-1
+				}
+      }
     }
 }
 shared_focus = {
@@ -879,6 +1047,16 @@ shared_focus = {
 
     relative_position_id = TUR_death_of_house_osman
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_research_original
+          add_idea = TUR_research_new
+        }
+      }
+
+      set_variable = {
+        TUR_current_government_modifier_research_speed_factor = 0.08
+      }
     }
 }
 shared_focus = {
@@ -899,6 +1077,58 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      set_rule = {
+        can_generate_female_aces = yes
+      }
+      set_rule = {
+        can_use_kamikaze_pilots = yes
+      }
+      set_rule = {
+        can_send_volunteers = yes
+      }
+
+      division_template = {
+          name = "Anatolian Samurai"
+          is_locked = no
+          priority = 0
+          template_counter = 0
+          regiments = {
+              infantry = { x = 0 y = 0 }
+              infantry = { x = 0 y = 1 }
+              infantry = { x = 0 y = 2 }
+              infantry = { x = 0 y = 3 }
+              infantry = { x = 0 y = 4 }
+
+              infantry = { x = 1 y = 0 }
+              infantry = { x = 1 y = 1 }
+              infantry = { x = 1 y = 2 }
+              infantry = { x = 1 y = 3 }
+              infantry = { x = 1 y = 4 }
+              
+              infantry = { x = 2 y = 0 }
+              infantry = { x = 2 y = 1 }
+              infantry = { x = 2 y = 2 }
+              infantry = { x = 2 y = 3 }
+              infantry = { x = 2 y = 4 }
+
+              infantry = { x = 3 y = 0 }
+              infantry = { x = 3 y = 1 }
+              infantry = { x = 3 y = 2 }
+              infantry = { x = 3 y = 3 }
+              infantry = { x = 3 y = 4 }
+          }
+          support = { 
+              military_police = { x = 0 y = 0 }
+          } 
+      }
+
+      random_owned_controlled_state = {
+        create_unit = {
+          division = "name = \"Anatolian Samurai Guard 1\" division_template = \"Anatolian Samurai\" start_experience_factor = 1 start_equipment_factor = 1"
+          count = 2
+          owner = TUR
+        }
+      }
     }
 }
 shared_focus = {
@@ -916,9 +1146,22 @@ shared_focus = {
     }
     prerequisite = {
     }
+    available = {
+      JAP = {
+        has_country_leader = {
+          name = "Hirohito"
+        }
+      }
+    }
 
     relative_position_id = TUR_adopt_the_bushido_code
     completion_reward = {
+      JAP = {
+        set_nationality = {
+            target_country = TUR
+            character = JAP_hideki_tojo
+        }
+      }
     }
 }
 shared_focus = {
@@ -939,6 +1182,7 @@ shared_focus = {
 
     relative_position_id = TUR_adopt_the_bushido_code
     completion_reward = {
+      add_ideas = GER_Nation_At_Arms
     }
 }
 

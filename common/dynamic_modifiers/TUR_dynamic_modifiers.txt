@@ -1,3 +1,33 @@
+TUR_current_government_modifier = {
+	enable = {
+		always = yes
+	}
+
+	remove_trigger = {
+		# NOT = {
+		# 	has_country_leader = {
+		# 		name = "Albert I"
+		# 		ruling_only = yes
+		# 	}
+		# }
+	}
+
+	## Secret Police
+	industrial_capacity_factory = TUR_current_government_modifier_industrial_capacity_factory
+	resistance_target = TUR_current_government_modifier_resistance_target
+
+	## ummm
+	monthly_population = TUR_current_government_modifier_monthly_population
+	fuel_gain_from_states = TUR_current_government_modifier_fuel_gain_from_states
+
+	## assimilation
+	political_power_gain = TUR_current_government_modifier_political_power_gain
+	production_factory_max_efficiency_factor = TUR_current_government_modifier_production_factory_max_efficiency_factor
+
+	## scientific elite
+	research_speed_factor = TUR_current_government_modifier_research_speed_factor
+}
+
 cup_monarchy_discontent_modifier = {
 	enable = {
 		always = yes
@@ -11,4 +41,16 @@ cup_monarchy_discontent_modifier = {
 
 	local_resources_factor = -0.5
 	recruitable_population_factor = -0.5
+}
+
+cup_exploitation_modifier = {
+    enable = { always = yes }
+
+    icon = GFX_idea_Riots
+
+    local_resources_factor = 0.65
+    recruitable_population_factor = 0.65
+	resistance_growth = -0.5
+	resistance_target = -0.5
+	
 }
