@@ -19,7 +19,7 @@ ideas = {
       modifier = { 
         war_support_factor = 0.05
         conscription = 0.005
-        justify_war_goal_time = -0.15
+        justify_war_goal_time = -0.1
         army_core_attack_factor = 0.1
       }
 
@@ -48,9 +48,9 @@ ideas = {
       removal_cost = -1  
 
       modifier = { 
-        war_support_factor = 0.15
-        conscription = 0.015
-        justify_war_goal_time = -0.15
+        war_support_factor = 0.1
+        conscription = 0.01
+        justify_war_goal_time = -0.1
         army_core_attack_factor = 0.1
       }
 
@@ -871,8 +871,8 @@ ideas = {
 		removal_cost = -1
 
 		modifier = {
-			army_org_factor = 0.1
-			army_attack_factor = 0.1
+			army_org_factor = 0.05
+			army_attack_factor = 0.05
 		}
 	}
 
@@ -891,9 +891,8 @@ ideas = {
 		removal_cost = -1
 
 		modifier = {
-			army_org_factor = 0.1
+			army_org_factor = 0.05
 			army_attack_factor = 0.1
-			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 		}
 	}
@@ -914,7 +913,6 @@ ideas = {
 		modifier = {
 			army_org_factor = 0.1
 			army_attack_factor = 0.1
-			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 			conscription_factor = 0.02
 		}
@@ -939,8 +937,8 @@ ideas = {
 			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 			conscription_factor = 0.02
-			political_power_gain = 0.15
-			war_support_factor = 0.1
+			political_power_gain = 0.1
+			war_support_factor = 0.05
 		}
 	}
 
@@ -1212,7 +1210,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				neutrality_drift = 0.03
+				war_support_factor = 0.05
 				political_power_gain = 0.1
 				army_org_factor = 0.05
 				army_morale_factor = 0.05
@@ -1466,8 +1464,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				industrial_capacity_factory = 0.1
-				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
 				ultranationalism_drift = 0.03
 			}
 		}
@@ -1515,15 +1513,39 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = 0.1
-				production_speed_buildings_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.1
 				production_lack_of_resource_penalty_factor = -0.1
 				production_factory_max_efficiency_factor = 0.1
-				ultranationalism_drift = 0.03
+				ultranationalism_drift = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		ITA_fascist_trade_unions_state = {
+
+			name = ITA_fascist_trade_unions
+
+			allowed = {
+				always = no
+			}
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				production_lack_of_resource_penalty_factor = -0.1
+				production_speed_buildings_factor = 0.1
+				ultranationalism_drift = 0.05
 				communism_drift = -0.05
 				democratic_communism_drift = -0.05
 				socialism_democratic_drift = -0.05
-				stability_factor = 0.05
 			}
 		}
 		
@@ -1683,7 +1705,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				conscription = 0.015
+				conscription = 0.01
 			}
 		}
 		ITA_blueshirt_alliance = {
@@ -1701,7 +1723,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				conscription = 0.015
+				conscription = 0.01
 			}
 		}
 
@@ -1722,7 +1744,6 @@ ideas = {
 				war_support_factor = 0.05
 				conscription = 0.015
 				drift_defence_factor = 0.35
-				political_power_factor = 0.1
 				resistance_target = -0.05
 				resistance_damage_to_garrison = -0.1
 			}
@@ -2177,7 +2198,7 @@ ideas = {
 	
 			modifier = {
 				production_speed_buildings_factor = 0.1
-				consumer_goods_factor = -0.1
+				consumer_goods_factor = -0.075
 			}
 		}
 
@@ -2202,7 +2223,7 @@ ideas = {
 			picture = generic_production_bonus
 	
 			modifier = {
-				production_speed_buildings_factor = 0.1
+				production_speed_buildings_factor = 0.05
 				industrial_capacity_factory = 0.1
 				consumer_goods_factor = -0.05
 			}

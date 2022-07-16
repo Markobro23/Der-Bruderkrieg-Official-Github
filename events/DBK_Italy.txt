@@ -618,18 +618,17 @@ country_event = { #coup in portugal
 	option = { 
 		name = italy.530.a 
 		ai_chance = { factor = 90 } 
-		if = {
-			limit = {
-				ITA = {
-					has_government = fascism
+		start_civil_war = {
+			ideology = ultranationalism
+		}
+		hidden_effect = {
+			random_country_with_original_tag = {
+				original_tag_to_check = SPR
+				limit = {
+					has_government = ultranationalism
 				}
-			}
-			start_civil_war = {
-				ideology = fascism
-			}
-			else = {
-				start_civil_war = {
-					ideology = ultranationalism
+				ITA = {
+					add_to_faction = PREV
 				}
 			}
 		}
@@ -835,10 +834,10 @@ news_event = { #Albania coup
 		if = {
 			limit = {
 				tag = ALB
-				add_autonomy_ratio = {
-					value = -0.5
-					localization = lol
-				}
+			}
+			add_autonomy_ratio = {
+				value = -0.5
+				localization = lol
 			}
 		}
 	}
@@ -989,6 +988,147 @@ country_event = { #GER dont gibs industrial aid
 		ai_chance = { factor = 90 } 
 		add_opinion_modifier = {
 			target = GER
+			modifier = small_decrease
+		}
+	}
+}
+
+country_event = { #Portugal falangist coup
+	id = italy.544
+	title = italy.544.t
+	desc = italy.544.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.544.a 
+		ai_chance = { factor = 90 } 
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.15
+		}
+		if = {
+			limit = {
+				is_in_faction = yes
+				NOT = {
+					is_in_faction_with = ITA
+				}
+			}
+			leave_faction = yes
+			ITA = {
+				faction_leader = {
+					country_event = { id = generic.2 hours = 2 }
+				}
+			}
+		}
+		set_country_flag = GER_leaving_faction
+	}
+}
+
+country_event = { #Italy demands the baleric islands or whatever
+	id = italy.545
+	title = italy.545.t
+	desc = italy.545.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.545.a 
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				is_in_faction_with = ITA
+			}
+			modifier = {
+				factor = 2
+				has_government = ultranationalism
+			}
+		} 
+		effect_tooltip = {
+			ITA = {
+				transfer_state = 177
+			}
+		}
+		ITA = {
+			country_event = { id = italy.546 hours = 2 }
+		}
+	}
+	option = {  #nah bro
+		name = italy.545.b 
+		ai_chance = {
+			factor = 6
+			modifier = {
+				factor = 2
+				is_in_faction_with = FRA
+			}
+		} 
+		ITA = {
+			country_event = { id = italy.547 hours = 2 }
+		}
+	}
+}
+
+country_event = { #Italy gets the baleric islands or whatever
+	id = italy.546
+	title = italy.546.t
+	desc = italy.546.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #sure
+		name = italy.546.a 
+		ai_chance = {
+			factor = 10
+		} 
+		transfer_state = 177
+		hidden_effect = {
+			177 = {
+				add_claim_by = ITA
+				add_compliance = 15
+			}
+		}
+	}
+}
+
+country_event = { #Spain refuses to gib islands
+	id = italy.547
+	title = italy.547.t
+	desc = italy.547.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+
+	option = {  #waaaaagh
+		name = italy.547a 
+		ai_chance = {
+			factor = 2
+			modifier = {
+				factor = 2
+				SPR = {
+					is_in_faction = no
+				}
+			}
+		} 
+		trigger = {
+			NOT = {
+				is_in_faction_with = ITA
+			}
+		}
+		create_wargoal = {
+			target = SPR
+			type = annex_everything
+		}
+	}
+	option = {  #angery
+		name = italy.547.b 
+		ai_chance = {
+			factor = 6
+		} 
+		add_opinion_modifier = {
+			target = SPR
 			modifier = small_decrease
 		}
 	}
