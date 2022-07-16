@@ -182,21 +182,20 @@ ITA_portugese_corporatists = {
 	}
 }
 
-ITA_portugese_syndaclists = {
+ITA_sponsor_falange = {
 	allowed = {
 		tag = ITA
 	}
 	visible = {
-		#has_completed_focus = ITA_fortify_west_coast
-		OR = {
-			#has_country_leader = {
-			#	name = "Michele Bianchi"
-			#}
-			#has_country_leader = {
-			#	name = "Attilio Teruzzi"
-			#}
+		has_completed_focus = ITA_sponsor_the_falange
+		NOT = {
+			SPR = {
+				OR = {
+					exists = no
+					has_government = ultranationalism
+				}
+			}
 		}
-		always = no
 	}
 }
 

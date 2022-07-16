@@ -670,6 +670,14 @@ shared_focus = {
 			}
 		}
 		
+		allow_branch = {
+			NOT = {
+				OR = {
+					has_country_flag = ITA_ciano_eliminated
+					has_country_flag = ITA_teruzzi_eliminated
+				}
+			}
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -943,6 +951,14 @@ shared_focus = {
 			}
 		}
 		
+		allow_branch = {
+			NOT = {
+				has_country_leader = {
+					name = "Attilio Teruzzi"
+					ruling_only = yes
+				}
+			}
+		}
 		
 		prerequisite = {
 			focus = ITA_italys_destiny
@@ -1287,6 +1303,14 @@ shared_focus = {
 		y = 1
 		cost = 5
 	
+		allow_branch = {
+			NOT = {
+				AND = {
+					has_country_flag = ITA_ciano_leads_triumvirate
+					check_variable = { ITA_head_tri_power = 100 }
+				}
+			}
+		}
 		
 		prerequisite = {
 			focus = ITA_italys_destiny
@@ -1705,6 +1729,13 @@ shared_focus = {
 				}
 			}
 		}
+
+		allow_branch = {
+			NOT = {
+				has_government = neutrality
+			}
+		}
+
 		ai_will_do = {
 			factor = 10
 			modifier = {
@@ -2714,7 +2745,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_invite_hellenic_front
 		icon = GFX_Diplo_Greece
-		x = -2
+		x = -4
 		y = 1
 		cost = 5
 		prerequisite = { focus = ITA_fund_rrl }
@@ -3079,6 +3110,7 @@ shared_focus = {
 		cost = 5
 		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
 		relative_position_id = ITA_demand_albanian_economic_concessions
+		mutually_exclusive = { focus = ITA_mediterranean_brotherhood }
 		ai_will_do = {
 			factor = 10
 		}
@@ -3095,6 +3127,59 @@ shared_focus = {
 			}
 		}
 	}
+	shared_focus = {
+		id = ITA_mediterranean_brotherhood
+		icon = GFX_goal_FRA_alliance_with_spain
+		x = 3
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
+		relative_position_id = ITA_demand_albanian_economic_concessions
+		mutually_exclusive = { focus = ITA_stresa_conference focus = ITA_sponsor_the_falange }
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			SPR = {
+				is_in_faction = no
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = { is_in_faction = no }
+				create_faction = mediterranean_bloc
+			}
+			SPR = {
+				country_event = { id = generic.5 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_sponsor_the_falange
+		icon = GFX_goal_FRA_FASCIST_VIC
+		x = 5
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
+		relative_position_id = ITA_demand_albanian_economic_concessions
+		mutually_exclusive = { focus = ITA_mediterranean_brotherhood }
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = {
+				is_in_faction_with = SPR
+			}
+		}
+
+		completion_reward = {
+			unlock_decision_category_tooltip = ITA_sponsor_falange
+		}
+	}
 
 	shared_focus = {
 		id = ITA_mare_nostrum #more like nostril amirite
@@ -3102,7 +3187,7 @@ shared_focus = {
 		x = 1
 		y = 1
 		cost = 5
-		prerequisite = { focus = ITA_stresa_conference }
+		prerequisite = { focus = ITA_stresa_conference focus = ITA_mediterranean_brotherhood focus = ITA_sponsor_the_falange }
 		mutually_exclusive = {
 			focus = ITA_share_mediterranean
 		}
@@ -3156,6 +3241,39 @@ shared_focus = {
 		completion_reward = {
 			ENG = {
 				country_event = { id = italy.540 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_demand_baleric_islands
+		icon = GFX_goal_generic_political_pressure
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = { focus = ITA_mediterranean_brotherhood focus = ITA_sponsor_the_falange }
+		relative_position_id = ITA_mediterranean_brotherhood
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			NOT = {
+				has_war_with = SPR
+				has_country_leader = {
+					name = "Michele Bianchi"
+					ruling_only = yes
+				}
+			}
+			SPR = {
+				owns_state = 177
+				controls_state = 177
+			}
+		}
+
+		completion_reward = {
+			SPR = {
+				country_event = { id = italy.545 hours = 2 }
 			}
 		}
 	}
@@ -5585,3 +5703,259 @@ shared_focus = {
 		  }
 	  }
   }
+
+  ##internal reform stuff for all the leaders
+
+  #bianchi
+  shared_focus = {
+		id = ITA_promote_trade_unions
+		icon = GFX_USA_trust_busting
+		x = -4
+		y = 1
+		cost = 3
+		prerequisite = {
+			focus = ITA_italys_destiny
+		}
+		relative_position_id = ITA_italys_destiny
+		
+		allow_branch = {
+			has_country_leader = {
+				name = "Michele Bianchi"
+				ruling_only = yes
+			}
+			OR = {
+				has_country_flag = ITA_ciano_eliminated
+				has_country_flag = ITA_teruzzi_eliminated
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_fascist_trade_unions
+		}
+	}
+
+	shared_focus = {
+		id = ITA_take_leftists_fangs
+		icon = GFX_goal_SOV_attacking_the_rsdlp
+		x = -1
+		y = 1
+		cost = 3
+		prerequisite = {
+			focus = ITA_promote_trade_unions
+		}
+		mutually_exclusive = {
+			focus = ITA_hunt_down_leftist_groups
+		}
+		relative_position_id = ITA_promote_trade_unions
+
+		available = {
+			has_completed_focus = ITA_clash_against_corporatism
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_fascist_trade_unions
+				add_idea = ITA_fascist_trade_unions_2
+			}
+			add_popularity = {
+				ideology = democratic_communism
+				popularity = -0.05
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_hunt_down_leftist_groups
+		icon = GFX_goal_SOV_second_battle_of_kreshnatchyk_street
+		x = 1
+		y = 1
+		cost = 3
+		prerequisite = {
+			focus = ITA_promote_trade_unions
+		}
+		mutually_exclusive = {
+			focus = ITA_take_leftists_fangs
+		}
+		relative_position_id = ITA_promote_trade_unions
+
+		available = {
+			has_completed_focus = ITA_compromise_with_right_wing
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			#unlock decisions to hunt down the leftists for temporary production bonuses
+		}
+	}
+
+	shared_focus = {
+		id = ITA_open_work_camps
+		icon = GFX_goal_generic_construction2
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_hunt_down_leftist_groups
+		}
+		relative_position_id = ITA_hunt_down_leftist_groups
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ITA
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_truly_syndicalist_economy
+		icon = GFX_USA_trust_busting
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_take_leftists_fangs
+		}
+		mutually_exclusive = {
+			focus = ITA_consolidate_national_union
+		}
+		relative_position_id = ITA_take_leftists_fangs
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_fascist_trade_unions_2
+				add_idea = ITA_fascist_trade_unions_3
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_consolidate_national_union
+		icon = GFX_focus_generic_self_management
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_take_leftists_fangs
+			focus = ITA_hunt_down_leftist_groups
+		}
+		mutually_exclusive = {
+			focus = ITA_truly_syndicalist_economy
+		}
+		relative_position_id = ITA_take_leftists_fangs
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_fascist_trade_unions_2
+				add_idea = ITA_fascist_trade_unions_state
+			}
+		}
+	}
+
+	#teruzzi
+
+	shared_focus = {
+		id = ITA_emphasize_militarism
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = -12
+		y = 1
+		cost = 3
+		
+		allow_branch = {
+			has_country_leader = {
+				name = "Attilio Teruzzi"
+				ruling_only = yes
+			}
+		}
+		
+		prerequisite = {
+			focus = ITA_italys_destiny
+		}
+		relative_position_id = ITA_italys_destiny
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_trait = italian_militarism
+		}
+	}
+
+	shared_focus = {
+		id = ITA_organize_the_paramilitaries
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = 1
+		y = 1
+		cost = 5
+		
+		prerequisite = {
+			focus = ITA_emphasize_militarism
+		}
+		mutually_exclusive = {
+			focus = ITA_recruit_mercenaries
+		}
+		relative_position_id = ITA_emphasize_militarism
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_trait = msvn
+		}
+	}
+
+	shared_focus = {
+		id = ITA_recruit_mercenaries
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = 1
+		y = 1
+		cost = 5
+		
+		prerequisite = {
+			focus = ITA_emphasize_militarism
+		}
+		mutually_exclusive = {
+			focus = ITA_organize_the_paramilitaries
+		}
+		relative_position_id = ITA_emphasize_militarism
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			#add_ideas = ITA_mercenary_integration_in_army
+			capital_scope = {
+				create_unit = {
+					division = "name = \"Divisione di Graziani\" division_template = \"Divisione di Fanteria\" start_experience_factor = 0.4 start_equipment_factor = 0.8"
+					count = 2
+					owner = ITA
+				}
+			}
+		}
+	}

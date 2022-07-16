@@ -1262,6 +1262,10 @@ ITA_balkan_decision_cat = {
       }
     }
 
+    ai_will_do = {
+      factor = 3
+    }
+
     days_re_enable = 14
 
     complete_effect = {
@@ -1304,6 +1308,10 @@ ITA_balkan_decision_cat = {
       }
     }
 
+    ai_will_do = {
+      factor = 3
+    }
+
     days_re_enable = 14
 
     complete_effect = {
@@ -1334,6 +1342,10 @@ ITA_balkan_decision_cat = {
           }
         }
       }
+    }
+
+    ai_will_do = {
+      factor = 3
     }
 
     days_re_enable = 14
@@ -1369,6 +1381,10 @@ ITA_balkan_decision_cat = {
       }
     }
 
+    ai_will_do = {
+      factor = 3
+    }
+
     available = {
       ALB = {
         fascism > 0.3
@@ -1395,6 +1411,10 @@ ITA_balkan_decision_cat = {
 
     visible = {
       has_idea = ITA_mediterranean_trade_bloc
+    }
+
+    ai_will_do = {
+      factor = 3
     }
 
     target_trigger = {
@@ -1442,6 +1462,10 @@ ITA_seize_ottoman_cities_cat = {
 
     cost = 25
 
+    ai_will_do = {
+      factor = 3
+    }
+
     available = {
       divisions_in_state = {
         size > 2
@@ -1481,6 +1505,10 @@ ITA_seize_ottoman_cities_cat = {
           has_war_with = TUR
         }
       }
+    }
+
+    ai_will_do = {
+      factor = 3
     }
 
     fire_only_once = yes
@@ -2317,7 +2345,7 @@ ITA_portugese_corporatists = {
 
 }
 
-ITA_portugese_syndaclists = {
+ITA_sponsor_falange = {
 
 	ITA_spread_claims_syndicalist_unity = {
 
@@ -2326,7 +2354,7 @@ ITA_portugese_syndaclists = {
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
 		}
@@ -2341,13 +2369,13 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_5_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 5 }
+			add_to_variable = { falangist_coup_progress = 5 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -2364,7 +2392,7 @@ ITA_portugese_syndaclists = {
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
 		}
@@ -2379,13 +2407,13 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_10_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 10 }
+			add_to_variable = { falangist_coup_progress = 10 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -2402,7 +2430,7 @@ ITA_portugese_syndaclists = {
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
 		}
@@ -2418,9 +2446,9 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_10_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 10 }
+			add_to_variable = { falangist_coup_progress = 10 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
@@ -2438,52 +2466,19 @@ ITA_portugese_syndaclists = {
 
 	}
 
-	ITA_denounce_decadency_of_POR_king_synd = {
-
-		name = ITA_denounce_decadency_of_POR_king
-
-		cost = 30
-
-		visible = {
-			NOT = {
-				check_variable = {
-					portugese_coup_progress = 100
-				}
-			}
-		}
-
-		days_re_enable = 60
-
-		complete_effect = {
-			custom_effect_tooltip = ITA_5_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 5 }
-			clamp_variable = {
-				var = portugese_coup_progress
-				min = 0
-				max = 100
-			}
-			POR = {
-				add_popularity = {
-					ideology = ultranationalism
-					popularity = 0.02
-				}
-			}
-		}
-
-	}
-
-	ITA_trigger_POR_civil_war_synd = {
-
-		name = ITA_trigger_POR_civil_war
+	ITA_trigger_falangist_uprising = {
 
 		fire_only_once = yes
 
 		available = {
-			has_war_with = POR
+			has_war_with = SPR
+      SPR = {
+        surrender_progress < 0.1
+      }
 			custom_trigger_tooltip = {
 				tooltip = ITA_POR_coup_100_ready
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
 		}
@@ -2491,12 +2486,41 @@ ITA_portugese_syndaclists = {
 		cost = 50
 
 		complete_effect = {
-			POR = {
+			SPR = {
 				country_event = { id = italy.530 hours = 2 random = 2}
 			}
 		}
 
 	}
+
+  ITA_trigger_falangist_coup = {
+
+    fire_only_once = yes
+
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_POR_coup_100_ready
+        check_variable = {
+          falangist_coup_progress = 100
+        }
+      }
+    }
+
+    visible = {
+      NOT = {
+        has_war_with = SPR
+      }
+    }
+
+    cost = 50
+
+    complete_effect = {
+      SPR = {
+        country_event = { id = italy.530 hours = 2 random = 2}
+      }
+    }
+
+  }
 
 }
 
