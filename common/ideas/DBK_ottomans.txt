@@ -571,8 +571,24 @@ Degredation_Sultan = {
   removal_cost = -1
 
   modifier = {
-    political_power_gain = -0.20
-    stability_factor = -0.1
+    political_power_gain = -0.1
+    army_morale_factor = -0.05
+  }
+}
+Degredation_Sultan_2 = {
+  name = Degredation_Sultan
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+
+  removal_cost = -1
+
+  modifier = {
+    political_power_gain = -0.075
   }
 }
 
@@ -795,12 +811,9 @@ TUR_CALIPHATE = {
   removal_cost = -1
 
   modifier = {
-  army_morale_factor = 0.1
-  fascism_drift = 0.10
-  political_power_gain = 0.1
-  war_support_factor = 0.1
-  conscription = 0.02
-  army_org_factor = 0.1
+    neutrality_drift = 0.03
+  army_org_factor = 0.075
+  land_reinforce_rate = 0.15
   }
 }
 

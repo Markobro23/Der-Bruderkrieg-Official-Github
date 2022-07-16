@@ -128,6 +128,208 @@ country_event = {
 	}
 }
 
+## End of the CUP
+country_event = {
+	id = TUR_fuad_path.2
+	title = TUR_fuad_path.2.t
+	desc = TUR_fuad_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.2.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.1
+		}
+		
+		FRA = {
+			country_event = TUR_fuad_path.3
+		}
+		GER = {
+			country_event = TUR_fuad_path.4
+		}
+
+		effect_tooltip = {
+			TUR_ahmed_cemal_pasha = {
+				set_nationality = FRA
+			}
+			TUR_enver_pasha = {
+				set_nationality = GER
+			}
+			
+		}
+
+		TUR_mehmet_talaat_pasha = {
+			remove_unit_leader_role = yes
+		}
+		add_corps_commander_role = {
+			character = TUR_mehmet_talaat_pasha
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 3
+		}
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## France  Ahmed Pasha joins us
+country_event = {
+	id = TUR_fuad_path.3
+	title = TUR_fuad_path.3.t
+	desc = TUR_fuad_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.3.a
+		
+		TUR = {
+			TUR_ahmed_cemal_pasha = {
+				set_nationality = FRA
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## Prussia  Enver Pasha joins us
+country_event = {
+	id = TUR_fuad_path.4
+	title = TUR_fuad_path.4.t
+	desc = TUR_fuad_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.4.a
+		TUR = {
+			TUR_enver_pasha = {
+				set_nationality = GER
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+##demand custody of enver and ahmed
+country_event = {
+	id = TUR_fuad_path.5
+	title = TUR_fuad_path.5.t
+	desc = TUR_fuad_path.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.5.a 
+		ai_chance = { factor = 90 } 
+		TUR = { country_event = TUR_fuad_path.6 }
+	}
+	option = { 
+		name = TUR_fuad_path.5.b
+		ai_chance = { factor = 0 } 
+		TUR = { country_event = TUR_fuad_path.7 }
+	}
+}
+
+country_event = {
+	id = TUR_fuad_path.6
+	title = TUR_fuad_path.6.t
+	desc = TUR_fuad_path.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.6.a 
+		ai_chance = { factor = 90 } 
+		if = {
+			limit = {
+				FROM = {
+					tag = FRA
+				}
+			}
+			FRA = {
+				TUR_ahmed_cemal_pasha = {
+					set_nationality = TUR
+				}
+			}
+			TUR_ahmed_cemal_pasha = {
+				remove_unit_leader_role = yes
+			}
+			add_corps_commander_role = {
+				character = TUR_ahmed_cemal_pasha
+				skill=3
+				attack_skill=4
+				defense_skill=2
+				planning_skill=1
+				logistics_skill=3
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					tag = GER
+				}
+			}
+			GER = {
+				TUR_enver_pasha = {
+					set_nationality = TUR
+				}
+			}
+			TUR_enver_pasha = {
+				remove_unit_leader_role = yes
+			}
+			add_corps_commander_role = {
+				character = TUR_enver_pasha
+				skill=4
+				attack_skill=4
+				defense_skill=2
+				planning_skill=4
+				logistics_skill=3
+			}
+		}
+	}
+}
+country_event = {
+	id = TUR_fuad_path.7
+	title = TUR_fuad_path.7.t
+	desc = TUR_fuad_path.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.7.a 
+		ai_chance = { factor = 90 } 
+		TUR = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = large_decrease
+			}
+		}
+	}
+}
+
+
 add_namespace = TUR_kemal_path
 ## kemal
 country_event = {
