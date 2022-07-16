@@ -17,6 +17,7 @@
 	shared_focus = ITA_begin_the_recovery_process
 	shared_focus = ITA_the_italian_mess
 	shared_focus = ITA_fund_rrl
+	shared_focus = ITA_consolidated_triumvirate
 	continuous_focus_position = { x = 5300 y = 2000 }
 }
 
@@ -669,15 +670,6 @@ shared_focus = {
 				}
 			}
 		}
-		
-		allow_branch = {
-			NOT = {
-				OR = {
-					has_country_flag = ITA_ciano_eliminated
-					has_country_flag = ITA_teruzzi_eliminated
-				}
-			}
-		}
 
 		ai_will_do = {
 			factor = 10
@@ -947,15 +939,6 @@ shared_focus = {
 						has_completed_focus = ITA_end_bianchis_rule
 						has_completed_focus = ITA_motion_no_confidence
 					}
-				}
-			}
-		}
-		
-		allow_branch = {
-			NOT = {
-				has_country_leader = {
-					name = "Attilio Teruzzi"
-					ruling_only = yes
 				}
 			}
 		}
@@ -1302,15 +1285,6 @@ shared_focus = {
 		x = 4
 		y = 1
 		cost = 5
-	
-		allow_branch = {
-			NOT = {
-				AND = {
-					has_country_flag = ITA_ciano_leads_triumvirate
-					check_variable = { ITA_head_tri_power = 100 }
-				}
-			}
-		}
 		
 		prerequisite = {
 			focus = ITA_italys_destiny
@@ -1727,12 +1701,6 @@ shared_focus = {
 						has_completed_focus = ITA_motion_no_confidence
 					}
 				}
-			}
-		}
-
-		allow_branch = {
-			NOT = {
-				has_government = neutrality
 			}
 		}
 
@@ -2308,27 +2276,6 @@ shared_focus = {
 		}
 		completion_reward = {
 			unlock_decision_tooltip = ITA_raid_on_izmir
-		}
-	}
-
-	shared_focus = {
-		id = ITA_mercenary_coup
-		icon = GFX_goal_ITA_the_pirates_power_grab
-		
-		x = -1
-		y = 1
-		cost = 5
-
-		prerequisite = { focus = ITA_end_asia_minor_autonomy }
-		prerequisite = {
-			focus = ITA_secure_athens
-		}
-		relative_position_id = ITA_end_asia_minor_autonomy
-		ai_will_do = {
-			factor = 500
-		}
-		completion_reward = {
-			country_event = ITA_mercenary_events.3
 		}
 	}
 
@@ -5706,26 +5653,76 @@ shared_focus = {
 
   ##internal reform stuff for all the leaders
 
+  shared_focus = {
+  	id = ITA_consolidated_triumvirate
+  	icon = GFX_goal_FRA_FASCIST_VIC
+  	x = 42
+  	y = 0
+  	cost = 3
+
+  	available = {
+  		custom_trigger_tooltip = {
+  			tooltip = ITA_has_100_influence_in_tri
+  			check_variable = { ITA_head_tri_power = 100 }
+  		}
+  	}
+
+  	completion_reward = {
+  		if = {
+  			limit = {
+  				has_country_leader = {
+						name = "Michele Bianchi"
+						ruling_only = yes
+					}
+  			}
+  			complete_national_focus = ITA_promote_trade_unions
+  		}
+  		if = {
+  			limit = {
+  				has_country_leader = {
+						name = "Attilio Teruzzi"
+						ruling_only = yes
+					}
+  			}
+  			complete_national_focus = ITA_emphasize_militarism
+  		}
+  		if = {
+  			limit = {
+  				has_country_leader = {
+						name = "Costanzo Ciano"
+						ruling_only = yes
+					}
+  			}
+  			complete_national_focus = ITA_return_italy_to_sanity
+  		}
+  		if = {
+  			limit = {
+  				has_country_leader = {
+						name = "Julius Evola"
+						ruling_only = yes
+					}
+  			}
+  			complete_national_focus = ITA_stick_to_three_ideals
+  		}
+  	}
+  }
+
   #bianchi
   shared_focus = {
 		id = ITA_promote_trade_unions
 		icon = GFX_USA_trust_busting
-		x = -4
+		x = -2
 		y = 1
 		cost = 3
 		prerequisite = {
-			focus = ITA_italys_destiny
+			focus = ITA_consolidated_triumvirate
 		}
-		relative_position_id = ITA_italys_destiny
-		
-		allow_branch = {
+		relative_position_id = ITA_consolidated_triumvirate
+
+		available = {
 			has_country_leader = {
 				name = "Michele Bianchi"
 				ruling_only = yes
-			}
-			OR = {
-				has_country_flag = ITA_ciano_eliminated
-				has_country_flag = ITA_teruzzi_eliminated
 			}
 		}
 
@@ -5885,12 +5882,12 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_emphasize_militarism
-		icon = GFX_goal_ITA_dawn_of_the_blueshirts
-		x = -12
+		icon = GFX_goal_FRA_military_hierarchy
+		x = -9
 		y = 1
 		cost = 3
-		
-		allow_branch = {
+
+		available = {
 			has_country_leader = {
 				name = "Attilio Teruzzi"
 				ruling_only = yes
@@ -5898,9 +5895,10 @@ shared_focus = {
 		}
 		
 		prerequisite = {
-			focus = ITA_italys_destiny
+			focus = ITA_consolidated_triumvirate
 		}
-		relative_position_id = ITA_italys_destiny
+		relative_position_id = ITA_consolidated_triumvirate
+
 		ai_will_do = {
 			factor = 10
 		}
@@ -5911,8 +5909,8 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_organize_the_paramilitaries
-		icon = GFX_goal_ITA_dawn_of_the_blueshirts
-		x = 1
+		icon = GFX_goal_generic_small_arms
+		x = -1
 		y = 1
 		cost = 5
 		
@@ -5933,7 +5931,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_recruit_mercenaries
-		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		icon = GFX_goal_SOV_hierarchy_of_loyalty
 		x = 1
 		y = 1
 		cost = 5
@@ -5957,5 +5955,272 @@ shared_focus = {
 					owner = ITA
 				}
 			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_secure_blueshirt_government
+		icon = GFX_goal_ITA_dawn_of_the_blueshirts
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_organize_the_paramilitaries
+		}
+		relative_position_id = ITA_organize_the_paramilitaries
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = ITA_blackshirt_run_government_2
+		}
+	}
+
+	shared_focus = {
+		id = ITA_demand_crete
+		icon = GFX_goal_ITA_discover_crete
+		x = 0
+		y = 2
+		cost = 5
+		prerequisite = {
+			focus = ITA_organize_the_paramilitaries
+			focus = ITA_recruit_mercenaries
+		}
+		relative_position_id = ITA_emphasize_militarism
+		ai_will_do = {
+			factor = 10
+		}
+
+		bypass = {
+			182 = {
+				OWNER = {
+					OR = {
+						has_war_with = ROOT
+						tag = ITA
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			182 = {
+				OWNER = {
+					country_event = { id = italy.548 hours = 2 }
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_integrate_merc_battalions
+		icon = GFX_focus_generic_military_academy
+		x = 1
+		y = 1
+		cost = 5
+		
+		prerequisite = {
+			focus = ITA_recruit_mercenaries
+		}
+		relative_position_id = ITA_recruit_mercenaries
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_mercenary_integration_in_army
+		}
+	}
+
+	shared_focus = {
+		id = ITA_militia_with_state
+		icon = GFX_goal_extensive_training_methods
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_secure_blueshirt_government
+			focus = ITA_integrate_merc_battalions
+		}
+		mutually_exclusive = {
+			focus = ITA_mercenary_coup
+		}
+		relative_position_id = ITA_secure_blueshirt_government
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = ITA_blackshirt_run_government_2
+				}
+				swap_ideas = {
+					remove_idea = ITA_blackshirt_run_government_2
+					add_idea = ITA_blackshirt_run_government_3
+				}
+			}
+			if = {
+				limit = {
+					has_idea = ITA_mercenary_integration_in_army
+				}
+				swap_ideas = {
+					remove_idea = ITA_mercenary_integration_in_army
+					add_idea = ITA_mercenary_integration_in_army_2
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_mercenary_coup
+		icon = GFX_goal_ITA_the_pirates_power_grab
+		
+		x = 0
+		y = 1
+		cost = 5
+
+		prerequisite = { focus = ITA_integrate_merc_battalions }
+		relative_position_id = ITA_integrate_merc_battalions
+		mutually_exclusive = { focus = ITA_militia_with_state }
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = ITA_mercenary_events.3
+		}
+	}
+
+	#ciano
+
+	shared_focus = {
+		id = ITA_return_italy_to_sanity
+		icon = GFX_goal_ITA_cianos_conspiracy
+		x = 4
+		y = 1
+		cost = 5
+
+		available = {
+			has_country_leader = {
+				name = "Costanzo Ciano"
+				ruling_only = yes
+			}
+		}
+	
+		prerequisite = {
+			focus = ITA_consolidated_triumvirate
+		}
+		relative_position_id = ITA_consolidated_triumvirate
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_trait = ovra
+		}
+	}
+
+	shared_focus = {
+		id = ITA_promote_technocrats
+		icon = GFX_goal_ITA_cianos_conspiracy
+		x = -1
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_return_italy_to_sanity
+		}
+		mutually_exclusive = {
+			focus = ITA_look_to_past
+		}
+		relative_position_id = ITA_return_italy_to_sanity
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_technocratic_appointments
+		}
+	}
+
+	#evola
+
+	shared_focus = {
+		id = ITA_stick_to_three_ideals
+		icon = GFX_goal_ITA_evolaism
+		x = 12
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_consolidated_triumvirate
+		}
+		relative_position_id = ITA_consolidated_triumvirate
+
+		available = {
+			has_country_leader = {
+				name = "Julius Evola"
+				ruling_only = yes
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_three_ideals_3
+		}
+	}
+
+	shared_focus = {
+		id = ITA_look_to_past
+		icon = GFX_goal_ITA_cianos_conspiracy
+		x = 2
+		y = 1
+		cost = 5
+
+		available = {
+			OR = {
+				has_completed_focus = ITA_protections_for_king
+				has_completed_focus = ITA_compromise_with_right_wing
+			}
+		}
+	
+		prerequisite = {
+			focus = ITA_return_italy_to_sanity
+			focus = ITA_stick_to_three_ideals
+		}
+		mutually_exclusive = {
+			focus = ITA_transcend_the_body
+			focus = ITA_promote_technocrats
+		}
+		relative_position_id = ITA_return_italy_to_sanity
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_trait = descendants_of_rome
+		}
+	}
+
+	shared_focus = {
+		id = ITA_transcend_the_body
+		icon = GFX_goal_ITA_cianos_conspiracy
+		x = 2
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_stick_to_three_ideals
+		}
+		mutually_exclusive = {
+			focus = ITA_look_to_past
+		}
+		relative_position_id = ITA_stick_to_three_ideals
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_trait = descendants_of_rome
 		}
 	}
