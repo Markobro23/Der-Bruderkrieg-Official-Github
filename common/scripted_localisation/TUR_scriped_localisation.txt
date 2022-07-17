@@ -2,7 +2,11 @@ defined_text = {
 	name = GetTUR_current_government_gui_tt
 	text = {
 		trigger = {
-			has_government = authoritarian_democratic
+			OR = {
+				has_government = authoritarian_democratic
+				has_government = democratic
+				has_government = democratic_liberalism
+			}
 		}
 		localization_key = "TUR_kemal_government_tt"
 	}
@@ -18,6 +22,7 @@ defined_text = {
 		trigger = {
 			OR = {
 				has_completed_focus = TUR_controlling_the_people
+				has_completed_focus = TUR_deploy_the_meh
 			}
 		}
 		localization_key = "GetTUR_current_government_gui_tt_secret_police_active"
@@ -59,6 +64,57 @@ defined_text = {
 			}
 		}
 		localization_key = "GetTUR_current_government_gui_tt_research_active"
+	}
+}
+defined_text = {
+	name= GetTUR_current_government_gui_tt_free_press
+
+	text = {
+		trigger = {
+			OR = {
+				has_completed_focus = TUR_promoting_freedom_of_the_press
+			}
+		}
+		localization_key = "GetTUR_current_government_gui_tt_free_press_active"
+	}
+}
+
+defined_text = {
+	name= GetTUR_current_government_gui_tt_kemal
+
+	text = {
+		trigger = {
+			OR = {
+				has_completed_focus = TUR_kemals_revisions
+			}
+		}
+		localization_key = "GetTUR_current_government_gui_tt_kemal_active"
+	}
+}
+
+defined_text = {
+	name= GetTUR_current_government_gui_tt_pro_corp
+
+	text = {
+		trigger = {
+			OR = {
+				has_completed_focus = TUR_promote_the_free_market
+			}
+		}
+		localization_key = "GetTUR_current_government_gui_tt_pro_corp_active"
+	}
+}
+
+defined_text = {
+	name= GetTUR_current_government_gui_tt_pro_workers
+
+	text = {
+		trigger = {
+			OR = {
+				has_completed_focus = TUR_establish_a_central_bank
+			}
+		}
+		localization_key = "GetTUR_current_government_gui_tt_pro_workers_active"
 	}
 }
 

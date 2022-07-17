@@ -53,3 +53,24 @@ TUR_plans_against_our_enemies = {
 		has_completed_focus = TUR_strengthen_the_ministry_of_war
 	}
 }
+
+TUR_post_marraige_decision_category = {
+	allowed = {
+		tag = TUR
+	}
+
+	visible = {
+		OR = {
+			has_completed_focus = TUR_the_italian_exile
+			has_completed_focus = TUR_the_shah_of_persia
+			has_completed_focus = TUR_fat_farouk_will_do
+		}
+		NOT = {
+			OR = {
+				has_completed_focus = TUR_rome_with_an_ottoman_style
+				has_completed_focus = TUR_otto_persian_personal_union
+				has_completed_focus = TUR_reestablish_the_khedivate
+			}
+		}
+	}
+}

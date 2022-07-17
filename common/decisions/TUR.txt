@@ -283,7 +283,161 @@ TUR_plans_against_our_enemies = {
   			defense_bonus_against = 0.1
   		}
     }
+}
+
+TUR_post_marraige_decision_category = {
+	TUR_reach_out_to_persia = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_spread_pro_ottoman_sentiment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+
+		complete_effect = {
+			PER = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = medium_increase
+				}
+			}
+		}
+
+		modifier = {
+			improve_relations_maintain_cost_factor = -0.45
+		}	
 	}
+
+	TUR_reach_out_to_egypt = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pull_egypt_away_from_britain
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+
+		complete_effect = {
+			EGY = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = medium_increase
+				}
+			}
+		}
+
+		modifier = {
+			improve_relations_maintain_cost_factor = -0.45
+		}	
+	}
+
+	TUR_stage_roman_triumphs = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+		days_re_enable = 20
+
+		cost = 25
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_10
+				TUR_roman_revival_progress = 10
+			}
+		}
+
+		modifier = {
+			war_support_factor = 0.03
+		}	
+	}
+
+	TUR_model_the_roman_senate = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+		days_re_enable = 20
+
+		cost = 25
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_10
+				TUR_roman_revival_progress = 10
+			}
+		}
+
+		modifier = {
+			political_power_gain = 0.05
+		}	
+	}
+
+	TUR_claim_the_throne_of_byzantium = {
+		icon = generic_operation
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUR_roman_revival_progress_at_least_30
+				check_variable = {
+					TUR_roman_revival_progress > 29
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 15
+		
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_20
+				TUR_roman_revival_progress = 20
+			}
+		}
+
+		modifier = {
+		}	
+	}
+}
 
 
 weltkrieg_decisions = {

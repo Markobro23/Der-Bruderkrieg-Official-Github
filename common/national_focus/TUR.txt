@@ -1261,6 +1261,20 @@ shared_focus = {
     relative_position_id = TUR_crown_the_empress
     
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_kemals_revisions_original
+          add_idea = TUR_kemals_revisions_new
+        }
+      }
+      set_variable = {
+        TUR_current_government_modifier_party_popularity_stability_factor = 0.15
+      }
+      hidden_effect = {
+        add_dynamic_modifier = {
+          modifier = TUR_current_government_modifier
+        }
+      }
     }
 }
 shared_focus = {
@@ -1281,6 +1295,7 @@ shared_focus = {
 
     relative_position_id = TUR_kemals_revisions
     completion_reward = {
+      country_event = TUR_kemal_path.2
     }
 }
 shared_focus = {
@@ -1303,6 +1318,19 @@ shared_focus = {
     }
     relative_position_id = TUR_reforming_from_the_top
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_free_press_original
+          add_idea = TUR_free_press_new
+        }
+      }
+
+      set_variable = {
+        TUR_current_government_modifier_drift_defence_factor = -0.05
+      }
+      set_variable = {
+        TUR_current_government_modifier_monthly_population = 0.15
+      }
     }
 }
 shared_focus = {
@@ -1325,6 +1353,18 @@ shared_focus = {
     }
     relative_position_id = TUR_reforming_from_the_top
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_secret_police_original
+          add_idea = TUR_secret_police_new
+        }
+      }
+      set_variable = {
+        TUR_current_government_modifier_industrial_capacity_factory = 0.05
+      }
+      set_variable = {
+        TUR_current_government_modifier_resistance_target = -0.2
+      }
     }
 }
 shared_focus = {
@@ -1344,15 +1384,15 @@ shared_focus = {
     prerequisite = {
     }
     mutually_exclusive = {
-      focus = TUR_construct_istanbul_airfield
+      focus = TUR_nationalize_turkish_tobacco
     }
     relative_position_id = TUR_promoting_freedom_of_the_press
     completion_reward = {
     }
 }
 shared_focus = {
-    id = TUR_construct_istanbul_airfield
-    icon = GFX_goal_TUR_construct_istanbul_airfield
+    id = TUR_nationalize_turkish_tobacco
+    icon = GFX_goal_TUR_nationalize_turkish_tobacco
     x = 2
     y = 1
     cost = 5
@@ -1371,6 +1411,42 @@ shared_focus = {
     }
     relative_position_id = TUR_promoting_freedom_of_the_press
     completion_reward = {
+      random_owned_controlled_state = {
+            add_building_construction = {
+                type = industrial_complex 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        random_owned_controlled_state = {
+            add_building_construction = {
+                type = industrial_complex 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+        random_owned_controlled_state = {
+            add_building_construction = {
+                type = arms_factory 
+                level = 1
+                instant_build = yes
+            }
+            add_extra_state_shared_building_slots = 1
+        }
+      FRA = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = tarrifs
+        }
+      }
+      ENG = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = tarrifs
+        }
+      }
     }
 }
 shared_focus = {
@@ -1385,7 +1461,7 @@ shared_focus = {
     }
     prerequisite = {
       focus = TUR_cooperate_with_foreign_companies
-      focus = TUR_construct_istanbul_airfield
+      focus = TUR_nationalize_turkish_tobacco
     }
     prerequisite = {
     }
@@ -1394,6 +1470,19 @@ shared_focus = {
     }
     relative_position_id = TUR_cooperate_with_foreign_companies
     completion_reward = {
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_pro_corp_original
+          add_idea = TUR_pro_corp_new
+        }
+      }
+      
+      set_variable = {
+        TUR_current_government_modifier_consumer_goods_factor = -0.05
+      }
+      set_variable = {
+        TUR_current_government_modifier_industrial_concern_cost_factor = -0.15
+      }
     }
 }
 shared_focus = {
@@ -1408,7 +1497,7 @@ shared_focus = {
     }
     prerequisite = {
       focus = TUR_cooperate_with_foreign_companies
-      focus = TUR_construct_istanbul_airfield
+      focus = TUR_nationalize_turkish_tobacco
     }
     prerequisite = {
     }
@@ -1417,6 +1506,19 @@ shared_focus = {
     }
     relative_position_id = TUR_cooperate_with_foreign_companies
     completion_reward = {
+        effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_pro_workers_original
+                add_idea = ENG_pro_workers_new
+            }
+        }
+
+        set_variable = {
+            TUR_current_government_modifier_production_factory_max_efficiency_factor = 0.1
+        }
+        set_variable = {
+            TUR_current_government_modifier_local_resources_factor = 0.15
+        }
     }
 }
 shared_focus = {
@@ -1458,6 +1560,7 @@ shared_focus = {
 
     relative_position_id = TUR_kemals_revisions
     completion_reward = {
+      country_event = TUR_kemal_path.3
     }
 }
 shared_focus = {
@@ -1478,11 +1581,15 @@ shared_focus = {
     mutually_exclusive = {
       focus = TUR_the_shah_of_persia
     }
+    available = {
+      has_country_flag = TUR_chose_umberto_for_marraige
+    }
     mutually_exclusive = {
       focus = TUR_fat_farouk_will_do
     }
     relative_position_id = TUR_show_off_the_sultana
     completion_reward = {
+      country_event = TUR_kemal_path.6
     }
 }
 shared_focus = {
@@ -1503,6 +1610,7 @@ shared_focus = {
 
     relative_position_id = TUR_the_italian_exile
     completion_reward = {
+      unlock_decision_tooltip = TUR_stage_roman_triumphs
     }
 }
 shared_focus = {
@@ -1523,6 +1631,11 @@ shared_focus = {
 
     relative_position_id = TUR_pan_roman_propaganda
     completion_reward = {
+      add_ideas = ITA_roman_military_ethos
+      add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_10
+				TUR_roman_revival_progress = 10
+			}
     }
 }
 shared_focus = {
@@ -1540,9 +1653,17 @@ shared_focus = {
     }
     prerequisite = {
     }
-
+    available = {
+      custom_trigger_tooltip = {
+				tooltip = TUR_roman_revival_progress_at_least_100
+				check_variable = {
+					TUR_roman_revival_progress > 99
+				}
+			}
+    }
     relative_position_id = TUR_legionnaire_training
     completion_reward = {
+      set_cosmetic_tag = ottoman_rome
     }
 }
 shared_focus = {
@@ -1560,6 +1681,9 @@ shared_focus = {
     }
     prerequisite = {
     }
+    available = {
+      has_country_flag = TUR_chose_qajar_for_marraige
+    }
     mutually_exclusive = {
       focus = TUR_fat_farouk_will_do
     }
@@ -1568,6 +1692,7 @@ shared_focus = {
     }
     relative_position_id = TUR_show_off_the_sultana
     completion_reward = {
+      country_event = TUR_kemal_path.5
     }
 }
 shared_focus = {
@@ -1588,6 +1713,7 @@ shared_focus = {
 
     relative_position_id = TUR_the_shah_of_persia
     completion_reward = {
+      unlock_decision_tooltip = TUR_reach_out_to_persia
     }
 }
 shared_focus = {
@@ -1605,9 +1731,19 @@ shared_focus = {
     }
     prerequisite = {
     }
-
+    available = {
+      PER = {
+        has_opinion = {
+            target = TUR
+            value > 50
+        }
+      }
+    }
     relative_position_id = TUR_spread_pro_ottoman_sentiment
     completion_reward = {
+      PER = {
+        country_event = TUR_kemal_path.7
+      }
     }
 }
 shared_focus = {
@@ -1625,6 +1761,9 @@ shared_focus = {
     }
     prerequisite = {
     }
+    available = {
+      has_country_flag = TUR_chose_farouk_for_marraige
+    }
     mutually_exclusive = {
       focus = TUR_the_shah_of_persia
     }
@@ -1633,6 +1772,7 @@ shared_focus = {
     }
     relative_position_id = TUR_show_off_the_sultana
     completion_reward = {
+      country_event = TUR_kemal_path.4
     }
 }
 shared_focus = {
@@ -1653,6 +1793,7 @@ shared_focus = {
 
     relative_position_id = TUR_fat_farouk_will_do
     completion_reward = {
+      unlock_decision_tooltip = TUR_reach_out_to_egypt
     }
 }
 shared_focus = {
@@ -1670,9 +1811,19 @@ shared_focus = {
     }
     prerequisite = {
     }
-
+     available = {
+      EGY = {
+        has_opinion = {
+            target = TUR
+            value > 50
+        }
+      }
+    }
     relative_position_id = TUR_pull_egypt_away_from_britain
     completion_reward = {
+      EGY = {
+        country_event = TUR_kemal_path.7
+      }
     }
 }
 shared_focus = {
@@ -1694,6 +1845,45 @@ shared_focus = {
 
     relative_position_id = TUR_reestablish_the_khedivate
     completion_reward = {
+      if = {
+        limit = {
+          has_completed_focus = TUR_the_shah_of_persia
+        }
+        build_railway = {
+          level = 3
+          controller_priority = {
+						base = 1
+						
+						modifier = {
+						tag = TUR
+						add = 2
+						}
+					}
+         
+          
+          #path = { 341 347 49 348 344 350 352 850 419 420 266 }
+          start_state = 341
+          target_state = 266
+        }
+      }
+      else = {
+        build_railway = {
+          level = 3
+          controller_priority = {
+						base = 1
+						
+						modifier = {
+						tag = TUR
+						add = 2
+						}
+					}
+         
+          
+          #path = { 341 347 49 348 344 677 844 553 857 862 }
+          start_state = 341
+          target_state = 862
+        }
+      }
     }
 }
 ## ARAB
