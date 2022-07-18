@@ -25,6 +25,7 @@ focus_tree = {
 	}
 	
     shared_focus =  ENG_halifaxs_presidency
+    shared_focus = ENG_continue_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
     shared_focus = ENG_the_imperial_federation
@@ -57,6 +58,7 @@ focus_tree = {
 	}
 	
 	shared_focus = ENG_court_the_king
+    shared_focus = ENG_continue_the_war_in_ireland
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
     shared_focus = ENG_the_imperial_federation
@@ -261,10 +263,17 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
+        focus = ENG_execute_labour_scum
         focus = ENG_halifaxs_presidency
     }
     relative_position_id = ENG_halifaxs_presidency
-    
+    offset = {
+        trigger = {
+            has_focus_tree = ENG_hamsworth_tree
+        }
+        x = 14
+        y = 4
+    }
     completion_reward = {
         unlock_decision_category_tooltip = ENG_halifax_war_in_ireland
         activate_mission = ENG_ireland_attack_mission
@@ -333,7 +342,13 @@ shared_focus = {
         focus = ENG_execute_the_traitors
     }
     relative_position_id = ENG_execute_the_traitors
-    
+    offset = {
+        trigger = {
+            has_focus_tree = ENG_hamsworth_tree
+        }
+        x = -1
+        y = -1
+    }
     completion_reward = {
         IRE = {
             army_experience = 25
@@ -2151,7 +2166,9 @@ shared_focus = {
         focus = ENG_home_rule_act
     }
     relative_position_id = ENG_the_imperial_federation
-    
+    available = {
+        has_completed_focus = ENG_empire_strikes_back
+    }
     completion_reward = {
         activate_mission = ENG_imperial_federation_nationalization_act
     }
@@ -2346,7 +2363,13 @@ shared_focus = {
         focus = ENG_home_rule_act
     }
     relative_position_id = ENG_the_imperial_federation
-    
+    available = {
+        OR = {
+            has_completed_focus = ENG_crush_the_extremist_threat
+            has_completed_focus = ENG_gradual_rearmenent
+            has_completed_focus = ENG_denounce_the_king
+        }
+    }
     completion_reward = {
         activate_mission = ENG_imperial_federation_centralization_act
     }
@@ -2729,7 +2752,12 @@ shared_focus = {
         focus = ENG_imperial_centralization_act
     }
     relative_position_id = ENG_the_imperial_federation
-    
+    available = {
+        OR = {
+            has_completed_focus = ENG_enshrine_the_british_worker
+            has_completed_focus = ENG_isolate_horner
+        }
+    }
     completion_reward = {
         CAN = {
             drop_cosmetic_tag = yes
@@ -2771,14 +2799,15 @@ shared_focus = {
             }
         }
         ZAM = {
-            set_cosmetic_tag = east_african_federation
+            
             drop_cosmetic_tag = yes
+            set_cosmetic_tag = east_african_federation
         }
         release = ZAM
         set_autonomy = {
             target = ZAM
             autonomous_state = autonomy_free
-        }
+        } 
         add_to_faction = ZAM
 
         UGA = {
@@ -2792,6 +2821,17 @@ shared_focus = {
         }
         add_to_faction = UGA
 
+        set_autonomy = {
+            target = EGY
+            autonomous_state = autonomy_free
+        }
+        add_to_faction = EGY
+        EGY = {
+            annex_country = {
+                target = SUD
+                transfer_troops = yes
+            }
+        }
     }
 }
 shared_focus = {
@@ -2965,7 +3005,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_court_the_king
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 4
+    x = 5
     y = 0
     cost = 5
     available_if_capitulated = yes
