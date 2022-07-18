@@ -285,6 +285,16 @@ shared_focus = {
         add_dynamic_modifier = {
           modifier = TUR_current_government_modifier
         }
+
+        set_variable = {
+          TUR_ahmed_pasha_influence = 25
+        }
+        set_variable = {
+          TUR_enver_pasha_influence = 25
+        }
+        set_variable = {
+          TUR_mehmet_talaat_pasha_influence = 25
+        }
       }
     }
 }
@@ -897,6 +907,14 @@ shared_focus = {
           remove_idea = TUR_turkification_new
         }
       }
+      add_to_variable = {
+        tooltip = TUR_mehmet_talaat_pasha_influence_increase_by_5
+        TUR_mehmet_talaat_pasha_influence = 5
+      }
+      add_to_variable = {
+        tooltip = TUR_enver_pasha_influence_increase_by_5
+        TUR_enver_pasha_influence = 5
+      }
 
       set_variable = {
         TUR_current_government_modifier_monthly_population = -0.05
@@ -932,6 +950,11 @@ shared_focus = {
         }
       }
 
+      add_to_variable = {
+        tooltip = TUR_ahmed_pasha_influence_increase_by_5
+        TUR_ahmed_pasha_influence = 5
+      }
+
       set_variable = {
         TUR_current_government_modifier_political_power_gain = 0.1
       }
@@ -943,31 +966,9 @@ shared_focus = {
 
 
 shared_focus = {
-    id = TUR_ally_the_germans
-    icon = GFX_goal_TUR_ally_the_germans
-    x = 0
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    prerequisite = {
-      focus = TUR_a_turkey_for_turks_only
-    }
-
-
-    relative_position_id = TUR_a_turkey_for_turks_only 
-    completion_reward = {
-      GER = {
-        country_event = generic.2
-      }
-    }
-}
-shared_focus = {
-    id = TUR_pursue_pan_turanism
-    icon = GFX_focus_TUR_turanist_ambition
-    x = 0
+    id = TUR_declare_pro_revolutionary_stance
+    icon = GFX_goal_TUR_declare_pro_revolutionary_stance
+    x = -1
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -976,11 +977,139 @@ shared_focus = {
     }
     prerequisite = {
       focus = TUR_favor_forced_assimilation
+      focus = TUR_a_turkey_for_turks_only
     }
-   
+    mutually_exclusive = {
+      focus = TUR_affirm_loyalty_to_the_west
+    }
+    mutually_exclusive = {
+      focus = TUR_pursue_pan_turanism
+    }
+    relative_position_id = TUR_a_turkey_for_turks_only 
+    completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_enver_pasha_influence_increase_by_5
+        TUR_enver_pasha_influence = 5
+      }
+      GER = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = ger_tur_diplomacy_focus
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = GER
+          modifier = ger_tur_diplomacy_focus
+        }
+      }
+      ITA = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = ger_tur_diplomacy_focus
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = ITA
+          modifier = ger_tur_diplomacy_focus
+        }
+      }
+    }
+}
+shared_focus = {
+    id = TUR_affirm_loyalty_to_the_west
+    icon = GFX_goal_TUR_affirm_loyalty_to_the_west
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_favor_forced_assimilation
+      focus = TUR_a_turkey_for_turks_only
+    }
+
+    mutually_exclusive = {
+      focus = TUR_declare_pro_revolutionary_stance
+    }
+    mutually_exclusive = {
+      focus = TUR_pursue_pan_turanism
+    }
+    relative_position_id = TUR_a_turkey_for_turks_only 
+    completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_ahmed_pasha_influence_increase_by_5
+        TUR_ahmed_pasha_influence = 5
+      }
+      AUS = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = CZE_trust_in_the_west
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = AUS
+          modifier = CZE_trust_in_the_west
+        }
+      }
+      FRA = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = CZE_trust_in_the_west
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = FRA
+          modifier = CZE_trust_in_the_west
+        }
+      }
+      ENG = {
+        add_opinion_modifier = {
+          target = TUR
+          modifier = CZE_trust_in_the_west
+        }
+      }
+      TUR = {
+        add_opinion_modifier = {
+          target = ENG
+          modifier = CZE_trust_in_the_west
+        }
+      }
+    }
+}
+
+shared_focus = {
+    id = TUR_pursue_pan_turanism
+    icon = GFX_focus_TUR_turanist_ambition
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    prerequisite = {
+      focus = TUR_favor_forced_assimilation
+      focus = TUR_a_turkey_for_turks_only
+    }
+    mutually_exclusive = {
+      focus = TUR_affirm_loyalty_to_the_west
+    }
+    mutually_exclusive = {
+      focus = TUR_declare_pro_revolutionary_stance
+    }
 
     relative_position_id = TUR_favor_forced_assimilation 
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_mehmet_talaat_pasha_influence_increase_by_5
+        TUR_mehmet_talaat_pasha_influence = 5
+      }
       add_state_core = 231
       add_state_core = 230
       add_state_core = 1083
@@ -991,7 +1120,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_a_night_at_topkapi
     icon = GFX_goal_TUR_a_night_at_topkapi
-    x = -1
+    x = -2
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -999,7 +1128,8 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
-      focus = TUR_ally_the_germans
+      focus = TUR_affirm_loyalty_to_the_west
+      focus = TUR_declare_pro_revolutionary_stance
       focus = TUR_pursue_pan_turanism
     }
     available = {
@@ -1012,6 +1142,7 @@ shared_focus = {
 
     relative_position_id = TUR_pursue_pan_turanism 
     completion_reward = {
+      
     }
 }
 shared_focus = {
@@ -1054,6 +1185,15 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_mehmet_talaat_pasha_influence_increase_by_5
+        TUR_mehmet_talaat_pasha_influence = 5
+      }
+      add_to_variable = {
+        tooltip = TUR_ahmed_pasha_influence_increase_by_5
+        TUR_ahmed_pasha_influence = 5
+      }
+      
       remove_ideas = Degredation_Sultan
       add_country_leader_trait = military_puppet
     }
@@ -1077,6 +1217,10 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_enver_pasha_influence_increase_by_5
+        TUR_enver_pasha_influence = 5
+      }
       ##CUP Triumvirate becomes leader
       add_country_leader_role = {
         character = TUR_cup_triumvirate
@@ -2327,6 +2471,9 @@ shared_focus = {
       }
     }
 }
+
+
+
 ## TANZIMAT
 shared_focus = {
 	  id = TUR_TANZIMAT_FOCUS

@@ -103,6 +103,97 @@ country_event = {
 	}
 }
 
+## power struggle outcome
+country_event = {
+	id = TUR_pashas_path.3
+	title = TUR_pashas_path.3.t
+	desc = TUR_pashas_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_pashas_path.3.a
+
+		ai_chance = {
+			factor = 1000
+		}
+
+		add_country_leader_role = {
+			character = TUR_mehmet_talaat_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= fascism_ideology
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+
+		trigger = {
+			check_variable = {
+				TUR_mehmet_talaat_pasha_influence > 34
+			}
+		}
+	}
+	option = {
+		name = TUR_pashas_path.3.b
+
+		ai_chance = {
+			factor = 1000
+		}
+
+		trigger = {
+			check_variable = {
+				TUR_enver_pasha_influence > 34
+			}
+		}
+
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+		add_country_leader_role = {
+			character = TUR_enver_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= ultranationalist
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+	}
+	option = {
+		name = TUR_pashas_path.3.c
+
+		ai_chance = {
+			factor = 1000
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		add_country_leader_role = {
+			character = TUR_ahmed_cemal_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= despotic
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		trigger = {
+			check_variable = {
+				TUR_ahmed_pasha_influence > 34
+			}
+		}
+	}
+}
+
 add_namespace = TUR_fuad_path
 ## Fuad
 country_event = {
