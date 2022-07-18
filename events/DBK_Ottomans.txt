@@ -455,7 +455,7 @@ country_event = {
 	}
 }
 
-##demand custody of enver and ahmed
+##demand PU
 country_event = {
 	id = TUR_kemal_path.7
 	title = TUR_kemal_path.7.t
@@ -602,9 +602,64 @@ country_event = {
 		remove_state_core = 862
 		remove_state_core = 856
 		remove_state_core = 861
-
+		remove_state_core = 554
 	}
 }
+
+##demand custody of enver and ahmed
+country_event = {
+	id = TUR_arab_tree.5
+	title = TUR_arab_tree.5.t
+	desc = TUR_arab_tree.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.5.a 
+		ai_chance = { factor = 90 } 
+		TUR = { country_event = TUR_arab_tree.6 }
+	}
+	option = { 
+		name = TUR_arab_tree.5.b
+		ai_chance = { factor = 0 } 
+		TUR = { country_event = TUR_arab_tree.7 }
+	}
+}
+
+country_event = {
+	id = TUR_arab_tree.6
+	title = TUR_arab_tree.6.t
+	desc = TUR_arab_tree.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.6.a 
+		ai_chance = { factor = 90 } 
+		custom_effect_tooltip = TUR_we_will_betray_jbs_to_saudis_for_alliance
+		set_global_flag = TUR_made_alliance_with_nejd
+	}
+}
+country_event = {
+	id = TUR_arab_tree.7
+	title = TUR_arab_tree.7.t
+	desc = TUR_arab_tree.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.7.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
 
 add_namespace = TUR_arab_revolt 
 

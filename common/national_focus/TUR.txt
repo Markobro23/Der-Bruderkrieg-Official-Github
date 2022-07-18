@@ -697,7 +697,10 @@ shared_focus = {
         country_event = TUR_fuad_path.5
       }
       FRA = {
-        country_event = TUR_fuad_path.5
+        country_event = {
+          id = TUR_fuad_path.5
+          days = 3
+        }
       }
     }
 }
@@ -1995,6 +1998,7 @@ shared_focus = {
 
     relative_position_id = TUR_lock_up_al_atassis_thugs
     completion_reward = {
+      remove_ideas = Arab_Spring
       annex_country = {
         target = HEJ
         transfer_troops = yes
@@ -2040,6 +2044,30 @@ shared_focus = {
 
     relative_position_id = TUR_codify_arab_autonomy
     completion_reward = {
+      hidden_effect = {
+        KUR = {
+          add_state_core = 848
+          add_state_core = 869
+          add_state_core = 853
+          add_state_core = 676
+          add_state_core = 851
+          add_state_core = 850
+          set_popularities = {
+            despotic = 25
+            democratic_communism = 30
+            communism = 28
+            socialism_democratic = 17
+          }
+          keep_current_politics = yes
+        }
+      }
+      release_puppet_on_controlled = KUR
+
+      hidden_effect = {
+        KUR = {
+          reset_government = yes
+        }
+      }
     }
 }
 shared_focus = {
@@ -2058,6 +2086,24 @@ shared_focus = {
 
     relative_position_id = TUR_a_kurdish_state
     completion_reward = {
+      hidden_effect = {
+        IRQ = {
+          set_popularities = {
+            democratic = 42
+            fascism = 25
+            ultranationalism = 10
+            despotic = 23
+          }
+          keep_current_politics = yes
+        }
+      }
+      release_puppet_on_controlled = IRQ
+
+      hidden_effect = {
+        IRQ = {
+          reset_government = yes
+        }
+      }
     }
 }
 shared_focus = {
@@ -2076,6 +2122,39 @@ shared_focus = {
 
     relative_position_id = TUR_succumb_to_iraqi_nationalists
     completion_reward = {
+      hidden_effect = {
+        SYR = {
+          set_popularities = {
+            authoritarian_democratic = 71
+            democratic = 25
+            fascism = 3
+            communism = 1
+          }
+          keep_current_politics = yes
+        }
+      }
+      hidden_effect = {
+        SYR = {
+          add_state_core = 680
+          add_state_core = 677
+          add_state_core = 841
+          add_state_core = 844
+          add_state_core = 680
+          add_state_core = 849
+          add_state_core = 553
+          add_state_core = 857
+          add_state_core = 455
+          add_state_core = 862
+          add_state_core = 856
+          add_state_core = 861
+        }
+      }
+      release_puppet_on_controlled = SYR
+      hidden_effect = {
+        SYR = {
+          reset_government = yes
+        }
+      }
     }
 }
 shared_focus = {
@@ -2094,6 +2173,12 @@ shared_focus = {
 
     relative_position_id = TUR_ally_with_sadeh
     completion_reward = {
+      remove_ideas = Arab_Spring
+      set_autonomy = {
+        target = HEJ
+        autonomy_state = autonomy_free
+      }
+      
     }
 }
 
@@ -2115,6 +2200,7 @@ shared_focus = {
 
     relative_position_id = TUR_centralize_the_empire
     completion_reward = {
+      unlock_decision_category_tooltip = TUR_asserting_influence_in_arabia
     }
 }
 shared_focus = {
@@ -2128,6 +2214,7 @@ shared_focus = {
         factor = 1
     }
     prerequisite = {
+      focus = TUR_a_kurdish_state
       focus = TUR_a_deal_with_rashidi
     }
     prerequisite = {
@@ -2136,8 +2223,25 @@ shared_focus = {
     mutually_exclusive = {
       focus = TUR_riyadh_to_constantinople_railway
     }
+
+    available = {
+      JAB = {
+        is_puppet_of = TUR
+      }
+      ANA = {
+        is_puppet_of = TUR
+      }
+    }
     relative_position_id = TUR_a_deal_with_rashidi
     completion_reward = {
+      JAB = {
+        annex_country = {
+          target = ANA
+          transfer_troops = yes
+        }
+        add_ideas = Turkish_Command
+        set_cosmetic_tag = united_arabia_under_jbs
+      }
     }
 }
 shared_focus = {
@@ -2159,8 +2263,19 @@ shared_focus = {
     mutually_exclusive = {
       focus = TUR_assert_economic_influence_over_the_peninsula
     }
+    available = {
+      JAB = {
+        is_puppet_of = TUR
+      }
+      ANA = {
+        is_puppet_of = TUR
+      }
+    }
     relative_position_id = TUR_a_deal_with_rashidi
     completion_reward = {
+      SAU = {
+        country_event = TUR_arab_tree.5
+      }
     }
 }
 shared_focus = {
@@ -2180,6 +2295,36 @@ shared_focus = {
 
     relative_position_id = TUR_assert_economic_influence_over_the_peninsula
     completion_reward = {
+      if = {
+        limit = {
+          has_completed_focus = TUR_riyadh_to_constantinople_railway
+        }
+        SAU = {
+          annex_country = {
+            target = JAB
+            transfer_troops = yes
+          }
+          annex_country = {
+            target = ANA
+            transfer_troops = yes
+          }
+          annex_country = {
+            target = BNK
+            transfer_troops = yes
+          }
+          annex_country = {
+            target = BTA
+            transfer_troops = yes
+          }
+        }
+        set_autonomy = {
+          target = SAU
+          autonomy_state = autonomy_personal_union_member
+        }
+      }
+      else = {
+        unlock_decision_tooltip = TUR_operation_desert_storm
+      }
     }
 }
 ## TANZIMAT
@@ -2197,7 +2342,9 @@ shared_focus = {
 
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
-
+    allow_branch = {
+      always = no
+    }
 	  completion_reward = {
 	   # #######Gets a long ass event about the Tanzimat reforms
 	  }
@@ -3568,7 +3715,7 @@ shared_focus = {
     icon = GFX_goal_generic_navy_doctrines_tactics
     #prerequisite = { focus = TUR_revenge_for_constantinople focus = TUR_learn_from_constantinople }
 
-    x = 37
+    x = 38
     y = 8
     cost = 50
     ai_will_do = {
@@ -3669,7 +3816,7 @@ shared_focus = {
     icon = GFX_goal_generic_wolf_pack
     prerequisite = { focus = TUR_modernize_the_ottoman_fleet }
 
-    x = 3
+    x = 2
     y = 1
     relative_position_id = TUR_modernize_the_ottoman_fleet
     cost = 50
@@ -3693,7 +3840,7 @@ shared_focus = {
     id = TUR_U_BOATS
     icon = GFX_goal_generic_navy_submarine
     prerequisite = { focus = TUR_WOLF_PACKS }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = TUR_WOLF_PACKS
     cost = 50
@@ -3723,8 +3870,8 @@ shared_focus = {
     icon = GFX_goal_generic_air_naval_bomber
     prerequisite = { focus = TUR_modernize_the_ottoman_fleet }
 
-    x = 6
-    y = 1
+    x = 3
+    y = 2
     relative_position_id = TUR_modernize_the_ottoman_fleet
     cost = 50
     ai_will_do = {
@@ -3747,7 +3894,7 @@ shared_focus = {
     id = TUR_NAVY_FUTURE
     icon = GFX_goal_generic_navy_cruiser
     prerequisite = { focus = TUR_NAVAL_AVIATION }
-    x = -2
+    x = -1
     y = 1
     relative_position_id = TUR_NAVAL_AVIATION
     cost = 50
@@ -3960,8 +4107,8 @@ shared_focus = {
 	shared_focus = {
     id = TUR_national_defense_department
     icon = GFX_focus_rocketry
-    x = 36
-    y = 0
+    x = 20
+    y = 7
     cost = 50
     ai_will_do = {
       factor = 1

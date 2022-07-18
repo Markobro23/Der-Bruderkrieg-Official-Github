@@ -439,6 +439,313 @@ TUR_post_marraige_decision_category = {
 	}
 }
 
+TUR_asserting_influence_in_arabia = {
+	TUR_influence_annazah = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			
+		}
+
+		modifier = {
+			ANA = {
+				country_event = generic.27
+			}
+		}	
+	}
+	TUR_influence_jbs = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			
+		}
+
+		modifier = {
+			ANA = {
+				country_event = generic.27
+			}
+		}	
+	}
+	TUR_secure_al_rasheed_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = JAB
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_rasheedi_family_secured
+			JAB = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	TUR_secure_al_sabhan_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = JAB
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_sabhan_family_secured
+			JAB = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	TUR_secure_al_hathal_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = ANA
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_hathal_family_secured
+			ANA = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	TUR_secure_al_shalaan_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = ANA
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_shalaan_family_secured
+			ANA = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	TUR_puppet_jbs = {
+		icon = generic_operation
+		available = {
+			has_country_flag = TUR_al_rasheedi_family_secured
+			has_country_flag = TUR_al_sabhan_family_secured
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			JAB = {
+				country_event = generic.20
+			}
+		}
+	}
+	TUR_puppet_anazzah = {
+		icon = generic_operation
+		available = {
+			has_country_flag = TUR_al_hathal_family_secured
+			has_country_flag = TUR_al_shalaan_family_secured
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			ANA = {
+				country_event = generic.20
+			}
+		}
+	}
+
+
+	TUR_operation_desert_storm = {
+		icon = generic_operation
+		available = {
+			has_war_with = SAU
+		}
+		visible = {
+			has_completed_focus = TUR_destroy_the_saudi_family
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 100
+
+		targeted_modifier = {
+			tag = SAU
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.1
+		}
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			
+		}
+	}
+}
 
 weltkrieg_decisions = {
 	TUR_ai_desperate_defense = {
