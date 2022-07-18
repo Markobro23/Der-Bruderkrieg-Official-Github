@@ -756,7 +756,7 @@ shared_focus = {
 
     relative_position_id = TUR_royal_benefits
     completion_reward = {
-      remove_ideas = Degredation_Sultan
+      remove_ideas = Degredation_Sultan_2
       add_war_support = 0.15
     }
 }
@@ -943,18 +943,18 @@ shared_focus = {
 
     relative_position_id = TUR_a_brutal_reign 
     completion_reward = {
-      effect_tooltip = {
-        swap_ideas = {
-          remove_idea = TUR_assimilation_original
-          add_idea = TUR_assimilation_new
-        }
-      }
 
       add_to_variable = {
         tooltip = TUR_ahmed_pasha_influence_increase_by_5
         TUR_ahmed_pasha_influence = 5
       }
 
+      effect_tooltip = {
+        swap_ideas = {
+          remove_idea = TUR_assimilation_original
+          add_idea = TUR_assimilation_new
+        }
+      }
       set_variable = {
         TUR_current_government_modifier_political_power_gain = 0.1
       }
@@ -991,6 +991,7 @@ shared_focus = {
         tooltip = TUR_enver_pasha_influence_increase_by_5
         TUR_enver_pasha_influence = 5
       }
+
       GER = {
         add_opinion_modifier = {
           target = TUR
@@ -1217,6 +1218,7 @@ shared_focus = {
 
     relative_position_id = TUR_a_new_empire
     completion_reward = {
+      
       add_to_variable = {
         tooltip = TUR_enver_pasha_influence_increase_by_5
         TUR_enver_pasha_influence = 5
@@ -1231,6 +1233,8 @@ shared_focus = {
 					id=-1
 				}
       }
+
+      remove_ideas = Degredation_Sultan
     }
 }
 shared_focus = {
@@ -1366,6 +1370,9 @@ shared_focus = {
             target_country = TUR
             character = JAP_hideki_tojo
         }
+      }
+      effect_tooltip = {
+        recruit_character = JAP_hideki_tojo
       }
     }
 }
@@ -2080,6 +2087,7 @@ shared_focus = {
     }
     
     completion_reward = {
+      country_event = TUR_arab_tree.1
     }
 }
 shared_focus = {
@@ -2097,6 +2105,12 @@ shared_focus = {
     }
     mutually_exclusive = {
       focus = TUR_codify_arab_autonomy
+    }
+    available = {
+      OR = {
+        has_completed_focus = TUR_the_gray_wolfs_howl
+        has_completed_focus = TUR_revival_of_the_house_of_osman
+      }
     }
     relative_position_id = TUR_the_arab_chaos
     completion_reward = {
@@ -2200,6 +2214,12 @@ shared_focus = {
     }
     mutually_exclusive = {
       focus = TUR_centralize_the_empire
+    }
+    available = {
+      OR = {
+        has_completed_focus = TUR_no_country_for_old_men
+        has_completed_focus = TUR_revival_of_the_house_of_osman
+      }
     }
     relative_position_id = TUR_the_arab_chaos
     completion_reward = {
