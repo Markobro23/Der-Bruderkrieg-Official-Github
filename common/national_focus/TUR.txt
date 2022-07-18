@@ -1142,7 +1142,7 @@ shared_focus = {
 
     relative_position_id = TUR_pursue_pan_turanism 
     completion_reward = {
-      
+      country_event = TUR_pashas_path.3
     }
 }
 shared_focus = {
@@ -1443,6 +1443,13 @@ shared_focus = {
     relative_position_id = TUR_kemals_revisions
     completion_reward = {
       country_event = TUR_kemal_path.2
+
+      set_variable = {
+        TUR_liberal_influence = 0
+      }
+      set_variable = {
+        TUR_kemalist_influence = 0
+      }
     }
 }
 shared_focus = {
@@ -1465,6 +1472,10 @@ shared_focus = {
     }
     relative_position_id = TUR_reforming_from_the_top
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_onc_will_lean_more_liberal
+        TUR_liberal_influence = 1
+      }
       effect_tooltip = {
         swap_ideas = {
           remove_idea = TUR_free_press_original
@@ -1500,6 +1511,10 @@ shared_focus = {
     }
     relative_position_id = TUR_reforming_from_the_top
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_onc_will_lean_more_kemalist
+        TUR_kemalist_influence = 1
+      }
       effect_tooltip = {
         swap_ideas = {
           remove_idea = TUR_secret_police_original
@@ -1535,6 +1550,10 @@ shared_focus = {
     }
     relative_position_id = TUR_promoting_freedom_of_the_press
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_onc_will_lean_more_liberal
+        TUR_liberal_influence = 1
+      }
     }
 }
 shared_focus = {
@@ -1558,6 +1577,10 @@ shared_focus = {
     }
     relative_position_id = TUR_promoting_freedom_of_the_press
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_onc_will_lean_more_kemalist
+        TUR_kemalist_influence = 1
+      }
       random_owned_controlled_state = {
             add_building_construction = {
                 type = industrial_complex 
@@ -1617,6 +1640,10 @@ shared_focus = {
     }
     relative_position_id = TUR_cooperate_with_foreign_companies
     completion_reward = {
+      add_to_variable = {
+        tooltip = TUR_onc_will_lean_more_liberal
+        TUR_liberal_influence = 1
+      }
       effect_tooltip = {
         swap_ideas = {
           remove_idea = TUR_pro_corp_original
@@ -1653,6 +1680,10 @@ shared_focus = {
     }
     relative_position_id = TUR_cooperate_with_foreign_companies
     completion_reward = {
+        add_to_variable = {
+          tooltip = TUR_onc_will_lean_more_kemalist
+          TUR_kemalist_influence = 1
+        }
         effect_tooltip = {
             swap_ideas = {
                 remove_idea = ENG_pro_workers_original
@@ -1687,6 +1718,7 @@ shared_focus = {
     
     relative_position_id = TUR_promote_the_free_market
     completion_reward = {
+      country_event = TUR_kemal_path.10
     }
 }
 shared_focus = {
@@ -1810,6 +1842,7 @@ shared_focus = {
     }
     relative_position_id = TUR_legionnaire_training
     completion_reward = {
+      remove_ideas = Degredation_Sultan
       set_cosmetic_tag = ottoman_rome
     }
 }
@@ -1992,6 +2025,7 @@ shared_focus = {
 
     relative_position_id = TUR_reestablish_the_khedivate
     completion_reward = {
+      remove_ideas = Degredation_Sultan
       if = {
         limit = {
           has_completed_focus = TUR_the_shah_of_persia
