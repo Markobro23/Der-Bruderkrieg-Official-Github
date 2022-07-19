@@ -199,6 +199,9 @@ ENG_halifax_war_in_ireland = {
 		}
 		visible = {
 		}
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_irish_integration_increase_by_5
@@ -218,7 +221,9 @@ ENG_bring_albert_from_his_paranoia = {
 		fire_only_once = no
 
 		days_remove = 30
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			
 			add_to_variable = {
@@ -235,7 +240,9 @@ ENG_bring_albert_from_his_paranoia = {
 		cost = 15
 
 		fire_only_once = yes
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			add_popularity = {
 				ideology = ROOT
@@ -256,7 +263,9 @@ ENG_bring_albert_from_his_paranoia = {
 		cost = 25
 
 		fire_only_once = yes
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			add_to_variable = {
 				tooltip = ENG_kings_approval_var_increase_by_10
@@ -278,7 +287,9 @@ ENG_bring_albert_from_his_paranoia = {
 		available = {
 			has_war = yes
 		}
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			add_to_variable = {
 				tooltip = ENG_kings_approval_var_increase_by_10
@@ -306,7 +317,9 @@ ENG_bring_albert_from_his_paranoia = {
 		available = {
 			has_war = yes
 		}
-
+		ai_will_do = {
+			factor = 100
+		}
 		complete_effect = {
 			add_to_variable = {
 				tooltip = ENG_kings_approval_var_increase_by_10
@@ -390,6 +403,9 @@ weltkrieg_decisions = {
 		available = {
 		}
 
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			activate_mission = ENG_complete_mobilization
 			set_country_flag = ENG_activation_complete_mobilization_flag
@@ -906,6 +922,9 @@ ENG_imperial_federation_category = {
 		cost = 0
 		days_remove = 50
 		
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			SAF = { 
 				add_to_variable = {
@@ -939,6 +958,9 @@ ENG_imperial_federation_category = {
 		cost = 0
 		days_remove = 50
 		
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			AST = { 
 				add_to_variable = {
@@ -972,6 +994,9 @@ ENG_imperial_federation_category = {
 		cost = 0
 		days_remove = 50
 		
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			CAN = { 
 				add_to_variable = {
@@ -1006,6 +1031,9 @@ ENG_imperial_federation_category = {
 		days_remove = 50
 		complete_effect = {
 			SAF = { add_ideas = SOV_foreign_investment_idea }
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		remove_effect = {
 			SAF = { 
@@ -1058,6 +1086,9 @@ ENG_imperial_federation_category = {
 		complete_effect = {
 			AST = { add_ideas = SOV_foreign_investment_idea }
 		}
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			AST = { 
 				add_to_variable = {
@@ -1108,6 +1139,9 @@ ENG_imperial_federation_category = {
 		days_remove = 50
 		complete_effect = {
 			CAN = { add_ideas = SOV_foreign_investment_idea }
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		remove_effect = {
 			CAN = { 
@@ -1200,6 +1234,9 @@ ENG_imperial_federation_category = {
 		days_remove = 0
 		complete_effect = {
 		}
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			effect_tooltip = {
 				activate_mission = ENG_imperial_federation_crackdown_south_africa
@@ -1269,6 +1306,9 @@ ENG_imperial_federation_category = {
 		cost = 0
 		days_remove = 0
 		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		remove_effect = {
 			effect_tooltip = {
@@ -1340,6 +1380,9 @@ ENG_imperial_federation_category = {
 		days_remove = 0
 		complete_effect = {
 		}
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			effect_tooltip = {
 				activate_mission = ENG_imperial_federation_crackdown_canada
@@ -1387,9 +1430,17 @@ ENG_imperial_federation_category = {
 		}
 
 		available = {
-			divisions_in_state = {
-				size > 3
-				state = FROM
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					size > 3
+					state = FROM
+				}
+			}
+			else =  {
+				always = yes
 			}
 		}
 
@@ -1466,6 +1517,9 @@ ENG_referendum_on_the_monarchy = {
 		cost = 15
 		days_remove = 35
 		days_re_enable = 20
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_abolish_monarchy_referrendum_support_increase_by_6
@@ -1489,6 +1543,9 @@ ENG_referendum_on_the_monarchy = {
 		cost = 10
 		days_remove = 15
 		days_re_enable = 10
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_abolish_monarchy_referrendum_support_increase_by_3
@@ -1513,6 +1570,9 @@ ENG_referendum_on_the_monarchy = {
 		days_remove = 25
 		modifier = {
 			civilian_factory_use = 1
+		}
+		ai_will_do = {
+			factor = 100
 		}
 		remove_effect = {
 			add_to_variable = {
@@ -1539,6 +1599,9 @@ influencing_belgium = {
 		fire_only_once = no
 		cost = 30
 		days_remove = 60
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_decrease_degrelles_support_by_6
@@ -1560,6 +1623,9 @@ influencing_belgium = {
 		fire_only_once = no
 		days_remove = 30
 		cost = 20
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_decrease_degrelles_support_by_3
@@ -1581,6 +1647,9 @@ influencing_belgium = {
 		fire_only_once = no
 		days_remove = 45
 		cost = 50
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_decrease_degrelles_support_by_5
@@ -1603,6 +1672,9 @@ influencing_belgium = {
 		fire_only_once = no
 		days_remove = 45
 		cost = 50
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			add_to_variable = {
 				tooltip = ENG_decrease_degrelles_support_by_5
