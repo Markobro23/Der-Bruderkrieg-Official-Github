@@ -271,7 +271,7 @@ shared_focus = {
         trigger = {
             has_focus_tree = ENG_hamsworth_tree
         }
-        x = 12
+        x = 7
         y = 4
     }
     completion_reward = {
@@ -1738,40 +1738,40 @@ shared_focus = {
     }
 }
 
-shared_focus = {
-    id = ENG_ally_the_prussians
-    icon = GFX_goal_ENG_ally_the_prussians
-    x = 1
-    y = 1
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    mutually_exclusive = {
-        focus = ENG_mantain_the_pact_of_atlantica
-    }
-    prerequisite = {
-        focus = ENG_stayin_steady
-    }
-    relative_position_id = ENG_stayin_steady
-    available = {
+# shared_focus = {
+#     id = ENG_ally_the_prussians
+#     icon = GFX_goal_ENG_ally_the_prussians
+#     x = 1
+#     y = 1
+#     cost = 5
+#     available_if_capitulated = yes
+#     ai_will_do = {
+#         factor = 1
+#     }
+#     mutually_exclusive = {
+#         focus = ENG_mantain_the_pact_of_atlantica
+#     }
+#     prerequisite = {
+#         focus = ENG_stayin_steady
+#     }
+#     relative_position_id = ENG_stayin_steady
+#     available = {
 
-        ## Replace With Rearememnt
-        OR = {
-            has_completed_focus = ENG_pact_of_london
-        }
-    }
+#         ## Replace With Rearememnt
+#         OR = {
+#             has_completed_focus = ENG_pact_of_london
+#         }
+#     }
     
-    completion_reward = {
-        ENG = {
-			add_ideas = ENG_prussian_advisors
-		}
-		GER = {
-			add_ideas = GER_british_advisors
-		}	
-    }
-}
+#     completion_reward = {
+#         ENG = {
+# 			add_ideas = ENG_prussian_advisors
+# 		}
+# 		GER = {
+# 			add_ideas = GER_british_advisors
+# 		}	
+#     }
+# }
 shared_focus = {
     id = ENG_ally_the_prussians
     icon = GFX_goal_ENG_ally_the_prussians
@@ -2956,6 +2956,8 @@ shared_focus = {
                 target = ZIM
                 transfer_troops = no
             }
+            transfer_state = 1070
+            transfer_state = 1071
         }
 
         
