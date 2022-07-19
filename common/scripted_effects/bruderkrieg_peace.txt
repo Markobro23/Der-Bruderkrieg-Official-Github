@@ -2338,6 +2338,19 @@ russia_beats_ottoman_peace_deal = {
         keep_current_politics = yes
     }
     release_byazntium = yes
+    if = {
+        limit = {
+            KUR = {
+                exists = yes
+            }
+        }
+        TUR = {
+            annex_country = {
+                target = KUR
+                transfer_troops = no
+            }
+        }
+    }
 
     release = SYR
     release = PAL
