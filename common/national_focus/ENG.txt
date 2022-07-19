@@ -271,7 +271,7 @@ shared_focus = {
         trigger = {
             has_focus_tree = ENG_hamsworth_tree
         }
-        x = 14
+        x = 12
         y = 4
     }
     completion_reward = {
@@ -1303,7 +1303,7 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
-            has_completed_focus = ENG_empire_strikes_back
+            has_completed_focus = ENG_most_royal_of_marriages
         }
     }
     completion_reward = {
@@ -1313,7 +1313,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_mantain_the_pact_of_atlantica
     icon = GFX_goal_ENG_mantain_the_pact_of_atlantica
-    x = -1
+    x = -2
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1322,6 +1322,9 @@ shared_focus = {
     }
     mutually_exclusive = {
         focus = ENG_europe_calls
+    }
+    mutually_exclusive = {
+        focus = ENG_ally_the_prussians
     }
     prerequisite = {
         focus = ENG_stayin_steady
@@ -1532,7 +1535,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_europe_calls
     icon = GFX_goal_ENG_europe_calls
-    x = 1
+    x = 0
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1541,6 +1544,9 @@ shared_focus = {
     }
     mutually_exclusive = {
         focus = ENG_mantain_the_pact_of_atlantica
+    }
+    mutually_exclusive = {
+        focus = ENG_ally_the_prussians
     }
     prerequisite = {
         focus = ENG_stayin_steady
@@ -1552,6 +1558,7 @@ shared_focus = {
         OR = {
             has_completed_focus = ENG_crush_the_extremist_threat
             has_completed_focus = ENG_gradual_rearmenent
+            has_completed_focus = ENG_most_royal_of_marriages
         }
     }
     
@@ -1731,6 +1738,79 @@ shared_focus = {
     }
 }
 
+shared_focus = {
+    id = ENG_ally_the_prussians
+    icon = GFX_goal_ENG_ally_the_prussians
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_mantain_the_pact_of_atlantica
+    }
+    prerequisite = {
+        focus = ENG_stayin_steady
+    }
+    relative_position_id = ENG_stayin_steady
+    available = {
+
+        ## Replace With Rearememnt
+        OR = {
+            has_completed_focus = ENG_pact_of_london
+        }
+    }
+    
+    completion_reward = {
+        ENG = {
+			add_ideas = ENG_prussian_advisors
+		}
+		GER = {
+			add_ideas = GER_british_advisors
+		}	
+    }
+}
+shared_focus = {
+    id = ENG_ally_the_prussians
+    icon = GFX_goal_ENG_ally_the_prussians
+    x = 3
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_mantain_the_pact_of_atlantica
+    }
+    mutually_exclusive = {
+        focus = ENG_europe_calls
+    }
+    prerequisite = {
+        focus = ENG_stayin_steady
+    }
+    relative_position_id = ENG_stayin_steady
+    available = {
+
+        ## Replace With Rearememnt
+        OR = {
+            has_completed_focus = ENG_pact_of_london
+        }
+    }
+    
+    completion_reward = {
+        ENG = {
+			add_ideas = ENG_prussian_advisors
+		}
+		GER = {
+			add_ideas = GER_british_advisors
+		}	
+    }
+}
+
+
 ##RAJ tree
 shared_focus = {
     id = ENG_broken_crown_jewel
@@ -1904,6 +1984,11 @@ shared_focus = {
     available = {
         AIG = {
             has_country_flag = AIG_chose_united_front_path
+        }
+        OR = {
+            has_completed_focus = ENG_denounce_the_king
+            has_completed_focus = ENG_enshrine_the_british_worker
+            has_completed_focus = ENG_isolate_horner
         }
     }
     relative_position_id = ENG_broken_crown_jewel
@@ -2130,6 +2215,7 @@ shared_focus = {
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
             has_completed_focus = ENG_empire_strikes_back
+            has_completed_focus = ENG_britain_lives_and_marches_on
         }
     }
     completion_reward = {
@@ -2214,6 +2300,16 @@ shared_focus = {
     relative_position_id = ENG_return_of_the_boers
     
     completion_reward = {
+        SAF = {
+            annex_country = {
+                target = BOT
+                transfer_troops = yes
+            }
+            annex_country = {
+                target = ZIM
+                transfer_troops = yes
+            }
+        }
         275 = {
             add_dynamic_modifier = {
                 modifier = luxury_good_diamond_modifier_level_one
@@ -2774,7 +2870,7 @@ shared_focus = {
     icon = GFX_goal_ENG_freedom_for_africa
     x = -1
     y = 1
-    cost = 5
+    cost = 8
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -2839,7 +2935,7 @@ shared_focus = {
     icon = GFX_goal_ENG_boot_out_the_apartheidists
     x = 0
     y = 1
-    cost = 5
+    cost = 8
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -2853,7 +2949,16 @@ shared_focus = {
     completion_reward = {
         SAF = {
             drop_cosmetic_tag = yes
+            set_politics = {
+                ruling_party = socialism_democratic
+            }
+            annex_country = {
+                target = ZIM
+                transfer_troops = no
+            }
         }
+
+        
         set_autonomy = {
             target = SAF
             autonomous_state = autonomy_free
@@ -2885,7 +2990,7 @@ shared_focus = {
     icon = GFX_goal_ENG_concessions_to_jack_lang
     x = 1
     y = 1
-    cost = 5
+    cost = 6
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -2920,7 +3025,7 @@ shared_focus = {
     icon = GFX_goal_ENG_the_burmese_question
     x = 0
     y = 1
-    cost = 5
+    cost = 4
     available_if_capitulated = yes
     ai_will_do = {
         factor = 1
@@ -2932,11 +3037,8 @@ shared_focus = {
     relative_position_id = ENG_concessions_to_jack_lang
     
     completion_reward = {
-        593 = {
-            controller = {
-                transfer_state = 326
-            }
-        }
+        release = BRM
+        add_to_faction = BRM
     }
 }
 shared_focus = {
@@ -3005,7 +3107,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_court_the_king
     icon = GFX_goal_ENG_the_bulldog_rises
-    x = 5
+    x = 3
     y = 0
     cost = 5
     available_if_capitulated = yes
@@ -3441,7 +3543,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        country_event = ENG_hamsworth_path.4
     }
 }
 

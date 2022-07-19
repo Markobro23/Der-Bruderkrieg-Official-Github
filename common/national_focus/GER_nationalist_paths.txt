@@ -3826,7 +3826,7 @@ shared_focus = {
 	id = GER_unternehmen_attila
 	icon = GFX_goal_GER_operation_attilla
 	cost = 1
-	x = 0
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_slaughter_the_jacobins
@@ -4173,88 +4173,88 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = GER_the_mosley_pact
-	icon = GFX_goal_GER_the_mosley_pact
-	cost = 5
-	x = 21
-	y = 9
+# shared_focus = {
+# 	id = GER_the_mosley_pact
+# 	icon = GFX_goal_GER_the_mosley_pact
+# 	cost = 5
+# 	x = 21
+# 	y = 9
 	
-	ai_will_do = {
-		factor = 600
-	}
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
 
 
-	mutually_exclusive = {
-		focus = GER_operation_walross
-	}
+# 	mutually_exclusive = {
+# 		focus = GER_operation_walross
+# 	}
 
-	available = {
-		ENG = {
-			has_country_flag = UK_chose_mosley
-		}
-		OR = {
-			has_war_with = FRA
-			has_global_flag = austria_defeated
-			has_global_flag = prussia_has_beaten_france
-		}
-	}
+# 	available = {
+# 		ENG = {
+# 			has_country_flag = UK_chose_mosley
+# 		}
+# 		OR = {
+# 			has_war_with = FRA
+# 			has_global_flag = austria_defeated
+# 			has_global_flag = prussia_has_beaten_france
+# 		}
+# 	}
 
-	completion_reward = {
-		ENG = {
-			country_event = prussia_britain_pact.1
-		}
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			country_event = prussia_britain_pact.1
+# 		}
+# 	}
+# }
 
-shared_focus = {
-	id = GER_military_cooperation_with_britain
-	icon = GFX_goal_GER_military_coop_with_britain
-	cost = 5
-	x = -1
-	y = 1
+# shared_focus = {
+# 	id = GER_military_cooperation_with_britain
+# 	icon = GFX_goal_GER_military_coop_with_britain
+# 	cost = 5
+# 	x = -1
+# 	y = 1
 	
-	relative_position_id = GER_the_mosley_pact
-	ai_will_do = {
-		factor = 60
-	}
+# 	relative_position_id = GER_the_mosley_pact
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
 
-	prerequisite = {
-		focus = GER_the_mosley_pact
-	}
+# 	prerequisite = {
+# 		focus = GER_the_mosley_pact
+# 	}
 
-	completion_reward = {
-		ENG = {
-			add_ideas = ENG_prussian_advisors
-		}
-		GER = {
-			add_ideas = GER_british_advisors
-		}	
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			add_ideas = ENG_prussian_advisors
+# 		}
+# 		GER = {
+# 			add_ideas = GER_british_advisors
+# 		}	
+# 	}
+# }
 
-shared_focus = {
-	id = GER_the_push_for_paris
-	icon = GFX_goal_GER_the_push_on_paris
-	cost = 5
-	x = 0
-	y = 1
+# shared_focus = {
+# 	id = GER_the_push_for_paris
+# 	icon = GFX_goal_GER_the_push_on_paris
+# 	cost = 5
+# 	x = 0
+# 	y = 1
 	
-	relative_position_id = GER_military_cooperation_with_britain
-	ai_will_do = {
-		factor = 60
-	}
+# 	relative_position_id = GER_military_cooperation_with_britain
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
 
-	prerequisite = {
-		focus = GER_military_cooperation_with_britain
-	}
+# 	prerequisite = {
+# 		focus = GER_military_cooperation_with_britain
+# 	}
 
-	completion_reward = {
-		ENG = {
-			country_event = britain_declares_france.1
-		}
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			country_event = britain_declares_france.1
+# 		}
+# 	}
+# }
 #######################
 #The Untersmensch Path#
 #######################
@@ -4526,7 +4526,7 @@ shared_focus = {
 	id = GER_breaking_the_chains
 	icon = GFX_goal_GER_silesia_or_war
 	cost = 7
-	x = 0
+	x = 1
 	y = 1
 	prerequisite = {
 		focus = GER_unternehmen_steigend
@@ -4652,13 +4652,17 @@ shared_focus = {
 	id = GER_operation_walross
 	icon = GFX_goal_GER_operation_walross
 	cost = 5
-	x = 25
-	y = 9
+	x = 2
+	y = 1
 	
 	ai_will_do = {
 		factor = 600
 	}
-
+	prerequisite = {
+		focus = GER_slaughter_the_jacobins
+		focus = GER_unternehmen_steigend
+	}
+	relative_position_id = GER_slaughter_the_jacobins
 
 	
 	available = {
@@ -4683,8 +4687,8 @@ shared_focus = {
 	id = GER_secure_the_baltic_front
 	icon = GFX_goal_GER_secure_the_baltic
 	cost = 5
-	x = -2
-	y = 1
+	x = -1
+	y = 2
 	
 	relative_position_id = GER_operation_walross
 	ai_will_do = {
@@ -4693,7 +4697,6 @@ shared_focus = {
 
 	prerequisite = {
 		focus = GER_operation_walross
-		focus = GER_the_mosley_pact
 	}
 
 	completion_reward = {
@@ -4730,7 +4733,7 @@ shared_focus = {
 	id = GER_germania_rules_the_seas
 	icon = GFX_goal_GER_germania_rule_the_seas
 	cost = 5
-	x = 2
+	x = 1
 	y = 1
 	
 	relative_position_id = GER_secure_the_baltic_front
@@ -4762,8 +4765,8 @@ shared_focus = {
 	id = GER_support_the_cult_of_kali
 	icon = GFX_goal_GER_support_the_cult_of_kali
 	cost = 5
-	x = 2
-	y = 1
+	x = 1
+	y = 2
 	
 	relative_position_id = GER_operation_walross
 	ai_will_do = {
