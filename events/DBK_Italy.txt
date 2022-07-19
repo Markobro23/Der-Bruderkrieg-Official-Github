@@ -4631,6 +4631,7 @@ country_event = { #unlock the internal reforms stuff for each leader
 		check_variable = { ITA_head_tri_power = 100 }
 		is_subject = no
 	}
+	is_triggered_only = yes
 
 	option = { #lesss goooo
 		name = italy_power_struggle.9.a 
@@ -4671,6 +4672,46 @@ country_event = { #unlock the internal reforms stuff for each leader
 			custom_effect_tooltip = ITA_replaces_exploit_evolas_position_with_stick_to_three_ideals
 		}
 		mark_focus_tree_layout_dirty = yes
+	}
+}
+
+country_event = { #anti-fascist coup
+	id = italy_power_struggle.10
+	title = italy_power_struggle.10.t
+	desc = italy_power_struggle.10.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes
+
+	option = { #lesss goooo
+		name = italy_power_struggle.10.a 
+		set_politics = {
+			ruling_party = authoritarian_democratic
+			elections_allowed = no
+		}
+		add_popularity = {
+			ideology = authoritarian_democratic
+			popularity = 0.2
+		}
+	}
+}
+
+country_event = { #galazzeo becomes leader
+	id = italy_power_struggle.11
+	title = italy_power_struggle.11.t
+	desc = italy_power_struggle.11.d
+	#picture = GFX_report_event_eng_dambuster8
+ 
+	is_triggered_only = yes
+
+	option = { #lesss goooo
+		name = italy_power_struggle.11.a 
+		retire_country_leader = yes
+		create_country_leader = {
+			name = "Galeazzo Ciano"
+			picture = "gfx/leaders/ITA/Portrait_SRI_Ettore_Troilo.png"
+			ideology = fascism_ideology
+		}
 	}
 }
 

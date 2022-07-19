@@ -5871,9 +5871,20 @@ shared_focus = {
 			factor = 10
 		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = ITA_fascist_trade_unions_2
-				add_idea = ITA_fascist_trade_unions_state
+			if = {
+				limit = {
+					has_idea = ITA_fascist_trade_unions_2
+				}
+				swap_ideas = {
+					remove_idea = ITA_fascist_trade_unions_2
+					add_idea = ITA_fascist_trade_unions_state
+				}
+				else = {
+					swap_ideas = {
+						add_idea = ITA_fascist_trade_unions_2
+						add_idea = ITA_fascist_trade_unions
+					}
+				}
 			}
 		}
 	}
@@ -6121,7 +6132,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_promote_technocrats
-		icon = GFX_goal_ITA_cianos_conspiracy
+		icon = GFX_focus_research
 		x = -1
 		y = 1
 		cost = 5
@@ -6142,12 +6153,172 @@ shared_focus = {
 		}
 	}
 
+	shared_focus = {
+		id = ITA_continue_liberalization
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_promote_technocrats
+		}
+		relative_position_id = ITA_promote_technocrats
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ITA
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_core_of = ITA
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+						include_locked = yes
+					}
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_empower_military_authority
+		icon = GFX_goal_FRA_military_hierarchy
+		x = -1
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_continue_liberalization
+		}
+		relative_position_id = ITA_continue_liberalization
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = authoritarian_democratic
+				popularity = 0.1
+			}
+			add_ideas = ITA_eugenio_corti
+		}
+	}
+
+	shared_focus = {
+		id = ITA_return_authority_of_nobles
+		icon = GFX_goal_FRA_class_hierarchy
+		x = 1
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_continue_liberalization
+		}
+		relative_position_id = ITA_continue_liberalization
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_return_nobility
+		}
+	}
+
+	shared_focus = {
+		id = ITA_cricca_coup
+		icon = GFX_goal_generic_military_sphere
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_empower_military_authority
+		}
+		mutually_exclusive = {
+			focus = ITA_hereditary_fascism
+		}
+		relative_position_id = ITA_empower_military_authority
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = { id = italy_power_struggle.10 hours = 1 }
+		}
+	}
+
+	shared_focus = {
+		id = ITA_hereditary_fascism
+		icon = GFX_goal_ITA_cianos_conspiracy
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_return_authority_of_nobles
+		}
+		relative_position_id = ITA_return_authority_of_nobles
+		mutually_exclusive = {
+			focus = ITA_cricca_coup
+		}
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			country_event = { id = italy_power_struggle.11 hours = 1 }
+		}
+	}
+
 	#evola
 
 	shared_focus = {
 		id = ITA_stick_to_three_ideals
 		icon = GFX_goal_ITA_evolaism
-		x = 12
+		x = 9
 		y = 1
 		cost = 5
 		prerequisite = {
@@ -6172,8 +6343,8 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_look_to_past
-		icon = GFX_goal_ITA_cianos_conspiracy
-		x = 2
+		icon = GFX_goal_generic_propaganda
+		x = 3
 		y = 1
 		cost = 5
 
@@ -6204,7 +6375,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_transcend_the_body
-		icon = GFX_goal_ITA_cianos_conspiracy
+		icon = GFX_goal_ITA_spiritualism
 		x = 2
 		y = 1
 		cost = 5
@@ -6221,6 +6392,188 @@ shared_focus = {
 			factor = 10
 		}
 		completion_reward = {
-			add_country_leader_trait = descendants_of_rome
+			add_ideas = ITA_uri_group
+		}
+	}
+
+	shared_focus = {
+		id = ITA_order_of_purity
+		icon = GFX_goal_ITA_national_mysticism 
+		x = -1
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_transcend_the_body
+		}
+		relative_position_id = ITA_transcend_the_body
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_order_of_purity
+		}
+	}
+
+	shared_focus = {
+		id = ITA_sidestep_king
+		icon = GFX_goal_SOV_continuing_the_reforms 
+		x = 1
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_transcend_the_body
+		}
+		relative_position_id = ITA_transcend_the_body
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_three_ideals_3
+				add_idea = ITA_three_ideals_4
+			}
+			set_party_name = {
+				ideology = neutrality
+				name = ITA_ordine_nuovo
+				long_name = ITA_ordine_nuovo
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_true_feudalism
+		icon = GFX_goal_landlordism 
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_order_of_purity
+		}
+		prerequisite = {
+			focus = ITA_sidestep_king
+		}
+		relative_position_id = ITA_sidestep_king
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_order_of_purity
+				add_idea = ITA_carlomonic_state
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_north_italian_aryanism
+		icon = GFX_goal_ITA_our_romano_germanic_identity   
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_order_of_purity
+		}
+		relative_position_id = ITA_order_of_purity
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			ITA_worsen_southern_problem = yes
+			set_cosmetic_tag = holy_aryan_empire
+		}
+	}
+
+	shared_focus = {
+		id = ITA_the_supremacy_of_tradition
+		icon = GFX_goal_ITA_the_supremacy_of_tradition  
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_true_feudalism
+		}
+		relative_position_id = ITA_true_feudalism
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_carlomonic_state
+				add_idea = ITA_carlomonic_state_2
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_unite_the_aryans
+		icon = GFX_goal_ITA_our_romano_germanic_identity   
+		x = 0
+		y = 1
+		cost = 10
+	
+		prerequisite = {
+			focus = ITA_north_italian_aryanism
+		}
+		relative_position_id = ITA_north_italian_aryanism
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = GER
+						is_core_of = NAS
+						is_core_of = AUS
+						is_core_of = GPU
+						is_core_of = BAD
+						is_core_of = FGD
+						is_core_of = WUR
+						is_core_of = HES
+						is_core_of = MAS
+						is_core_of = SAX
+						is_core_of = HAN
+						is_core_of = OLD
+						is_core_of = LUX
+					}
+				}
+				add_core_of = ITA
+			}
+			every_other_country = {
+				limit = {
+					any_owned_state = {
+						OR = {
+							is_core_of = GER
+							is_core_of = NAS
+							is_core_of = AUS
+							is_core_of = GPU
+							is_core_of = BAD
+							is_core_of = FGD
+							is_core_of = WUR
+							is_core_of = HES
+							is_core_of = MAS
+							is_core_of = SAX
+							is_core_of = HAN
+							is_core_of = OLD
+							is_core_of = LUX
+						}
+					}
+					is_subject = no
+					NOT = {
+						is_in_faction_with = ITA
+					}
+				}
+				#demanding submission
+			}
 		}
 	}

@@ -1625,7 +1625,7 @@ ideas = {
 
 			modifier = {
 				stability_factor = 0.1
-				army_org_factor = 0.08
+				army_org_factor = 0.05
 			}
 		}
 
@@ -1643,8 +1643,9 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				stability_factor = 0.1
-				army_org_factor = 0.12
+				stability_factor = 0.05
+				army_org_factor = 0.05
+				global_building_slots_factor = 0.1
 				production_speed_buildings_factor = 0.1
 			}
 		}
@@ -1663,11 +1664,11 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				stability_factor = 0.12
-				army_org_factor = 0.08
+				stability_factor = -0.05
+				army_org_factor = 0.1
+				global_building_slots_factor = 0.15
 				production_speed_buildings_factor = 0.1
 				war_support_factor = 0.05
-				army_morale_factor = 0.12
 			}
 		}
 
@@ -2766,6 +2767,31 @@ ideas = {
 
 		}
 
+		ITA_return_nobility = {
+
+			picture = Stuck_Past
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  is_subject = yes
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        army_org_factor = 0.1
+        political_power_factor = 0.1
+        party_popularity_stability_factor = -0.1
+      }
+
+      
+		}
+
 		}
 
 		head_of_government = {
@@ -2970,6 +2996,21 @@ ideas = {
 		 		}
 
 		 		traits = { colonial_administrator }
+		 	}
+
+		 	ITA_eugenio_corti = {
+
+		 		picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_completed_focus = ITA_empower_military_authority
+		 		}
+
+		 		traits = { editor anti_communist_crusader }
 		 	}
 
 		}
