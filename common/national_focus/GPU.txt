@@ -20,7 +20,7 @@ focus_tree = {
   shared_focus = GPU_an_absolutist_germany
 }
 focus_tree = {
-	id = GPU_bavaria_monarchy_tree
+	id = GPU_bavarian_monarchy_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -38,7 +38,22 @@ focus_tree = {
   shared_focus = GPU_an_absolutist_germany
 }
 
-
+focus_tree = {
+	id = GPU_bavaria_revolution_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = GPU
+		}
+	}
+	
+	continuous_focus_position = { x = -50 y = 2400 } 
+	shared_focus = GPU_state_of_the_confederation_economy
+	shared_focus = GPU_the_marshals_coup
+  shared_focus = GPU_national_revolution
+  
+}
 
 
 shared_focus = {
@@ -163,6 +178,12 @@ completion_reward = {
    swap_ideas = {
     remove_idea = GPU_heimwehr
     add_idea = GPU_heimwehr_2
+  }
+  hidden_effect = {
+    load_focus_tree = {
+      tree = GPU_bavarian_monarchy_tree
+      keep_completed = yes
+    }
   }
 }
 }
@@ -464,9 +485,8 @@ shared_focus = {
 # prerequisite = {
 #   focus = GPU_garrison_primacy
 # }
-relative_position_id = GPU_garrison_primacy
   x = -2
-  y = 2
+  y = 5
   cost = 10
   ai_will_do = {
     factor = 100
@@ -475,7 +495,13 @@ relative_position_id = GPU_garrison_primacy
     has_completed_focus = GPU_appoint_franz_ferdinand
      has_completed_focus = GPU_garrison_primacy
   }
-
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = 0
+    y = -5
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -546,14 +572,19 @@ shared_focus = {
     has_completed_focus = GPU_keep_vohn_car
      has_completed_focus = GPU_the_home_army
   }
-relative_position_id = GPU_the_home_army
-  x = -2
-  y = 2
+  x = -6
+  y = 5
   cost = 10
   ai_will_do = {
     factor = 100
   }
-
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = 0
+    y = -5
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
@@ -2044,8 +2075,8 @@ prerequisite = {focus = GPU_expand_german_court}
 shared_focus = {
     id = GPU_the_marshals_coup
     icon = GFX_focus_GPU_the_marshals_coup
-    x = 3
-    y = 2
+    x = 7
+    y = 5
     cost = 5
     available_if_capitulated = yes
      available = {
@@ -2055,7 +2086,13 @@ shared_focus = {
   # prerequisite = {
   #   focus = GPU_okh_control
   # }
-  relative_position_id = GPU_okh_control
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavaria_revolution_tree
+    }
+    x = 0
+    y = -5
+  }
     completion_reward = {
     }
 }
@@ -2614,6 +2651,13 @@ shared_focus = {
       has_completed_focus = GPU_einheit
     }
   }
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = -3
+    y = 0
+  }
   completion_reward = {
     add_political_power = 25
     unlock_decision_category_tooltip = GPU_a_new_german_state
@@ -3106,6 +3150,13 @@ shared_focus = {
   # prerequisite = {
   #   focus = GPU_okh_control
   # }
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = 2
+    y = -5
+  }
   completion_reward = {
     add_popularity = {
       ideology = neutrality
@@ -3456,9 +3507,16 @@ shared_focus = {
       trigger = {
         has_focus_tree = FGD_rhine_republic_tree
       }
-      x = -14
+      x = -9
       y = -5
     }
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = 1
+    y = -5
+  }
   # prerequisite = {
   #   focus = GPU_okh_control
   # }
@@ -3479,7 +3537,13 @@ shared_focus = {
   ai_will_do = {
     factor = 1
   }
-
+  offset = {
+    trigger = {
+      has_focus_tree = GPU_bavarian_monarchy_tree
+    }
+    x = 6
+    y = 0
+  }
   available_if_capitulated = yes
   search_filters = { FOCUS_FILTER_POLITICAL }
 
