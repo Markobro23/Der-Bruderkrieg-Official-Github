@@ -1818,7 +1818,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_denounce_church
 		icon = GFX_goal_FRA_no_room_for_tyrants
-		x = -1
+		x = -2
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
@@ -1827,6 +1827,9 @@ shared_focus = {
 		}
 		prerequisite = {
 			focus = ITA_protections_for_king
+		}
+		mutually_exclusive = {
+			focus = ITA_purge_occultists
 		}
 		relative_position_id = ITA_protections_for_king
 		ai_will_do = {
@@ -1847,14 +1850,49 @@ shared_focus = {
 	}
 
 	shared_focus = {
-		id = ITA_an_insane_ally
-		icon = GFX_goal_ITA_evolaism
+		id = ITA_purge_occultists
+		icon = GFX_focus_por_concordat
 		x = 0
 		y = 1
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = {
+			focus = ITA_nationalism_above_all
+		}
+		prerequisite = {
+			focus = ITA_protections_for_king
+		}
+		mutually_exclusive = {
 			focus = ITA_denounce_church
+		}
+		relative_position_id = ITA_protections_for_king
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ITA_three_ideals
+				add_idea = ITA_three_ideals_4
+			}
+			PAP = {
+				add_opinion_modifier = {
+					target = ITA
+					modifier = small_increase
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_an_insane_ally
+		icon = GFX_goal_ITA_evolaism
+		x = 1
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = {
+			focus = ITA_denounce_church
+			focus = ITA_purge_occultists
 		}
 		relative_position_id = ITA_denounce_church
 		ai_will_do = {
@@ -2907,6 +2945,23 @@ shared_focus = {
 					}
 				}
 				add_ideas = ITA_mediterranean_trade_bloc
+			}
+			random_state = {
+				limit = {
+					is_owned_by = CRO
+					is_controlled_by = CRO
+					free_building_slots = {
+					  building = industrial_complex
+					  size > 1
+					  include_locked = yes
+				  }
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
 			}
 		}
 	}
@@ -6548,32 +6603,6 @@ shared_focus = {
 					}
 				}
 				add_core_of = ITA
-			}
-			every_other_country = {
-				limit = {
-					any_owned_state = {
-						OR = {
-							is_core_of = GER
-							is_core_of = NAS
-							is_core_of = AUS
-							is_core_of = GPU
-							is_core_of = BAD
-							is_core_of = FGD
-							is_core_of = WUR
-							is_core_of = HES
-							is_core_of = MAS
-							is_core_of = SAX
-							is_core_of = HAN
-							is_core_of = OLD
-							is_core_of = LUX
-						}
-					}
-					is_subject = no
-					NOT = {
-						is_in_faction_with = ITA
-					}
-				}
-				#demanding submission
 			}
 		}
 	}
