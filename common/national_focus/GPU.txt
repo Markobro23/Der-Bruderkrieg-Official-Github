@@ -3488,7 +3488,7 @@ shared_focus = {
 shared_focus = {
   id = GPU_the_first_german_elections
   icon = GFX_focus_GPU_the_first_german_elections
-  x = 21
+  x = 23
   y = 5
   cost = 5
   ai_will_do = {
@@ -3525,6 +3525,359 @@ shared_focus = {
   }
 }
 
+shared_focus = {
+    id = GPU_socdem_victory
+    icon = GFX_focus_GPU_socdem_victory
+    x = -3
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_the_first_german_elections
+    }
+
+    relative_position_id = GPU_the_first_german_elections
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_1867_bolster_labour_laws
+    icon = GFX_focus_GPU_1867_bolster_labour_laws
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_socdem_victory
+    }
+
+    relative_position_id = GPU_socdem_victory
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+
+shared_focus = {
+    id = GPU_the_new_generation
+    icon = GFX_focus_GPU_the_new_generation
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_1867_bolster_labour_laws
+    }
+
+    relative_position_id = GPU_1867_bolster_labour_laws
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_the_spartakus_question
+    icon = GFX_focus_GPU_the_spartakus_question
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_the_new_generation
+    }
+    prerequisite = {
+      focus = GPU_legacy_of_bismarck
+    }
+
+    relative_position_id = GPU_the_new_generation
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+
+shared_focus = {
+    id = GPU_zentrum_victory
+    icon = GFX_focus_GPU_zentrum_victory
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_the_first_german_elections
+    }
+
+    relative_position_id = GPU_the_first_german_elections
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_modernize_germany
+    icon = GFX_focus_GPU_modernize_germany
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_zentrum_victory
+    }
+
+    relative_position_id = GPU_zentrum_victory
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+
+shared_focus = {
+    id = GPU_christian_workers_democracy
+    icon = GFX_focus_GPU_christian_workers_democracy
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_modernize_germany
+    }
+
+    relative_position_id = GPU_modernize_germany
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_pursue_pan_europeanism
+    icon = GFX_focus_GPU_pursue_pan_europeanism
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_christian_workers_democracy
+    }
+    prerequisite = {
+      focus = GPU_legacy_of_bismarck
+      focus = GPU_military_training_from_overlord
+    }
+    relative_position_id = GPU_christian_workers_democracy
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_push_away_overlord
+    icon = GFX_focus_GPU_push_away_overlord
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_zentrum_victory
+      focus = GPU_socdem_victory
+    }
+
+    relative_position_id = GPU_socdem_victory
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_legacy_of_bismarck
+    icon = GFX_focus_GPU_legacy_of_bismarck
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_push_away_overlord
+    }
+
+    relative_position_id = GPU_push_away_overlord
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+
+
+shared_focus = {
+    id = GPU_conservative_victory
+    icon = GFX_focus_GPU_conservative_victory
+    x = 3
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_the_first_german_elections
+    }
+
+    relative_position_id = GPU_the_first_german_elections
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_a_corporatist_germany
+    icon = GFX_focus_GPU_a_corporatist_germany
+    x = 1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_conservative_victory
+    }
+
+    relative_position_id = GPU_conservative_victory
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_industrial_feudalism
+    icon = GFX_focus_GPU_industrial_feudalism
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_a_corporatist_germany
+    }
+
+    relative_position_id = GPU_a_corporatist_germany
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_secret_science_projects
+    icon = GFX_focus_GPU_secret_science_projects
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_industrial_feudalism
+    }
+    prerequisite = {
+      focus = GPU_military_training_from_overlord
+      focus = GPU_legacy_of_bismarck
+    }
+    relative_position_id = GPU_industrial_feudalism
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_loans_from_overlord
+    icon = GFX_focus_GPU_loans_from_overlord
+    x = -1
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_zentrum_victory
+      focus = GPU_conservative_victory
+    }
+
+    relative_position_id = GPU_conservative_victory
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = GPU_military_training_from_overlord
+    icon = GFX_focus_GPU_military_training_from_overlord
+    x = 0
+    y = 1
+  
+    prerequisite = {
+      focus = GPU_loans_from_overlord
+    }
+
+    relative_position_id = GPU_loans_from_overlord
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     
+    }
+}
+
 ###ECON
 
 shared_focus = {
@@ -3541,7 +3894,7 @@ shared_focus = {
     trigger = {
       has_focus_tree = GPU_bavarian_monarchy_tree
     }
-    x = 6
+    x = 9
     y = 0
   }
   available_if_capitulated = yes
