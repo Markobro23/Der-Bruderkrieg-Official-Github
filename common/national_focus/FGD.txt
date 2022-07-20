@@ -488,7 +488,7 @@ shared_focus = {
       has_government = democratic_liberalism
     }
     completion_reward = {
-      unlock_decision_tooltip = form_germany
+      add_ideas = GER_ready_for_anything_idea
     }
 }
 shared_focus = {
@@ -1419,7 +1419,7 @@ shared_focus = {
     }
     
     completion_reward = {
-      
+      add_ideas = FGD_austrian_preparations
     }
 } 
 
@@ -1446,6 +1446,13 @@ shared_focus = {
     
     completion_reward = {
       unlock_decision_category_tooltip = FGD_the_cologne_conference
+
+      set_variable = {
+        global.cologneconferencesgcsupport = 35
+      }
+      set_variable = {
+        global.cologneconferenceprussiansupport = 15
+      }
     }
 } 
 
@@ -1545,8 +1552,8 @@ shared_focus = {
     
     completion_reward = {
       add_to_variable = {
-        tooltip = cologneconferenceprussiansupport_increase_by_5
-        global.cologneconferenceprussiansupport = 5
+        tooltip = cologneconferenceprussiansupport_increase_by_10
+        global.cologneconferenceprussiansupport = 10
       }
     }
 }
@@ -1570,8 +1577,8 @@ shared_focus = {
     
     completion_reward = {
       add_to_variable = {
-        tooltip = cologneconferencesgcsupport_increase_by_5
-        global.cologneconferencesgcsupport = 5
+        tooltip = cologneconferencesgcsupport_increase_by_15
+        global.cologneconferencesgcsupport = 15
       }
     }
 }
@@ -2245,6 +2252,7 @@ shared_focus = {
     }
     
     completion_reward = {
+      country_event = FGD_the_rhine_homefront_path.9
     } 
 }
 

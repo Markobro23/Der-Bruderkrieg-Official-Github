@@ -454,7 +454,244 @@ FGD_the_cologne_conference = {
 		is_good = yes
 	
 		timeout_effect = {
+			if = {
+				limit = {
+					check_variable = {
+						global.cologneconferencesgcsupport > 49
+					}
+				}
+				annex_country = {
+					target = GPU
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = BAD
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = WUR
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = NAS
+					transfer_troops = yes
+				}
+				annex_country = {
+					target = HES
+					transfer_troops = yes
+				}
+
+				if = {
+					limit = {
+						has_completed_focus = FGD_crown_rupprecht_king
+					}
+					GPU = {
+						GPU_prince_rupprecht_of_bavaria = {
+							set_nationality = FGD
+						}
+					}
+					FGD = {
+						add_country_leader_role = {
+							character = GPU_prince_rupprecht_of_bavaria
+							promote_leader = yes
+							country_leader={
+								ideology=despotic
+								expire="1965.1.1.1"
+								id=-1
+							}
+						}
+						add_country_leader_role = {
+							character = GPU_prince_rupprecht_of_bavaria
+							promote_leader = yes
+							country_leader={
+								ideology=democratic_conservative
+								expire="1965.1.1.1"
+								id=-1
+							}
+						}
+						add_country_leader_role = {
+							character = GPU_prince_rupprecht_of_bavaria
+							promote_leader = yes
+							country_leader={
+								ideology=democratic_liberal
+								expire="1965.1.1.1"
+								id=-1
+							}
+						}
+						add_country_leader_role = {
+							character = GPU_prince_rupprecht_of_bavaria
+							promote_leader = yes
+							country_leader={
+								ideology=authoritarian_democrat
+								expire="1965.1.1.1"
+								id=-1
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						global.cologneconferenceprussiansupport > 49
+					}
+				}
+				annex_country = {
+					target = GER
+					transfer_troops = yes
+				}
+	
+			}
+		}
+	}
+
+	FGD_campaign_in_baden_cologne = {
+
+		icon = generic_political_discourse
+
+		cost = 15
+
+		days_remove = 10
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
 			
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = cologneconferencesgcsupport_increase_by_5
+				global.cologneconferencesgcsupport = 5
+			}
+		}
+	}
+	FGD_campaign_in_bavaria_cologne = {
+
+		icon = generic_political_discourse
+
+		cost = 15
+
+		days_remove = 10
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = cologneconferencesgcsupport_increase_by_5
+				global.cologneconferencesgcsupport = 5
+			}
+		}
+	}
+
+	FGD_campaign_in_berlin_cologne = {
+
+		icon = generic_political_discourse
+
+		cost = 15
+
+		days_remove = 10
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = cologneconferenceprussiansupport_increase_by_5
+				global.cologneconferenceprussiansupport = 5
+			}
+		}
+	}
+	FGD_campaign_in_pomerania_cologne = {
+
+		icon = generic_political_discourse
+
+		cost = 15
+
+		days_remove = 10
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = cologneconferenceprussiansupport_increase_by_5
+				global.cologneconferenceprussiansupport = 5
+			}
+		}
+	}
+
+	## Religious Decisions
+	FGD_side_with_the_protestants = {
+
+		icon = generic_political_discourse
+
+		cost = 0
+
+		days_remove = 100
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_ideas = BAD_church_clashes
+			add_to_variable = {
+				tooltip = cologneconferenceprussiansupport_increase_by_10
+				global.cologneconferenceprussiansupport = 10
+			}
+		}
+	}
+
+	FGD_side_with_the_catholics = {
+
+		icon = generic_political_discourse
+
+		cost = 0
+
+		days_remove = 100
+
+		fire_only_once = yes
+
+		modifier = {
+		}
+
+		visible = {
+			
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				tooltip = cologneconferencesgcsupport_increase_by_10
+				global.cologneconferencesgcsupport = 10
+			}
 		}
 	}
 }

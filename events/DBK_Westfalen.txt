@@ -382,6 +382,107 @@ country_event = { # March on Cologne
 	}
 }
 
+##offer to prussia
+country_event = {
+	id = FGD_the_rhine_homefront_path.9
+	title = FGD_the_rhine_homefront_path.9.t
+	desc = FGD_the_rhine_homefront_path.9.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_the_rhine_homefront_path.9.a 
+		ai_chance = { factor = 75 } 
+		GER = {
+			country_event = FGD_the_rhine_homefront_path.10
+		}
+		
+	}
+	option = { 
+		name = FGD_the_rhine_homefront_path.9.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		GER = {
+			change_tag_from = ROOT
+		}
+		GER = {
+			annex_country = {
+				target = FGD
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+##offer to prussia
+country_event = {
+	id = FGD_the_rhine_homefront_path.10
+	title = FGD_the_rhine_homefront_path.10.t
+	desc = FGD_the_rhine_homefront_path.10.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_the_rhine_homefront_path.10.a 
+		ai_chance = { factor = 75 } 
+		FGD = {
+			change_tag_from = ROOT
+		}
+		FGD = {
+			country_event = FGD_the_rhine_homefront_path.11
+			annex_country = {
+				target = GER
+				transfer_troops = yes
+			}
+		}
+		
+	}
+	option = { 
+		name = FGD_the_rhine_homefront_path.10.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 FGD = { is_ai = no }
+		} } 
+		country_event = FGD_the_rhine_homefront_path.12
+	}
+}
+
+country_event = {
+	id = FGD_the_rhine_homefront_path.11
+	title = FGD_the_rhine_homefront_path.11.t
+	desc = FGD_the_rhine_homefront_path.11.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_the_rhine_homefront_path.11.a 
+		ai_chance = { factor = 75 } 
+		
+	}
+}
+
+country_event = {
+	id = FGD_the_rhine_homefront_path.12
+	title = FGD_the_rhine_homefront_path.12.t
+	desc = FGD_the_rhine_homefront_path.12.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = FGD_the_rhine_homefront_path.12.a 
+		ai_chance = { factor = 75 } 
+		
+	}
+}
+
 add_namespace = FGD_saarland_conference
 ##luxembourg
 country_event = {
