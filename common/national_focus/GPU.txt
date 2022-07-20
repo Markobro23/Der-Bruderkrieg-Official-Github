@@ -19,7 +19,24 @@ focus_tree = {
   shared_focus = GPU_the_first_german_elections
   shared_focus = GPU_an_absolutist_germany
 }
-
+focus_tree = {
+	id = GPU_bavaria_monarchy_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = GPU
+		}
+	}
+	
+	continuous_focus_position = { x = -50 y = 2400 } 
+	shared_focus = GPU_continue_the_rule_of_franz_ferdiannd
+	shared_focus = GPU_state_of_the_confederation_economy
+	shared_focus = GPU_rule_of_house_wittlebach
+  shared_focus = GPU_preparing_for_german_unification
+  shared_focus = GPU_the_first_german_elections
+  shared_focus = GPU_an_absolutist_germany
+}
 
 
 
@@ -3435,6 +3452,13 @@ shared_focus = {
     }
     custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
   }
+  offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_republic_tree
+      }
+      x = -14
+      y = -5
+    }
   # prerequisite = {
   #   focus = GPU_okh_control
   # }

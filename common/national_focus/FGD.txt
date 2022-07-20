@@ -21,6 +21,62 @@ focus_tree = {
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 
+focus_tree = {
+	id = FGD_rhine_homefront_tree
+	country = { 
+		factor = 0
+		modifier = {
+			add = 11
+			tag = FGD
+		}
+	}
+
+  shared_focus = FGD_the_rhine_revolt
+  shared_focus = FGD_heydrichs_germany
+  shared_focus = FGD_speers_germany
+    shared_focus = FGD_continue_the_public_works
+    shared_focus = FGD_the_sea_at_last
+    shared_focus = FGD_luftwaffe
+    shared_focus = FGD_ARMY
+	continuous_focus_position = { x = -50 y = 2400 } 
+}
+focus_tree = {
+	id = FGD_rhine_republic_tree
+	country = { 
+		factor = 0
+		modifier = {
+			add = 11
+			tag = FGD
+		}
+	}
+  shared_focus = GPU_the_first_german_elections
+  shared_focus = FGD_defense_at_all_costs
+  shared_focus = FGD_proclaim_a_rhine_confederation
+  shared_focus = FGD_continue_the_public_works
+  shared_focus = FGD_the_sea_at_last
+  shared_focus = FGD_luftwaffe
+  shared_focus = FGD_ARMY
+	continuous_focus_position = { x = -50 y = 2400 } 
+}
+focus_tree = {
+	id = FGD_rhine_monarchy_tree
+	country = { 
+		factor = 0
+		modifier = {
+			add = 11
+			tag = FGD
+		}
+	}
+  shared_focus = FGD_king_of_the_germans
+  shared_focus = FGD_defense_at_all_costs
+  shared_focus = FGD_proclaim_a_rhine_confederation
+  shared_focus = FGD_continue_the_public_works
+  shared_focus = FGD_the_sea_at_last
+  shared_focus = FGD_luftwaffe
+  shared_focus = FGD_ARMY
+	continuous_focus_position = { x = -50 y = 2400 } 
+}
+
 shared_focus = {
     id = FGD_the_chaotic_westfalen
     icon = GFX_goal_FGD_the_chaotic_westfalen
@@ -123,7 +179,10 @@ shared_focus = {
     id = FGD_centralize_the_military
     icon = GFX_focus_FGD_centralize_the_military
 	prerequisite = {focus = FGD_the_figurehead_king}
-    x = 0
+  prerequisite = {
+    focus = FGD_military_recruitment_program
+  }
+    x = -1
     y = 1
     relative_position_id = FGD_the_figurehead_king
     cost = 5
@@ -155,6 +214,9 @@ shared_focus = {
     
     completion_reward = {
       unlock_decision_category_tooltip = FGD_hunting_westfalen_nationalists
+      hidden_effect = {
+        load_focus_tree = FGD_rhine_monarchy_tree
+      }
     }
 }
 
@@ -218,7 +280,10 @@ shared_focus = {
     id = FGD_reinforce_nueue_code_napoleon
     icon = GFX_focus_FGD_reinforce_nueue_code_napoleon
 	prerequisite = {focus = FGD_model_bonapartist_absolutism}
-    x = 0
+  prerequisite = {
+    focus = FGD_reinforce_catholic_ideals
+  }
+    x = 1
     y = 1
     relative_position_id = FGD_model_bonapartist_absolutism
 
@@ -468,6 +533,16 @@ shared_focus = {
     
     completion_reward = {
       remove_ideas = FGD_legacy_of_traveluer_coup
+      hidden_effect = {
+        if = {
+          limit = {
+            has_completed_focus = FGD_political_stability_ensured
+          }
+          hidden_effect = {
+            load_focus_tree = FGD_rhine_republic_tree
+          }
+        }
+      }
     }
 }
 
@@ -659,7 +734,16 @@ shared_focus = {
     
     completion_reward = {
       remove_ideas = FGD_royalist_opposition
-      
+      hidden_effect = {
+        if = {
+          limit = {
+            has_completed_focus = FGD_the_prussian_threat
+          }
+          hidden_effect = {
+            load_focus_tree = FGD_rhine_republic_tree
+          }
+        }
+      }
     }
 }
 
@@ -976,6 +1060,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
+    offset = {
+      trigger = {
+        OR = { has_focus_tree = FGD_rhine_republic_tree has_focus_tree = FGD_rhine_monarchy_tree }
+      }
+      x = 0
+      y = -8
+    }
     
     completion_reward = {
       add_ideas = FGD_the_rheinish_fortress
@@ -1000,7 +1091,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    offset = {
+      trigger = {
+        OR = { has_focus_tree = FGD_rhine_republic_tree has_focus_tree = FGD_rhine_monarchy_tree }
+      }
+      x = 0
+      y = -8
+    }
     completion_reward = {
       set_cosmetic_tag = FGD_RHE
       add_war_support = 0.05
@@ -1261,7 +1358,7 @@ shared_focus = {
     completion_reward = {
      		create_corps_commander = {
 					name = "Charles De Gaulle"
-					picture = "Portrait_France_Charles_De_Gaulle.dds"
+					picture = "gfx/leaders/Portrait_France_Charles_De_Gaulle.dds"
 					traits = {  armor_officer harsh_leader media_personality }
 					id = 101
 					skill = 4
@@ -1412,7 +1509,9 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    available = {
+      controls_state = 64
+    }
     completion_reward = {
       set_major = yes
       add_political_power = 100
@@ -1510,7 +1609,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_monarchy_tree 
+      }
+      x = 0
+      y = -8
+    }
     completion_reward = {
       add_country_leader_trait = napoleon_king_of_da_germans
     }
@@ -1542,7 +1647,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_the_secret_coronation
     icon = GFX_focus_FGD_the_secret_coronation
-    x = 0
+    x = -1
     y = 1
     prerequisite = {
       focus = FGD_betray_the_french
@@ -1563,7 +1668,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_for_a_free_germany
     icon = GFX_focus_FGD_for_a_free_germany
-    x = 0
+    x = 1
     y = 1
     prerequisite = {
       focus = FGD_the_secret_coronation
@@ -1613,7 +1718,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_crush_the_resistance_of_the_duchies
     icon = GFX_focus_FGD_crush_the_resistance_of_the_duchies
-    x = 0
+    x = 1
     y = 1
     prerequisite = {
       focus = FGD_reward_paris
@@ -1634,7 +1739,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_a_loyal_bonapartist_military
     icon = GFX_focus_FGD_a_loyal_bonapartist_military
-    x = 0
+    x = -1
     y = 1
     prerequisite = {
       focus = FGD_crush_the_resistance_of_the_duchies
@@ -1672,7 +1777,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = -15
+      y = -8
+    }
     completion_reward = {
     }
 }
@@ -2135,7 +2246,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_heydrichs_germany
     icon = GFX_focus_FGD_heydrichs_germany
-    x = 27
+    x = 28
     y = 8
   
     available = {
@@ -2150,7 +2261,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = -15
+      y = -8
+    }
     completion_reward = {
       add_political_power = 25
     }
@@ -2380,7 +2497,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_speers_germany
     icon = GFX_focus_FGD_heydrichs_germany
-    x = 37
+    x = 38
     y = 8
   
     available = {
@@ -2394,7 +2511,13 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = -15
+      y = -8
+    }
     completion_reward = {
       add_political_power = 25
     }
@@ -3011,7 +3134,13 @@ shared_focus = {
     ai_will_do = {
       factor = 1
     }
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = 14
+      y = 0
+    }
     completion_reward = {
     }
 }
@@ -3145,7 +3274,13 @@ shared_focus = {
     }
     cost = 5
     available_if_capitulated = yes
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = 0
+      y = 5
+    }
     completion_reward = {
     }
 }
@@ -3283,7 +3418,13 @@ shared_focus = {
 	
     cost = 5
     available_if_capitulated = yes
-    
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = 3
+      y = 7
+    }
     completion_reward = {
     }
 }
@@ -3344,7 +3485,13 @@ shared_focus = {
 	  ai_will_do = {
 	    factor = 1
 	  }
-
+    offset = {
+      trigger = {
+        has_focus_tree = FGD_rhine_homefront_tree
+      }
+      x = 15
+      y = 0
+    }
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
