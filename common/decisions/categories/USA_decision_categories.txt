@@ -6,7 +6,7 @@ DBK_USA_house = {
 	}
 
 	priority = {
-		base = 10
+		base = 1000
 	}
 
 
@@ -40,7 +40,7 @@ DBK_USA_election = {
 	}
 
 	priority = {
-		base = 100
+		base = 100000
 	}
 
 
@@ -51,6 +51,20 @@ DBK_USA_election = {
 			has_country_flag = USA_1936_elections_over
 		}
 		#has_completed_focus = USA_a_fresh_start
+	}
+}
+
+USA_great_depression_recovery = {
+	allowed = { 
+		original_tag = USA
+	}
+
+	visible = {
+		OR = {
+			has_completed_focus = USA_longs_new_deal
+			has_completed_focus = USA_under_als_wing
+			has_completed_focus = USA_stolen_no_more
+		}
 	}
 }
 
@@ -70,9 +84,10 @@ USA_the_mafia = {
 
 	visible = {
 		#has_completed_focus = USA_the_end_of_prohibition
-		NOT = {
-			has_country_flag = USA_nyc_mafia_crushed
-		}
+		# NOT = {
+		# 	has_country_flag = USA_nyc_mafia_crushed
+		# }
+		always = no
 	}
 }
 

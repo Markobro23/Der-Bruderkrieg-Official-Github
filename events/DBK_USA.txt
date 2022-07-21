@@ -192,6 +192,22 @@ country_event = {
 	}
 }
 
+##Failing Debt Bubble
+country_event = {
+	id = USA_starting_events.10
+	title = USA_starting_events.10.t
+	desc = USA_starting_events.10.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.10.a
+		add_ideas = USA_great_depression
+	}
+}
+
+
 add_namespace = USA_election_leadup
 
 
@@ -1717,7 +1733,10 @@ country_event = {
 	
 	option = {
 		name = USA_economic_reform_plan.2.a
-        
+        country_event = {
+			id = USA_economic_reform_plan.3
+			days = 35
+		}
 		
 	}
 }
@@ -1730,6 +1749,13 @@ country_event = {
     #picture = 
 	
 	is_triggered_only = yes
+
+	immediate = {
+		country_event = {
+			id = USA_economic_reform_plan.5
+			days = 50
+		}
+	}
 	
 	option = {
 		name = USA_economic_reform_plan.3.a
