@@ -1721,11 +1721,16 @@ shared_focus = {
     }
     
     completion_reward = {
-      swap_country_leader_traits = {
-        remove = napoleon_king_of_da_germans_2
-        add = napoleon_king_of_da_germans
+      FGD_karl_josef_bonaparte = {
+        swap_country_leader_traits = {
+          remove = napoleon_king_of_da_germans_2
+          add = napoleon_king_of_da_germans
+        }
+      } 
+      effect_tooltip = {
+        remove_country_leader_trait = napoleon_king_of_da_germans
+        add_country_leader_trait = napoleon_king_of_da_germans_2
       }
-      
     }
 }
 shared_focus = {
@@ -1767,7 +1772,14 @@ shared_focus = {
     }
     
     completion_reward = {
-      
+      every_unit_leader = {
+          limit = {
+              is_army_leader = yes
+          }
+          add_dynamic_modifier = {
+              modifier = ENG_unit_leader_good_modifier
+          }
+      }
     }
 }
 
@@ -3140,7 +3152,7 @@ shared_focus = {
 shared_focus = {
     id = FGD_continue_the_public_works
     icon = GFX_focus_FGD_continue_the_public_works
-    x = 20
+    x = 19
     y = 0
 	
     cost = 5
@@ -3163,12 +3175,22 @@ shared_focus = {
       y = 0
     }
     completion_reward = {
+      add_political_power = 50
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = infrastructure
+          level = 1
+          instant_build = yes
+
+        }
+        add_extra_state_shared_building_slots = 1
+      }
     }
 }
 shared_focus = {
     id = FGD_rhineland_industrial_project
     icon = GFX_focus_FGD_rhineland_industrial_project
-    x = -3
+    x = -2
     y = 1
     relative_position_id = FGD_continue_the_public_works
     prerequisite = {
@@ -3179,12 +3201,54 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      51 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+		
+						}
+						add_extra_state_shared_building_slots = 3
+			  		}
+					  957 = {
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = industrial_complex
+							level = 1
+							instant_build = yes
+		
+						}
+						add_building_construction = {
+							type = arms_factory
+							level = 1
+							instant_build = yes
+		
+						}
+						add_extra_state_shared_building_slots = 3
+			  		}
     }
 }
 shared_focus = {
     id = FGD_industrial_advances
     icon = GFX_focus_FGD_industrial_advances
-    x = -1
+    x = 0
     y = 1
     relative_position_id = FGD_continue_the_public_works
     prerequisite = {
@@ -3195,29 +3259,39 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+        category = industry
+        bonus = 1 
+        uses = 1
+      }
     }
 }
-shared_focus = {
-    id = FGD_expand_rhinemetall
-    icon = GFX_focus_FGD_expand_rhinemetall
-    x = 0
-    y = 1
-    relative_position_id = FGD_industrial_advances
-    prerequisite = {
-        focus = FGD_industrial_advances
-    }
+# shared_focus = {
+#     id = FGD_expand_rhinemetall
+#     icon = GFX_focus_FGD_expand_rhinemetall
+#     x = 0
+#     y = 1
+#     relative_position_id = FGD_industrial_advances
+#     prerequisite = {
+#         focus = FGD_industrial_advances
+#     }
 	
-    cost = 5
-    available_if_capitulated = yes
+#     cost = 5
+#     available_if_capitulated = yes
     
-    completion_reward = {
-    }
-}
+#     completion_reward = {
+#       add_tech_bonus = {
+#         category = industry
+#         bonus = 1 
+#         uses = 1
+#       }
+#     }
+# }
 
 shared_focus = {
     id = FGD_importing_resources
     icon = GFX_focus_FGD_importing_resources
-    x = 0
+    x = 1
     y = 1
     relative_position_id = FGD_rhineland_industrial_project
     prerequisite = {
@@ -3228,12 +3302,27 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      every_country = {
+        limit = {
+          capital_scope = {
+            is_on_continent = europe
+          }
+          has_opinion = {
+            target = FGD
+            value > 24
+          }
+        }
+        add_opinion_modifier = {
+          target = FGD
+          modifier = ENG_imperial_trade
+        }
+      }
     }
 }
 shared_focus = {
     id = FGD_oil_refineries
     icon = GFX_focus_FGD_oil_refineries
-    x = 1
+    x = 2
     y = 1
     relative_position_id = FGD_continue_the_public_works
     prerequisite = {
@@ -3244,16 +3333,36 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = synthetic_refinery
+          level = 1
+          instant_build = yes
+
+        }
+        add_extra_state_shared_building_slots = 1
+      }
+      random_owned_controlled_state = {
+        add_building_construction = {
+          type = synthetic_refinery
+          level = 1
+          instant_build = yes
+
+        }
+        add_extra_state_shared_building_slots = 1
+      }
     }
 }
 
+
 shared_focus = {
-    id = FGD_the_ruhr_industrial_zone
-    icon = GFX_focus_FGD_the_ruhr_industrial_zone
-    x = 0
+    id = FGD_westfalen_research_school
+    icon = GFX_focus_FGD_westfalen_research_school
+    x = -1
     y = 1
     relative_position_id = FGD_oil_refineries
     prerequisite = {
+      focus = FGD_industrial_advances
         focus = FGD_oil_refineries
     }
 	
@@ -3261,22 +3370,7 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
-    }
-}
-shared_focus = {
-    id = FGD_westfalen_research_school
-    icon = GFX_focus_FGD_westfalen_research_school
-    x = 0
-    y = 1
-    relative_position_id = FGD_the_ruhr_industrial_zone
-    prerequisite = {
-        focus = FGD_the_ruhr_industrial_zone
-    }
-	
-    cost = 5
-    available_if_capitulated = yes
-    
-    completion_reward = {
+      add_research_slot = 1
     }
 }
 
@@ -3286,14 +3380,14 @@ shared_focus = {
 shared_focus = {
     id = FGD_the_sea_at_last
     icon = GFX_focus_FGD_the_sea_at_last
-    x = 32
+    x = 33
     y = 0
 	bypass = {
         any_controlled_state = {
             is_coastal = yes
         }
     }
-    cost = 5
+    cost = 0
     available_if_capitulated = yes
     offset = {
       trigger = {
@@ -3325,12 +3419,20 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      random_owned_controlled_state = {
+        add_extra_state_shared_building_slots = 2
+        add_building_construction = {
+          type = dockyard
+          level = 2
+          instant_build = yes
+        }
+      }
     }
 }
 shared_focus = {
     id = FGD_sea_wolves
     icon = GFX_focus_FGD_sea_wolves
-    x = -1
+    x = -2
     y = 1
 	prerequisite = {
         focus = FGD_construct_more_shipways
@@ -3340,27 +3442,32 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = ss_tech
+			 }
     }
 }
-shared_focus = {
-    id = FGD_modular_shipbuilding
-    icon = GFX_focus_FGD_modular_shipbuilding
-    x = 0
-    y = 1
-	prerequisite = {
-        focus = FGD_sea_wolves
-    }
-    relative_position_id = FGD_sea_wolves
-    cost = 5
-    available_if_capitulated = yes
+# shared_focus = {
+#     id = FGD_modular_shipbuilding
+#     icon = GFX_focus_FGD_modular_shipbuilding
+#     x = 0
+#     y = 1
+# 	prerequisite = {
+#         focus = FGD_sea_wolves
+#     }
+#     relative_position_id = FGD_sea_wolves
+#     cost = 5
+#     available_if_capitulated = yes
     
-    completion_reward = {
-    }
-}
+#     completion_reward = {
+#     }
+# }
 shared_focus = {
     id = FGD_kriegsmarine_general_staff
     icon = GFX_focus_FGD_kriegsmarine_general_staff
-    x = 1
+    x = 0
     y = 1
 	prerequisite = {
         focus = FGD_construct_more_shipways
@@ -3370,27 +3477,35 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_ideas = FGD_naval_command_unified
     }
 }
 shared_focus = {
     id = FGD_new_batteries
     icon = GFX_focus_FGD_new_batteries
-    x = 0
+    x = -1
     y = 1
 	prerequisite = {
         focus = FGD_kriegsmarine_general_staff
+    }
+    prerequisite = {
+      focus= FGD_sea_wolves
     }
     relative_position_id = FGD_kriegsmarine_general_staff
     cost = 5
     available_if_capitulated = yes
     
     completion_reward = {
+      swap_ideas = {
+        add_idea = FGD_naval_command_unified_2
+        remove_idea = FGD_naval_command_unified
+      }
     }
 }
 shared_focus = {
     id = FGD_screening_ships
     icon = GFX_focus_FGD_screening_ships
-    x = 3
+    x = 2
     y = 1
 	prerequisite = {
         focus = FGD_construct_more_shipways
@@ -3400,12 +3515,17 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+       add_tech_bonus = {
+        bonus = 1
+        uses = 1
+        category = dd_tech
+      }
     }
 }
 shared_focus = {
     id = FGD_capital_ships
     icon = GFX_focus_FGD_capital_ships
-    x = 0
+    x = -1
     y = 1
 	prerequisite = {
         focus = FGD_screening_ships
@@ -3415,6 +3535,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = bb_tech
+			}
     }
 }
 
@@ -3435,6 +3560,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+        bonus = 1
+        uses = 1
+        category = ca_tech
+      }
     }
 }
 
@@ -3461,6 +3591,7 @@ shared_focus = {
       y = 0
     }
     completion_reward = {
+      air_experience = 25
     }
 }
 shared_focus = {
@@ -3476,6 +3607,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cat_strategic_bomber
+			 }
     }
 }
 shared_focus = {
@@ -3491,6 +3627,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = cas_bomber
+			 }
     }
 }
 shared_focus = {
@@ -3506,6 +3647,11 @@ shared_focus = {
     available_if_capitulated = yes
     
     completion_reward = {
+      add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = light_fighter
+			 }
     }
 }
 
