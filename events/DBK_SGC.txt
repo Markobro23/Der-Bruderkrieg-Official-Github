@@ -670,3 +670,51 @@ country_event = {
 		set_country_flag = GPU_pierced_wings_completed
 	}
 }
+
+add_namespace = GPU_democracy_germany
+
+##election outcome
+country_event = {
+	id = GPU_democracy_germany.1
+	title = GPU_democracy_germany.1.t
+	desc = GPU_democracy_germany.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_democracy_germany.1.a
+		complete_national_focus = GPU_socdem_victory
+	}
+	option = {
+		name = GPU_democracy_germany.1.b
+		complete_national_focus = GPU_zentrum_victory
+	}
+	option = {
+		name = GPU_democracy_germany.1.c
+		complete_national_focus = GPU_conservative_victory
+	}
+}
+
+## spartakus question
+country_event = {
+	id = GPU_democracy_germany.2
+	title = GPU_democracy_germany.2.t
+	desc = GPU_democracy_germany.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = GPU_democracy_germany.2.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = democratic_communism
+			popularity = -0.15
+		}	
+	}
+	option = {
+		name = GPU_democracy_germany.2.a
+		
+	}
+	
+}
