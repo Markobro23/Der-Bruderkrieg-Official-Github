@@ -3964,9 +3964,19 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_generic_foriegn_policy_tree.10.a
+		hidden_effect = {
+			JAP = {
+				keep_current_politics = yes
+			}
+		}
 		set_autonomy = {
 			target = JAP
 			autonomy_state = autonomy_satellite
+		}
+		hidden_effect = {
+			JAP = {
+				reset_government = yes
+			}
 		}
 	}
 }

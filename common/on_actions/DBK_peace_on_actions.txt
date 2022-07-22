@@ -839,6 +839,48 @@ on_actions = {
 			if = {
 				limit = {
 					ROOT = {
+						tag = FGD
+					}
+					FROM = {
+						OR = {
+							tag =FRA
+							is_in_faction_with = FRA
+						}
+					}
+				}
+				FRA = {
+					white_peace = FGD
+				}
+				FGD = {
+					set_politics = {
+						ruling_party = neutrality
+						last_election = "1933.3.5"
+						election_frequency = 48
+						elections_allowed = no
+					}
+
+					set_popularities = {
+						neutrality = 48
+						fascism = 41
+						authoritarian_democratic = 4
+						democratic = 5
+						communism = 2
+					}
+					keep_current_politics = yes
+				}
+				FRA = {
+					puppet = FGD
+				}
+				FGD = {
+					load_focus_tree = generic_focus
+				}
+				FGD = {
+					reset_government = yes
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
 						tag = HOL
 					}
 					FROM = {
