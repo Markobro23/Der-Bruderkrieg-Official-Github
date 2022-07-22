@@ -1382,7 +1382,7 @@ ITA_balkan_decision_cat = {
     }
 
     ai_will_do = {
-      factor = 3
+      factor = 10
     }
 
     available = {
@@ -1391,7 +1391,7 @@ ITA_balkan_decision_cat = {
       }
     }
 
-    days_re_enable = 14
+    fire_only_once = yes
 
     complete_effect = {
       ALB = {
@@ -1467,9 +1467,17 @@ ITA_seize_ottoman_cities_cat = {
     }
 
     available = {
-      divisions_in_state = {
-        size > 2
-        state = 661
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        always = yes
+        else = {
+          divisions_in_state = {
+            size > 2
+            state = 661
+          }
+        }
       }
     }
 
@@ -1517,9 +1525,17 @@ ITA_seize_ottoman_cities_cat = {
     cost = 25
 
     available = {
-      divisions_in_state = {
-        size > 2
-        state = 451
+      if = {
+        limit = {
+          is_ai = yes
+        }
+        always = yes
+        else = {
+          divisions_in_state = {
+            size > 2
+            state = 451
+          }
+        }
       }
     }
 
@@ -1580,7 +1596,11 @@ ITA_maintaining_unity = {
     }
 
     ai_will_do ={
-      factor = 1000
+      factor = 1
+      modifier = {
+        factor = 0
+        has_political_power < 75
+      }
     }
 
   }
@@ -1604,7 +1624,7 @@ ITA_maintaining_unity = {
     }
 
     ai_will_do ={
-      factor = 1000
+      factor = 1
     }
     available = {
       OR = {
@@ -1629,7 +1649,7 @@ ITA_maintaining_unity = {
       ITA_decrease_party_stability_large = yes
     }
     ai_will_do ={
-      factor = 1000
+      factor = 1
     }
 
     visible = {
@@ -2958,6 +2978,121 @@ ITA_turncoats_apprectiation_society = {
       FROM = {
         country_event = { id = ITA_fascist_tree_events.23 }
       }
+    }
+
+  }
+
+}
+
+ITA_uniting_rome = {
+  
+  ITA_roman_annex_FROM = {
+
+    icon = generic_nationalism
+
+    cost = 75
+
+    target_trigger = {
+      FROM = {
+        is_subject_of = ITA
+        surrender_progress < 0.1
+        OR = {
+          tag = LBA
+          tag = TUR
+          tag = OCC
+          tag = SPR
+          tag = POR
+          tag = ALB
+          tag = FRA
+          tag = PAP
+          tag = AUS
+          tag = FRA
+          tag = BUL
+          tag = ROM
+          tag = YUG
+          tag = SER
+          tag = OBS
+          tag = GRE
+          tag = THS
+          tag = ATH
+          tag = CRO
+          tag = BOS
+          tag = SWI
+          tag = BEL
+          tag = MOR
+          tag = EGY
+          tag = BYZ
+          tag = SYR
+          tag = SCA
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    days_remove = 35
+
+    remove_effect = {
+      annex_country = {
+        target = FROM
+        transfer_troops = yes
+      }
+      every_state = {
+        limit = { is_core_of = FROM NOT = { is_core_of = ITA } }
+        add_core_of = ITA
+      }
+    }
+
+  }
+
+}
+
+political_actions = {
+  
+  ITA_hunt_far_left_please = { #almost doneeeee
+
+    icon = generic_industry
+
+    cost = 10
+
+    visible = {
+      has_completed_focus = ITA_hunt_down_leftist_groups
+    }
+
+    available = {
+      has_equipment = {
+        infantry_equipment > 100
+      }
+    }
+
+    days_re_enable = 30
+
+    days_remove = 30
+
+    complete_effect = {
+      add_popularity = {
+        ideology = communism
+        popularity = -0.01
+      }
+      add_popularity = {
+        ideology = democratic_communism
+        popularity = -0.01
+      }
+      add_popularity = {
+        ideology = socialism_democratic 
+        popularity = -0.01
+      }
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = -100
+      }
+    }
+
+    modifier = {
+      consumer_goods_factor = -0.02
+      production_speed_buildings_factor = 0.05
     }
 
   }

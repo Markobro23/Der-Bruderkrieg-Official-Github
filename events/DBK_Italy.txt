@@ -659,6 +659,15 @@ news_event = { #florence-berlin split
 			ITA = {
 				give_guarantee = ROOT
 			}
+			every_country = {
+				limit = {
+					AND = {
+						has_war_with = GER
+						has_war_with = ROOT
+					}
+				}
+				white_peace = ROOT
+			}
 		}
 	}
 	option = {  #the second brother's coaltion begins to collapse
@@ -3022,6 +3031,10 @@ country_event = { #deciding who to betray Germany with
 			ITA = {
 				add_to_faction = PREV
 			}
+		}
+		create_wargoal = {
+			type = topple_government
+			target = GER
 		}
 	}
 }

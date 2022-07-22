@@ -1471,23 +1471,24 @@ france_loses_peace_deal = {
             transfer_state = 269
             #transfer_state = 268
             white_peace = FRA
-        }
-    }
-    if = {
-        limit = {
-            NOT = { has_global_flag = weltkrieg_ITA_gets_occitania }
-        }
-        ADU = {
-            add_state_core = 21
-            add_state_core = 32
-            set_capital = { state = 21 }
-            set_cosmetic_tag = ITA_french_zone
+            if = {
+                limit = {
+                    NOT = { has_global_flag = weltkrieg_ITA_gets_occitania }
+                }
+                ADU = {
+                    add_state_core = 21
+                    add_state_core = 32
+                    set_capital = { state = 21 }
+                    set_cosmetic_tag = ITA_french_zone
+                }
+            }
         }
     }
     OCC = {
         if = {
             limit = {
                 has_global_flag = weltkrieg_ITA_gets_occitania
+                ITA = { has_war_with = FRA }
             }
             #add_state_core = 33
             add_state_core = 25
@@ -1557,7 +1558,7 @@ france_loses_peace_deal = {
     }
     FRA = {
         if = {
-            limit = { NOT = { has_global_flag = weltkrieg_ITA_gets_occitania } }
+            limit = { NOT = { has_global_flag = weltkrieg_ITA_gets_occitania } ITA = { has_war_with = FRA } }
             release = ADU
         }
         release = WFR

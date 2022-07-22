@@ -5722,6 +5722,10 @@ shared_focus = {
   		}
   	}
 
+  	ai_will_do = {
+  		factor = 10
+  	}
+
   	completion_reward = {
   		if = {
   			limit = {
@@ -5844,7 +5848,7 @@ shared_focus = {
 			factor = 10
 		}
 		completion_reward = {
-			#unlock decisions to hunt down the leftists for temporary production bonuses
+			unlock_decision_tooltip = ITA_hunt_far_left_please
 		}
 	}
 
@@ -5937,7 +5941,7 @@ shared_focus = {
 				else = {
 					swap_ideas = {
 						add_idea = ITA_fascist_trade_unions_2
-						add_idea = ITA_fascist_trade_unions
+						remove_idea = ITA_fascist_trade_unions
 					}
 				}
 			}
@@ -6429,6 +6433,326 @@ shared_focus = {
 	}
 
 	shared_focus = {
+		id = ITA_king_all_italians
+		icon = GFX_goal_ITA_assert_the_kings_authority
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			AUS = {
+				OR = {
+					exists = no
+					is_subject_of = GER
+				}
+			}
+		}
+	
+		prerequisite = {
+			focus = ITA_look_to_past
+		}
+		relative_position_id = ITA_look_to_past
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			#news event for Italy returning to a monarchy?
+			add_country_leader_role = {
+				character = ITA_umberto_ii
+				promote_leader = yes
+				country_leader = {
+					ideology = monarchist_fascism
+					traits = { descendants_of_rome sincere_catholic }
+				}
+			}
+			add_country_leader_role = {
+				character = ITA_umberto_ii
+				promote_leader = yes
+				country_leader = {
+					ideology = despotic
+					traits = { descendants_of_rome sincere_catholic }
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_ask_unite_pope
+		icon = GFX_focus_por_concordat
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			PAP = {
+				NOT = {
+					OR = {
+						exists = no
+						has_war_with = ITA
+					}
+				}
+			}
+		}
+
+		bypass = {
+			PAP = {
+				exists = no
+			}
+		}
+	
+		prerequisite = {
+			focus = ITA_king_all_italians
+		}
+		relative_position_id = ITA_king_all_italians
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			PAP = {
+				country_event = { id = ITA_fascist_tree_events.2 hours = 2 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_greater_kingdom_italy
+		icon = GFX_goal_AUS_anti_expansionist_bulwark
+		x = 1
+		y = 1
+		cost = 5
+
+		available = {
+			OR = {
+				AND = {
+					has_subject = CRO
+					custom_trigger_tooltip = {
+						tooltip = ITA_made_croatia_kingdom
+						CRO = {
+							has_cosmetic_tag = savoy_croatia
+						}
+					}
+				}
+				has_subject = ALB
+				hidden_trigger = {
+					has_subject = ADU
+				}
+			}
+		}
+
+		mutually_exclusive = {
+			focus = ITA_rome_larp
+		}
+	
+		prerequisite = {
+			focus = ITA_ask_unite_pope
+		}
+		relative_position_id = ITA_ask_unite_pope
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			annex_country = {
+				target = CRO
+				transfer_troops = yes
+			}
+			every_state = {
+				limit = { is_core_of = CRO }
+				add_core_of = ITA
+			}
+			if = {
+				limit = {
+					has_subject = ADU
+				}
+				annex_country = {
+					target = ADU
+					transfer_troops = yes
+				}
+				every_state = {
+					limit = { is_core_of = ADU }
+					add_core_of = ITA
+				}
+			}
+			if = {
+				limit = {
+					has_subject = ALB
+				}
+				annex_country = {
+					target = ALB
+					transfer_troops = yes
+				}
+				every_state = {
+					limit = { is_core_of = ALB }
+					add_core_of = ITA
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_rome_larp
+		icon = GFX_goal_ITA_our_romano_germanic_identity
+		x = -1
+		y = 1
+		cost = 5
+
+		available = {
+			OR = {
+				has_subject = CRO
+				has_subject = OCC
+			}
+		}
+
+		mutually_exclusive = {
+			focus = ITA_greater_kingdom_italy
+		}
+	
+		prerequisite = {
+			focus = ITA_ask_unite_pope
+		}
+		relative_position_id = ITA_ask_unite_pope
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = ITA_uniting_rome
+		}
+	}
+
+	shared_focus = {
+		id = ITA_savoyan_unity
+		icon = GFX_focus_generic_monarchy_1
+		x = 0
+		y = 1
+		cost = 5
+	
+		prerequisite = {
+			focus = ITA_greater_kingdom_italy
+		}
+		relative_position_id = ITA_greater_kingdom_italy
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.1
+			}
+			add_ideas = ITA_return_nobility
+		}
+	}
+
+	shared_focus = {
+		id = ITA_cabinet_for_all_italy
+		icon = GFX_goal_Uphold_Napoleonic_Ideas
+		x = -1
+		y = 1
+		cost = 5
+
+		mutually_exclusive = {
+			focus = ITA_soldier_king
+		}
+	
+		prerequisite = {
+			focus = ITA_savoyan_unity
+		}
+		relative_position_id = ITA_savoyan_unity
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_country_leader_role = {
+				character = ITA_umberto_ii
+				promote_leader = yes
+				country_leader = {
+					ideology = paternalistic_conservatism
+					traits = { descendants_of_rome sincere_catholic }
+				}
+			}
+			set_politics = {
+				ruling_party = democratic
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = democratic
+				popularity = 0.4
+			}
+			add_ideas = {
+				ITA_ivanoe_bonomi
+				ITA_alcide_de_gasperi
+				ITA_ferruccio_parri
+				ITA_antonio_segni
+				ITA_mauro_scoccimarro
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_soldier_king
+		icon = GFX_goal_FRA_bonapartist_absolutism
+		x = 1
+		y = 1
+		cost = 5
+
+		mutually_exclusive = {
+			focus = ITA_cabinet_for_all_italy
+		}
+	
+		prerequisite = {
+			focus = ITA_savoyan_unity
+		}
+		relative_position_id = ITA_savoyan_unity
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_for_the_king_for_the_country
+			army_experience = 25
+		}
+	}
+
+	shared_focus = {
+		id = ITA_declare_roman_empire_reborn
+		icon = GFX_goal_Internationalism
+		x = 0
+		y = 1
+		cost = 5
+
+		available = {
+			CRO = {
+				exists = no
+			}
+			OCC = {
+				exists = no
+			}
+		}
+	
+		prerequisite = {
+			focus = ITA_rome_larp
+		}
+		relative_position_id = ITA_rome_larp
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			set_cosmetic_tag = SPQR_UNIFIED
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.2
+			}
+			add_war_support = 0.1
+			add_stability = 0.1
+		}
+	}
+
+	shared_focus = {
 		id = ITA_transcend_the_body
 		icon = GFX_goal_ITA_spiritualism
 		x = 2
@@ -6570,7 +6894,7 @@ shared_focus = {
 
 	shared_focus = {
 		id = ITA_unite_the_aryans
-		icon = GFX_goal_ITA_our_romano_germanic_identity   
+		icon = GFX_goal_GER_supporting_the_italians   
 		x = 0
 		y = 1
 		cost = 10
@@ -6600,6 +6924,36 @@ shared_focus = {
 						is_core_of = HAN
 						is_core_of = OLD
 						is_core_of = LUX
+					}
+					NOT = {
+						OR = {
+							is_owned_by = ITA
+							is_core_of = ITA
+						}
+					}
+				}
+				add_claim_by = ITA
+			}
+			every_state = {
+				limit = {
+					OR = {
+						is_core_of = GER
+						is_core_of = NAS
+						is_core_of = AUS
+						is_core_of = GPU
+						is_core_of = BAD
+						is_core_of = FGD
+						is_core_of = WUR
+						is_core_of = HES
+						is_core_of = MAS
+						is_core_of = SAX
+						is_core_of = HAN
+						is_core_of = OLD
+						is_core_of = LUX
+					}
+					is_owned_by = ITA
+					NOT = {
+						is_core_of = ITA
 					}
 				}
 				add_core_of = ITA
