@@ -1264,6 +1264,10 @@ ITA_balkan_decision_cat = {
 
     ai_will_do = {
       factor = 3
+	modifier = {
+		factor = 0
+		ALB = { fascism > 0.3 }
+	}
     }
 
     days_re_enable = 14
@@ -1310,6 +1314,10 @@ ITA_balkan_decision_cat = {
 
     ai_will_do = {
       factor = 3
+	modifier = {
+		factor = 0
+		ALB = { fascism > 0.3 }
+	}
     }
 
     days_re_enable = 14
@@ -1346,6 +1354,10 @@ ITA_balkan_decision_cat = {
 
     ai_will_do = {
       factor = 3
+	modifier = {
+		factor = 0
+		ALB = { fascism > 0.3 }
+	}
     }
 
     days_re_enable = 14
@@ -2369,6 +2381,8 @@ ITA_sponsor_falange = {
 
 	ITA_spread_claims_syndicalist_unity = {
 
+		icon = generic_political_discourse
+
 		cost = 25
 
 		visible = {
@@ -2377,6 +2391,10 @@ ITA_sponsor_falange = {
 					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1
 		}
 
 		days_remove = 30
@@ -2409,12 +2427,18 @@ ITA_sponsor_falange = {
 
 		cost = 40
 
+		icon = ger_mefo_bills
+
 		visible = {
 			NOT = {
 				check_variable = {
 					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1
 		}
 
 		days_remove = 30
@@ -2447,12 +2471,18 @@ ITA_sponsor_falange = {
 
 		cost = 50
 
+		icon = generic_construction
+
 		visible = {
 			NOT = {
 				check_variable = {
 					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1
 		}
 
 		days_remove = 30
@@ -2472,7 +2502,7 @@ ITA_sponsor_falange = {
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -2488,7 +2518,13 @@ ITA_sponsor_falange = {
 
 	ITA_trigger_falangist_uprising = {
 
+		icon = generic_prepare_civil_war
+
 		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
 
 		available = {
 			has_war_with = SPR
@@ -2515,7 +2551,13 @@ ITA_sponsor_falange = {
 
   ITA_trigger_falangist_coup = {
 
+	icon = generic_nationalism
+
     fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1
+		}
 
     available = {
       custom_trigger_tooltip = {
