@@ -725,50 +725,63 @@ form_germany_category = {
 		fire_only_once = yes
 
 		available = {
-			OR = {
-				is_subject = no
+			if = {
+				limit = {
+					tag = GPU
+					NOT = {
+						has_government = ultranationalism
+						has_government = fascism
+					}
+				}
+				OR = {
+					has_completed_focus = GPU_the_frankfurt_parliament
+				}
 			}
-			controls_state = 51
-			controls_state = 42
-			controls_state = 56
-			controls_state = 57
-			controls_state = 55
-			controls_state = 50
-			controls_state = 59
-			controls_state = 58
-			controls_state = 60
-			controls_state = 54
-			controls_state = 52
-			controls_state = 53
-			controls_state = 61
-			controls_state = 64
-			controls_state = 65
-			controls_state = 62
-			controls_state = 68
-			controls_state = 66
-			controls_state = 67
-			controls_state = 63
-			controls_state = 5
-			controls_state = 763
-			controls_state = 86
-			controls_state = 817
+			else = {
+				OR = {
+					is_subject = no
+				}
+				controls_state = 51
+				controls_state = 42
+				controls_state = 56
+				controls_state = 57
+				controls_state = 55
+				controls_state = 50
+				controls_state = 59
+				controls_state = 58
+				controls_state = 60
+				controls_state = 54
+				controls_state = 52
+				controls_state = 53
+				controls_state = 61
+				controls_state = 64
+				controls_state = 65
+				controls_state = 62
+				controls_state = 68
+				controls_state = 66
+				controls_state = 67
+				controls_state = 63
+				controls_state = 5
+				controls_state = 763
+				controls_state = 86
+				controls_state = 817
 
-			####new states
-			controls_state = 950
-			controls_state = 949
-			controls_state = 954
-			controls_state = 959
-			controls_state = 956
-			controls_state = 955
-			controls_state = 957
-			controls_state = 960
-			controls_state = 798
-			OR = {
-				tag = GER
-				tag = GPU
-				tag = FGD
-				tag = HAN
-				tag = SAX
+				####new states
+				controls_state = 950
+				controls_state = 949
+				controls_state = 954
+				controls_state = 959
+				controls_state = 956
+				controls_state = 955
+				controls_state = 957
+				controls_state = 960
+				controls_state = 798
+				OR = {
+					tag = GER
+					tag = FGD
+					tag = HAN
+					tag = SAX
+				} 
 			}
 		}
 
@@ -785,7 +798,15 @@ form_germany_category = {
 
 
 		complete_effect = {
-			set_cosmetic_tag = united_germany
+			if = {
+				limit = {
+					tag = GPU
+				}
+				set_cosmetic_tag = united_germany_diet
+			}
+			else = {
+				set_cosmetic_tag = united_germany
+			}
 			news_event = GER_unification_of_Germany.1 
 			# Germany
 			#custom_effect_tooltip = form_country_balkan_coring_states_tt

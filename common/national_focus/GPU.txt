@@ -2973,7 +2973,100 @@ shared_focus = {
   }
   relative_position_id = GPU_incorporate_prussian_tactics
   completion_reward = {
-    
+    annex_country = {
+      target = GER
+      transfer_troops = yes
+    }
+    if = {
+      limit = {
+        BAD = {
+          exists = yes
+        }
+      }
+      annex_country = {
+        target = BAD
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        WUR = {
+          exists = yes
+        }
+      }
+      annex_country = {
+        target = WUR
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        HES = {
+          exists = yes
+        }
+      }
+      annex_country = {
+        target = HES
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        NAS = {
+          exists = yes
+        }
+      }
+      annex_country = {
+        target = NAS
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        HAN = {
+          exists = yes
+        }
+        is_in_faction_with = ROOT
+      }
+      annex_country = {
+        target = HAN
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        SAX = {
+          exists = yes
+        }
+        is_in_faction_with = ROOT
+      }
+      annex_country = {
+        target = SAX
+        transfer_troops = yes
+      }
+    }
+    if = {
+      limit = {
+        58 = {
+          owner = {
+            is_in_faction_with = ROOT
+          }
+        }
+      }
+      transfer_state = 58
+      add_state_core = 58
+    }
+    if = {
+      limit = {
+        801 = {
+          owner = {
+            is_in_faction_with = ROOT
+          }
+        }
+      }
+      transfer_state = 801
+      add_state_core = 801
+    }
   }
 }
 
