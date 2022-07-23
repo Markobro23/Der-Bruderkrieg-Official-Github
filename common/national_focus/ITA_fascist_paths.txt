@@ -3793,11 +3793,9 @@ shared_focus = {
 	}
 
 	available = {
-		NOT = {
-			AND = {
-				has_government = ultranationalism
-				NOT = { has_completed_focus = ITA_speak_with_industrialists }
-			}
+		OR = {
+			NOT = { has_government = ultranationalism }
+			has_completed_focus = ITA_speak_with_industrialists
 		}
 	}
 
