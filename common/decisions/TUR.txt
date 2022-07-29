@@ -792,6 +792,251 @@ TUR_asserting_influence_in_arabia = {
 		}
 	}
 }
+TUR_solving_minority_problems = {
+	TUR_integrate_kurds = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_finish_the_dersim
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_kurds_crushed
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_kurdistan_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_finish_the_dersim
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_kurds_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+			release_on_controlled = KUR
+			
+			declare_war_on = {
+				target = KUR
+				transfer_troops = yes
+			}
+		}
+	}
+
+	TUR_integrate_iraq = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_crush_sadouns_front
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_iraq_crushed
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_iraqi_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_crush_sadouns_front
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_iraq_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+			release_on_controlled = IRQ
+			IRQ = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+			declare_war_on = {
+				target = IRQ
+				transfer_troops = yes
+			}
+		}
+	}
+
+	TUR_integrate_syria = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_lock_up_houranis_thugs
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_syria_crushed
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_syrian_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_lock_up_houranis_thugs
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_syria_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			SYR = {
+				add_popularity = {
+					ideology = democratic_communism
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = democratic_communism
+				}
+			}
+			hidden_effect = {
+				SYR = {
+				add_state_core = 680
+				add_state_core = 677
+				add_state_core = 841
+				add_state_core = 844
+				add_state_core = 680
+				add_state_core = 849
+				add_state_core = 553
+				add_state_core = 857
+				add_state_core = 455
+				add_state_core = 862
+				add_state_core = 856
+				add_state_core = 861
+				}
+			}
+			release_on_controlled = SYR
+			declare_war_on = {
+				target = SYR
+				transfer_troops = yes
+			}
+		}
+	}
+}
 
 weltkrieg_decisions = {
 	TUR_ai_desperate_defense = {
