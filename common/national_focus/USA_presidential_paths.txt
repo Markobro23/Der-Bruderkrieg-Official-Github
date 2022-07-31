@@ -2504,10 +2504,23 @@ shared_focus = {
 			IRA = {
 				transfer_state = 134
 				transfer_state = 135
+				every_owned_state = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = IRA
+						count = 3
+					}
+				}
 				declare_war_on = {
 					target = IRE
 					type = civil_war
 				}
+			}
+			every_state = {
+				limit = {
+					is_core_of = IRE
+				}
+				add_core_of = IRA
 			}
 		}
     }
