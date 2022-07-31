@@ -2392,6 +2392,11 @@ shared_focus = {
     ai_will_do = {
         factor = 1000
     }
+	available = {
+		IRE = {
+			exists = no
+		}
+	}
     completion_reward = {
         set_variable = { IRA_ability_to_revolt = 0 } 
 		country_event = USA_long_events.19
@@ -2751,13 +2756,14 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_come_out_ye_black_and_tans
+        
        
     }
     prerequisite = {
          focus = USA_prepare_the_defenses
     }
 	prerequisite = {
+		focus = USA_come_out_ye_black_and_tans	
 		focus = USA_reinforce_the_naval_command
 	}
     relative_position_id = USA_prepare_the_defenses
@@ -6855,6 +6861,16 @@ shared_focus = {
 	relative_position_id = USA_the_far_east
 	
 	completion_reward = {
+		add_opinion_modifier = {
+			target = SOV
+			modifier = ger_sov_alliance_focus
+		}
+		SOV = {
+			add_opinion_modifier = {
+				target = SOV
+				modifier = ger_sov_alliance_focus
+			}
+		}
 	}
 }
 
@@ -7244,6 +7260,16 @@ shared_focus = {
 	relative_position_id = USA_the_far_east
 	
 	completion_reward = {
+		add_opinion_modifier = {
+			target = JAP
+			modifier = ger_jap_diplomacy_focus
+		}
+		JAP = {
+			add_opinion_modifier = {
+				target = JAP
+				modifier = ger_jap_diplomacy_focus
+			}
+		}
 	}
 }
 
