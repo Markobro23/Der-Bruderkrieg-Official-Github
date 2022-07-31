@@ -4050,6 +4050,34 @@ news_event = {
 	}
 }
 
+add_namespace = USA_american_british_cold_war
+
+## start of cold war
+news_event = {
+	id = USA_american_british_cold_war.1 
+	title = USA_american_british_cold_war.1.t
+	desc = USA_american_british_cold_war.1.d
+	picture = GFX_americanargentinanwar
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = USA_american_british_cold_war.1.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				tag = ENG
+			}
+			unlock_decision_category_tooltip = USA_american_british_cold_war
+		}
+
+	}
+}
+
+
+
 ########
 ###AI###
 ########
