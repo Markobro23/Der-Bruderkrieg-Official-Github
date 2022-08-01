@@ -622,6 +622,7 @@ country_event = { #coup in portugal
 			ideology = ultranationalism
 		}
 		hidden_effect = {
+			news_event = { id = italy.552 hours = 6 }
 			random_country_with_original_tag = {
 				original_tag_to_check = SPR
 				limit = {
@@ -1262,6 +1263,122 @@ country_event = { #Concrete stand strong against us
 		add_opinion_modifier = {
 			target = FROM
 			modifier = small_decrease
+		}
+	}
+}
+
+country_event = { #spanish civil war when declaring war on France
+	id = italy.551
+	title = italy.551.t
+	desc = italy.551.d
+	#picture = GFX_report_event_eng_dambuster2
+	is_triggered_only = yes 
+	fire_only_once = yes
+
+	option = {  #france is our true ally
+		name = italy.551a 
+		ai_chance = {
+			factor = 0
+		}
+		leave_faction = yes
+		start_civil_war = {
+			ruling_party = democratic
+			ideology = ultranationalism
+			size = 0.5
+			GER = {
+				add_to_faction = PREV
+			}
+		}
+		FRA = {
+			add_to_faction = ROOT
+		}
+		hidden_effect = {
+			news_event = { id = italy.552 hours = 6 }
+			every_country = {
+				limit = {
+					original_tag = SPR
+				}
+				capital_scope = {
+					create_unit = {
+	          division = "name = \"Divisiones Revolucionarias\" division_template = \"Brigada de Infantería\" start_experience_factor = 0.3 start_equipment_factor = 1"
+	          count = 3
+	          owner = PREV
+	        }
+				}
+			}
+		}
+	}
+	option = {  #angery
+		name = italy.551.b 
+		ai_chance = {
+			factor = 6
+		}
+		start_civil_war = {
+			ideology = democratic
+			size = 0.5
+			FRA = {
+				add_to_faction = PREV
+			}
+		}
+		hidden_effect = {
+			news_event = { id = italy.552 hours = 6 }
+			every_country = {
+				limit = {
+					original_tag = SPR
+				}
+				capital_scope = {
+					create_unit = {
+	          division = "name = \"Divisiones Revolucionarias\" division_template = \"Brigada de Infantería\" start_experience_factor = 0.3 start_equipment_factor = 1"
+	          count = 3
+	          owner = PREV
+	        }
+				}
+			}
+		}
+	}
+}
+
+news_event = { #Spanish Civil War
+	id = italy.552
+	title = italy.552.t
+	desc = italy.552.d
+	picture = GFX_news_event_spr_spanish_civil_war
+	is_triggered_only = yes 
+	major = yes
+
+	option = {  #we knew Spain could not wholly betray us
+		name = italy.552.a
+		trigger = {
+			OR = {
+				tag = FRA
+				is_in_faction_with = FRA
+				has_war_with = GER
+			}
+		}
+	}
+	option = {  #our ally!!!!
+		name = italy.552.b
+		trigger = {
+			OR = {
+				tag = GER
+				is_in_faction_with = GER
+				has_war_with = FRA
+			}
+		}
+	}
+	option = {  #didn't they just have a civil war :thonk:
+		name = italy.552.c
+		trigger = {
+			NOT = {
+				OR = {
+					tag = GER
+					is_in_faction_with = GER
+					has_war_with = FRA
+					tag = FRA
+					is_in_faction_with = FRA
+					has_war_with = GER
+				}
+			}
 		}
 	}
 }

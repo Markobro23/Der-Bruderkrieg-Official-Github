@@ -2702,9 +2702,12 @@ shared_focus = {
 		}
 
 		available = {
-			has_country_leader = {
-				name = "Costanzo Ciano"
-				ruling_only = yes
+			OR = {
+				has_completed_focus = ITA_gain_cianos_support
+				has_country_leader = {
+					name = "Costanzo Ciano"
+					ruling_only = yes
+				}
 			}
 			NOT = {
 				has_completed_focus = ITA_appeal_to_esoterics
@@ -3143,6 +3146,7 @@ shared_focus = {
 		available = {
 			SPR = {
 				is_in_faction = no
+				has_government = fascism
 			}
 		}
 
