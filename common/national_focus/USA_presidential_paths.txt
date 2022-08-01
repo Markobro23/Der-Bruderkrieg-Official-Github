@@ -6452,7 +6452,7 @@ shared_focus = {
 		OR = {
 			has_completed_focus = USA_smiths_america
 			has_completed_focus = USA_the_great_pacifican
-			has_completed_focus = USA_lead_to_a_better_world
+			#has_completed_focus = USA_lead_to_a_better_world
 			has_completed_focus = USA_the_great_scare
 		}
 	}
@@ -7413,8 +7413,10 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
-		JAP = {
-			has_war_with = SOV
+		SOV = {
+			any_enemy_country = {
+				is_major = yes
+			}
 		}
 	}
 	
