@@ -1851,11 +1851,28 @@ on_actions = {
 					}
 				}
 				GZC = {
-				white_peace = YUN
+					white_peace = YUN
 				}
 			
 				YUN = {
-					country_event = south_china_war.3
+			dismantle_faction = yes
+			annex_country = {
+				target = YUC
+				transfer_troops = no
+			}
+			annex_country = {
+				target = GZC
+				transfer_troops = no
+			}
+			annex_country = {
+				target = GUC
+				transfer_troops = no
+			}
+			every_controlled_state = {
+				add_core_of = YUN
+			}
+			set_cosmetic_tag = south_chinese_republic
+			news_event = { id = DBK_formablenations.6 hours = 1 random = 23 }
 				}
 			}
 		}
@@ -1871,13 +1888,27 @@ on_actions = {
 					}
 				}
 				YUN = {
-				white_peace = GZC
+					white_peace = GZC
 				}
-			
-				GZC = {
-					country_event = south_china_war.2
-				}
+		 YUN = {
+			 dismantle_faction = yes
+		 }
+		GZC = {
+			dismantle_faction = yes
+			annex_country = {
+				target = YUC
+				transfer_troops = no
 			}
+			annex_country = {
+				target = YUN
+				transfer_troops = no 
+			}
+			every_controlled_state = {
+				add_core_of = GZC
+			}
+			set_cosmetic_tag = chinese_confederacy
+			news_event = { id = DBK_formablenations.6 hours = 1 random = 23 }
+		}
 		}
 
 		
