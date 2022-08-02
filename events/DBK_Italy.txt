@@ -2613,16 +2613,13 @@ country_event = {
 	is_triggered_only = yes 
 
 	option = { 
-		name = ITA_fascist_tree_events.4.a 
-		ai_chance = { factor = 0 } 
-		create_wargoal = {
-			target = PAP
-			type = annex_everything
-		}
-	}
-	option = { 
 		name = ITA_fascist_tree_events.4.b
 		ai_chance = { factor = 90 } 
+		set_country_flag = ITA_pope_refused
+		uncomplete_national_focus = {
+			focus = ITA_council_of_rome
+			refund_political_power = yes
+		}
 	}
 }
 
