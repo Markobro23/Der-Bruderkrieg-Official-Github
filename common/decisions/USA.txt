@@ -3409,7 +3409,10 @@ USA_american_british_cold_war = {
 		}
 	
 		remove_effect = {
-			custom_effect_tooltip = USA_we_will_launch_a_revolt_in_new_zealand
+			AST = {
+				release = NZL
+			}
+			
 				
 		}
 	}
@@ -3436,7 +3439,15 @@ USA_american_british_cold_war = {
 		}
 	
 		remove_effect = {
-			custom_effect_tooltip = USA_we_will_launch_a_revolt_in_australia
+			ENG = {
+				set_autonomy = {
+					target = AST
+					autonomy_state = autonomy_free
+				}
+			}
+			AST = {
+				leave_faction = yes
+			}
 		}
 	}
 
@@ -3464,7 +3475,15 @@ USA_american_british_cold_war = {
 		}
 	
 		remove_effect = {
-			
+			ENG = {
+				set_autonomy = {
+					target = CAN
+					autonomy_state = autonomy_free
+				}
+			}
+			CAN = {
+				leave_faction = yes
+			}
 		}
 	}
 }
