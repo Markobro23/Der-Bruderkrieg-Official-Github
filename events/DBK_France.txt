@@ -2733,11 +2733,11 @@ country_event = { #adenauer asks to form a parliament
 
 	option = { #sure, let's make a sister republic
 		name = westfalen_subtree_events.5.a
-		trigger = {
-			NOT = {
-				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
-			}
-		}
+		# trigger = {
+		# 	NOT = {
+		# 		has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+		# 	}
+		# }
 		FGD = {
 			add_popularity = {
 				ideology = democratic
@@ -2747,41 +2747,41 @@ country_event = { #adenauer asks to form a parliament
 				ruling_party = democratic
 				elections_allowed = no
 			}
-			add_ideas = FGD_konrad_adenauer
-			country_event = { id = westfalen_subtree_events.6 days = 1 }
+			#add_ideas = FGD_konrad_adenauer
+			#country_event = { id = westfalen_subtree_events.6 days = 1 }
 		}
 	}
-	option = { #moderately reform to a constitutional monarchy
-		name = westfalen_subtree_events.5.b
-		trigger = {
-			NOT = {
-				has_completed_focus = FRA_DOCTRINAIRE_RIGHT
-			}
-		}
-		FGD = {
-			add_popularity = {
-				ideology = authoritarian_democratic
-				popularity = 0.25
-			}
-			set_politics = {
-				ruling_party = authoritarian_democratic
-				elections_allowed = no
-			}
-			add_ideas = FGD_konrad_adenauer
-			country_event = { id = westfalen_subtree_events.6 days = 1 }
-		}
-	}
-	option = { #no
-		name = westfalen_subtree_events.5.c
-		FGD = {
-			add_popularity = {
-				ideology = neutrality
-				popularity = -0.1
-			}
-			add_stability = -0.05
-			country_event = { id = westfalen_subtree_events.7 days = 1 }
-		}
-	}
+	# option = { #moderately reform to a constitutional monarchy
+	# 	name = westfalen_subtree_events.5.b
+	# 	trigger = {
+	# 		NOT = {
+	# 			has_completed_focus = FRA_DOCTRINAIRE_RIGHT
+	# 		}
+	# 	}
+	# 	FGD = {
+	# 		add_popularity = {
+	# 			ideology = authoritarian_democratic
+	# 			popularity = 0.25
+	# 		}
+	# 		set_politics = {
+	# 			ruling_party = authoritarian_democratic
+	# 			elections_allowed = no
+	# 		}
+	# 		add_ideas = FGD_konrad_adenauer
+	# 		country_event = { id = westfalen_subtree_events.6 days = 1 }
+	# 	}
+	# }
+	# option = { #no
+	# 	name = westfalen_subtree_events.5.c
+	# 	FGD = {
+	# 		add_popularity = {
+	# 			ideology = neutrality
+	# 			popularity = -0.1
+	# 		}
+	# 		add_stability = -0.05
+	# 		country_event = { id = westfalen_subtree_events.7 days = 1 }
+	# 	}
+	# }
 }
 
 country_event = { #napoleon accepts
