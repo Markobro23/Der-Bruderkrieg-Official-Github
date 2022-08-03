@@ -13,6 +13,55 @@ characters={
 			id=-1
 		}
 	}
+	GPU_count_gerd_von_rundstent  ={
+		name="Count Gerd von Rundstedt"
+		portraits={
+			civilian={
+				large="gfx/leaders/vonrundstent.dds"
+			}
+			army={
+				small="gfx/interface/ideas/idea_GER_gerd_von_rundstedt.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
+			}
+		}
+		country_leader={
+			#desc="FRANZ_FERDINAND_DESC"
+			ideology=fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			#desc="FRANZ_FERDINAND_DESC"
+			ideology= ultranationalist
+			expire="1965.1.1.1"
+			id=-1
+		}
+		field_marshal={
+			traits={ old_guard urban_assault_specialist defensive_doctrine }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=1
+		}
+		advisor={
+			slot = high_command
+			idea_token = gerd_von_rundstedt
+			ledger = army
+			allowed = {
+				original_tag = GPU
+			}
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
+			}
+		}
+	}
+
 	GPU_enver_hoxha={
 		name="Kurt Eisner"
 		portraits={
@@ -122,6 +171,13 @@ characters={
 		country_leader={
 			#desc="POLITICS_KING_ZOG_DESC"
 			ideology= democratic_conservative
+			traits={  }
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			#desc="POLITICS_KING_ZOG_DESC"
+			ideology= despotic
 			traits={  }
 			expire="1965.1.1.1"
 			id=-1
