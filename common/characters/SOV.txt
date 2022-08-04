@@ -425,18 +425,86 @@ characters={
 			allowed = {
 				original_tag = SOV
 			}
+			available = {
+				has_completed_focus = SOV_enforcing_loyalty
+			}
 			traits = {
 				mass_assault_expert
 			}
 		}
-		corps_commander={
-			traits={ brilliant_strategist career_officer trait_reckless infantry_officer }
+		field_marshal={
+			traits={ brilliant_strategist career_officer trait_reckless infantry_officer offensive_doctrine }
 			skill=4
 			attack_skill=3
 			defense_skill=4
 			planning_skill=4
 			logistics_skill=2
 			legacy_id=72011
+			visible = {
+				has_global_flag = new_officers_SOV
+			}
+		}
+	}
+	SOV_iosib_dzugashvili = {
+		name = "Ioseb Jughashvili"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/Portrait_RUS_Iosib_Dzugashvili.png"
+			}
+		}
+		corps_commander = {
+			traits = { harsh_leader organizer politically_connected }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+			visible = {
+				has_global_flag = new_officers_SOV
+			}
+		}
+	}
+	SOV_semyon_timoshenko = {
+		name = "Semyon Timoshenko"
+		portraits = {
+			army = {
+				small = "GFX_idea_semyon_timoshenko"
+				large = "gfx/leaders/SOV/Portrait_RUS_Semyon_Timoshenko.png"
+			}
+		}
+
+		corps_commander = {
+			traits = { career_officer cavalry_officer politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 404
+			visible = {
+				has_global_flag = new_officers_SOV
+			}
+		}
+	}
+	SOV_maksim_purkayev = {
+		name = "Maksim Purkayev"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/Portrait_RUS_Maksim_Purkayev.png"
+				small=GFX_portrait_SOV_maksim_purkayev_small
+			}
+		}
+		corps_commander = {
+			traits = { career_officer politically_connected }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+			legacy_id = 0
+			visible = {
+				has_global_flag = new_officers_SOV
+			}
 		}
 	}
 	SOV_aleksandr_vasilevsky={
