@@ -131,3 +131,71 @@ news_event = { #Gustav's Self-coup
 		}
 	}
 }
+
+add_namespace = SWE_swedish_student_revolt
+##Students Organising
+country_event = {
+	id = SWE_swedish_student_revolt.1
+	title = SWE_swedish_student_revolt.1.t
+	desc = SWE_swedish_student_revolt.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.1.a
+		add_stability = -0.01
+		country_event = {
+			id = SWE_swedish_student_revolt.2
+			days = 15
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.2
+	title = SWE_swedish_student_revolt.2.t
+	desc = SWE_swedish_student_revolt.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.2.a
+		add_stability = -0.02
+		country_event = {
+			id = SWE_swedish_student_revolt.3
+			days = 1
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.3
+	title = SWE_swedish_student_revolt.3.t
+	desc = SWE_swedish_student_revolt.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.3.a
+		add_stability = -0.05
+		add_manpower = -1
+		country_event = {
+			id = SWE_swedish_student_revolt.4
+			days = 1
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.4
+	title = SWE_swedish_student_revolt.4.t
+	desc = SWE_swedish_student_revolt.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		start_civil_war = {
+			ideology = democratic_liberalism
+			size = 0.4
+		}
+	}
+	option = {
+		name = SWE_swedish_student_revolt.4.a
+	}
+	option = {
+		name = SWE_swedish_student_revolt.4.b
+	}
+}

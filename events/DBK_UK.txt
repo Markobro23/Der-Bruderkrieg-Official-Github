@@ -796,6 +796,35 @@ country_event = {
 	}
 }
 
+add_namespace = ENG_foriegn_intervention_tree
+##christian from iceland
+country_event = {
+	id = ENG_foriegn_intervention_tree.1
+	title = ENG_foriegn_intervention_tree.1.t
+	desc = ENG_foriegn_intervention_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.1.a
+		ICE = {
+			annex_country = {
+				target = DEN
+			}
+			remove_ideas = ICE_royal_loyalists
+		}
+		ENG = {
+			add_to_faction = ICE
+		}
+		ICE = {
+			every_controlled_state = {
+				add_core_of = ICE
+			}
+		}
+	}
+}
+
+
+
 add_namespace = ENG_imperial_federation_tree
 
 ## invitation to imperial fed
