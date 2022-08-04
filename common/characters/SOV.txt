@@ -96,6 +96,17 @@ characters={
 			id=-1
 		}
 	}
+	SOV_boris_savinkov = {
+		name = "Boris Savinkov"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/SOV/Portrait_RUS_Boris_Savinkov.png"
+			}
+		}
+		country_leader = {
+			ideology = national_syndicalism
+		}
+	}
 	SOV_pyotr_wrangel={
 		name="Pyotr Wrangel"
 		portraits={
@@ -110,8 +121,10 @@ characters={
 			slot = army_chief
 			idea_token = pyotr_wrangel
 			allowed = {
-				original_tag = SOV
-				original_tag = UGL
+				OR = {
+					original_tag = SOV
+					original_tag = UGL
+				}
 			}
 			traits = {
 				army_chief_old_guard
@@ -152,8 +165,10 @@ characters={
 			slot = army_chief
 			idea_token = lavr_kornilov
 			allowed = {
-				original_tag = SOV
-				original_tag = KLV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 			traits = {
 				army_chief_maneuver_2
@@ -185,8 +200,10 @@ characters={
 			slot = army_chief
 			idea_token = anton_denikin
 			allowed = {
-				original_tag = SOV
-				original_tag = KLV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}		
 			traits = {
 				army_chief_drill_1
@@ -228,8 +245,8 @@ characters={
 				factor = 1.000
 			}
 		}
-		field_marshal={
-			traits={ infantry_officer winter_specialist offensive_doctrine }
+		corps_commander={
+			traits={ infantry_officer winter_specialist }
 			skill=3
 			attack_skill=3
 			defense_skill=3
@@ -505,8 +522,10 @@ characters={
 			idea_token = vladimir_kappel
 			ledger = army
 			allowed = {
-				original_tag = SOV
-				original_tag = KLV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 			traits = {
 				army_logistics_2
@@ -982,8 +1001,10 @@ characters={
 			slot = navy_chief
 			idea_token = alexander_kolchak
 			allowed = {
-				original_tag = SOV
-				original_tag = NVR
+				OR = {
+					original_tag = SOV
+					original_tag = NVR
+				}
 			}
 			traits = {
 				navy_chief_decisive_battle_3
