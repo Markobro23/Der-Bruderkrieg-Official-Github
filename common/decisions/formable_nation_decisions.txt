@@ -1688,3 +1688,109 @@ reunite_russia_category = {
 	}
 
 }
+
+reunite_denmark_category = {
+	
+	reunite_denmark_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			owns_state = 99
+			owns_state = 37
+			owns_state = 100
+			owns_state = 337
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					tag = DEN
+				}
+				add_state_core = 100
+			}
+			if = {
+				limit = {
+					tag = ICE
+				}
+				add_state_core = 99
+				add_state_core = 37
+			}
+		}
+
+	}
+
+}
+
+unite_kalmar_category = {
+	
+	kalmar_union_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_swedish_states
+				owns_state = 666
+				owns_state = 38
+				owns_state = 141
+				owns_state = 139
+				owns_state = 140
+				owns_state = 138
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_norwegian_states
+				owns_state = 144
+				owns_state = 143
+				owns_state = 110
+				owns_state = 142
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_all_danish_lands
+				owns_state = 100
+				owns_state = 337
+				owns_state = 99
+				owns_state = 37
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_global_flag = kalmar_union_established
+			}
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = kalmar_union
+			set_global_flag = kalmar_union_established
+			every_state = {
+				limit = {
+					OR = {
+						state = 666
+						state = 38
+						state = 141
+						state = 139
+						state = 140
+						state = 138
+						state = 144
+						state = 143
+						state = 110
+						state = 142
+						state = 100
+						state = 337
+						state = 99
+						state = 37
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+		}
+
+	}
+
+}
