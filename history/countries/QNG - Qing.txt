@@ -1,6 +1,6 @@
 ﻿capital = 608 #le funny #no it's not funny shut up
 
-oob = "BEI_1936"
+oob = "QNG"
 
 add_ideas = {
 	#BEI_national_protection_army
@@ -23,8 +23,61 @@ set_technology = {
 	basic_train = 1
 }
 
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { NOT = { has_dlc = "No Step Back" } }
+	set_technology = {
+		gwtank = 1
+	}
+}
+
+### Navy - MtG ###
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		early_ship_hull_heavy = 1
+
+		## Modules##
+		basic_depth_charges = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_secondary_battery = 1
+		basic_torpedo = 1
+		basic_naval_mines = 1
+	}
+}
+
+### Navy - Non MtG ###
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_destroyer = 1
+		early_light_cruiser = 1
+		early_submarine = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+	}
+}
+
 set_politics = {
-	ruling_party = neutrality
+	ruling_party = democratic
 	last_election = "1933.2.16"
 	election_frequency = 36
 	elections_allowed = no
@@ -34,29 +87,15 @@ set_convoys = 150
 set_stability = 0.5
 
 set_popularities = {
-	communism = 12
-	fascism = 15
-	neutrality = 70
-	socialism_democratic = 3
+	communism = 0
+	fascism = 2
+	neutrality = 0
+	socialism_democratic = 18
+	democratic_liberalism = 32
+	democratic = 48
 }
 
-#BEI = {
-	#diplomatic_relation = {
-		#country = SHX
-		#relation = military_access
-		#active = yes
-	#}
-#	diplomatic_relation = {
-		#country = SHX
-		#relation = docking_rights
-		#active = yes
-	#}
-	#diplomatic_relation = {
-		#country = SHX
-		#relation = non_aggression_pact
-		#active = yes
-	#}
-#}
+
 
 recruit_character = BEI_wu_peifu
 recruit_character = BEI_sun_chuanfang
@@ -67,3 +106,8 @@ recruit_character = BEI_wei_yisan
 recruit_character = BEI_sa_zhenbing
 recruit_character = BEI_wu_renli
 recruit_character = BEI_du_xigui
+
+recruit_character = QNG_pujie
+recruit_character = QNG_aisin_gioro_zaitao
+recruit_character = QNG_aisin_gioro_xiqia
+recruit_character = QNG_aisin_gioro_jixing
