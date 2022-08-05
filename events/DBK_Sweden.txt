@@ -188,8 +188,9 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		start_civil_war = {
-			ideology = democratic_liberalism
+			ideology = socialism_democratic
 			size = 0.4
+			keep_political_leader = yes
 		}
 	}
 	option = {
@@ -197,5 +198,79 @@ country_event = {
 	}
 	option = {
 		name = SWE_swedish_student_revolt.4.b
+	}
+}
+
+add_namespace = kalmar_union
+##kalmar
+country_event = {
+	id = kalmar_union.1
+	title = kalmar_union.1.t
+	desc = kalmar_union.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FROM = {
+				annex_country = {
+					target = ROOT
+					transfer_troops = yes
+				}
+			}
+		}
+		FROM = {
+			country_event = kalmar_union.2
+		}
+	}
+	option = { 
+		name = kalmar_union.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = kalmar_union.3
+		}
+	}
+}
+
+country_event = {
+	id = kalmar_union.2
+	title = kalmar_union.2.t
+	desc = kalmar_union.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.2.a 
+		ai_chance = { factor = 90 } 
+		ROOT = {
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = kalmar_union.3
+	title = kalmar_union.3.t
+	desc = kalmar_union.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.3.a 
+		ai_chance = { factor = 90 } 
+		
 	}
 }

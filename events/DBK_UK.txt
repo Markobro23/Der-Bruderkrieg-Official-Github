@@ -823,6 +823,81 @@ country_event = {
 	}
 }
 
+##kalmar
+country_event = {
+	id = ENG_foriegn_intervention_tree.2
+	title = ENG_foriegn_intervention_tree.2.t
+	desc = ENG_foriegn_intervention_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.2.a #NOR
+		NOR = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.2.b #DEN
+		SWE = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.2.c #SWE
+		DEN = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+}
+
+country_event = {
+	id = ENG_foriegn_intervention_tree.3
+	title = ENG_foriegn_intervention_tree.3.t
+	desc = ENG_foriegn_intervention_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.3.a #NOR
+		if = {
+			limit = {
+				tag = NOR
+			}
+			set_cosmetic_tag = NDC
+			SWE = {
+				country_event = kalmar_union.1
+			}
+			DEN = {
+				country_event = kalmar_union.1
+			}
+		}
+		if = {
+			limit = {
+				tag = SWE
+			}
+			set_cosmetic_tag = NDC
+			NOR = {
+				country_event = kalmar_union.1
+			}
+			DEN = {
+				country_event = kalmar_union.1
+			}
+		}
+		if = {
+			limit = {
+				tag = DEN
+			}
+			set_cosmetic_tag = NDC
+			SWE = {
+				country_event = kalmar_union.1
+			}
+			NOR = {
+				country_event = kalmar_union.1
+			}
+		}
+	}
+
+}
+
 
 
 add_namespace = ENG_imperial_federation_tree
