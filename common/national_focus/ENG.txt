@@ -3756,8 +3756,8 @@ shared_focus = {
         factor = 1
     }
     available = {
-        OR = {
-            USA = {
+        USA = {
+            OR = {
                 has_completed_focus = USA_the_dying_lion
                 has_opinion_modifier = mortal_enemies
                 has_country_flag = ENG_Denies_USA_Conference
@@ -3930,7 +3930,9 @@ shared_focus = {
     prerequisite = {
         focus = ENG_fund_the_argentines
     }
-   
+    mutually_exclusive = {
+        focus = ENG_develop_trade_links_with_ufc
+    }
     completion_reward = {
         CEN = {	
             country_event = {
@@ -4045,7 +4047,9 @@ shared_focus = {
     available = {
         
     }
-   
+    mutually_exclusive = {
+        focus = ENG_ignite_unrest_in_central_america
+    }
     relative_position_id = ENG_develop_belize
     prerequisite = {
         focus = ENG_develop_belize
@@ -4110,13 +4114,13 @@ shared_focus = {
     available = {
         has_war_support > 0.44
         132 = {
-            arms_factory > 3
+            arms_factory > 2
         }
-        130 = {
-            arms_factory > 3
+        120 = {
+            arms_factory > 2
         }
         128 = {
-            arms_factory > 3
+            arms_factory > 2
         }
     }
     prerequisite = {
@@ -4417,11 +4421,86 @@ shared_focus = {
             has_war_with = GER
         }
     }
+    mutually_exclusive = {
+        focus = ENG_unite_the_colonies
+    }
     completion_reward = {
         annex_country = {
             target = HAN
             transfer_troops = yes
         }
         set_cosmetic_tag = united_kingdom_of_britain_and_germany
+    }
+}
+
+shared_focus = {
+    id = ENG_unite_the_colonies
+    icon = GFX_goal_ENG_unite_the_colonies
+    x = 4
+    y = 1
+    cost = 15
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    
+    prerequisite = {
+        focus = ENG_restore_stability_to_oman
+        focus = ENG_influence_central_asia
+    }
+    relative_position_id = ENG_restore_hannover
+    available = {
+        NOT = {
+            has_war_with = SOV
+        }
+        OR = {
+            AST = {
+                has_autonomy_state = autonomy_imperial_federation_member
+            }
+            CAN = {
+                has_autonomy_state = autonomy_imperial_federation_member
+            }
+            SAF = {
+                has_autonomy_state = autonomy_imperial_federation_member
+            }
+        }
+    }
+    mutually_exclusive = {
+        focus = ENG_united_kingdom_of_germany_and_britain
+    }
+    completion_reward = {
+        if = {
+            limit = {
+                AST = {
+                    has_autonomy_state = autonomy_imperial_federation_member
+                }
+            }
+            annex_country = {
+                target = AST
+                transfer_troops = yes
+            }
+        }
+        if = {
+            limit = {
+                CAN = {
+                    has_autonomy_state = autonomy_imperial_federation_member
+                }
+            }
+            annex_country = {
+                target = CAN
+                transfer_troops = yes
+            }
+        }
+        if = {
+            limit = {
+                SAF = {
+                    has_autonomy_state = autonomy_imperial_federation_member
+                }
+            }
+            annex_country = {
+                target = SAF
+                transfer_troops = yes
+            }
+        }
     }
 }
