@@ -3566,7 +3566,9 @@ shared_focus = {
     prerequisite = {
         focus = ENG_our_darkest_hour_approaches
     }
-  
+    available = {
+        
+    }
     relative_position_id = ENG_our_darkest_hour_approaches
     
     completion_reward = {
@@ -3651,9 +3653,35 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = ENG_operation_beartrap
+    icon = GFX_goal_ENG_operation_beartrap
+    x = 1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    available = {
+        has_war_with = SOV
+    }
+    
+    relative_position_id = ENG_annex_the_suez
+    prerequisite = {
+        focus = ENG_annex_the_suez
+    }
+ 
+    completion_reward = {
+        add_timed_idea = {
+            idea = ENG_russian_offensive
+            days = 125
+        }
+    }
+}
+shared_focus = {
     id = ENG_influence_central_asia
     icon = GFX_goal_ENG_influence_central_asia
-    x = 1
+    x = 0
     y = 1
     cost = 10
     available_if_capitulated = yes
@@ -3670,10 +3698,11 @@ shared_focus = {
             }
         }
     }
-    relative_position_id = ENG_annex_the_suez
+    relative_position_id = ENG_operation_beartrap
     prerequisite = {
-        focus = ENG_annex_the_suez
+        focus = ENG_operation_beartrap
     }
+    
  
     completion_reward = {
         584 = {
@@ -3713,31 +3742,7 @@ shared_focus = {
         }
     }
 }
-shared_focus = {
-    id = ENG_operation_beartrap
-    icon = GFX_goal_ENG_operation_beartrap
-    x = 0
-    y = 1
-    cost = 10
-    available_if_capitulated = yes
-    ai_will_do = {
-        factor = 1
-    }
-    available = {
-        
-    }
-    relative_position_id = ENG_influence_central_asia
-    prerequisite = {
-        focus = ENG_influence_central_asia
-    }
- 
-    completion_reward = {
-        add_timed_idea = {
-            idea = ENG_russian_offensive
-            days = 125
-        }
-    }
-}
+
 shared_focus = {
     id = ENG_safeguard_the_american_border
     icon = GFX_goal_ISA_prepare_the_defences
@@ -3749,7 +3754,14 @@ shared_focus = {
         factor = 1
     }
     available = {
-        
+        OR = {
+            USA = {
+                has_completed_focus = USA_the_dying_lion
+                has_opinion_modifier = mortal_enemies
+                has_country_flag = ENG_Denies_USA_Conference
+            }
+            
+        }
     }
     relative_position_id = ENG_our_darkest_hour_approaches
     prerequisite = {
@@ -3796,7 +3808,7 @@ shared_focus = {
 }
 shared_focus = {
     id = ENG_operation_st_lawrence
-    icon = GFX_goal_ENG_operation_st_lawrence
+    icon = GFX_focus_SOV_penal_battalions
     x = 1
     y = 1
     cost = 10
@@ -3822,7 +3834,7 @@ shared_focus = {
 }
 shared_focus = {
     id = ENG_content_with_our_islands
-    icon = GFX_goal_ENG_content_with_our_islands
+    icon = GFX_goal_ITA_island_hopping_campaign
     x = -1
     y = 1
     cost = 10
@@ -3846,7 +3858,7 @@ shared_focus = {
 }
 shared_focus = {
     id = ENG_the_war_of_occupation
-    icon = GFX_goal_ENG_the_war_of_occupation
+    icon = GFX_goal_Death
     x = 1
     y = 1
     cost = 10
@@ -3871,7 +3883,7 @@ shared_focus = {
 }
 shared_focus = {
     id = ENG_fund_the_argentines
-    icon = GFX_goal_ENG_fund_the_argentines
+    icon = GFX_goal_USA_the_argentinian_threat
     x = -1
     y = 1
     cost = 10
@@ -3900,7 +3912,8 @@ shared_focus = {
 }
 shared_focus = {
     id = ENG_ignite_unrest_in_central_america
-    icon = GFX_goal_ENG_ignite_unrest_in_central_america
+    icon = GFX_goal_USA_crush_polyensian_seperatists
+    
     x = 0
     y = 1
     cost = 10
@@ -3936,7 +3949,7 @@ shared_focus = {
         factor = 1
     }
     available = {
-        
+        USA = { has_country_flag = ENG_Accepts_USA_Conference }
     }
     mutually_exclusive = {
         focus = ENG_safeguard_the_american_border
@@ -3946,12 +3959,20 @@ shared_focus = {
         focus = ENG_our_darkest_hour_approaches
     }
     completion_reward = {
-        
+        create_production_license = {
+            target = USA
+            equipment = {
+                type = infantry_equipment_2
+                version = 1
+                new_prioritised = yes
+            }
+            cost_factor = 0
+        }
     }
 }
 shared_focus = {
     id = ENG_develop_belize
-    icon = GFX_goal_ENG_develop_belize
+    icon = GFX_focus_POL_develop_polish_shipbuilding
     x = -1
     y = 1
     cost = 10
@@ -4011,7 +4032,7 @@ shared_focus = {
 
 shared_focus = {
     id = ENG_develop_trade_links_with_ufc
-    icon = GFX_goal_ENG_develop_trade_links_with_ufc
+    icon = GFX_goal_USA_fund_united_fruits_interests
     x = 0
     y = 1
     cost = 10
@@ -4028,13 +4049,28 @@ shared_focus = {
         focus = ENG_develop_belize
     }
     completion_reward = {
-        
+        add_ideas = ENG_banana_profits
+        CEN = {
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = infrastructure
+                    level = 2
+                    instant_build = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 1
+            add_opinion_modifier = {
+                target = ENG
+                modifier = ENG_imperial_trade
+            }
+        }
+
     }
 }
 
 shared_focus = {
     id = ENG_blockade_the_prussians
-    icon = GFX_goal_ENG_blockade_the_prussians
+    icon = GFX_goal_AUS_strengthen_naval_research
     x = 0
     y = 1
     cost = 5
@@ -4044,6 +4080,11 @@ shared_focus = {
     }
     prerequisite = {
         focus = ENG_our_darkest_hour_approaches
+    }
+    available = {
+        GER = {
+            has_added_tension_amount = 15
+        }
     }
   
     relative_position_id = ENG_our_darkest_hour_approaches
@@ -4064,7 +4105,18 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        has_war_support > 0.44
+        132 = {
+            arms_factory > 3
+        }
+        130 = {
+            arms_factory > 3
+        }
+        128 = {
+            arms_factory > 3
+        }
+    }
     prerequisite = {
         focus = ENG_blockade_the_prussians
     }
@@ -4091,7 +4143,7 @@ shared_focus = {
 
 shared_focus = {
     id = ENG_reward_admirals_and_air_marshals
-    icon = GFX_goal_ENG_reward_admirals_and_air_marshals
+    icon = GFX_GenericMilitaryMan
     x = 0
     y = 1
     cost = 9
@@ -4126,6 +4178,9 @@ shared_focus = {
     prerequisite = {
         focus = ENG_blockade_the_prussians
     }
+    available = {
+        has_war_with = GER
+    }
   
     relative_position_id = ENG_blockade_the_prussians
     
@@ -4151,7 +4206,9 @@ shared_focus = {
     prerequisite = {
         focus = ENG_return_christian_to_his_throne
     }
-  
+    available = {
+        has_war_with = SWE
+    }
     relative_position_id = ENG_return_christian_to_his_throne
     
     completion_reward = {
@@ -4173,7 +4230,20 @@ shared_focus = {
     prerequisite = {
         focus = ENG_rise_swedish_students
     }
-  
+    available = {
+        SWE = {
+            is_in_faction_with = ENG
+        }
+        ICE = {
+            is_in_faction_with = ENG
+        }
+        NOR = {
+            is_in_faction_with = ENG
+        }
+        NOT = {
+            has_war_with = GER
+        }
+    }
     relative_position_id = ENG_rise_swedish_students
     
     completion_reward = {
@@ -4190,7 +4260,43 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-    
+    available = {
+        HAN = {
+            exists = no
+        }
+        56 = {
+            owner = {
+                NOT = {
+                    is_in_faction_with = GER
+                    has_war_with = ENG
+                }
+            }
+        }
+        59 = {
+            owner = {
+                NOT = {
+                    is_in_faction_with = GER
+                    has_war_with = ENG
+                }
+            }
+        }
+        817 = {
+            owner = {
+                NOT = {
+                    is_in_faction_with = GER
+                    has_war_with = ENG
+                }
+            }
+        }
+        955 = {
+            owner = {
+                NOT = {
+                    is_in_faction_with = GER
+                    has_war_with = ENG
+                }
+            }
+        }
+    }
     prerequisite = {
         focus = ENG_rise_swedish_students
         focus = ENG_reward_admirals_and_air_marshals
@@ -4198,7 +4304,95 @@ shared_focus = {
     relative_position_id = ENG_reward_admirals_and_air_marshals
     
     completion_reward = {
-        
+        add_to_faction = HAN
+        if = {
+            limit = {
+                56 = {
+                    owner = {
+                        OR = {
+                            is_puppet_of = ENG
+                            tag = ENG
+                        }
+                    }
+                }
+            }
+            HAN = {
+                transfer_state = 56
+            }
+        }
+        else = {
+            56 = {
+                owner = {
+                    country_event = ENG_foriegn_intervention_tree.4
+                }
+            }
+        }
+        if = {
+            limit = {
+                59 = {
+                    owner = {
+                        OR = {
+                            is_puppet_of = ENG
+                            tag = ENG
+                        }
+                    }
+                }
+            }
+            HAN = {
+                transfer_state = 59
+            }
+        }
+        else = {
+            59 = {
+                owner = {
+                    country_event = ENG_foriegn_intervention_tree.5
+                }
+            }
+        }
+        if = {
+            limit = {
+                817 = {
+                    owner = {
+                        OR = {
+                            is_puppet_of = ENG
+                            tag = ENG
+                        }
+                    }
+                }
+            }
+            HAN = {
+                transfer_state = 817
+            }
+        }
+        else = {
+            817 = {
+                owner = {
+                    country_event = ENG_foriegn_intervention_tree.6
+                }
+            }
+        }
+        if = {
+            limit = {
+                955 = {
+                    owner = {
+                        OR = {
+                            is_puppet_of = ENG
+                            tag = ENG
+                        }
+                    }
+                }
+            }
+            HAN = {
+                transfer_state = 955
+            }
+        }
+        else = {
+            955 = {
+                owner = {
+                    country_event = ENG_foriegn_intervention_tree.7
+                }
+            }
+        }
     }
 }
 shared_focus = {
@@ -4216,8 +4410,16 @@ shared_focus = {
         focus = ENG_restore_hannover
     }
     relative_position_id = ENG_restore_hannover
-    
+    available = {
+        NOT = {
+            has_war_with = GER
+        }
+    }
     completion_reward = {
-        
+        annex_country = {
+            target = HAN
+            transfer_troops = yes
+        }
+        set_cosmetic_tag = united_kingdom_of_britain_and_germany
     }
 }
