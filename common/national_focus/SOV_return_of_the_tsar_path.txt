@@ -2547,23 +2547,14 @@ shared_focus = {
         factor = 1000
     }
     bypass = {
-		OR = {
-			PER = {
-				exists = no
-			}
-			PER = {
-				is_in_faction = yes
-			}
-			PER = {
-				has_war_with = SOV
-			}
-		}
+		
 	}
     completion_reward = {
-        PER = {
-            country_event = generic.20
+       
+        add_to_variable = {
+            tooltip = increase_persian_influence_by_5
+            persian_influence = 5
         }
-        
     }
 }
 shared_focus = {
@@ -2583,6 +2574,22 @@ shared_focus = {
             is_in_faction_with = SOV
         }
     }
+    bypass = {
+		OR = {
+			PER = {
+				exists = no
+			}
+			PER = {
+				is_in_faction = yes
+                NOT = {
+                    is_in_faction_with = SOV
+                }
+			}
+			PER = {
+				has_war_with = SOV
+			}
+		}
+	}
     completion_reward = {
         
             412 = {
@@ -2614,21 +2621,12 @@ shared_focus = {
         factor = 1000
     }
     bypass = {
-		OR = {
-			AFG = {
-				exists = no
-			}
-			AFG = {
-				is_in_faction = yes
-			}
-			AFG = {
-				has_war_with = SOV
-			}
-		}
+		
 	}
     completion_reward = {
-        AFG = {
-            country_event = generic.20
+        add_to_variable = {
+            tooltip = increase_afghani_influence_by_5
+            afghani_influence = 5
         }
         
     }
@@ -3237,9 +3235,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_glory_of_konstantiniyye
     icon = GFX_goal_SOV_demand_constantinople
-	prerequisite = {focus = SOV_fortify_the_front }
+	prerequisite = {focus = SOV_fortify_the_front focus = SOV_persian_oils }
     prerequisite = {
-        focus = SOV_persian_oils
+        
     }
 	x = -1
 	y = 1 
