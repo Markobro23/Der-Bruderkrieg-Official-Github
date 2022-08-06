@@ -814,9 +814,14 @@ ENG_crushing_bose_rebels = {
 		}
 
 		available = {
-			divisions_in_state = {
-				size > 3
-				state = FROM
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					size > 3
+					state = FROM
+				}
 			}
 		}
 		complete_effect = {
