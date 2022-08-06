@@ -1107,6 +1107,12 @@ shared_focus = {
 		prerequisite = {
 			focus = ITA_deprive_teruzzi_of_command
 		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_55_factionalism
+				check_variable = { ITA_NFP_party_stability < 56 }
+			}
+		}
 		ai_will_do = {
 			factor = 10
 		}
@@ -2715,6 +2721,10 @@ shared_focus = {
 					has_completed_focus = ITA_appeal_to_esoterics
 				}
 			}
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_55_factionalism
+				check_variable = { ITA_NFP_party_stability < 56 }
+			}
 		}
 
 		bypass = {
@@ -3151,6 +3161,10 @@ shared_focus = {
 				is_in_faction = no
 				has_government = fascism
 			}
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_55_factionalism
+				check_variable = { ITA_NFP_party_stability < 56 }
+			}
 		}
 
 		completion_reward = {
@@ -3569,6 +3583,10 @@ shared_focus = {
 
 		available = {
 			is_subject = no
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_55_factionalism
+				check_variable = { ITA_NFP_party_stability < 56 }
+			}
 		}
 
 		completion_reward = {
@@ -6676,6 +6694,10 @@ shared_focus = {
 				has_subject = CRO
 				has_subject = OCC
 			}
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_20_factionalism
+				check_variable = { ITA_NFP_party_stability < 21 }
+			}
 		}
 
 		mutually_exclusive = {
@@ -6938,6 +6960,15 @@ shared_focus = {
 		}
 		completion_reward = {
 			ITA_worsen_southern_problem = yes
+			if = {
+				limit = { is_in_faction_with = GER }
+				GER = {
+					add_opinion_modifier = {
+						target = ITA
+						type = large_increase
+					}
+				}
+			}
 			set_cosmetic_tag = holy_aryan_empire
 		}
 	}
@@ -6976,6 +7007,12 @@ shared_focus = {
 			focus = ITA_north_italian_aryanism
 		}
 		relative_position_id = ITA_north_italian_aryanism
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = ITA_at_most_20_factionalism
+				check_variable = { ITA_NFP_party_stability < 21 }
+			}
+		}
 
 		ai_will_do = {
 			factor = 10
