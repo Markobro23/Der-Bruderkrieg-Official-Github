@@ -12011,3 +12011,160 @@ weltkrieg_decisions = {
 		}
 	}
 }
+
+the_great_game = {
+
+	## Persian Crash
+	SOV_invest_in_persian_infrastructure = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			tag = SOV
+			has_global_flag = PER_recession_recovery_started
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 0
+		modifier = {
+			production_speed_infrastructure_factor = -0.05
+			civilian_factory_use = 3
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+			PER = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	SOV_persian_foriegn_aid = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			tag = SOV
+			has_global_flag = PER_recession_recovery_started
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 0
+		modifier = {
+			production_speed_buildings_factor = -0.05
+			civilian_factory_use = 3
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+			PER = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	## Generic Great Game
+	SOV_boost_persian_influence = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			tag = SOV
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 30
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+		}
+	}
+	SOV_boost_afghani_influence = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			tag = SOV
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 30
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_afghani_influence_by_5
+				afghani_influence = 5
+			}
+		}
+	}
+}

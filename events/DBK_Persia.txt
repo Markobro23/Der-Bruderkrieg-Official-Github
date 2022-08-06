@@ -1,5 +1,63 @@
-add_namespace = PER_russian_relations
+add_namespace = PER_anglo_recession
 
+country_event = { #allowing decisions
+	id = PER_anglo_recession.1
+	title = PER_anglo_recession.1.t
+	desc = PER_anglo_recession.1.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = PER_anglo_recession.1.a
+		set_global_flag = PER_recession_recovery_started
+		ENG = {
+			country_event = PER_anglo_recession.3
+		}
+		SOV = {
+			country_event = PER_anglo_recession.3
+		}
+	}
+}
+
+country_event = { #allowing decisions
+	id = PER_anglo_recession.2
+	title = PER_anglo_recession.2.t
+	desc = PER_anglo_recession.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = PER_anglo_recession.2.a
+		remove_ideas = PER_the_anglo_recession
+		clr_global_flag = PER_recession_recovery_started
+
+		ENG = {
+			country_event = {
+				id = SOV_brit_conflict.2
+				days = 2
+			}
+		}
+		SOV = {
+			country_event = {
+				id = SOV_brit_conflict.2
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = { #allowing decisions
+	id = PER_anglo_recession.3
+	title = PER_anglo_recession.3.t
+	desc = PER_anglo_recession.3.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = PER_anglo_recession.3.a
+		
+	}
+}
+
+
+add_namespace = PER_russian_relations
 ##Persia
 news_event = {
 	id = PER_russian_relations.1

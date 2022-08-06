@@ -5359,6 +5359,37 @@ news_event = { #british seizure of palestine
 	}
 }
 
+country_event = { #great game
+	id = SOV_brit_conflict.2
+	title = SOV_brit_conflict.2.t
+	desc = SOV_brit_conflict.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = SOV_brit_conflict.2.a
+		set_global_flag = great_game_has_begun
+		add_threat = 1
+		if = {
+			limit = {
+				tag = ENG
+			}
+			add_opinion_modifier = {
+				target = SOV
+				modifier = mortal_enemies
+			}
+		}
+		if = {
+			limit = {
+				tag = SOV
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = mortal_enemies
+			}
+		}
+	}
+}
+
 #peacing out with being invaded stuff
 add_namespace = SOV_brest_livosk2
 

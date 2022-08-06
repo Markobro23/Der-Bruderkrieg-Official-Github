@@ -1,0 +1,36 @@
+the_great_game = {
+	PER_recession_recovery_timeout = {
+
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+		  hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 250
+	
+		fire_only_once = yes 
+	
+		activation = {
+		  OR = { tag = ENG tag = SOV tag = PER }
+		  has_global_flag = PER_recession_recovery_started
+		}
+	
+		visible = {
+		  OR = { tag = ENG tag = SOV tag = PER }
+		  has_global_flag = PER_recession_recovery_started
+		} 
+	
+		#cancel_if_not_visible = yes
+	
+		is_good = yes
+	
+		timeout_effect = {
+			PER = {
+				country_event = PER_anglo_recession.2
+			}
+		}
+	}
+}

@@ -86,12 +86,24 @@ ENG_referendum_on_the_monarchy = {
 	visible_when_empty = yes
 }
 
-USA_american_british_cold_war = {
+the_great_game = {
 	allowed = {
 		OR = {
-			tag = USA
 			tag = ENG
+			tag = SOV
+			tag = AFG
+			tag = PER
 		}
 	}
-	visi
+	visible = {
+		PER = {
+			is_in_faction = no
+		}
+		AFG = {
+			is_in_faction = no
+		}
+	}
+
+	visible_when_empty = yes
+	priority = 999
 }
