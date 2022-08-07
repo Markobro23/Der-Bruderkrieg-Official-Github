@@ -1433,10 +1433,7 @@ country_event = {
 	
 	option = {
 		name = USA_long_events.7.a
-        swap_ideas = {
-			add_idea = USA_south_in_shambles
-			remove_idea = USA_high_racial_tensions
-		}
+        remove_ideas = USA_south_in_shambles
 		370 = { set_demilitarized_zone = no }
 		367 = { set_demilitarized_zone = no }
 		372 = { set_demilitarized_zone = no }
@@ -1444,6 +1441,8 @@ country_event = {
 		366 = { set_demilitarized_zone = no }
 		364 = { set_demilitarized_zone = no }
 		375 = { set_demilitarized_zone = no }
+		371 = { set_demilitarized_zone = no }
+		1043 = { set_demilitarized_zone = no }
 	}
 }
 
@@ -1763,9 +1762,11 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		country_event = {
-			id = USA_economic_reform_plan.5
-			days = 50
+		hidden_effect = {
+			country_event = {
+				id = USA_economic_reform_plan.5
+				days = 50
+			}
 		}
 	}
 	
@@ -2416,12 +2417,14 @@ country_event = {
 			remove_idea = USA_radical_reform_plan
 		}
 		370 = { set_demilitarized_zone = yes }
+		371 = { set_demilitarized_zone = yes }
 		367 = { set_demilitarized_zone = yes }
 		372 = { set_demilitarized_zone = yes }
 		365 = { set_demilitarized_zone = yes }
 		366 = { set_demilitarized_zone = yes }
 		364 = { set_demilitarized_zone = yes }
 		375 = { set_demilitarized_zone = yes }
+		1043 = { set_demilitarized_zone = yes }
 	}
 }
 
