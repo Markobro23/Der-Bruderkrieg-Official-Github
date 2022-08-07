@@ -1,0 +1,3502 @@
+### IF PP < -200: GO DOWN THE KEMETIC COLLAPSE PATH AT FOCUS [the_unthinkable_revolution] ###
+
+
+focus_tree = {
+	id = egy_kemetic
+	country = {
+		factor = 0
+		modifier = {
+			add = 20
+			tag = EGY
+			has_government = fascism
+		}
+	}
+	default = no
+	continuous_focus_position = { x = 200 y = 2500 }
+	initial_show_position = { x = 13 y = 0 }
+	
+	focus = {
+		id = horus_lives
+		icon = GFX_goal_unknown
+		cost = 10.00
+		allow_branch = {
+            has_completed_focus = the_blind_pharaohs_coronation
+		}
+		x = 13
+		y = 0
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes    
+						}
+				
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+	}
+	focus = {
+		id = ra_dawns
+		icon = GFX_goal_unknown
+		#allow_branch = {
+		#NOT = {
+        #    has_completed_focus = the_blind_pharaohs_coronation
+		#	}
+		#}
+		cost = 10.00
+		x = 7
+		y = 1
+
+	}
+	focus = {
+		id = khnums_people
+		icon = GFX_goal_unknown
+		cost = 10.00
+		allow_branch = {
+           has_completed_focus = the_blind_pharaohs_coronation
+		}
+		
+		x = 19
+		y = 1
+
+	}
+	
+			
+	focus = {
+		id = the_unthinkable_revolution
+		icon = GFX_goal_unknown
+		
+		### ACTIVATE THROUGH AN EVENT AT -200 PP ###
+		allow_branch = {
+           has_completed_focus = the_blind_pharaohs_coronation
+		   # has_political_power < -200
+		   # EVENT MAKES VISIBLE
+		}
+		cost = 10.00
+		x = 25
+		y = 0
+
+	}
+	focus = {
+		id = sinister_raids
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+		focus = navies_of_sobek
+		}
+		x = 2
+		y = 11
+
+	}
+	focus = {
+		id = furry_economics
+		icon = GFX_goal_unknown
+		allow_branch = {
+           has_completed_focus = elephants_in_a_souq
+		}
+		cost = 10.00
+		x = 34
+		y = 0
+
+	}
+	
+	### SHOULD BE CLOSED BY EVENT PREREQ ###
+	focus = {
+		id = horus_hunts
+		icon = GFX_goal_unknown
+		allow_branch = {
+            OR = {
+			has_completed_focus = assert_darfur_freedom
+			has_completed_focus = sattelite_darfur
+			has_completed_focus = annex_darfur
+			}
+		}
+		cost = 10.00
+		x = 41
+		y = 3
+
+	}
+	focus = {
+		id = the_kemetic_international
+		icon = GFX_goal_unknown
+		cost = 10.00
+		allow_branch = {
+           has_completed_focus = temples_of_netjeru
+		}
+		x = 62
+		y = 1
+
+	}
+	
+	### SHOULD BE CLOSED BY EVENT PREREQ: IS ETHIOPIA POSITIVE TO EGYPT? ###
+	focus = {
+		id = ethiopianism
+		icon = GFX_goal_unknown
+		allow_branch = {
+           has_completed_focus = the_blind_pharaohs_coronation
+		}
+		cost = 10.00
+		mutually_exclusive = {
+			focus = dissapearing_leaders
+			focus = instituted_primacy
+		}
+		x = 65
+		y = 14
+
+	} 
+	focus = {
+		id = a_nation_of_furries
+		icon = GFX_goal_unknown
+		cost = 10.00
+		
+		### ACTIVATE THROUGH AN EVENT AT 70 STAB PLZ? ###
+		#allow_branch = {
+		#AND = {
+           #has_completed_focus = the_blind_pharaohs_coronation
+		   #has_stability > 0.69
+		   #}
+		#}
+		x = 53
+		y = 0
+
+	}
+	focus = {
+		id = nimble_navies
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = sinister_raids
+		}
+		x = 2
+		y = 12
+
+	}
+	focus = {
+		id = institutionalized_raiding
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nimble_navies
+		}
+		x = 2
+		y = 13
+
+	}
+	focus = {
+		id = organize_the_cells
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ra_dawns
+		}
+		x = 7
+		y = 2
+
+	}
+	focus = {
+		id = crush_the_partisans
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = organize_the_cells
+		}
+		x = 7
+		y = 3
+
+	}
+	focus = {
+		id = hashish_and_opium
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = crush_the_partisans
+		}
+		x = 7
+		y = 4
+
+	}
+	focus = {
+		id = onwards_to_cairo
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = hashish_and_opium
+		}
+		x = 7
+		y = 5
+
+	}
+	focus = {
+		id = the_blind_pharaohs_coronation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = onwards_to_cairo
+		}
+
+		
+		x = 7
+		y = 6
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic   # Reloads the same focus tree, marking it as completed.
+					keep_completed = yes    # Instead of doing load_focus_tree, the mark_focus_tree_layout_dirty can be moved to be within immediate effects of a hidden event that's fired by this focus with no delay.
+						}
+				
+					mark_focus_tree_layout_dirty = yes  # Updates the offset and allow_branch
+				}
+			}
+	}
+	focus = {
+		id = a_new_egypt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = horus_lives
+		}
+		x = 13
+		y = 2
+
+	}
+	focus = {
+		id = elephants_in_a_souq
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_new_egypt
+		}
+		x = 13
+		y = 3
+
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes    
+						}
+				
+					mark_focus_tree_layout_dirty = yes  
+				}
+			}
+	}
+	focus = {
+		id = dechristification
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = elephants_in_a_souq
+		}
+		mutually_exclusive = {
+			focus = play_your_cards_smart
+			focus = deislamification
+		}
+		x = 10
+		y = 5
+
+	}
+	focus = {
+		id = play_your_cards_smart
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = elephants_in_a_souq
+		}
+		mutually_exclusive = {
+			focus = deislamification
+			focus = dechristification
+		}
+		x = 13
+		y = 5
+
+	}
+	focus = {
+		id = divide_et_impera
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = play_your_cards_smart
+		}
+		x = 13
+		y = 6
+
+	}
+	focus = {
+		id = ruthless_unification
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = dechristification
+		}
+		x = 10
+		y = 6
+
+	}
+	focus = {
+		id = deislamification
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = elephants_in_a_souq
+		}
+		mutually_exclusive = {
+			focus = play_your_cards_smart
+			focus = dechristification
+		}
+		x = 16
+		y = 5
+
+	}
+	focus = {
+		id = coptic_renewal
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deislamification
+		}
+		x = 16
+		y = 6
+
+	}
+	focus = {
+		id = the_hawks_amass
+		icon = GFX_goal_unknown
+		allow_branch = {
+            has_completed_focus = strategic_renewal
+		}
+		cost = 10.00
+		prerequisite = {
+			focus = ruthless_unification
+			focus = divide_et_impera
+			focus = coptic_renewal
+		}
+		x = 13
+		y = 8
+		
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes
+						}
+				
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+	}
+	focus = {
+		id = navies_of_sobek
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_hawks_amass
+		}
+		x = 5
+		y = 10
+
+	}
+	focus = {
+		id = the_grand_warf
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = navies_of_sobek
+		}
+		x = 4
+		y = 11
+
+	}
+	focus = {
+		id = reaquire_the_suez
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = navies_of_sobek
+		}
+		x = 6
+		y = 11
+
+	}
+	focus = {
+		id = armies_of_anhur
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_hawks_amass
+		}
+		x = 13
+		y = 10
+
+	}
+	focus = {
+		id = law_and_maat
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = armies_of_anhur
+		}
+		x = 17
+		y = 11
+
+	}
+	focus = {
+		id = a_new_way_of_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = armies_of_anhur
+		}
+		x = 12
+		y = 11
+
+	}
+	focus = {
+		id = maahes_and_anhur
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = armies_of_anhur
+		}
+		x = 14
+		y = 11
+
+	}
+	focus = {
+		id = controlled_isfet
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = law_and_maat
+		}
+		x = 16
+		y = 12
+
+	}
+	focus = {
+		id = machavellian_fear
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = controlled_isfet
+		}
+		x = 16
+		y = 14
+
+	}
+	focus = {
+		id = the_medjed
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = law_and_maat
+		}
+		x = 18
+		y = 12
+
+	}
+	focus = {
+		id = fairness_favoures_mafdet
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_medjed
+		}
+		x = 18
+		y = 14
+
+	}
+	focus = {
+		id = civilianization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = machavellian_fear
+		}
+		prerequisite = {
+			focus = fairness_favoures_mafdet
+		}
+		x = 17
+		y = 15
+
+	}
+	focus = {
+		id = stabilize_at_all_costs
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = khnums_people
+		}
+		x = 19
+		y = 2
+
+	}
+	focus = {
+		id = a_kemetic_army
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = stabilize_at_all_costs
+		}
+		x = 19
+		y = 3
+
+	}
+	focus = {
+		id = a_new_administration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_kemetic_army
+		}
+		x = 19
+		y = 4
+
+	}
+	focus = {
+		id = kemetic_conference
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_new_administration
+		}
+		x = 19
+		y = 5
+
+	}
+	focus = {
+		id = strategic_renewal
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = kemetic_conference
+		}
+		x = 19
+		y = 6
+		
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic   # Reloads the same focus tree, marking it as completed.
+					keep_completed = yes    # Instead of doing load_focus_tree, the mark_focus_tree_layout_dirty can be moved to be within immediate effects of a hidden event that's fired by this focus with no delay.
+						}
+				
+					mark_focus_tree_layout_dirty = yes  # Updates the offset and allow_branch
+				}
+			}
+	}
+	focus = {
+		id = airwings_of_shu
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_hawks_amass
+		}
+		x = 21
+		y = 10
+
+	}
+	focus = {
+		id = centralize_the_airports
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = airwings_of_shu
+		}
+		mutually_exclusive = {
+			focus = private_but_ready
+		}
+		x = 21
+		y = 11
+
+	}
+	focus = {
+		id = in_the_shadow_of_horus
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_unthinkable_revolution
+		}
+		x = 25
+		y = 1
+
+	}
+	focus = {
+		id = a_muslim_broken
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = in_the_shadow_of_horus
+		}
+		mutually_exclusive = {
+			focus = a_christian_fallen
+		}
+		x = 23
+		y = 2
+
+	}
+	focus = {
+		id = lamb_and_eagle
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_muslim_broken
+		}
+		x = 23
+		y = 3
+
+	}
+	focus = {
+		id = contact_those_who_fled
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = lamb_and_eagle
+		}
+		mutually_exclusive = {
+			focus = contact_russian_dignitaries
+		}
+		x = 23
+		y = 4
+
+	}
+	focus = {
+		id = a_christian_fallen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = in_the_shadow_of_horus
+		}
+		mutually_exclusive = {
+			focus = a_muslim_broken
+		}
+		x = 27
+		y = 2
+
+	}
+	focus = {
+		id = only_one
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_christian_fallen
+		}
+		mutually_exclusive = {
+			focus = lamb_and_eagle
+		}
+		x = 27
+		y = 3
+
+	}
+	focus = {
+		id = contact_russian_dignitaries
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = only_one
+		}
+		mutually_exclusive = {
+			focus = contact_those_who_fled
+		}
+		x = 27
+		y = 4
+
+	}
+	focus = {
+		id = antiestablishmentarianism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = contact_those_who_fled
+			focus = contact_russian_dignitaries
+		}
+		x = 25
+		y = 5
+
+	}
+	focus = {
+		id = forever-war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = antiestablishmentarianism
+		}
+		mutually_exclusive = {
+			focus = may_horus_die
+		}
+		x = 23
+		y = 7
+
+	}
+	focus = {
+		id = stabilize_the_currency
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = furry_economics
+		}
+		x = 34
+		y = 1
+
+	}
+	focus = {
+		id = default_on_debt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = stabilize_the_currency
+		}
+		mutually_exclusive = {
+			focus = set_a_new_currency
+		}
+		x = 33
+		y = 2
+
+	}
+	focus = {
+		id = placate_the_europeans
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = default_on_debt
+		}
+		mutually_exclusive = {
+			focus = bite_the_sour_pill
+		}
+		x = 32
+		y = 3
+
+	}
+	focus = {
+		id = scheme_on_the_schemer
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = placate_the_europeans
+		}
+		x = 30
+		y = 5
+
+	}
+	focus = {
+		id = set_a_new_currency
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = stabilize_the_currency
+		}
+		mutually_exclusive = {
+			focus = default_on_debt
+		}
+		x = 35
+		y = 2
+
+	}
+	focus = {
+		id = bite_the_sour_pill
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = default_on_debt
+			focus = set_a_new_currency
+		}
+		mutually_exclusive = {
+			focus = placate_the_europeans
+		}
+		x = 34
+		y = 3
+
+	}
+	focus = {
+		id = the_ottoman_problem
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = default_on_debt
+			focus = set_a_new_currency
+		}
+		x = 36
+		y = 3
+
+	}
+	focus = {
+		id = resource_autarky
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = bite_the_sour_pill
+		}
+		prerequisite = {
+			focus = the_ottoman_problem
+		}
+		x = 35
+		y = 4
+
+	}
+	focus = {
+		id = the_sphere_of_egypt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = resource_autarky
+		}
+		x = 35
+		y = 5
+
+	}
+	focus = {
+		id = nubia_or_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_sphere_of_egypt
+		}
+		mutually_exclusive = {
+			focus = assert_nubian_control
+		}
+		x = 34
+		y = 6
+
+	}
+	focus = {
+		id = assert_nubian_control
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_sphere_of_egypt
+		}
+		mutually_exclusive = {
+			focus = nubia_or_war
+		}
+		x = 36
+		y = 6
+
+	}
+	focus = {
+		id = reframe_the_struggle
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = assert_nubian_control
+			focus = nubia_or_war
+		}
+		mutually_exclusive = {
+			focus = crush_the_mahdists
+		}
+		x = 36
+		y = 7
+
+	}
+	focus = {
+		id = crush_the_mahdists
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = assert_nubian_control
+			focus = nubia_or_war
+		}
+		mutually_exclusive = {
+			focus = reframe_the_struggle
+		}
+		x = 34
+		y = 7
+
+	}
+	focus = {
+		id = proof_of_horus
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = crush_the_mahdists
+			focus = reframe_the_struggle
+		}
+		mutually_exclusive = {
+			focus = a_slow_struggle
+		}
+		x = 36
+		y = 8
+
+	}
+	focus = {
+		id = a_slow_struggle
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = crush_the_mahdists
+			focus = reframe_the_struggle
+		}
+		mutually_exclusive = {
+			focus = proof_of_horus
+		}
+		x = 33
+		y = 8
+
+	}
+	focus = {
+		id = the_darfur_question
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_slow_struggle
+			focus = proof_of_horus
+		}
+		x = 35
+		y = 9
+
+	}
+	focus = {
+		id = annex_darfur
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_darfur_question
+		}
+		mutually_exclusive = {
+			focus = assert_darfur_freedom
+			focus = sattelite_darfur
+		}
+		x = 37
+		y = 12
+
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes    
+						}
+				
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+	}
+	focus = {
+		id = sovreign_autarky
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = resource_autarky
+		}
+		prerequisite = {
+			focus = horus_hunts
+		}
+		x = 41
+		y = 5
+
+	}
+	focus = {
+		id = the_suez_crisis
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = sovreign_autarky
+		}
+		x = 41
+		y = 6
+
+	}
+	focus = {
+		id = push_pressure_points
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_suez_crisis
+		}
+		x = 39
+		y = 7
+
+	}
+	focus = {
+		id = suez_or_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = push_pressure_points
+		}
+		mutually_exclusive = {
+			focus = renegotiate_the_suez
+		}
+		x = 38
+		y = 8
+
+	}
+	focus = {
+		id = renegotiate_the_suez
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = push_pressure_points
+		}
+		mutually_exclusive = {
+			focus = suez_or_war
+		}
+		x = 40
+		y = 8
+
+	}
+	focus = {
+		id = normalize_and_mitigate
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_suez_crisis
+		}
+		x = 43
+		y = 7
+
+	}
+	focus = {
+		id = dream_of_a_greater_egypt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = push_pressure_points
+		}
+		prerequisite = {
+			focus = normalize_and_mitigate
+		}
+		x = 45
+		y = 8
+
+	}
+	focus = {
+		id = nothern_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = dream_of_a_greater_egypt
+		}
+		x = 45
+		y = 9
+
+	}
+	focus = {
+		id = poison_the_sultan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nothern_plan
+		}
+		x = 43
+		y = 10
+
+	}
+	focus = {
+		id = covert_contacts
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = poison_the_sultan
+		}
+		mutually_exclusive = {
+			focus = art_of_war
+		}
+		x = 42
+		y = 11
+
+	}
+	focus = {
+		id = art_of_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = poison_the_sultan
+		}
+		mutually_exclusive = {
+			focus = covert_contacts
+		}
+		x = 44
+		y = 11
+
+	}
+	focus = {
+		id = into_palestine
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nothern_plan
+		}
+		x = 47
+		y = 11
+
+	}
+	focus = {
+		id = role_of_jordania
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_palestine
+		}
+		x = 46
+		y = 12
+
+	}
+	focus = {
+		id = integrate_jordania
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = role_of_jordania
+		}
+		x = 46
+		y = 17
+
+	}
+	focus = {
+		id = restore_the_temples
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_nation_of_furries
+		}
+		x = 52
+		y = 1
+
+	}
+	focus = {
+		id = envigorating_conversion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = restore_the_temples
+		}
+		x = 52
+		y = 2
+
+	}
+	focus = {
+		id = infiltrate_the_young
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_nation_of_furries
+		}
+		x = 54
+		y = 1
+
+	}
+	focus = {
+		id = theological_education
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = infiltrate_the_young
+		}
+		x = 54
+		y = 2
+
+	}
+	focus = {
+		id = deabrahamification
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = envigorating_conversion
+			focus = theological_education
+		}
+		x = 53
+		y = 3
+
+	}
+	focus = {
+		id = post-islam_culture
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deabrahamification
+		}
+		mutually_exclusive = {
+			focus = the_revenge_of_egypt
+		}
+		x = 48
+		y = 5
+
+	}
+	focus = {
+		id = protect_druze_populations
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deabrahamification
+		}
+		mutually_exclusive = {
+			focus = discriminate_druze
+		}
+		x = 51
+		y = 4
+
+	}
+	focus = {
+		id = promote_paganism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = protect_druze_populations
+		}
+		x = 49
+		y = 4
+
+	}
+	focus = {
+		id = the_abrahamic_question
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_palestine
+		}
+		x = 54
+		y = 12
+
+	}
+	focus = {
+		id = jewish_favouritism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_abrahamic_question
+		}
+		mutually_exclusive = {
+			focus = grant_coptic_primacy
+			focus = muslim_favouritism
+		}
+		x = 51
+		y = 13
+
+	}
+	focus = {
+		id = grant_coptic_primacy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_abrahamic_question
+		}
+		mutually_exclusive = {
+			focus = jewish_favouritism
+			focus = muslim_favouritism
+		}
+		x = 53
+		y = 13
+
+	}
+	focus = {
+		id = muslim_favouritism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_abrahamic_question
+		}
+		mutually_exclusive = {
+			focus = jewish_favouritism
+			focus = grant_coptic_primacy
+		}
+		x = 55
+		y = 13
+
+	}
+	focus = {
+		id = kemetic_temples
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_abrahamic_question
+		}
+		x = 57
+		y = 13
+
+	}
+	focus = {
+		id = rebuild_damaged_temples
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = jewish_favouritism
+			focus = grant_coptic_primacy
+			focus = muslim_favouritism
+			focus = kemetic_temples
+		}
+		x = 54
+		y = 14
+
+	}
+	focus = {
+		id = discriminate_druze
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deabrahamification
+		}
+		mutually_exclusive = {
+			focus = protect_druze_populations
+		}
+		x = 55
+		y = 4
+
+	}
+	focus = {
+		id = temples_of_netjeru
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deabrahamification
+		}
+		x = 53
+		y = 6
+		
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic   # Reloads the same focus tree, marking it as completed.
+					keep_completed = yes    # Instead of doing load_focus_tree, the mark_focus_tree_layout_dirty can be moved to be within immediate effects of a hidden event that's fired by this focus with no delay.
+						}
+				
+					mark_focus_tree_layout_dirty = yes  # Updates the offset and allow_branch
+				}
+			}
+
+	}
+	focus = {
+		id = reformist_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = temples_of_netjeru
+		}
+		mutually_exclusive = {
+			focus = fundamentalist_kemetism
+			focus = esoteric_kemetism
+		}
+		x = 55
+		y = 9
+
+	}
+	focus = {
+		id = kemetist_primacy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = discriminate_druze
+		}
+		x = 57
+		y = 4
+
+	}
+	focus = {
+		id = the_revenge_of_egypt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = deabrahamification
+		}
+		mutually_exclusive = {
+			focus = post-islam_culture
+		}
+		x = 58
+		y = 5
+
+	}
+	focus = {
+		id = swedish_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_kemetic_international
+		}
+		mutually_exclusive = {
+			focus = italian_kemetism
+			focus = british_kemetism
+		}
+		x = 62
+		y = 4
+
+	}
+	focus = {
+		id = norse_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = swedish_kemetism
+		}
+		mutually_exclusive = {
+			focus = russian_kemetism
+		}
+		x = 61
+		y = 5
+
+	}
+	focus = {
+		id = eastern_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nothern_plan
+		}
+		x = 61
+		y = 10
+
+	}
+	focus = {
+		id = into_midian
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = eastern_plan
+		}
+		x = 61
+		y = 11
+
+	}
+	focus = {
+		id = bribe_tribal_leaders
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_midian
+		}
+		mutually_exclusive = {
+			focus = break_the_arabs
+		}
+		x = 60
+		y = 12
+
+	}
+	focus = {
+		id = resist_the_jihad
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = bribe_tribal_leaders
+		}
+		x = 59
+		y = 13
+
+	}
+	focus = {
+		id = break_the_arabs
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_midian
+		}
+		mutually_exclusive = {
+			focus = bribe_tribal_leaders
+		}
+		x = 62
+		y = 12
+
+	}
+	focus = {
+		id = desert_administration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = bribe_tribal_leaders
+			focus = break_the_arabs
+		}
+		x = 61
+		y = 13
+
+	}
+	focus = {
+		id = upgrade_egyptian_logistics
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = break_the_arabs
+		}
+		x = 63
+		y = 13
+
+	}
+	focus = {
+		id = into_medina
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = resist_the_jihad
+			focus = desert_administration
+			focus = upgrade_egyptian_logistics
+		}
+		x = 61
+		y = 14
+
+	}
+	focus = {
+		id = bases_of_hail
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_medina
+		}
+		mutually_exclusive = {
+			focus = assymetric_warfare_tactics
+			focus = kemetic_storm
+		}
+		x = 61
+		y = 15
+
+	}
+	focus = {
+		id = assymetric_warfare_tactics
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_medina
+		}
+		mutually_exclusive = {
+			focus = bases_of_hail
+			focus = kemetic_storm
+		}
+		x = 59
+		y = 15
+
+	}
+	focus = {
+		id = kemetic_storm
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_medina
+		}
+		mutually_exclusive = {
+			focus = assymetric_warfare_tactics
+			focus = bases_of_hail
+		}
+		x = 63
+		y = 15
+
+	}
+	focus = {
+		id = sieze_mekkah
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = assymetric_warfare_tactics
+			focus = bases_of_hail
+			focus = kemetic_storm
+		}
+		x = 61
+		y = 16
+
+	}
+	focus = {
+		id = german_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = swedish_kemetism
+		}
+		x = 62
+		y = 6
+
+	}
+	focus = {
+		id = order_464
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = sieze_mekkah
+		}
+		mutually_exclusive = {
+			focus = respect_arabia
+		}
+		x = 63
+		y = 17
+
+	}
+	focus = {
+		id = fires_that_burn_brigther
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = order_464
+		}
+		x = 62
+		y = 18
+
+	}
+	focus = {
+		id = russian_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = swedish_kemetism
+		}
+		mutually_exclusive = {
+			focus = norse_kemetism
+		}
+		x = 63
+		y = 5
+
+	}
+	focus = {
+		id = italian_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_kemetic_international
+		}
+		mutually_exclusive = {
+			focus = swedish_kemetism
+			focus = british_kemetism
+		}
+		x = 66
+		y = 4
+
+	}
+	focus = {
+		id = austrian_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = italian_kemetism
+		}
+		mutually_exclusive = {
+			focus = iberian_kemetism
+		}
+		x = 65
+		y = 5
+
+	}
+	focus = {
+		id = southern_plans
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nothern_plan
+		}
+		x = 70
+		y = 10
+
+	}
+	focus = {
+		id = eritrean_intervention
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = southern_plans
+		}
+		mutually_exclusive = {
+			focus = eritrea_or_war
+			focus = buy_eritrea
+		}
+		x = 65
+		y = 11
+
+	}
+	focus = {
+		id = the_yemeni_question
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = sieze_mekkah
+		}
+		x = 66
+		y = 17
+
+	}
+	focus = {
+		id = annex_yemen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_yemeni_question
+		}
+		mutually_exclusive = {
+			focus = sattelite_yemen
+		}
+		x = 65
+		y = 18
+
+	}
+	focus = {
+		id = sattelite_yemen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_yemeni_question
+		}
+		mutually_exclusive = {
+			focus = annex_yemen
+		}
+		x = 67
+		y = 18
+
+	}
+	focus = {
+		id = arabian_dominance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = annex_yemen
+			focus = sattelite_yemen
+		}
+		x = 66
+		y = 19
+
+	}
+	focus = {
+		id = iberian_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = italian_kemetism
+		}
+		mutually_exclusive = {
+			focus = austrian_kemetism
+		}
+		x = 67
+		y = 5
+
+	}
+	focus = {
+		id = eritrea_or_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = southern_plans
+		}
+		mutually_exclusive = {
+			focus = eritrean_intervention
+			focus = buy_eritrea
+		}
+		x = 68
+		y = 11
+
+	}
+	focus = {
+		id = stabilize_the_situation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = eritrean_intervention
+			focus = eritrea_or_war
+		}
+		mutually_exclusive = {
+			focus = enforce_kemetism
+		}
+		x = 67
+		y = 12
+
+	}
+	focus = {
+		id = british_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_kemetic_international
+		}
+		mutually_exclusive = {
+			focus = italian_kemetism
+			focus = swedish_kemetism
+		}
+		x = 70
+		y = 4
+
+	}
+	focus = {
+		id = american_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = british_kemetism
+		}
+		mutually_exclusive = {
+			focus = asian_kemetism
+		}
+		x = 69
+		y = 5
+
+	}
+	focus = {
+		id = buy_eritrea
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = southern_plans
+		}
+		mutually_exclusive = {
+			focus = eritrean_intervention
+			focus = eritrea_or_war
+		}
+		x = 70
+		y = 11
+
+	}
+	focus = {
+		id = enforce_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = eritrea_or_war
+			focus = buy_eritrea
+			focus = eritrean_intervention
+		}
+		mutually_exclusive = {
+			focus = stabilize_the_situation
+		}
+		x = 69
+		y = 12
+
+	}
+	focus = {
+		id = break_the_separatists
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = enforce_kemetism
+			focus = stabilize_the_situation
+		}
+		x = 67
+		y = 13
+
+	}
+	focus = {
+		id = school_assimilation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = enforce_kemetism
+			focus = stabilize_the_situation
+		}
+		x = 69
+		y = 13
+
+	}
+	focus = {
+		id = instituted_primacy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = school_assimilation
+		}
+		mutually_exclusive = {
+			focus = ethiopianism
+		}
+		x = 69
+		y = 14
+
+	}
+	focus = {
+		id = a_movement_with_no_leaders
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = instituted_primacy
+		}
+		x = 69
+		y = 15
+
+	}
+	focus = {
+		id = asian_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = british_kemetism
+		}
+		mutually_exclusive = {
+			focus = american_kemetism
+		}
+		x = 71
+		y = 5
+
+	}
+	focus = {
+		id = the_ethiopian_question
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = southern_plans
+		}
+		x = 74
+		y = 11
+
+	}
+	focus = {
+		id = a_kemetic_tigray
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_ethiopian_question
+		}
+		mutually_exclusive = {
+			focus = ally_ethiopia
+			focus = a_kemetic_oromia
+		}
+		x = 72
+		y = 12
+
+	}
+	focus = {
+		id = a_kemetic_oromia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_ethiopian_question
+		}
+		mutually_exclusive = {
+			focus = ally_ethiopia
+		}
+		x = 74
+		y = 12
+
+	}
+	focus = {
+		id = strike_the_amharan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_kemetic_tigray
+			focus = a_kemetic_oromia
+		}
+		mutually_exclusive = {
+			focus = nullify_the_amharan
+		}
+		x = 72
+		y = 13
+
+	}
+	focus = {
+		id = nullify_the_amharan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_kemetic_tigray
+		}
+		prerequisite = {
+			focus = a_kemetic_oromia
+		}
+		mutually_exclusive = {
+			focus = strike_the_amharan
+		}
+		x = 74
+		y = 13
+
+	}
+	focus = {
+		id = unify_the_peoples
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nullify_the_amharan
+		}
+		x = 73
+		y = 14
+
+	}
+	focus = {
+		id = secure_the_blue_nile
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = strike_the_amharan
+			focus = nullify_the_amharan
+		}
+		x = 71
+		y = 14
+
+	}
+	focus = {
+		id = the_conference_of_rome
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = secure_the_blue_nile
+		}
+		prerequisite = {
+			focus = unify_the_peoples
+		}
+		x = 72
+		y = 15
+
+	}
+	focus = {
+		id = ethiopian_administration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_conference_of_rome
+		}
+		x = 72
+		y = 16
+
+	}
+	focus = {
+		id = ally_ethiopia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_ethiopian_question
+		}
+		mutually_exclusive = {
+			focus = a_kemetic_oromia
+			focus = a_kemetic_tigray
+		}
+		x = 76
+		y = 12
+
+	}
+	focus = {
+		id = placate_the_amharan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ally_ethiopia
+		}
+		x = 76
+		y = 13
+
+	}
+	focus = {
+		id = coptic_allegiance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = placate_the_amharan
+		}
+		mutually_exclusive = {
+			focus = peaceful_conversions
+		}
+		x = 75
+		y = 14
+
+	}
+	focus = {
+		id = a_heartfilled_purge
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = maahes_and_anhur
+		}
+		x = 14
+		y = 12
+
+	}
+	focus = {
+		id = kemetic_talent
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_heartfilled_purge
+		}
+		x = 14
+		y = 13
+
+	}
+	focus = {
+		id = loosen_religiousness
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = kemetic_talent
+		}
+		mutually_exclusive = {
+			focus = tighten_religiousness
+		}
+		x = 15
+		y = 16
+
+	}
+	focus = {
+		id = tighten_religiousness
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = kemetic_talent
+		}
+		mutually_exclusive = {
+			focus = loosen_religiousness
+		}
+		x = 13
+		y = 16
+
+	}
+	focus = {
+		id = may_anubis_judge
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = tighten_religiousness
+		}
+		x = 13
+		y = 17
+
+	}
+	focus = {
+		id = know_thine_past
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = loosen_religiousness
+		}
+		x = 15
+		y = 17
+
+	}
+	focus = {
+		id = may_horus_die
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = antiestablishmentarianism
+		}
+		prerequisite = {
+			focus = revenge_of_the_ruralists
+		}
+		mutually_exclusive = {
+			focus = forever-war
+		}
+		x = 29
+		y = 7
+
+	}
+	focus = {
+		id = montus_two_wings
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_new_way_of_war
+		}
+		x = 12
+		y = 12
+
+	}
+	focus = {
+		id = kemetic_westernization
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = montus_two_wings
+		}
+		prerequisite = {
+			focus = examine_the_inventories
+		}
+		x = 10
+		y = 13
+
+	}
+	focus = {
+		id = montus_one_body
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = montus_two_wings
+		}
+		x = 12
+		y = 13
+
+	}
+	focus = {
+		id = an_army_fit_for_egypt
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = kemetic_westernization
+		}
+		prerequisite = {
+			focus = montus_one_body
+		}
+		x = 11
+		y = 14
+
+	}
+	focus = {
+		id = motorized_expansion
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = kemetic_westernization
+		}
+		x = 9
+		y = 15
+
+	}
+	focus = {
+		id = guns_and_tactics
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = an_army_fit_for_egypt
+		}
+		x = 11
+		y = 15
+
+	}
+	focus = {
+		id = equipment_standards
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = guns_and_tactics
+		}
+		x = 11
+		y = 16
+
+	}
+	focus = {
+		id = the_central_logistics_deparment
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = equipment_standards
+		}
+		x = 11
+		y = 17
+
+	}
+	focus = {
+		id = pull_style_logistics
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_central_logistics_deparment
+		}
+		mutually_exclusive = {
+			focus = push_style_logistics
+		}
+		x = 12
+		y = 18
+
+	}
+	focus = {
+		id = push_style_logistics
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_central_logistics_deparment
+		}
+		prerequisite = {
+			focus = motorized_expansion
+		}
+		mutually_exclusive = {
+			focus = pull_style_logistics
+		}
+		x = 10
+		y = 18
+
+	}
+	focus = {
+		id = utilize_the_intelligensias
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = armies_of_anhur
+		}
+		x = 10
+		y = 11
+
+	}
+	focus = {
+		id = examine_the_inventories
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = utilize_the_intelligensias
+		}
+		x = 10
+		y = 12
+
+	}
+	focus = {
+		id = the_art_of_creating_an_army
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = may_anubis_judge
+			focus = know_thine_past
+		}
+		prerequisite = {
+			focus = the_qena_arsenals
+		}
+		prerequisite = {
+			focus = tribunals_heal_war
+		}
+		x = 14
+		y = 21
+
+	}
+	focus = {
+		id = industrial_prospects
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = pull_style_logistics
+		}
+		mutually_exclusive = {
+			focus = expand_the_railways
+		}
+		x = 12
+		y = 19
+
+	}
+	focus = {
+		id = the_qena_arsenals
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = expand_the_railways
+			focus = industrial_prospects
+		}
+		x = 11
+		y = 20
+
+	}
+	focus = {
+		id = expand_the_railways
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = push_style_logistics
+		}
+		mutually_exclusive = {
+			focus = industrial_prospects
+		}
+		x = 10
+		y = 19
+
+	}
+	focus = {
+		id = structures_of_law
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = civilianization
+		}
+		x = 17
+		y = 16
+
+	}
+	focus = {
+		id = torn_asunder
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = structures_of_law
+		}
+		mutually_exclusive = {
+			focus = reinforced_with_words_of_steel
+		}
+		x = 17
+		y = 17
+
+	}
+	focus = {
+		id = adopt_western_structures
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = torn_asunder
+		}
+		mutually_exclusive = {
+			focus = egyptian_law
+		}
+		x = 16
+		y = 18
+
+	}
+	focus = {
+		id = egyptian_law
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = torn_asunder
+		}
+		mutually_exclusive = {
+			focus = adopt_western_structures
+		}
+		x = 18
+		y = 18
+
+	}
+	focus = {
+		id = reinforced_with_words_of_steel
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = structures_of_law
+		}
+		mutually_exclusive = {
+			focus = torn_asunder
+		}
+		x = 21
+		y = 17
+
+	}
+	focus = {
+		id = pharaoh_and_people
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = reinforced_with_words_of_steel
+		}
+		mutually_exclusive = {
+			focus = a_bundle_of_sticks
+		}
+		x = 20
+		y = 18
+
+	}
+	focus = {
+		id = a_bundle_of_sticks
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = reinforced_with_words_of_steel
+		}
+		mutually_exclusive = {
+			focus = pharaoh_and_people
+		}
+		x = 22
+		y = 18
+
+	}
+	focus = {
+		id = separate_the_courts
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_western_structures
+			focus = egyptian_law
+		}
+		x = 16
+		y = 19
+
+	}
+	focus = {
+		id = religion_of_law
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = pharaoh_and_people
+			focus = a_bundle_of_sticks
+		}
+		x = 21
+		y = 19
+
+	}
+	focus = {
+		id = a_closeby_eye
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_western_structures
+			focus = egyptian_law
+		}
+		x = 18
+		y = 19
+
+	}
+	focus = {
+		id = tribunals_heal_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = separate_the_courts
+			focus = a_closeby_eye
+			focus = religion_of_law
+		}
+		x = 17
+		y = 20
+
+	}
+	focus = {
+		id = the_great_restauration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = centralize_the_airports
+			focus = private_but_ready
+		}
+		x = 25
+		y = 12
+
+	}
+	focus = {
+		id = adopt_swedish_standards
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_great_restauration
+		}
+		mutually_exclusive = {
+			focus = adopt_english_standards
+			focus = adopt_german_standards
+		}
+		x = 21
+		y = 13
+
+	}
+	focus = {
+		id = adopt_german_standards
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_great_restauration
+		}
+		mutually_exclusive = {
+			focus = adopt_swedish_standards
+			focus = adopt_english_standards
+		}
+		x = 29
+		y = 13
+
+	}
+	focus = {
+		id = adopt_english_standards
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_great_restauration
+		}
+		mutually_exclusive = {
+			focus = adopt_swedish_standards
+			focus = adopt_german_standards
+		}
+		x = 25
+		y = 13
+
+	}
+	focus = {
+		id = light_and_nimble
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_swedish_standards
+		}
+		x = 20
+		y = 14
+
+	}
+	focus = {
+		id = functional_design
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_swedish_standards
+		}
+		x = 22
+		y = 14
+
+	}
+	focus = {
+		id = piercing_fighters
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = light_and_nimble
+		}
+		prerequisite = {
+			focus = functional_design
+		}
+		x = 20
+		y = 15
+
+	}
+	focus = {
+		id = 1-2_strike_strategy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = light_and_nimble
+		}
+		prerequisite = {
+			focus = functional_design
+		}
+		x = 22
+		y = 15
+
+	}
+	focus = {
+		id = close_multirole_support
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = piercing_fighters
+		}
+		prerequisite = {
+			focus = 1-2_strike_strategy
+		}
+		x = 21
+		y = 16
+
+	}
+	focus = {
+		id = precision_tools_of_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = precise_strike_formation
+		}
+		prerequisite = {
+			focus = streamlined_administration
+		}
+		x = 29
+		y = 17
+
+	}
+	focus = {
+		id = turn_over_earth_itself
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = coordinated_bombing_runs
+		}
+		prerequisite = {
+			focus = standardized_chassis
+		}
+		x = 25
+		y = 18
+
+	}
+	focus = {
+		id = newfocus_85
+		text = targeted_strikes
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_english_standards
+		}
+		x = 24
+		y = 14
+
+	}
+	focus = {
+		id = coordinated_bombing_runs
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = newfocus_85
+		}
+		prerequisite = {
+			focus = steel_birds
+		}
+		x = 24
+		y = 15
+
+	}
+	focus = {
+		id = steel_birds
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_english_standards
+		}
+		x = 26
+		y = 14
+
+	}
+	focus = {
+		id = standardized_chassis
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = steel_birds
+		}
+		prerequisite = {
+			focus = newfocus_85
+		}
+		x = 26
+		y = 15
+
+	}
+	focus = {
+		id = german_engineering
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_german_standards
+		}
+		x = 28
+		y = 14
+
+	}
+	focus = {
+		id = wankel_triangles
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = light_and_nimble
+			focus = german_engineering
+			focus = steel_birds
+		}
+		x = 32
+		y = 15
+
+	}
+	focus = {
+		id = precise_strike_formation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = capable_scrambling
+		}
+		x = 28
+		y = 15
+
+	}
+	focus = {
+		id = capable_scrambling
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = adopt_german_standards
+		}
+		x = 30
+		y = 14
+
+	}
+	focus = {
+		id = streamlined_administration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = german_engineering
+		}
+		x = 30
+		y = 15
+
+	}
+	focus = {
+		id = private_but_ready
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = airwings_of_shu
+		}
+		mutually_exclusive = {
+			focus = centralize_the_airports
+		}
+		x = 29
+		y = 11
+
+	}
+	focus = {
+		id = the_way_of_the_crocodile
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_new_kemetic_navy
+		}
+		prerequisite = {
+			focus = gravitas_of_strategoi
+		}
+		x = 5
+		y = 18
+
+	}
+	focus = {
+		id = production_goals
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_grand_warf
+		}
+		prerequisite = {
+			focus = reaquire_the_suez
+		}
+		x = 4
+		y = 12
+
+	}
+	focus = {
+		id = a_wet_3_year_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_role_of_the_ENF
+		}
+		prerequisite = {
+			focus = k_gabayrah_steelworks
+		}
+		x = 5
+		y = 14
+
+	}
+	focus = {
+		id = grant_new_loans
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_wet_3_year_plan
+		}
+		mutually_exclusive = {
+			focus = naval_reinvestment
+		}
+		x = 4
+		y = 15
+
+	}
+	focus = {
+		id = naval_reinvestment
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_wet_3_year_plan
+		}
+		mutually_exclusive = {
+			focus = grant_new_loans
+		}
+		x = 6
+		y = 15
+
+	}
+	focus = {
+		id = finish_the_3_year_plan
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_wet_3_year_plan
+		}
+		prerequisite = {
+			focus = make_bigger_and_better
+		}
+		x = 2
+		y = 18
+
+	}
+	focus = {
+		id = the_school_of_damietta
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_grand_warf
+		}
+		prerequisite = {
+			focus = reaquire_the_suez
+		}
+		x = 6
+		y = 12
+
+	}
+	focus = {
+		id = designing_larger_ships
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = institutionalized_raiding
+		}
+		prerequisite = {
+			focus = a_wet_3_year_plan
+		}
+		x = 2
+		y = 16
+
+	}
+	focus = {
+		id = make_bigger_and_better
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = designing_larger_ships
+		}
+		x = 2
+		y = 17
+
+	}
+	focus = {
+		id = found_the_port_authrotiy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = grant_new_loans
+		}
+		x = 4
+		y = 16
+
+	}
+	focus = {
+		id = unified_in_the_spirit_of_sobek
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = naval_reinvestment
+		}
+		x = 6
+		y = 16
+
+	}
+	focus = {
+		id = k_gabayrah_steelworks
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_school_of_damietta
+		}
+		prerequisite = {
+			focus = production_goals
+		}
+		x = 6
+		y = 13
+
+	}
+	focus = {
+		id = the_role_of_the_ENF
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_school_of_damietta
+		}
+		prerequisite = {
+			focus = production_goals
+		}
+		x = 4
+		y = 13
+
+	}
+	focus = {
+		id = a_new_kemetic_navy
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = found_the_port_authrotiy
+			focus = unified_in_the_spirit_of_sobek
+		}
+		x = 4
+		y = 17
+
+	}
+	focus = {
+		id = gravitas_of_strategoi
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = found_the_port_authrotiy
+			focus = unified_in_the_spirit_of_sobek
+		}
+		x = 6
+		y = 17
+
+	}
+	focus = {
+		id = revenge_of_the_ruralists
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = scheme_on_the_schemer
+		}
+		x = 30
+		y = 6
+
+	}
+	focus = {
+		id = ally_darfuria
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = assert_darfur_freedom
+		}
+		x = 33
+		y = 13
+
+	}
+	focus = {
+		id = assert_darfur_freedom
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_darfur_question
+		}
+		mutually_exclusive = {
+			focus = sattelite_darfur
+			focus = annex_darfur
+		}
+		x = 33
+		y = 12
+
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes    
+						}
+				
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+	}
+	focus = {
+		id = sattelite_darfur
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_darfur_question
+		}
+		mutually_exclusive = {
+			focus = assert_darfur_freedom
+			focus = annex_darfur
+		}
+		x = 35
+		y = 12
+
+		completion_reward = {
+		        hidden_effect = {
+					load_focus_tree = {
+					tree = egy_kemetic
+					keep_completed = yes    
+						}
+				
+					mark_focus_tree_layout_dirty = yes
+				}
+			}
+	}
+	focus = {
+		id = a_new_nubia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_slow_struggle
+			focus = proof_of_horus
+		}
+		x = 33
+		y = 9
+
+	}
+	focus = {
+		id = integrate_nubia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_new_nubia
+		}
+		x = 33
+		y = 11
+
+	}
+	focus = {
+		id = prepare_for_retalliation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = suez_or_war
+			focus = renegotiate_the_suez
+		}
+		mutually_exclusive = {
+			focus = an_egyptian_suez
+		}
+		x = 38
+		y = 9
+
+	}
+	focus = {
+		id = an_egyptian_suez
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = suez_or_war
+			focus = renegotiate_the_suez
+		}
+		mutually_exclusive = {
+			focus = prepare_for_retalliation
+		}
+		x = 40
+		y = 9
+
+	}
+	focus = {
+		id = european_reallignment
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = prepare_for_retalliation
+			focus = an_egyptian_suez
+		}
+		x = 39
+		y = 10
+
+	}
+	focus = {
+		id = edom_hills_incident
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = covert_contacts
+			focus = art_of_war
+		}
+		x = 43
+		y = 12
+
+	}
+	focus = {
+		id = nabathea_or_war
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = edom_hills_incident
+		}
+		x = 43
+		y = 13
+
+	}
+	focus = {
+		id = a_night_in_jerusalem
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = into_palestine
+		}
+		x = 48
+		y = 12
+
+	}
+	focus = {
+		id = restore_ramesses_dream
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = nabathea_or_war
+		}
+		x = 43
+		y = 14
+
+	}
+	focus = {
+		id = found_the_malwa
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = syriac_plans
+		}
+		x = 44
+		y = 16
+
+	}
+	focus = {
+		id = to_tread_lightly
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = a_night_in_jerusalem
+		}
+		x = 48
+		y = 13
+
+	}
+	focus = {
+		id = balanced_approach
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = to_tread_lightly
+		}
+		mutually_exclusive = {
+			focus = order_unthinkable
+		}
+		x = 48
+		y = 14
+
+	}
+	focus = {
+		id = order_unthinkable
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = to_tread_lightly
+		}
+		mutually_exclusive = {
+			focus = balanced_approach
+		}
+		x = 50
+		y = 14
+
+	}
+	focus = {
+		id = a_sovreign_state
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = none_draw_short_straws
+		}
+		mutually_exclusive = {
+			focus = annex_iudaea
+		}
+		x = 47
+		y = 16
+
+	}
+	focus = {
+		id = annex_iudaea
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = none_draw_short_straws
+			focus = reject_placation
+		}
+		mutually_exclusive = {
+			focus = a_sovreign_state
+		}
+		x = 49
+		y = 16
+
+	}
+	focus = {
+		id = reject_placation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = order_unthinkable
+		}
+		x = 50
+		y = 15
+
+	}
+	focus = {
+		id = none_draw_short_straws
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = balanced_approach
+		}
+		x = 48
+		y = 15
+
+	}
+	focus = {
+		id = horus_a_kind_master
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = jewish_favouritism
+			focus = grant_coptic_primacy
+			focus = muslim_favouritism
+		}
+		prerequisite = {
+			focus = rebuild_damaged_temples
+		}
+		x = 53
+		y = 15
+
+	}
+	focus = {
+		id = respect_arabia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = sieze_mekkah
+		}
+		mutually_exclusive = {
+			focus = order_464
+		}
+		x = 59
+		y = 17
+
+	}
+	focus = {
+		id = arabic_consolidation
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = respect_arabia
+		}
+		x = 60
+		y = 18
+
+	}
+	focus = {
+		id = syriac_plans
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = role_of_jordania
+		}
+		x = 44
+		y = 15
+
+	}
+	focus = {
+		id = peaceful_conversions
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = placate_the_amharan
+		}
+		mutually_exclusive = {
+			focus = coptic_allegiance
+		}
+		x = 77
+		y = 14
+
+	}
+	focus = {
+		id = conference_of_memphis
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = peaceful_conversions
+		}
+		x = 77
+		y = 15
+
+	}
+	focus = {
+		id = pharaoh_and_negus
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = peaceful_conversions
+			focus = coptic_allegiance
+		}
+		x = 75
+		y = 15
+
+	}
+	focus = {
+		id = egypto-ethiopian_union
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = pharaoh_and_negus
+			focus = conference_of_memphis
+		}
+		x = 76
+		y = 16
+
+	}
+	focus = {
+		id = eye_somalia
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = ethiopian_administration
+			focus = egypto-ethiopian_union
+		}
+		x = 74
+		y = 17
+
+	}
+	focus = {
+		id = dissapearing_leaders
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = break_the_separatists
+		}
+		mutually_exclusive = {
+			focus = ethiopianism
+		}
+		x = 67
+		y = 14
+
+	}
+	focus = {
+		id = a_cocktail_of_intergration
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = dissapearing_leaders
+			focus = ethiopianism
+		}
+		x = 67
+		y = 15
+
+	}
+	focus = {
+		id = secure_djibouti
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = egypto-ethiopian_union
+			focus = ethiopian_administration
+			focus = a_cocktail_of_intergration
+			focus = a_movement_with_no_leaders
+		}
+		x = 70
+		y = 17
+
+	}
+	focus = {
+		id = mare_nostrum
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = arabian_dominance
+		}
+		prerequisite = {
+			focus = east_african_dominance
+		}
+		x = 68
+		y = 20
+
+	}
+	focus = {
+		id = east_african_dominance
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = secure_djibouti
+		}
+		prerequisite = {
+			focus = eye_somalia
+		}
+		x = 70
+		y = 19
+
+	}
+	focus = {
+		id = fundamentalist_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = temples_of_netjeru
+		}
+		mutually_exclusive = {
+			focus = reformist_kemetism
+			focus = esoteric_kemetism
+		}
+		x = 51
+		y = 9
+
+	}
+	focus = {
+		id = esoteric_kemetism
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = temples_of_netjeru
+		}
+		mutually_exclusive = {
+			focus = reformist_kemetism
+			focus = fundamentalist_kemetism
+		}
+		x = 53
+		y = 9
+
+	}
+	focus = {
+		id = the_second_intifadah
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = forever-war
+			focus = may_horus_die
+		}
+		x = 26
+		y = 8
+
+	}
+	focus = {
+		id = horus_talons_firm
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_second_intifadah
+		}
+		mutually_exclusive = {
+			focus = horus_fallen
+		}
+		x = 24
+		y = 9
+
+	}
+	focus = {
+		id = horus_fallen
+		icon = GFX_goal_unknown
+		cost = 10.00
+		prerequisite = {
+			focus = the_second_intifadah
+		}
+		mutually_exclusive = {
+			focus = horus_talons_firm
+		}
+		x = 28
+		y = 9
+
+	}
+}
