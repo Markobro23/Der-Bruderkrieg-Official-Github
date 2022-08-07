@@ -3602,13 +3602,7 @@ shared_focus = {
     }
     custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
   }
-  offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_republic_tree
-      }
-      x = -9
-      y = -5
-    }
+ 
   offset = {
     trigger = {
       has_focus_tree = GPU_bavarian_monarchy_tree
@@ -3630,7 +3624,37 @@ shared_focus = {
     }
   }
 }
+shared_focus = {
+    id = FGD_first_german_elections
+    icon = GFX_focus_GPU_first_german_elections
+    text = GPU_the_first_german_elections
+    x = -4
+    y = 1
+  
+    prerequisite = {
+      focus = FGD_defense_at_all_costs
+    }
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    }
+    relative_position_id = FGD_defense_at_all_costs
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+     custom_effect_tooltip = GPU_the_first_german_elections_tt
 
+      hidden_effect = {
+        country_event = {
+          id = GPU_democracy_germany.1
+          days = 4
+        }
+      }
+    }
+}
 shared_focus = {
     id = GPU_socdem_victory
     icon = GFX_focus_GPU_socdem_victory
@@ -3638,6 +3662,7 @@ shared_focus = {
     y = 1
   
     prerequisite = {
+      focus = FGD_first_german_elections
       focus = GPU_the_first_german_elections
     }
 
@@ -3646,6 +3671,13 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
+    }
+    offset = {
+      x = -30
+      y = 4
+      trigger = {
+        tag = FGD
+      }
     }
     
     completion_reward = {
@@ -3736,6 +3768,7 @@ shared_focus = {
     y = 1
   
     prerequisite = {
+      focus = FGD_first_german_elections
       focus = GPU_the_first_german_elections
     }
 
@@ -3744,6 +3777,13 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
+    }
+    offset = {
+      x = -30
+      y = 4
+      trigger = {
+        tag = FGD
+      }
     }
     
     completion_reward = {
@@ -3935,6 +3975,7 @@ shared_focus = {
     y = 1
   
     prerequisite = {
+      focus = FGD_first_german_elections
       focus = GPU_the_first_german_elections
     }
 
@@ -3943,6 +3984,13 @@ shared_focus = {
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
+    }
+    offset = {
+      x = -30
+      y = 4
+      trigger = {
+        tag = FGD
+      }
     }
     
     completion_reward = {

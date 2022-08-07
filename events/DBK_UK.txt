@@ -806,18 +806,39 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = ENG_foriegn_intervention_tree.1.a
-		ICE = {
-			annex_country = {
-				target = DEN
+		if = {
+			limit = {
+				tag = DEN
 			}
-			remove_ideas = ICE_royal_loyalists
+			ICE = {
+				annex_country = {
+					target = DEN
+				}
+				remove_ideas = ICE_royal_loyalists
+			}
+			ENG = {
+				add_to_faction = ICE
+			}
+			ICE = {
+				every_controlled_state = {
+					add_core_of = ICE
+				}
+			}
 		}
-		ENG = {
-			add_to_faction = ICE
-		}
-		ICE = {
-			every_controlled_state = {
-				add_core_of = ICE
+		hidden_effect =  {
+			if = {
+				limit = {
+					tag = SWE
+					NOT = {
+						is_in_faction_with = GER
+					}
+					GER = {
+						is_faction_leader = yes
+					}
+				}
+				GER = {
+					country_event = generic.2
+				}
 			}
 		}
 	}

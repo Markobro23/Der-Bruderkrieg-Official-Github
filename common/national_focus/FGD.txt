@@ -21,61 +21,61 @@ focus_tree = {
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 
-focus_tree = {
-	id = FGD_rhine_homefront_tree
-	country = { 
-		factor = 0
-		modifier = {
-			add = 11
-			tag = FGD
-		}
-	}
+# focus_tree = {
+# 	id = FGD_rhine_homefront_tree
+# 	country = { 
+# 		factor = 0
+# 		modifier = {
+# 			add = 11
+# 			tag = FGD
+# 		}
+# 	}
 
-  shared_focus = FGD_the_rhine_revolt
-  shared_focus = FGD_heydrichs_germany
-  shared_focus = FGD_speers_germany
-    shared_focus = FGD_continue_the_public_works
-    shared_focus = FGD_the_sea_at_last
-    shared_focus = FGD_luftwaffe
-    shared_focus = FGD_ARMY
-	continuous_focus_position = { x = -50 y = 2400 } 
-}
-focus_tree = {
-	id = FGD_rhine_republic_tree
-	country = { 
-		factor = 0
-		modifier = {
-			add = 11
-			tag = FGD
-		}
-	}
-  shared_focus = GPU_the_first_german_elections
-  shared_focus = FGD_defense_at_all_costs
-  shared_focus = FGD_proclaim_a_rhine_confederation
-  shared_focus = FGD_continue_the_public_works
-  shared_focus = FGD_the_sea_at_last
-  shared_focus = FGD_luftwaffe
-  shared_focus = FGD_ARMY
-	continuous_focus_position = { x = -50 y = 2400 } 
-}
-focus_tree = {
-	id = FGD_rhine_monarchy_tree
-	country = { 
-		factor = 0
-		modifier = {
-			add = 11
-			tag = FGD
-		}
-	}
-  shared_focus = FGD_king_of_the_germans
-  shared_focus = FGD_defense_at_all_costs
-  shared_focus = FGD_proclaim_a_rhine_confederation
-  shared_focus = FGD_continue_the_public_works
-  shared_focus = FGD_the_sea_at_last
-  shared_focus = FGD_luftwaffe
-  shared_focus = FGD_ARMY
-	continuous_focus_position = { x = -50 y = 2400 } 
-}
+#   shared_focus = FGD_the_rhine_revolt
+#   shared_focus = FGD_heydrichs_germany
+#   shared_focus = FGD_speers_germany
+#     shared_focus = FGD_continue_the_public_works
+#     shared_focus = FGD_the_sea_at_last
+#     shared_focus = FGD_luftwaffe
+#     shared_focus = FGD_ARMY
+# 	continuous_focus_position = { x = -50 y = 2400 } 
+# }
+# focus_tree = {
+# 	id = FGD_rhine_republic_tree
+# 	country = { 
+# 		factor = 0
+# 		modifier = {
+# 			add = 11
+# 			tag = FGD
+# 		}
+# 	}
+#   shared_focus = GPU_the_first_german_elections
+#   shared_focus = FGD_defense_at_all_costs
+#   shared_focus = FGD_proclaim_a_rhine_confederation
+#   shared_focus = FGD_continue_the_public_works
+#   shared_focus = FGD_the_sea_at_last
+#   shared_focus = FGD_luftwaffe
+#   shared_focus = FGD_ARMY
+# 	continuous_focus_position = { x = -50 y = 2400 } 
+# }
+# focus_tree = {
+# 	id = FGD_rhine_monarchy_tree
+# 	country = { 
+# 		factor = 0
+# 		modifier = {
+# 			add = 11
+# 			tag = FGD
+# 		}
+# 	}
+#   shared_focus = FGD_king_of_the_germans
+#   shared_focus = FGD_defense_at_all_costs
+#   shared_focus = FGD_proclaim_a_rhine_confederation
+#   shared_focus = FGD_continue_the_public_works
+#   shared_focus = FGD_the_sea_at_last
+#   shared_focus = FGD_luftwaffe
+#   shared_focus = FGD_ARMY
+# 	continuous_focus_position = { x = -50 y = 2400 } 
+# }
 
 shared_focus = {
     id = FGD_the_chaotic_westfalen
@@ -124,7 +124,7 @@ shared_focus = {
     id = FGD_marshal_leclercs_rule
     icon = GFX_goal_FGD_marshal_leclercs_rule
 	prerequisite = {focus = FGD_loyalty_to_the_bonapartes}
-    x = -2
+    x = -1
     y = 1
     relative_position_id = FGD_loyalty_to_the_bonapartes
     cost = 5
@@ -139,23 +139,7 @@ shared_focus = {
       country_event = FGD_french_loyalty_path.2
     }
 }
-shared_focus = {
-    id = FGD_absolute_control_of_state
-    icon = GFX_goal_FGD_absolute_control_of_state
-	prerequisite = {focus = FGD_strengthen_karl_josefs_power focus = FGD_marshal_leclercs_rule }
-    x = 2
-    y = 1
-    relative_position_id = FGD_marshal_leclercs_rule
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-      factor = 100
-    }
-    
-    completion_reward = {
-      remove_ideas = FGD_legacy_of_traveluer_coup
-    }
-}
+
 shared_focus = {
     id = FGD_the_figurehead_king
     icon = GFX_goal_FGD_the_figurehead_king
@@ -179,9 +163,7 @@ shared_focus = {
     id = FGD_centralize_the_military
     icon = GFX_goal_FGD_centralize_the_military
 	prerequisite = {focus = FGD_the_figurehead_king}
-  prerequisite = {
-    focus = FGD_military_recruitment_program
-  }
+
     x = -1
     y = 1
     relative_position_id = FGD_the_figurehead_king
@@ -196,16 +178,38 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = FGD_military_recruitment_program
+    icon = GFX_goal_FGD_military_recruitment_program
+	prerequisite = {focus =  FGD_centralize_the_military }
+    x = 0
+    y = 1
+    relative_position_id = FGD_centralize_the_military
+	
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+      	ITA_level_up_conscription_law = yes
+    }
+
+}
+
+shared_focus = {
     id = FGD_crush_the_rhine_homefront
     icon = GFX_goal_FGD_crush_the_rhine_homefront
-	prerequisite = {focus = FGD_absolute_control_of_state  }
   prerequisite = {
-    focus = FGD_centralize_the_military
+    focus = FGD_military_recruitment_program
     focus = FGD_reinforce_nueue_code_napoleon
   }
-    x = 0
-    y = 2
-    relative_position_id = FGD_absolute_control_of_state
+  prerequisite = {
+    focus = FGD_reassert_power_in_the_french_sphere
+  }
+    x = 2
+    y = 1
+    relative_position_id = FGD_military_recruitment_program
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -214,20 +218,32 @@ shared_focus = {
     
     completion_reward = {
       unlock_decision_category_tooltip = FGD_hunting_westfalen_nationalists
-      hidden_effect = {
-        load_focus_tree = {
-          tree = FGD_rhine_monarchy_tree
-          keep_completed = yes
-        }
-      }
+      set_country_flag = FGD_unlock_crush_rhine_homefront_decisions
+      
     }
 }
-
+shared_focus = {
+    id = FGD_absolute_control_of_state
+    icon = GFX_goal_FGD_absolute_control_of_state
+	prerequisite = {focus = FGD_crush_the_rhine_homefront }
+    x = 0
+    y = 1
+    relative_position_id = FGD_crush_the_rhine_homefront
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+      remove_ideas = FGD_legacy_of_traveluer_coup
+    }
+}
 shared_focus = {
     id = FGD_strengthen_karl_josefs_power
     icon = GFX_goal_FGD_strengthen_karl_josefs_power
 	prerequisite = {focus = FGD_loyalty_to_the_bonapartes}
-    x = 2
+    x = 1
     y = 1
     relative_position_id = FGD_loyalty_to_the_bonapartes
 	mutually_exclusive = {
@@ -264,10 +280,10 @@ shared_focus = {
 shared_focus = {
     id = FGD_reinforce_catholic_ideals
     icon = GFX_goal_FGD_reinforce_catholic_ideals
-	prerequisite = {focus = FGD_strengthen_karl_josefs_power}
-    x = 2
+	prerequisite = {focus = FGD_model_bonapartist_absolutism }
+    x = 1
     y = 1
-    relative_position_id = FGD_strengthen_karl_josefs_power
+    relative_position_id = FGD_model_bonapartist_absolutism 
 
     cost = 5
     available_if_capitulated = yes
@@ -280,15 +296,31 @@ shared_focus = {
     }
 }
 shared_focus = {
+    id = FGD_reassert_power_in_the_french_sphere
+    icon = GFX_goal_FGD_reassert_power_in_the_french_sphere
+	prerequisite = {focus = FGD_model_bonapartist_absolutism focus = FGD_the_figurehead_king }
+    x = -1
+    y = 1
+    relative_position_id = FGD_model_bonapartist_absolutism 
+
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+      factor = 100
+    }
+    
+    completion_reward = {
+      custom_effect_tooltip = GPU_loyalty_to_vienna_tt
+    }
+}
+shared_focus = {
     id = FGD_reinforce_nueue_code_napoleon
     icon = GFX_goal_FGD_reinforce_nueue_code_napoleon
-	prerequisite = {focus = FGD_model_bonapartist_absolutism}
-  prerequisite = {
-    focus = FGD_reinforce_catholic_ideals
-  }
-    x = 1
+	prerequisite = {focus = FGD_reinforce_catholic_ideals}
+
+    x = 0
     y = 1
-    relative_position_id = FGD_model_bonapartist_absolutism
+    relative_position_id = FGD_reinforce_catholic_ideals
 
     cost = 5
     available_if_capitulated = yes
@@ -302,25 +334,6 @@ shared_focus = {
 						remove_idea = Neue_Code_Napoleon
 					}
     }
-}
-shared_focus = {
-    id = FGD_military_recruitment_program
-    icon = GFX_goal_FGD_military_recruitment_program
-	prerequisite = {focus =  FGD_marshal_leclercs_rule }
-    x = -2
-    y = 1
-    relative_position_id = FGD_marshal_leclercs_rule
-	
-    cost = 5
-    available_if_capitulated = yes
-    ai_will_do = {
-      factor = 100
-    }
-    
-    completion_reward = {
-      	ITA_level_up_conscription_law = yes
-    }
-
 }
 
 
@@ -465,6 +478,7 @@ shared_focus = {
     
     completion_reward = {
       unlock_decision_category_tooltip = FGD_hunting_westfalen_nationalists
+      set_country_flag = FGD_unlock_crush_rhine_homefront_decisions
     }
 }
 
@@ -536,19 +550,7 @@ shared_focus = {
     
     completion_reward = {
       remove_ideas = FGD_legacy_of_traveluer_coup
-      hidden_effect = {
-        if = {
-          limit = {
-            has_completed_focus = FGD_political_stability_ensured
-          }
-          hidden_effect = {
-            load_focus_tree = {
-              tree = FGD_rhine_republic_tree
-              keep_completed = yes
-            }
-          }
-        }
-      }
+      
     }
 }
 
@@ -740,16 +742,7 @@ shared_focus = {
     
     completion_reward = {
       remove_ideas = FGD_royalist_opposition
-      hidden_effect = {
-        if = {
-          limit = {
-            has_completed_focus = FGD_the_prussian_threat
-          }
-          hidden_effect = {
-            load_focus_tree = FGD_rhine_republic_tree
-          }
-        }
-      }
+      
     }
 }
 
@@ -760,7 +753,7 @@ shared_focus = {
     id = FGD_the_rhine_homefront
     icon = GFX_goal_FGD_the_rhine_homefront
 	prerequisite = {focus = FGD_the_chaotic_westfalen}
-    x = 8
+    x = 12
     y = 1
     relative_position_id = FGD_the_chaotic_westfalen
     cost = 5
@@ -1050,34 +1043,26 @@ shared_focus = {
 shared_focus = {
     id = FGD_defense_at_all_costs
     icon = GFX_goal_FGD_defense_at_all_costs
-    x = 4
-    y = 8
-    mutually_exclusive = {
-      focus = FGD_proclaim_a_rhine_confederation
-    }
+    x = 2
+    y = 1
+    
     available = {
-      if = {
-        limit = {
-          has_focus_tree = FGD_westfalen_tree
-        }
-        OR = {
-          has_completed_focus = FGD_the_prussian_threat
-          has_completed_focus = FGD_crush_the_rhine_homefront
-        }
-      }
+      
     }
-    cost = 5
+    prerequisite = {
+      focus = FGD_the_prussian_threat
+      
+    }
+    prerequisite = {
+      focus = FGD_political_stability_ensured
+    }
+    relative_position_id = FGD_the_prussian_threat
+    cost = 9
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        OR = { has_focus_tree = FGD_rhine_republic_tree has_focus_tree = FGD_rhine_monarchy_tree }
-      }
-      x = 0
-      y = -8
-    }
+   
     
     completion_reward = {
       add_ideas = FGD_the_rheinish_fortress
@@ -1086,34 +1071,26 @@ shared_focus = {
 shared_focus = {
     id = FGD_proclaim_a_rhine_confederation
     icon = GFX_goal_FGD_defense_at_all_costs
-    x = 6
-    y = 8
-    mutually_exclusive = {
-      focus = FGD_defense_at_all_costs
-    }
+    x = 0
+    y = 1
+    
     available = {
-      if = {
-        limit = {
-          has_focus_tree = FGD_westfalen_tree
-        }
-        OR = {
-          has_completed_focus = FGD_the_prussian_threat
-          has_completed_focus = FGD_crush_the_rhine_homefront
-        }
-      }
+      
     }
+    prerequisite = {
+      focus = FGD_absolute_control_of_state
+      
+    }
+    prerequisite = {
+      focus = FGD_political_stability_ensured
+    }
+    relative_position_id = FGD_absolute_control_of_state
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        OR = { has_focus_tree = FGD_rhine_republic_tree has_focus_tree = FGD_rhine_monarchy_tree }
-      }
-      x = 0
-      y = -8
-    }
+   
     completion_reward = {
       set_cosmetic_tag = FGD_RHE
       add_war_support = 0.05
@@ -1123,7 +1100,7 @@ shared_focus = {
     id = FGD_rhine_river_fallback
     icon = GFX_goal_FGD_rhine_river_fallback
 	prerequisite = {focus = FGD_defense_at_all_costs}
-    x = -1
+    x = 1
     y = 1
     relative_position_id = FGD_defense_at_all_costs
 	
@@ -1167,7 +1144,7 @@ shared_focus = {
     id = FGD_holding_the_prussians
     icon = GFX_goal_FGD_holding_the_prussians
 	prerequisite = {focus = FGD_rhine_river_fallback}
-    x = 0
+    x = 1
     y = 1
     relative_position_id = FGD_rhine_river_fallback
 	
@@ -1192,7 +1169,7 @@ shared_focus = {
     y = 1
     relative_position_id = FGD_holding_the_prussians
 	
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
@@ -1221,7 +1198,7 @@ shared_focus = {
     id = FGD_request_luxembourg
     icon = GFX_goal_FGD_request_luxembourg
 	prerequisite = {focus = FGD_proclaim_a_rhine_confederation }
-    x = 1
+    x = -1
     y = 1
     relative_position_id = FGD_proclaim_a_rhine_confederation 
 	
@@ -1241,7 +1218,7 @@ shared_focus = {
     id = FGD_cores_on_north_germany
     icon = GFX_goal_FGD_cores_on_north_germany
 	prerequisite = {focus = FGD_request_luxembourg}
-    x = 0
+    x = -1
     y = 1
     relative_position_id = FGD_request_luxembourg
 	
@@ -1310,11 +1287,11 @@ shared_focus = {
     id = FGD_the_saarland_conference
     icon = GFX_goal_FGD_the_saarland_conference
 	prerequisite = {focus = FGD_proclaim_a_rhine_confederation focus = FGD_defense_at_all_costs }
-    x = -1
+    x = -4
     y = 1
     relative_position_id = FGD_proclaim_a_rhine_confederation 
 	
-    cost = 5
+    cost = 10
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
@@ -1393,7 +1370,7 @@ shared_focus = {
     y = 1
     relative_position_id = FGD_invite_de_gaulle
 	
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
@@ -1620,25 +1597,23 @@ shared_focus = {
 shared_focus = {
     id = FGD_king_of_the_germans
     icon = GFX_goal_FGD_king_of_the_germans
-    x = 12
-    y = 8
+    x = 2
+    y = 1
   
     available = {
       custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
       has_government = neutrality
     }
+    prerequisite = {
+      focus = FGD_proclaim_a_rhine_confederation
+    }
+    relative_position_id = FGD_proclaim_a_rhine_confederation
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_monarchy_tree 
-      }
-      x = 0
-      y = -8
-    }
+   
     completion_reward = {
       add_country_leader_trait = napoleon_king_of_da_germans
     }
@@ -1797,29 +1772,26 @@ shared_focus = {
 shared_focus = {
     id = FGD_the_rhine_revolt
     icon = GFX_goal_FGD_the_rhine_revolt
-    x = 19
-    y = 8
+    x = -2
+    y = 1
   
     available = {
-      always = no
-    }
-    bypass = {
-      has_completed_focus = FGD_march_on_cologne
       has_war_with = FRA
     }
-    cost = 0
+    bypass = {
+    }
+    cost = 3.5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = -15
-      y = -8
+    prerequisite = {
+      focus = FGD_march_on_cologne
     }
+    relative_position_id = FGD_march_on_cologne
+   
     completion_reward = {
+      add_war_support = 0.05
     }
 }
 shared_focus = {
@@ -2242,7 +2214,7 @@ shared_focus = {
     }
     
     completion_reward = {
-      add_war_support = -0.05
+      
       supply_units = 120
       add_ideas = war_economy
     }
@@ -2282,8 +2254,8 @@ shared_focus = {
 shared_focus = {
     id = FGD_heydrichs_germany
     icon = GFX_goal_FGD_heydrichs_germany
-    x = 28
-    y = 8
+    x = -5
+    y = 1
   
     available = {
       custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
@@ -2297,13 +2269,11 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = -15
-      y = -8
+    
+    prerequisite = {
+      focus = FGD_an_offer_to_the_prussians
     }
+    relative_position_id = FGD_an_offer_to_the_prussians
     completion_reward = {
       add_political_power = 25
     }
@@ -2533,8 +2503,8 @@ shared_focus = {
 shared_focus = {
     id = FGD_speers_germany
     icon = GFX_goal_FGD_heydrichs_germany
-    x = 38
-    y = 8
+    x = 5
+    y = 1
   
     available = {
       custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
@@ -2542,18 +2512,16 @@ shared_focus = {
             name = "Albert Speer"
         }
     }
+    prerequisite = {
+      focus = FGD_an_offer_to_the_prussians
+    }
+    relative_position_id = FGD_an_offer_to_the_prussians
     cost = 2
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
     }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = -15
-      y = -8
-    }
+  
     completion_reward = {
       add_political_power = 25
     }
@@ -2903,19 +2871,19 @@ shared_focus = {
 shared_focus = {
     id = FGD_the_final_threat
     icon = GFX_goal_FGD_the_final_threat
-    x = 2
+    x = 6
     y = 1
   
     prerequisite = {
-      focus = FGD_the_man_with_the_iron_heart
-      focus = FGD_night_long_knives
+      focus = FGD_march_on_cologne
     }
     prerequisite = {
-      focus = FGD_weaponizing_reichsarbeitsdienst
-      focus = FGD_deploy_the_race_of_devils
+      
     }
-
-    relative_position_id = FGD_the_man_with_the_iron_heart
+    available = {
+      custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+    }
+    relative_position_id = FGD_march_on_cologne
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -3164,28 +3132,15 @@ shared_focus = {
 shared_focus = {
     id = FGD_continue_the_public_works
     icon = GFX_goal_FGD_continue_the_public_works
-    x = 19
-    y = 0
+    x = 38
+    y = 3
 	
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 1
     }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = 14
-      y = 0
-    }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_republic_tree
-      }
-      x = 5
-      y = 0
-    }
+
     completion_reward = {
       add_political_power = 50
       random_owned_controlled_state = {
@@ -3401,20 +3356,9 @@ shared_focus = {
     }
     cost = 0
     available_if_capitulated = yes
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = 0
-      y = 5
-    }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_republic_tree
-      }
-      x = 5
-      y = 0
-    }
+    
+    
+    
     completion_reward = {
     }
 }
@@ -3588,20 +3532,9 @@ shared_focus = {
 	
     cost = 5
     available_if_capitulated = yes
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = 3
-      y = 7
-    }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_republic_tree
-      }
-      x = 5
-      y = 0
-    }
+ 
+   
+    
     completion_reward = {
       air_experience = 25
     }
@@ -3678,20 +3611,8 @@ shared_focus = {
 	  ai_will_do = {
 	    factor = 1
 	  }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_homefront_tree
-      }
-      x = 15
-      y = 0
-    }
-    offset = {
-      trigger = {
-        has_focus_tree = FGD_rhine_republic_tree
-      }
-      x = 5
-      y = 0
-    }
+
+    
 	  available_if_capitulated = yes
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
@@ -4084,3 +4005,6 @@ shared_focus = {
 
 	   }
 	}
+
+
+  
