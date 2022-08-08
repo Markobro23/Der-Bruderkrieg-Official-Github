@@ -260,7 +260,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_continue_the_war_in_ireland
     icon = GFX_goal_Ireland
-    x = -2
+    x = 3
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -271,12 +271,11 @@ shared_focus = {
         focus = ENG_execute_labour_scum
         focus = ENG_halifaxs_presidency
     }
-    relative_position_id = ENG_halifaxs_presidency
     offset = {
         trigger = {
             has_focus_tree = ENG_hamsworth_tree
         }
-        x = 7
+        x = 8
         y = 4
     }
     completion_reward = {
@@ -774,7 +773,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_end_the_war_in_ireland
     icon = GFX_goal_ENG_end_the_war_in_ireland
-    x = 1
+    x = 6
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -794,7 +793,6 @@ shared_focus = {
         focus = ENG_transform_the_union
         focus = ENG_the_bulldog_rises
     }
-    relative_position_id = ENG_the_bulldog_rises
     
     completion_reward = {
         remove_ideas = ENG_the_irish_question
@@ -1298,7 +1296,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_stayin_steady
     icon = GFX_focus_eng_imperial_federation
-    x = 23
+    x = 24
     y = 0
     cost = 10
     available_if_capitulated = yes
@@ -1312,7 +1310,8 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
-            has_completed_focus = ENG_most_royal_of_marriages
+            has_completed_focus = ENG_the_empire_strikes_back
+            has_completed_focus = ENG_britain_lives_and_marches_on
         }
     }
     completion_reward = {
@@ -1323,7 +1322,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_mantain_the_pact_of_atlantica
     icon = GFX_goal_USA_revive_the_pact_of_atlantica
-    x = -2
+    x = -3
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1545,7 +1544,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_europe_calls
     icon = GFX_focus_eng_global_defense
-    x = 0
+    x = -1
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1568,7 +1567,8 @@ shared_focus = {
         OR = {
             has_completed_focus = ENG_crush_the_extremist_threat
             has_completed_focus = ENG_gradual_rearmenent
-            has_completed_focus = ENG_most_royal_of_marriages
+            has_completed_focus = ENG_the_empire_strikes_back
+            has_completed_focus = ENG_britain_lives_and_marches_on
         }
     }
     
@@ -1600,8 +1600,8 @@ shared_focus = {
 shared_focus = {
     id = ENG_if_you_want_hannover_you_want_war
     icon = GFX_goal_SOV_no_they_are_insane
-    x = 1
-    y = 1
+    x = 0
+    y = 2
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1784,6 +1784,163 @@ shared_focus = {
 		GER = {
 			add_ideas = GER_british_advisors
 		}	
+    }
+}
+
+shared_focus = {
+    id = ENG_push_for_paris
+    icon = GFX_goal_GER_the_push_on_paris
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_ally_the_prussians
+    }
+    relative_position_id = ENG_ally_the_prussians
+    available = {
+        GER = {
+            has_war_with = FRA
+        }
+    }
+    
+    completion_reward = {
+        country_event = britain_declares_france.1
+    }
+}
+
+shared_focus = {
+    id = ENG_break_the_stahlpakt
+    icon = GFX_goal_SOV_consolidating_power
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_push_for_paris
+    }
+    relative_position_id = ENG_push_for_paris
+    available = {
+        GER = {
+            has_non_aggression_pact_with = SOV
+        }
+    }
+    
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_operation_nord
+    icon = GFX_focus_generic_scandinavia_flags
+    x = 0
+    y = 2
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_ally_the_prussians
+    }
+    relative_position_id = ENG_ally_the_prussians
+    available = {
+
+    }
+    
+    completion_reward = {
+        create_wargoal = {
+            target = NOR
+            type = puppet_wargoal_focus
+        }
+    }
+}
+shared_focus = {
+    id = ENG_northern_workers_union
+    icon = GFX_goal_ITA_aryan_work_culture
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_operation_nord
+    }
+    relative_position_id = ENG_operation_nord
+    available = {
+        NOR = {
+            is_in_faction_with = ENG
+        }
+        SWE = {
+            is_in_faction_with = ENG
+        }
+        OR = {
+            ICE = {
+                is_in_faction_with = ENG
+            }
+            DEN = {
+                is_in_faction_with = ENG
+            }
+        }
+    }
+    mutually_exclusive = {
+        focus = ENG_antarctic_exploration
+    }
+    completion_reward = {
+        
+    }
+}
+shared_focus = {
+    id = ENG_antarctic_exploration
+    icon = GFX_goal_ENG_antarctic_exploration
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    mutually_exclusive = {
+        focus = ENG_northern_workers_union
+    }
+    prerequisite = {
+        focus = ENG_operation_nord
+    }
+    relative_position_id = ENG_operation_nord
+    available = {
+        OR = {
+            144 = {
+                owner = {
+                    is_in_faction_with = ENG
+                }
+            }
+            100 = {
+                owner = {
+                    is_in_faction_with = ENG
+                }
+            }
+            101 = {
+                owner = {
+                    is_in_faction_with = ENG
+                }
+            }
+        }
+    }
+    
+    completion_reward = {
+        unlock_decision_category_tooltip = ENG_the_expedition_to_the_north_pole
     }
 }
 
@@ -2156,7 +2313,7 @@ shared_focus = {
 shared_focus = {
     id = ENG_the_imperial_federation
     icon = GFX_goal_ENG_the_imperial_federation
-    x = 18
+    x = 22
     y = 5
     cost = 5
     available_if_capitulated = yes
@@ -3501,10 +3658,13 @@ shared_focus = {
     icon = GFX_goal_ENG_the_empire_strikes_back
     x = -2
     y = 1
-    prerequisite = { focus = ENG_pact_of_london focus = ENG_most_royal_of_marriages }
+    prerequisite = { focus = ENG_most_royal_of_marriages focus = ENG_pact_of_london }
     relative_position_id = ENG_most_royal_of_marriages
     cost = 5
     available_if_capitulated = yes
+    available = {
+        has_completed_focus = ENG_the_grand_ham_prevails
+    }
     ai_will_do = {
         factor = 1
     }

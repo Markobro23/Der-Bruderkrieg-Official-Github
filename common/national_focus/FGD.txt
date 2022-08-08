@@ -1056,6 +1056,9 @@ shared_focus = {
     prerequisite = {
       focus = FGD_political_stability_ensured
     }
+    mutually_exclusive = {
+      focus = FGD_proclaim_a_rhine_confederation
+    }
     relative_position_id = FGD_the_prussian_threat
     cost = 9
     available_if_capitulated = yes
@@ -1075,15 +1078,21 @@ shared_focus = {
     y = 1
     
     available = {
-      
+      if = {
+        limit = {
+          has_completed_focus = FGD_adenaurs_proposal
+        }
+        has_completed_focus = FGD_a_rhinish_state
+      }
     }
     prerequisite = {
       focus = FGD_absolute_control_of_state
-      
-    }
-    prerequisite = {
       focus = FGD_political_stability_ensured
     }
+    mutually_exclusive = {
+      focus = FGD_defense_at_all_costs
+    }
+   
     relative_position_id = FGD_absolute_control_of_state
     cost = 5
     available_if_capitulated = yes
