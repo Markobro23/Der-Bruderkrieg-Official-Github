@@ -1759,7 +1759,7 @@ the_great_game = {
 
 	## Persian Crash
 	ENG_invest_in_persian_infrastructure = {
-		icon = generic_operation
+		icon = generic_industry
 		available = {
 			
 		}
@@ -1804,7 +1804,7 @@ the_great_game = {
 		}
 	}
 	ENG_persian_foriegn_aid = {
-		icon = generic_operation
+		icon = generic_construction
 		available = {
 			
 		}
@@ -1845,7 +1845,7 @@ the_great_game = {
 
 	## Generic Great Game
 	ENG_boost_persian_influence = {
-		icon = generic_operation
+		icon = generic_civil_support
 		available = {
 			
 		}
@@ -1874,7 +1874,7 @@ the_great_game = {
 		}
 	}
 	ENG_boost_afghani_influence = {
-		icon = generic_operation
+		icon = generic_civil_support
 		available = {
 			
 		}
@@ -1904,7 +1904,7 @@ the_great_game = {
 	}
 
 	ENG_persian_propaganda = {
-		icon = generic_operation
+		icon = generic_propaganda
 		available = {
 			
 		}
@@ -1933,7 +1933,7 @@ the_great_game = {
 		}
 	}
 	ENG_afghani_propaganda = {
-		icon = generic_operation
+		icon = generic_propaganda
 		available = {
 			
 		}
@@ -1966,7 +1966,7 @@ the_great_game = {
 	## WINNER
 	## Generic Great Game
 	great_game_invite_persian_to_faction = {
-		icon = generic_operation
+		icon = generic_independence
 		available = {
 			check_variable = {
 				persian_influence > 99
@@ -1999,7 +1999,7 @@ the_great_game = {
 		}
 	}
 	great_game_invite_afghan_to_faction = {
-		icon = generic_operation
+		icon = generic_independence
 		available = {
 			check_variable = {
 				afghani_influence > 99
@@ -2031,6 +2031,152 @@ the_great_game = {
 			add_to_faction = AFG
 		}
 	}
+
+	great_game_escalation_level_2 = {
+		icon = generic_ignite_civil_war
+		available = {
+			OR = {
+				AFG = {
+					is_in_faction = yes
+				}
+				PER = {
+					is_in_faction = yes
+				}
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			has_global_flag = great_game_has_begun
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_war_support = 0.02
+			add_to_variable = {
+				global.great_game_escalation_level = 1
+			}
+		}
+	}
+	great_game_escalation_level_3 = {
+		icon = generic_ignite_civil_war
+		available = {
+			AFG = {
+				is_in_faction = yes
+			}
+			PER = {
+				is_in_faction = yes
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			check_variable = {
+				global.great_game_escalation_level = 2
+			}
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_war_support = 0.02
+			add_to_variable = {
+				global.great_game_escalation_level = 1
+			}
+		}
+	}
+	great_game_escalation_level_4 = {
+		icon = generic_ignite_civil_war
+		available = {
+			OR = {
+				PAL = {
+					is_in_faction_with = ENG
+				}
+				count_triggers = {
+					amount = 2
+					has_war_with = SOV
+					is_major = yes
+				}
+				count_triggers = {
+					amount = 2
+					has_war_with = ENG
+					is_major = yes
+				}
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			check_variable = {
+				global.great_game_escalation_level = 3
+			}
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_war_support = 0.2
+			if = {
+				limit = {
+					tag = ENG
+				}
+				create_wargoal = {
+					target = SOV
+					type = topple_government
+				}
+			}
+			if = {
+				limit = {
+					tag = SOV
+				}
+				create_wargoal = {
+					target = ENG
+					type = topple_government
+				}
+			}
+		}
+	}
+	
 }
 
 ENG_the_expedition_to_the_north_pole = {
