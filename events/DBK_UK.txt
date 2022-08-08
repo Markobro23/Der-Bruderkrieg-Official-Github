@@ -1487,7 +1487,7 @@ country_event = { #Hanover's sabotaged evacuation route
 	}
 }
 
-country_event = { #Hanover's sabotaged evacuation route
+country_event = { #by stalhpakt
 	id = ENG_Goering.12
 	title = ENG_Goering.12.t
 	desc = ENG_Goering.12.d
@@ -1495,17 +1495,28 @@ country_event = { #Hanover's sabotaged evacuation route
 
 	option = {
 		name = ENG_Goering.12.a #screw them
-		
+		ENG = {
+			country_event = {
+				id = ENG_Goering.13
+				days = 1
+			}
+		}
 	}	
 	option = {
 		name = ENG_Goering.12.b #let's play into this
 		ai_chance = {
 			factor = 0
 		}
+		ENG = {
+			country_event = {
+				id = ENG_Goering.14
+				days = 1
+			}
+		}
 	}
 }
 
-country_event = { #Hanover's sabotaged evacuation route
+country_event = { #by stalhpakt
 	id = ENG_Goering.13
 	title = ENG_Goering.13.t
 	desc = ENG_Goering.13.d
@@ -1517,7 +1528,7 @@ country_event = { #Hanover's sabotaged evacuation route
 	}	
 	
 }
-country_event = { #Hanover's sabotaged evacuation route
+country_event = { #by stalhpakt
 	id = ENG_Goering.14
 	title = ENG_Goering.14.t
 	desc = ENG_Goering.14.d
@@ -1525,6 +1536,63 @@ country_event = { #Hanover's sabotaged evacuation route
 
 	option = {
 		name = ENG_Goering.14.a #screw them
+		
+	}	
+	
+}
+
+country_event = { #by stalhpakt
+	id = ENG_Goering.15
+	title = ENG_Goering.15.t
+	desc = ENG_Goering.15.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.15.a #screw them
+		ENG = {
+			country_event = {
+				id = ENG_Goering.16
+				days = 1
+			}
+		}
+	}	
+	option = {
+		name = ENG_Goering.15.b #let's play into this
+		ai_chance = {
+			factor = 0
+		}
+		ENG = {
+			country_event = {
+				id = ENG_Goering.17
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #by stalhpakt
+	id = ENG_Goering.16
+	title = ENG_Goering.16.t
+	desc = ENG_Goering.16.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.16.a #screw them
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}	
+	
+}
+country_event = { #by stalhpakt
+	id = ENG_Goering.17
+	title = ENG_Goering.17.t
+	desc = ENG_Goering.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.17.a #screw them
 		
 	}	
 	

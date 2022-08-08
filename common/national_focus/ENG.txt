@@ -1835,7 +1835,9 @@ shared_focus = {
     }
     
     completion_reward = {
-        
+        GER = {
+            country_event = ENG_Goering.12
+        }
     }
 }
 shared_focus = {
@@ -1883,9 +1885,6 @@ shared_focus = {
         NOR = {
             is_in_faction_with = ENG
         }
-        SWE = {
-            is_in_faction_with = ENG
-        }
         OR = {
             ICE = {
                 is_in_faction_with = ENG
@@ -1899,7 +1898,23 @@ shared_focus = {
         focus = ENG_antarctic_exploration
     }
     completion_reward = {
-        
+        unlock_decision_category_tooltip = unite_north_sea_category
+        NOR = {
+            country_event = ENG_Goering.15
+        }
+        if = {
+            limit = {
+                DEN = {
+                    is_in_faction_with = ENG
+                }
+            }
+            country_event = ENG_Goering.15
+        }
+        else = {
+            ICE = {
+                country_event = ENG_Goering.15
+            }
+        }
     }
 }
 shared_focus = {
