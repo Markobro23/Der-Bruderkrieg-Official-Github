@@ -1761,7 +1761,14 @@ shared_focus = {
         focus = SOV_defend_the_galician_border
     }
     available = {
-    	controls_state = 90
+    	90 = {
+            owner = {
+                OR = {
+                    tag = SOV
+                    is_in_faction_with = SOV
+                }
+            }
+        }
     }
     relative_position_id = SOV_defend_the_galician_border
     

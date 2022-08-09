@@ -1310,7 +1310,7 @@ shared_focus = {
             has_completed_focus = ENG_denounce_the_king
             has_completed_focus = ENG_enshrine_the_british_worker
             has_completed_focus = ENG_isolate_horner
-            has_completed_focus = ENG_the_empire_strikes_back
+            has_completed_focus = ENG_empire_strikes_back
             has_completed_focus = ENG_britain_lives_and_marches_on
         }
     }
@@ -1567,7 +1567,7 @@ shared_focus = {
         OR = {
             has_completed_focus = ENG_crush_the_extremist_threat
             has_completed_focus = ENG_gradual_rearmenent
-            has_completed_focus = ENG_the_empire_strikes_back
+            has_completed_focus = ENG_empire_strikes_back
             has_completed_focus = ENG_britain_lives_and_marches_on
         }
     }
@@ -3804,7 +3804,21 @@ shared_focus = {
     }
  
     completion_reward = {
-        
+        PAL = {
+            random_owned_controlled_state = {
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+                add_building_construction = {
+                    type = industrial_complex
+                    level = 1
+                    instant_build = yes
+                }
+                add_extra_state_shared_building_slots = 2
+            }
+        }
     }
 }
 shared_focus = {

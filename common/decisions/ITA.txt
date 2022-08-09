@@ -356,7 +356,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
       modifier = {
         add = 2
         NOT = {
@@ -466,7 +466,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     fire_only_once = yes 
@@ -510,7 +510,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     fire_only_once = yes 
@@ -1039,7 +1039,7 @@ ITA_iron_guard = {
     days_remove = 7
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     complete_effect = {
@@ -1102,7 +1102,7 @@ ITA_iron_guard = {
     icon = border_war
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     days_remove = 25
@@ -1129,7 +1129,7 @@ ITA_iron_guard = {
     days_remove = 30
 
     ai_will_do = {
-      factor = 1
+      factor = 2000
       modifier = {
         num_of_military_factories < 25
         factor = 0
@@ -1159,7 +1159,7 @@ ITA_iron_guard = {
     icon = generic_construction
 
     ai_will_do = {
-      factor = 1
+      factor = 2000
     }
 
     days_remove = 25
@@ -1184,6 +1184,10 @@ ITA_iron_guard = {
       available = {
         ROM = { has_government = neutrality }
         check_variable = { var = global.romanian_iron_guard_coup_success_probability value = 96 compare = less_than }
+      }
+
+      ai_will_do = {
+        factor = 2000
       }
 
       days_remove = 10
@@ -1213,7 +1217,7 @@ ITA_iron_guard = {
     fire_only_once = yes
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     available = {
@@ -1263,11 +1267,11 @@ ITA_balkan_decision_cat = {
     }
 
     ai_will_do = {
-      factor = 3
-	modifier = {
-		factor = 0
-		ALB = { fascism > 0.3 }
-	}
+      factor = 2000
+      modifier = {
+        factor = 0
+        ALB = { fascism > 0.3 }
+      }
     }
 
     days_re_enable = 14
@@ -1313,7 +1317,7 @@ ITA_balkan_decision_cat = {
     }
 
     ai_will_do = {
-      factor = 3
+      factor = 2000
 	modifier = {
 		factor = 0
 		ALB = { fascism > 0.3 }
@@ -1353,7 +1357,7 @@ ITA_balkan_decision_cat = {
     }
 
     ai_will_do = {
-      factor = 3
+      factor = 2000
 	modifier = {
 		factor = 0
 		ALB = { fascism > 0.3 }
@@ -1426,7 +1430,7 @@ ITA_balkan_decision_cat = {
     }
 
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     target_trigger = {
@@ -1475,7 +1479,7 @@ ITA_seize_ottoman_cities_cat = {
     cost = 25
 
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     available = {
@@ -1528,7 +1532,7 @@ ITA_seize_ottoman_cities_cat = {
     }
 
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     fire_only_once = yes
@@ -1608,7 +1612,7 @@ ITA_maintaining_unity = {
     }
 
     ai_will_do ={
-      factor = 1
+      factor = 2000
       modifier = {
         factor = 0
         has_political_power < 75
@@ -1636,7 +1640,7 @@ ITA_maintaining_unity = {
     }
 
     ai_will_do ={
-      factor = 1
+      factor = 2000
     }
     available = {
       OR = {
@@ -1661,7 +1665,7 @@ ITA_maintaining_unity = {
       ITA_decrease_party_stability_large = yes
     }
     ai_will_do ={
-      factor = 1
+      factor = 2000
     }
 
     visible = {
@@ -1780,7 +1784,7 @@ ITA_maintaining_unity = {
       }
     }
     ai_will_do ={
-      factor = 0
+      factor = 2000
     }
 
     visible = {
@@ -1806,7 +1810,10 @@ ITA_the_mercenaries = {
 			check_variable = { ITA_mercenary_number < 500 }
 		}
 		custom_cost_text = ITA_hire_more_mercenaries_tt
-  
+    
+    ai_will_do = {
+      factor = 2000
+    }
 
     remove_effect = {
       add_to_variable = {
@@ -1824,6 +1831,10 @@ ITA_the_mercenaries = {
      has_completed_focus = ITA_expand_scavenging_operations
     }
     cost = 35
+
+    ai_will_do = {
+      factor = 2000
+    }
     
     modifier = {
       consumer_goods_factor = -0.05
@@ -1845,6 +1856,10 @@ ITA_the_mercenaries = {
     }
     cost = 70
     days_remove = 40
+
+    ai_will_do = {
+      factor = 2000
+    }
     
     modifier = {
       consumer_goods_factor = -0.1
@@ -1870,6 +1885,10 @@ ITA_the_mercenaries = {
       consumer_goods_factor = 0.025
     }
     days_remove = 20
+
+    ai_will_do = {
+      factor = 2000
+    }
 
     remove_effect = {
       add_tech_bonus = {
@@ -1898,6 +1917,10 @@ ITA_the_mercenaries = {
     }
     days_remove = 40
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     remove_effect = {
       add_tech_bonus = {
         bonus = 0.5
@@ -1923,6 +1946,11 @@ ITA_the_mercenaries = {
        owns_state = 116
      }
     }
+
+    ai_will_do = {
+      factor = 2000
+    }
+
     available = {
       NOT = {
         has_country_flag = ITA_currently_doing_mercenary_raid
@@ -1955,6 +1983,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_corfu = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -1998,6 +2030,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_agean_adventures
      NOT = {
@@ -2036,6 +2072,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_crete = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -2080,6 +2120,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_clash_at_the_dodecanese
      NOT = {
@@ -2120,6 +2164,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_secure_athens
      NOT = {
@@ -2158,6 +2206,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_izmir = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -2212,6 +2264,10 @@ ITA_portugese_corporatists = {
 				}
 			}
 		}
+
+    ai_will_do = {
+      factor = 2000
+    }
 
 		days_remove = 30
 
@@ -2289,6 +2345,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		days_remove = 30
 
 		fire_only_once = yes
@@ -2329,6 +2389,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		days_re_enable = 60
 
 		complete_effect = {
@@ -2365,6 +2429,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		cost = 50
 
 		complete_effect = {
@@ -2394,7 +2462,7 @@ ITA_sponsor_falange = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -2438,7 +2506,7 @@ ITA_sponsor_falange = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -2482,7 +2550,7 @@ ITA_sponsor_falange = {
 		}
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -2523,7 +2591,7 @@ ITA_sponsor_falange = {
 		fire_only_once = yes
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 
 		available = {
@@ -2556,7 +2624,7 @@ ITA_sponsor_falange = {
     fire_only_once = yes
 
 		ai_will_do = {
-			factor = 1
+			factor = 1000
 		}
 
     available = {
