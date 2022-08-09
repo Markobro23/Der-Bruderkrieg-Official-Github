@@ -863,7 +863,7 @@ shared_focus = {
 		icon = GFX_goal_nationalist_propoganda_movement
 		x = -1
 		y = 1
-		cost = 3
+		cost = 6
 		prerequisite = {
 			focus = ITA_era_blaspheme
 			focus = ITA_united_against_bianchi
@@ -1078,7 +1078,7 @@ shared_focus = {
 		icon = GFX_goal_AUS_sign_a_new_constitution
 		x = -1
 		y = 1
-		cost = 5
+		cost = 7
 		
 		relative_position_id = ITA_contain_paramilitary_violence
 		mutually_exclusive = {
@@ -1142,7 +1142,7 @@ shared_focus = {
 		icon = GFX_goal_SOV_the_constitutionalists
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 		
 		relative_position_id = ITA_contain_paramilitary_violence
 		prerequisite = {
@@ -1200,7 +1200,7 @@ shared_focus = {
 		icon = GFX_goal_ITA_dawn_of_the_blueshirts
 		x = -1
 		y = 1
-		cost = 2
+		cost = 4.5
 		
 		
 		prerequisite = {
@@ -1253,7 +1253,7 @@ shared_focus = {
 		icon = GFX_goal_ITA_contacts_with_confindustria
 		x = -1
 		y = 1
-		cost = 2
+		cost = 5
 		
 		
 		prerequisite = {
@@ -1512,7 +1512,7 @@ shared_focus = {
 		icon = GFX_goal_ITA_cianos_conspiracy
 		x = 0
 		y = 2
-		cost = 5
+		cost = 7
 	
 		
 		prerequisite = {
@@ -1602,7 +1602,7 @@ shared_focus = {
 		icon = GFX_goal_generic_small_arms
 		x = 0
 		y = 2
-		cost = 5
+		cost = 7
 	
 		
 		prerequisite = {
@@ -2697,7 +2697,7 @@ shared_focus = {
 		icon = GFX_focus_por_concordat
 		x = -1
 		y = 1
-		cost = 5
+		cost = 7
 		prerequisite = { focus = ITA_demand_ottoman_north_africa }
 		relative_position_id = ITA_demand_ottoman_north_africa
 		mutually_exclusive = {
@@ -2795,7 +2795,7 @@ shared_focus = {
 		icon = GFX_goal_SOV_hierarchy_of_loyalty
 		x = -2
 		y = 1
-		cost = 3
+		cost = 5
 		prerequisite = { focus = ITA_invite_hellenic_front }
 		relative_position_id = ITA_invite_hellenic_front
 		ai_will_do = {
@@ -2985,7 +2985,7 @@ shared_focus = {
 		icon = GFX_goal_ITA_claim_dalmatia
 		x = 1
 		y = 1
-		cost = 5
+		cost = 10
 		prerequisite = { focus = ITA_reshaping_our_protectorate }
 		relative_position_id = ITA_reshaping_our_protectorate
 		mutually_exclusive = { focus = ITA_invest_into_croatia }
@@ -3036,7 +3036,7 @@ shared_focus = {
 		icon = GFX_goal_AUS_the_bosnian_question
 		x = 0
 		y = 2
-		cost = 4
+		cost = 7
 		prerequisite = { focus = ITA_invest_into_croatia focus = ITA_annex_dalmatia }
 		relative_position_id = ITA_reshaping_our_protectorate
 		ai_will_do = {
@@ -3183,7 +3183,7 @@ shared_focus = {
 		icon = GFX_goal_FRA_FASCIST_VIC
 		x = 5
 		y = 1
-		cost = 5
+		cost = 6
 		prerequisite = { focus = ITA_demand_albanian_economic_concessions }
 		relative_position_id = ITA_demand_albanian_economic_concessions
 		mutually_exclusive = { focus = ITA_mediterranean_brotherhood }
@@ -3271,7 +3271,7 @@ shared_focus = {
 		icon = GFX_goal_generic_political_pressure
 		x = 1
 		y = 1
-		cost = 5
+		cost = 8
 		prerequisite = { focus = ITA_mediterranean_brotherhood focus = ITA_sponsor_the_falange }
 		relative_position_id = ITA_mediterranean_brotherhood
 		ai_will_do = {
@@ -3304,7 +3304,7 @@ shared_focus = {
 		icon = GFX_goal_generic_construct_military
 		x = 1
 		y = 1
-		cost = 5
+		cost = 7
 		prerequisite = { focus = ITA_mare_nostrum focus = ITA_demand_baleric_islands }
 		relative_position_id = ITA_mare_nostrum
 		ai_will_do = {
@@ -3371,7 +3371,7 @@ shared_focus = {
 		icon = GFX_goal_GER_supporting_the_italians
 		x = -2
 		y = 1
-		cost = 5
+		cost = 7
 		prerequisite = { focus = ITA_the_question_alliance }
 		relative_position_id = ITA_the_question_alliance
 		mutually_exclusive = { focus = ITA_florence_berlin_split }
@@ -3504,7 +3504,7 @@ shared_focus = {
 		icon = GFX_goal_SOV_using_the_radicals
 		x = 1
 		y = 1
-		cost = 5
+		cost = 9
 		prerequisite = { focus = ITA_florence_berlin_split }
 		relative_position_id = ITA_florence_berlin_split
 		mutually_exclusive = { focus = ITA_formin_ribbentrop_pact }
@@ -5781,42 +5781,7 @@ shared_focus = {
   	}
 
   	completion_reward = {
-  		if = {
-  			limit = {
-  				has_country_leader = {
-						name = "Michele Bianchi"
-						ruling_only = yes
-					}
-  			}
-  			complete_national_focus = ITA_promote_trade_unions
-  		}
-  		if = {
-  			limit = {
-  				has_country_leader = {
-						name = "Attilio Teruzzi"
-						ruling_only = yes
-					}
-  			}
-  			complete_national_focus = ITA_emphasize_militarism
-  		}
-  		if = {
-  			limit = {
-  				has_country_leader = {
-						name = "Costanzo Ciano"
-						ruling_only = yes
-					}
-  			}
-  			complete_national_focus = ITA_return_italy_to_sanity
-  		}
-  		if = {
-  			limit = {
-  				has_country_leader = {
-						name = "Julius Evola"
-						ruling_only = yes
-					}
-  			}
-  			complete_national_focus = ITA_stick_to_three_ideals
-  		}
+  		ITA_decrease_party_stability_massive = yes
   	}
   }
 
