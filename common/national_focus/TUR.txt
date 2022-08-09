@@ -2528,7 +2528,184 @@ shared_focus = {
     }
 }
 
+## FP
+shared_focus = {
+    id = TUR_sultan_meets_world
+    icon = GFX_TUR_sultan_meets_world
+    x = 25
+    y = 0
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    
+    completion_reward = {
+      country_event = TUR_arab_tree.1
+    }
+}
+shared_focus = {
+    id = TUR_pontic_provocation
+    icon = GFX_goal_TUR_pontic_provocation
+    x = 4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_sultan_meets_world
+    }
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_sultan_meets_world
+    completion_reward = {
+     
+    }
+}
 
+shared_focus = {
+    id = TUR_wolves_among_sheep
+    icon = GFX_goal_TUR_wolves_among_sheep
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_pontic_provocation
+    }
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_pontic_provocation
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = TUR_prepare_the_battlefield
+    icon = GFX_goal_TUR_prepare_the_battlefield
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_pontic_provocation
+    }
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_pontic_provocation
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = TUR_poking_the_bear
+    icon = GFX_goal_TUR_poking_the_bear
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_prepare_the_battlefield
+    }
+    prerequisite = {
+      focus = TUR_wolves_among_sheep
+    }
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_prepare_the_battlefield
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = TUR_fund_islamism_in_the_balkans
+    icon = GFX_goal_TUR_fund_islamism_in_the_balkans
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_poking_the_bear
+    }
+    
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_poking_the_bear
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = TUR_the_iron_line
+    icon = GFX_goal_TUR_the_iron_line
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_poking_the_bear
+    }
+    
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_poking_the_bear
+    completion_reward = {
+     
+    }
+}
+shared_focus = {
+    id = TUR_operation_beatrap
+    icon = GFX_goal_TUR_operation_beatrap
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 100
+    }
+    prerequisite = {
+      focus = TUR_the_iron_line
+      focus = TUR_fund_islamism_in_the_balkans
+    }
+    
+ 
+    available = {
+      
+    }
+    relative_position_id = TUR_the_iron_line
+    completion_reward = {
+     
+    }
+}
 
 ## TANZIMAT
 shared_focus = {
