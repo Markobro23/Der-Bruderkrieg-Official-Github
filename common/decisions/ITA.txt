@@ -3181,7 +3181,7 @@ ITA_uniting_rome = {
 
 }
 
-political_actions = {
+ITA_crushing_counter_revolutionaries = {
   
   ITA_hunt_far_left_please = { #almost doneeeee
 
@@ -3191,6 +3191,9 @@ political_actions = {
 
     visible = {
       has_completed_focus = ITA_hunt_down_leftist_groups
+      NOT = {
+        has_government = communism
+      }
     }
 
     available = {
@@ -3224,7 +3227,34 @@ political_actions = {
 
     modifier = {
       consumer_goods_factor = -0.02
-      production_speed_buildings_factor = 0.05
+      industrial_capacity_factory = 0.05
+    }
+
+  }
+
+  ITA_send_opponents_to_work_camps = {
+
+    cost = 25
+
+    icon = generic_construction
+
+    visible = {
+      has_completed_focus = ITA_open_work_camps
+    }
+
+    days_re_enable = 70
+
+    days_remove = 70
+
+    modifier = {
+      production_speed_buildings_factor = 0.1
+    }
+
+    remove_effect = {
+      add_popularity = {
+        ideology = ROOT
+        popularity = 0.01
+      }
     }
 
   }

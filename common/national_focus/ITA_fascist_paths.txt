@@ -1542,6 +1542,9 @@ shared_focus = {
 					ITA_third_tri_power = 0
 				}
 				set_country_flag = ITA_ciano_eliminated
+				hidden_effect = {
+					country_event = { id = ITA_fascist_tree_events.24 days = 180 random = 480 }
+				}
 			}
 			else = {
 				country_event = { id = italy_power_struggle.3 }
@@ -1630,6 +1633,9 @@ shared_focus = {
 				}
 				set_variable = {
 					ITA_third_tri_power = 0
+				}
+				hidden_effect = {
+					country_event = { id = ITA_fascist_tree_events.24 days = 180 random = 480 }
 				}
 			}
 			else = {
@@ -5874,11 +5880,14 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_open_work_camps
 		icon = GFX_goal_generic_construction2
-		x = 1
+		x = 2
 		y = 1
 		cost = 5
 		prerequisite = {
 			focus = ITA_hunt_down_leftist_groups
+		}
+		mutually_exclusive = {
+			focus = ITA_reapproachment_right
 		}
 		relative_position_id = ITA_hunt_down_leftist_groups
 
@@ -5902,13 +5911,54 @@ shared_focus = {
 					instant_build = yes
 				}
 			}
+			unlock_decision_tooltip = ITA_send_opponents_to_work_camps
+		}
+	}
+
+	shared_focus = {
+		id = ITA_reapproachment_right
+		icon = GFX_goal_ITA_contacts_with_confindustria
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_hunt_down_leftist_groups
+		}
+		mutually_exclusive = {
+			focus = ITA_open_work_camps
+		}
+		relative_position_id = ITA_hunt_down_leftist_groups
+
+		available = {
+			OR = {
+				has_idea = ITA_monarchist_rising
+				hidden_trigger = {
+					has_idea = ITA_monarchist_rising_2
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			ITA_decrease_party_stability_medium = yes
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_2
+				}
+				swap_ideas = {
+					remove_idea = ITA_monarchist_rising_2
+					add_idea = ITA_monarchist_rising_3
+				}
+			}
 		}
 	}
 
 	shared_focus = {
 		id = ITA_truly_syndicalist_economy
 		icon = GFX_USA_trust_busting
-		x = -1
+		x = -2
 		y = 1
 		cost = 5
 		prerequisite = {
@@ -5933,7 +5983,7 @@ shared_focus = {
 	shared_focus = {
 		id = ITA_consolidate_national_union
 		icon = GFX_focus_generic_self_management
-		x = 1
+		x = 0
 		y = 1
 		cost = 5
 		prerequisite = {
@@ -5964,6 +6014,271 @@ shared_focus = {
 					}
 				}
 			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_reign_of_terror
+		icon = GFX_goal_ITA_show_no_weakness
+		x = -2
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_truly_syndicalist_economy
+			focus = ITA_consolidate_national_union
+		}
+		mutually_exclusive = {
+			focus = ITA_win_over_south
+			focus = ITA_lift_umbertos_exile
+		}
+		relative_position_id = ITA_consolidate_national_union
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				has_idea = ITA_monarchist_rising
+				hidden_trigger = {
+					has_idea = ITA_monarchist_rising_2
+				}
+			}
+			NOT = {
+				has_completed_focus = ITA_focus_south_industry
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising
+				}
+				remove_ideas = ITA_monarchist_rising
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_2
+				}
+				remove_ideas = ITA_monarchist_rising_2
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_3
+				}
+				remove_ideas = ITA_monarchist_rising_3
+			}
+			add_timed_idea = {
+				idea = ITA_occupying_naples
+				days = 100
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_win_over_south
+		icon = GFX_goal_nationalist_propoganda_movement
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_truly_syndicalist_economy
+			focus = ITA_consolidate_national_union
+		}
+		mutually_exclusive = {
+			focus = ITA_reign_of_terror
+			focus = ITA_lift_umbertos_exile
+		}
+		relative_position_id = ITA_consolidate_national_union
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				has_idea = ITA_monarchist_rising
+				hidden_trigger = {
+					has_idea = ITA_monarchist_rising_2
+				}
+			}
+			NOT = {
+				has_completed_focus = ITA_focus_south_industry
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising
+				}
+				remove_ideas = ITA_monarchist_rising
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_2
+				}
+				remove_ideas = ITA_monarchist_rising_2
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_3
+				}
+				remove_ideas = ITA_monarchist_rising_3
+			}
+			ITA_decrease_party_stability_small = yes
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_return_to_war_socialism
+		icon = GFX_focus_spr_class_war
+		x = 0
+		y = 2
+		cost = 5
+		prerequisite = {
+			focus = ITA_reign_of_terror
+			focus = ITA_win_over_south
+		}
+		relative_position_id = ITA_truly_syndicalist_economy
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			has_completed_focus = ITA_truly_syndicalist_economy
+		}
+		completion_reward = {
+			add_country_leader_role = {
+				character = ITA_michele_bianchi
+				promote_leader = yes
+				country_leader = {
+					ideology = centralism
+				}
+			}
+			add_popularity = {
+				ideology = communism
+				popularity = 0.25
+			}
+			set_politics = {
+				ruling_party = communism
+				elections_allowed = no
+			}
+			swap_ideas = {
+				remove_idea = ITA_fascist_trade_unions_3
+				add_idea = ITA_war_socialist_trade_unions
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_lift_umbertos_exile
+		icon = GFX_goal_ITA_assert_the_kings_authority
+		x = 0
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_reapproachment_right
+		}
+		mutually_exclusive = {
+			focus = ITA_reign_of_terror
+			focus = ITA_win_over_south
+		}
+		relative_position_id = ITA_reapproachment_right
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = {
+			OR = {
+				has_idea = ITA_monarchist_rising
+				hidden_trigger = {
+					has_idea = ITA_monarchist_rising_2
+				}
+			}
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising
+				}
+				remove_idea = ITA_monarchist_rising
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_2
+				}
+				remove_idea = ITA_monarchist_rising_2
+			}
+			if = {
+				limit = {
+					has_idea = ITA_monarchist_rising_3
+				}
+				remove_idea = ITA_monarchist_rising_3
+			}
+		}
+	}
+
+	shared_focus = {
+		id = ITA_curb_restorationists
+		icon = GFX_goal_USA_an_old_idea
+		x = -1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_lift_umbertos_exile
+		}
+		mutually_exclusive = {
+			focus = ITA_allow_figurehead_monarch
+		}
+		relative_position_id = ITA_lift_umbertos_exile
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_popularity = {
+				ideology = neutrality
+				popularity = -0.1
+			}
+			add_political_power = 50
+			ITA_decrease_party_stability_small = yes
+		}
+	}
+
+	shared_focus = {
+		id = ITA_allow_figurehead_monarch
+		icon = GFX_goal_Uphold_Napoleonic_Ideas
+		x = 1
+		y = 1
+		cost = 5
+		prerequisite = {
+			focus = ITA_lift_umbertos_exile
+		}
+		mutually_exclusive = {
+			focus = ITA_curb_restorationists
+		}
+		relative_position_id = ITA_lift_umbertos_exile
+
+		available = {
+			NOT = {
+				has_completed_focus = ITA_incorporate_blueshirt_officers_into_grand_council
+				TUR = {
+					has_completed_focus = TUR_the_italian_exile
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		completion_reward = {
+			add_ideas = ITA_umberto_ii
+			set_cosmetic_tag = ITA_monarchist_natsynd
 		}
 	}
 
@@ -6467,6 +6782,11 @@ shared_focus = {
 			OR = {
 				has_completed_focus = ITA_protections_for_king
 				has_completed_focus = ITA_compromise_with_right_wing
+			}
+			NOT = {
+				TUR = {
+					has_completed_focus = TUR_the_italian_exile
+				}
 			}
 		}
 	

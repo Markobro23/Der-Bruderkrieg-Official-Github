@@ -1502,6 +1502,9 @@ ideas = {
 			allowed = {
 				always = no
 			}
+
+			picture = ITA_fascist_trade_unions
+
 			 cancel = {
 		  is_subject = yes
 	  }
@@ -1525,6 +1528,8 @@ ideas = {
 
 			name = ITA_fascist_trade_unions
 
+				picture = ITA_fascist_trade_unions
+
 			allowed = {
 				always = no
 			}
@@ -1546,6 +1551,32 @@ ideas = {
 				communism_drift = -0.05
 				democratic_communism_drift = -0.05
 				socialism_democratic_drift = -0.05
+			}
+		}
+
+		ITA_war_socialist_trade_unions = {
+
+			allowed = {
+				always = no
+			}
+			picture = ITA_fascist_trade_unions
+
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = 0.15
+				production_speed_buildings_factor = 0.1
+				communism_drift = 0.05
+				stability_factor = 0.05
 			}
 		}
 		
@@ -2790,6 +2821,120 @@ ideas = {
       }
 
       
+		}
+
+		ITA_monarchist_rising = {
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        neutrality_drift = 0.02
+        surrender_limit = -0.1
+      }
+
+      
+		}
+
+		ITA_monarchist_rising_2 = {
+
+			name = ITA_monarchist_rising
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        surrender_limit = -0.1
+        consumer_goods_factor = 0.1
+        stability_factor = -0.2
+       	industrial_capacity_factory = -0.1
+      }
+
+      
+		}
+
+		ITA_monarchist_rising_3 = {
+
+			name = ITA_monarchist_rising
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        surrender_limit = -0.1
+        stability_factor = -0.1
+      }
+
+      
+		}
+
+		ITA_occupying_naples = {
+			picture = ITA_broken_army
+			allowed = {
+				always = no
+			}
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = { 
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = -0.1
+				army_speed_factor = -0.1
+				stability_weekly = 0.002
+				stability_factor = -0.1
+				neutrality_drift = -0.05
+				consumer_goods_factor = 0.05
+			}
 		}
 
 		}

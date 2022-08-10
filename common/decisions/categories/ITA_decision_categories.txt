@@ -262,3 +262,22 @@ ITA_uniting_rome = {
 		is_subject = no
 	}
 }
+
+ITA_crushing_counter_revolutionaries = {
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		has_completed_focus = ITA_hunt_down_leftist_groups
+		OR = {
+			has_government = ultranationalism
+			has_country_leader = {
+				name = "Michele Bianchi"
+				ruling_only = yes
+			}
+		}
+	}
+}

@@ -3254,6 +3254,50 @@ country_event = { #ITA is leaving, wants to take us with them
 	}
 }
 
+country_event = { #the reactionaries turn to monarchism
+	id = ITA_fascist_tree_events.24
+	title = ITA_fascist_tree_events.24.t
+	desc = ITA_fascist_tree_events.24.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	is_triggered_only = yes 
+
+	option = {  #shut up larpers
+		name = ITA_fascist_tree_events.24.a 
+		ai_chance = {
+			factor = 10
+		}
+		ITA_decrease_party_stability_small = yes
+		add_ideas = ITA_monarchist_rising
+	}
+}
+
+country_event = { #the monarchists grow stronk
+	id = ITA_fascist_tree_events.25
+	title = ITA_fascist_tree_events.25.t
+	desc = ITA_fascist_tree_events.25.d
+	#picture = GFX_report_event_eng_dambuster8
+
+	trigger = {
+		tag = ITA
+		has_idea = ITA_monarchist_rising
+		neutrality > 0.3
+	}
+
+	fire_only_once = yes
+
+	option = {  #excuse my german, but scheisse
+		name = ITA_fascist_tree_events.25.a 
+		ai_chance = {
+			factor = 10
+		}
+		swap_ideas = {
+			remove_idea = ITA_monarchist_rising
+			add_idea = ITA_monarchist_rising_2
+		}
+	}
+}
+
 add_namespace = ITA_mercenary_events
 
 #malta
