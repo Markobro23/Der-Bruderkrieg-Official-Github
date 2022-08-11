@@ -19,34 +19,34 @@ country_event = {
 		}
 		if = {
 			limit = {
-				any_neighboring_country = {
-					has_country_flag = xibei_ming
+				any_neighbor_country = {
+					has_country_flag = mongolia_ming
 				}
 			}
 			608 = {
 				owner = {
-				create_faction = QNG_qing_sphere
+					create_faction = QNG_qing_sphere
 				}
 				QNG = { add_to_faction = XSM }
 			}
-			news_event = {id = xibei.2 }
 			
 		}
 		if = {
 			limit = {
-				any_neighboring_country = {
-					has_country_flag = xibei_qing
+				any_neighbor_country = {
+					has_country_flag = mongolia_qing
 				}
 			}
 			613 = {
 				owner = {
-				create_faction = MNG_ming_sphere
+					create_faction = MNG_ming_sphere
 				}
 				MNG = { add_to_faction = XSM }
 			}
-			news_event = {id = xibei.3 }
 			
 		}
+		
+		news_event = {id = xibei.2 }
 			
 	}
 	option = { 
@@ -57,6 +57,7 @@ country_event = {
 			value = 1
 		}
 		add_war_support = 0.15
+	}
 }
 news_event = {
 	id = xibei.2 
@@ -73,22 +74,7 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 	}
 }
-news_event = {
-	id = xibei.3 
-	title = xibei.3.t
-	desc = xibei.3.d
-	#picture = 
-	major = yes
  
-	#fire_only_once = yes   
-	is_triggered_only = yes
-
-	option = { # Only one option, just an acknowledgment by the player
-		name = xibei.3.a 
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
-	}
-} 
 
 
  
