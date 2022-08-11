@@ -145,61 +145,56 @@ usa_modify_electoral_college_effect ={
 		}
 		usa_borah_modify_electoral_college_effect = yes
 	}
+	USA_electoral_vars_setup = yes
 }
 
 usa_long_modify_electoral_college_effect = {
-	custom_effect_tooltip = usa_modify_electoral_college_effect_tt
+	#custom_effect_tooltip = usa_modify_electoral_college_effect_tt
 	add_to_variable = {
-		long_electoral = 3
+		tooltip = USA_increase_long_support_by_two
+		long_support = 2
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_smiths_support_by_1
-		smith_electoral = -1
+		smith_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_warrens_support_by_1
-		borah_electoral = -1
+		borah_support = -1
 	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
-	}
+	
 }
 
 usa_smith_modify_electoral_college_effect ={
-	custom_effect_tooltip = usa_smith_modify_electoral_college_effect_tt
+	#custom_effect_tooltip = usa_smith_modify_electoral_college_effect_tt
 	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_1
-		long_electoral = -1
+		tooltip = USA_increase_smith_support_by_two
+		smith_support = 2
 	}
 	add_to_variable = {
-		smith_electoral = 3
+		tooltip = USA_decrease_longs_support_by_1
+		long_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_warrens_support_by_1
-		borah_electoral = -1
+		borah_support = -1
 	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
-	}
+	
 }
 
 usa_borah_modify_electoral_college_effect ={
-	custom_effect_tooltip = usa_warren_modify_electoral_college_effect_tt
+	#custom_effect_tooltip = usa_warren_modify_electoral_college_effect_tt
+	add_to_variable = {
+		tooltip = USA_increase_borah_support_by_two
+		borah_support = 2
+	}
 	add_to_variable = {
 		tooltip = USA_decrease_longs_support_by_1
-		long_electoral = -1
+		long_support = -1
 	}
 	add_to_variable = {
-		smith_electoral = -1
-	}
-	add_to_variable = {
-		borah_electoral = 3
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
+		tooltip = USA_decrease_smiths_support_by_1
+		smith_support = -1
 	}
 }
 
@@ -274,14 +269,46 @@ d_us_election_debug = {
 		}
 	}
 }
-
+d_USA_electoral_vars_setup = {
+	USA_electoral_vars_setup = yes
+}
 USA_electoral_vars_setup = { 
-		set_variable = { long_electoral = 160}
-		set_variable = { borah_electoral = 153}
-		set_variable = { smith_electoral = 160}
-		set_variable = { undecided_electoral = 58}
+	set_variable = {
+		long_electoral = 0
+	}
+	set_variable = {
+		smith_electoral = 0
+	}
+	set_variable = {
+		borah_electoral = 0
+	}
+	hidden_effect = {
+		every_owned_state = {
+			limit = {
+				is_long_state = yes
+			}
+			add_to_variable = {
+				USA.long_electoral = THIS.electoral_college_value
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_smith_state = yes
+			}
+			add_to_variable = {
+				USA.smith_electoral = THIS.electoral_college_value
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_borah_state = yes
+			}
+			add_to_variable = {
+				USA.borah_electoral = THIS.electoral_college_value
+			}
+		}
 		progressbar_calc_usa_election_stuff = yes
-		
+	}
 }
 
 d_USA_election_timeout_effect = {
