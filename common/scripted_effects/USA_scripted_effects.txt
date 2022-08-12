@@ -449,6 +449,19 @@ d_USA_dustbowl_remove = {
 	remove_ideas = USA_dust_bowl_3
 }
 
+d_usa_log_electoral_values = {
+	USA = {
+		every_owned_state = {
+			if = {
+				limit = {
+					is_core_of = USA
+				}
+				log = "[THIS.GetName]: [?THIS.electoral_college_value]"
+			}
+		}
+	}
+}
+
 USA_dustbowl_states_setup = {
 	375 = {
 		add_to_array = {
