@@ -57,8 +57,9 @@ scripted_gui = {
           }
           USA = {
             OR = {
-              has_completed_focus = USA_1936_DNC
-              has_completed_focus = USA_1936_RNC
+              has_completed_focus = USA_longs_tour_of_america
+              has_completed_focus = USA_smith_campaign
+              has_completed_focus = USA_the_warren_campaign
             }
           }
         }
@@ -165,12 +166,40 @@ scripted_gui = {
       USA_election_map_new_york_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.21 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.22 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.21 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.22 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.21 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.22 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.21 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.22 }
+            }
           }
         }
       }
@@ -179,108 +208,360 @@ scripted_gui = {
       USA_election_map_new_england_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.1 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.2 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.1 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.2 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.1 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.2 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.1 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.2 }
+            }
           }
         }
       }
       USA_election_map_mid_atlantic_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.5 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.6 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.5 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.6 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.5 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.6 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.5 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.6 }
+            }
           }
         }
       }
       USA_election_map_deep_south_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.7 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.8 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.7 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.8 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.7 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.8 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.7 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.8 }
+            }
           }
         }
       }
       USA_election_map_the_south_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.9 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.10 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.9 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.10 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.9 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.10 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.9 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.10 }
+            }
           }
         }
       }
       USA_election_map_pacific_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.11 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.12 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.11 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.12 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.11 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.12 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.11 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.12 }
+            }
           }
         }
       }
       USA_election_map_pacific_northwest_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.13 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.14 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.13 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.14 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.13 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.14 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.13 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.14 }
+            }
           }
         }
       }
       USA_election_map_rockies_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.15 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.16 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.15 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.16 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.15 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.16 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.15 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.16 }
+            }
           }
         }
       }
       USA_election_map_great_plains_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.17 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.18 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.17 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.18 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.17 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.18 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.17 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.18 }
+            }
           }
         }
       }
       USA_election_map_rustbelt_button_click = {
         set_country_flag = { flag = USA_already_campaigning_in_state days = 20 }
         add_political_power = -20
-        random_list = {
-          75 = {
-            country_event = { id = USA_campaign_decision_events.19 }
+        if = {
+          limit = {
+            has_completed_focus = USA_longs_campaign_speech
           }
-          25 = {
-            country_event = { id = USA_campaign_decision_events.20 }
+          random_list = {
+            75 = {
+              country_event = { id = USA_campaign_decision_events.19 }
+            }
+            25 = {
+              country_event = { id = USA_campaign_decision_events.20 }
+            }
+          }
+        }
+        else_if = {
+          limit = {
+            has_completed_focus = USA_smith_campaign
+          }
+          random_list = {
+            75 = {
+              country_event = { id = USA_smith_campaign_decision_events.19 }
+            }
+            25 = {
+              country_event = { id = USA_smith_campaign_decision_events.20 }
+            }
+          }
+        }
+        else = {
+          random_list = {
+            75 = {
+              country_event = { id = USA_borah_campaign_decision_events.19 }
+            }
+            25 = {
+              country_event = { id = USA_borah_campaign_decision_events.20 }
+            }
           }
         }
       }

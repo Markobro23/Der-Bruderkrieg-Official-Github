@@ -59,6 +59,13 @@ focus_tree = {
 		completion_reward = {
 			custom_effect_tooltip = election_gui_tt
 			country_event = USA_starting_events.9
+
+			hidden_effect = {
+				country_event = {
+					id = USA_democratic_national_convention.1
+					days = 156
+				}
+			}
 		}
 	}
 	# focus = {
@@ -356,7 +363,7 @@ focus_tree = {
 		icon = GFX_goal_USA_1936_DNC
 		x = 0
 		y = 5
-		cost = 2
+		cost = 0
 		ai_will_do = {
 			factor = 100
 		}
@@ -367,15 +374,14 @@ focus_tree = {
 			focus = USA_1936_RNC
 		}
 		bypass = {
+			has_country_flag = USA_dnc_has_ended
 		}
 
 		available_if_capitulated = yes
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			country_event = {
-				 id = USA_democratic_national_convention.1
-			}
+			
 		}
 	}
 	
@@ -646,7 +652,7 @@ focus_tree = {
 		icon = GFX_goal_USA_1936_RNC
 		x = 7
 		y = 5
-		cost = 2
+		cost = 0
 		ai_will_do = {
 			factor = 0
 		}
@@ -654,6 +660,7 @@ focus_tree = {
 			date > 1936.6.1
 		}
 		bypass = {
+			has_country_flag = USA_the_warren_campaign_unlock
 		}
 		mutually_exclusive = {
 			focus = USA_1936_DNC
@@ -663,7 +670,7 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			country_event = USA_republican_national_convention.1
+			
 		}
 	}
 	focus = {
@@ -7456,7 +7463,7 @@ shared_focus = {
 	}
 	available = {
 		JAP = {
-			has_government = democratic_liberalism
+			has_government = democratic
 		}
 	}
 	mutually_exclusive = {

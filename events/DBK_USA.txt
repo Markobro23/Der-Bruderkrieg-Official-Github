@@ -505,6 +505,13 @@ country_event = {
 			days = 1
 		}
 	}
+	option = {
+		name = USA_democratic_national_convention.1.b
+		country_event = {
+			id = USA_republican_national_convention.1
+			days = 1
+		}
+	}
 }
 ##THe convention begins
 country_event = {
@@ -5134,6 +5141,44 @@ country_event = {
 		
 	}
 }
+#NY Campaign a Success for Huey Long!
+country_event = {
+	id = USA_smith_campaign_decision_events.21
+	title = USA_smith_campaign_decision_events.21.t
+	desc = USA_smith_campaign_decision_events.21.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_smith_campaign_decision_events.21.a
+		358 = {
+			add_to_variable = {
+				smith_support = 3
+			}
+			usa_smith_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		359 = {
+			add_to_variable = {
+				smith_support = 3
+			}
+			usa_smith_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		USA_electoral_vars_setup = yes
+	}
+}
+#NY Campaign fails for Huey Long!
+country_event = {
+	id = USA_smith_campaign_decision_events.22
+	title = USA_smith_campaign_decision_events.22.t
+	desc = USA_smith_campaign_decision_events.22.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_smith_campaign_decision_events.22.a
+		
+	}
+}
 
 
 
@@ -5793,7 +5838,44 @@ country_event = {
 		
 	}
 }
-
+#NY Campaign a Success for Huey Long!
+country_event = {
+	id = USA_borah_campaign_decision_events.21
+	title = USA_borah_campaign_decision_events.21.t
+	desc = USA_borah_campaign_decision_events.21.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_borah_campaign_decision_events.21.a
+		358 = {
+			add_to_variable = {
+				borah_support = 3
+			}
+			usa_borah_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		359 = {
+			add_to_variable = {
+				borah_support = 3
+			}
+			usa_borah_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		USA_electoral_vars_setup = yes
+	}
+}
+#NY Campaign fails for Huey Long!
+country_event = {
+	id = USA_borah_campaign_decision_events.22
+	title = USA_borah_campaign_decision_events.22.t
+	desc = USA_borah_campaign_decision_events.22.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_borah_campaign_decision_events.22.a
+		
+	}
+}
 add_namespace = USA_debug_events
 country_event = {
 	id = USA_debug_events.1
