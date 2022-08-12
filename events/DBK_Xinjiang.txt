@@ -1,68 +1,151 @@
-add_namespace = xibei
+add_namespace = xinjiang
 
 
 country_event = {
-	id = xibei.1 
-	title = xibei.1.t
-	desc = xibei.1.d
+	id = xinjiang.1 
+	title = xinjiang.1.t
+	desc = xinjiang.1.d
 	#picture = 
 
 	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { 
-		name = xibei.1.a 
-		ai_chance = { factor = 60 }
-		set_country_flag = {
-			flag = xibei_small_nationalism
-			value = 1
+		name = xinjiang.1.a 
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
 		}
-		if = {
-			limit = {
-				any_neighbor_country = {
-					has_country_flag = mongolia_ming
-				}
-			}
-			608 = {
-				owner = {
-					create_faction = QNG_qing_sphere
-				}
-				QNG = { add_to_faction = XSM }
-			}
-			
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
 		}
-		if = {
-			limit = {
-				any_neighbor_country = {
-					has_country_flag = mongolia_qing
-				}
-			}
-			613 = {
-				owner = {
-					create_faction = MNG_ming_sphere
-				}
-				MNG = { add_to_faction = XSM }
-			}
-			
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
 		}
-		
-		news_event = {id = xibei.2 }
-			
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		UMR = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+		}
 	}
 	option = { 
-		name = xibei.1.b
-		ai_chance = { factor = 40 }
-		set_country_flag = {
-			flag = xibei_large_nationalism
-			value = 1
+		name = xinjiang.1.b
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
 		}
-		add_war_support = 0.15
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		KUL = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+		}
+	}
+	option = { 
+		name = xinjiang.1.c
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		ETS = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+		}
+	}
+	option = { 
+		name = xinjiang.1.d
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		ILI = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+		}
+	}
+	immediate = {
+		
 	}
 }
 news_event = {
-	id = xibei.2 
-	title = xibei.2.t
-	desc = xibei.2.d
+	id = xinjiang.2 
+	title = xinjiang.2.t
+	desc = xinjiang.2.d
 	#picture = 
 	major = yes
  
@@ -70,7 +153,7 @@ news_event = {
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
-		name = xibei.2.a 
+		name = xinjiang.2.a 
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 	}
 }
