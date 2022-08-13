@@ -199,65 +199,96 @@ usa_borah_modify_electoral_college_effect ={
 }
 
 usa_smith_decrease_long_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = usa_smith_modify_electoral_college_effect_tt_2
-		long_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_2
-		smith_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_long_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_longs_support_by_2
+			long_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_smith_support_by_two
+			smith_support = 2
+		}
 	}
 }
 usa_smith_decrease_warren_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_warrens_support_by_2
-		borah_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_smith_modify_electoral_college_effect_tt_2
-		smith_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_borah_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_warrens_support_by_2
+			borah_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_smith_support_by_two
+			smith_support = 2
+		}
 	}
 }
 
 
 usa_long_decrease_smith_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_smiths_support_by_2
-		smith_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_modify_electoral_college_effect_tt_2
-		long_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_smith_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_smiths_support_by_2
+			smith_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_long_support_by_two
+			long_support = 2
+		}
 	}
 }
 usa_long_decrease_warren_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_warrens_support_by_2
-		borah_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_modify_electoral_college_effect_tt_2
-		long_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_borah_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_warrens_support_by_2
+			borah_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_long_support_by_two
+			long_support = 2
+		}
 	}
 }
 
 usa_warren_decrease_smith_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_smiths_support_by_2
-		smith_electoral = -2
-	}
-	add_to_variable = {
-		borah_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_smith_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_smiths_support_by_2
+			smith_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_borah_support_by_two
+			borah_support = 2
+		}
 	}
 }
 usa_warren_decrease_long_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = usa_warren_modify_electoral_college_effect_tt_2
-		borah_electoral = 2
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_2
-		long_electoral = -2
+	random_owned_controlled_state = {
+		limit = {
+			is_long_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_longs_support_by_2
+			long_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_borah_support_by_two
+			borah_support = 2
+		}
 	}
 }
 

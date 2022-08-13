@@ -641,8 +641,18 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			usa_long_modify_electoral_college_effect = yes
-			usa_long_modify_electoral_college_effect = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_borah_state = yes
+				}
+				usa_long_modify_electoral_college_effect = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_borah_state = yes
+				}
+				usa_long_modify_electoral_college_effect = yes
+			}
 		}
 	}
 
@@ -6856,14 +6866,14 @@ shared_focus = {
 	completion_reward = {
 		unlock_decision_category_tooltip = USA_generic_foreign_far_east_decisions
 	
-		hidden_effect = {
-			JAP = {
-				country_event = {
-					id = JAP_taishos_will.1
-					days = 3
-				}
-			}
-		}
+		# hidden_effect = {
+		# 	JAP = {
+		# 		country_event = {
+		# 			id = JAP_taishos_will.1
+		# 			days = 3
+		# 		}
+		# 	}
+		# }
 	}
 }
 
@@ -6878,7 +6888,7 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
-		OR = {  }
+		# OR = {  }
 	}
 	mutually_exclusive = {
 		focus = USA_the_rising_sun
@@ -7159,6 +7169,7 @@ shared_focus = {
 	relative_position_id = USA_host_hirohito_in_exile
 	
 	completion_reward = {
+		add_political_power = 50
 		unlock_decision_tooltip = USA_funding_northern_showa_cells
 		unlock_decision_tooltip = USA_funding_central_showa_cells
 		unlock_decision_tooltip = USA_funding_southern_showa_cells
