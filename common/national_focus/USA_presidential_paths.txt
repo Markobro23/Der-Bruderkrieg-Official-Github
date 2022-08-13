@@ -63,7 +63,7 @@ focus_tree = {
 			hidden_effect = {
 				country_event = {
 					id = USA_democratic_national_convention.1
-					days = 156
+					days = 143
 				}
 			}
 		}
@@ -902,9 +902,8 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			usa_smith_modify_electoral_college_effect = yes
-			usa_smith_modify_electoral_college_effect = yes
-			add_political_power = 25
+			
+			add_political_power = 50
 		}
 	}
 	focus = { 
@@ -926,8 +925,15 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			add_political_power = 25
-			##south campaigning reduce cost
+			370 = {
+				usa_smith_modify_electoral_college_effect = yes
+			}
+			367 = {
+				usa_smith_modify_electoral_college_effect = yes
+			}
+			365 = {
+				usa_smith_modify_electoral_college_effect = yes
+			}
 		}
 	}
 
@@ -975,10 +981,9 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			usa_smith_modify_electoral_college_effect = yes
-			usa_smith_modify_electoral_college_effect = yes
-			usa_smith_modify_electoral_college_effect = yes
-			usa_smith_modify_electoral_college_effect = yes
+			358 = { usa_smith_modify_electoral_college_effect = yes }	
+			360 = { usa_smith_modify_electoral_college_effect = yes }
+	
 		}
 	}
 	focus = { 
@@ -1003,8 +1008,12 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			usa_smith_modify_electoral_college_effect = yes
-			usa_smith_modify_electoral_college_effect = yes
+			random_owned_controlled_state = {
+				limit = {
+					has_state_category = rural
+				}
+				usa_smith_modify_electoral_college_effect = yes
+			}
 		}
 	}
 	
@@ -5399,7 +5408,7 @@ shared_focus = {
 	x = 1
 	y = 1
 	relative_position_id = USA_political_alliances
-	cost = 5
+	cost = 3.5
 	available_if_capitulated = yes
 
 	ai_will_do = {
@@ -5418,7 +5427,7 @@ shared_focus = {
 	y = 1
 	relative_position_id = USA_political_alliances
 
-	cost = 5
+	cost = 3.5
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -5514,6 +5523,10 @@ shared_focus = {
 	}
 	completion_reward = {
 		##add mcadoos cabinet
+		add_ideas = harry_f_byrd
+		add_ideas = chauncey_sparks
+		add_ideas = leander_perez
+		add_ideas = fielding_l_wright
 	}
 }
 
@@ -5682,7 +5695,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = USA_wilsonian_cabinet
-	cost = 5
+	cost = 3
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -5919,7 +5932,7 @@ shared_focus = {
 	x = 2
 	y = 1
 	relative_position_id = USA_abitious_commanders
-	cost = 5
+	cost = 2.5
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -5932,31 +5945,31 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = USA_a_new_secretary_of_the_navy
-	icon = GFX_DBK_generic_build_navy
-	prerequisite = { focus = USA_increase_military_wages }
-	x = 0
-	y = 1
-	relative_position_id = USA_increase_military_wages
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
+# shared_focus = {
+# 	id = USA_a_new_secretary_of_the_navy
+# 	icon = GFX_DBK_generic_build_navy
+# 	prerequisite = { focus = USA_increase_military_wages }
+# 	x = 0
+# 	y = 1
+# 	relative_position_id = USA_increase_military_wages
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 100
+# 	}
+# 	completion_reward = {
 		
-	}
-}
+# 	}
+# }
 
 shared_focus = {
 	id = USA_liberty_bonds
 	icon = GFX_goal_mil_equipment
-	prerequisite = { focus = USA_a_new_secretary_of_the_navy }
+	prerequisite = { focus = USA_increase_military_wages }
 	x = 0
 	y = 1
-	relative_position_id = USA_a_new_secretary_of_the_navy
-	cost = 5
+	relative_position_id = USA_increase_military_wages
+	cost = 3.5
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
@@ -5976,7 +5989,7 @@ shared_focus = {
 	x = 0
 	y = 1
 	relative_position_id = USA_liberty_bonds
-	cost = 5
+	cost = 3
 	available_if_capitulated = yes
 	ai_will_do = {
 		factor = 100
