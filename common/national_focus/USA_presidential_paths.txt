@@ -11,6 +11,7 @@ focus_tree = {
 
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
+	shared_focus = USA_denounce_the_mosley_regime
 	shared_focus = USA_the_far_east
 	shared_focus = USA_the_continent_down_south
 	shared_focus = USA_american_mandate_iniative
@@ -691,7 +692,7 @@ focus_tree = {
 		y = 1
 		cost = 2
 		ai_will_do = {
-			factor = 0
+			factor = 100
 		}
 		available = {
 			has_country_flag = USA_the_warren_campaign_unlock
@@ -1077,6 +1078,7 @@ focus_tree = {
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
+	shared_focus = USA_denounce_the_mosley_regime
 	shared_focus = USA_the_far_east
 	shared_focus = USA_the_continent_down_south
 	shared_focus = USA_american_mandate_iniative
@@ -2255,6 +2257,9 @@ shared_focus = {
     }
 	mutually_exclusive = {
 		focus = USA_the_british_situation
+	}
+	mutually_exclusive = {
+		focus = USA_denounce_the_mosley_regime
 	}
 	offset = {
 		trigger = {
@@ -3810,6 +3815,7 @@ focus_tree = {
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
+	shared_focus = USA_denounce_the_mosley_regime
 	shared_focus = USA_the_far_east
 	shared_focus = USA_the_continent_down_south
 	shared_focus = USA_american_mandate_iniative
@@ -6503,7 +6509,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_the_british_situation
 	icon = GFX_goal_USA_the_british_situation
-	x = 29
+	x = 32
 	y = 0
 	cost = 5
 	available_if_capitulated = yes
@@ -6513,6 +6519,9 @@ shared_focus = {
 	
 	mutually_exclusive = {
 		focus = USA_establishing_the_dc_pact
+	}
+	mutually_exclusive = {
+		focus = USA_denounce_the_mosley_regime
 	}
 	available = {
 		OR = {
@@ -6543,8 +6552,8 @@ shared_focus = {
 shared_focus = {
 	id = USA_denounce_the_mosley_regime
 	icon = GFX_goal_USA_the_british_situation
-	x = -1
-	y = 1
+	x = 27
+	y = 0
 	cost = 5
 	available_if_capitulated = yes
 	ai_will_do = {
@@ -6554,12 +6563,19 @@ shared_focus = {
 		ENG = { has_country_flag = UK_chose_mosley }
 	}
 	mutually_exclusive = {
-		focus = USA_bring_them_to_the_table
+		focus = USA_establishing_the_dc_pact
 	}
-	prerequisite = {
+	mutually_exclusive = {
 		focus = USA_the_british_situation
 	}
-	relative_position_id = USA_the_british_situation
+	offset = {
+		trigger = {
+			has_focus_tree = usa_smith_presidency_tree
+		}
+		x = 1
+		y = 0
+	}
+
 	
 	
 	completion_reward = {
@@ -6586,7 +6602,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_bring_them_to_the_table
 	icon = GFX_Diplo_Britain
-	x = 1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -6595,9 +6611,7 @@ shared_focus = {
 	}
 	available = {
 	}
-	mutually_exclusive = {
-		focus = USA_denounce_the_mosley_regime
-	}
+
 	prerequisite = {
 		focus = USA_the_british_situation
 	}
@@ -6738,7 +6752,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_demand_reparations
 	icon = GFX_goal_Death
-	x = -1
+	x = -5
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -6746,24 +6760,34 @@ shared_focus = {
 		factor = 1000
 	}
 	available = {
-		has_country_flag = ENG_Denies_USA_Conference
+		if = {
+			limit = {
+				has_completed_focus = USA_bring_them_to_the_table
+			}
+			has_country_flag = ENG_Denies_USA_Conference
+		}
 	}
 	mutually_exclusive = {
 		focus = USA_forget_the_past
 	}
 	prerequisite = {
 		focus = USA_bring_them_to_the_table
+		focus = USA_denounce_the_mosley_regime
 	}
 	relative_position_id = USA_bring_them_to_the_table
 	
 	completion_reward = {
+		add_timed_idea = {
+			idea = USA_stand_against_the_brits
+			days = 1000
+		}
 	}
 }
 
 shared_focus = {
 	id = USA_forget_the_past
 	icon = GFX_goal_Generic_British_Advisors
-	x = 1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -6782,13 +6806,14 @@ shared_focus = {
 	relative_position_id = USA_bring_them_to_the_table
 	
 	completion_reward = {
+		add_ideas = USA_british_cooperation
 	}
 }
 
 shared_focus = {
 	id = USA_renew_our_cold_war
 	icon = GFX_goal_AUS_the_coldest_night
-	x = -1
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -6799,7 +6824,7 @@ shared_focus = {
 	}
 	prerequisite = {
 		focus = USA_demand_reparations
-		focus = USA_denounce_the_mosley_regime
+		
 	}
 	
 	relative_position_id = USA_demand_reparations
@@ -6882,7 +6907,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_bury_the_hatchet
 	icon = GFX_goal_AUS_the_european_accords
-	x = 2
+	x = 0
 	y = 1
 	cost = 5
 	available_if_capitulated = yes
@@ -7994,7 +8019,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_american_mandate_iniative
 	icon = GFX_goal_USA_american_mandate_iniatiative
-	x = 31
+	x = 30
 	y = 8
 	cost = 5
 	available_if_capitulated = yes
@@ -8339,6 +8364,7 @@ focus_tree = {
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
+	shared_focus = USA_denounce_the_mosley_regime
 	shared_focus = USA_the_far_east
 	shared_focus = USA_the_continent_down_south
 	shared_focus = USA_american_mandate_iniative
