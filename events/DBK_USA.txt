@@ -207,6 +207,59 @@ country_event = {
 	}
 }
 
+## Caracas Conference
+country_event = {
+	id = USA_starting_events.11
+	title = USA_starting_events.11.t
+	desc = USA_starting_events.11.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.11.a
+		COL = {
+			add_timed_idea = {
+				idea = COL_american_loans
+				days = 800
+			}
+		}
+	}
+	option = { 
+		name = USA_starting_events.11.b
+		USA = {
+			transfer_state = 489
+			transfer_state = 970
+			transfer_state = 307
+			transfer_state = 972
+		}
+		COL = {
+			transfer_state = 971
+			transfer_state = 488
+			transfer_state = 973
+		}
+	}
+	option = { 
+		name = USA_starting_events.11.c
+		COL = {
+			set_cosmetic_tag = GCO_UNIFIED
+			annex_country = {
+				target = VEN
+				transfer_troops = yes
+			}
+			every_controlled_state = {
+				add_core_of = COL
+			}
+		}
+		COL = {
+			add_timed_idea = {
+				idea = COL_grand_colombian_tensions
+				days = 500
+			}
+		}
+	}
+}
+
 
 add_namespace = USA_election_leadup
 

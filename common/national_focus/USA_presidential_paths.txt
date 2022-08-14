@@ -309,6 +309,7 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
+			country_event = USA_starting_events.11
 		}
 	}
 
@@ -334,14 +335,14 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-			
+			add_political_power = -75
 		}
 	}
 	focus = {
 		id = USA_bulwark_against_socialism
 		icon = GFX_goal_SOV_anti_left_propoganda
-		prerequisite = { focus = USA_the_venezuelan_disaster focus = USA_the_caracas_conference }
-		x = 1
+		prerequisite = { focus = USA_the_caracas_conference }
+		x = 0
 		y = 1
 		relative_position_id = USA_the_caracas_conference
 		cost = 4
@@ -762,8 +763,18 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			usa_borah_modify_electoral_college_effect = yes
-			usa_borah_modify_electoral_college_effect = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_long_state = yes
+				}
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_long_state = yes
+				}
+				usa_borah_modify_electoral_college_effect = yes
+			}
 		}
 	}
 
@@ -811,8 +822,18 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 	
 		completion_reward = {
-			usa_borah_modify_electoral_college_effect = yes
-			usa_borah_modify_electoral_college_effect = yes
+			random_owned_controlled_state = {
+				limit = {
+					is_smith_state = yes
+				}
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			random_owned_controlled_state = {
+				limit = {
+					is_smith_state = yes
+				}
+				usa_borah_modify_electoral_college_effect = yes
+			}
 		}
 	}
 	focus = { 
@@ -838,6 +859,21 @@ focus_tree = {
 	
 		completion_reward = {
 			##great west push
+			378 = {
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			386 = {
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			385 = {
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			379 = {
+				usa_borah_modify_electoral_college_effect = yes
+			}
+			377 = {
+				usa_borah_modify_electoral_college_effect = yes
+			}
 		}
 	}
 
@@ -6527,6 +6563,23 @@ shared_focus = {
 	
 	
 	completion_reward = {
+		every_country = {
+			limit = {
+				OR = {
+					has_government = democratic
+					has_government = democratic_liberalism
+					has_governmnent = socialism_democratic
+				}
+				has_opinion = {
+					target = ENG
+					value < 1
+				}
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = minor_sanctions
+			}
+		}
 	}
 }
 

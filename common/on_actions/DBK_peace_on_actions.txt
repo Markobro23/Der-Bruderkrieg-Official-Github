@@ -1763,6 +1763,30 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					tag = JBS
+					FROM = {
+						tag = TUR
+					}
+				}
+				TUR = {
+					puppet = JBS
+				}
+			}
+			if = {
+				limit = {
+					tag = ANA
+					FROM = {
+						tag = TUR
+					}
+				}
+				TUR = {
+					puppet = ANA
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
 					tag = CHI
 					FROM = {
 						OR = {
