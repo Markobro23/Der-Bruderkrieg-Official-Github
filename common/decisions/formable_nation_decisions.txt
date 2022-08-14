@@ -1665,5 +1665,264 @@ reunite_russia_category = {
 		}
 
 	}
+}
 
+
+reunite_denmark_category = {
+	
+	reunite_denmark_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			owns_state = 99
+			owns_state = 37
+			owns_state = 100
+			owns_state = 337
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			if = {
+				limit = {
+					tag = DEN
+				}
+				add_state_core = 100
+			}
+			if = {
+				limit = {
+					tag = ICE
+				}
+				set_cosmetic_tag = DEN
+				add_state_core = 99
+				add_state_core = 37
+			}
+		}
+
+	}
+
+}
+
+unite_kalmar_category = {
+	
+	kalmar_union_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_swedish_states
+				controls_state = 666
+				controls_state = 38
+				controls_state = 141
+				controls_state = 139
+				controls_state = 140
+				controls_state = 138
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_norwegian_states
+				controls_state = 144
+				controls_state = 143
+				controls_state = 110
+				controls_state = 142
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_all_danish_lands
+				controls_state = 100
+				controls_state = 337
+				controls_state = 99
+				controls_state = 37
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_global_flag = kalmar_union_established
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = kalmar_union
+			set_global_flag = kalmar_union_established
+			every_state = {
+				limit = {
+					OR = {
+						state = 666
+						state = 38
+						state = 141
+						state = 139
+						state = 140
+						state = 138
+						state = 144
+						state = 143
+						state = 110
+						state = 142
+						state = 100
+						state = 337
+						state = 99
+						state = 37
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+		}
+
+	}
+
+}
+
+unite_north_sea_category = {
+	
+	north_sea_empire_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_british_states
+				controls_state = 120
+				controls_state = 136
+				controls_state = 125
+				all_of_scopes = {
+					array = ENG.election_states
+					value = THIS
+					is_owned_by = ROOT
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_norwegian_states
+				controls_state = 144
+				controls_state = 143
+				controls_state = 110
+				controls_state = 142
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_all_danish_lands
+				controls_state = 100
+				controls_state = 337
+				controls_state = 99
+				controls_state = 37
+			}
+		}
+
+		visible = {
+			NOT = {
+				has_global_flag = north_sea_union_established
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = north_sea_union
+			set_global_flag = north_sea_union_established
+			every_state = {
+				limit = {
+					OR = {
+						is_in_array = {
+							array = ENG.election_states
+							value = THIS
+						}
+						state = 125
+						state = 136
+						state = 120
+						state = 144
+						state = 143
+						state = 110
+						state = 142
+						state = 100
+						state = 337
+						state = 99
+						state = 37
+					}
+					NOT = { is_core_of = ROOT }
+				}
+				add_core_of = ROOT
+			}
+		}
+
+	}
+
+}
+
+unite_iberia_category = {
+	unite_iberia_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_spanish_states
+				controls_state = 41
+				controls_state = 165
+				controls_state = 166
+				controls_state = 167
+				controls_state = 168
+				controls_state = 170
+				controls_state = 171
+				controls_state = 172
+				controls_state = 173
+				controls_state = 174
+				controls_state = 175
+				controls_state = 176
+				controls_state = 788
+				controls_state = 789
+				controls_state = 790
+				controls_state = 791
+				controls_state = 792
+				controls_state = 793
+				controls_state = 794
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_portugese_states
+				controls_state = 112
+				controls_state = 179
+				controls_state = 180
+				controls_state = 181
+				controls_state = 795
+			}
+		
+		}
+
+		visible = {
+			NOT = {
+				has_global_flag = iberian_union_established
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = iberian_union
+			set_global_flag = iberian_union_established
+			every_controlled_state = {
+				limit = {
+					NOT = { is_core_of = ROOT }
+					is_on_continent = europe
+				}
+				add_core_of = ROOT
+			}
+		}
+
+	}
 }
