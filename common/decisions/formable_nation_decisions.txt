@@ -1686,7 +1686,6 @@ reunite_russia_category = {
 		}
 
 	}
-
 }
 
 reunite_denmark_category = {
@@ -1880,4 +1879,71 @@ unite_north_sea_category = {
 
 	}
 
+
+}
+
+unite_iberia_category = {
+	unite_iberia_decision = {
+
+		icon = generic_form_nation
+
+		fire_only_once = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = controls_spanish_states
+				controls_state = 41
+				controls_state = 165
+				controls_state = 166
+				controls_state = 167
+				controls_state = 168
+				controls_state = 170
+				controls_state = 171
+				controls_state = 172
+				controls_state = 173
+				controls_state = 174
+				controls_state = 175
+				controls_state = 176
+				controls_state = 788
+				controls_state = 789
+				controls_state = 790
+				controls_state = 791
+				controls_state = 792
+				controls_state = 793
+				controls_state = 794
+			}
+			custom_trigger_tooltip = {
+				tooltip = controls_portugese_states
+				controls_state = 112
+				controls_state = 179
+				controls_state = 180
+				controls_state = 181
+				controls_state = 795
+			}
+		
+		}
+
+		visible = {
+			NOT = {
+				has_global_flag = iberian_union_established
+			}
+		}
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		complete_effect = {
+			set_cosmetic_tag = iberian_union
+			set_global_flag = iberian_union_established
+			every_controlled_state = {
+				limit = {
+					NOT = { is_core_of = ROOT }
+					is_on_continent = europe
+				}
+				add_core_of = ROOT
+			}
+		}
+
+	}
 }
