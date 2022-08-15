@@ -1020,6 +1020,70 @@ country_event = {
 		}
 	}
 }
+
+
+add_namespace = british_american_peace
+##kalmar
+country_event = {
+	id = british_american_peace.1
+	title = british_american_peace.1.t
+	desc = british_american_peace.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.1.a 
+		ai_chance = { factor = 75 } 
+		
+		FROM = {
+			country_event = british_american_peace.2
+		}
+	}
+	option = { 
+		name = british_american_peace.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = british_american_peace.3
+		}
+	}
+}
+
+country_event = {
+	id = british_american_peace.2
+	title = british_american_peace.2.t
+	desc = british_american_peace.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.2.a 
+		ai_chance = { factor = 90 } 
+		britain_beats_america_minor = yes
+	}
+}
+
+country_event = {
+	id = british_american_peace.3
+	title = british_american_peace.3.t
+	desc = british_american_peace.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
 add_namespace = ENG_imperial_federation_tree
 
 ## invitation to imperial fed

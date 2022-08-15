@@ -3859,3 +3859,181 @@ austria_beats_spain_peace_deal = {
         }
     }
 }
+
+d_britain_beats_america_minor_peace_setup = {
+    USA = {
+        add_to_faction = CEN
+        add_to_faction = COS
+    }
+    britain_beats_america_minor = yes
+}
+britain_beats_america_minor = {
+    
+    ENG = {
+        transfer_state = 101
+        transfer_state = 980
+        transfer_state = 685
+    }
+    if = {
+        limit = {
+            CEN = {
+                is_in_faction_with = USA
+            }
+        }
+        BLZ = {
+            annex_country = {
+                target = CEN
+                transfer_troops = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            NIC = {
+                is_in_faction_with = USA
+            }
+        }
+        BLZ = {
+            annex_country = {
+                target = NIC
+                transfer_troops = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            COS = {
+                is_in_faction_with = USA
+            }
+        }
+        BLZ = {
+            annex_country = {
+                target = COS
+                transfer_troops = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            PAN = {
+                is_in_faction_with = USA
+            }
+        }
+        BLZ = {
+            annex_country = {
+                target = PAN
+                transfer_troops = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            672 = {
+                owner = {
+                    is_in_faction_with = ENG
+                }
+            }
+        }
+        672 = {
+            owner = {
+                annex_country = {
+                    target = ANC
+                    transfer_troops = yes
+                }
+            }
+        }
+    }
+    else = {
+        ENG = {
+            annex_country = {
+                target = ANC
+                transfer_troops = yes
+            }
+        }
+    }
+    if = {
+        limit = {
+            PHI = {
+                is_in_faction_with = USA
+            }
+            672 = {
+                owner = {
+                    is_in_faction_with = ENG
+                }
+            }
+        }
+        672 = {
+            owner = {
+                annex_country = {
+                    target = PHI
+                    transfer_troops = yes
+                }
+            }
+        }
+    }
+    else = {
+        USA = {
+            set_autonomy = {
+                target = PHI
+                autonomous_state =  autonomy_free
+            }
+        }
+        ENG = {
+            add_to_faction = PHI
+        }
+    }
+    if = {
+        limit = {
+            LIB = {
+                is_in_faction_with = USA
+            }
+        }
+        ENG = {
+            annex_country = {
+                target = LIB
+                transfer_troops = no
+            }
+        }
+    }
+    if = {
+        limit = {
+            CUB = {
+                is_in_faction_with = USA
+            }
+        }
+        USA = {
+            set_autonomy = {
+                target = CUB
+                autonomous_state =  autonomy_free
+            }
+        }
+        ENG = {
+            set_autonomy = {
+                target = CUB
+                autonomous_state =  autonomy_puppet
+            }
+        }
+    }
+    if = {
+        limit = {
+            HAI = {
+                is_in_faction_with = USA
+            }
+        }
+        USA = {
+            set_autonomy = {
+                target = HAI
+                autonomous_state =  autonomy_free
+            }
+        }
+        ENG = {
+            set_autonomy = {
+                target = HAI
+                autonomous_state =  autonomy_puppet
+            }
+        }
+    }
+    USA = {
+        dismantle_faction = yes
+    }
+}
