@@ -2570,7 +2570,8 @@ ENG_occupation_of_america = {
 		fire_only_once = yes
 
 		complete_effect = {
-			CAN = {
+			CAL = {
+				set_cosmetic_tag = ENG_CAL
 				transfer_state = 378
 				transfer_state = 379
 				
@@ -2578,7 +2579,22 @@ ENG_occupation_of_america = {
 				add_state_core = 379
 				
 			}
-		}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = CAL
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = CAL
+				}
+			}
+		}	
 	}
 	
 	ENG_dominion_of_deseret = {
@@ -2635,7 +2651,8 @@ ENG_occupation_of_america = {
 		fire_only_once = yes
 
 		complete_effect = {
-			CAN = {
+			DES = {
+				set_cosmetic_tag = ENG_DES
 				transfer_state = 381
 				transfer_state = 380
 				transfer_state = 382
@@ -2649,6 +2666,21 @@ ENG_occupation_of_america = {
 				add_state_core = 377
 				add_state_core = 376
 				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = DES
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = DES
+				}
 			}
 		}
 	}
@@ -2723,7 +2755,8 @@ ENG_occupation_of_america = {
 		fire_only_once = yes
 
 		complete_effect = {
-			CAN = {
+			TEX = {
+				set_cosmetic_tag = ENG_TEX
 				transfer_state = 1090
 				transfer_state = 375
 				transfer_state = 374
@@ -2740,6 +2773,21 @@ ENG_occupation_of_america = {
 				add_state_core = 383
 				add_state_core = 373	
 				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = TEX
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = TEX
+				}
 			}
 		}
 	}
@@ -2790,7 +2838,8 @@ ENG_occupation_of_america = {
 		fire_only_once = yes
 
 		complete_effect = {
-			CAN = {
+			MID = {
+				set_cosmetic_tag = ENG_MID
 				transfer_state = 390
 				transfer_state = 391
 				transfer_state = 384
@@ -2802,6 +2851,277 @@ ENG_occupation_of_america = {
 				add_state_core = 384
 				add_state_core = 392
 				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = MID
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = MID
+				}
+			}
+		}
+	}
+	ENG_dominion_of_america = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			261 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	369 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			368 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			370 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			367 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			365 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			366 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			364 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			363 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			362 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1092 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			361 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1099 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			360 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			359 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			358 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1094 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1093 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1095 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1096 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1089 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			357 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			USB = {
+				transfer_state = 261
+				transfer_state = 369
+				transfer_state = 368
+				transfer_state = 370
+				transfer_state = 367
+				transfer_state = 365
+				transfer_state = 366
+				transfer_state = 364
+				transfer_state = 363
+				transfer_state = 362
+				transfer_state = 1092
+				transfer_state = 361
+				transfer_state = 1099
+				transfer_state = 360
+				transfer_state = 359
+				transfer_state = 358
+				transfer_state = 1094
+				transfer_state = 1093
+				transfer_state = 1095
+				transfer_state = 1096
+				transfer_state = 1089
+				transfer_state = 357
+				
+				
+				add_state_core = 261
+				add_state_core = 369
+				add_state_core = 368
+				add_state_core = 370
+				add_state_core = 367
+				add_state_core = 365
+				add_state_core = 366
+				add_state_core = 364
+				add_state_core = 363
+				add_state_core = 362
+				add_state_core = 1092
+				add_state_core = 361
+				add_state_core = 1099
+				add_state_core = 360
+				add_state_core = 359
+				add_state_core = 358
+				add_state_core = 1094
+				add_state_core = 1093
+				add_state_core = 1095
+				add_state_core = 1096
+				add_state_core = 1089
+				add_state_core = 357
+				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = USB
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = USB
+				}
 			}
 		}
 	}
