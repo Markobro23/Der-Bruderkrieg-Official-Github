@@ -278,3 +278,77 @@ country_event = {
 		
 	}
 }
+
+add_namespace = swedish_prussian_alliance
+##kalmar
+country_event = {
+	id = swedish_prussian_alliance.1
+	title = swedish_prussian_alliance.1.t
+	desc = swedish_prussian_alliance.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FROM = {
+				annex_country = {
+					target = DEN
+					transfer_troops = yes
+				}
+			}
+		}
+		FROM = {
+			country_event = swedish_prussian_alliance.2
+		}
+	}
+	option = { 
+		name = swedish_prussian_alliance.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = swedish_prussian_alliance.3
+		}
+	}
+}
+
+country_event = {
+	id = swedish_prussian_alliance.2
+	title = swedish_prussian_alliance.2.t
+	desc = swedish_prussian_alliance.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.2.a 
+		ai_chance = { factor = 90 } 
+		SWE = {
+			annex_country = {
+				target = DEN
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = swedish_prussian_alliance.3
+	title = swedish_prussian_alliance.3.t
+	desc = swedish_prussian_alliance.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
