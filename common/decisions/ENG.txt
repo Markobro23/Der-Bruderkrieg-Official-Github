@@ -2411,6 +2411,55 @@ ENG_the_expedition_to_the_north_pole = {
 }
 
 ENG_occupation_of_america = {
+
+	ENG_american_revolt_mission = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		activation = {
+			OR = {
+				has_subject = USA
+				AND = {
+					has_subject = USB
+					NOT = { has_war_with = USA }
+				}
+				AND = {
+					USA = { exists = no }
+					owns_state = 361
+				}
+			}
+		}
+
+		days_mission_timeout = 180
+
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_subject = USA
+						AND = {
+							USA = { exists = no }
+							count_triggers = {
+								count = 2
+								NOT = { country_exists = MID }
+								NOT = { country_exists = CAL }
+								NOT = { country_exists = DES }
+								NOT = { country_exists = TEX }
+							}
+						}
+					}
+				}
+				country_event = { id = british_american_peace.5 }
+				else = {
+					country_event = { id = british_american_peace.6 }
+				}
+			}
+		}
+
+	}
+
 	ENG_give_canada_northwest = {
 
 		icon = ger_reichskommissariats
@@ -2649,6 +2698,15 @@ ENG_occupation_of_america = {
 					puppet = CAL
 				}
 			}
+			hidden_effect = {
+				378 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 2
+					}
+				}
+			}
 		}	
 	}
 	
@@ -2735,6 +2793,15 @@ ENG_occupation_of_america = {
 				}
 				else = {
 					puppet = DES
+				}
+			}
+			hidden_effect = {
+				381 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 2
+					}
 				}
 			}
 		}
@@ -2854,6 +2921,15 @@ ENG_occupation_of_america = {
 					puppet = TEX
 				}
 			}
+			hidden_effect = {
+				375 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = TEX
+						count = 2
+					}
+				}
+			}
 		}
 	}
 	ENG_dominion_of_badlands = {
@@ -2937,6 +3013,15 @@ ENG_occupation_of_america = {
 				}
 				else = {
 					puppet = MID
+				}
+			}
+			hidden_effect = {
+				390 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = MID
+						count = 2
+					}
 				}
 			}
 		}
@@ -3194,6 +3279,15 @@ ENG_occupation_of_america = {
 				}
 				else = {
 					puppet = USB
+				}
+			}
+			hidden_effect = {
+				261 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = USB
+						count = 4
+					}
 				}
 			}
 		}

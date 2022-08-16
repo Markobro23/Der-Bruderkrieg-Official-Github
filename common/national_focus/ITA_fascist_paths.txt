@@ -1,4 +1,4 @@
-﻿focus_tree = {
+focus_tree = {
 	id = ITA_fascist_tree
 
 	country = {
@@ -3329,6 +3329,12 @@ shared_focus = {
 			country_exists = SWI
 			NOT = {
 				is_in_faction_with = SWI
+			}
+			AUS = {
+				OR = {
+					exists = no
+					is_subject_of = GER
+				}
 			}
 		}
 

@@ -1100,6 +1100,286 @@ country_event = {
 	}
 }
 
+country_event = { #revolt if you've puppeted the USA
+	id = british_american_peace.5
+	title = british_american_peace.5.t
+	desc = british_american_peace.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	is_triggered_only = yes 
+
+	immediate = {
+		hidden_effect = {
+			CSA = {
+				add_state_core = 362
+				add_state_core = 366
+				add_state_core = 365
+				add_state_core = 367
+				add_state_core = 370
+				add_state_core = 372
+				add_state_core = 375
+				add_state_core = 374
+				add_state_core = 1091
+				add_state_core = 373
+				add_state_core = 368
+				add_state_core = 369
+				add_state_core = 364
+				add_state_core = 363
+				add_state_core = 1090
+			}
+			every_country = {
+				limit = {
+					any_owned_state = {
+						is_core_of = CSA
+					}
+				}
+				release = CSA
+			}
+			CSA = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				every_owned_state = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 4
+					}
+				}
+			}
+		}
+	}
+
+	option = { #the south rises agjiasjdfs
+		name = british_american_peace.5.a 
+		ai_chance = { factor = 90 } 
+		delete_unit = {
+			state = 362
+		}
+		delete_unit = {
+			state = 375
+		}
+		delete_unit = {
+			state = 371
+		}
+		delete_unit = {
+			state = 366
+		}
+		delete_unit = {
+			state = 365
+		}
+		create_wargoal = {
+			target = CSA
+			type = annex_everything
+		}
+		every_state = {
+			limit = { is_core_of = USA }
+			add_claim_by = CSA
+		}
+		CSA = {
+			add_ideas = USA_great_patriotic_war
+			create_wargoal = {
+				target = ENG
+				type = topple_government
+			}
+		}
+		hidden_effect = {
+			country_event = { id = british_american_peace.7 days = 6 random = 480 }
+			country_event = { id = british_american_peace.8 days = 6 random = 480 }
+			country_event = { id = british_american_peace.9 days = 6 random = 480 }
+			country_event = { id = british_american_peace.10 days = 6 random = 480 }
+		}
+	}
+}
+
+country_event = { #USB civil war
+	id = british_american_peace.6
+	title = british_american_peace.6.t
+	desc = british_american_peace.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		USB = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					set_cosmetic_tag = USA
+				}
+				else = {
+					start_civil_war = {
+						ideology = neutrality
+					size = 0.5
+						set_cosmetic_tag = USA
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = british_american_peace.7 days = 6 random = 480 }
+			country_event = { id = british_american_peace.8 days = 6 random = 480 }
+			country_event = { id = british_american_peace.9 days = 6 random = 480 }
+			country_event = { id = british_american_peace.10 days = 6 random = 480 }
+		}
+	}
+}
+
+country_event = { #TEX civil war
+	id = british_american_peace.7
+	title = british_american_peace.7.t
+	desc = british_american_peace.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+	trigger = {
+		has_subject = TEX
+	}
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		TEX = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = fascism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #MID civil war
+	id = british_american_peace.8
+	title = british_american_peace.8.t
+	desc = british_american_peace.8.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes 
+	trigger = {
+		has_subject = MID
+	} 
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		MID = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = democratic_communism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #DES civil war
+	id = british_american_peace.9
+	title = british_american_peace.9.t
+	desc = british_american_peace.9.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	trigger = {
+		has_subject = DES
+	}
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		DES = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = neutrality
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #CAL civil war
+	id = british_american_peace.10
+	title = british_american_peace.10.t
+	desc = british_american_peace.10.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	is_triggered_only = yes 
+
+	trigger = {
+		has_subject = CAL
+	}
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		CAL = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = fascism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
 add_namespace = ENG_imperial_federation_tree
 
 ## invitation to imperial fed
