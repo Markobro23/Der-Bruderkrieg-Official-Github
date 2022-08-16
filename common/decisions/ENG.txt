@@ -2448,14 +2448,7 @@ ENG_occupation_of_america = {
 					}
 				}
 			}
-			389 = {
-				CONTROLLER = {
-					OR = {
-						tag = ENG
-						is_in_faction_with = ENG
-					}
-				}
-			}
+			
         	
 		}
 
@@ -2471,12 +2464,10 @@ ENG_occupation_of_america = {
 				transfer_state = 385
 				transfer_state = 388
 				transfer_state = 387
-				transfer_state = 389
 				add_state_core = 386
 				add_state_core = 385
 				add_state_core = 388
 				add_state_core = 387
-				add_state_core = 389
 			}
 		}
 	}
@@ -2493,7 +2484,7 @@ ENG_occupation_of_america = {
 					}
 				}
 			}
-        	393 = {
+        	394 = {
 				CONTROLLER = {
 					OR = {
 						tag = ENG
@@ -2530,11 +2521,75 @@ ENG_occupation_of_america = {
 		complete_effect = {
 			CAN = {
 				transfer_state = 393
-				transfer_state = 393
+				transfer_state = 394
 				transfer_state = 395
 				transfer_state = 396
 				add_state_core = 393
+				add_state_core = 394
+				add_state_core = 388
+				add_state_core = 396
+			}
+		}
+	}
+	ENG_give_usb_great_lakes = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			USB = {
+				exists = yes
+				is_in_faction_with = ENG
+			}
+			393 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	394 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	395 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	396 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			
+        	
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			USB = {
+				transfer_state = 393
+				transfer_state = 394
+				transfer_state = 395
+				transfer_state = 396
 				add_state_core = 393
+				add_state_core = 394
 				add_state_core = 388
 				add_state_core = 396
 			}
@@ -2571,7 +2626,7 @@ ENG_occupation_of_america = {
 
 		complete_effect = {
 			CAL = {
-				set_cosmetic_tag = ENG_CAL
+				set_cosmetic_tag = CAL_ENG
 				transfer_state = 378
 				transfer_state = 379
 				
@@ -2652,7 +2707,7 @@ ENG_occupation_of_america = {
 
 		complete_effect = {
 			DES = {
-				set_cosmetic_tag = ENG_DES
+				set_cosmetic_tag = DES_ENG
 				transfer_state = 381
 				transfer_state = 380
 				transfer_state = 382
@@ -2746,6 +2801,14 @@ ENG_occupation_of_america = {
 					}
 				}
 			}
+			1091 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -2756,7 +2819,7 @@ ENG_occupation_of_america = {
 
 		complete_effect = {
 			TEX = {
-				set_cosmetic_tag = ENG_TEX
+				set_cosmetic_tag = TEX_ENG
 				transfer_state = 1090
 				transfer_state = 375
 				transfer_state = 374
@@ -2764,6 +2827,7 @@ ENG_occupation_of_america = {
 				transfer_state = 372
 				transfer_state = 383
 				transfer_state = 373
+				transfer_state = 1091
 				
 				add_state_core = 1090
 				add_state_core = 375
@@ -2771,10 +2835,11 @@ ENG_occupation_of_america = {
 				add_state_core = 371
 				add_state_core = 372
 				add_state_core = 383
-				add_state_core = 373	
-				
+				transfer_state = 373
+				transfer_state = 1091
 			}
 			ENG = { 
+				transfer_state = 1043
 				if = {
 					limit = {
 						has_dlc = "Together for Victory"
@@ -2828,7 +2893,14 @@ ENG_occupation_of_america = {
 					}
 				}
 			}
-			
+			389 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -2839,18 +2911,18 @@ ENG_occupation_of_america = {
 
 		complete_effect = {
 			MID = {
-				set_cosmetic_tag = ENG_MID
+				set_cosmetic_tag = MID_ENG
 				transfer_state = 390
 				transfer_state = 391
 				transfer_state = 384
 				transfer_state = 392
-				
+				transfer_state = 389
 				
 				add_state_core = 390
 				add_state_core = 391
 				add_state_core = 384
 				add_state_core = 392
-				
+				add_state_core = 389
 			}
 			ENG = { 
 				if = {
@@ -3060,6 +3132,7 @@ ENG_occupation_of_america = {
 
 		complete_effect = {
 			USB = {
+				set_cosmetic_tag = USB_ENG
 				transfer_state = 261
 				transfer_state = 369
 				transfer_state = 368
