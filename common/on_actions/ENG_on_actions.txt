@@ -75,4 +75,23 @@ on_actions = {
 			}
 		}
 	}
+
+	on_state_control_changed = {
+    	effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+					FROM.FROM = {
+						is_core_of = USA
+					}
+				}
+				USA = {
+					country_event = british_american_peace.4
+				}
+			}
+		}
+	}
 }

@@ -4049,7 +4049,22 @@ shared_focus = {
         factor = 1
     }
     available = {
-        
+        NOT = {
+            CAN = {
+                has_capitulated = yes
+            }
+        }
+        OR = {
+            ANC = {
+                has_capitulated = yes
+            }
+            CUB = {
+                has_capitulated = yes
+            }
+            COL = {
+                has_capitulated = yes
+            }
+        }
     }
     relative_position_id = ENG_operation_st_lawrence
     prerequisite = {
@@ -4087,6 +4102,11 @@ shared_focus = {
    
     completion_reward = {
         unlock_decision_category_tooltip = ENG_occupation_of_america
+        effect_tooltip = {
+            USA = {
+                add_ideas = USA_great_patriotic_war
+            }
+        }
     }
 }
 shared_focus = {
