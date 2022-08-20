@@ -34,6 +34,21 @@ characters={
 		portraits = {
 			navy = {
 				large = "gfx/leaders/MNG/Portrait_CHI_Chen_Shaokuan.png"
+				small="GFX_idea_generic_navy_asia_3"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = CHI_chen_shaokuan
+			allowed = {
+				original_tag = MNG
+			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 0.200
 			}
 		}
 		navy_leader = {
@@ -128,5 +143,118 @@ characters={
 			logistics_skill = 1
 		}
 	}
-	
+	MNG_chiang_kai_shek={
+		name="Chiang Kai-Shek"
+		portraits={
+			civilian={
+				large = "gfx/leaders/MNG/Portrait_China_Chiang_Kai_Shek.dds"
+			}
+			army={
+				large = "gfx/leaders/MNG/Portrait_China_Chiang_Kai_Shek.dds"
+			}
+		}
+		field_marshal={ 
+			traits = {  old_guard war_hero politically_connected defensive_doctrine logistics_wizard }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
+	MNG_bai_chongxi = {
+		name = "Bai Chongxi"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MNG/Portrait_GXC_Bai_Chongxi.png"
+				small="GFX_idea_generic_navy_asia_2"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer politically_connected brilliant_strategist }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = CHI_bai_chongxi
+			allowed = {
+				original_tag = MNG
+			}
+			traits = {
+				navy_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 0.200
+			}
+		}
+	}
+	MNG_li_zongren = {
+		name = "Li Zongren"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MNG/Portrait_GXC_Li_Zongren.png"
+				small=GFX_portrait_GXC_li_zongren_small
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2	
+		}
+		advisor={	
+			slot = army_chief
+			idea_token = CHI_li_zongren
+			allowed = {
+				original_tag = MNG
+			}
+			traits = {
+				army_chief_defensive_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	MNG_chen_jitang={
+		name= "Chen Jitang"
+		portraits={
+			army={
+				large="gfx/leaders/MNG/Portrait_GXC_Chen_Jitang.png"
+				small=GFX_portrait_GXC_chen_jitang_small
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = GXC_chen_jitang
+			allowed = {
+				original_tag = MNG
+			}
+			traits = {
+				army_chief_organizational_2
+			}
+				cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		
+		corps_commander={
+			traits = { brilliant_strategist career_officer war_hero }
+			skill=3
+			attack_skill=2
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=2
+			legacy_id=-1
+		}
+	}
 }
