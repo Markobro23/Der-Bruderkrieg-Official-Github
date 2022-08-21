@@ -2326,6 +2326,26 @@ russia_beats_ottoman_peace_deal = {
 
 
     SYR = {
+        if = {
+            limit = {
+                SOV = {
+                    has_country_leader = {
+                        name = "Vladimir Lenin"
+                    }
+                }
+            }
+            set_popularities = {
+                democratic_communism = 53
+                democratic = 10
+                communism = 9
+                democratic_liberalism = 2
+                neutrality = 15
+                fascism = 11
+            }
+            set_politics = {
+                ruling_party = democratic_communism
+            }
+        }
         keep_current_politics = yes
         add_state_core = 553
     }
@@ -2337,6 +2357,23 @@ russia_beats_ottoman_peace_deal = {
         keep_current_politics = yes
     }
     BYZ = {
+        if = {
+            limit = {
+                SOV = {
+                    has_country_leader = {
+                        name = "Vladimir Lenin"
+                    }
+                }
+            }
+            set_popularities = {
+                communism = 23
+                democratic = 45
+                neutrality = 32
+            }
+            set_politics = {
+                ruling_party = communism
+            }
+        }
         keep_current_politics = yes
     }
     release_byazntium = yes
@@ -2373,27 +2410,50 @@ russia_beats_ottoman_peace_deal = {
             add_core_of = TUR
         }
         set_cosmetic_tag = russian_occupied_ottomans
-        set_popularities = {
-            democratic = 33
-            democratic_communism = 10
-            communism = 9
-            democratic_liberalism = 12
-            neutrality = 25
-            fascism = 11
-        }
-        set_politics = {
-            ruling_party = democratic
-        }
-        create_country_leader = {
-            name = "Abdulmejid II"
-            desc = "POLITICS_MUSTAFA_KEMAL_ATATÜRK_DESC"
-            picture = "gfx/leaders/AbdulmejidIIPortrait.dds"
-            ideology = democratic_conservative
-            traits = {
-                
+        if = {
+            limit = {
+                SOV = {
+                    has_country_leader = {
+                        name = "Vladimir Lenin"
+                    }
+                }
             }
+            set_popularities = {
+                democratic_communism = 33
+                democratic = 10
+                communism = 9
+                democratic_liberalism = 12
+                neutrality = 25
+                fascism = 11
+            }
+            set_politics = {
+                ruling_party = democratic_communism
+            }
+            keep_current_politics = yes
         }
-        keep_current_politics = yes
+        else = {
+            set_popularities = {
+                democratic = 33
+                democratic_communism = 10
+                communism = 9
+                democratic_liberalism = 12
+                neutrality = 25
+                fascism = 11
+            }
+            set_politics = {
+                ruling_party = democratic
+            }
+            create_country_leader = {
+                name = "Abdulmejid II"
+                desc = "POLITICS_MUSTAFA_KEMAL_ATATÜRK_DESC"
+                picture = "gfx/leaders/AbdulmejidIIPortrait.dds"
+                ideology = democratic_conservative
+                traits = {
+                    
+                }
+            }
+            keep_current_politics = yes
+        }
     }
     SOV = {
         news_event = { id = TUR_turan_anti_SOV_revolt_event.3 hours = 8 }
