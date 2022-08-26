@@ -1082,4 +1082,90 @@ weltkrieg_decisions = {
 			
 		}
 	}
+	TUR_operation_olu_ayi = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_war_with = SOV
+		}
+
+		visible = {
+			NOT = {
+				has_decision = TUR_operation_mamluk
+			}
+			has_completed_focus = TUR_wolves_among_sheep
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+	}
+	TUR_operation_mamluk = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_war_with = SOV
+		}
+
+		visible = {
+			NOT = {
+				has_decision = TUR_operation_olu_ayi
+			}
+			has_completed_focus = TUR_wolves_among_sheep
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		targeted_modifier = {
+			tag = SOV
+			attack_bonus_against = 0.1
+		}
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+	}
 }
+

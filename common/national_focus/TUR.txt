@@ -2543,7 +2543,12 @@ shared_focus = {
     ai_will_do = {
         factor = 100
     }
-    
+    available = {
+      OR = {
+        has_completed_focus = TUR_reintegrate_hejaz
+        has_completed_focus = TUR_free_the_city_of_allah
+      }
+    }
     completion_reward = {
       add_war_support = 0.05
     }
@@ -2605,6 +2610,8 @@ shared_focus = {
     }
     relative_position_id = TUR_pontic_provocation
     completion_reward = {
+     unlock_decision_tooltip = TUR_operation_olu_ayi
+     unlock_decision_tooltip = TUR_operation_mamluk
      
     }
 }
@@ -2627,7 +2634,19 @@ shared_focus = {
     }
     relative_position_id = TUR_pontic_provocation
     completion_reward = {
-     
+     		every_owned_state = {
+          limit = {
+            any_neighbor_state = {
+              is_controlled_by = SOV
+            }
+          }
+          add_building_construction = {
+            type = infrastructure
+            level = 3
+            instant_build = yes
+          
+          }
+      }
     }
 }
 shared_focus = {
@@ -2652,7 +2671,7 @@ shared_focus = {
     }
     relative_position_id = TUR_prepare_the_battlefield
     completion_reward = {
-     
+     ## second border war
     }
 }
 shared_focus = {
@@ -2675,7 +2694,30 @@ shared_focus = {
     }
     relative_position_id = TUR_poking_the_bear
     completion_reward = {
-     
+     229 = {
+      add_dynamic_modifier = {
+        modifier = TUR_caucusus_islamic_instability
+        days = 600
+      }
+     }
+     1082 = {
+      add_dynamic_modifier = {
+        modifier = TUR_caucusus_islamic_instability
+        days = 600
+      }
+     }
+     1083 = {
+      add_dynamic_modifier = {
+        modifier = TUR_caucusus_islamic_instability
+        days = 600
+      }
+     }
+     1084 = {
+      add_dynamic_modifier = {
+        modifier = TUR_caucusus_islamic_instability
+        days = 600
+      }
+     }
     }
 }
 shared_focus = {
@@ -2698,7 +2740,36 @@ shared_focus = {
     }
     relative_position_id = TUR_poking_the_bear
     completion_reward = {
-     
+     every_state = {
+				limit = {
+					any_neighbor_state = {
+						OR = {
+							is_controlled_by = SOV
+							THIS.owner = {
+								is_in_faction_with = SOV
+								NOT = {
+									tag = PER
+								}
+							}
+						} 
+						
+					}
+					owner = {
+						OR = {
+							tag = TUR
+						}
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
     }
 }
 shared_focus = {
@@ -2718,11 +2789,27 @@ shared_focus = {
     
  
     available = {
-      
+      OR = {
+        AUS = {
+          has_war_with = SOV
+        }
+        GER = {
+          has_war_with = SOV
+        }  
+        FRA = {
+          has_war_with = SOV
+        } 
+        ENG = {
+          has_war_with = SOV
+        } 
+      }
     }
     relative_position_id = TUR_the_iron_line
     completion_reward = {
-     
+      declare_war_on = {
+        target = SOV
+        type = topple_government
+      }
     }
 }
 
