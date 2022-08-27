@@ -2582,7 +2582,7 @@ shared_focus = {
           }
               
           defender = {
-              state = 354
+              state = 355
               num_provinces = 4
               on_win = TUR_foreign_policy_tree.2
               on_lose = TUR_foreign_policy_tree.1
@@ -2671,7 +2671,22 @@ shared_focus = {
     }
     relative_position_id = TUR_prepare_the_battlefield
     completion_reward = {
-     ## second border war
+     start_border_war = {
+          change_state_after_war = yes
+          attacker = {
+              state = 355
+              num_provinces = 4
+              on_win = TUR_foreign_policy_tree.3
+              on_lose = TUR_foreign_policy_tree.4
+          }
+              
+          defender = {
+              state = 354
+              num_provinces = 4
+              on_win = TUR_foreign_policy_tree.4
+              on_lose = TUR_foreign_policy_tree.3
+          }
+      }
     }
 }
 shared_focus = {

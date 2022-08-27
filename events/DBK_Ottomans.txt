@@ -835,10 +835,7 @@ country_event = {
 	option = {
 		name = TUR_foreign_policy_tree.1.a
 		TUR = {
-			annex_country = {
-				target = TRB
-				transfer_troops = yes
-			}
+			transfer_state = 355
 		}
 		trigger = {
 			tag = TUR
@@ -880,6 +877,70 @@ country_event = {
 	}
 	option = {
 		name = TUR_foreign_policy_tree.2.b
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+##otoman vc
+country_event = {
+	id = TUR_foreign_policy_tree.3
+	title = TUR_foreign_policy_tree.3.t
+	desc = TUR_foreign_policy_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.3.a
+		TUR = {
+			transfer_state = 354
+			transfer_state = 789
+			transfer_state = 345
+		}
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 3000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.3.b
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## russia vic
+country_event = {
+	id = TUR_foreign_policy_tree.4
+	title = TUR_foreign_policy_tree.4.t
+	desc = TUR_foreign_policy_tree.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.4.a
+		TRB = {
+			transfer_state = 355
+		}
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.4.b
 		trigger = {
 			tag = TUR
 		}
