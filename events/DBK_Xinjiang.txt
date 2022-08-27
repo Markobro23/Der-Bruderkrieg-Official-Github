@@ -5,7 +5,7 @@ country_event = {
 	id = xinjiang.1 
 	title = xinjiang.1.t
 	desc = xinjiang.1.d
-	#picture = 
+	picture = GFX_report_event_chinese_soldiers_02
 
 	fire_only_once = yes   
 	is_triggered_only = yes
@@ -40,6 +40,7 @@ country_event = {
 					days = 10
 				} 
 			}
+			news_event = {id = xinjiang.2 }
 		}
 	}
 	option = { 
@@ -72,6 +73,7 @@ country_event = {
 					days = 10
 				}
 			}
+			news_event = {id = xinjiang.2 }
 		}
 	}
 	option = { 
@@ -104,6 +106,7 @@ country_event = {
 					days = 10
 				}
 			}
+			news_event = {id = xinjiang.2 }
 		}
 	}
 	option = { 
@@ -136,6 +139,7 @@ country_event = {
 					days = 10
 				}
 			}
+			news_event = {id = xinjiang.2 }
 		}
 	}
 	immediate = {
@@ -146,7 +150,7 @@ news_event = {
 	id = xinjiang.2 
 	title = xinjiang.2.t
 	desc = xinjiang.2.d
-	#picture = 
+	picture = GFX_china_march
 	major = yes
  
 	#fire_only_once = yes   
@@ -161,7 +165,7 @@ country_event = {
 	id = xinjiang.3
 	title = xinjiang.3.t
 	desc = xinjiang.3.d
-	#picture = 
+	picture = GFX_report_event_chinese_soldiers
 
 	fire_only_once = yes   
 	is_triggered_only = yes
@@ -229,9 +233,34 @@ country_event = {
 			}
 			load_oob = "UMR_civil_war"
 		}
-	}
-	immediate = {
-		
+		hidden_effect = {
+			if = {
+				limit = {
+					XSM = {
+						has_country_flag = xibei_large_nationalism
+					}
+				}
+				XSM = {
+					country_event = {
+						id = xibei.3
+						days = 5
+					}
+				}
+				else_if = {
+					limit = {
+						XSM = {
+							has_country_flag = xibei_small_nationalism
+						}
+					}
+					XSM = {
+						country_event = {
+							id = xibei.4
+							days = 375
+						}
+					}	
+				}
+			}
+		}
 	}
 }
 

@@ -5,7 +5,7 @@ country_event = {
 	id = xibei.1 
 	title = xibei.1.t
 	desc = xibei.1.d
-	#picture = 
+	picture = GFX_report_event_china_politicians_captured
 
 	fire_only_once = yes   
 	is_triggered_only = yes
@@ -42,7 +42,6 @@ country_event = {
 		}
 		
 		news_event = {id = xibei.2 }
-			
 	}
 	option = { 
 		name = xibei.1.b
@@ -52,13 +51,14 @@ country_event = {
 			value = 1
 		}
 		add_war_support = 0.15
+		
 	}
 }
 news_event = {
 	id = xibei.2 
 	title = xibei.2.t
 	desc = xibei.2.d
-	#picture = 
+	picture = GFX_china_march
 	major = yes
  
 	#fire_only_once = yes   
@@ -68,6 +68,63 @@ news_event = {
 		name = xibei.2.a 
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 	}
+}
+country_event = {
+	id = xibei.3 
+	title = xibei.3.t
+	desc = xibei.3.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xibei.3.a 
+		ai_chance = { factor = 40 }
+		hidden_effect = {
+			KUL = {
+				set_country_flag = kumul_xibei_ally
+			}
+		}
+	}
+	option = { 
+		name = xibei.3.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			ETS = {
+				set_country_flag = turkestan_xibei_ally
+			}
+		}
+	}
+	option = { 
+		name = xibei.3.c
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			UMR = {
+				set_country_flag = dihua_xibei_ally
+			}
+		}
+	}
+}
+country_event = {
+	id = xibei.4 
+	title = xibei.4.t
+	desc = xibei.4.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xibei.4.a 
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = TIB
+			type = take_state_focus
+			generator = { 322 }
+		}
+	}
+	
 }
  
 
