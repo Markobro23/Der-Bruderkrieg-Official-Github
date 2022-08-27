@@ -185,7 +185,7 @@ shared_focus = {
     y = 1
     relative_position_id = FGD_centralize_the_military
 	
-    cost = 5
+    cost = 7.5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
@@ -234,8 +234,14 @@ shared_focus = {
     ai_will_do = {
       factor = 100
     }
-    
+    available = {
+      NOT = {
+        has_idea = Nationalist_Sympathisers
+      }
+    }
     completion_reward = {
+      army_experience = 5
+      add_political_power = 100
       remove_ideas = FGD_legacy_of_traveluer_coup
     }
 }
@@ -303,7 +309,7 @@ shared_focus = {
     y = 1
     relative_position_id = FGD_model_bonapartist_absolutism 
 
-    cost = 5
+    cost = 7
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
@@ -322,7 +328,7 @@ shared_focus = {
     y = 1
     relative_position_id = FGD_reinforce_catholic_ideals
 
-    cost = 5
+    cost = 7.5
     available_if_capitulated = yes
     ai_will_do = {
       factor = 100
