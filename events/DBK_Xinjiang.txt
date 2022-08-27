@@ -107,7 +107,7 @@ country_event = {
 		}
 	}
 	option = { 
-		name = xinjiang.1.d
+		name = xinjiang.1.e
 		ai_chance = { factor = 25 }
 		ILI = {
 			transfer_state = 618
@@ -157,6 +157,81 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 	}
 }
+country_event = {
+	id = xinjiang.3
+	title = xinjiang.3.t
+	desc = xinjiang.3.d
+	#picture = 
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xinjiang.3.a 
+		ai_chance = { factor = 100 }
+		ILI = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+		}
+		KUL = {
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+		}
+		ETS = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+		}
+		UMR = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+		}
+	}
+	immediate = {
+		
+	}
+}
+
+
  
 
 
