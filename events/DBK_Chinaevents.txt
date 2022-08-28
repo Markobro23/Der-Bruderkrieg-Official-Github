@@ -87,6 +87,7 @@ country_event = {
 			transfer_state = 601
 			transfer_state = 1130
 		}
+		#add code for CRE to intervene again! Or will they just fight the winner?
 	}
 	option = { 
 		name = china.3.b
@@ -132,6 +133,159 @@ country_event = {
 		}
 	}
 }
+country_event = {
+	id = china.4 
+	title = china.4.t
+	desc = china.4.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = china.4.a 
+		ai_chance = { factor = 100 }
+		QNG = {
+			country_event = {
+				id = china.5
+				days = 14
+			}
+		}
+		CRE = {
+			declare_war_on = {
+				target = TIB
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				country_exists = KUL
+			}
+			KUL = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = ETS
+			}
+			ETS = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = ILI
+			}
+			ILI = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = UMR
+			}
+			UMR = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = XSN
+			}
+			XSM = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					country_exists = KUL
+					country_exists = ETS
+					country_exists = ILI
+					country_exists = UMR
+				}
+				country_exists = XSM
+			}
+			XSM = {
+				release = XNJ
+			}
+			if = {
+				limit = {
+					XSM = {
+						is_in_faction = no
+					}
+				}
+				XSM = {
+					create_faction = XSM_NORTHWEST_ALLIANCE
+				}
+			}
+			XSM = { add_to_faction = XNJ }
+		}
+		
+	}
+}
+country_event = {
+	id = china.5 
+	title = china.5.t
+	desc = china.5.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = china.5.a 
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = CRE
+			type = annex_everything
+		}
+		MNG = {
+			declare_war_on = {
+				target = QNG
+				type = annex_everything
+			}
+		}
+		news_event = {
+			id = china.6
+			days = 1
+		}
+		
+	}
+} 
+news_event = {
+	id = china.6 
+	title = china.6.t	
+	desc = china.6.d
+	picture = GFX_great_china_war
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = china.6.a 
+		ai_chance = { factor = 600 } 
+	}
+}
+	
+
 
 
 
