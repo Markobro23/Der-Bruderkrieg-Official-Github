@@ -307,6 +307,74 @@ country_event = {
 			
 		}
 	}
+#for small nationalism
+country_event = {
+	id = xibei.6 
+	title = xibei.6.t
+	desc = xibei.6.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	fire_only_once = yes   
+	is_triggered_only = yes
+	option = { 
+		name = xibei.6.a 
+		ai_chance = { factor = 100 }
+		#triggers the clash of dragons
+		news_event = {
+			id = china.1
+			days = 2
+		}
+		country_event = {
+			id = china.2
+			days = 5
+		}
+		if = {
+			limit = {
+				is_in_faction_with = MNG 
+			}
+			MNG = {
+				declare_war_on = {
+					target = QNG
+					type = annex_everything
+				}
+			}
+			XSM = {
+				add_to_war = {
+					targeted_alliance = MNG
+					enemy = QNG
+				}
+			}
+			MON = {
+				add_to_war = {
+					targeted_alliance = QNG
+					enemy = MNG
+				}
+			}
+			
+			else_if = {
+				limit = {
+					is_in_faction_with = QNG
+				}
+				QNG = {
+					declare_war_on = {
+						target = MNG 
+						type = annex_everything
+					}
+				}
+				XSM = {
+					add_to_war = {
+						targeted_alliance = QNG
+						enemy = MNG
+					}
+				}
+				MON = {
+					add_to_war = {
+						targeted_alliance = MNG
+						enemy = QNG
+					}
+				}
+			}
+		}
+	}
 }
  
 

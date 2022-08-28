@@ -1,4 +1,137 @@
-add_namespace = china_in_the_world_war
+add_namespace = china
+
+news_event = {
+	id = china.1 
+	title = china.1.t	
+	desc = china.1.d
+	picture = GFX_great_china_war
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = china.1.a 
+		ai_chance = { factor = 100 } 
+	}
+}
+country_event = {
+	id = china.2 
+	title = china.2.t
+	desc = china.2.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = china.2.a 
+		ai_chance = { factor = 100 }
+		faction_leader = {
+			country_event = {
+				id = china.3
+				days = 1
+			}
+		}
+		
+	}
+	option = { 
+		name = china.2.b
+		ai_chance = { factor = 0 }
+		country_event = {	
+			id = china.3
+			days = 1
+		}
+		
+	}
+} 
+country_event = {
+	id = china.3 
+	title = china.3.t
+	desc = china.3.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = china.3.a 
+		ai_chance = { factor = 70 }
+		XSM = {
+			if = {
+				limit = {
+					XSM = {
+						is_in_faction_with = MNG
+					}
+				}
+				white_peace = QNG
+				white_peace = MON
+				else_if = {
+					limit = {
+						XSM = {
+							is_in_faction_with = QNG
+						}
+					}
+					white_peace = MNG
+					white_peace = MON
+				}
+			}
+		}
+		XSM = {
+			leave_faction = yes
+		}
+		CRE = {
+			transfer_state = 898
+			transfer_state = 753
+			transfer_state = 929
+			transfer_state = 601
+			transfer_state = 1130
+		}
+	}
+	option = { 
+		name = china.3.b
+		ai_chance = { factor = 30 }	
+		if = {
+			limit = {
+				XSM = {
+					is_in_faction_with = MNG 
+				}
+			}
+			CRE = {
+				declare_war_on = {
+					target = MNG
+					type = annex_everything
+				}
+			}
+			XSM = {
+				add_to_war = {
+					targeted_alliance = MNG
+					enemy = CRE
+				}
+			}
+			
+			else_if = {
+				limit = {
+					XSM = {
+						is_in_faction_with = QNG
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+				XSM = {
+					add_to_war = {
+						targeted_alliance = QNG
+						enemy = CRE
+					}
+				}
+			}
+		}
+	}
+}
 
 
 
