@@ -691,7 +691,53 @@ AIG_worldbuilding_decisions = {
 	}
 }
 
-
 china_worldbuilding_decisions = {
-	
+	XSM_tibetan_war = {
+		visible = {
+			OR = {
+				XSM = {
+					any_allied_country = {	
+						has_war_together_with = XSM
+					}
+				}
+				tag = XSM
+			}
+		}
+				
+		activation = {
+			XSM = {
+				has_war_with = TIB
+				has_country_flag = xibei_small_nationalism
+			}
+		}
+		available = {
+			has_war = no
+		}
+		icon = jap_conquer_china  
+		is_good = no
+		days_mission_timeout = 280
+		war_with_on_remove = CRE
+		complete_effect = {
+			if = {	
+				limit = {	
+					tag = XSM
+				}
+				country_event = {
+					id = xibei.5
+					days = 180
+				}
+			}
+		}
+		timeout_effect = {
+			white_peace = {
+				tag = TIB
+			}
+			CRE = {
+				declare_war_on = {
+					target = XSM
+					type = annex_everything
+				}	
+			}
+		}
+	}
 }

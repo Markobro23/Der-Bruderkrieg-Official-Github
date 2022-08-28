@@ -45,7 +45,7 @@ country_event = {
 	}
 	option = { 
 		name = xibei.1.b
-		ai_chance = { factor = 40 }
+		ai_chance = { factor = 50 }
 		set_country_flag = {
 			flag = xibei_large_nationalism
 			value = 1
@@ -69,6 +69,8 @@ news_event = {
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
 	}
 }
+
+#For large nationalism
 country_event = {
 	id = xibei.3 
 	title = xibei.3.t
@@ -80,10 +82,10 @@ country_event = {
 
 	option = { 
 		name = xibei.3.a 
-		ai_chance = { factor = 40 }
+		ai_chance = { factor = 50 }
 		hidden_effect = {
 			KUL = {
-				set_country_flag = kumul_xibei_ally
+				set_country_flag = xibei_ally
 			}
 		}
 	}
@@ -92,7 +94,7 @@ country_event = {
 		ai_chance = { factor = 30 }
 		hidden_effect = {
 			ETS = {
-				set_country_flag = turkestan_xibei_ally
+				set_country_flag = xibei_ally
 			}
 		}
 	}
@@ -101,11 +103,12 @@ country_event = {
 		ai_chance = { factor = 30 }
 		hidden_effect = {
 			UMR = {
-				set_country_flag = dihua_xibei_ally
+				set_country_flag = xibei_ally
 			}
 		}
 	}
 }
+#for small nationalism
 country_event = {
 	id = xibei.4 
 	title = xibei.4.t
@@ -125,6 +128,148 @@ country_event = {
 		}
 	}
 	
+}
+#for small nationalism
+country_event = {
+	id = xibei.5 
+	title = xibei.5.t
+	desc = xibei.5.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+	
+	#this is for if the war had a victor
+	option = { 
+		name = xibei.5.a 
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				KUL = {
+					has_war = no
+				}
+				ILI = {
+					has_war = no
+				}
+				UMR = {
+					has_war = no
+				}
+				ETS = {
+					has_war = no
+				}
+			}
+		}
+		if = {	
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			else_if = {
+				limit = {
+					ETS = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ETS
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					UMR = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = UMR
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					ILI = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ILI
+					type = annex_everything
+				}
+			}			
+			
+		}
+	}
+	#This is for if the war didn't end yet
+	option = {
+		name = xibei.5.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+				KUL = {
+					has_war = yes		
+				}
+				ILI = {
+					has_war = yes
+				}
+				UMR = {
+					has_war = yes
+				}
+				ETS = {
+					has_war = yes
+				}
+			}
+		}
+		if = {	
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			else_if = {
+				limit = {
+					ETS = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ETS
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					UMR = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = UMR
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					ILI = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ILI
+					type = annex_everything
+				}
+			}			
+			
+		}
 }
  
 

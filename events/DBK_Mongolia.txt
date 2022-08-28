@@ -5,7 +5,7 @@ country_event = {
 	id = mongolia.1 
 	title = mongolia.1.t
 	desc = mongolia.1.d
-	#picture = 
+	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
 	is_triggered_only = yes
@@ -42,9 +42,35 @@ country_event = {
 
 news_event = {
 	id = mongolia.2 
-	title = mongolia.2.t
-	desc = mongolia.2.d
-	#picture = 
+	title = {	
+		text = mongolia.2.t.a
+		trigger = {	
+			MON = {
+				has_country_flag = mongolia_qing
+			}
+		}
+		text = mongolia.2.t.b
+		trigger = {	
+			MON = {
+				has_country_flag = mongolia_ming
+			}
+		}
+	}
+	desc = {
+		text = mongolia.2.d.a
+		trigger = {
+			MON = {	
+				has_country_flag = mongolia_qing
+			}
+		}
+		text = mongolia.2.d.b
+		trigger = {
+			MON = {	
+				has_country_flag = mongolia_ming
+			}
+		}
+	}
+	picture = GFX_news_event_040
 	major = yes
  
 	#fire_only_once = yes   
@@ -53,22 +79,21 @@ news_event = {
 	option = { # Only one option, just an acknowledgment by the player
 		name = mongolia.2.a 
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		trigger = {	
+			MON = { 
+				has_country_flag = mongolia_qing
+			}
+		}
 
 	}
-}
-news_event = {
-	id = mongolia.3 
-	title = mongolia.3.t
-	desc = mongolia.3.d
-	#picture = 
-	major = yes
- 
-	#fire_only_once = yes   
-	is_triggered_only = yes
-
 	option = { # Only one option, just an acknowledgment by the player
-		name = mongolia.3.a 
+		name = mongolia.2.b 
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+		trigger = {	
+			MON = { 
+				has_country_flag = mongolia_ming
+			}
+		}
 
 	}
 }
