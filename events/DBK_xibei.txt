@@ -133,7 +133,42 @@ country_event = {
 country_event = {
 	id = xibei.5 
 	title = xibei.5.t
-	desc = xibei.5.d
+	desc = {
+		text = xibei.5.d.a
+		trigger = {
+			AND = {
+				KUL = {
+					has_war = no
+				}
+				ILI = {
+					has_war = no
+				}
+				UMR = {
+					has_war = no
+				}
+				ETS = {
+					has_war = no
+				}
+			}
+		}
+		text = xibei.5.d.b
+		trigger = {
+			OR = {
+				KUL = {
+					has_war = yes		
+				}
+				ILI = {
+					has_war = yes
+				}
+				UMR = {
+					has_war = yes
+				}
+				ETS = {
+					has_war = yes
+				}
+			}
+		}
+	}
 	picture = GFX_report_event_chinese_soldiers_running
 
 	fire_only_once = yes   
@@ -141,7 +176,7 @@ country_event = {
 	
 	#this is for if the war had a victor
 	option = { 
-		name = xibei.5.a 
+		name = xibei.5.a
 		ai_chance = { factor = 100 }
 		trigger = {
 			AND = {
@@ -235,41 +270,43 @@ country_event = {
 				target = KUL
 				type = annex_everything
 			}
-			else_if = {
-				limit = {
-					ETS = {
-						exists = yes
-					}
-				}
-				declare_war_on = {
-					target = ETS
-					type = annex_everything
+		}
+		if = {
+			limit = {
+				ETS = {
+					exists = yes
 				}
 			}
-			else_if = {
-				limit = {
-					UMR = {
-						exists = yes
-					}
-				}
-				declare_war_on = {
-					target = UMR
-					type = annex_everything
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				UMR = {
+					exists = yes
 				}
 			}
-			else_if = {
-				limit = {
-					ILI = {
-						exists = yes
-					}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				ILI = {
+					exists = yes
 				}
-				declare_war_on = {
-					target = ILI
-					type = annex_everything
-				}
-			}			
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+		}			
 			
 		}
+	}
 }
  
 

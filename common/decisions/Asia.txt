@@ -694,14 +694,7 @@ AIG_worldbuilding_decisions = {
 china_worldbuilding_decisions = {
 	XSM_tibetan_war = {
 		visible = {
-			OR = {
-				XSM = {
-					any_allied_country = {	
-						has_war_together_with = XSM
-					}
-				}
-				tag = XSM
-			}
+			tag = XSM
 		}
 				
 		activation = {
@@ -713,7 +706,7 @@ china_worldbuilding_decisions = {
 		available = {
 			has_war = no
 		}
-		icon = jap_conquer_china  
+		icon = generic_prepare_civil_war
 		is_good = no
 		days_mission_timeout = 280
 		war_with_on_remove = CRE
@@ -731,6 +724,91 @@ china_worldbuilding_decisions = {
 		timeout_effect = {
 			white_peace = {
 				tag = TIB
+			}
+			CRE = {
+				declare_war_on = {
+					target = XSM
+					type = annex_everything
+				}	
+			}
+		}
+	}
+	XSM_xinjiang_war = {
+		visible = {
+			tag = XSM
+		}
+				
+		activation = {
+			XSM = {
+				AND = {
+					OR = {
+						has_war_with = KUL
+						has_war_with = ILI
+						has_war_with = ETS
+						has_war_with = UMR
+					}
+					has_country_flag = xibei_small_nationalism
+				}
+			}
+		}
+		available = {
+			has_war = no
+		}
+		icon = generic_prepare_civil_war
+		is_good = no
+		days_mission_timeout = 300
+		war_with_on_remove = CRE
+		complete_effect = {
+			if = {	
+				limit = {	
+					tag = XSM
+				}
+				country_event = {
+					id = xibei.6
+					days = 280
+				}
+			}
+		}
+		timeout_effect = {
+			if = {	
+				limit = {
+					XSM = {
+						has_war_with = KUL
+					}
+				}
+				white_peace = {
+					tag = KUL
+				}
+			}
+			if = {	
+				limit = {
+					XSM = {
+						has_war_with = ILI
+					}
+				}
+				white_peace = {
+					tag = ILI
+				}
+			}
+			if = {	
+				limit = {
+					XSM = {
+						has_war_with = ETS
+					}
+				}
+				white_peace = {
+					tag = ETS
+				}
+			}
+			if = {	
+				limit = {
+					XSM = {
+						has_war_with = UMR
+					}
+				}
+				white_peace = {
+					tag = UMR
+				}
 			}
 			CRE = {
 				declare_war_on = {

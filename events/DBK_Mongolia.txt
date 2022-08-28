@@ -14,62 +14,44 @@ country_event = {
 		name = mongolia.1.a 
 		ai_chance = { factor = 50 }
 		QNG = {
-				create_faction = QNG_qing_sphere
-			}
+			create_faction = QNG_qing_sphere
+		}
 		QNG = { add_to_faction = MON }
 		
-		news_event = {id = mongolia.2 }
 		set_country_flag = {
 			flag = mongolia_qing
 			value = 1
+		}
+		
+		news_event = {
+			id = mongolia.2 
+			days = 3
 		}
 	}
 	option = { 
 		name = mongolia.1.b
 		ai_chance = { factor = 50 }
 		MNG = {
-				create_faction = MNG_ming_sphere
-			}
+			create_faction = MNG_ming_sphere
+		}
 		MNG = { add_to_faction = MON } 
 		
-		news_event = {id = mongolia.3 }
 		set_country_flag = {
 			flag = mongolia_ming
 			value = 1
+		}
+		
+		news_event = {
+			id = mongolia.2 
+			days = 3
 		}
 	}
 } 
 
 news_event = {
 	id = mongolia.2 
-	title = {	
-		text = mongolia.2.t.a
-		trigger = {	
-			MON = {
-				has_country_flag = mongolia_qing
-			}
-		}
-		text = mongolia.2.t.b
-		trigger = {	
-			MON = {
-				has_country_flag = mongolia_ming
-			}
-		}
-	}
-	desc = {
-		text = mongolia.2.d.a
-		trigger = {
-			MON = {	
-				has_country_flag = mongolia_qing
-			}
-		}
-		text = mongolia.2.d.b
-		trigger = {
-			MON = {	
-				has_country_flag = mongolia_ming
-			}
-		}
-	}
+	title = mongolia.2.t	
+	desc = mongolia.2.d
 	picture = GFX_news_event_040
 	major = yes
  
@@ -78,23 +60,26 @@ news_event = {
 
 	option = { # Only one option, just an acknowledgment by the player
 		name = mongolia.2.a 
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-		trigger = {	
-			MON = { 
-				has_country_flag = mongolia_qing
-			}
-		}
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this on
+	}
+}
+news_event = {
+	id = mongolia.3 
+	title = mongolia.3.t	
+	desc = mongolia.3.d
+	picture = GFX_news_event_040
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
 
+	option = { # Only one option, just an acknowledgment by the player
+		name = mongolia.3.a 
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this on
 	}
 	option = { # Only one option, just an acknowledgment by the player
-		name = mongolia.2.b 
+		name = mongolia.3.b 
 		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-		trigger = {	
-			MON = { 
-				has_country_flag = mongolia_ming
-			}
-		}
-
 	}
 }
  
