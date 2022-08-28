@@ -382,6 +382,7 @@ shared_focus = {
     }
     relative_position_id = TUR_revival_of_the_house_of_osman
     completion_reward = {
+      custom_effect_tooltip = TUR_the_warrior_prince_tt
       add_country_leader_role = {
 				character = TUR_osman_fuad_efendi
 				promote_leader = yes
@@ -391,6 +392,10 @@ shared_focus = {
 					id=-1
 				}
 			}
+      set_character_name = {
+        character = TUR_osman_fuad_efendi 
+        name = "Osman IV"
+      }
     }
 }
 
@@ -2118,7 +2123,7 @@ shared_focus = {
     }
     relative_position_id = TUR_the_arab_chaos
     completion_reward = {
-      add_ideas = Centralism
+      add_ideas = TUR_Centralism
       unlock_decision_category_tooltip = TUR_solving_minority_problems
     }
 }
@@ -2228,7 +2233,7 @@ shared_focus = {
     }
     relative_position_id = TUR_the_arab_chaos
     completion_reward = {
-      add_ideas = Federalism
+      add_ideas = SAU_arabian_federation
     }
 }
 shared_focus = {
@@ -2249,12 +2254,6 @@ shared_focus = {
     completion_reward = {
       hidden_effect = {
         KUR = {
-          add_state_core = 848
-          add_state_core = 869
-          add_state_core = 853
-          add_state_core = 676
-          add_state_core = 851
-          add_state_core = 850
           set_popularities = {
             neutrality = 25
             democratic_communism = 30
@@ -2265,6 +2264,16 @@ shared_focus = {
         }
       }
       release_puppet_on_controlled = KUR
+      every_owned_state = {
+        limit = {
+          has_dynamic_modifier = {
+            modifier = TUR_the_dersim_movement
+          }
+        }
+        remove_dynamic_modifier = {
+          modifier = TUR_the_dersim_movement
+        }
+      }
 
       hidden_effect = {
         KUR = {
@@ -2301,7 +2310,16 @@ shared_focus = {
         }
       }
       release_puppet_on_controlled = IRQ
-
+      every_owned_state = {
+        limit = {
+          has_dynamic_modifier = {
+            modifier = TUR_the_iraqi_movement
+          }
+        }
+        remove_dynamic_modifier = {
+          modifier = TUR_the_iraqi_movement
+        }
+      }
       hidden_effect = {
         IRQ = {
           reset_government = yes
@@ -2334,6 +2352,16 @@ shared_focus = {
             communism = 1
           }
           keep_current_politics = yes
+        }
+      }
+      every_owned_state = {
+        limit = {
+          has_dynamic_modifier = {
+            modifier = TUR_the_syrian_movement
+          }
+        }
+        remove_dynamic_modifier = {
+          modifier = TUR_the_syrian_movement
         }
       }
       hidden_effect = {
@@ -2570,6 +2598,7 @@ shared_focus = {
     available = {
       
     }
+    will_lead_to_war_with = TRB
     relative_position_id = TUR_sultan_meets_world
     completion_reward = {
      start_border_war = {
@@ -2669,6 +2698,7 @@ shared_focus = {
     available = {
       
     }
+    will_lead_to_war_with = TRB
     relative_position_id = TUR_prepare_the_battlefield
     completion_reward = {
      start_border_war = {
