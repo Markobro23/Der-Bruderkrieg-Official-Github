@@ -45,6 +45,7 @@ country_event = {
 		
 	}
 } 
+#the six demands
 country_event = {
 	id = china.3 
 	title = china.3.t
@@ -54,9 +55,10 @@ country_event = {
 	fire_only_once = yes   
 	is_triggered_only = yes
 
+	#accept the six demands
 	option = { 
 		name = china.3.a 
-		ai_chance = { factor = 70 }
+		ai_chance = { factor = 25 }
 		XSM = {
 			if = {
 				limit = {
@@ -89,9 +91,11 @@ country_event = {
 		}
 		#add code for CRE to intervene again! Or will they just fight the winner?
 	}
+	#denying the six demands
 	option = { 
 		name = china.3.b
-		ai_chance = { factor = 30 }	
+		ai_chance = { factor = 75 }	
+		#MNG/QNG & XSM fight CRE
 		if = {
 			limit = {
 				XSM = {
@@ -132,6 +136,17 @@ country_event = {
 			}
 		}
 	}
+	option = {
+		name = china.3.c
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		country_event = {
+			id = china.7
+			days = 0
+		}
+	}
 }
 country_event = {
 	id = china.4 
@@ -141,7 +156,7 @@ country_event = {
 
 	fire_only_once = yes   
 	is_triggered_only = yes
-
+	#CRE fights TIB, all Xinjiang tags fight CRE
 	option = { 
 		name = china.4.a 
 		ai_chance = { factor = 100 }
@@ -212,6 +227,7 @@ country_event = {
 				}
 			}
 		}
+		#XSM releases xinjiang in its faction 
 		if = {
 			limit = {
 				NOT = {
@@ -284,6 +300,25 @@ news_event = {
 		ai_chance = { factor = 600 } 
 	}
 }
+country_event = {
+	id = china.7 
+	title = china.7.t
+	desc = china.7.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = china.7.a 
+		ai_chance = { factor = 100 }
+		country_event = {
+			id = china.3
+			days = 0
+		}
+		
+	}
+} 
 	
 
 
