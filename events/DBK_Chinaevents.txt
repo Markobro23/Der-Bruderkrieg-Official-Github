@@ -1,9 +1,9 @@
-add_namespace = china
+add_namespace = DBK_china
 
 news_event = {
-	id = china.1 
-	title = china.1.t	
-	desc = china.1.d
+	id = DBK_china.1 
+	title = DBK_china.1.t	
+	desc = DBK_china.1.d
 	picture = GFX_great_china_war
 	major = yes
  
@@ -11,35 +11,35 @@ news_event = {
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
-		name = china.1.a 
+		name = DBK_china.1.a 
 		ai_chance = { factor = 100 } 
 	}
 }
 country_event = {
-	id = china.2 
-	title = china.2.t
-	desc = china.2.d
+	id = DBK_china.2 
+	title = DBK_china.2.t
+	desc = DBK_china.2.d
 	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { 
-		name = china.2.a 
+		name = DBK_china.2.a 
 		ai_chance = { factor = 100 }
 		faction_leader = {
 			country_event = {
-				id = china.3
+				id = DBK_china.3
 				days = 1
 			}
 		}
 		
 	}
 	option = { 
-		name = china.2.b
+		name = DBK_china.2.b
 		ai_chance = { factor = 0 }
 		country_event = {	
-			id = china.3
+			id = DBK_china.3
 			days = 1
 		}
 		
@@ -47,9 +47,9 @@ country_event = {
 } 
 #the six demands
 country_event = {
-	id = china.3 
-	title = china.3.t
-	desc = china.3.d
+	id = DBK_china.3 
+	title = DBK_china.3.t
+	desc = DBK_china.3.d
 	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
@@ -57,7 +57,7 @@ country_event = {
 
 	#accept the six demands
 	option = { 
-		name = china.3.a 
+		name = DBK_china.3.a 
 		ai_chance = { factor = 25 }
 		XSM = {
 			if = {
@@ -93,7 +93,7 @@ country_event = {
 	}
 	#denying the six demands
 	option = { 
-		name = china.3.b
+		name = DBK_china.3.b
 		ai_chance = { factor = 75 }	
 		#MNG/QNG & XSM fight CRE
 		if = {
@@ -137,32 +137,32 @@ country_event = {
 		}
 	}
 	option = {
-		name = china.3.c
+		name = DBK_china.3.c
 		ai_chance = { factor = 0 }
 		trigger = {
 			is_ai = no
 		}
 		country_event = {
-			id = china.7
+			id = DBK_china.7
 			days = 0
 		}
 	}
 }
 country_event = {
-	id = china.4 
-	title = china.4.t
-	desc = china.4.d
+	id = DBK_china.4 
+	title = DBK_china.4.t
+	desc = DBK_china.4.d
 	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
 	is_triggered_only = yes
 	#CRE fights TIB, all Xinjiang tags fight CRE
 	option = { 
-		name = china.4.a 
+		name = DBK_china.4.a 
 		ai_chance = { factor = 100 }
 		QNG = {
 			country_event = {
-				id = china.5
+				id = DBK_china.5
 				days = 14
 			}
 		}
@@ -218,7 +218,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				country_exists = XSN
+				country_exists = XSM
 			}
 			XSM = {
 				declare_war_on = {	
@@ -257,16 +257,16 @@ country_event = {
 	}
 }
 country_event = {
-	id = china.5 
-	title = china.5.t
-	desc = china.5.d
+	id = DBK_china.5 
+	title = DBK_china.5.t
+	desc = DBK_china.5.d
 	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { 
-		name = china.5.a 
+		name = DBK_china.5.a 
 		ai_chance = { factor = 100 }
 		declare_war_on = {
 			target = CRE
@@ -279,16 +279,16 @@ country_event = {
 			}
 		}
 		news_event = {
-			id = china.6
+			id = DBK_china.6
 			days = 1
 		}
 		
 	}
 } 
 news_event = {
-	id = china.6 
-	title = china.6.t	
-	desc = china.6.d
+	id = DBK_china.6 
+	title = DBK_china.6.t	
+	desc = DBK_china.6.d
 	picture = GFX_great_china_war
 	major = yes
  
@@ -296,24 +296,24 @@ news_event = {
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
-		name = china.6.a 
+		name = DBK_china.6.a 
 		ai_chance = { factor = 600 } 
 	}
 }
 country_event = {
-	id = china.7 
-	title = china.7.t
-	desc = china.7.d
+	id = DBK_china.7 
+	title = DBK_china.7.t
+	desc = DBK_china.7.d
 	picture = GFX_report_event_asian_politicians
 
 	fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { 
-		name = china.7.a 
+		name = DBK_china.7.a 
 		ai_chance = { factor = 100 }
 		country_event = {
-			id = china.3
+			id = DBK_china.3
 			days = 0
 		}
 		
