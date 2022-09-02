@@ -1752,6 +1752,11 @@ shared_focus = {
     }
     prerequisite = {
     }
+    available = {
+        has_army_manpower = {
+          size >  549999
+        }
+    }
 
     relative_position_id = TUR_kemals_revisions
     completion_reward = {
@@ -1778,6 +1783,21 @@ shared_focus = {
     }
     available = {
       has_country_flag = TUR_chose_umberto_for_marraige
+      ITA = {
+        NOT = {
+          OR = {
+            has_country_leader = {
+              name = "Julius Evola"
+              ruling_only = yes
+            }
+            has_country_leader = {
+              name = "Umberto II"
+              ruling_only = yes
+            }
+            has_idea = ITA_umberto_ii
+          }
+        }
+      }
     }
     mutually_exclusive = {
       focus = TUR_fat_farouk_will_do
@@ -3579,7 +3599,7 @@ shared_focus = {
 
   shared_focus = {
     id = TUR_improved_topcu
-    icon = GFX_goal_generic_army_artillery
+    icon = GFX_goal_generic_small_arms
     prerequisite = { focus = TUR_improve_arillery }
     x = 1
     y = 1
@@ -3601,7 +3621,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_ultimate_topcu
-    icon = GFX_goal_generic_army_artillery
+    icon = GFX_goal_AUS_crazy_arms
     prerequisite = { focus = TUR_improved_topcu }
     x = 0
     y = 1
@@ -3624,7 +3644,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_artillery_liscences
-    icon = GFX_goal_generic_army_artillery
+    icon = GFX_goal_AUS_improve_small_arms_research
     prerequisite = { focus = TUR_ultimate_topcu }
 	prerequisite = {
 		focus = TUR_artillery_effort
@@ -3650,7 +3670,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_anti_tank_effort
-    icon = GFX_goal_generic_army_artillery
+    icon = GFX_goal_AUS_anti_expansionist_bulwark
     prerequisite = { focus = TUR_artillery_liscences }
     x = 0
     y = 1
@@ -3705,7 +3725,7 @@ shared_focus = {
 
 		shared_focus = {
       id = TUR_initial_cavalry_improvements
-      icon = GFX_goal_generic_army_motorized
+      icon = GFX_goal_generic_special_forces
       prerequisite = { focus = TUR_FOCUS_ON_SPEED }
       #mutually_exclusive = { focus = TUR_improve_arillery }
 
@@ -3727,7 +3747,7 @@ shared_focus = {
 
 		shared_focus = {
       id = TUR_raise_the_six_divisions
-      icon = GFX_goal_generic_army_motorized
+      icon = GFX_goal_generic_cavalry
       prerequisite = { focus = TUR_initial_cavalry_improvements }
       #mutually_exclusive = { focus = TUR_improve_arillery }
 
@@ -3801,7 +3821,7 @@ shared_focus = {
 
 			shared_focus = {
 	      id = TUR_buy_modern_tanks
-	      icon = GFX_goal_generic_army_tanks
+	      icon = GFX_focus_generic_tank_production
 	      prerequisite = { focus = TUR_TANK_CORP }
 	      x = 0
 	      y = 1
@@ -3890,7 +3910,7 @@ shared_focus = {
 
   shared_focus = {
     id = TUR_support_equipment_effort
-    icon = GFX_goal_generic_construct_military
+    icon = GFX_GER_ground_support_planes
     prerequisite = { focus = TUR_FOCUS_ON_BATTLEPLAN }
     x = 0
     y = 1
@@ -3914,7 +3934,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_improve_the_acemi_olgans
-    icon = GFX_goal_generic_construct_military
+    icon = GFX_focus_generic_military_academy
     prerequisite = { focus = TUR_support_equipment_effort }
     x = 0
     y = 1
@@ -3934,7 +3954,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_propoganda_initiative
-    icon = GFX_goal_generic_construct_military
+    icon = GFX_goal_Generic_War_Propaganda04
     prerequisite = { focus = TUR_improve_the_acemi_olgans }
     x = 0
     y = 1
@@ -3957,7 +3977,7 @@ shared_focus = {
 
 	shared_focus = {
     id = TUR_scout_divisions
-    icon = GFX_goal_generic_construct_military
+    icon = GFX_focus_TUR_reconfigure_turkish_foreign_policy
     prerequisite = { focus = TUR_FOCUS_ON_BATTLEPLAN }
     x = 2
     y = 1
@@ -3984,7 +4004,7 @@ shared_focus = {
 
   shared_focus = {
     id = TUR_MASTER_TACTICS
-    icon = GFX_goal_generic_cavalry
+    icon = GFX_GER_the_preubsiche_genius
     prerequisite = { focus = TUR_scout_divisions }
     x = 0
     y = 1
@@ -4031,7 +4051,7 @@ shared_focus = {
 
 	 shared_focus = {
 		 id = TUR_the_dervishme
-		 icon = GFX_Conscript_The_Masses
+		 icon = GFX_focus_BUL_condemn_macedonian_organizations
 		 prerequisite = { focus = TUR_FOCUS_ON_SIZE }
 		 x = 0
 		 y = 1
@@ -4053,7 +4073,7 @@ shared_focus = {
 
 	 shared_focus = {
 		 id = TUR_recruit_in_the_azaps
-		 icon = GFX_Conscript_The_Masses
+		 icon = GFX_focus_mex_soldaderas
 		 prerequisite = { focus = TUR_the_dervishme }
 		 x = 0
 		 y = 1
