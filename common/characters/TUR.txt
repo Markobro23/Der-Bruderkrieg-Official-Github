@@ -228,7 +228,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Mustafa_Fevzi.png"
-				small="GFX_idea_tur_fevzi_cakmak"
+				small="gfx/interface/ideas/TUR_Mustafa_Fevzi.png"
 			}
 		}
 		advisor={	
@@ -259,7 +259,7 @@ characters={
 		name="Cemil Cahit Pasha"
 		portraits={
 			army={
-				small="GFX_idea_tur_cemil_cahit_toydemir"
+				small="gfx/interface/ideas/TUR_Cahit_Toydemir.png"
 				large="gfx/leaders/TUR/Portrait_TUR_Cahit_Toydemir.png"
 			}
 		}
@@ -291,8 +291,8 @@ characters={
 		name="Nazmi Solok"
 		portraits={
 			army={
-				large=GFX_portrait_TUR_nazmi_solok
-				small=GFX_portrait_TUR_nazmi_solok_small
+				large="GFX_portrait_TUR_nazmi_solok"
+				small="GFX_portrait_TUR_nazmi_solok_small"
 			}
 		}
 		corps_commander={
@@ -340,8 +340,8 @@ characters={
 		name = "Refet Pasha"
 		portraits = {
 			army = {
-				large = "gfx/leaders/TUR/Portrait_TUR_refet_bele.png"
-				small="GFX_idea_tur_refe_bele"
+				large="gfx/leaders/TUR/Portrait_TUR_refet_bele.png"
+				small="gfx/interface/ideas/TUR_refet_bele.png"
 			}
 		}
 		advisor={
@@ -373,7 +373,20 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Omer_Fahrettin_Turkkan.png"
+				small="gfx/interface/ideas/TUR_Omer_Fahrettin_Turkkan.png"
 			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = omer_fahrettin_pasha
+			ledger = army
+			allowed = {
+				original_tag = TUR
+			}
+			traits = {
+				army_commando_2
+			}
+			cost = 100
 		}
 		corps_commander={
 			traits = { old_guard war_hero desert_fox commando }
@@ -405,6 +418,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Hayrullah_Fisek.png"
+				small="gfx/interface/ideas/TUR_Hayrullah_Fisek.png"
 			}
 		}
 		corps_commander={
@@ -416,13 +430,25 @@ characters={
 			logistics_skill=1
 			legacy_id=-1
 		}
+		advisor={
+			cost = 100	
+			slot = theorist
+			idea_token = hayrullah_fisek
+			ledger = army
+			allowed = {
+				original_tag = TUR
+			}
+			traits = {
+				military_theorist
+			}
+		}
 	}
 	TUR_abdurrahman_nafiz_gurman={
 		name="Abdurrahman Nafiz Pasha"
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Nafiz_Gurman.png"
-				small=GFX_portrait_TUR_abdurrahman_gurman_small
+				small="gfx/interface/ideas/TUR_Nafiz_Gurman.png"
 			}
 		}
 		advisor={
@@ -472,7 +498,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Kazim_Orbay.png"
-				small=GFX_portrait_TUR_kazim_orbay_small
+				small="gfx/interface/ideas/TUR_Kazim_Orbay.png"
 			}
 		}
 		advisor={
@@ -574,14 +600,14 @@ characters={
 		
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Fahrettin_Altay.png"
-				small="GFX_idea_tur_fahrettin_altay"
+				small="gfx/interface/ideas/TUR_Fahrettin_Altay.png"
 			}
 		}
 		advisor={
 			slot = army_chief
 			idea_token = TUR_fahrettin_altay
 			allowed = {
-				original_tag = TUR-
+				original_tag = TUR
 			}
 			traits = {
 				army_chief_maneuver_3
@@ -652,7 +678,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Huseyin_Rauf.png"
-				small="GFX_idea_tur_rauf_orbay"
+				small="gfx/interface/ideas/TUR_Huseyin_Rauf.png"
 			}
 		}
 		advisor={
@@ -683,7 +709,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Mehmet_Ali_Ulgen.png"
-				small="GFX_idea_tur_mehmet_ali_ulgen"
+				small="gfx/interface/ideas/TUR_Mehmet_Ali_Ulgen.png"
 			}
 		}
 		advisor={	
@@ -715,6 +741,22 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Mahmud_Muhtar.png"
+				small="gfx/interface/ideas/TUR_Mahmud_Muhtar.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = mahmud_muhtar
+			ledger = navy
+			allowed = {
+				original_tag = TUR
+			}
+			traits = {
+				navy_submarine_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 0.200
 			}
 		}
 		navy_leader={
@@ -732,7 +774,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/TUR/Portrait_TUR_Sukru_Okan.png"
-				small="GFX_idea_tur_sukru_okan"
+				small="gfx/interface/ideas/TUR_Sukru_Okan.png"
 			}
 		}
 		advisor={
