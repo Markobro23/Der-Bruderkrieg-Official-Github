@@ -14,7 +14,7 @@ characters={
 		}
 	}
 	GPU_count_gerd_von_rundstent  ={
-		name="Count Gerd von Rundstedt"
+		name="Gerd von Rundstedt"
 		portraits={
 			civilian={
 				large="gfx/leaders/vonrundstent.dds"
@@ -351,6 +351,19 @@ characters={
 				large="gfx/leaders/GER/Portrait_Germany_Wilhelm_Ritter_von_Leeb_kr.png"
 			}
 		}
+		advisor={	
+			slot = army_chief
+			idea_token = wilhelm_ritter_von_leeb
+			allowed = {
+				original_tag = GPU
+			}
+			traits = {
+				army_chief_old_guard
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		corps_commander={
 			traits={ old_guard infantry_officer }
 			skill=3
@@ -398,6 +411,19 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_ritter_von_greim"
+			}
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = ritter_von_greim_theorist
+			ledger = air
+			allowed = {
+				original_tag = GPU
+			}
+			
+			traits = {
+				air_warfare_theorist
 			}
 		}
 		advisor={
