@@ -83,7 +83,13 @@ country_event = {
 			transfer_state = 601
 			transfer_state = 1130
 		}
-		#add code for CRE to intervene again! Or will they just fight the winner?
+		#cre goes to fight the non-xibei faction, and xibei
+		CRE = {	
+			country_event = {
+				id = DBK_china.8
+				days = 150
+			}
+		}
 	}
 	#denying the six demands
 	option = { 
@@ -307,6 +313,50 @@ country_event = {
 		
 	}
 } 
+country_event = {
+	id = DBK_china.8
+	title  = DBK_china.8.t
+	desc = DBK_china.8.d
+	picture = GFX_report_event_asian_politicians
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = DBK_china.8.a
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = XSM
+			type = annex_everything
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_qing
+				}
+			}
+			CRE = {	
+				declare_war_on = {
+					target = QNG
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_ming
+				}
+			}
+			CRE = {	
+				declare_war_on = {
+					target = MNG
+					type = annex_everything
+				}
+			}
+		}
+	}
+}
 	
 
 
