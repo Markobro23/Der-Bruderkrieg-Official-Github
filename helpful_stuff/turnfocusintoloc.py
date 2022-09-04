@@ -3,8 +3,8 @@
 import sys
 # myFile = open(r"C:\Users\Arjun\Documents\Paradox Interactive\Hearts of Iron IV\mod\dbkgithub\common\national_focus\TUR.txt") ##file path
 
-# myFile = open(r"c:\Users\imait\Dropbox\My PC (DESKTOP-0IC55Q4)\Documents\Paradox Interactive\Hearts of Iron IV\mod\DBKGithub\common\national_focus\TUR.txt") ##file path
-myFile = open(r"common\national_focus\TUR.txt") ##file path")
+myFile = open(r"c:\Users\imait\Dropbox\My PC (DESKTOP-0IC55Q4)\Documents\Paradox Interactive\Hearts of Iron IV\mod\DBKGithub\common\national_focus\TUR.txt") ##file path
+# myFile = open(r"common\national_focus\TUR.txt") ##file path")
 substring = "id =" 
 substring2 = "relative"
 substring3 = "TUR_" ##put your country tag here
