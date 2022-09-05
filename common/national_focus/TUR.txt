@@ -2898,7 +2898,9 @@ shared_focus = {
     will_lead_to_war_with = BUL
     relative_position_id = TUR_sultan_meets_world
     completion_reward = {
-     
+     BUL = {
+      country_event = TUR_gallipoli_conflict.1
+     }
     }
 }
 shared_focus = {
@@ -2921,7 +2923,50 @@ shared_focus = {
     will_lead_to_war_with = BUL
     relative_position_id = TUR_demand_gallipoli
     completion_reward = {
-     
+     if = {
+      BUL = {
+        owns_state = 948
+      }
+      948 = {
+        add_dynamic_modifier = {
+          modifier = TUR_caucusus_islamic_instability
+          days = 600
+        }
+      }
+     }
+     if = {
+      BUL = {
+        owns_state = 833
+      }
+      833 = {
+        add_dynamic_modifier = {
+          modifier = TUR_caucusus_islamic_instability
+          days = 600
+        }
+      }
+     }
+     if = {
+      BUL = {
+        owns_state = 184
+      }
+      184 = {
+        add_dynamic_modifier = {
+          modifier = TUR_caucusus_islamic_instability
+          days = 600
+        }
+      }
+     }
+     if = {
+      BUL = {
+        owns_state = 829
+      }
+      829 = {
+        add_dynamic_modifier = {
+          modifier = TUR_caucusus_islamic_instability
+          days = 600
+        }
+      }
+     }
     }
 } 
 shared_focus = {
@@ -2967,7 +3012,7 @@ shared_focus = {
     will_lead_to_war_with = BUL
     relative_position_id = TUR_demand_gallipoli
     completion_reward = {
-     
+     country_event = TUR_thessalonki_seizure.4
     }
 }
 
@@ -2989,9 +3034,11 @@ shared_focus = {
   available = {
     
   }
-  will_lead_to_war_with = TRB
   relative_position_id = TUR_sultan_meets_world
   completion_reward = {
+    AUS = {
+      country_event = { id = generic.27 hours = 3 }
+    }
   }
 }
 shared_focus = {
@@ -3014,6 +3061,23 @@ shared_focus = {
   will_lead_to_war_with = TRB
   relative_position_id = TUR_the_mohacs_conference
   completion_reward = {
+    add_ideas = AUS_naval_liscences
+    random_owned_controlled_state = {
+      add_extra_state_shared_building_slots = 1
+      add_building_construction = {
+        type = dockyard
+        level = 1
+        instant_build = yes
+      }
+    }
+    random_owned_controlled_state = {
+      add_extra_state_shared_building_slots = 1
+      add_building_construction = {
+        type = dockyard
+        level = 1
+        instant_build = yes
+      }
+    }
   }
 }
 shared_focus = {
@@ -3036,6 +3100,34 @@ shared_focus = {
   will_lead_to_war_with = TRB
   relative_position_id = TUR_contest_the_mediterranean
   completion_reward = {
+    164 = {
+        add_victory_points = {
+            province = 10007
+            value = 10
+        }
+    }
+
+    164 = {
+        add_dynamic_modifier = {
+            modifier = thriving_industrial_zone
+        }
+        add_building_construction = {
+            type = infrastructure
+            level = 3
+            instant_build = yes
+        }
+        add_building_construction = {
+            type = naval_base
+            level = 2
+            instant_build = yes
+        }
+        add_building_construction = {
+            type = industrial_complex
+            level = 2
+            instant_build = yes
+        }
+        add_extra_state_shared_building_slots = 2
+    }
   }
 }
 shared_focus = {
@@ -3058,6 +3150,7 @@ shared_focus = {
   will_lead_to_war_with = TRB
   relative_position_id = TUR_contest_the_mediterranean
   completion_reward = {
+    custom_effect_tooltip = GPU_loyalty_to_vienna_tt
   }
 }
 shared_focus = {
@@ -3083,6 +3176,23 @@ shared_focus = {
   will_lead_to_war_with = TRB
   relative_position_id = TUR_the_mohacs_conference
   completion_reward = {
+    add_ideas = TUR_balkan_customs_union
+    AUS = {
+      add_ideas = TUR_balkan_customs_union
+    }
+    every_country = {
+      limit = {
+        capital_scope = {
+          OR = {
+            region = 24
+            region = 25
+            region = 26
+          }
+        }
+        is_in_faction_with = AUS
+      }
+      add_ideas = TUR_balkan_customs_union
+    }
   }
 }
 

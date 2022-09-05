@@ -1244,7 +1244,32 @@ TUR_conscription_idea_3 =  {
 	}
 }
 
+TUR_balkan_customs_union = {
+    allowed = {
+    always = yes
+    }
 
+    allowed_civil_war = {
+    always = yes
+    }
+
+    cancel = {
+      NOT = {
+        OR = {
+          is_subject_of = FRA
+          is_in_faction_with = FRA
+        }
+      }
+    }
+
+    removal_cost = -1
+
+    modifier = {
+      consumer_goods_factor = -0.05
+      overlord_trade_cost_factor = -0.2
+      faction_trade_opinion_factor = 0.25
+    }
+  }
 
 
 

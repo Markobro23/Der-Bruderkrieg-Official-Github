@@ -950,6 +950,224 @@ country_event = {
 	}
 }
 
+add_namespace = TUR_gallipoli_conflict
+country_event = {
+ 	id = TUR_gallipoli_conflict.1
+ 	title = TUR_gallipoli_conflict.1.t
+ 	desc = TUR_gallipoli_conflict.1.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.1.a
+		 TUR = { country_event = TUR_gallipoli_conflict.2 }
+
+		 ai_chance = {
+			 factor = 1000
+		 }
+ 	}
+	 option = {
+		name = TUR_gallipoli_conflict.1.b
+		TUR = {
+			country_event = TUR_gallipoli_conflict.3
+		}
+	}
+}
+
+country_event = {
+ 	id = TUR_gallipoli_conflict.2
+ 	title = TUR_gallipoli_conflict.2.t
+ 	desc = TUR_gallipoli_conflict.2.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.2.a
+		transfer_state = 948
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.3
+ 	title = TUR_gallipoli_conflict.3.t
+ 	desc = TUR_gallipoli_conflict.3.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.3.a
+		start_border_war = {
+          change_state_after_war = no
+          attacker = {
+              state = 341
+              num_provinces = 1
+              on_win = TUR_gallipoli_conflict.4
+              on_lose = TUR_foreign_policy_tree.5
+          }
+              
+          defender = {
+              state = 948
+              num_provinces = 3
+              on_win = TUR_foreign_policy_tree.5
+              on_lose = TUR_gallipoli_conflict.4
+          }
+      }
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+	option = {
+ 		name = TUR_gallipoli_conflict.3.b
+		add_war_support = -0.1
+		add_political_power = -50
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.4
+ 	title = TUR_gallipoli_conflict.4.t
+ 	desc = TUR_gallipoli_conflict.4.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.4.a
+		transfer_state = 948
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = TUR
+		}
+ 	}
+	option = {
+ 		name = TUR_gallipoli_conflict.4.b
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = BUL
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.5
+ 	title = TUR_gallipoli_conflict.5.t
+ 	desc = TUR_gallipoli_conflict.5.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	option = {
+ 		name = TUR_gallipoli_conflict.5.a
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = BUL
+		}
+ 	}
+ 	option = {
+ 		name = TUR_gallipoli_conflict.5.b
+		add_war_support = -0.3
+		add_political_power = -150
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = TUR
+		}
+ 	}
+}
+
+
+add_namespace = TUR_thessalonki_seizure
+##luxembourg
+country_event = {
+	id = TUR_thessalonki_seizure.1
+	title = TUR_thessalonki_seizure.1.t
+	desc = TUR_thessalonki_seizure.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.1.a 
+		ai_chance = { factor = 75 } 
+	
+		TUR = {
+			country_event = TUR_thessalonki_seizure.2
+		}
+	}
+	option = { 
+		name = TUR_thessalonki_seizure.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 TUR = { is_ai = no }
+		} } 
+		TUR = {
+			country_event = TUR_thessalonki_seizure.3
+		}
+	}
+}
+
+country_event = {
+	id = TUR_thessalonki_seizure.2
+	title = TUR_thessalonki_seizure.2.t
+	desc = TUR_thessalonki_seizure.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.2.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = turkey_gets_thessalonkia_in_peace_deal
+	}
+}
+
+country_event = {
+	id = TUR_thessalonki_seizure.3
+	title = TUR_thessalonki_seizure.3.t
+	desc = TUR_thessalonki_seizure.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.3.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+}
+
+
+country_event = {
+	id = TUR_thessalonki_seizure.4
+	title = TUR_thessalonki_seizure.4.t
+	desc = TUR_thessalonki_seizure.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.4.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+	option = { 
+		name = TUR_thessalonki_seizure.4.b
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+}
+
+
 add_namespace = TUR_arab_revolt 
 
 ##russia one
