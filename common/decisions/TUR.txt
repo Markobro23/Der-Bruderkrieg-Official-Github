@@ -1227,3 +1227,158 @@ weltkrieg_decisions = {
 	}
 }
 
+
+
+
+TUR_gaining_control_over_balkans = {
+	TUR_demand_control_over_balkans_from_austria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 10
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_has_control_over_balkans_from_austria
+		}
+	}
+	TUR_incoroporate_former_bulgarian_territories = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 948
+			controls_state = 833
+			controls_state = 184
+			controls_state = 212
+			controls_state = 829
+			controls_state = 106
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			transfer_state = 948
+			transfer_state = 833
+			transfer_state = 184
+			transfer_state = 212
+			transfer_state = 829
+			transfer_state = 106
+
+			add_state_core = 948
+			add_state_core = 833
+			add_state_core = 184
+			add_state_core = 212
+			add_state_core = 829
+			add_state_core = 106
+
+			BUL = {
+				remove_state_core = 948
+				remove_state_core = 833
+				remove_state_core = 184
+				remove_state_core = 212
+				remove_state_core = 829
+				remove_state_core = 106
+			}
+		}
+	}
+	TUR_establish_vilayet_of_bulgaria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 824
+			controls_state = 48
+			controls_state = 806
+			controls_state = 811
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			release_on_controlled = BUL
+			TUR = {
+				set_autonomy = {
+					target = BUL
+					autonomous_state = autonomy_ottoman_vilayet
+				}
+			}
+			BUL = {
+				set_cosmetic_tag = TUR_vilayet_cosmetic
+			}
+		}
+	}
+}
