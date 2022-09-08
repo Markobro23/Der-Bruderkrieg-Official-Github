@@ -16,10 +16,10 @@ characters={
 		name="Francis Festing"
 		portraits={
 			civilian={
-				large="gfx/leaders/Francis_Festing.dds"
+				large="gfx/leaders/MAL/Francis_Festing.dds"
 			}
 			army={
-				large="gfx/leaders/Francis_Festing.dds"
+				large="gfx/leaders/MAL/Francis_Festing.dds"
 			}
 		}
 		country_leader={
@@ -73,6 +73,38 @@ characters={
 			ideology=marxism_trotskyism
 			expire="1950.1.1.12"
 			id=-1
+		}
+	}
+	MAL_arthur_power={
+		name="Arthur Power"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_ENG_arthur_power.dds"
+				large="gfx/leaders/MAL/Portrait_England_Arthur_Power.png"
+			}
+		}
+		navy_leader={
+			traits={ gunnery_expert }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=2
+			legacy_id=992
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = arthur_power
+			allowed = {
+				original_tag = MAL
+			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			cost =  100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }
