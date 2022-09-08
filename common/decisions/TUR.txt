@@ -1381,4 +1381,102 @@ TUR_gaining_control_over_balkans = {
 			}
 		}
 	}
+	TUR_establish_vilayet_of_wallachia = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 46
+			controls_state = 81	
+			BUL = {
+				is_puppet_of = TUR
+			}
+			
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			release_on_controlled = ROM
+			TUR = {
+				set_autonomy = {
+					target = ROM
+					autonomous_state = autonomy_ottoman_vilayet
+				}
+			}
+			ROM = {
+				set_cosmetic_tag = TUR_vilayet_cosmetic
+			}
+		}
+	}
+	TUR_give_wallachia_to_bulgaria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 46
+			controls_state = 81	
+			BUL = {
+				is_puppet_of = TUR
+			}
+			
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			BUL = {
+				transfer_state = 46
+				transfer_state = 81	
+			}
+		}
+	}
 }
