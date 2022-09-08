@@ -13,6 +13,8 @@ units= {
 			ship = { name = "König" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "König Class" } } }
 			ship = { name = "Großer Kurfürst" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "König Class" } } }
 			ship = { name = "Markgraf" definition = battleship start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "König Class" } } }
+			ship = { name = "Mackensen" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "Mackensen Class" } } }
+			ship = { name = "Yorck" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "Mackensen Class" } } }
 			ship = { name = "Derfflinger" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "Derfflinger Class" } } }
 			ship = { name = "Lützow" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "Derfflinger Class" } } }
 			ship = { name = "Von der Tann" definition = battle_cruiser start_experience_factor = 0.25 equipment = { ship_hull_heavy_1 = { amount = 1 owner = GER version_name = "Von der Tann Class" } } }
@@ -20,6 +22,7 @@ units= {
 			ship = { name = "Blücher" definition = heavy_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_2 = { amount = 1 owner = GER version_name = "Admiral Hipper Class" } } }	
 			ship = { name = "Deutschland" definition = heavy_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_panzerschiff = { amount = 1 owner = GER version_name = "Deutschland Class" } } }	
 			ship = { name = "Admiral Scheer" definition = heavy_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_panzerschiff = { amount = 1 owner = GER version_name = "Deutschland Class" } } }
+			ship = { name = "Admiral Graf Spee" definition = heavy_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_panzerschiff = { amount = 1 owner = GER version_name = "Deutschland Class" } } }
 			ship = { name = "Nürnberg" definition = light_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_2 = { amount = 1 owner = GER version_name = "Leipzig Class" } } } 		
 			ship = { name = "Leipzig" definition = light_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_2 = { amount = 1 owner = GER version_name = "Leipzig Class" } } }		
 			ship = { name = "Königsberg" definition = light_cruiser start_experience_factor = 0.3 equipment = { ship_hull_cruiser_1 = { amount = 1 owner = GER version_name = "Königsberg Class" } } }			
@@ -163,15 +166,16 @@ instant_effect = {
 		amount = 2
 	}
 	
-	# CA: "Graf Spee"
+	# CA: "Roon"
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_cruiser_panzerschiff
 			creator = "GER"
-			version_name = "Deutschland Class"
+			version_name = "Roon Class"
 		}
+		name = "Roon"
 		requested_factories = 1
-		progress = 0.95
+		progress = 0.35
 		amount = 1
 	}
 	# CA: "Admiral Hipper"
@@ -186,7 +190,7 @@ instant_effect = {
 		amount = 1
 	}
 
-	# Gneisenau
+	# Bismarck
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_heavy_2
@@ -198,6 +202,7 @@ instant_effect = {
 		amount = 1
 	}
 
+	#Tirpitz
 	add_equipment_production = {
 		equipment = {
 			type = ship_hull_heavy_2
