@@ -2620,7 +2620,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_pontic_provocation
     icon = GFX_goal_SOV_integrate_treizbond
-    x = 4
+    x = 5
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -2897,7 +2897,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_demand_gallipoli
     icon = GFX_goal_SOV_integrate_treizbond
-    x = 0
+    x = 1
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -3036,7 +3036,7 @@ shared_focus = {
 shared_focus = {
   id = TUR_the_mohacs_conference
   icon = GFX_goal_TUR_the_mohacs_conference
-  x = -2  
+  x = -1  
   y = 1
   cost = 5
   available_if_capitulated = yes
@@ -3046,9 +3046,16 @@ shared_focus = {
   prerequisite = {
     focus = TUR_sultan_meets_world
   }
-
+  mutually_exclusive = {
+    focus = TUR_the_prussian_blueprint
+  }
   available = {
-    
+    NOT = {
+      has_completed_focus = TUR_declare_pro_revolutionary_stance
+    }
+    NOT = {
+      has_completed_focus = TUR_pursue_pan_turanism
+    }
   }
   relative_position_id = TUR_sultan_meets_world
   completion_reward = {
@@ -3107,11 +3114,12 @@ shared_focus = {
       factor = 100
   }
   prerequisite = {
+    focus = TUR_treaty_of_palermo
     focus = TUR_contest_the_mediterranean
   }
 
   available = {
-    
+    owns_state = 164
   }
   will_lead_to_war_with = TRB
   relative_position_id = TUR_contest_the_mediterranean
@@ -3169,6 +3177,94 @@ shared_focus = {
     custom_effect_tooltip = GPU_loyalty_to_vienna_tt
   }
 }
+
+shared_focus = {
+  id = TUR_the_prussian_blueprint
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_sultan_meets_world
+  }
+  relative_position_id = TUR_sultan_meets_world
+  x = -5
+  y = 1
+  ai_will_do = {
+    factor = 10
+  }
+  mutually_exclusive = {
+    focus = TUR_the_mohacs_conference
+  }
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = TUR_construction_of_the_german_baghadad_railway
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_the_prussian_blueprint
+  }
+  relative_position_id = TUR_the_prussian_blueprint
+  x = -1
+  y = 1
+  ai_will_do = {
+    factor = 10
+  }
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = TUR_treaty_of_palermo
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_the_prussian_blueprint
+  }
+  relative_position_id = TUR_the_prussian_blueprint
+  x = 1
+  y = 1
+  ai_will_do = {
+    factor = 10
+  }
+  completion_reward = {
+  }
+}
+
+shared_focus = {
+  id = TUR_back_to_school
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_construction_of_the_german_baghadad_railway
+  }
+  relative_position_id = TUR_construction_of_the_german_baghadad_railway
+  x = 1
+  y = 1
+  ai_will_do = {
+    factor = 10
+  }
+  completion_reward = {
+  }
+}
+shared_focus = {
+  id = TUR_the_second_siege_of_vienna
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_back_to_school
+  }
+  relative_position_id = TUR_back_to_school
+  x = 1
+  y = 1
+  ai_will_do = {
+    factor = 10
+  }
+  completion_reward = {
+  }
+}
+
+## BALKAN
 shared_focus = {
   id = TUR_balkan_trade_routes
   icon = GFX_goal_TUR_balkan_trade_routes
@@ -3224,18 +3320,27 @@ shared_focus = {
     }
     prerequisite = {
       focus = TUR_brothers_in_blood_brothers_in_gold
+      focus = TUR_the_question_of_thessalonki
+      focus = TUR_back_to_school
     }
     prerequisite = {
-      focus = TUR_the_question_of_thessalonki
+      
     }
  
     available = {
       has_war_with = SOV
+      OR = {
+        AND = {
+          has_completed_focus = TUR_brothers_in_blood_brothers_in_gold
+          has_completed_focus = TUR_the_question_of_thessalonki
+        }
+        has_completed_focus = TUR_back_to_school
+      }
     }
     will_lead_to_war_with = BUL
     relative_position_id = TUR_brothers_in_blood_brothers_in_gold
     completion_reward = {
-     
+     unlock_decision_category_tooltip = TUR_gaining_control_over_balkans
     }
 }
 shared_focus = {
