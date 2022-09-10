@@ -2107,7 +2107,7 @@ shared_focus = {
 shared_focus = {
     id = TUR_the_arab_chaos
     icon = GFX_United_Arabia
-    x = 15
+    x = 14
     y = 0
     cost = 5
     available_if_capitulated = yes
@@ -3084,7 +3084,7 @@ shared_focus = {
   will_lead_to_war_with = TRB
   relative_position_id = TUR_the_mohacs_conference
   completion_reward = {
-    add_ideas = AUS_naval_liscences
+    add_ideas = TUR_our_sea
     random_owned_controlled_state = {
       add_extra_state_shared_building_slots = 1
       add_building_construction = {
@@ -3195,6 +3195,9 @@ shared_focus = {
     focus = TUR_the_mohacs_conference
   }
   completion_reward = {
+    GER = {
+      country_event = { id = generic.27 hours = 3 }
+    }
   }
 }
 shared_focus = {
@@ -3211,6 +3214,42 @@ shared_focus = {
     factor = 10
   }
   completion_reward = {
+    add_political_power = -50
+    GER = {
+      add_political_power = 100
+    }
+    build_railway = {
+      level = 3
+      controller_priority = {
+        base = 1
+        
+        modifier = {
+        tag = TUR
+        add = 2
+        }
+      }
+      
+      
+      #path = { 341 347 49 348 344 350 352 850 419 420 266 }
+      start_state = 341
+      target_state = 854
+    }
+    341 = {
+      add_building_construction = {
+        type = supply_node
+        level = 3
+        instant_build = yes
+      }
+      add_extra_state_shared_building_slots = 2
+    }
+    854 = {
+      add_building_construction = {
+        type = supply_node
+        level = 3
+        instant_build = yes
+      }
+      add_extra_state_shared_building_slots = 2
+    }
   }
 }
 
@@ -3228,6 +3267,10 @@ shared_focus = {
     factor = 10
   }
   completion_reward = {
+    add_ideas = TUR_ITA_dual_mediterranean_dominance
+    ITA = {
+      add_ideas = TUR_ITA_dual_mediterranean_dominance
+    }
   }
 }
 
@@ -3245,6 +3288,14 @@ shared_focus = {
     factor = 10
   }
   completion_reward = {
+    every_unit_leader = {
+        limit = {
+            is_army_leader = yes
+        }
+        add_dynamic_modifier = {
+            modifier = TUR_the_goltz_generation_modifier
+        }
+    }
   }
 }
 shared_focus = {
@@ -3260,7 +3311,13 @@ shared_focus = {
   ai_will_do = {
     factor = 10
   }
+  available = {
+    any_controlled_state = {
+      is_core_of = AUS
+    }
+  }
   completion_reward = {
+    add_country_leader_trait = revenged_suleiman
   }
 }
 
