@@ -746,7 +746,28 @@ austrian_civil_war_effect = {
 
 prussia_loses_peace_deal = {
 
-       AUS = { country_event = second_treaty_of_vienna.1 }
+       if = {
+       	limit = {
+       		FRA = {
+       			NOT = { has_war_with = GER }
+       		}
+       	}
+       	AUS = { country_event = second_treaty_of_vienna.1 }
+       	else = {
+       		set_global_flag = france_austria_split_deal
+       		every_country = {
+       			limit = {
+       				OR = {
+       					tag = AUS
+       					tag = FRA
+       					tag = FGD
+       					tag = GPU
+       				}
+       			}
+       			country_event = { id = second_treaty_of_vienna.8 }
+       		}
+       	}
+       }
        if = {
            limit = {
                ITA = {
@@ -768,9 +789,31 @@ prussia_loses_peace_deal = {
                set_faction_leader = yes
            }
        }
+       GPU = {
+				transfer_state = 60
+				transfer_state = 65
+				transfer_state = 949
+			}
+			AUS = {
+				transfer_state = 950
+				add_state_core = 950
+			}
        GER = {
            leave_faction = yes
             white_peace = AUS
+            if = {
+            	limit = { has_war_with = FRA }
+            	white_peace = FRA
+            }
+            set_cosmetic_tag = GER_transitional_government
+            create_country_leader = {
+							name = "Heinz Guderian"
+							desc = ""
+							picture = "gfx/leaders/Heinz_Guiderian.dds"
+							expire = "1965.1.1"
+							ideology = ultranationalist
+						}
+						load_focus_tree = generic_focus
        }
        if = {
 		limit = {

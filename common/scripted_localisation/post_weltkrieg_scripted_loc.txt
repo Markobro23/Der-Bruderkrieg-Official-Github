@@ -1,0 +1,17 @@
+defined_text = { # Country
+	name = GetHannoverianIndependence
+	text = {
+		trigger = {
+			has_global_flag = post_war_HAN_freed
+		}
+		localization_key = post_war_HAN_freedom_guaranteed
+	}
+	text = {
+		trigger = {
+			NOT = {
+				has_global_flag = post_war_HAN_freed
+			}
+		}
+		localization_key = post_war_HAN_incorporated_into_westphalia
+	}
+}
