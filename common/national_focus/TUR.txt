@@ -3186,6 +3186,12 @@ shared_focus = {
     focus = TUR_sultan_meets_world
   }
   relative_position_id = TUR_sultan_meets_world
+  available = {
+    OR = {
+      has_completed_focus = TUR_declare_pro_revolutionary_stance
+      has_completed_focus = TUR_pursue_pan_turanism
+    }
+  }
   x = -5
   y = 1
   ai_will_do = {
@@ -3252,6 +3258,8 @@ shared_focus = {
     }
   }
 }
+
+
 
 shared_focus = {
   id = TUR_treaty_of_palermo
@@ -3321,6 +3329,23 @@ shared_focus = {
   }
 }
 
+shared_focus = {
+  id = TUR_the_balkan_racial_hierarchy
+  icon = unkown 
+  cost = 5
+  prerequisite = {
+    focus = TUR_construction_of_the_german_baghadad_railway
+  }
+  relative_position_id = TUR_construction_of_the_german_baghadad_railway
+  x = 0
+  y = 2
+  ai_will_do = {
+    factor = 10
+  }
+  completion_reward = {
+    
+  }
+}
 ## BALKAN
 shared_focus = {
   id = TUR_balkan_trade_routes
