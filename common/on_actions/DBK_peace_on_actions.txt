@@ -2094,16 +2094,14 @@ on_actions = {
 			if = {
 				limit = {
 					tag = CRE
-					OR = {
-						FROM = {
-							tag = MNG
-						}
+					FROM = {
+						tag = MNG
 					}
 				}
 				if = {
 					limit = {
 						country_exists = XSM
-						CRE = {
+						CRE = {#if cre previously got the six demands
 							owns_state = 753
 							owns_state = 929
 							owns_state = 601
@@ -2119,7 +2117,7 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						CRE = {
+						CRE = {#if cre owns tibet
 							owns_state = 322
 							owns_state = 601
 							owns_state = 757
@@ -2136,6 +2134,66 @@ on_actions = {
 						transfer_state = 1130
 					}
 				}
+				if = {
+					limit = {
+						CRE = {
+							has_war_with = XSM 
+						}
+						XSM = {#if xibei is large-nationalist
+							has_country_flag = xibei_large_nationalism
+						}
+					}
+					XSM = {
+						transfer_state = 752
+						transfer_state = 932
+						transfer_state = 900
+						transfer_state = 893
+						transfer_state = 894
+						transfer_state = 605
+						transfer_state = 620
+					}
+				}
+				MNG = {#just ensuring some nice borders down here
+					transfer_state = 747
+					transfer_state = 325
+					transfer_state = 906
+					transfer_state = 909
+					transfer_state = 907
+					transfer_state = 751
+					transfer_state = 899
+					transfer_state = 901
+				}
+				MNG = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						FROM = {
+							tag = MNG
+						}
+						FROM = {
+							tag = QNG
+						}
+						FROM = {
+							tag = XSM
+						}
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
 			}
 			if = {
 				limit = {
@@ -2144,8 +2202,227 @@ on_actions = {
 						tag = QNG
 					}
 				}
+				if = {
+					limit = {
+						country_exists = XSM
+						CRE = {#if cre previously got the six demands
+							owns_state = 753
+							owns_state = 929
+							owns_state = 601
+							owns_state = 1130
+						}
+					}
+					XSM = {
+						transfer_state = 753
+						transfer_state = 929
+						transfer_state = 601
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {#if cre owns tibet
+							owns_state = 322
+							owns_state = 601
+							owns_state = 757
+							owns_state = 758
+							owns_state = 1130
+							has_war_with = XSM
+						}
+					}
+					XSM = {
+						transfer_state = 322
+						transfer_state = 601
+						transfer_state = 757
+						transfer_state = 758
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {
+							has_war_with = XSM 
+						}
+						XSM = {#if xibei is large-nationalist
+							has_country_flag = xibei_large_nationalism
+						}
+					}
+					XSM = {
+						transfer_state = 752
+						transfer_state = 932
+						transfer_state = 900
+						transfer_state = 893
+						transfer_state = 894
+						transfer_state = 605
+						transfer_state = 620
+					}
+				}
+				QNG = {#just ensuring some nice borders down here
+					transfer_state = 620
+					transfer_state = 896
+					transfer_state = 897
+					transfer_state = 895
+					transfer_state = 750
+					transfer_state = 901
+					transfer_state = 602
+					transfer_state = 899
+					transfer_state = 894
+				}
+				QNG = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
 			}
-
+			else_if = {
+				limit = {
+					NOT = {
+						FROM = {
+							tag = MNG
+						}
+						FROM = {
+							tag = QNG
+						}
+						FROM = {
+							tag = XSM
+						}
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = CRE
+					FROM = {
+						tag = XSM
+					}
+					XSM = {#xibei gets greedy and just takes it all
+						has_country_flag = xibei_large_nationalism
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = QNG 
+					OR = {
+						FROM = {
+							OR = {
+								tag = MNG
+								tag = CRE
+							}
+						}
+						AND = {
+							FROM = {
+								tag = XSM
+							}
+							XSM = {
+								has_country_flag = xibei_large_nationalism
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						MON = {
+							has_war_with = QNG
+						}
+					}
+					MON = {
+						transfer_state = 761
+						transfer_state = 612
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = QNG
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = XSM
+				}
+				if = {
+					limit = {
+						MON = {
+							has_war_with = XSM
+						}
+					}
+					MON = {
+						transfer_state = 746
+						transfer_state = 616
+						transfer_state = 756
+						transfer_state = 755
+					}
+					if = {
+						limit = {
+							ROOT = {
+								owns_state = 933
+								owns_state = 618
+							}
+						}
+						MON = {
+							transfer_state = 933
+							transfer_state = 618
+						}
+					}
+				}
+				if = {
+					limit = {
+						country_exists = TIB
+					}
+					TIB = {
+						transfer_state = 929
+						transfer_state = 733
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							tag = MNG
+							tag = QNG
+						}
+					}
+					FROM = {
+						annex_country = {
+							target = XSM
+						}
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
 			##britain
 			if = {
 				limit = {

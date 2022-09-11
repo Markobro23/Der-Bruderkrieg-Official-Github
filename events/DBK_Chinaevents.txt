@@ -378,6 +378,167 @@ country_event = {
 		}
 	}
 }
+country_event = { #hidden event for making people fight again
+	id = DBK_china.9
+	title = DBK_china.9.t
+	desc = DBK_china.9.d
+	picture = GFX_report_event_spr_civil_war_equipment
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					ROOT = {
+						tag = MNG
+					}
+					ROOT = {
+						tag = QNG
+					}
+					ROOT = {
+						tag = CRE
+					}
+					ROOT = { 
+						tag = XSM
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRE
+					}
+					MNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = MNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRE
+					}
+					QNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = MNG
+					}
+					QNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				MNG = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = QNG
+					}
+					MNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				QNG = {
+					declare_war_on = {
+						target = MNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = MNG
+					}
+					CRE = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = CRE
+						}
+					}
+				}
+				MNG = {
+					declare_war_on = {
+						target = CRE
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = QNG
+					}
+					CRE = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = CRE
+						}
+					}
+				}
+				QNG = {
+					declare_war_on = {
+						target = CRE
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
+
+	option = { #booya!
+		name = DBK_china.9.a
+		
+	}
+}
 	
 
 
