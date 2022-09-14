@@ -3169,11 +3169,17 @@ shared_focus = {
   }
 
   available = {
-    
+    OR = {
+      has_war_with = SOV
+      date > 1939.6.1
+    }
   }
   will_lead_to_war_with = TRB
   relative_position_id = TUR_contest_the_mediterranean
   completion_reward = {
+    AUS = {
+      country_event = generic.2
+    }
     custom_effect_tooltip = GPU_loyalty_to_vienna_tt
   }
 }
@@ -3296,6 +3302,9 @@ shared_focus = {
     factor = 10
   }
   completion_reward = {
+    GER = {
+      country_event = generic.2
+    }
     every_unit_leader = {
         limit = {
             is_army_leader = yes
