@@ -3,11 +3,11 @@ characters={
 		name="Genghis Khan II"
 		portraits={
 			civilian={
-				large="gfx/leaders/Bogdh_Khan.dds"
+				large="gfx/leaders/MON/Bogdh_Khan.dds"
 			}
 		}
-		corps_commander={
-			traits={ organisational_leader }
+		field_marshal={
+			traits={ organisational_leader politically_connected }
 			skill=5
 			attack_skill=5
 			defense_skill=3
@@ -20,6 +20,57 @@ characters={
 			ideology=despotic
 			expire="1965.1.1.1"
 			id=-1
+		}
+	}
+	MON_anandyn_amar={
+		name="Anandyn Amar"
+		portraits={
+			civilian={
+				large="gfx/leaders/MON/Portrait_MON_Anandyn_Amar_KR.png"
+			}
+		}
+		country_leader={
+			ideology=social_democratic
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	MON_khorloogiin_choibalsan={
+		name="Khorloogiin Choibalsan"
+		portraits={
+			civilian={
+				large="gfx/leaders/MON/Portrait_MON_Khorloogiin_Choibalsan.png"
+			}
+		}
+		country_leader={
+			ideology=stalinism
+			expire="1948.1.1.12"
+			id=-1
+		}
+	}
+	MON_olziytrygyn_badrak={
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = MON_olziytrygyn_badrak
+			allowed = {
+					original_tag = MON
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		name="Ölziytrygyn Badrak"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_asia_4"
+				large="gfx/leaders/MON/Portrait_MON_Olziin_Badrakh.png"
+			}
 		}
 	}
 }
