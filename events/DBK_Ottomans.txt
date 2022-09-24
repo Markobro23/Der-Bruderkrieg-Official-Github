@@ -1166,6 +1166,69 @@ country_event = {
 	}
 }
 
+add_namespace = TUR_albania_seizure
+##luxembourg
+country_event = {
+	id = TUR_albania_seizure.1
+	title = TUR_albania_seizure.1.t
+	desc = TUR_albania_seizure.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_albania_seizure.1.a 
+		ai_chance = { factor = 75 } 
+	
+		TUR = {
+			country_event = TUR_albania_seizure.2
+		}
+	}
+	option = { 
+		name = TUR_albania_seizure.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 TUR = { is_ai = no }
+		} } 
+		TUR = {
+			country_event = TUR_albania_seizure.3
+		}
+	}
+}
+
+country_event = {
+	id = TUR_albania_seizure.2
+	title = TUR_albania_seizure.2.t
+	desc = TUR_albania_seizure.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_albania_seizure.2.a 
+		ai_chance = { factor = 90 } 
+		annex_country = {
+			target = ALB
+			transfer_troops = yes
+		}
+	}
+}
+
+country_event = {
+	id = TUR_albania_seizure.3
+	title = TUR_albania_seizure.3.t
+	desc = TUR_albania_seizure.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.3.a 
+		ai_chance = { factor = 90 } 
+	}
+}
 
 add_namespace = TUR_arab_revolt 
 
