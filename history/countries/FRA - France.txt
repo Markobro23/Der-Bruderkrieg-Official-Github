@@ -1,5 +1,103 @@
 ﻿capital = 16
 
+oob = "FRA_1936"
+
+starting_train_buffer = 2
+
+if = {
+	limit = { has_dlc = "Man the Guns" } 
+		set_naval_oob = "FRA_1936_naval_mtg"
+		set_war_support = 0.1
+	else = {
+		set_naval_oob = "FRA_1936_naval_legacy"
+		set_war_support = 0.15
+	}
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "FRA_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			aa_cannon_1 = 1
+			engines_1 = 1
+			engines_2 = 1
+			early_bombs = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			iw_large_airframe = 1
+		}
+	else = {
+		set_air_oob = "FRA_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			naval_bomber1 = 1
+			cv_early_fighter = 1
+			cv_naval_bomber1 = 1
+			early_bomber = 1
+			tactical_bomber1 = 1
+			CAS1 = 1
+		}
+	}
+}
+
+set_research_slots = 3
+set_stability = 0.5
+set_war_support = 0.12
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_support = 1
+	tech_engineers = 1
+	tech_recon = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	trench_warfare = 1
+	fleet_in_being = 1
+	fuel_silos = 1
+	fuel_refining = 1
+	basic_train = 1 
+}
+
+if = {
+	limit = {
+		NOT = { has_dlc = "No Step Back" }
+	}
+	set_technology = {
+		gwtank = 1
+		basic_light_tank = 1
+		basic_heavy_tank = 1
+		improved_light_tank = 1
+	}
+}
+if = {
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+		basic_heavy_tank_chassis = 1
+		improved_light_tank_chassis = 1
+		armor_tech_1 = 1
+		engine_tech_1 = 1
+		railway_gun = 1
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "Battle for the Bosporus"
+	}
+	set_technology = { camelry = 1 }
+}
+
+
 create_faction = FRA_1
 add_to_faction = "FRA"
 add_to_faction = "FGD"
@@ -58,16 +156,8 @@ add_opinion_modifier = {
 	modifier = enemy_in_first_wiltkrieg
 }
  
-oob = "FRA_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" } 
-		set_naval_oob = "FRA_1936_naval_mtg"
-		set_war_support = 0.1
-	else = {
-		set_naval_oob = "FRA_1936_naval_legacy"
-		set_war_support = 0.15
-	}
-}
+
+
 
 set_variable = { var = FRA_develoepd_countryside_var value = 0 }
 set_variable = { var = FRA_military_tech_var value = 0 }
@@ -76,34 +166,9 @@ set_variable = { var = fra_influence_in_colombia value = 5 }
 
 
 
-set_research_slots = 3
-set_stability = 0.5
-set_war_support = 0.12
 
-# Starting tech
-set_technology = {
-	infantry_weapons = 1
-	infantry_weapons1 = 1
-	tech_support = 1
-	tech_engineers = 1
-	tech_recon = 1
-	tech_mountaineers = 1
-	motorised_infantry = 1
-	gw_artillery = 1
-	interwar_antiair = 1
-	early_fighter = 1
-	naval_bomber1 = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	early_bomber = 1
-	tactical_bomber1 = 1
-	CAS1 = 1
-	trench_warfare = 1
-	fleet_in_being = 1
-	fuel_silos = 1
-	fuel_refining = 1
-	basic_train = 1 
-}
+
+
 if = {
 	limit = { not = { has_dlc = "Man the Guns" } }
 		set_technology = {
@@ -136,6 +201,7 @@ if = {
 		basic_ship_hull_heavy = 1
 		early_ship_hull_carrier = 1
 		basic_ship_hull_carrier = 1
+		ship_hull_super_heavy = 1
 		basic_battery = 1
 		basic_heavy_battery = 1
 		basic_light_battery = 1
@@ -148,7 +214,6 @@ if = {
 		mtg_transport = 1
 		pre_dreadnoughts = 1
 	}
-	##add_ideas = #MTG_naval_treaty_adherent
 }
 if = {
 	limit = {
@@ -160,48 +225,8 @@ if = {
 }
 
 
-if = {
-	limit = {
-			
-		has_dlc = "No Step Back"
-		
-	}
-	set_technology = {
-		railway_gun = 1
-	}
-}
 
-if = {
-	limit = {
-		NOT = { has_dlc = "No Step Back" }
-	}
-	set_technology = {
-		gwtank = 1
-		basic_light_tank = 1
-		basic_heavy_tank = 1
-		improved_light_tank = 1
-	}
-}
-if = {
-	limit = {
-		has_dlc = "No Step Back"
-	}
-	set_technology = {
-		gwtank_chassis = 1
-		basic_light_tank_chassis = 1
-		basic_heavy_tank_chassis = 1
-		improved_light_tank_chassis = 1
-		armor_tech_1 = 1
-		engine_tech_1 = 1
-	}
-}
 
-if = {
-	limit = {
-		has_dlc = "Battle for the Bosporus"
-	}
-	set_technology = { camelry = 1 }
-}
 
 
 set_convoys = 300
@@ -325,6 +350,120 @@ if = {
 		bypass_recruitment = no
 		available_to_spy_master = yes
 		nationalities = { FRA }
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Br. 19" #
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = bomb_locks
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_FRA_CAS1_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "NiD 62" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "D.500" #
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "D.371" #
+		type = cv_small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "PL.7" #
+		type = cv_small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_FRA_naval_bomber1_medium"
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "D.510" #also covers D.501
+		type = small_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = light_mg_2x
+			fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_1x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_FRA_light_plane_2_medium"
+	}
+	create_equipment_variant = {
+		name = "Latécoère 296" #
+		type = small_plane_naval_bomber_airframe_0
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = floats
+		}
+		icon = "GFX_FRA_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Amiot 143" #
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = bomb_locks
+			engine_type_slot = engine_2_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_FRA_early_bomber_medium"
+	}
+	create_equipment_variant = {
+		name = "F.222" #
+		type = large_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = large_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_2_4x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		icon = "GFX_FRA_strategic_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "M.B. 200" #
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret
+		}
+		obsolete = yes
 	}
 }
 
