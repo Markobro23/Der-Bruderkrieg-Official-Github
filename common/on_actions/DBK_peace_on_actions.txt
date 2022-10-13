@@ -1593,149 +1593,149 @@ on_actions = {
 		}
 		
 
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = KUL
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = ETR
-						}
-						ROOT = {
-							tag = NRX
-						}
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = KUL
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = ETR
+		# 				}
+		# 				ROOT = {
+		# 					tag = NRX
+		# 				}
 						
-					}
-				}
-				KUL = {
-					white_peace = ROOT
-				}
-				KUL = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						NRX = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = KUL
-					}
-				}
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = NRX
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = ETR
-						}
-						ROOT = {
-							tag = KUL
-						}
-					}
-				}
-				NRX = {
-					white_peace = ROOT
-				}
-				NRX = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						KUL = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = NRX
-					}
-				}
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = ETR
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = NRX
-						}
-						ROOT = {
-							tag = KUL
-						}
-					}
-				}
-				ETR = {
-					white_peace = ROOT
-				}
+		# 			}
+		# 		}
+		# 		KUL = {
+		# 			white_peace = ROOT
+		# 		}
+		# 		KUL = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				NRX = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = KUL
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = NRX
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = ETR
+		# 				}
+		# 				ROOT = {
+		# 					tag = KUL
+		# 				}
+		# 			}
+		# 		}
+		# 		NRX = {
+		# 			white_peace = ROOT
+		# 		}
+		# 		NRX = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				KUL = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = NRX
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = ETR
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = NRX
+		# 				}
+		# 				ROOT = {
+		# 					tag = KUL
+		# 				}
+		# 			}
+		# 		}
+		# 		ETR = {
+		# 			white_peace = ROOT
+		# 		}
 				
-				ETR = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						NRX = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = ETR
-					}
-				}
-			}
-		}
+		# 		ETR = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				NRX = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = ETR
+		# 			}
+		# 		}
+		# 	}
+		# }
 		effect = {
 			if = {
 				limit = {
