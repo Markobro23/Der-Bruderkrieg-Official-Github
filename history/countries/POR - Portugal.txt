@@ -8,6 +8,18 @@ if = {
 		set_naval_oob = "POR_1936_naval_legacy"
 	}
 }
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "POR_1936_air_bba"
+	else = {
+		set_air_oob = "POR_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			CAS1 = 1
+		}
+	}
+}
 
 set_autonomy = {
 		target = PAF
@@ -22,7 +34,7 @@ set_autonomy = {
 }
 
 
-set_research_slots = 2
+set_research_slots = 3
 
 add_ideas = {
 	POR_french_dockyard_capital
@@ -43,9 +55,6 @@ set_technology = {
 	interwar_antiair = 1
 	tech_support = 1		
 	tech_engineers = 1
-	early_fighter = 1
-	early_bomber = 1
-	CAS1 = 1
 	basic_train = 1
 }
 if = {
