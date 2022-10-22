@@ -4,6 +4,30 @@ OOB = "GPU_1936"
 
 set_research_slots = 3
 
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		#set_air_oob = "AUS_1936_air_bba"
+		set_technology = {
+			aa_lmg = 1
+			engines_1 = 1
+			engines_2 = 1
+			aircraft_construction = 1
+			iw_small_airframe = 1
+			basic_small_airframe = 1
+			iw_medium_airframe = 1
+			early_bombs = 1
+		}
+	else = {
+		#set_air_oob = "AUS_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+			naval_bomber1 = 1
+			CAS1 = 1
+		}
+	}
+}
+
 set_technology = {
 	infantry_weapons = 1
 	tech_support = 1
@@ -55,6 +79,7 @@ recruit_character = GPU_court_of_bavaria
 recruit_character = GPU_count_gerd_von_rundstent
 recruit_character = GPU_enver_hoxha
 recruit_character = GPU_franz_ferdinand
+#recruit_character = GPU_archduke_leopold_salvator
 recruit_character = GPU_prince_rupprecht_of_bavaria
 recruit_character = GPU_ferdinand_schorner
 recruit_character = GPU_wilhelm_ritter_von_thoma
@@ -86,6 +111,68 @@ set_variable = {GPU_vohn_car_seats = 3}
 set_variable = {GPU_franz_seats = 4}
 set_variable = {GPU_von_rundstent_seats = 1}
 
+if = {
+	limit = {
+		has_dlc = "By Blood Alone"
+	}
+	create_equipment_variant = {
+		name = "Bf 109 D"
+		type = small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_GER_fighter1_medium"
+	}
+	create_equipment_variant = {
+		name = "Bf 109 T"
+		type = cv_small_plane_airframe_1
+		modules = {
+			fixed_main_weapon_slot = light_mg_4x
+			engine_type_slot = engine_2_1x
+			special_type_slot_1 = empty
+		}
+		icon = "GFX_GER_fighter1_medium"
+	}
+	create_equipment_variant = {
+		name = "Do 22"
+		type = small_plane_naval_bomber_airframe_1
+		modules = {
+			fixed_main_weapon_slot = torpedo_mounting
+			engine_type_slot = engine_1_1x
+			special_type_slot_1 = lmg_defense_turret
+			special_type_slot_2 = empty
+		}
+		icon = "GFX_GER_naval_bomber1_medium"
+	}
+	create_equipment_variant = {
+		name = "Do 17"
+		type = small_plane_cas_airframe_0
+		modules = {
+			fixed_main_weapon_slot = small_bomb_bay
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = lmg_defense_turret_2x
+		}
+		icon = "GFX_GER_medium_plane_1_medium"
+	}
+	create_equipment_variant = {
+		name = "Do 23"
+		type = medium_plane_airframe_0
+		modules = {
+			fixed_main_weapon_slot = medium_bomb_bay
+			fixed_auxiliary_weapon_slot_1 = empty
+			fixed_auxiliary_weapon_slot_2 = empty
+			fixed_auxiliary_weapon_slot_3 = empty
+			engine_type_slot = engine_1_2x
+			special_type_slot_1 = empty
+			special_type_slot_2 = empty
+			special_type_slot_3 = empty
+			special_type_slot_4 = empty
+		}
+	}
+
+}
 
 if = {
 	limit = {
