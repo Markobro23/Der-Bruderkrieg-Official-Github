@@ -1065,6 +1065,12 @@ country_event = { #Russia demands annexation
 	is_triggered_only = yes
 	option = { #we have no choice
 		name = SOV_return_of_the_tsar_path.23.a
+		trigger = {
+			is_puppet = yes
+			NOT = {
+				is_puppet_of = SOV
+			}
+		}
 		effect_tooltip = {
 			FROM = {
 				annex_country = {
