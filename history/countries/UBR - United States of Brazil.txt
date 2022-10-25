@@ -3,6 +3,18 @@
 
 oob = "UBR_1936"
 
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "BRA_1936_air_bba"
+	else = {
+		set_air_oob = "BRA_1936_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			CAS1 = 1
+		}
+	}
+}
+
 # Starting tech
 set_technology = {
 	infantry_weapons = 1
@@ -10,8 +22,6 @@ set_technology = {
 	tech_engineers = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	early_fighter = 1
-	CAS1 = 1
 	basic_train = 1
 
 }
