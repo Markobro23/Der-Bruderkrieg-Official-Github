@@ -3790,6 +3790,43 @@ leader_traits = {
 		}
 	}
 
+	multi_role_aircraft_manufacturer = {
+		random = no
+		equipment_bonus = {
+			small_plane_naval_bomber_airframe = {
+				reliability = 0.1
+			}
+			medium_plane_airframe = {
+				reliability = 0.1
+			}
+			small_plane_cas_airframe = {
+				reliability = 0.1
+			}
+			medium_plane_scout_plane_airframe = {
+				reliability = 0.1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tank_refurbishment_plant = { #NSB
+		random = no
+		#generic
+
+		equipment_bonus = {
+			armor = {
+				reliability = 0.05
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	fast_tank_manufacturer = {
 		random = no
 		equipment_bonus = {
@@ -3865,6 +3902,92 @@ leader_traits = {
 		equipment_bonus = {
 			armor = {
 				reliability = 0.05
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	repair_and_refurbishment_plant = { #NSB - Repairs & Refit
+		random = no
+		equipment_bonus = {
+			screen_ship = {
+				build_cost_ic = -0.05
+			}
+			submarine = {
+				build_cost_ic = -0.05
+			}
+			capital_ship = {
+				build_cost_ic = -0.05
+			}
+			carrier = {
+				build_cost_ic = -0.05
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	black_sea_naval_manufacturer = { #NSB - Screen Ships and Submarines
+		random = no
+
+		equipment_bonus = {
+			screen_ship = {
+				build_cost_ic = -0.15 sub_detection = 0.1 naval_range = -0.25
+			}
+			submarine = {
+				build_cost_ic = -0.15 sub_visibility = -0.1 naval_range = -0.25
+			}
+			carrier = {
+				build_cost_ic = 0.15 naval_range = -0.25
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	submarine_manufacturer = {
+		random = no
+		equipment_bonus = {
+			carrier = {
+				build_cost_ic = 0.1
+			}
+			capital_ship = {
+				build_cost_ic = 0.1
+			}
+			screen_ship = {
+				build_cost_ic = 0.1
+			}
+			submarine = {
+				build_cost_ic = -0.1 sub_visibility = -0.1 surface_visibility = -0.1 naval_speed = 0.1 naval_range = 0.1
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	submarine_manufacturer_2 = { #Improved version used for Italy (done in trait in order to keep a nice tooltip)
+		random = no
+		equipment_bonus = {
+			carrier = {
+				build_cost_ic = 0.1
+			}
+			capital_ship = {
+				build_cost_ic = 0.1
+			}
+			screen_ship = {
+				build_cost_ic = 0.1
+			}
+			submarine = {
+				build_cost_ic = -0.15 sub_visibility = -0.1 surface_visibility = -0.1 naval_speed = 0.15 naval_range = 0.1
 			}
 		}
 
@@ -4065,6 +4188,7 @@ leader_traits = {
 		production_speed_supply_node_factor = 0.15
 		equipment_bonus = {
 			train_equipment = {
+				instant = yes
 				build_cost_ic = -0.25
 				reliability = 0.1
 			}
@@ -4118,7 +4242,7 @@ leader_traits = {
 		army_defence_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4130,7 +4254,7 @@ leader_traits = {
 		army_defence_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4142,7 +4266,7 @@ leader_traits = {
 		army_defence_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4155,7 +4279,7 @@ leader_traits = {
 		army_attack_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4167,7 +4291,7 @@ leader_traits = {
 		army_attack_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4179,7 +4303,7 @@ leader_traits = {
 		army_attack_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4201,7 +4325,7 @@ leader_traits = {
 		training_time_army_factor = -0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4213,7 +4337,7 @@ leader_traits = {
 		training_time_army_factor = -0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4225,7 +4349,7 @@ leader_traits = {
 		training_time_army_factor = -0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4237,7 +4361,7 @@ leader_traits = {
 		sprite = 5	
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4248,7 +4372,7 @@ leader_traits = {
 		sprite = 5		
 		experience_gain_army = 0.16
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4259,7 +4383,7 @@ leader_traits = {
 		sprite = 5	
 		experience_gain_army = 0.2
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4272,7 +4396,7 @@ leader_traits = {
 		army_org_factor = 0.04		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4284,7 +4408,7 @@ leader_traits = {
 		army_org_factor = 0.08		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4296,7 +4420,7 @@ leader_traits = {
 		army_org_factor = 0.12		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4308,7 +4432,7 @@ leader_traits = {
 		planning_speed = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4320,7 +4444,7 @@ leader_traits = {
 		planning_speed = 0.10		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4332,7 +4456,7 @@ leader_traits = {
 		planning_speed = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4344,7 +4468,7 @@ leader_traits = {
 		out_of_supply_factor = -0.03		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4356,7 +4480,7 @@ leader_traits = {
 		out_of_supply_factor = -0.06		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4368,7 +4492,7 @@ leader_traits = {
 		out_of_supply_factor = -0.09	
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4381,7 +4505,7 @@ leader_traits = {
 		army_speed_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4393,7 +4517,7 @@ leader_traits = {
 		army_speed_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4405,7 +4529,7 @@ leader_traits = {
 		army_speed_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4418,7 +4542,7 @@ leader_traits = {
 		mobilization_speed = -0.02
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4431,7 +4555,7 @@ leader_traits = {
 		mobilization_speed = -0.04
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 1
@@ -4444,7 +4568,7 @@ leader_traits = {
 		mobilization_speed = -0.06
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 1
@@ -4457,7 +4581,7 @@ leader_traits = {
 		dig_in_speed_factor = 0.08		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4469,7 +4593,7 @@ leader_traits = {
 		dig_in_speed_factor = 0.16		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4481,7 +4605,7 @@ leader_traits = {
 		dig_in_speed_factor = 0.24		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4495,7 +4619,7 @@ leader_traits = {
 	    army_armor_defence_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4508,7 +4632,7 @@ leader_traits = {
 	    army_armor_defence_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4521,7 +4645,7 @@ leader_traits = {
 	    army_armor_defence_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4535,7 +4659,7 @@ leader_traits = {
 		army_artillery_defence_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4548,7 +4672,7 @@ leader_traits = {
 		army_artillery_defence_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4561,7 +4685,7 @@ leader_traits = {
 		army_artillery_defence_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4575,7 +4699,7 @@ leader_traits = {
 		army_infantry_defence_factor = 0.1		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4588,7 +4712,7 @@ leader_traits = {
 		army_infantry_defence_factor = 0.15		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 3
@@ -4601,7 +4725,7 @@ leader_traits = {
 		army_infantry_defence_factor = 0.2		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 4
@@ -4615,7 +4739,7 @@ leader_traits = {
 	    special_forces_defence_factor = 0.1		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4628,7 +4752,7 @@ leader_traits = {
 	    special_forces_defence_factor = 0.15		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4641,7 +4765,7 @@ leader_traits = {
 	    special_forces_defence_factor = 0.2		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4655,7 +4779,7 @@ leader_traits = {
 		cavalry_defence_factor = 0.05	
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4668,7 +4792,7 @@ leader_traits = {
 		cavalry_defence_factor = 0.1	
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4681,7 +4805,7 @@ leader_traits = {
 		cavalry_defence_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4696,7 +4820,7 @@ leader_traits = {
 		mechanized_defence_factor = 0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 2
@@ -4711,7 +4835,7 @@ leader_traits = {
 		mechanized_defence_factor = 0.1		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 3
@@ -4726,7 +4850,7 @@ leader_traits = {
 		mechanized_defence_factor = 0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 4
@@ -4739,7 +4863,7 @@ leader_traits = {
 		army_morale_factor = 0.04		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4751,7 +4875,7 @@ leader_traits = {
 		army_morale_factor = 0.08		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4763,7 +4887,7 @@ leader_traits = {
 		army_morale_factor = 0.12		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4776,7 +4900,7 @@ leader_traits = {
 		enemy_army_bonus_air_superiority_factor = -0.05		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4788,7 +4912,7 @@ leader_traits = {
 		enemy_army_bonus_air_superiority_factor = -0.10		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4800,7 +4924,7 @@ leader_traits = {
 		enemy_army_bonus_air_superiority_factor = -0.15		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4813,7 +4937,7 @@ leader_traits = {
 		attrition = -0.04		
 		experience_gain_army = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 2
@@ -4825,7 +4949,7 @@ leader_traits = {
 		attrition = -0.08		
 		experience_gain_army = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 4
@@ -4837,7 +4961,7 @@ leader_traits = {
 		attrition = -0.12		
 		experience_gain_army = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 6
@@ -4849,7 +4973,7 @@ leader_traits = {
 		sprite = 1
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4860,7 +4984,7 @@ leader_traits = {
 		sprite = 1
 		experience_gain_air = 0.16
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4871,7 +4995,7 @@ leader_traits = {
 		sprite = 1
 		experience_gain_air = 0.2
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4884,7 +5008,7 @@ leader_traits = {
 		air_accidents_factor = -0.05
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4896,7 +5020,7 @@ leader_traits = {
 		air_accidents_factor = -0.1
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4908,7 +5032,7 @@ leader_traits = {
 		air_accidents_factor = -0.15		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4931,7 +5055,7 @@ leader_traits = {
 		air_night_penalty = -0.1
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4943,7 +5067,7 @@ leader_traits = {
 		air_night_penalty = -0.2
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4955,7 +5079,7 @@ leader_traits = {
 		air_night_penalty = -0.3		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -4968,7 +5092,7 @@ leader_traits = {
 		army_bonus_air_superiority_factor = 0.05
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -4980,7 +5104,7 @@ leader_traits = {
 		army_bonus_air_superiority_factor = 0.1
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -4992,7 +5116,7 @@ leader_traits = {
 		army_bonus_air_superiority_factor = 0.15		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5006,7 +5130,7 @@ leader_traits = {
 		air_weather_penalty = -0.1
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5018,7 +5142,7 @@ leader_traits = {
 		air_weather_penalty = -0.2
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5030,7 +5154,7 @@ leader_traits = {
 		air_weather_penalty = -0.3		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5043,7 +5167,7 @@ leader_traits = {
 		air_ace_generation_chance_factor = 0.05
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5055,7 +5179,7 @@ leader_traits = {
 		air_ace_generation_chance_factor = 0.1
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5067,7 +5191,7 @@ leader_traits = {
 		air_ace_generation_chance_factor = 0.15		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5082,7 +5206,7 @@ leader_traits = {
 		naval_strike_agility_factor = 0.02
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5096,7 +5220,7 @@ leader_traits = {
 		naval_strike_agility_factor = 0.03
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5110,7 +5234,7 @@ leader_traits = {
 		naval_strike_agility_factor = 0.05		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5125,7 +5249,7 @@ leader_traits = {
 		air_interception_agility_factor = 0.02
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5139,7 +5263,7 @@ leader_traits = {
 		air_interception_agility_factor = 0.03
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5153,7 +5277,7 @@ leader_traits = {
 		air_interception_agility_factor = 0.05		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5168,7 +5292,7 @@ leader_traits = {
 		air_air_superiority_agility_factor = 0.02
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5182,7 +5306,7 @@ leader_traits = {
 		air_air_superiority_agility_factor = 0.03
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5196,7 +5320,7 @@ leader_traits = {
 		air_air_superiority_agility_factor = 0.05		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5211,7 +5335,7 @@ leader_traits = {
 		air_close_air_support_agility_factor = 0.02
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5225,7 +5349,7 @@ leader_traits = {
 		air_close_air_support_agility_factor = 0.03
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5239,7 +5363,7 @@ leader_traits = {
 		air_close_air_support_agility_factor = 0.05		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5255,7 +5379,7 @@ leader_traits = {
 		air_strategic_bomber_bombing_factor = 0.03
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5270,7 +5394,7 @@ leader_traits = {
 		air_strategic_bomber_bombing_factor = 0.05
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5285,7 +5409,7 @@ leader_traits = {
 		air_strategic_bomber_bombing_factor = 0.09		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5298,7 +5422,7 @@ leader_traits = {
 		air_cas_present_factor = 0.1
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5310,7 +5434,7 @@ leader_traits = {
 		air_cas_present_factor = 0.15
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5322,7 +5446,7 @@ leader_traits = {
 		air_cas_present_factor = 0.2		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5337,7 +5461,7 @@ leader_traits = {
 		air_paradrop_agility_factor = 0.03
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5351,7 +5475,7 @@ leader_traits = {
 		air_paradrop_agility_factor = 0.05
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5365,7 +5489,7 @@ leader_traits = {
 		air_paradrop_agility_factor = 0.07				
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5377,7 +5501,7 @@ leader_traits = {
 		air_training_xp_gain_factor = 0.05
 		experience_gain_air = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5388,7 +5512,7 @@ leader_traits = {
 		air_training_xp_gain_factor = 0.1
 		experience_gain_air = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5399,7 +5523,7 @@ leader_traits = {
 		air_training_xp_gain_factor = 0.15		
 		experience_gain_air = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5414,7 +5538,7 @@ leader_traits = {
 		navy_carrier_air_agility_factor = 0.04
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5428,7 +5552,7 @@ leader_traits = {
 		navy_carrier_air_agility_factor = 0.08
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5442,7 +5566,7 @@ leader_traits = {
 		navy_carrier_air_agility_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5458,7 +5582,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5473,7 +5597,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.1
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5488,7 +5612,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5501,7 +5625,7 @@ leader_traits = {
 		convoy_raiding_efficiency_factor = 0.1
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5513,7 +5637,7 @@ leader_traits = {
 		convoy_raiding_efficiency_factor = 0.15
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5525,7 +5649,7 @@ leader_traits = {
 		convoy_raiding_efficiency_factor = 0.2
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5547,7 +5671,7 @@ leader_traits = {
 		sprite = 3
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5558,7 +5682,7 @@ leader_traits = {
 		sprite = 3
 		experience_gain_navy = 0.16
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5569,7 +5693,7 @@ leader_traits = {
 		sprite = 3
 		experience_gain_navy = 0.2
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5581,7 +5705,7 @@ leader_traits = {
 		naval_speed_factor = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5593,7 +5717,7 @@ leader_traits = {
 		naval_speed_factor = 0.1
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5605,7 +5729,7 @@ leader_traits = {
 		naval_speed_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5618,7 +5742,7 @@ leader_traits = {
 		navy_submarine_detection_factor = 0.1
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5630,7 +5754,7 @@ leader_traits = {
 		navy_submarine_detection_factor = 0.15
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5642,7 +5766,7 @@ leader_traits = {
 		navy_submarine_detection_factor = 0.2
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5655,7 +5779,7 @@ leader_traits = {
 		navy_anti_air_attack_factor = 0.08
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5667,7 +5791,7 @@ leader_traits = {
 		navy_anti_air_attack_factor = 0.15
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5679,7 +5803,7 @@ leader_traits = {
 		navy_anti_air_attack_factor = 0.2
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5692,7 +5816,7 @@ leader_traits = {
 		navy_max_range_factor = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5704,7 +5828,7 @@ leader_traits = {
 		navy_max_range_factor = 0.10
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5716,7 +5840,7 @@ leader_traits = {
 		navy_max_range_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5729,7 +5853,7 @@ leader_traits = {
 		amphibious_invasion = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5741,7 +5865,7 @@ leader_traits = {
 		amphibious_invasion = 0.1
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5753,7 +5877,7 @@ leader_traits = {
 		amphibious_invasion = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5767,7 +5891,7 @@ leader_traits = {
 		navy_submarine_defence_factor = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5780,7 +5904,7 @@ leader_traits = {
 		navy_submarine_defence_factor = 0.1
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5793,7 +5917,7 @@ leader_traits = {
 		navy_submarine_defence_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5807,7 +5931,7 @@ leader_traits = {
 		navy_capital_ship_defence_factor = 0.05
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5820,7 +5944,7 @@ leader_traits = {
 		navy_capital_ship_defence_factor = 0.1
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5833,7 +5957,7 @@ leader_traits = {
 		navy_capital_ship_defence_factor = 0.15
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5847,7 +5971,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.1
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5860,7 +5984,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.15
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5873,7 +5997,7 @@ leader_traits = {
 		navy_screen_defence_factor = 0.2
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
@@ -5885,7 +6009,7 @@ leader_traits = {
 		sortie_efficiency = 0.1
 		experience_gain_navy = 0.06
 		
-		#command_cap = @tier1
+		command_cap = @tier1
 		
 		ai_will_do = {
 			factor = 1
@@ -5897,7 +6021,7 @@ leader_traits = {
 		sortie_efficiency = 0.15
 		experience_gain_navy = 0.09
 		
-		#command_cap = @tier2
+		command_cap = @tier2
 		
 		ai_will_do = {
 			factor = 2
@@ -5909,7 +6033,7 @@ leader_traits = {
 		sortie_efficiency = 0.2
 		experience_gain_navy = 0.12
 		
-		#command_cap = @tier3
+		command_cap = @tier3
 		
 		ai_will_do = {
 			factor = 3
