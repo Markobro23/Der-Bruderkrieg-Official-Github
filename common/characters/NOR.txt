@@ -3,7 +3,7 @@ characters={
 		name="Haakon VII"
 		portraits={
 			civilian={
-				large="gfx/leaders/Haakon.dds"
+				large="gfx/leaders/NOR/Haakon.dds"
 			}
 		}
 		country_leader={
@@ -23,7 +23,7 @@ characters={
 		name="Vidkun Quisling"
 		portraits={
 			civilian={
-				large="gfx/leaders/NOR/Portrait_Norway_Vidkun_Quisling.dds"
+				large="gfx/leaders/NOR/Portrait_Norway_Vidkun_Quisling_KR.png"
 			}
 		}
 		country_leader={
@@ -65,10 +65,8 @@ characters={
 		name="Carl Gustav Fleischer"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
-			}
-			army={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
+				small="gfx/interface/ideas/NOR_Carl_Johan_Erichsen.png"
+				large="gfx/leaders/NOR/Portrait_Norway_Carl_Gustav_Fleischer.png"
 			}
 		}
 		corps_commander={
@@ -81,13 +79,352 @@ characters={
 			legacy_id=-1
 		}
 	}
+	NOR_kristian_laake = {
+		name = "Kristian Laake"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Kristian_Laake.png"
+				small="gfx/interface/ideas/NOR_Kristian_Laake.png"
+			}
+		}
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = NOR_kristian_laake
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_chief_defensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		field_marshal = {
+			traits = { old_guard trait_cautious }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	NOR_otto_ruge = {
+		name = "Otto Ruge"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Otto_Ruge.png"
+				small="gfx/interface/ideas/NOR_Otto_Ruge.png"
+			}
+		}
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = NOR_otto_ruge
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { winter_specialist }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 2
+		}
+	}
+	NOR_william_steffens = {
+		name = "William Steffens"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_William_Steffens.png"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	NOR_wilhelm_von_tangen_hansteen = {
+		name = "Wilhelm von Tangen-Hansteen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Wilhelm_Tangen_Hansteen.png"
+				small="gfx/interface/ideas/NOR_Wilhelm_Tangen_Hansteen.png"
+			}
+		}
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = NOR_wilhelm_von_tangen-hansteen
+			ledger = army
+				allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_infantry_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		advisor={
+			
+			
+			slot = army_chief
+			idea_token = NOR_willhelm_von_tangen_hansteen
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_chief_organizational_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { career_officer commando }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	NOR_konrad_sundlo = {
+		name = "Konrad Sundlo"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Konrad_Sundlo.png"
+				small="gfx/interface/ideas/NOR_Konrad_Sundlo.png"
+			}
+		}
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = NOR_konrad_sundlo
+			ledger = army
+				allowed = {
+					original_tag = NOR
+				}
+				
+				traits = {
+					military_theorist
+				}
+		}
+		corps_commander = {
+			traits = { old_guard }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	NOR_hans_reidar_holtermann = {
+		name = "Hans Reidar Holtermann"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Hans_Reidar_Holtermann.png"
+			}
+		}
+		corps_commander = {
+			traits = { hill_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	NOR_carl_johan_erichsen = {
+		name = "Carl Johan Erichsen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Carl_Johan_Erichsen.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard infantry_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	NOR_birger_ljungberg = {
+		name = "Birger Ljungberg"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Birger_Ljungberg.png"
+				small="gfx/interface/ideas/NOR_Birger_Ljungberg.png"
+			}
+		}
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = NOR_birger_ljungberg
+			ledger = army
+				allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_commando_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+		corps_commander = {
+			traits = { old_guard infantry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	NOR_jacob_ager_laurantzon = {
+		name = "Jacob Ager Laurantzon"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Jacob_Ager_Laurantzon.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	NOR_jacob_hvinden_haug = {
+		name = "Jacob Hvinden Haug"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Jacob_Hvinden_Haug.png"
+			}
+		}
+		corps_commander = {
+			traits = { organizer trait_mountaineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	NOR_carsten_tank_nielsen = {
+		name = "Carsten Tank-Nielsen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Carsten_Tank_Nielsen.png"
+			}
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 1
+			coordination_skill = 2
+		}
+	}
+	NOR_henry_diesen = {
+		name = "Henry Diesen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Henry_Diesen.png"
+				small="gfx/interface/ideas/NOR_Henry_Diesen.png"
+			}
+		}
+		navy_leader = {
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = NOR_henry_diesen
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					navy_chief_decisive_battle_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
+	NOR_edgar_otto = {
+		name = "Edgar Otto"
+		portraits = {
+			army = {
+				large = "gfx/leaders/NOR/Portrait_Norway_Edgar_Otto.png"
+				small="gfx/interface/ideas/NOR_Edgar_Otto.png"
+			}
+		}
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		advisor={
+			
+			
+			slot = navy_chief
+			idea_token = NOR_edgar_otto
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					navy_chief_naval_aviation_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
 	NOR_elias_corneliussen={
 		name="Elias Corneliussen"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_europe_generic_navy_2.dds"
-			}
-			army={
 				large="gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
 			}
 		}
@@ -96,75 +433,182 @@ characters={
 			skill=3
 			attack_skill=2
 			defense_skill=4
-			maneuvering_skill=1
+			maneuvering_skill=3
 			coordination_skill=1
 			legacy_id=-1
 		}
 	}
-	NOR_frederik_prytz={
-		name="Frederik Prytz"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
-			}
+	NOR_alfred_roscher_lund={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = NOR_alfred_roscher-lund
+			ledger = army
+				allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					army_concealment_3
+				}
+				cost = 200
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=anarcho_communism
-			traits={ war_industrialist hawk }
-			expire="1944.1.1.12"
-			id=-1
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Alfred Roscher-Lund"
+		portraits={
+			army={
+				small="GFX_idea_generic_army_europe_2"
+			}
 		}
 	}
-	NOR_daniel_hamre={
-		name="Daniel Hamre"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
+	NOR_hjalmar_riiser_larsen={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = NOR_hjalmar_riiser_larsen
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					air_chief_all_weather_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=liberal_socialism
-			expire="1952.1.1.12"
-			id=-1
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Hjalmar Riiser-Larsen"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_3"
+			}
 		}
 	}
-	NOR_christian_petersen={
-		name="Christian Petersen"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
+	NOR_bjarne_oen={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = NOR_bjarne_oen
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					air_chief_safety_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
 		}
-		country_leader={
-			ideology=iliberal_democrat
-			expire="1944.1.1.12"
-			id=-1
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Bjarne Øen"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
 		}
 	}
-	NOR_wilhelm_ræder={
-		name="Wilhelm Ræder"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_6"
-			}
+	NOR_skule_storheil={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = NOR_skule_storheil
+			ledger = navy
+				allowed = {
+					original_tag = NOR
+				}
+				
+				traits = {
+					naval_theorist
+				}
 		}
-		country_leader={
-			ideology=despotic
-			expire="1952.1.1.12"
-			id=-1
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Skule Storheil"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_3"
+			}
 		}
 	}
-	NOR_sverre_hamre={
-		name="Sverre Hamre"
+	NOR_ole_reistad={
+		advisor={
+			
+			
+			slot = air_chief
+			idea_token = NOR_ole_reistad
+			allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					air_chief_reform_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Ole Reistad"
 		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
+			army={
+				small="GFX_idea_generic_air_europe_3"
 			}
 		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			expire="1944.1.1.12"
-			id=-1
+	}
+	NOR_tryggve_gran={
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = NOR_tryggve_gran
+			ledger = air
+				allowed = {
+					original_tag = NOR
+				}
+				
+				traits = {
+					air_warfare_theorist
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Tryggve Gran"
+		portraits={
+			army={
+				small="GFX_idea_generic_air_europe_1"
+			}
+		}
+	}
+	NOR_jacob_von_der_lippe={
+		advisor={
+			
+			
+			slot = high_command
+			idea_token = NOR_jacob_von_der_lippe
+			ledger = navy
+				allowed = {
+					original_tag = NOR
+				}
+				traits = {
+					navy_chief_naval_aviation_3
+				}
+				cost = 200
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
+		name="Jacob von der Lippe"
+		portraits={
+			army={
+				small="GFX_idea_generic_navy_europe_2"
+			}
 		}
 	}
 }

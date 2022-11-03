@@ -98,82 +98,35 @@ set_popularities = {
 
 
 
-create_country_leader = {
-	name = "Haakon VII"
-	desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
-	picture = "gfx/leaders/Haakon.dds"
-	expire = "1965.1.1"
-	ideology = democratic_liberal
-	traits = {
-		#
-	}
-}
+recruit_character = NOR_haakon_vii
+recruit_character = NOR_vidkun_quisling
+recruit_character = NOR_johan_ludwig_mowinckel
+recruit_character = NOR_adam_egedenissen
+recruit_character = NOR_carl_gustav_fleischer
+recruit_character = NOR_elias_corneliussen
+recruit_character = NOR_kristian_laake
+recruit_character = NOR_otto_ruge
+recruit_character = NOR_william_steffens
+recruit_character = NOR_hans_reidar_holtermann
+recruit_character = NOR_carl_johan_erichsen
+recruit_character = NOR_birger_ljungberg
+recruit_character = NOR_jacob_ager_laurantzon
+recruit_character = NOR_jacob_hvinden_haug
+recruit_character = NOR_carsten_tank_nielsen
+recruit_character = NOR_henry_diesen
+recruit_character = NOR_edgar_otto
+recruit_character = NOR_wilhelm_von_tangen_hansteen
+recruit_character = NOR_konrad_sundlo
 
-create_country_leader = {
-	name = "Haakon VII"
-	desc = "POLITICS_JOHAN_NYGAARDSVOLD_DESC"
-	picture = "gfx/leaders/Haakon.dds"
-	expire = "1965.1.1"
-	ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
+# Advisors
 
-create_country_leader = {
-	name = "Vidkun Quisling"
-	desc = "POLITICS_VIDKUN_QUISLING_DESC"
-	picture = "Portrait_Norway_Vidkun_Quisling.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
-
-# create_country_leader = {
-# 	name = "Johan Ludwig Mowinckel"
-# 	desc = "POLITICS_JOHAN_LUDWIG_MOWINCKEL_DESC"
-# 	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-# 	expire = "1965.1.1"
-# 	ideology = centrism
-# 	traits = {
-# 		#
-# 	}
-# }
-
-create_country_leader = {
-	name = "Adam Egede-Nissen"
-	desc = "POLITICS_ADAM_EGEDE_NISSEN_DESC"
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_5.dds"
-	expire = "1965.1.1"
-	ideology = marxism
-	traits = {
-		#
-	}
-}
-
-create_corps_commander = {
-	name = "Carl Gustav Fleischer"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_land_1.dds"
-	traits = {  trickster winter_specialist }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 4
-	planning_skill = 2
-	logistics_skill = 4
-}
-
-create_navy_leader = {
-	name = "Elias Corneliussen"
-	portrait_path = "gfx/leaders/Europe/Portrait_Europe_Generic_navy_2.dds"
-	traits = { navy_career_officer inshore_fighter spotter }
-	skill = 3
-	attack_skill = 2
-	defense_skill = 4
-	maneuvering_skill = 3
-	coordination_skill = 1
-}
+recruit_character = NOR_alfred_roscher_lund
+recruit_character = NOR_hjalmar_riiser_larsen
+recruit_character = NOR_bjarne_oen
+recruit_character = NOR_skule_storheil
+recruit_character = NOR_ole_reistad
+recruit_character = NOR_tryggve_gran
+recruit_character = NOR_jacob_von_der_lippe
 
 ### VARIANTS ###
 # 1936 Start #
@@ -319,29 +272,3 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Sleipner & Odin Class"							
-			type = ship_hull_light_1
-			name_group = NOR_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_1
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_1
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_mine_layer_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
-		}
-}
