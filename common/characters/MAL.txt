@@ -12,17 +12,28 @@ characters={
 			id=-1
 		}
 	}
-	MAL_shenton_thomas={
-		name="Shenton Thomas"
+	MAL_francis_wogan_festing={
+		name="Francis Festing"
 		portraits={
 			civilian={
-				large="GFX_portrait_malaya_shenton_thomas"
+				large="gfx/leaders/MAL/Francis_Festing.dds"
+			}
+			army={
+				large="gfx/leaders/MAL/Francis_Festing.dds"
 			}
 		}
 		country_leader={
 			ideology=despotic
 			expire="1953.3.1.1"
 			id=-1
+		}
+		field_marshal = {
+			traits = { inflexible_strategist organisational_leader }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 	MAL_lai_teck={
@@ -64,59 +75,99 @@ characters={
 			id=-1
 		}
 	}
-	MAL_ian_campbell={
-		name="Ian Campbell"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	MAL_gustav_adolf_ilgen = { 
+		name = "Gustav Adolf Ilgen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MAL/Portrait_HOL_Gustav_Adolf_Ilgen.png"
 			}
 		}
-		country_leader={
-			ideology=social_democratic
-			traits={ efficient_budgeter eager_collaborator }
-			expire="1941.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { trait_reckless trickster }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	MAL_henrey_ragland={
-		name="Henrey Ragland"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	MAL_gerardus_johannes_berenschot = { 
+		name = "Gerardus Johannes Berenschot"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MAL/Portrait_HOL_Gerardus_Johannes_Berenschot.png"
 			}
 		}
-		country_leader={
-			ideology=democratic_liberal
-			traits={ editor }
-			expire="1947.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	MAL_leopold_ragland={
-		name="Leopold Ragland"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	MAL_murk_boerstra = { 
+		name = "Murk Boerstra"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MAL/Portrait_HOL_Murk_Boerstra.png"
 			}
 		}
-		country_leader={
-			ideology=authoritarian_democrat
-			traits={ armaments_organizer }
-			expire="1954.1.1.12"
-			id=-1
+		corps_commander = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
-	MAL_richard_roberts={
-		name="Richard Roberts"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+	MAL_simon_spoor = { 
+		name = "Simon Spoor"
+		portraits = {
+			army = {
+				large = "gfx/leaders/MAL/Portrait_HOL_Simon_Spoor.png"
 			}
 		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			expire="1944.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { panzer_leader }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	MAL_arthur_power={
+		name="Arthur Power"
+		portraits={
+			army={
+				small="gfx/interface/ideas/idea_ENG_arthur_power.dds"
+				large="gfx/leaders/MAL/Portrait_England_Arthur_Power.png"
+			}
+		}
+		navy_leader={
+			traits={ gunnery_expert }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=2
+			legacy_id=992
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = arthur_power
+			allowed = {
+				original_tag = MAL
+			}
+			traits = {
+				navy_chief_decisive_battle_2
+			}
+			cost =  100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }
