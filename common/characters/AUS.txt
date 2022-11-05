@@ -170,26 +170,6 @@ characters={
 			id=-1
 		}
 	}
-	AUS_karl_von_habsburglothringen={
-		name="Karl von Habsburg-Lothringen"
-		portraits={
-			army={
-				
-			}
-			army={
-				large="gfx/leaders/KarlPortrait.dds"
-			}
-		}
-		field_marshal={
-			traits={ politically_connected offensive_doctrine }
-			skill=2
-			attack_skill=3
-			defense_skill=2
-			planning_skill=1
-			logistics_skill=2
-			legacy_id=-1
-		}
-	}
 	AUS_leopold_salvator_von_habsburglothringen={
 		name="Leopold Salvator von Habsburg-Lothringen"
 		portraits={
@@ -215,7 +195,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/AUS/Archduke_Josef_Portrait.dds"
-				small="GFX/interface/ideas/AUS_Archduke_Josef.png"
+				small="GFX/interface/ideas/Archduke_Josef_Portrait.png"
 			}
 		}
 		advisor={
@@ -451,6 +431,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/AUS/Portrait_AUS_Eugen_Habsburg_Lothringen.png"
+				small="gfx/interface/ideas/AUS_Eugen_von_Habsburg.png"
 			}
 		}
 		field_marshal={
@@ -461,6 +442,12 @@ characters={
 			planning_skill=3
 			logistics_skill=3
 			legacy_id=13001
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = AUS_eugen_von_habsburg
+			traits = { army_chief_old_guard }
+			cost = 50
 		}
 	}
 	AUS_ludwig_von_eimannsberger={
@@ -499,7 +486,7 @@ characters={
 		name="Erhard Raus"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_5.dds"
+				small="gfx/interface/ideas/AUS_Erhard_Raus.png"
 				large="gfx/leaders/AUS/Portrait_AUS_Erhard_Raus.png"
 			}
 		}
@@ -512,14 +499,19 @@ characters={
 			logistics_skill=3
 			legacy_id=13004
 		}
+		advisor = {
+			slot = high_command
+			idea_token = AUS_erhard_raus
+			ledger = army
+			traits = { army_cavalry_2 }
+			cost = 100
+		}
 	}
 	AUS_sigismund_schilhawsky_von_bahnbruck={
 		name="Sigismund Schilhawsky von Bahnbrück"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_13.dds"
-			}
-			army={
+				small="gfx/interface/ideas/AUS_Sigismund_Schilhawsky.png"
 				large="gfx/leaders/AUS/Portrait_AUS_Sigismund_Schilhawsky.png"
 			}
 		}
@@ -531,6 +523,13 @@ characters={
 			planning_skill=3
 			logistics_skill=3
 			legacy_id=13005
+		}
+		advisor = {
+			slot = high_command
+			idea_token = AUS_sigismund_schilhawsky_von_bahnbruck
+			ledger = army
+			traits = { army_logistics_2 }
+			cost = 100
 		}
 	}
 	AUS_karl_egsleer={
@@ -626,9 +625,7 @@ characters={
 		name="Eduard Barger"
 		portraits={
 			army={
-				small="GFX_Portrait_europe_generic_land_6_small"
-			}
-			army={
+				small="gfx/interface/ideas/AUS_Eduard_Barger.png"
 				large="gfx/leaders/AUS/Portrait_AUS_Eduard_Barger.png"
 			}
 		}
@@ -640,6 +637,13 @@ characters={
 			planning_skill=1
 			logistics_skill=1
 			legacy_id=13011
+		}
+		advisor = {
+			slot = high_command
+			idea_token = AUS_eduard_barger
+			ledger = army
+			traits = { army_commando_2 }
+			cost = 100
 		}
 	}
 	AUS_gabriele_nasci={
@@ -1253,13 +1257,13 @@ characters={
 		name= "Julius Yllam"
 		portraits={
 			army={
-				small="GFX_Portrait_europe_generic_land_3_small"
+				small="GFX_idea_generic_air_europe_1"
 			}
 		}
 		advisor={
 			cost = 100
 			slot = theorist
-			idea_token = yllam
+			idea_token = AUS_julius_yllam
 			ledger = air
 			allowed = {
 				original_tag = AUS
