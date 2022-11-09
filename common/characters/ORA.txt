@@ -1,5 +1,5 @@
 characters={
-	ORA_stjepan_sarkotic={
+	ORA_stjepan_sarkotic={ ### DONT USE - TY, Chowder
 		name="Stjepan Sarkotić"
 		portraits={
 			army={
@@ -8,12 +8,12 @@ characters={
 		}
 		
 		field_marshal={
-			traits={ politically_connected offensive_doctrine }
-			skill=2
-			attack_skill=3
-			defense_skill=2
+			traits={ old_guard politically_connected }
+			skill=1
+			attack_skill=1
+			defense_skill=1
 			planning_skill=1
-			logistics_skill=2
+			logistics_skill=1
 			legacy_id=-1
 		}
 	}
@@ -21,7 +21,8 @@ characters={
 		name = "Alexander von Falkenhausen"
 		portraits = {
 			army = {
-				large="gfx/leaders/AUS/Portrait_GEA_Alexander_von_Falkenhausen.png"
+				large="gfx/leaders/ORA/Portrait_GEA_Alexander_von_Falkenhausen.png"
+				small="gfx/interface/ideas/ORA_Alexander_von_Falkenhausen.png"
 			}
 		}
 		corps_commander = {
@@ -32,12 +33,25 @@ characters={
 			logistics_skill = 3
 			traits = { infantry_officer }
 		}
+		advisor={
+			slot = high_command
+			idea_token = alexander_von_falkenhausen
+			ledger = army
+			allowed = {
+				original_tag = ORA
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+		}
 	}
 	ORA_hermann_detzner = {
 		name = "Hermann Detzner"
 		portraits = {
 			army = {
 				large="gfx/leaders/AUS/Portrait_Mittelafrika_Hermann_Detzner.png"
+				small="gfx/interface/ideas/ORA_Hermann_Detzner.png"
 			}
 		}
 		corps_commander = {
@@ -48,13 +62,26 @@ characters={
 			logistics_skill = 3
 			traits = { war_hero jungle_rat trickster guerilla_fighter }
 		}
+		advisor={
+			cost = 100			
+			slot = theorist
+			idea_token = hermann_detzner
+			ledger = army
+			allowed = {
+				original_tag = ORA
+			}
+			
+			traits = {
+				military_theorist
+			}
+		}
 	}
 	ORA_paul_von_lettowvorbeck={
 		name="Paul von Lettow-Vorbeck"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_von_lettow_vorbeck.dds"
-				large="gfx/leaders/GER/portrait_ger_von_lettow_vorbeck.dds"
+				small="gfx/interface/ideas/ORA_Paul_von_Lettow_Vorbeck.png"
+				large="gfx/leaders/ORA/Portrait_Germany_Paul_von_Lettow_Vorbeck.png"
 			}
 		}
 		advisor={
@@ -83,7 +110,8 @@ characters={
 		name= "Franz Ritter von Epp"
 		portraits={
 			army={
-				large="gfx/leaders/GER/Portrait_Mittelafrika_Franz_Ritter_von_Epp.png"
+				large="gfx/leaders/ORA/Portrait_Mittelafrika_Franz_Ritter_von_Epp.png"
+				small="gfx/interface/ideas/ORA_Franz_Ritter_von_Epp.png"
 			}
 		}
 		country_leader={
@@ -99,12 +127,59 @@ characters={
 			planning_skill = 2
 			logistics_skill = 2
 		}
+		advisor={
+			slot = army_chief
+			idea_token = franz_ritter_von_epp
+			allowed = {
+					original_tag = ORA
+				}
+				traits = {
+					army_chief_offensive_2
+				}
+				cost = 100
+				ai_will_do = {
+					factor = 1.000
+				}
+		}
+	}
+	ORA_Georg_Kraut = {
+		name = "Georg Kraut"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ORA/MAF_Georg_Kraut.png"
+			}
+		}
+		corps_commander = {
+			traits = { war_hero media_personality desert_fox }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	FGD_Max_von_Looff = {
+		name = "Max Looff"
+		portraits = {
+			navy = {
+				large = "gfx/leaders/FGD/MAF_Max_Looff.png"
+			}
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
 	}
 	ORA_gunther_plueschow = {
 		name = "Gunther Plüschow"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_GEA_Gunther_Pluschow.png"
+				large = "gfx/leaders/ORA/Portrait_GEA_Gunther_Pluschow.png"
+				small = "gfx/interface/ideas/ORA_Gunther_Pluschow.png"
 			}
 		}
 		navy_leader = {
@@ -114,6 +189,33 @@ characters={
 			defense_skill = 1
 			maneuvering_skill = 1
 			coordination_skill = 1
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = gunther_plueschow_theorist
+			ledger = navy
+			allowed = {
+				original_tag = ORA
+			}
+			
+			traits = {
+				naval_theorist
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = gunther_plueschow_chief
+			allowed = {
+				original_tag = ORA
+			}
+			traits = {
+				navy_chief_naval_aviation_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 }
