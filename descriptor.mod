@@ -42,7 +42,7 @@ replace_path="common/on_actions"
 replace_path="common/scripted_effects"
 replace_path="common/scripted_localisation"
 replace_path="common/scripted_triggers"
-replace_path = "common/dynamic_modifiers"
+replace_path="common/dynamic_modifiers"
 
 replace_path="common/units"
 replace_path="common/units/equipment"
@@ -58,10 +58,11 @@ replace_path="common/resistance_activity"
 
 replace_path="common/technologies"
 replace_path="common/technology_sharing"
+replace_path="gfx/loadingscreens"
 
 replace_path="common/interface/equipmentdesigner"
 replace_path="gfx/interface/equipmentdesigner/tanks/designer"
-replace_path = "gfx/loadingscreens"
+
 
 replace_path="events"
 replace_path="music"
