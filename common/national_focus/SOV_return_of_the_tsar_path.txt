@@ -1703,7 +1703,7 @@ shared_focus = {
     }
     completion_reward = {
         every_state = {
-        	limit = { is_owned_by = ROM any_neighbor_state = { is_owned_by = AUS } }
+        	limit = { is_owned_by = ROM any_neighbor_state = { OR = { is_owned_by = AUS is_owned_by = HUN } } }
         	add_building_construction = {
         		type = bunker
         		level = 5 #It said add 10 forts, but this seems a bit overkill tbh
