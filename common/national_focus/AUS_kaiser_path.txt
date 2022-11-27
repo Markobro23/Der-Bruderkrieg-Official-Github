@@ -7807,7 +7807,9 @@ shared_focus = {
   icon = GFX_goal_AUS_the_remnants_of_prussia
   text = AUS_the_remnants_of_prussia
   prerequisite = { focus = AUS_a_new_european_order focus = AUS_secure_krakow }
-  
+  available = {
+    has_completed_focus = AUS_a_new_european_order
+  }
   x = -3
   y = 1
   relative_position_id = AUS_a_new_european_order
@@ -8191,6 +8193,9 @@ shared_focus = {
   cost = 3
   ai_will_do = {
     factor = 200
+  }
+  bypass = {
+    has_war_with = FRA
   }
   will_lead_to_war_with = FRA
   available_if_capitulated = yes
