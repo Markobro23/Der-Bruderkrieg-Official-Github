@@ -529,11 +529,36 @@ on_actions = {
 						}
 					}
 				}
+				
 				HAN = {
 					transfer_navy = {
 						target = GER
 					}
 				}
+				GER = {
+					annex_country = {
+						target = HAN
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = { tag = SAX }
+					OR = {
+						FROM = {
+							tag = GER
+						}
+						FROM = {
+							is_in_faction_with = GER
+						}
+					}
+				}
+				GER = {
+					annex_country = {
+						target = SAX
+					}
+				}
+			
 			}
 			if = {
 				limit = {

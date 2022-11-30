@@ -2695,6 +2695,18 @@ country_event = {
 				type = civil_war
 			}
 		}
+		hidden_effect = {
+			WFR = {
+				load_oob = "GER_westfalen"
+				every_owned_state = {
+					create_unit = {
+						division = "name = \"Worker's Army of Westfalen\" division_template = \"Westfalen Militia\" start_experience_factor = 0.5 start_equipment_factor = 1"
+
+						owner = WFR
+					} 
+				}
+			}
+		}
 		if = {
 			limit = {
 				FRA = {
@@ -3368,6 +3380,7 @@ country_event = { #you've been chosen to unite Iberia!
 				limit = { is_core_of = POR }
 				add_core_of = SPR
 			}
+			set_cosmetic_tag = iberian_union
 		}
 		if = {
 			limit = {
@@ -3387,6 +3400,7 @@ country_event = { #you've been chosen to unite Iberia!
 				limit = { is_core_of = SPR }
 				add_core_of = POR
 			}
+			set_cosmetic_tag = iberian_union
 		}
 	}
 	option = { #darn they didn't accept
