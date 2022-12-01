@@ -145,8 +145,8 @@ characters={
 				large="gfx/leaders/GER/Portrait_Germany_Gunther_Kluge_kr.png"
 			}
 		}
-		field_marshal={
-			traits={ armor_officer offensive_doctrine }
+		corps_commander={
+			traits={ armor_officer career_officer }
 			skill=4
 			attack_skill=3
 			defense_skill=3
@@ -168,6 +168,31 @@ characters={
 			ai_will_do = {
 				factor = 1.500
 			}
+		}
+	}
+	GER_werner_von_blomberg = {
+		name = "Werner von Blomberg"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Werner_von_Blomberg.png"
+				small = "gfx/interface/ideas/GER_werner_von_blomberg.png"
+			}
+		}
+		field_marshal = {
+			traits = { career_officer armor_officer trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = GER_werner_von_blomberg_army_chief
+			available = {
+			}
+			traits = { army_chief_drill_2 }
+			cost = 100
 		}
 	}
 	GER_alfred_von_vollard_bockelberg = {
@@ -202,6 +227,25 @@ characters={
 			planning_skill=3
 			logistics_skill=3
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = GER_kurt_von_hammerstein_equord_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_reform_2 }
+			cost = 100
+		}
+		advisor = {
+			idea_token = GER_kurt_von_hammerstein_equord_high_command
+			slot = high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_CombinedArms_3 }
+			cost = 200
+		}
 	}
 	GER_friedrich_paulus={
 		name="Friedrich Paulus"
@@ -219,20 +263,6 @@ characters={
 			planning_skill = 3
 			logistics_skill = 3
 			legacy_id=3
-		}
-		advisor={	
-			slot = army_chief
-			idea_token = friedrich_paulus
-			allowed = {
-				original_tag = GER
-			}
-			traits = {
-				army_chief_morale_1
-			}
-			cost = 50
-			ai_will_do = {
-				factor = 1.000
-			}
 		}
 	}
 	GER_erich_von_manstein={
@@ -318,8 +348,8 @@ characters={
 				factor = 2.000
 			}
 		}
-		corps_commander={
-			traits={ trait_cautious harsh_leader }
+		field_marshal={
+			traits={ brilliant_strategist trait_cautious harsh_leader }
 			skill=4
 			attack_skill=4
 			defense_skill=3
@@ -367,20 +397,6 @@ characters={
 			army={
 				small="gfx/interface/ideas/idea_GER_walter_model.dds"
 				large="gfx/leaders/GER/Portrait_Germany_Walter_Model_kr.png"
-			}
-		}
-		advisor={
-			slot = army_chief
-			idea_token = walter_model
-			allowed = {
-				original_tag = GER
-			}
-			traits = {
-				army_chief_offensive_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
 			}
 		}
 		corps_commander={
