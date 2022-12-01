@@ -280,7 +280,7 @@ focus_tree = {
 		}
 		x = 19
 		y = 2
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_kickstart_the_industry }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -512,7 +512,7 @@ focus_tree = {
 		icon = GFX_goal_generic_air_production
 		x = 17
 		y = 3
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_expand_the_universidade_do_lisboa }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -640,7 +640,7 @@ focus_tree = {
 		icon = GFX_goal_generic_army_artillery
 		x = 17
 		y = 4
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_oficinas_gerais_de_material_de_engenharia }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -658,10 +658,10 @@ focus_tree = {
 			if = {
 				limit = { has_full_control_of_state = 179 }
 				179 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = arms_factory
-						level = 2
+						level = 1
 						instant_build = yes
 					}			
 				}
@@ -685,8 +685,7 @@ focus_tree = {
 					}
 				}
 			}
-			custom_effect_tooltip = available_designer
-			show_ideas_tooltip = fma
+			army_experience = 25
 		}
 	}
 
@@ -783,41 +782,17 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = { 	
-			if = {
-				limit = { has_full_control_of_state = 112 }	
-				112 = {
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = arms_factory		
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
-			else = {
-				random_owned_state = {
-					limit = {
-						is_controlled_by = ROOT
-						is_core_of = ROOT
-						free_building_slots = {
-							building = arms_factory
-							size > 1
-							include_locked = yes
-						}
-					}
-					add_extra_state_shared_building_slots = 1
-					add_building_construction = {
-						type = arms_factory
-						level = 1
-						instant_build = yes
-					}
-				}
-			}
 			add_tech_bonus = {
 				name = POR_armor_focus
 			    bonus = 1.0
 			    uses = 1
 			    category = armor
+			}
+			army_experience = 50
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
 			}
 		}
 	}
@@ -843,6 +818,7 @@ focus_tree = {
 			    uses = 2
 			    category = cat_mechanized_equipment
 			}
+			army_experience = 25
 		}
 	}
 
@@ -905,7 +881,7 @@ focus_tree = {
 		icon = GFX_goal_generic_air_fighter2
 		x = 21
 		y = 4
-		cost = 10
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_oficinas_gerais_de_material_aeronutico }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -976,6 +952,11 @@ focus_tree = {
 			}
 			air_experience = 50
 			add_ideas = POR_advanced_light_aircraft
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
 		}
 	}
 
@@ -1000,6 +981,12 @@ focus_tree = {
 			    uses = 1
 			    category = jet_technology
 			}
+			air_experience = 25
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = air_doctrine
+			}
 		}
 	}
 
@@ -1013,7 +1000,7 @@ focus_tree = {
 		}
 		x = 23
 		y = 5
-		cost = 10
+		cost = 5
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_light_fighter_program }
 		ai_will_do = {
@@ -1046,7 +1033,7 @@ focus_tree = {
 		icon = GFX_goal_generic_air_production
 		x = 21
 		y = 5
-		cost = 10
+		cost = 8
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_light_fighter_program }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -1475,6 +1462,11 @@ focus_tree = {
 					}
 				}
 			}
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}
 		}
 	}
 
@@ -1553,7 +1545,12 @@ focus_tree = {
 						instant_build = yes
 					}
 				}
-			}			
+			}	
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = naval_doctrine
+			}		
 		}
 	}
 
@@ -1741,7 +1738,7 @@ focus_tree = {
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 24
 		y = 3
-		cost = 8
+		cost = 6
 		available_if_capitulated = yes
 		prerequisite = { focus = POR_atlantic_defense_strategy }
 		search_filters = { FOCUS_FILTER_INDUSTRY } 
@@ -1752,10 +1749,10 @@ focus_tree = {
 			if = {
 				limit = { has_full_control_of_state = 112 }
 				112 = { #Lisbon
-					add_extra_state_shared_building_slots = 3
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = dockyard		
-						level = 3
+						level = 2
 						instant_build = yes
 					}
 				}
