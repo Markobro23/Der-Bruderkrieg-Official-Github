@@ -2,8 +2,9 @@ characters={
 	SIA_phraya_phahon={
 		name="Phraya Phahon"
 		portraits={
-			civilian={
-				large="gfx/leaders/SIA/Portrait_Siam_Phraya_Phahon.dds"
+			army={
+				large="gfx/leaders/SIA/Portrait_Siam_Phraya_Phaholponpayuhasena.png"
+				small="gfx/interface/ideas/SIA_phot_phahonyothin.png"
 			}
 
 		}
@@ -14,6 +15,35 @@ characters={
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SIA_phot_phahonyothin_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_regrouping_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SIA_phot_phahonyothin_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_organizational_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SIA_phot_phahonyothin_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { military_theorist }
+			cost = 150
 		}
 		
 	}
@@ -39,27 +69,14 @@ characters={
 			id=-1
 		}
 	}
-	SIA_thawan_thamrongnawasawat = {
-		name = "Thawan Thamrongnawasawat"
-		portraits = {
-			army = {
-				large = "gfx/leaders/SIA/Portrait_Siam_Thawan_Thamrongnawasawat.png"
-			}
-		}
-		navy_leader = { # Destroyer Flotilla 2 Commander
-			traits = { fleet_protector }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			maneuvering_skill = 1
-			coordination_skill = 3
-		}
-	}
 	SIA_plaek_phibunsongkhram = { 
 		name = "Plaek Phibunsongkhram"
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/SIA/Portrait_Siam_Plaek_Phibunsongkhram.png"
+			}
+			army = {
+				small = "gfx/interface/ideas/SIA_plaek_phibunsongkhram.png"
 			}
 		}
 		country_leader = {
@@ -75,12 +92,32 @@ characters={
 			planning_skill = 3 
 			logistics_skill = 1
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = SIA_plaek_phibunsongkhram_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SIA_plaek_phibunsongkhram_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { superior_firepower_expert }
+			cost = 150
+		}
 	}
 	SIA_jarun_seriroengrit = { 
 		name = "Charun Rattanakun Seriroengrit"
 		portraits = {
 			army = {
 				large = "gfx/leaders/SIA/Portrait_Siam_Charun_Rattanakun_Seriroengri.png"
+				small ="gfx/interface/ideas/SIA_jarun_seriroengrit.png"
 			}
 		}
 		field_marshal = {
@@ -90,6 +127,190 @@ characters={
 			defense_skill = 1
 			planning_skill = 1
 			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SIA_jarun_seriroengrit_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_commando_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SIA_jarun_seriroengrit_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { mass_assault_expert }
+			cost = 150
+		}
+	}
+	SIA_din_tharab = { 
+		name = "Phraya Si Sitthisongkhram"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SIA_din_tharab.png"
+				large = "gfx/leaders/SIA/Portrait_Siam_Phraya_Srisitthisongkhram.png"
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SIA_din_tharab_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_artillery_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SIA_din_tharab_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_planning_2 }
+			cost = 100
+		}
+	}
+	SIA_phin_choonhavan = { 
+		name = "Phin Choonhavan"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SIA_phin_choonhavan.png"
+				large = "gfx/leaders/SIA/Portrait_Siam_Phin_Choonhavan.png"
+			}
+		}
+		corps_commander = {
+			traits = { harsh_leader politically_connected hill_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SIA_phin_choonhavan_army_chief
+			traits = { army_chief_drill_1 }
+			cost = 50
+		}
+	}
+	SIA_adul_adulyadejchrat = { 
+		name = "Adul Adulyadejchrat"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SIA_adul_adulyadejchrat.png"
+				large = "gfx/leaders/SIA/Portrait_Siam_Adul_Adulyadejchrat.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SIA_adul_adulyadejchrat_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_morale_1 }
+			cost = 50
+		}
+	}
+	SIA_mangkorn_promyothee = { 
+		name = "Mangkorn Phromyothi"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SIA/Portrait_Siam_Mangkorn_Promyothee.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	SIA_sindhu_kamolnawin = {
+		name = "Sindh Kamalanavin"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/SIA_sindhu_kamolnawin.png"
+				large = "gfx/leaders/SIA/Portrait_Siam_Sindhu_Kamolnavin.png"
+			}
+		}
+		navy_leader = {
+			traits = { naval_lineage blockade_runner }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = SIA_sindhu_kamolnawin_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SIA_sindhu_kamolnawin_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { grand_fleet_proponent }
+			cost = 150
+		}
+	}
+	SIA_thawan_thamrongnawasawat = {
+		name = "Thawan Thamrongnawasawat"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SIA/Portrait_Siam_Thawan_Thamrongnawasawat.png"
+				small = "gfx/interface/ideas/SIA_thawan_thamrongnawasawat.png"
+			}
+		}
+		navy_leader = { 
+			traits = { fleet_protector }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SIA_thawan_thamrongnawasawat_high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_screen_1 }
+			cost = 50
 		}
 	}
 }
