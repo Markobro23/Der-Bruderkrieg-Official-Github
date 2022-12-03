@@ -570,11 +570,18 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = { 			
-			add_tech_bonus = {
-				name = POR_military_vehicles
-			    bonus = 1.0
-			    uses = 1
-			    category = motorized_equipment
+			if = {
+				limit = { NOT = { has_tech = motorised_infantry } }
+				set_technology = { motorised_infantry = 1 }
+			}
+			else = {
+				add_tech_bonus = {
+					name = POR_military_vehicles
+				    bonus = 1.0
+				    uses = 1
+				    category = motorized_equipment
+					category = cat_mechanized_equipment
+				}
 			}
 			add_equipment_to_stockpile = { type = motorized_equipment amount = 200 producer = POR }
 			
