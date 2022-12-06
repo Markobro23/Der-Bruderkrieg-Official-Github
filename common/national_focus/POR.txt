@@ -202,6 +202,7 @@ focus_tree = {
 		icon = GFX_focus_generic_tank_production
 		available = {
 			controls_state  = 112
+			controls_state  = 180
 		}
 		x = 5
 		y = 4
@@ -227,9 +228,9 @@ focus_tree = {
 				}					
 				add_extra_state_shared_building_slots = 2
 			}
-			112 = {
+			180 = {
 				add_building_construction = {
-					type = arms_factory
+					type = industrial_complex
 					level = 1
 					instant_build = yes
 				}					
@@ -361,7 +362,7 @@ focus_tree = {
 			if = {
 				limit = { has_full_control_of_state = 180 }
 				180 = {
-					add_extra_state_shared_building_slots = 3
+					add_extra_state_shared_building_slots = 2
 					add_building_construction = {
 						type = infrastructure
 						level = 1
@@ -379,7 +380,7 @@ focus_tree = {
 			if = {
 				limit = { has_full_control_of_state = 112 }
 				112 = {
-					add_extra_state_shared_building_slots = 2
+					add_extra_state_shared_building_slots = 1
 					add_building_construction = {
 						type = infrastructure
 						level = 1
@@ -496,6 +497,8 @@ focus_tree = {
 					add_extra_state_shared_building_slots = 1	
 				}
 			}
+			#112 = { increase_state_category_by_one_level = yes }
+			#180 = { increase_state_category_by_one_level = yes }
 		}
 	}
 
