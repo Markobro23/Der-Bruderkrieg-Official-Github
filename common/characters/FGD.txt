@@ -1,6 +1,6 @@
 characters={
 	FGD_karl_josef_bonaparte={
-		name="Napoleon I"
+		name="Napoleon"
 		portraits={
 			civilian={
 				large="gfx/leaders/NapoleonVIPortrait.dds"
@@ -12,6 +12,7 @@ characters={
 			ideology=despotic
 			expire="1965.1.1.1"
 			id=-1
+			traits = {regent}
 		}
 		country_leader={
 			#desc="POLITICS_KURT_SCHUSCHNIGG_DESC"
@@ -24,11 +25,50 @@ characters={
 		name= "Konrad Adenauer"
 		portraits={
 			civilian={
-				large="gfx/leaders/Konrad_Adaneur_Portrait.dds"
+				large="gfx/leaders/FGD/Konrad_Adaneur_Portrait.dds"
 			}
 		}
 		country_leader={
 			ideology=democratic_conservative
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	FGD_fritz_steinhoff={
+		name= "Fritz Steinhoff"
+		portraits={
+			civilian={
+				large="gfx/leaders/GER/Portrait_Germany_Konrad_Adenauer.dds"
+			}
+		}
+		country_leader={
+			ideology=democratic_liberal
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	FGD_albert_speer={
+		name= "Albert Speer"
+		portraits={
+			civilian={
+				large="gfx/leaders/FGD/AlberSpeer.dds"
+			}
+		}
+		country_leader={
+			ideology= fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	FGD_reinhard_heydrich={
+		name= "Reinhard Heydrich"
+		portraits={
+			civilian={
+				large="gfx/leaders/FGD/Heydrich.dds"
+			}
+		}
+		country_leader={
+			ideology= ultranationalist
 			expire="1965.1.1.1"
 			id=-1
 		}
@@ -93,7 +133,7 @@ characters={
 		name = "Curt Haase"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Curt_Hasse.png"
+				large = "gfx/leaders/FGD/Portrait_Germany_Curt_Hasse.png"
 			}
 		}
 		corps_commander = {
@@ -109,7 +149,7 @@ characters={
 		name = "Josias Georg Wilhelm Adolf"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_GEA_Prinz_Josias_Waldeck-Prymont.png"
+				large = "gfx/leaders/FGD/Portrait_GEA_Prinz_Josias_Waldeck-Prymont.png"
 			}
 		}
 		corps_commander = {
@@ -119,6 +159,29 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 1
+		}
+	}
+	FGD_Max_von_Looff = {
+		name = "Max Looff"
+		portraits = {
+			navy = {
+				large = "gfx/leaders/FGD/MAF_Max_Looff.png"
+				small="gfx/interface/ideas/FGD_Max_Looff.png"
+			}
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = MAF_Max_von_Looff
+			traits = { navy_chief_maneuver_1 }
+			cost = 50
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
 		}
 	}
 }
