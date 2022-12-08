@@ -3,7 +3,7 @@ characters={
 		name="Court of Bavaria"
 		portraits={
 			civilian={
-				large="gfx/leaders/Bavarian_Court.dds"
+				large="gfx/leaders/GPU/Bavarian_Court.dds"
 			}
 		}
 		country_leader={
@@ -18,7 +18,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GPU_gerd_von_rundstedt.png"
-				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Gerd_von_Rundstedt.png"
 			}
 		}
 		country_leader={
@@ -55,12 +55,11 @@ characters={
 			}
 		}
 	}
-
 	GPU_Kurt_Eisner={
 		name="Kurt Eisner"
 		portraits={
 			civilian={
-				large="gfx/leaders/GER/Portrait_Germany_Kurt_Eisner.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Kurt_Eisner.png"
 			}
 		}
 		country_leader={
@@ -95,7 +94,7 @@ characters={
 		name="Ferdinand Schorner"
 		portraits={
 			army={
-				large="gfx/leaders/GER/Portrait_Mittelafrika_Ferdinand_Schorner.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Ferdinand_Schorner.png"
 				small="gfx/interface/ideas/GPU_ferdinand_schorner.png"
 			}
 		}
@@ -152,7 +151,7 @@ characters={
 				large="gfx/leaders/AUS/Ruppercht.dds"
 			}
 			army={
-				large="gfx/leaders/GER/Portrait_GPU_Rupprecht_Bayern.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Rupprecht_Bayern.png"
 				small="gfx/interface/ideas/GPU_Rupprecht_Bayern.png"
 			}
 		}
@@ -184,7 +183,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GPU_Franz_Halder.png"
-				large="gfx/leaders/GER/Portrait_Germany_Franz_Halder_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Franz_Halder.png"
 			}
 		}
 		advisor={
@@ -215,7 +214,7 @@ characters={
 		name= "Wilhelm Ritter von Thoma"
 		portraits={
 			army={
-				large="gfx/leaders/GER/Portrait_GPU_Wilhelm_Ritter_von_Thoma.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Wilhelm_Ritter_von_Thoma.png"
 				small="gfx/interface/ideas/GPU_Wilhelm_Ritter_von_Thoma.png"
 			}
 		}
@@ -245,7 +244,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GER_josef_dietrich.png"
-				large="gfx/leaders/GER/Portrait_GPU_Sepp_Dietrich.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Sepp_Dietrich.png"
 			}
 		}
 		advisor={
@@ -278,7 +277,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GPU_albert_kesselring.png"
-				large="gfx/leaders/GER/Portrait_Germany_Albert_Kesselring_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Albert_Kesselring.png"
 			}
 		}
 		advisor={
@@ -309,8 +308,8 @@ characters={
 		name="Alfred Jodl"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_alfred_jodl.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Alfred_Jodl.dds"
+				small="gfx/interface/ideas/GPU_alfred_jodl.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Alfred_Jodl.png"
 			}
 		}
 		corps_commander={
@@ -327,7 +326,8 @@ characters={
 		name= "Fritz Bayerlein"
 		portraits={
 			army={
-				large="gfx/leaders/GER/Portrait_GEA_Fritz_Bayerlein_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Fritz_Bayerlein.png"
+				small="gfx/interface/ideas/GPU_Fritz_Bayerlein.png"
 			}
 		}
 		corps_commander = {
@@ -344,7 +344,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GPU_wilhelm_ritter_von_leeb.png"
-				large="gfx/leaders/GER/Portrait_Germany_Wilhelm_Ritter_von_Leeb_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Wilhelm_Ritter_von_Leeb.png"
 			}
 		}
 		advisor={	
@@ -375,7 +375,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/GER_wilhelm_list.png"
-				large="gfx/leaders/GER/Portrait_GPU_Wihelm_List.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Wihelm_List.png"
 			}
 		}
 		advisor={
@@ -464,7 +464,7 @@ characters={
 		name = "Franz Maria Luitpold Prinz von Bayern"
 		portraits = {
 			army = {
-				large="gfx/leaders/GER/Portrait_Germany_Franz_Bayern_kr.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Franz_Bayern.png"
 				small="gfx/interface/ideas/GPU_Franz_Bayern.png"
 			}
 		}
@@ -479,9 +479,39 @@ characters={
 		advisor = {
 			slot = high_command
 			ledger = army
-			idea_token = GER_franz_von_bayern
+			idea_token = GPU_franz_von_bayern
 			traits = { army_entrenchment_2 }
 			cost = 100
+		}
+	}
+	GPU_gunther_lutjens={
+		name="Günther Lütjens"
+		portraits={
+			army={
+				small="gfx/interface/ideas/GER_gunter_lutjens.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Gunther_Lutjens.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = gunther_lutjens
+			ledger = navy
+			traits = {
+				navy_fleet_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		navy_leader={
+			traits={ gentlemanly navy_career_officer superior_tactician }
+			skill=3
+			attack_skill=4
+			defense_skill=1
+			maneuvering_skill=1
+			coordination_skill=1
+			legacy_id=31
 		}
 	}
 }
