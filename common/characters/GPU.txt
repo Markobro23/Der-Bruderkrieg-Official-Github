@@ -13,14 +13,11 @@ characters={
 			id=-1
 		}
 	}
-	GPU_count_gerd_von_rundstent  ={
+	GPU_gerd_von_rundstedt={
 		name="Gerd von Rundstedt"
 		portraits={
-			civilian={
-				large="gfx/leaders/vonrundstent.dds"
-			}
 			army={
-				small="gfx/interface/ideas/idea_GER_gerd_von_rundstedt.dds"
+				small="gfx/interface/ideas/GPU_gerd_von_rundstedt.png"
 				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
 			}
 		}
@@ -49,9 +46,6 @@ characters={
 			slot = high_command
 			idea_token = gerd_von_rundstedt
 			ledger = army
-			allowed = {
-				original_tag = GPU
-			}
 			traits = {
 				army_regrouping_2
 			}
@@ -62,11 +56,11 @@ characters={
 		}
 	}
 
-	GPU_enver_hoxha={
+	GPU_Kurt_Eisner={
 		name="Kurt Eisner"
 		portraits={
 			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Kurt_Eisner.png"
 			}
 		}
 		country_leader={
@@ -102,7 +96,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/GER/Portrait_Mittelafrika_Ferdinand_Schorner.png"
-				small="GFX_idea_ferdinand_schorner"
+				small="gfx/interface/ideas/GPU_ferdinand_schorner.png"
 			}
 		}
 		corps_commander={
@@ -130,6 +124,7 @@ characters={
 			}
 		}
 	}
+
 	GPU_archduke_leopold_salvator={
 		name="Leopold Salvator von Habsburg-Lothringen"
 		portraits={
@@ -157,7 +152,8 @@ characters={
 				large="gfx/leaders/AUS/Ruppercht.dds"
 			}
 			army={
-				large="gfx/leaders/AUS/Ruppercht.dds"
+				large="gfx/leaders/GER/Portrait_GPU_Rupprecht_Bayern.png"
+				small="gfx/interface/ideas/GPU_Rupprecht_Bayern.png"
 			}
 		}
 		field_marshal = {
@@ -187,7 +183,7 @@ characters={
 		name= "Franz Halder"
 		portraits={
 			army={
-				small="GFX_idea_franz_halder"
+				small="gfx/interface/ideas/GPU_Franz_Halder.png"
 				large="gfx/leaders/GER/Portrait_Germany_Franz_Halder_kr.png"
 			}
 		}
@@ -248,8 +244,8 @@ characters={
 		name="Sepp Dietrich"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_josef_dietrich.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Josef_Dietrich.dds"
+				small="gfx/interface/ideas/GER_josef_dietrich.png"
+				large="gfx/leaders/GER/Portrait_GPU_Sepp_Dietrich.png"
 			}
 		}
 		advisor={
@@ -281,7 +277,7 @@ characters={
 		name="Albert Kesselring"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_albert_kesselring.dds"
+				small="gfx/interface/ideas/GPU_albert_kesselring.png"
 				large="gfx/leaders/GER/Portrait_Germany_Albert_Kesselring_kr.png"
 			}
 		}
@@ -347,7 +343,7 @@ characters={
 		name="Wilhelm Ritter von Leeb"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_wilhelm_ritter_von_leeb.dds"
+				small="gfx/interface/ideas/GPU_wilhelm_ritter_von_leeb.png"
 				large="gfx/leaders/GER/Portrait_Germany_Wilhelm_Ritter_von_Leeb_kr.png"
 			}
 		}
@@ -378,8 +374,8 @@ characters={
 		name="Wilhelm List"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_wilhelm_list.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Wilhelm_List.dds"
+				small="gfx/interface/ideas/GER_wilhelm_list.png"
+				large="gfx/leaders/GER/Portrait_GPU_Wihelm_List.png"
 			}
 		}
 		advisor={
@@ -469,6 +465,7 @@ characters={
 		portraits = {
 			army = {
 				large="gfx/leaders/GER/Portrait_Germany_Franz_Bayern_kr.png"
+				small="gfx/interface/ideas/GPU_Franz_Bayern.png"
 			}
 		}
 		corps_commander = {
@@ -478,6 +475,13 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = GER_franz_von_bayern
+			traits = { army_entrenchment_2 }
+			cost = 100
 		}
 	}
 }

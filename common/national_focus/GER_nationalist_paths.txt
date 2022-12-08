@@ -6023,6 +6023,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
+			navy_experience = 25
 			add_doctrine_cost_reduction = {
 				cost_reduction = 0.5
 		   uses = 1
@@ -6091,7 +6092,11 @@ shared_focus = {
 				bonus = 0.5
 				uses = 2
 				category = ss_tech
-			 }
+			}
+			if = {
+				limit = { has_dlc = "No Step Back" }
+				set_technology = { cruiser_submarines = 1 }
+			}
 		}
 		ai_will_do = {
 			factor = 1
