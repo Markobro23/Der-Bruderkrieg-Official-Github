@@ -344,20 +344,6 @@ characters={
 				large="gfx/leaders/ITA/Portrait_SRI_Inigo_Campioni.png"
 			}
 		}
-		advisor={
-			slot = navy_chief
-			idea_token = inigo_campioni
-			allowed = {
-				original_tag = ITA
-			}
-			traits = {
-				navy_chief_decisive_battle_1
-			}
-			cost =  50
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
 		navy_leader={
 			traits={ battleship_adherent superior_tactician spotter }
 			skill=3
@@ -962,6 +948,7 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Annibale_Bergonzoli.png"
+				small="gfx/interface/ideas/ITA_Annibale_Bergonzoli.png"
 			}
 		}
 		corps_commander = {
@@ -972,12 +959,20 @@ characters={
 			planning_skill = 3
 			logistics_skill = 3
 		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_annibale_bergonzoli
+			traits = { army_entrenchment_2 }
+			cost = 100
+		}
 	}
 	ITA_alberto_pariani = {
 		name = "Alberto Pariani"
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Alberto_Pariani.png"
+				small="gfx/interface/ideas/ITA_Alberto_Pariani.png"
 			}
 		}
 		corps_commander = {
@@ -988,12 +983,20 @@ characters={
 			planning_skill = 2
 			logistics_skill = 2
 		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_alberto_pariani
+			traits = { army_infantry_2 }
+			cost = 100
+		}
 	}
 	ITA_italo_gariboldi = {
 		name = "Italo Gariboldi"
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Italo_Gariboldi.png"
+				small="gfx/interface/ideas/ITA_Italo_Gariboldi.png"
 			}
 		}
 		corps_commander = {
@@ -1003,6 +1006,13 @@ characters={
 			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_italo_gariboldi
+			traits = { army_logistics_2 }
+			cost = 100
 		}
 	}
 	ITA_gino_pavesi = {
