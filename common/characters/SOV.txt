@@ -118,21 +118,34 @@ characters={
 				small="gfx/interface/ideas/RUS_Pyotr_Wrangel.png"
 			}
 		}
-		advisor={	
+		advisor = {
 			slot = army_chief
-			idea_token = pyotr_wrangel
-			allowed = {
-				OR = {
-					original_tag = SOV
-					original_tag = UGL
-				}
+			idea_token = RUS_pyotr_wrangel_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
 			}
-			traits = {
-				army_chief_old_guard
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_pyotr_wrangel_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
 			}
-			ai_will_do = {
-				factor = 1.000
+			traits = { army_chief_entrenchment_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = RUS_pyotr_wrangel_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
 			}
+			traits = { grand_battle_plan_expert }
+			cost = 150
 		}
 		country_leader={
 			ideology=oligarchism
@@ -142,12 +155,12 @@ characters={
 		}
 
 		field_marshal={
-			traits={ old_guard politically_connected offensive_doctrine }
-			skill=4
-			attack_skill=4
+			traits={ war_hero harsh_leader cavalry_officer inspirational_leader offensive_doctrine }
+			skill=3
+			attack_skill=2
 			defense_skill=2
 			planning_skill=4
-			logistics_skill=3
+			logistics_skill=2
 			legacy_id=72009
 		}
 	}
@@ -178,11 +191,11 @@ characters={
 			}
 		}
 		field_marshal={
-			traits={ old_guard defensive_doctrine }
-			skill=4
+			traits={ old_guard media_personality cavalry_officer offensive_doctrine }
+			skill=3
 			attack_skill=2
-			defense_skill=4
-			planning_skill=4
+			defense_skill=3
+			planning_skill=2
 			logistics_skill=3
 			legacy_id=72008
 		}
@@ -197,29 +210,77 @@ characters={
 		}
 		advisor = {
 			slot = army_chief
-			idea_token = anton_denikin
-			allowed = {
-				OR = {
-					original_tag = SOV
-					original_tag = KLV
-				}
-			}		
+			idea_token = anton_denikin	
 			traits = {
-				army_chief_drill_1
+				army_chief_offensive_1
+			}
+			available = {
+				not_already_hired_except_as = army_chief
 			}
 			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
 		}
+		advisor = {
+			slot = theorist
+			idea_token = RUS_anton_denikin_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { military_theorist }
+			cost = 100
+		}
 		field_marshal={
-			traits={ old_guard inflexible_strategist war_hero defensive_doctrine }
+			traits={ old_guard war_hero organizer thorough_planner }
 			skill=4
-			attack_skill=3
-			defense_skill=4
+			attack_skill=4
+			defense_skill=3
 			planning_skill=3
 			logistics_skill=3
 			legacy_id=72007
+		}
+	}
+	SOV_mikhail_frunze = {
+		name = "Mikhail Frunze"
+		portraits = {
+			army = {
+				large = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Frunze.png"
+				small = "gfx/interface/ideas/SOV_mikhail_frunze.png"
+			}
+		}
+		field_marshal = {
+			traits = { inspirational_leader offensive_doctrine war_hero politically_connected }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			visible = {
+				has_global_flag = new_officers_SOV
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = RUS_mikhail_frunze_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+				has_completed_focus = SOV_enforcing_loyalty
+			}
+			traits = { army_chief_morale_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = RUS_mikhail_frunze_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
+				has_completed_focus = SOV_enforcing_loyalty
+			}
+			traits = { military_theorist }
+			cost = 100
 		}
 	}
 	SOV_andrey_vlasov={
@@ -228,20 +289,6 @@ characters={
 			army={
 				large="gfx/leaders/SOV/Portrait_RUS_Andrey_Vlasov.png"
 				small="gfx/interface/ideas/RUS_Andrey_Vlasov.png"
-			}
-		}
-		advisor = {
-			slot = army_chief
-			idea_token = andrey_vlasov
-			allowed = {
-				original_tag = SOV
-			}
-			traits = {
-				army_chief_offensive_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -298,7 +345,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ media_personality armor_officer war_hero winter_specialist }
+			traits={ media_personality career_officer inflexible_strategist trait_reckless armor_officer war_hero winter_specialist }
 			skill=5
 			attack_skill=5
 			defense_skill=2
@@ -313,9 +360,6 @@ characters={
 			slot = high_command
 			idea_token = georgy_zhukov_armor
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			available = {
 
 			}
@@ -337,19 +381,24 @@ characters={
 			}
 		}
 		advisor = {
-			cost = 150
-			slot = theorist
-			idea_token = sergey_markov
+			slot = high_command
+			idea_token = RUS_sergey_markov_high_command
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			available = {
-				
+				not_already_hired_except_as = high_command
 			}
-			traits = {
-				blitzkrieg_theorist
+			traits = { army_armored_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = RUS_sergey_markov_theorist
+			ledger = army
+			available = {
+				not_already_hired_except_as = theorist
 			}
+			traits = { mobile_warfare_expert }
+			cost = 150
 		}
 		corps_commander={
 			traits={ career_officer trickster panzer_leader }
@@ -372,9 +421,6 @@ characters={
 		advisor = {
 			slot = army_chief
 			idea_token = pyotr_krasnov
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				army_chief_defensive_2
 			}
@@ -414,9 +460,6 @@ characters={
 			slot = high_command
 			idea_token = mikhail_drozdovskiy
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				army_infantry_2
 			}
@@ -438,9 +481,6 @@ characters={
 			slot = high_command
 			idea_token = ivan_konev
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				army_concealment_2
 			}
@@ -450,7 +490,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ harsh_leader armor_officer }
+			traits={ harsh_leader armor_officer winter_specialist }
 			skill=4
 			attack_skill=3
 			defense_skill=4
@@ -472,9 +512,6 @@ characters={
 			slot = theorist
 			idea_token = mikhail_tukhachevsky
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			available = {
 				has_completed_focus = SOV_enforcing_loyalty
 			}
@@ -545,7 +582,7 @@ characters={
 			}
 		}
 		corps_commander = {
-			traits = { career_officer politically_connected }
+			traits = { career_officer politically_connected infantry_officer }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 3
@@ -567,9 +604,6 @@ characters={
 		}
 		advisor = {
 			slot = army_chief
-			allowed = {
-				original_tag = SOV
-			}
 			available = {
 				has_completed_focus = SOV_enforcing_loyalty
 			}
@@ -606,14 +640,11 @@ characters={
 		advisor = {
 			slot = army_chief
 			idea_token = SOV_vasily_blyukher
-			allowed = {
-				original_tag = SOV
-			}
 			available = {
 				has_completed_focus = SOV_enforcing_loyalty
 			}
 			traits = {
-				army_chief_maneuver_2
+				army_chief_morale_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -638,15 +669,15 @@ characters={
 		name="Aleksandr Vasilevsky"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_SOV_aleksandr_vasilevsky.dds"
+				small="gfx/interface/ideas/SOV_aleksandr_vasilevsky.png"
 				large="gfx/leaders/SOV/Portrait_RUS_Aleksandr_Vasilevskiy.png"
 			}
 		}
 		corps_commander={
-			traits={ armor_officer }
-			skill=3
-			attack_skill=3
-			defense_skill=2
+			traits={ panzer_leader brilliant_strategist }
+			skill=4
+			attack_skill=4
+			defense_skill=4
 			planning_skill=3
 			logistics_skill=2
 			legacy_id=72012
@@ -657,16 +688,16 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/SOV/Portrait_RUS_Boris_Shaposhnikov.png"
-				small="gfx/interface/ideas/idea_SOV_boris_shaposhnikov.dds"
+				small="gfx/interface/ideas/SOV_boris_shaposhnikov.png"
 			}
 		}
 		corps_commander={
-			traits={ career_officer trait_cautious }
+			traits={ brilliant_strategist career_officer trait_cautious skilled_staffer }
 			skill=3
-			attack_skill=2
-			defense_skill=3
-			planning_skill=2
-			logistics_skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=3
+			logistics_skill=2
 			legacy_id=72013
 		}
 	}
@@ -679,7 +710,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ trait_reckless infantry_officer }
+			traits={ trait_reckless infantry_officer winter_specialist }
 			skill=3
 			attack_skill=1
 			defense_skill=3
@@ -693,16 +724,24 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/SOV/Portrait_RUS_Pavel_Shatilov.png"
+				small="gfx/interface/ideas/RUS_Pavel_Shatilov.png"
 			}
 		}
 		corps_commander={
-			traits={ cavalry_officer politically_connected }
+			traits={ cavalry_officer politically_connected cavalry_leader }
 			skill=3
-			attack_skill=2
-			defense_skill=2
+			attack_skill=3
+			defense_skill=3
 			planning_skill=3
-			logistics_skill=3
+			logistics_skill=1
 			legacy_id=72015
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_pavel_shatilov
+			ledger = army
+			traits = { army_cavalry_3 }
+			cost = 200
 		}
 	}
 	SOV_vladimir_kappel={
@@ -711,24 +750,6 @@ characters={
 			army={
 				large="gfx/leaders/SOV/Portrait_RUS_Vladimir_Kappel.png"
 				small="gfx/interface/ideas/RUS_Vladimir_Kappel.png"
-			}
-		}
-		advisor = {
-			slot = high_command
-			idea_token = vladimir_kappel
-			ledger = army
-			allowed = {
-				OR = {
-					original_tag = SOV
-					original_tag = KLV
-				}
-			}
-			traits = {
-				army_logistics_2
-			}
-				cost = 100
-			ai_will_do = {
-				factor = 1.500
 			}
 		}
 		corps_commander={
@@ -819,7 +840,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ trait_reckless infantry_officer ranger }
+			traits={ trait_reckless infantry_officer commando ranger }
 			skill=3
 			attack_skill=4
 			defense_skill=3
@@ -836,10 +857,10 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ old_guard cavalry_officer }
+			traits={ old_guard cavalry_officer organizer }
 			skill=3
-			attack_skill=3
-			defense_skill=3
+			attack_skill=2
+			defense_skill=4
 			planning_skill=2
 			logistics_skill=2
 			legacy_id=72027
@@ -935,17 +956,24 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/SOV/Portrait_RUS_Leonid_Govorov.png"
-				small="gfx/interface/ideas/idea_SOV_leonid_govorov.dds"
+				small="gfx/interface/ideas/SOV_leonid_govorov.png"
 			}
 		}
 		corps_commander={
-			traits={ harsh_leader }
-			skill=2
-			attack_skill=2
+			traits={ harsh_leader fortress_buster }
+			skill=3
+			attack_skill=3
 			defense_skill=2
-			planning_skill=2
-			logistics_skill=1
+			planning_skill=3
+			logistics_skill=2
 			legacy_id=72021
+		}
+		advisor = {
+			slot = high_command
+			idea_token = RUS_leonid_govorov
+			ledger = army
+			traits = { army_artillery_2 }
+			cost = 100
 		}
 	}
 	SOV_markian_popov={
@@ -975,8 +1003,8 @@ characters={
 		}
 		corps_commander={
 			traits={ old_guard harsh_leader }
-			skill=2
-			attack_skill=1
+			skill=3
+			attack_skill=4
 			defense_skill=2
 			planning_skill=2
 			logistics_skill=2
@@ -1008,20 +1036,8 @@ characters={
 				small="gfx/interface/ideas/RUS_Boris_Shteyfon.png"
 			}
 		}
-		advisor = {
-			cost = 100
-			slot = theorist
-			idea_token = boris_shteifon
-			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
-			traits = {
-				military_theorist
-			}
-		}
 		corps_commander={
-			traits={ career_officer }
+			traits={ panzer_leader }
 			skill=2
 			attack_skill=2
 			defense_skill=1
@@ -1038,7 +1054,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ panzer_leader }
+			traits={ trait_reckless war_hero }
 			skill=3
 			attack_skill=4
 			defense_skill=2
@@ -1074,9 +1090,9 @@ characters={
 		corps_commander={
 			traits={ cavalry_officer cavalry_leader }
 			skill=2
-			attack_skill=2
+			attack_skill=3
 			defense_skill=1
-			planning_skill=2
+			planning_skill=1
 			logistics_skill=2
 			legacy_id=72032
 		}
@@ -1140,21 +1156,6 @@ characters={
 				small="gfx/interface/ideas/idea_SOV_semyon_budyonny.dds"
 			}
 		}
-		advisor = {
-			slot = high_command
-			idea_token = semyon_budyonny
-			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
-			traits = {
-				army_cavalry_2
-			}
-				cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}		
 		corps_commander={
 			traits={ old_guard inflexible_strategist cavalry_officer }
 			skill=1
@@ -1173,7 +1174,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ trait_reckless }
+			traits={ war_hero trait_reckless infantry_leader }
 			skill=1
 			attack_skill=1
 			defense_skill=1
@@ -1225,12 +1226,6 @@ characters={
 		advisor = {
 			slot = navy_chief
 			idea_token = alexander_kolchak
-			allowed = {
-				OR = {
-					original_tag = SOV
-					original_tag = NVR
-				}
-			}
 			traits = {
 				navy_chief_decisive_battle_3
 			}
@@ -1262,9 +1257,6 @@ characters={
 			slot = theorist
 			idea_token = mikhail_kedrov
 			ledger = navy
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				grand_fleet_proponent
 			}
@@ -1310,9 +1302,6 @@ characters={
 			slot = theorist
 			idea_token = sergey_gorshkov
 			ledger = navy
-			allowed = {
-				original_tag = SOV
-			}
 			traits = { naval_theorist }
 		}
 		navy_leader={
@@ -1337,9 +1326,6 @@ characters={
 			slot = high_command
 			idea_token = gordey_levchenko
 			ledger = navy
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				navy_capital_ship_2
 			}
@@ -1371,9 +1357,6 @@ characters={
 			slot = high_command
 			idea_token = arseniy_golovko
 			ledger = navy
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				navy_amphibious_assault_2
 			}
@@ -1422,9 +1405,6 @@ characters={
 			slot = high_command
 			idea_token = nestor_monastyryev
 			ledger = navy
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				navy_submarine_2
 			}
@@ -1457,9 +1437,6 @@ characters={
 			slot = theorist
 			idea_token = sergei_rudenko
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			
 			traits = {
 				close_air_support_proponent
@@ -1479,9 +1456,6 @@ characters={
 			slot = theorist
 			idea_token = alexander_golovanov
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			traits = { air_warfare_theorist }
 		}		
 	}
@@ -1498,9 +1472,6 @@ characters={
 			slot = theorist
 			idea_token = igor_kurchatov
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			research_bonus = {
 				nuclear = 0.150
 			}
@@ -1522,9 +1493,6 @@ characters={
 			slot = theorist
 			idea_token = sergei_korolev
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			research_bonus = {
 				rocketry = 0.150
 			}
@@ -1544,9 +1512,6 @@ characters={
 		advisor = {
 			slot = navy_chief
 			idea_token = nikolay_kuznetsov
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				navy_chief_reform_2
 			}
@@ -1567,9 +1532,6 @@ characters={
 		advisor = {
 			slot = navy_chief
 			idea_token = ivan_yumashev
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				navy_chief_decisive_battle_2
 			}
@@ -1589,9 +1551,6 @@ characters={
 		advisor = {
 			slot = air_chief
 			idea_token = alexander_novikov
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_chief_reform_3
 			}
@@ -1614,9 +1573,6 @@ characters={
 			cost = 100
 			slot = air_chief
 			idea_token = SOV_vyacheslav_tkachyov
-			allowed = {
-				original_tag = SOV
-			}
 			traits = { air_chief_reform_2 }
 		}
 	}
@@ -1631,9 +1587,6 @@ characters={
 		advisor = {	
 			slot = air_chief
 			idea_token = yakov_smushkevich
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_chief_safety_2
 			}
@@ -1654,9 +1607,6 @@ characters={
 		advisor = {
 			slot = air_chief
 			idea_token = pavel_argeyev
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_chief_all_weather_2
 			}
@@ -1678,9 +1628,6 @@ characters={
 			slot = high_command
 			idea_token = aleksandr_vasilevsky
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				army_regrouping_2
 			}
@@ -1710,9 +1657,6 @@ characters={
 			slot = high_command
 			idea_token = anatoli_rogozhin
 			ledger = army
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				army_infantry_2
 			}
@@ -1734,9 +1678,6 @@ characters={
 			slot = high_command
 			idea_token = pavel_zhigarev
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_airborne_1
 			}
@@ -1758,9 +1699,6 @@ characters={
 			slot = high_command
 			idea_token = sergei_khudyakov
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_close_air_support_2
 			}
@@ -1782,9 +1720,6 @@ characters={
 			slot = high_command
 			idea_token = alexander_kazakov
 			ledger = air
-			allowed = {
-				original_tag = SOV
-			}
 			traits = {
 				air_air_combat_training_2
 			}
