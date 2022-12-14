@@ -1,6 +1,6 @@
 characters={
 	FGD_karl_josef_bonaparte={
-		name="Napoleon I"
+		name="Napoleon"
 		portraits={
 			civilian={
 				large="gfx/leaders/NapoleonVIPortrait.dds"
@@ -12,6 +12,7 @@ characters={
 			ideology=despotic
 			expire="1965.1.1.1"
 			id=-1
+			traits = {regent}
 		}
 		country_leader={
 			#desc="POLITICS_KURT_SCHUSCHNIGG_DESC"
@@ -24,7 +25,7 @@ characters={
 		name= "Konrad Adenauer"
 		portraits={
 			civilian={
-				large="gfx/leaders/Konrad_Adaneur_Portrait.dds"
+				large="gfx/leaders/FGD/Konrad_Adaneur_Portrait.dds"
 			}
 		}
 		country_leader={
@@ -33,12 +34,51 @@ characters={
 			id=-1
 		}
 	}
+	FGD_fritz_steinhoff={
+		name= "Fritz Steinhoff"
+		portraits={
+			civilian={
+				large="gfx/leaders/GER/Portrait_Germany_Konrad_Adenauer.dds"
+			}
+		}
+		country_leader={
+			ideology=democratic_liberal
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	FGD_albert_speer={
+		name= "Albert Speer"
+		portraits={
+			civilian={
+				large="gfx/leaders/FGD/AlberSpeer.dds"
+			}
+		}
+		country_leader={
+			ideology= fascism_ideology
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
+	FGD_reinhard_heydrich={
+		name= "Reinhard Heydrich"
+		portraits={
+			civilian={
+				large="gfx/leaders/FGD/Heydrich.dds"
+			}
+		}
+		country_leader={
+			ideology= ultranationalist
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
 	FGD_walter_kruger={
 		name="Walter Krüger"
 		portraits={
 			army={
-				large="gfx/leaders/GER/Portrait_Germany_Walter_Kruger.dds"
-				small="gfx/interface/ideas/idea_GER_walter_kruger.dds"
+				large="gfx/leaders/FGD/Portrait_FGD_Walter_Kruger.png"
+				small="gfx/interface/ideas/FGD_walter_kruger.png"
 			}
 		}
 		corps_commander={
@@ -66,71 +106,26 @@ characters={
 			}
 		}
 	}
-	FGD_ewald_von_kleist={
-		name="Ewald von Kleist"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_GER_ewald_von_kleist.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Ewald_Kleist_kr.png"
-			}
-		}
-		corps_commander={
-			traits={ trait_cautious armor_officer skilled_staffer }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 2
-			legacy_id=8
-		}
-	}
-	FGD_gunther_lutjens={
-		name="Günther Lütjens"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_GER_gunter_lutjens.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Gunther_Lutjens_kr.png"
-			}
-		}
-		advisor={
-			slot = high_command
-			idea_token = gunther_lutjens
-			ledger = navy
-			allowed = {
-				original_tag = FGD
-			}
-			traits = {
-				navy_fleet_logistics_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-		navy_leader={
-			traits={ gentlemanly navy_career_officer superior_tactician }
-			skill=3
-			attack_skill=4
-			defense_skill=1
-			maneuvering_skill=1
-			coordination_skill=1
-			legacy_id=31
-		}
-	}
 	FGD_werner_von_fritsch={
 		name= "Werner von Fritsch"
 		portraits={
 			army={
-				small="GFX_idea_werner_von_fritsch"
+				small="gfx/interface/ideas/FGD_Werner_von_Fritsch.png"
+				large="gfx/leaders/FGD/Portrait_FGD_Werner_von_Fritsch.png"
 			}
+		}
+		field_marshal = {
+			traits = { trait_reckless infantry_officer old_guard fortress_buster infantry_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
 		}
 		advisor={
 			slot = high_command
 			idea_token = werner_von_fritsch
 			ledger = army
-			allowed = {
-				original_tag = FGD
-			}
 			traits = {
 				army_logistics_2
 			}
@@ -140,33 +135,11 @@ characters={
 			}
 		}
 	}
-	FGD_ludwig_beck={
-		name=GER_ludwig_beck
-		portraits={
-			army={
-				small="GFX_idea_ludwig_beck"
-			}
-		}
-		advisor={
-			slot = army_chief
-			idea_token = ludwig_beck
-			allowed = {
-				original_tag = FGD
-			}
-			traits = {
-				army_chief_organizational_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-	}
 	FGD_curt_haase = {
 		name = "Curt Haase"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Curt_Hasse.png"
+				large = "gfx/leaders/FGD/Portrait_Germany_Curt_Hasse.png"
 			}
 		}
 		corps_commander = {
@@ -182,7 +155,8 @@ characters={
 		name = "Josias Georg Wilhelm Adolf"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_GEA_Prinz_Josias_Waldeck-Prymont.png"
+				large = "gfx/leaders/FGD/Portrait_GER_Prinz_Josias.png"
+				small="gfx/interface/ideas/GER_Prinz_Josias.png"
 			}
 		}
 		corps_commander = {
@@ -192,6 +166,29 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 1
+		}
+	}
+	FGD_Max_von_Looff = {
+		name = "Max Looff"
+		portraits = {
+			navy = {
+				large = "gfx/leaders/FGD/MAF_Max_Looff.png"
+				small="gfx/interface/ideas/FGD_Max_Looff.png"
+			}
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = MAF_Max_von_Looff
+			traits = { navy_chief_maneuver_1 }
+			cost = 50
+		}
+		navy_leader = {
+			traits = { spotter }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 2
+			coordination_skill = 3
 		}
 	}
 }

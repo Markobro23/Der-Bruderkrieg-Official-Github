@@ -159,15 +159,15 @@ characters={
 				original_tag = ITA
 			}
 			traits = {
-				army_chief_defensive_1
+				army_chief_defensive_2
 			}
-			cost =  50
+			cost =  100
 			ai_will_do = {
 				factor = 1.000
 			}
 		}
 		field_marshal={
-			traits={ old_guard trait_cautious politically_connected defensive_doctrine }
+			traits={ old_guard war_hero trait_cautious politically_connected defensive_doctrine thorough_planner organizer }
 			skill = 3
 			attack_skill = 2
 			defense_skill = 2
@@ -333,7 +333,7 @@ characters={
 			attack_skill = 4
 			defense_skill = 3
 			planning_skill = 3
-			logistics_skill = 2
+			logistics_skill = 3
 		}
 	}
 	ITA_inigo_campioni={
@@ -342,20 +342,6 @@ characters={
 			army={
 				small="gfx/interface/ideas/idea_ITA_inigo_campioni.dds"
 				large="gfx/leaders/ITA/Portrait_SRI_Inigo_Campioni.png"
-			}
-		}
-		advisor={
-			slot = navy_chief
-			idea_token = inigo_campioni
-			allowed = {
-				original_tag = ITA
-			}
-			traits = {
-				navy_chief_decisive_battle_1
-			}
-			cost =  50
-			ai_will_do = {
-				factor = 1.000
 			}
 		}
 		navy_leader={
@@ -404,9 +390,9 @@ characters={
 				original_tag = ITA
 			}
 			traits = {
-				navy_capital_ship_2
+				navy_submarine_1
 			}
-			cost = 100
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -962,6 +948,7 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Annibale_Bergonzoli.png"
+				small="gfx/interface/ideas/ITA_Annibale_Bergonzoli.png"
 			}
 		}
 		corps_commander = {
@@ -972,12 +959,20 @@ characters={
 			planning_skill = 3
 			logistics_skill = 3
 		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_annibale_bergonzoli
+			traits = { army_entrenchment_2 }
+			cost = 100
+		}
 	}
 	ITA_alberto_pariani = {
 		name = "Alberto Pariani"
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Alberto_Pariani.png"
+				small="gfx/interface/ideas/ITA_Alberto_Pariani.png"
 			}
 		}
 		corps_commander = {
@@ -988,12 +983,20 @@ characters={
 			planning_skill = 2
 			logistics_skill = 2
 		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_alberto_pariani
+			traits = { army_infantry_2 }
+			cost = 100
+		}
 	}
 	ITA_italo_gariboldi = {
 		name = "Italo Gariboldi"
 		portraits = {
 			army = {
 				large = "gfx/leaders/ITA/Portrait_ITA_Italo_Gariboldi.png"
+				small="gfx/interface/ideas/ITA_Italo_Gariboldi.png"
 			}
 		}
 		corps_commander = {
@@ -1003,6 +1006,84 @@ characters={
 			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = ITA_italo_gariboldi
+			traits = { army_logistics_2 }
+			cost = 100
+		}
+	}
+	ITA_gino_pavesi = {
+		name = "Gino Pavesi"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/ITA_gino_pavesi.png"
+				large = "gfx/leaders/ITA/Portrait_ITA_Gino_Pavesi.png"
+			}
+		}
+		navy_leader = {
+			traits = { superior_tactician ironside }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			maneuvering_skill = 2
+			coordination_skill = 4
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = ITA_gino_pavesi
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+	}
+	ITA_raffaele_de_courten = {
+		name = "Raffaele de Courten"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/ITA_raffaele_de_courten.png"
+				large = "gfx/leaders/ITA/Portrait_ITA_Raffaele_de_Courten.png"
+			}
+		}
+		navy_leader = {
+			traits = { blockade_runner }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			maneuvering_skill = 3
+			coordination_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = navy
+			idea_token = ITA_raffaele_de_courten
+			traits = { navy_capital_ship_2 }
+			cost = 100
+		}
+	}
+	ITA_giovanni_galati = {
+		name = "Giovanni Galati"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/ITA_giovanni_galati.png"
+				large = "gfx/leaders/ITA/Portrait_ITA_Giovanni_Galati.png"
+			}
+		}
+		navy_leader = {
+			traits = { air_controller }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = air
+			idea_token = ITA_giovanni_galati
+			traits = { air_naval_strike_2 }
+			cost = 100
 		}
 	}
 }

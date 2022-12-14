@@ -104,49 +104,16 @@ characters={
 		}
 		
 	}
-	GER_gerd_von_rundstedt={
-		name="Gerd von Rundstedt"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_GER_gerd_von_rundstedt.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
-			}
-		}
-		field_marshal={
-			traits={ old_guard urban_assault_specialist defensive_doctrine }
-			skill=3
-			attack_skill=3
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=1
-		}
-		advisor={
-			slot = high_command
-			idea_token = gerd_von_rundstedt
-			ledger = army
-			allowed = {
-				original_tag = GPU
-			}
-			traits = {
-				army_regrouping_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.500
-			}
-		}
-	}
 	GER_gunther_von_kluge={
 		name="Günther von Kluge"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_gunther_von_kluge.dds"
+				small="gfx/interface/ideas/GER_gunther_von_kluge.png"
 				large="gfx/leaders/GER/Portrait_Germany_Gunther_Kluge_kr.png"
 			}
 		}
-		field_marshal={
-			traits={ armor_officer offensive_doctrine }
+		corps_commander={
+			traits={ armor_officer career_officer }
 			skill=4
 			attack_skill=3
 			defense_skill=3
@@ -170,11 +137,37 @@ characters={
 			}
 		}
 	}
+	GER_werner_von_blomberg = {
+		name = "Werner von Blomberg"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GER/Portrait_Germany_Werner_von_Blomberg.png"
+				small = "gfx/interface/ideas/GER_werner_von_blomberg.png"
+			}
+		}
+		field_marshal = {
+			traits = { career_officer armor_officer trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = GER_werner_von_blomberg_army_chief
+			available = {
+			}
+			traits = { army_chief_drill_2 }
+			cost = 100
+		}
+	}
 	GER_alfred_von_vollard_bockelberg = {
 		name = "Alfred von Vollard-Bockelberg"
 		portraits = {
 			army = {
 				large="gfx/leaders/GER/Portrait_GER_Alfred_von_Vollard-Bockelberg.png"
+				small="gfx/interface/ideas/GER_Alfred_von_Vollard-Bockelberg.png"
 			}
 		}
 		corps_commander = {
@@ -202,12 +195,31 @@ characters={
 			planning_skill=3
 			logistics_skill=3
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = GER_kurt_von_hammerstein_equord_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_reform_2 }
+			cost = 100
+		}
+		advisor = {
+			idea_token = GER_kurt_von_hammerstein_equord_high_command
+			slot = high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_CombinedArms_3 }
+			cost = 200
+		}
 	}
 	GER_friedrich_paulus={
 		name="Friedrich Paulus"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_friedrich_paulus.dds"
+				small="gfx/interface/ideas/GER_friedrich_paulus.png"
 				large="gfx/leaders/GER/Portrait_Germany_Friedrich_Paulus_kr.png"
 			}
 		}
@@ -220,26 +232,12 @@ characters={
 			logistics_skill = 3
 			legacy_id=3
 		}
-		advisor={	
-			slot = army_chief
-			idea_token = friedrich_paulus
-			allowed = {
-				original_tag = GER
-			}
-			traits = {
-				army_chief_morale_1
-			}
-			cost = 50
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
 	}
 	GER_erich_von_manstein={
 		name="Erich von Manstein"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_erich_von_manstein.dds"
+				small="gfx/interface/ideas/GER_erich_von_manstein.png"
 				large="gfx/leaders/GER/Portrait_Germany_Erich_von_Manstein_kr.png"
 			}
 		}
@@ -269,7 +267,7 @@ characters={
 		name="Heinz Guderian"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_heinz_guderian.dds"
+				small="gfx/interface/ideas/GER_heinz_guderian.png"
 				large="gfx/leaders/GER/Portrait_Germany_Heinz_Guderian_kr.png"
 			}
 		}
@@ -299,7 +297,7 @@ characters={
 		name="Fedor von Bock"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_fedor_von_bock.dds"
+				small="gfx/interface/ideas/GER_fedor_von_bock.png"
 				large="gfx/leaders/GER/Portrait_Germany_Fedor_Bock_kr.png"
 			}
 		}
@@ -318,8 +316,8 @@ characters={
 				factor = 2.000
 			}
 		}
-		corps_commander={
-			traits={ trait_cautious harsh_leader }
+		field_marshal={
+			traits={ brilliant_strategist trait_cautious harsh_leader }
 			skill=4
 			attack_skill=4
 			defense_skill=3
@@ -332,8 +330,8 @@ characters={
 		name=GER_hans_von_luck
 		portraits={
 			army={
-				large="gfx/leaders/GER/portrait_ger_hans_von_luck.dds"
-				small="gfx/interface/ideas/idea_GER_hans_von_luck.dds"
+				large="gfx/leaders/GER/Portrait_Germany_Hans_von_Luck.png"
+				small="gfx/interface/ideas/GER_hans_von_luck.png"
 			}
 		}
 		advisor={
@@ -365,22 +363,8 @@ characters={
 		name="Walter Model"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_walter_model.dds"
+				small="gfx/interface/ideas/GER_walter_model.png"
 				large="gfx/leaders/GER/Portrait_Germany_Walter_Model_kr.png"
-			}
-		}
-		advisor={
-			slot = army_chief
-			idea_token = walter_model
-			allowed = {
-				original_tag = GER
-			}
-			traits = {
-				army_chief_offensive_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -421,7 +405,8 @@ characters={
 		name = "Erich Hoepner"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Erich_Hoepner_kr.png"
+				large="gfx/leaders/GER/Portrait_Germany_Erich_Hoepner_kr.png"
+				small="gfx/interface/ideas/GER_Erich_Hoepner.png"
 			}
 		}
 		corps_commander = {
@@ -437,8 +422,8 @@ characters={
 		name="Maximilian von Weichs"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_maximilian_von_weichs.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Maximilian_von_Weichs.dds"
+				small="gfx/interface/ideas/GER_maximilian_von_weichs.png"
+				large="gfx/leaders/GER/Portrait_GER_Maxmillian_von_Weichs.png"
 			}
 		}
 		corps_commander={
@@ -455,8 +440,8 @@ characters={
 		name="Kurt Student"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_kurt_student.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Kurt_Student.dds"
+				small="gfx/interface/ideas/GER_kurt_student.png"
+				large="gfx/leaders/GER/Portrait_GER_Kurt_Student.png"
 			}
 		}
 		advisor={
@@ -488,7 +473,7 @@ characters={
 		name="Hermann Hoth"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_herman_hoth.dds"
+				small="gfx/interface/ideas/GER_herman_hoth.png"
 				large="gfx/leaders/GER/Portrait_Germany_Hermann_Hoth_kr.png"
 			}
 		}
@@ -519,8 +504,8 @@ characters={
 		name="Johannes Blaskowitz"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_johannes_blaskowitz.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Johannes_Blaskowitz.dds"
+				small="gfx/interface/ideas/GER_johannes_blaskowitz.png"
+				large="gfx/leaders/GER/Portrait_GER_Johannes_Blaskowitz.png"
 			}
 		}
 		corps_commander={
@@ -537,8 +522,8 @@ characters={
 		name="Paul Hausser"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_paul_hausser.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Paul_Hausser.dds"
+				small="gfx/interface/ideas/GER_paul_hausser.png"
+				large="gfx/leaders/GER/Portrait_GER_Paul_Hausser.png"
 			}
 		}
 		corps_commander={
@@ -555,8 +540,8 @@ characters={
 		name="Friedrich Schulz"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_friedrich_schulz.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Friedrich_Schulz.dds"
+				small="gfx/interface/ideas/GER_friedrich_schulz.png"
+				large="gfx/leaders/GER/Portrait_GER_Friedrich_Schulz.png"
 			}
 		}
 		corps_commander={
@@ -573,8 +558,8 @@ characters={
 		name="Hasso von Manteuffel"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_hasso_von_manteuffel.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Hasso_von_Manteuffel.dds"
+				small="gfx/interface/ideas/GER_hasso_von_manteuffel.png"
+				large="gfx/leaders/GER/Portrait_GER_Hasso_von_Manteuffel.png"
 			}
 		}
 		corps_commander={
@@ -591,7 +576,7 @@ characters={
 		name="Gotthard Heinrici"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_gotthard_heinrici.dds"
+				small="gfx/interface/ideas/GER_gotthard_heinrici.png"
 				large="gfx/leaders/GER/Portrait_Germany_Gotthard_Heinrici_kr.png"
 			}
 		}
@@ -620,12 +605,12 @@ characters={
 			legacy_id=33
 		}
 	}
-	GER_felix_steiner={
+	GER_felix_martin_steiner={
 		name="Felix Steiner"
 		portraits={
 			army={
-				small="GFX_portrait_ger_felix_steiner_small"
-				large="GFX_portrait_ger_felix_steiner"
+				small="gfx/interface/ideas/GER_Felix_Steiner.png"
+				large="gfx/leaders/GER/Portrait_GER_Felix_Martin_Steiner.png"
 			}
 		}
 		corps_commander={
@@ -638,11 +623,8 @@ characters={
 		}
 		advisor={
 			slot = high_command
-			idea_token = GER_felix_steiner
+			idea_token = GER_felix_martine_steiner
 			ledger = army
-			allowed = {
-				original_tag = GER
-			}
 			traits = {
 				army_regrouping_1
 			}
@@ -656,7 +638,8 @@ characters={
 		name = "Dietrich von Saucken"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_GEA_Dietrich_von_Saucken.png"
+				large="gfx/leaders/GER/Portrait_GEA_Dietrich_von_Saucken.png"
+				small="gfx/interface/ideas/GER_Dietrich_von_Saucken.png"
 			}
 		}
 		corps_commander = {
@@ -668,7 +651,7 @@ characters={
 			logistics_skill = 2
 		}
 	}
-	GER_hermann_voigt_ruscheweyh = {   #### Luftwaffe Boy
+	GER_hermann_voigt_ruscheweyh = {
 		name = "Hermann Voigt-Ruscheweyh"
 		portraits = {
 			army = {
@@ -704,7 +687,7 @@ characters={
 		name="Karl Dönitz"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_karl_donitz.dds"
+				small="gfx/interface/ideas/GER_karl_donitz.png"
 				large="gfx/leaders/GER/Portrait_Germany_Karl_Donitz_kr.png"
 			}
 		}
@@ -736,7 +719,7 @@ characters={
 		name="Erich Raeder"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_erich_raeder.dds"
+				small="gfx/interface/ideas/GER_erich_raeder.png"
 				large="gfx/leaders/GER/Portrait_Germany_Erich_Raeder_kr.png"
 			}
 		}
@@ -769,16 +752,16 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/GER/Portrait_GEA_Otto_Ciliax.png"
-				small="GFX_idea_otto_ciliax"
+				small="gfx/interface/ideas/GER_Otto_Ciliax.png"
 			}
 		}
 		navy_leader={
-			traits={ old_guard_navy }
-			skill=2
-			attack_skill=2
-			defense_skill=1
-			maneuvering_skill=2
-			coordination_skill=2
+			traits = { blockade_runner superior_tactician }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 5
+			coordination_skill = 1
 		}
 		advisor={
 			cost = 100
@@ -791,7 +774,7 @@ characters={
 			traits = { naval_theorist }
 		}
 	}
-	GER_ludwig_reuter={
+	GER_ludwig_reuter={ # CUT
 		name="Ludwig Reuter"
 		portraits={
 			army={
@@ -813,7 +796,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/GER/Portrait_Germany_Alfred_Saalwachter_kr.png"
-				small="gfx/interface/ideas/idea_GER_alfred_saalwachter.dds"
+				small="gfx/interface/ideas/GER_alfred_saalwachter.png"
 			}
 		}
 		advisor={
@@ -877,6 +860,9 @@ characters={
 			allowed = {
 				original_tag = GER
 			}
+			available = {
+				not_already_hired_except_as = theorist
+			}
 			traits = {
 				close_air_support_proponent
 			}
@@ -886,6 +872,9 @@ characters={
 			idea_token = wolfram_von_richtofen_air_chief
 			allowed = {
 				original_tag = GER
+			}
+			available = {
+				not_already_hired_except_as = air_chief
 			}
 			traits = {
 				air_chief_ground_support_2
@@ -986,7 +975,8 @@ characters={
 		name = "Heinrich Kirchheim"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Mittelafrika_Heinrich_Kircheim.png"
+				large="gfx/leaders/GER/Portrait_Mittelafrika_Heinrich_Kircheim.png"
+				small="gfx/interface/ideas/GER_Heinrich_Kircheim.png"
 			}
 		}
 		corps_commander = {
@@ -1002,7 +992,8 @@ characters={
 		name = "Lothar von Arnauld de la Perière"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Lothar_Arnauld_Periere_kr.png"
+				large="gfx/leaders/GER/Portrait_Germany_Lothar_Arnauld_Periere_kr.png"
+				small="gfx/interface/ideas/GER_Lothar_Arnauld_Periere.png"
 			}
 		}
 		navy_leader = {
@@ -1018,7 +1009,8 @@ characters={
 		name = "Rolf Carls"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Rolf_Carls_kr.png"
+				large="gfx/leaders/GER/Portrait_Germany_Rolf_Carls_kr.png"
+				small="gfx/interface/ideas/GER_Rolf_Carls.png"
 			}
 		}
 		navy_leader = {
@@ -1066,7 +1058,8 @@ characters={
 		name = "Max Valentiner"
 		portraits = {
 			army = {
-				large = "gfx/leaders/GER/Portrait_Germany_Max_Valentiner_kr.png"
+				large="gfx/leaders/GER/Portrait_Germany_Max_Valentiner_kr.png"
+				small="gfx/interface/ideas/GER_Max_Valentiner.png"
 			}
 		}
 		navy_leader = {

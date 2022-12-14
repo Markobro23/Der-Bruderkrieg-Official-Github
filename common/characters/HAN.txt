@@ -35,8 +35,8 @@ characters={
 		name="Ernst-Eberhard Hell"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_GER_ernst-eberhard_hell.dds"
-				large="gfx/leaders/GER/Portrait_Germany_Ernst-Eberhard_Hell.dds"
+				small="gfx/interface/ideas/HAN_ernst-eberhard_hell.png"
+				large="gfx/leaders/HAN/Portrait_HAN_Ernst_Eberhard_Hell.png"
 			}
 		}
 		advisor={
@@ -72,19 +72,55 @@ characters={
 			}
 		}
 		navy_leader={
-			traits={ }
+			traits = { blockade_runner }
 			skill=2
 			attack_skill=2
 			defense_skill=1
 			maneuvering_skill=1
-			coordination_skill=2
+			coordination_skill=3
+		}
+	}
+	HAN_felix_von_luckner = {
+		name = "Felix von Luckner"
+		portraits = {
+			army = {
+				small="gfx/interface/ideas/HAN_felix_von_luckner.png"
+				large="gfx/leaders/HAN/Portrait_HAN_Felix_Von_Luckner.png"
+			}
+		}
+		navy_leader = {
+			traits = { superior_tactician }
+			skill=3
+			attack_skill=3
+			defense_skill=4
+			maneuvering_skill=2
+			coordination_skill=1
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = HAN_felix_von_luckner_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = high_command
+			idea_token = HAN_felix_von_luckner_navy_mhc
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			ledger = navy
+			traits = { navy_screen_2 }
+			cost = 100
 		}
 	}
 	HAN_wilhelm_keitel={
 		name= "Wilhelm Keitel"
 		portraits={
 			army={
-				small="GFX_idea_wilhelm_keitel"
+				small="gfx/interface/ideas/HAN_wilhelm_keitel.png"
 				large="gfx/leaders/HAN/Portrait_HAN_Wilhelm_Keitel.png"
 			}
 		}
@@ -99,9 +135,6 @@ characters={
 		advisor={
 			slot = army_chief
 			idea_token = wilhelm_keitel
-			allowed = {
-				original_tag = HAN
-			}
 			traits = {
 				army_chief_drill_2
 			}
@@ -138,7 +171,8 @@ characters={
 		name = "Otto Zeltins-Goldfelds"
 		portraits = {
 			army = {
-				large = "gfx/leaders/HAN/Portrait_BAT_Otto_Goldfeld.png"
+				large="gfx/leaders/HAN/Portrait_HAN_Otto_Goldfeld.png"
+				small="gfx/interface/ideas/HAN_Otto_Goldfeld.png"
 			}
 		}
 		corps_commander = {
@@ -147,6 +181,13 @@ characters={
 			defense_skill = 1
 			planning_skill = 2
 			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = HAN_otto_goldfeld
+			ledger = army
+			traits = { army_regrouping_2 }
+			cost = 100
 		}
 	}
 }

@@ -1,0 +1,39 @@
+﻿instant_effect = {
+
+	### Production ###
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_1
+		}
+		requested_factories = 1
+		progress = 0.82
+		efficiency = 100
+	}
+}
+
+##### Division Templates #####
+division_template = {
+	name = "Guardia Palatina"
+	division_names_group = ITAL_INF_01
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+	support = {
+		engineer = { x = 0 y = 0 }
+	}
+}
+
+units = {
+	division = {
+		name = "Guardia Palatina"
+		location = 9904
+		division_template = "Guardia Palatina"
+		start_experience_factor = 0.8
+		start_equipment_factor = 0.3
+	}
+}
