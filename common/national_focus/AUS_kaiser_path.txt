@@ -1197,7 +1197,17 @@ shared_focus = {
       set_nationality = GLC
     }
     GLC = {
-      promote_character = AUS_karl_albrecht_von_habsburglothringen
+      add_country_leader_role = {
+        character = AUS_karl_albrecht_von_habsburglothringen
+        country_leader = {
+          expire = "1965.1.1"
+          ideology = democratic_conservative
+          traits = {
+            Habsburg_monarch
+          }
+        }
+        promote_leader = yes
+      }
       add_popularity = {
         ideology = neutrality
         popularity = 0.1
@@ -1206,16 +1216,10 @@ shared_focus = {
     AUS_stanislaw_szeptycki = {
       set_nationality = GLC
     }
-    AUS_franciszek_kleeberg = {
-      set_nationality = GLC
-    }
     AUS_dmytro_vitovsky = {
       set_nationality = GLC
     }
     AUS_tadeusz_kutrzeba = {
-      set_nationality = GLC
-    }
-    AUS_wladyslaw_sikorski = {
       set_nationality = GLC
     }
    
@@ -4019,6 +4023,10 @@ shared_focus = {
       add_idea = Fortify_austria_3
       remove_idea = Fortify_austria_2
     }
+    if = {
+      limit = { has_dlc = "No Step Back" }
+      set_technology = { midget_submarines = 1 }
+    }
   }
 }
 
@@ -4580,8 +4588,11 @@ shared_focus = {
         uses = 1
         category = cat_light_armor
       }
-      }
+      custom_effect_tooltip = available_political_advisor
+      show_ideas_tooltip = erwin_rommel
     }
+
+  }
 
 shared_focus = {
   id = AUS_AUSTRIAN_COMMAND
@@ -5013,6 +5024,10 @@ shared_focus = {
       bonus = 1
       uses = 1
       category = ss_tech
+    }
+    if = {
+      limit = { has_dlc = "No Step Back" }
+      set_technology = { cruiser_submarines = 1 }
     }
   }
 }
