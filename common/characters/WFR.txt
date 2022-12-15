@@ -1,0 +1,49 @@
+characters={
+	WFR_josias = {
+		name = "Josias Georg Wilhelm Adolf"
+		portraits = {
+			army = {
+				large="gfx/leaders/FGD/Portrait_GER_Prinz_Josias.png"
+				small="gfx/interface/ideas/GER_Prinz_Josias.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_reckless infantry_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	WFR_walter_kruger={
+		name="Walter Krüger"
+		portraits={
+			army={
+				large="gfx/leaders/FGD/Portrait_FGD_Walter_Kruger.png"
+				small="gfx/interface/ideas/FGD_walter_kruger.png"
+			}
+		}
+		corps_commander={
+			traits={ trait_reckless armor_officer }
+			skill=3
+			attack_skill=3
+			defense_skill=3
+			planning_skill=1
+			logistics_skill=3
+			legacy_id=15
+		}
+		advisor={
+			slot = high_command
+			idea_token = FGD_walter_kruger
+			ledger = army
+			traits = {
+				army_armored_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+}
