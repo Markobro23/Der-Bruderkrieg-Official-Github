@@ -28,6 +28,14 @@ characters={
 			planning_skill = 1
 			logistics_skill = 2
 		}
+		advisor = {
+			slot = high_command
+			desc = CHI_wang_yaowu_desc
+			idea_token = CHI_wang_yaowu
+			ledger = army
+			traits = { army_infantry_1 }
+			cost = 50
+		}
 	}
 	
 	MNG_chen_shaokuan = {
@@ -38,19 +46,26 @@ characters={
 				small="GFX_idea_generic_navy_asia_3"
 			}
 		}
-		advisor={
+		advisor = {
 			slot = navy_chief
-			idea_token = CHI_chen_shaokuan
-			allowed = {
-				original_tag = MNG
+			idea_token = CHI_chen_shaokuan_navy_chief
+			desc = CHI_chen_shaokuan_desc
+			available = {
+				not_already_hired_except_as = navy_chief
 			}
-			traits = {
-				navy_chief_decisive_battle_2
+			traits = { navy_chief_commerce_raiding_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = theorist
+			idea_token = CHI_chen_shaokuan_theorist
+			desc = CHI_chen_shaokuan_desc
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
 			}
+			traits = { naval_theorist }
 			cost = 100
-			ai_will_do = {
-				factor = 0.200
-			}
 		}
 		navy_leader = {
 			traits = { navy_career_officer blockade_runner }
@@ -77,6 +92,13 @@ characters={
 			maneuvering_skill = 2
 			coordination_skill = 1
 		}
+		advisor = {
+			slot = navy_chief
+			idea_token = CHI_chen_jiliang_navy_chief
+			desc = CHI_chen_jiliang_desc
+			traits = { navy_chief_decisive_battle_1 }
+			cost = 50
+		}
 	}
 	MNG_li_jishen = {
 		name = "Li Jishen"
@@ -92,6 +114,13 @@ characters={
 			defense_skill = 3
 			planning_skill = 3
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = CHI_li_jishen
+			desc = CHI_li_jishen_desc
+			traits = { army_chief_offensive_1 }
+			cost = 50
 		}
 	}
 	MNG_xue_yue = {
@@ -126,6 +155,13 @@ characters={
 			planning_skill = 2
 			logistics_skill = 3
 		}
+		advisor = {
+			slot = army_chief
+			desc = CHI_zhang_fakui_desc
+			idea_token = CHI_zhang_fakui
+			traits = { army_chief_defensive_2 }
+			cost = 100
+		}
 	}
 	
 	MNG_ye_ting = {
@@ -142,6 +178,14 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			desc = CHI_ye_ting_desc
+			idea_token = CHI_ye_ting
+			ledger = army
+			traits = { army_entrenchment_2 }
+			cost = 100
 		}
 	}
 	MNG_chiang_kai_shek={
@@ -198,28 +242,26 @@ characters={
 		name = "Li Zongren"
 		portraits = {
 			army = {
-				large = "gfx/leaders/MNG/Portrait_GXC_Li_Zongren.png"
+				large="gfx/leaders/MNG/Portrait_GXC_Li_Zongren.png"
 				small=GFX_portrait_GXC_li_zongren_small
 			}
 		}
 		corps_commander = {
-			traits = { infantry_officer }
-			skill = 3
-			attack_skill = 2
-			defense_skill = 4
-			planning_skill = 2
-			logistics_skill = 2	
+			desc = GXC_li_zongren_commander_desc
+			traits = { war_hero politically_connected infantry_officer organizer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 4
 		}
 		advisor={	
 			slot = army_chief
 			idea_token = CHI_li_zongren
-			allowed = {
-				original_tag = MNG
-			}
 			traits = {
-				army_chief_defensive_3
+				army_chief_organizational_2
 			}
-			cost = 200
+			cost = 100
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -234,13 +276,10 @@ characters={
 			}
 		}
 		advisor={
-			slot = army_chief
+			slot = high_command
 			idea_token = GXC_chen_jitang
-			allowed = {
-				original_tag = MNG
-			}
 			traits = {
-				army_chief_organizational_2
+				army_logistics_2
 			}
 				cost = 100
 			ai_will_do = {
