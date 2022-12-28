@@ -2258,9 +2258,9 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = USA_the_british_situation
 	}
-	mutually_exclusive = {
-		focus = USA_denounce_the_mosley_regime
-	}
+	# mutually_exclusive = {
+	# 	focus = USA_denounce_the_mosley_regime
+	# }
 	offset = {
 		trigger = {
 			has_focus_tree = usa_smith_presidency_tree
@@ -6509,7 +6509,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_the_british_situation
 	icon = GFX_goal_USA_the_british_situation
-	x = 32
+	x = 28
 	y = 0
 	cost = 5
 	available_if_capitulated = yes
@@ -6520,9 +6520,9 @@ shared_focus = {
 	mutually_exclusive = {
 		focus = USA_establishing_the_dc_pact
 	}
-	mutually_exclusive = {
-		focus = USA_denounce_the_mosley_regime
-	}
+	# mutually_exclusive = {
+	# 	focus = USA_denounce_the_mosley_regime
+	# }
 	available = {
 		OR = {
 			has_completed_focus = USA_smiths_america
@@ -6562,12 +6562,12 @@ shared_focus = {
 	available = {
 		ENG = { has_country_flag = UK_chose_mosley }
 	}
-	mutually_exclusive = {
-		focus = USA_establishing_the_dc_pact
-	}
-	mutually_exclusive = {
-		focus = USA_the_british_situation
-	}
+	# mutually_exclusive = {
+	# 	focus = USA_establishing_the_dc_pact
+	# }
+	# mutually_exclusive = {
+	# 	focus = USA_the_british_situation
+	# }
 	offset = {
 		trigger = {
 			has_focus_tree = usa_smith_presidency_tree
@@ -6575,7 +6575,9 @@ shared_focus = {
 		x = 1
 		y = 0
 	}
-
+	allow_branch = {
+		always = no
+	}
 	
 	
 	completion_reward = {
@@ -7804,7 +7806,7 @@ shared_focus = {
 	cost = 5
 	available_if_capitulated = yes
 	relative_position_id = USA_bury_the_hatchet
-	prerequisite = { focus = USA_bury_the_hatchet focus = USA_renew_our_cold_war }
+	prerequisite = { focus = USA_bury_the_hatchet }
 	ai_will_do = {
 		factor = 1000
 	}
@@ -9537,8 +9539,8 @@ shared_focus = {
 	shared_focus = {
 		id = USA_state_of_the_airforce
 		icon = GFX_goal_generic_air_doctrine
-		x = 45
-		y = 6
+		x = 41
+		y = 0
 		cost = 6
 		available_if_capitulated = yes
 	
@@ -9810,7 +9812,7 @@ shared_focus = {
 		shared_focus = {
 	    id = USA_state_of_the_army
 	    icon = GFX_goal_generic_army_doctrines
-	    x = 42
+	    x = 34
 	    y = 0
 	    cost = 6
 	    available_if_capitulated = yes
