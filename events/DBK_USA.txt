@@ -4214,6 +4214,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_generic_foriegn_policy_tree.1.a	
+		country_event = {
+			id = USA_generic_foriegn_policy_tree.2
+			days = 2
+		}
 	}
 }
 
@@ -4274,6 +4278,27 @@ country_event = {
 				days = 1
 			}
 		}
+		ai_chance = {
+			base = 2
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Business_Concessions
+				}
+				factor = 2
+			}
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Jamaica
+				}
+				factor = 4
+			}
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Nothing
+				}
+				factor = 1
+			}
+		}
 	}
 	option = {
 		name = USA_generic_foriegn_policy_tree.3.b	
@@ -4282,6 +4307,9 @@ country_event = {
 				id = USA_generic_foriegn_policy_tree.5
 				days = 1
 			}
+		}
+		ai_chance = {
+			base = 2
 		}
 	}
 	
@@ -4310,6 +4338,11 @@ country_event = {
 	option = {
 		name = USA_generic_foriegn_policy_tree.5.a
 		set_country_flag = ENG_Denies_USA_Conference
+		uncomplete_national_focus = {
+			focus = USA_the_british_situation
+			uncomplete_children = yes
+			refund_political_power = yes
+		}
 	}
 }
 

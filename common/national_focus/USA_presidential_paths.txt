@@ -6508,7 +6508,7 @@ shared_focus = {
 
 shared_focus = {
 	id = USA_the_british_situation
-	icon = GFX_goal_USA_the_british_situation
+	icon = GFX_Diplo_Britain
 	x = 28
 	y = 0
 	cost = 5
@@ -6530,6 +6530,9 @@ shared_focus = {
 			#has_completed_focus = USA_lead_to_a_better_world
 			has_completed_focus = USA_the_great_scare
 		}
+		NOT = {
+			has_country_flag = ENG_Denies_USA_Conference
+		}
 	}
 	offset = {
 		trigger = {
@@ -6545,7 +6548,7 @@ shared_focus = {
 	# }
 	
 	completion_reward = {
-		country_event = USA_generic_foriegn_policy_tree.1
+		country_event = USA_generic_foriegn_policy_tree.2
 	}
 }
 
@@ -6601,28 +6604,28 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = USA_bring_them_to_the_table
-	icon = GFX_Diplo_Britain
-	x = 0
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	ai_will_do = {
-		factor = 1000
-	}
-	available = {
-	}
+# shared_focus = {
+# 	id = USA_bring_them_to_the_table
+# 	icon = GFX_Diplo_Britain
+# 	x = 0
+# 	y = 1
+# 	cost = 5
+# 	available_if_capitulated = yes
+# 	ai_will_do = {
+# 		factor = 1000
+# 	}
+# 	available = {
+# 	}
 
-	prerequisite = {
-		focus = USA_the_british_situation
-	}
-	relative_position_id = USA_the_british_situation
+# 	prerequisite = {
+# 		focus = USA_the_british_situation
+# 	}
+# 	relative_position_id = USA_the_british_situation
 	 
-	completion_reward = {
-		country_event = USA_generic_foriegn_policy_tree.2
-	}
-}
+# 	completion_reward = {
+# 		country_event = USA_generic_foriegn_policy_tree.2
+# 	}
+# }
 
 # shared_focus = {
 # 	id = USA_offer_them_nothing
@@ -6764,19 +6767,12 @@ shared_focus = {
 	available = {
 		if = {
 			limit = {
-				has_completed_focus = USA_bring_them_to_the_table
+				has_completed_focus = USA_the_british_situation
 			}
 			has_country_flag = ENG_Denies_USA_Conference
 		}
 	}
-	mutually_exclusive = {
-		focus = USA_forget_the_past
-	}
-	prerequisite = {
-		focus = USA_bring_them_to_the_table
-		focus = USA_denounce_the_mosley_regime
-	}
-	relative_position_id = USA_bring_them_to_the_table
+	
 	
 	completion_reward = {
 		add_timed_idea = {
@@ -6799,13 +6795,11 @@ shared_focus = {
 	available = {
 		has_country_flag = ENG_Accepts_USA_Conference
 	}
-	mutually_exclusive = {
-		focus = USA_demand_reparations
-	}
+	
 	prerequisite = {
-		focus = USA_bring_them_to_the_table
+		focus = USA_the_british_situation
 	}
-	relative_position_id = USA_bring_them_to_the_table
+	relative_position_id = USA_the_british_situation
 	
 	completion_reward = {
 		add_ideas = USA_british_cooperation
