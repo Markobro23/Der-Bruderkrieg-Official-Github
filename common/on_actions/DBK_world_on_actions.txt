@@ -1,6 +1,17 @@
 on_actions = {
 	on_startup = {
 		effect = {
+
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				country_event = {
+					id = USA_debug_events.2
+					days = 1
+				}
+			}
+
 			#load in tree alert
 			SOV = {
 				country_event = { id = lore_dump.1 }
