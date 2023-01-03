@@ -19,7 +19,7 @@ shared_focus = {
         trigger = {
             has_focus_tree = SOV_the_return_of_the_tsar_tree
         }
-        x = 21
+        x = 29
         y = -8
     }
     offset = {
@@ -101,7 +101,7 @@ shared_focus = {
         trigger = {
             has_focus_tree = SOV_the_return_of_the_tsar_tree
         }
-        x = 21
+        x = 29
         y = -8
     }
     offset = {
@@ -193,7 +193,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_urallian_aircraft_construction
-    icon = GFX_goal_generic_construct_mil_factory
+    icon = GFX_focus_generic_aircraft_production
     prerequisite = { focus = SOV_expanding_airforce_investments }
     x = 0
     y = 1
@@ -218,6 +218,30 @@ shared_focus = {
                     level = 2
                      instant_build = yes
                 }
+                if = {
+                    limit = {
+                        air_base < 9
+                    }
+                    add_building_construction = {
+                        type = air_base
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+                else = {
+                    ROOT = {
+                        random_owned_controlled_state = {
+                            limit = {
+                                air_base < 9
+                            }
+                            add_building_construction = {
+                                type = air_base
+                                level = 2
+                                instant_build = yes
+                            }
+                        }
+                    }
+                }
             }
         }
         else = {
@@ -236,6 +260,30 @@ shared_focus = {
                     type = arms_factory
                     level = 2
                     instant_build = yes
+                }
+                if = {
+                    limit = {
+                        air_base < 9
+                    }
+                    add_building_construction = {
+                        type = air_base
+                        level = 2
+                        instant_build = yes
+                    }
+                }
+                else = {
+                    ROOT = {
+                        random_owned_controlled_state = {
+                            limit = {
+                                air_base < 9
+                            }
+                            add_building_construction = {
+                                type = air_base
+                                level = 2
+                                instant_build = yes
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -354,7 +402,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_skyborn_destruction
-    icon = GFX_focus_wonderweapons
+    icon = GFX_focus_generic_long_range_aircraft
     prerequisite = { focus = SOV_developing_alksnis_theories }
     x = -1
     y = 1
@@ -477,7 +525,7 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_ground_support
-    icon = GFX_focus_rocketry
+    icon = GFX_goal_poland_goal
     prerequisite = { focus = SOV_developing_bombers }
     x = 0
     y = 1
@@ -1173,16 +1221,6 @@ shared_focus = {
                 progress = 0.25
                 amount = 1
             }
-            add_equipment_production = {
-                equipment = {
-                    type = ship_hull_super_heavy_1
-                    creator = "SOV"
-                    version_name = "Kremlin Class"
-                }
-                requested_factories = 1
-                progress = 0.25
-                amount = 1
-            }
         }
     }
 }
@@ -1684,8 +1722,8 @@ shared_focus = {
 
 shared_focus = {
     id = SOV_devloping_knowledge_europakrieg
-    icon = GFX_focus_generic_military_mission
-    x = 38
+    icon = GFX_focus_SOV_mobilization_plan
+    x = 36
     y = 8
     cost = 10
     available_if_capitulated = yes
@@ -1700,7 +1738,7 @@ shared_focus = {
         trigger = {
             has_focus_tree  = SOV_the_return_of_the_tsar_tree
         }
-        x = 2
+        x = 8
         y = -8
     }
     offset = {
@@ -1726,7 +1764,7 @@ shared_focus = {
     }
     
     completion_reward = {
-        army_experience = 10
+        army_experience = 25
         add_doctrine_cost_reduction = {
             cost_reduction = 0.5
             name = SOV_devloping_knowledge_europakrieg
@@ -1737,11 +1775,12 @@ shared_focus = {
 }
 
 shared_focus = {
-    id = SOV_long_range_engagements
-    icon = GFX_goal_generic_army_artillery2
+    id = SOV_mass_mechanization
+    icon = GFX_focus_SOV_the_road_of_life
     prerequisite = { focus = SOV_devloping_knowledge_europakrieg }
     relative_position_id = SOV_devloping_knowledge_europakrieg
-    x = -1
+    mutually_exclusive = { focus = SOV_bayonet_strength }
+    x = -4
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -1755,11 +1794,290 @@ shared_focus = {
    
     
     completion_reward = {
+        army_experience = 25
+        add_tech_bonus = {
+            name = SOV_mass_mechanization
+            bonus = 1.0
+            uses = 2
+            category = armor
+            category = motorized_equipment
+        }
+        if = {
+            limit = {
+                has_dlc = "No Step Back"
+            }
+            if = {
+                limit = {
+                    NOT = { has_tech = basic_medium_tank_chassis }
+                }
+                set_technology = {
+                    basic_medium_tank_chassis = 1
+                }
+            }
+            if = {
+                limit = {
+                    NOT = { has_tech = basic_heavy_tank_chassis }
+                }
+                set_technology = {
+                    basic_heavy_tank_chassis = 1
+                }
+            }
+            create_equipment_variant = {
+                name = "A-20"
+                type = medium_tank_chassis_1
+                parent_version = 0
+                modules = {
+                    main_armament_slot = tank_small_cannon_2
+                    turret_type_slot = tank_medium_two_man_tank_turret
+                    suspension_type_slot = tank_christie_suspension
+                    armor_type_slot = tank_welded_armor
+                    engine_type_slot = tank_diesel_engine
+                    special_type_slot_1 = sloped_armor
+                }
+                upgrades = {
+                    tank_nsb_engine_upgrade = 8
+                    tank_nsb_armor_upgrade = 2
+                }
+                icon = "GFX_SOV_basic_medium_tank_medium"
+            }
+            create_equipment_variant = {
+                name = "T-7"  #KV-1
+                type = heavy_tank_chassis_1
+                parent_version = 0
+                modules = {
+                    main_armament_slot = tank_medium_cannon
+                    turret_type_slot = tank_heavy_three_man_tank_turret
+                    suspension_type_slot = tank_torsion_bar_suspension
+                    armor_type_slot = tank_welded_armor
+                    engine_type_slot = tank_diesel_engine       
+                }
+                upgrades = {
+                    tank_nsb_engine_upgrade = 10
+                    tank_nsb_armor_upgrade = 9
+                }
+                icon = "GFX_SOV_improved_heavy_tank_medium"
+            }
+        }
+        if = {
+            limit = {
+                NOT = { has_dlc = "No Step Back" }
+            }
+            if = {
+                limit = {
+                    NOT = { has_tech = basic_heavy_tank }
+                }
+                set_technology = {
+                    basic_heavy_tank = 1
+                }
+            }
+            if = {
+                limit = {
+                    NOT = { has_tech = basic_medium_tank }
+                }
+                set_technology = {
+                    basic_medium_tank = 1
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_bayonet_strength
+    icon = GFX_focus_generic_manpower
+    prerequisite = { focus = SOV_devloping_knowledge_europakrieg }
+    relative_position_id = SOV_devloping_knowledge_europakrieg
+    mutually_exclusive = { focus = SOV_mass_mechanization }
+    x = 4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        army_experience = 25
+        add_tech_bonus = {
+            name = SOV_bayonet_strength
+            bonus = 1.0
+            uses = 2
+            category = infantry_weapons
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_long_range_engagements
+    icon = GFX_goal_generic_army_artillery2
+    prerequisite = { focus = SOV_bayonet_strength }
+    relative_position_id = SOV_bayonet_strength
+    x = 0
+    y = 1
+    cost = 10
+    available_if_capitulated = no
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        army_experience = 25
+        add_doctrine_cost_reduction = {
+            cost_reduction = 0.5
+            name = SOV_long_range_engagements
+            uses = 1
+            category = land_doctrine
+        }
         add_tech_bonus = {
             name = SOV_long_range_engagements
             bonus = 1.0
             uses = 2
             category = artillery
+        }
+         if = { # 1 Mil in Moscow
+            limit = {
+                has_full_control_of_state = 219
+                 219 = {
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 0
+                        include_locked = yes
+                    }
+                }
+            }
+            219 = {
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+        else = { # If Moscow not available, then 1 Mil elsewhere
+            random_owned_state = {
+                limit = {
+                    is_fully_controlled_by = ROOT
+                    arms_factory > 1
+                    free_building_slots = {
+                        building = arms_factory
+                        size > 0
+                        include_locked = yes
+                    }
+                }
+                add_extra_state_shared_building_slots = 1
+                add_building_construction = {
+                    type = arms_factory
+                    level = 1
+                    instant_build = yes
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_bolster_cavalry
+    icon = GFX_focus_SOV_restore_cossack_units
+    prerequisite = { focus = SOV_long_range_engagements }
+    relative_position_id = SOV_long_range_engagements
+    available = {
+        has_war = yes
+    }
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        custom_effect_tooltip = SOV_cossack_units_spawn_tt
+        hidden_effect = {
+            division_template = {
+                name = "Kazachya Kavaleryskaya Diviziya"
+                division_names_group = SOV_CAV_02
+                template_counter = 05
+
+                regiments = {
+                    cavalry = { x = 0 y = 0 }
+                    cavalry = { x = 0 y = 1 }
+                    cavalry = { x = 0 y = 2 }
+                    cavalry = { x = 1 y = 0 }
+                    cavalry = { x = 1 y = 1 }
+                    cavalry = { x = 1 y = 2 }
+                    mot_artillery_brigade = { x = 2 y = 0 }
+                }
+                support = {
+                    engineer = { x = 0 y = 0 }
+                    artillery = { x = 0 y = 1 }
+                    recon = { x = 0 y = 2 }
+                }
+            }
+
+            capital_scope = {
+                #Cossack Cavalry
+                create_unit = { 
+                    division = "name = \"4ya Donskaya Kazachya Kav. Div.\" division_template = \"Kazachya Kavaleryskaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"6ya Kubansko-Terskaya Kazachya Kav. Div.\" division_template = \"Kazachya Kavaleryskaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"10ya Tersko-Stavropolskaya Kazachya Kav. Div\" division_template = \"Kazachya Kavaleryskaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"12ya Kubanskaya Kazachya Kav. Div.\" division_template = \"Kazachya Kavaleryskaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = {
+                    division = "name = \"13ya Donskaya Kazachya Div.\" division_template = \"Kazachya Kavaleryskaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = SOV_wide_front_operations
+    icon = GFX_focus_generic_provoke_border_clashes
+    prerequisite = { focus = SOV_bolster_cavalry }
+    relative_position_id = SOV_bolster_cavalry
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        army_experience = 25
+        add_doctrine_cost_reduction = {
+            cost_reduction = 0.5
+            name = SOV_wide_front_operations
+            uses = 1
+            category = land_doctrine
         }
     }
 }
@@ -1767,10 +2085,10 @@ shared_focus = {
 shared_focus = {
     id = SOV_competitive_equipment_development
     icon = GFX_goal_generic_small_arms
-    prerequisite = { focus = SOV_devloping_knowledge_europakrieg }
+    prerequisite = { focus = SOV_mass_mechanization focus = SOV_bayonet_strength }
     relative_position_id = SOV_devloping_knowledge_europakrieg
-    x = 1
-    y = 1
+    x = 2
+    y = 2
     cost = 5
     available_if_capitulated = yes
     ai_will_do = {
@@ -1793,11 +2111,38 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_defense_of_russia
+    icon = GFX_focus_SOV_the_defense_of_moscow
+    prerequisite = { focus = SOV_mass_mechanization focus = SOV_bayonet_strength }
+    relative_position_id = SOV_devloping_knowledge_europakrieg
+    x = -2
+    y = 2
+    cost = 2
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        unlock_decision_category_tooltip = SOV_defensive_infratructure
+    }
+}
+
+shared_focus = {
     id = SOV_utilizing_new_technology_warfare
     icon = GFX_goal_AUS_prepare_for_war
-    prerequisite = { focus = SOV_long_range_engagements }
-    prerequisite = { focus = SOV_competitive_equipment_development }
+    prerequisite = { focus = SOV_mass_mechanization focus = SOV_bayonet_strength }
     relative_position_id = SOV_devloping_knowledge_europakrieg
+    available = {
+        NOT = { has_idea = SOV_conservative_high_command }
+        NOT = { has_idea = SOV_conservative_high_command_2 }
+        NOT = { has_idea = SOV_conservative_high_command_3 }
+    }
     x = 0
     y = 2
     cost = 5
@@ -1826,9 +2171,9 @@ shared_focus = {
     icon = GFX_goal_generic_army_motorized
     prerequisite = { focus = SOV_utilizing_new_technology_warfare }
     relative_position_id = SOV_utilizing_new_technology_warfare
-    x = 0
+    x = -1
     y = 1
-    cost = 10
+    cost = 5
     available_if_capitulated = yes
     ai_will_do = {
         factor = 0
@@ -1840,23 +2185,20 @@ shared_focus = {
    
     
     completion_reward = {
-        add_tech_bonus = {
-            name = SOV_motorization_effort
-            ahead_reduction = 2
-            bonus = 0.5
-            uses = 1
-            category = motorized_equipment
+        add_equipment_to_stockpile = { 
+            type = motorized_equipment
+            amount = 500
+            producer = ROOT
         }
     }
 }
 
 shared_focus = {
-    id = SOV_light_tank_focus
-    icon = GFX_goal_generic_army_tanks
-    prerequisite = { focus = SOV_motorization_effort }
-    relative_position_id = SOV_motorization_effort
-    mutually_exclusive = { focus = SOV_heavy_tank_focus }
-    x = -1
+    id = SOV_officer_scholarships
+    icon = GFX_focus_generic_military_academy
+    prerequisite = { focus = SOV_utilizing_new_technology_warfare }
+    relative_position_id = SOV_utilizing_new_technology_warfare
+    x = 1
     y = 1
     cost = 10
     available_if_capitulated = yes
@@ -1870,24 +2212,49 @@ shared_focus = {
    
     
     completion_reward = {
-        add_tech_bonus = {
-            name = SOV_light_tank_focus
-            bonus = 0.75
-            uses = 2
-            category = cat_light_armor
+        add_corps_commander_role = {
+            character = SOV_lev_dovator
+            traits = { cavalry_officer trait_reckless cavalry_leader ranger }
+            skill = 3
+            attack_skill = 3
+            defense_skill = 2
+            planning_skill = 2
+            logistics_skill = 3
+        }
+        add_corps_commander_role = {
+            character = SOV_pavel_rybalko
+            traits = { cavalry_officer armor_officer panzer_leader panzer_expert }
+            skill = 3
+            attack_skill = 4
+            defense_skill = 1
+            planning_skill = 2
+            logistics_skill = 3
         }
     }
 }
+
+
 
 shared_focus = {
     id = SOV_heavy_tank_focus
     icon = GFX_focus_generic_army_tanks2
-    prerequisite = { focus = SOV_motorization_effort }
-    relative_position_id = SOV_motorization_effort
-    mutually_exclusive = { focus = SOV_light_tank_focus }
-    x = 1
+    prerequisite = { focus = SOV_mechanized_warfare_doctrine }
+    relative_position_id = SOV_mechanized_warfare_doctrine
+    x = 0
     y = 1
-    cost = 10
+    cost = 5
+    available = {
+        has_war = yes
+        if = {
+            limit = {
+                has_dlc = "No Step Back"
+            }
+            has_tech = improved_heavy_tank_chassis
+        }
+        else = {
+            has_tech = improved_heavy_tank
+        }
+    }
     available_if_capitulated = yes
     ai_will_do = {
         factor = 0
@@ -1903,17 +2270,87 @@ shared_focus = {
             name = SOV_heavy_tank_focus
             bonus = 0.75
             uses = 2
-            category = cat_heavy_armor
+            category = armor
+        }
+        if = {
+            limit = {
+                has_dlc = "No Step Back"
+            }
+            if = {
+                limit = {
+                    NOT = { has_tech = advanced_heavy_tank_chassis }
+                }
+                set_technology = {
+                    advanced_heavy_tank_chassis = 1
+                }
+            }
+            # IS-2 tank template
+            if = {
+                limit = {
+                    OR = {
+                        has_tech = antiair2
+                        has_tech = antitank2
+                    }
+                }
+                create_equipment_variant = {
+                    name = "T-10"
+                    type = heavy_tank_chassis_3
+                    parent_version = 0
+                    modules = {
+                        main_armament_slot = tank_heavy_cannon_2
+                        turret_type_slot = tank_heavy_three_man_tank_turret
+                        suspension_type_slot = tank_torsion_bar_suspension
+                        armor_type_slot = tank_welded_armor
+                        engine_type_slot = tank_diesel_engine
+                        special_type_slot_1 = tank_radio_1
+                        special_type_slot_2 = sloped_armor
+                        special_type_slot_3 = smoke_launchers
+                    }
+                    upgrades = {
+                        tank_nsb_engine_upgrade = 8
+                        tank_nsb_armor_upgrade = 6
+                    }
+                    icon = "GFX_SOV_advanced_heavy_tank_medium"
+                }
+            }
+            else_if = {
+                limit = {
+                    OR = {
+                        has_tech = interwar_antiair
+                        has_tech = interwar_antitank
+                    }
+                }
+                create_equipment_variant = {
+                    name = "T-10"
+                    type = heavy_tank_chassis_3
+                    parent_version = 0
+                    modules = {
+                        main_armament_slot = tank_heavy_cannon
+                        turret_type_slot = tank_heavy_three_man_tank_turret
+                        suspension_type_slot = tank_torsion_bar_suspension
+                        armor_type_slot = tank_welded_armor
+                        engine_type_slot = tank_diesel_engine
+                        special_type_slot_1 = tank_radio_1
+                        special_type_slot_2 = sloped_armor
+                        special_type_slot_3 = smoke_launchers
+                    }
+                    upgrades = {
+                        tank_nsb_engine_upgrade = 8
+                        tank_nsb_armor_upgrade = 6
+                    }
+                    icon = "GFX_SOV_advanced_heavy_tank_medium"
+                }
+            }
         }
     }
 }
 
 shared_focus = {
-    id = SOV_mechanized_warfare_doctrine
-    icon = GFX_goal_generic_army_doctrines
-    prerequisite = { focus = SOV_heavy_tank_focus focus = SOV_light_tank_focus }
-    relative_position_id = SOV_light_tank_focus
-    x = 1
+    id = SOV_tankograd
+    icon = GFX_focus_generic_tank_production
+    prerequisite = { focus = SOV_heavy_tank_focus }
+    relative_position_id = SOV_heavy_tank_focus
+    x = 0
     y = 1
     cost = 10
     available_if_capitulated = yes
@@ -1927,12 +2364,94 @@ shared_focus = {
    
     
     completion_reward = {
-        army_experience = 5
+
+            custom_effect_tooltip = SOV_development_of_tankograd_factories_tt
+            #This is just for tooltip purposes
+            effect_tooltip = {
+                every_owned_state = {
+                    limit = {
+                        is_on_continent = asia
+                        arms_factory > 2
+                        free_building_slots = {
+                            building = arms_factory
+                            size > 1
+                            include_locked = yes
+                        }
+                    }
+                    add_extra_state_shared_building_slots = 1
+                    add_building_construction = {
+                        type = arms_factory
+                        level = 1
+                        instant_build = yes
+                    }
+                }
+            }
+
+            #Actual effects
+            set_temp_variable = { temp_targets_index = 0 }
+            while_loop_effect = {
+                limit = {
+                    check_variable = { temp_targets_index = 10 compare = less_than }
+                }
+                hidden_effect = {
+                    random_owned_state = {
+                        limit = {
+                            is_on_continent = asia
+                            arms_factory > 2
+                            free_building_slots = {
+                                building = arms_factory
+                                size > 1
+                                include_locked = yes
+                            }
+                            NOT = { has_state_flag = SOV_development_of_tankograd_flag }
+                        }
+                        add_extra_state_shared_building_slots = 1
+                        add_building_construction = {
+                            type = arms_factory
+                            level = 1
+                            instant_build = yes
+                        }
+                        set_state_flag = SOV_development_of_tankograd_flag
+                        add_to_temp_variable = { SOV.temp_targets_index = 1 }
+                        #log = "Round [?SOV.temp_targets_index]"
+                    }
+                }
+            }
+        }
+}
+
+shared_focus = {
+    id = SOV_mechanized_warfare_doctrine
+    icon = GFX_goal_generic_army_doctrines
+    prerequisite = { focus = SOV_mass_mechanization }
+    relative_position_id = SOV_mass_mechanization
+    x = 0
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        army_experience = 25
         add_doctrine_cost_reduction = {
             cost_reduction = 0.5
-            name = land_doc_bonus
+            name = SOV_mechanized_warfare_doctrine
             uses = 1
             category = land_doctrine
+        }
+        add_tech_bonus = {
+            name = SOV_mechanized_warfare_doctrine
+            bonus = 0.75
+            uses = 2
+            category = armor
+            category = motorized_equipment
         }
     }
 }
@@ -1940,8 +2459,9 @@ shared_focus = {
 shared_focus = {
     id = SOV_swift_troops
     icon = GFX_goal_generic_cavalry
-    prerequisite = { focus = SOV_light_tank_focus }
-    relative_position_id = SOV_light_tank_focus
+    prerequisite = { focus = SOV_officer_scholarships }
+    prerequisite = { focus = SOV_motorization_effort }
+    relative_position_id = SOV_officer_scholarships
     x = -1
     y = 1
     cost = 10
@@ -2081,10 +2601,46 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = SOV_glory_of_the_russian_army
+    icon = GFX_focus_SOV_the_glory_of_the_red_army_alternative
+    prerequisite = { focus = SOV_swift_troops }
+    prerequisite = { focus = SOV_wide_front_operations focus = SOV_tankograd }
+    relative_position_id = SOV_swift_troops
+    x = 0
+    y = 1
+    cost = 10
+
+    available = {
+        surrender_progress < 0.05
+    }
+
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+
+        army_experience = 75
+
+        #New
+        hidden_effect = {
+            set_technology = { masterful_blitz = 1 popup = no }
+        }
+        custom_effect_tooltip = SOV_the_glory_of_the_red_army_masterful_blitz_tactic_tt
+    }
+}
+
+shared_focus = {
     id = SOV_cannon_troops
     icon = GFX_goal_generic_army_artillery
-    prerequisite = { focus = SOV_heavy_tank_focus }
-    relative_position_id = SOV_heavy_tank_focus
+    prerequisite = { focus = SOV_glory_of_the_russian_army }
+    relative_position_id = SOV_glory_of_the_russian_army
     x = 1
     y = 1
     cost = 10
@@ -2309,5 +2865,83 @@ shared_focus = {
             }
         }
 
+    }
+}
+
+shared_focus = {
+    id = SOV_deep_battle
+    icon = GFX_focus_prc_infiltration
+    prerequisite = { focus = SOV_glory_of_the_russian_army }
+    relative_position_id = SOV_glory_of_the_russian_army
+    x = -1
+    y = 1
+    cost = 10
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 0
+        modifier = {
+            add = 1
+            date > 1937.1.1
+        }
+    }
+   
+    
+    completion_reward = {
+        custom_effect_tooltip = SOV_shock_units_spawn_tt
+        hidden_effect = {
+            division_template = {
+                name = "Tankovaya Brigada"              # Tank Brigade - Represents a pair of independent tank brigades (1 heavy (medium) + 1 regular (light) brigades) 
+                division_names_group = SOV_ARM_04
+                regiments = {
+                    medium_armor = { x = 0 y = 0 }      # T-28 (medium) infantry tanks
+                    medium_armor = { x = 0 y = 1 }
+                    light_armor = { x = 0 y = 2 }       # T-26 or BT-5/7 tanks      
+                    light_armor = { x = 1 y = 0 }       # T-26 or BT-5/7 tanks      
+                    light_armor = { x = 1 y = 1 }       
+                    light_armor = { x = 1 y = 2 }       
+                    motorized = { x = 2 y = 0 } 
+                    motorized = { x = 2 y = 1 }
+                }
+                support = {
+                    engineer = { x = 0 y = 0 }
+                    artillery = { x = 0 y = 1 }
+                    recon = { x = 0 y = 2 }
+                }
+            }
+
+            capital_scope = {
+                #1st Shock Army
+                create_unit = { 
+                    division = "name = \"3ya BVO Tankovaya Gruppa\" division_template = \"Tankovaya Brigada\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"133ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"29ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"44ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"47ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"50ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"55ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"56ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"71ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"84ya Strelkovaya Diviziya\" division_template = \"Strelkovaya Diviziya\" start_experience_factor = 0.8 start_equipment_factor = 1.0" owner = ROOT
+                }
+            }
+        }
     }
 }

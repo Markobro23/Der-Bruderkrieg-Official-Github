@@ -12779,3 +12779,872 @@ SOV_expanding_naval_facilities={
 	}
 }
 
+SOV_defensive_infratructure = {
+	SOV_moscow_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 219
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 4
+			has_completed_focus = SOV_defense_of_russia
+			219 = {
+				is_controlled_by = ROOT
+				
+				OR = {
+					any_neighbor_state = {
+						NOT = { is_controlled_by = ROOT }
+					}
+
+					SOV = { surrender_progress > 0.1 } #Keep an eye on this, might be too cheesy
+				}
+			}
+		}
+
+		visible = {
+			owns_state = 219
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			219 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 10
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+		remove_effect = {
+			219 = {
+				custom_effect_tooltip = SOV_defense_of_moscow_forts
+				hidden_effect = {
+					if = {
+						limit = {
+							ROOT = { controls_province = 3391 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 3391
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 6414 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 6414
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 9348 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 9348
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 301 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 301
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 9378 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 9378
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 6283 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 6283
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 3259 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 3259
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 11282 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 3
+							province = 11282
+							instant_build = yes
+						}
+					}
+					if = {
+						limit = {
+							ROOT = { controls_province = 6380 }
+						}
+						add_building_construction = {
+							type = bunker
+							level = 4
+							province = 6380
+							instant_build = yes
+						}
+					}
+					set_state_flag = SOV_reinforced_flag			
+				}
+			}
+		}
+
+
+	}
+	SOV_petrograd_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 195
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_completed_focus = SOV_defense_of_russia
+			195 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+			owns_state = 195
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			195 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			195 = { #Petrograd
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = {
+						id = 3151
+						id = 6174
+					}
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = {
+						id = 3151
+						id = 6174
+					}
+					instant_build = yes
+				}
+				add_dynamic_modifier = { modifier = SOV_krasnaya_gorka_battery scope = SOV }
+				set_state_flag = SOV_reinforced_flag
+			}
+		}
+	}
+	SOV_luga_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 208
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_completed_focus = SOV_defense_of_russia
+			208 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+			owns_state = 208
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			208 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			208 = { #LUGA
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 9097
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 9097
+					instant_build = yes
+				}
+				add_dynamic_modifier = { modifier = SOV_seraya_loshad_battery scope = SOV }
+				set_state_flag = SOV_reinforced_flag
+			}
+		}
+	}
+	SOV_crimea_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 137
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 1
+			has_completed_focus = SOV_defense_of_russia
+			137 = {
+				is_controlled_by = ROOT
+			}
+		}
+
+		visible = {
+			owns_state = 137
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			137 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			137 = { #CRIMEA
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					province = 3686
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = coastal_bunker
+					level = 3
+					province = 3686
+					instant_build = yes
+				}
+				set_state_flag = SOV_reinforced_flag
+			}
+		}
+	}
+	SOV_white_sea_baltic_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 216
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_completed_focus = SOV_defense_of_russia
+			has_full_control_of_state = 215 #ONEGA
+			has_full_control_of_state = 216 #OLONETS
+			has_full_control_of_state = 264 #TIKHVIN
+			has_full_control_of_state = 195 #PETROGRAD
+		}
+
+		visible = {
+			owns_state = 216
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			216 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 0.5
+		}
+		remove_effect = {
+			if = {
+				limit = {
+					has_full_control_of_state = 215 #ONEGA
+				}
+				215 = { #ONEGA
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = {
+							id = 9045
+							id = 3078
+							id = 11212
+						}
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = coastal_bunker
+						level = 1
+						province = 9045
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 216 #OLONETS
+				}
+				216 = { #OLONETS
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = {
+							id = 92
+							id = 11092
+						}
+						instant_build = yes
+					}
+					set_state_flag = SOV_reinforced_flag
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 264 #TIKHVIN
+				}
+				264 = { #TIKHVIN
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = {
+							id = 9082
+							id = 9190
+							id = 11059
+						}
+						instant_build = yes
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_full_control_of_state = 195 #PETROGRAD
+				}
+				195 = { #PETROGRAD
+					add_building_construction = {
+						type = anti_air_building
+						level = 1
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = {
+							id = 149
+							id = 11068
+							id = 79
+						}
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	SOV_far_east_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 408
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 3
+			has_completed_focus = SOV_defense_of_russia
+			OR = {
+				has_full_control_of_state = 563
+				has_full_control_of_state = 561
+				has_full_control_of_state = 657
+				has_full_control_of_state = 409
+				has_full_control_of_state = 408
+			}
+		}
+
+		visible = {
+			OR = {
+				owns_state = 563
+				owns_state = 561
+				owns_state = 657
+				owns_state = 409
+				owns_state = 408
+			}
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			563 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 60
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			563 = { #CHITA
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_4
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = {
+								id = 4719
+								id = 12622
+							}
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = {
+								id = 10559
+							}
+							instant_build = yes
+						}
+					}
+				}
+				set_state_flag = SOV_reinforced_flag
+			}
+			561 = { #AMUR
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_4
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = {
+								id = 12543
+								id = 7851
+								id = 10678
+							}
+							instant_build = yes
+						}
+						add_building_construction = { #Set like this for stupid tooltip purposes
+							type = bunker
+							level = 1
+							province = {
+								id = 12657
+							}
+							instant_build = yes
+						}
+					}
+				}
+			}
+			657 = { #BIROBIDZHAN
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_10
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = {
+								id = 10655
+								id = 7801
+								id = 10722
+								id = 7672
+							}
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = {
+								id = 7763
+								id = 4725
+								id = 4805
+							}
+							instant_build = yes
+						}
+					}
+				}
+			}
+			409 = { #KHABAROVSK
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_4
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = {
+								id = 12189
+							}
+							instant_build = yes
+						}
+						add_building_construction = {  #Set like this for stupid tooltip purposes
+							type = bunker
+							level = 2
+							province = {
+								id = 10466
+							}
+							instant_build = yes
+						}
+					}
+				}
+			}
+			408 = { #VLADIVOSTOK
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					custom_effect_tooltip = SOV_far_east_fortification_forts_10
+					hidden_effect = {
+						add_building_construction = {
+							type = bunker
+							level = 1
+							province = {
+								id = 11643
+								id = 6686
+								id = 664
+								id = 6684
+								id = 3787
+								id = 6838
+								id = 11879
+							}
+							instant_build = yes
+						}
+						add_building_construction = {
+							type = bunker
+							level = 2
+							province = {
+								id = 3977
+								id = 957
+							}
+							instant_build = yes
+						}
+					}
+				}
+			}
+		}
+	}
+	SOV_western_fortifications = {
+		icon = generic_construction
+
+		allowed = {
+			
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 202
+			}
+		} 
+
+		available = {
+			num_of_civilian_factories_available_for_projects > 2
+			has_completed_focus = SOV_defense_of_russia
+			OR = {
+				has_full_control_of_state = 209
+				has_full_control_of_state = 210
+				has_full_control_of_state = 207
+				has_full_control_of_state = 206
+				has_full_control_of_state = 202
+				has_full_control_of_state = 203
+				has_full_control_of_state = 192
+			}
+		}
+
+		visible = {
+			owns_state = 202
+			tag = SOV
+			has_completed_focus = SOV_defense_of_russia
+			202 = {
+				NOT = {
+					has_state_flag = SOV_reinforced_flag
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			civilian_factory_use = 3
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+		remove_effect = {
+			209 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 6
+						province = 415
+						instant_build = yes
+					}
+				}
+			}
+			210 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 3333
+						instant_build = yes
+					}
+				}
+			}
+			207 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 3219
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6371
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 6220
+						instant_build = yes
+					}
+				}
+			}
+			206 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 4
+						province = 11370
+						instant_build = yes
+					}
+				}
+			}
+			202 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 525
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 3494
+						instant_build = yes
+					}
+				}
+
+			}
+			203 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 7
+						province = 11409
+						instant_build = yes
+					}
+				}
+			}
+			192 = {
+				if = {
+					limit = { is_fully_controlled_by = ROOT }
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 11670
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 754
+						instant_build = yes
+					}
+					add_building_construction = {
+						type = bunker
+						level = 5
+						province = 741
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+}
