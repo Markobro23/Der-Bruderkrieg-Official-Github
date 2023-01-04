@@ -5202,9 +5202,86 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  navy_experience = 20
+		  navy_experience = 25
+		  random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
 
+			if = {
+				limit = {
+					NOT = {
+						any_owned_state = {
+							dockyard > 0
+							free_building_slots = {
+								building = dockyard
+								size > 0
+								include_locked = yes
+							}
+						}
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = dockyard
+							size > 1
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}				
+			}
 		  add_doctrine_cost_reduction = {
+				name = ITA_ITALIAN_FLEET
 				cost_reduction = 0.5
 			  uses = 1
 			  category = naval_doctrine
@@ -5218,6 +5295,10 @@ shared_focus = {
 	  text = ITA_protect_mediterranean_trade_routes
 	  prerequisite = { focus = ITA_ITALIAN_FLEET }
 	  mutually_exclusive = { focus = ITA_disrupt_mediterranean_trade_routes }
+	  available = {
+			has_tech = improved_depth_charges
+			has_tech = sonar
+		}
 	  x = -2
 	  y = 1
 	  relative_position_id = ITA_ITALIAN_FLEET
@@ -5230,11 +5311,135 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-	  add_tech_bonus = {
-		  bonus = 1.0
-		  uses = 1
-		  category = convoy_defense_tree
-	  }
+	  	avy_experience = 15
+
+			add_tech_bonus = {
+				name = GFX_goal_generic_navy_doctrines_tactics
+				ahead_reduction = 2
+				uses = 1
+				category = asw_tech
+			}
+
+			###########
+			### MTG ###
+			###########
+			if = { #MTG 
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				#Equipment Variant
+				if = {
+					limit = {
+						has_tech = improved_sonar
+					}
+					create_equipment_variant = {
+						name = "Gabbiano Class"
+						type = ship_hull_light_1
+						name_group = ITA_DD_HISTORICAL
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_light_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_2
+							fixed_ship_fire_control_system_slot = ship_sonar_2
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = light_ship_engine_1
+							fixed_ship_torpedo_slot = ship_torpedo_1
+							mid_1_custom_slot = ship_depth_charge_2
+							rear_1_custom_slot = ship_depth_charge_2
+							#front_1_custom_slot = ship_light_battery_2
+						}
+					}
+				}
+				else = {
+					create_equipment_variant = {
+						name = "Gabbiano Class"
+						type = ship_hull_light_1
+						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_light_battery_1
+							fixed_ship_anti_air_slot = ship_anti_air_2
+							fixed_ship_fire_control_system_slot = ship_sonar_1
+							fixed_ship_radar_slot = empty
+							fixed_ship_engine_slot = light_ship_engine_1
+							fixed_ship_torpedo_slot = ship_torpedo_1
+							mid_1_custom_slot = ship_depth_charge_2
+							rear_1_custom_slot = ship_depth_charge_2
+							#front_1_custom_slot = ship_light_battery_2
+						}
+					}
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_light_1
+						creator = "ITA"
+						version_name = "Gabbiano Class"
+					}
+					name = "Antilope"
+					requested_factories = 1
+					progress = 0.35
+					amount = 3
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_light_1
+						creator = "ITA"
+						version_name = "Gabbiano Class"
+					}
+					name = "Camoscio"
+					requested_factories = 1
+					progress = 0.35
+					amount = 3
+				}
+			}
+
+			##############
+			### NO MTG ###
+			##############
+			else = {
+				if = {
+					limit = {
+						NOT = { has_tech = improved_destroyer }
+					}
+					set_technology = { improved_destroyer = 1 }
+				}
+				create_equipment_variant = {
+					name = "Comandanti Medaglie d'Oro Class"
+					type = destroyer_3
+					upgrades = {
+						ship_torpedo_upgrade = 1
+						destroyer_engine_upgrade = 1
+						ship_ASW_upgrade = 3
+						ship_anti_air_upgrade = 2
+					}
+				}
+				add_equipment_production = {
+					equipment = {
+						type = destroyer_1
+						creator = "ITA"
+						version_name = "Gabbiano Class"
+					}
+					requested_factories = 2
+					progress = 0.35
+					amount = 3
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_coastal = yes
+				}
+				prioritize = { 162 117 } ##TUSCANY (La Spezia) / CAMPANIA (Napoli) (Napoli just to split it up a little bit)
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 	  }
   }
 
@@ -5256,11 +5461,12 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = cat_trade_interdiction
-		  }
+		  add_doctrine_cost_reduction = {
+				name = ITA_disrupt_mediterranean_trade_routes
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
 	  }
   }
 
@@ -5270,34 +5476,139 @@ shared_focus = {
 	  icon = GFX_goal_generic_build_navy
 	  text = ITA_BUILD_DOCKYARDS
 	  prerequisite = { focus = ITA_disrupt_mediterranean_trade_routes focus = ITA_protect_mediterranean_trade_routes }
+	  available = {
+			OR = {
+				has_full_control_of_state = 162
+				has_full_control_of_state = 736
+				has_full_control_of_state = 114
+				has_full_control_of_state = 117
+				has_full_control_of_state = 156
+			}
+		}
 	  x = -2
 	  y = 2
 	  relative_position_id = ITA_disrupt_mediterranean_trade_routes
-	  cost = 5
+	  cost = 10
 	  ai_will_do = {
 		  factor = 1
 	  }
 
 	  available_if_capitulated = yes
-	  search_filters = { FOCUS_FILTER_RESEARCH }
+	  search_filters = { FOCUS_FILTER_INDUSTRY }
 
 	  completion_reward = {
-		  random_owned_controlled_state = {
-			  limit = {
-				  free_building_slots = {
-					  building = dockyard
-					  size > 1
-					  include_locked = yes
-				  }
-				  is_coastal = yes
-			  }
-			  add_extra_state_shared_building_slots = 1
-			  add_building_construction = {
-				  type = dockyard
-				  level = 1
-				  instant_build = yes
-			  }
-		  }
+		  if = {
+				limit = {
+					162 = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+				162 = { #TUSCANY (La Spezia)
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_core_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					prioritize = { 157 161 2 } #ABRUZZO as main fallback
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					736 = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+				}
+				736 = { #LITORALE (Trieste)
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_core_state = {
+					limit = {
+						is_fully_controlled_by = ROOT
+						free_building_slots = {
+							building = dockyard
+							size > 0
+							include_locked = yes
+						}
+					}
+					prioritize = { 852 160 161 } #ISTRIA as main fallback
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = dockyard
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			114 = { #SARDINIA (Cagliari, La Maddalena)
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 6891 #La Maddalena
+				}
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 11773 #Cagliari
+				}
+			}
+
+			117 = { #CAMPAGNA (Napoli)
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 819 #Napoli
+				}
+			}
+
+			156 = { #PUGLIA (Brindisi)
+				add_building_construction = {
+					type = naval_base
+					level = 2
+					instant_build = yes
+					province = 11998
+				}
+			}
 	  }
   }
 
@@ -5341,12 +5652,95 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = bb_tech
-		  }
-	  }
+		  navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = ITA_invest_in_battleships
+				cost_reduction = 0.50
+				uses = 2
+				category = fleet_in_being_tree
+			}
+
+			add_tech_bonus = {
+				name = ITA_invest_in_battleships
+				bonus = 1.5
+				uses = 1
+				category = bb_tech
+			}
+
+			###########
+			### MTG ###
+			###########
+			if = { #MTG 
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_heavy_2
+						creator = "ITA"
+						version_name = "Littorio Class"
+					}
+					name = "Marco Polo"
+					requested_factories = 1
+					progress = 0.45
+					amount = 1
+				}
+
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_heavy_2
+						creator = "ITA"
+						version_name = "Littorio Class"
+					}
+					name = "Giuseppe Verdi"
+					requested_factories = 1
+					progress = 0.45
+					amount = 1
+				}
+			}
+
+			##############
+			### NO MTG ###
+			##############
+			else = {
+				add_equipment_production = {
+					equipment = {
+						type = battleship_2
+						creator = "ITA"
+						version_name = "Littorio Class"
+					}
+					requested_factories = 1
+					progress = 0.45
+					amount = 1
+				}
+				add_equipment_production = {
+					equipment = {
+						type = battleship_2
+						creator = "ITA"
+						version_name = "Littorio Class"
+					}
+					requested_factories = 1
+					progress = 0.45
+					amount = 1
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_coastal = yes
+				}
+				prioritize = { 736 158 } ##LITORALE (Trieste) / PIEDMONT (Genova)
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
   }
 
   shared_focus = {
@@ -5366,11 +5760,21 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = ca_tech
-		  }
+		  navy_experience = 25
+
+			add_doctrine_cost_reduction = {
+				name = ITA_supremacy_of_cruisers
+				cost_reduction = 0.75
+				uses = 2
+				category = cat_fleet_in_being
+			}
+
+			add_tech_bonus = {
+				name = ITA_supremacy_of_cruisers
+				bonus = 1.5
+				uses = 1
+				category = ca_tech
+			}
 	  }
   }
 
@@ -5386,7 +5790,7 @@ shared_focus = {
 	  x = -1
 	  y = 1
 	  relative_position_id = ITA_disrupt_mediterranean_trade_routes
-	  cost = 5
+	  cost = 10
 	  ai_will_do = {
 		  factor = 1
 	  }
@@ -5395,19 +5799,101 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = ss_tech
-		  }
+		  navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = ITA_sub_effort
+				cost_reduction = 0.5
+				uses = 1
+				category = trade_interdiction_tree
+			}
+
+			add_tech_bonus = {
+				name = ITA_sub_effort
+				bonus = 1.0
+				uses = 1
+				category = ss_tech
+			}
+
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				set_technology = { cruiser_submarines = 1 }
+
+				create_equipment_variant = {
+					name = "Cagni Class"
+					type = ship_hull_cruiser_submarine
+					name_group = ITA_SS_HISTORICAL #TODO_Manu: Namelist
+					parent_version = 0
+					modules = {
+						fixed_ship_torpedo_slot = ship_torpedo_sub_1
+						fixed_ship_engine_slot = sub_ship_engine_2
+						front_1_custom_slot = ship_torpedo_sub_1
+						mid_1_custom_slot = empty
+						rear_1_custom_slot = ship_torpedo_sub_1
+					}
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "ITA"
+						version_name = "Cagni Class"
+					}
+					name = "Ammiraglio Cagni"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_cruiser_submarine
+						creator = "ITA"
+						version_name = "Cagni Class"
+					}
+					name = "Ammiraglio Millo"
+					requested_factories = 1
+					progress = 0.35
+					amount = 2
+				}
+			}
+			
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_coastal = yes
+				}
+				prioritize = { 736 160 } #TRIESTE / VENETO
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
 	  }
   }
 
   shared_focus = {
 	  id = ITA_ultimate_destroyers
-	  icon = GFX_goal_generic_navy_anti_submarine
+	  icon = GFX_focus_generic_destroyer
 	  text = ITA_ultimate_destroyers
 	  prerequisite = { focus = ITA_disrupt_mediterranean_trade_routes }
+	  available = {
+			if = {
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				has_tech = improved_ship_hull_light
+				has_tech = sonar
+				#has_tech = improved_ship_torpedo_launcher #Granting it anyways
+				#has_tech = improved_depth_charges #Granting it anyways
+			}
+			else = {
+				has_tech = improved_destroyer
+			}
+			has_tech = decimetric_radar
+		}
 	  x = 1
 	  y = 1
 	  relative_position_id = ITA_disrupt_mediterranean_trade_routes
@@ -5420,12 +5906,130 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = dd_tech
-		  }
-	  }
+		  navy_experience = 15
+			add_doctrine_cost_reduction = {
+				name = ITA_ultimate_destroyers
+				cost_reduction = 0.50
+				uses = 2
+				category = convoy_defense_tree
+			}
+
+			add_tech_bonus = {
+				name = ITA_ultimate_destroyers
+				bonus = 1.0
+				uses = 1
+				category = dd_tech
+			}
+
+			###########
+			### MTG ###
+			###########
+			if = { #MTG 
+				limit = {
+					has_dlc = "Man the Guns"
+				}
+				#Equipment Variant
+				if = {
+					limit = {
+						has_tech = basic_dp_light_battery
+					}
+					create_equipment_variant = {
+						name = "Comandanti Medaglie d'Oro Class"
+						type = ship_hull_light_3
+						name_group = ITA_DD_HISTORICAL
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = dp_light_battery_2
+							fixed_ship_anti_air_slot = ship_anti_air_2
+							fixed_ship_fire_control_system_slot = ship_sonar_1
+							fixed_ship_radar_slot = ship_radar_1
+							fixed_ship_engine_slot = light_ship_engine_2
+							fixed_ship_torpedo_slot = ship_torpedo_2
+							mid_1_custom_slot = ship_mine_layer_1
+							rear_1_custom_slot = ship_depth_charge_2
+							front_1_custom_slot = dp_light_battery_2
+						}
+					}
+				}
+				else = {
+					create_equipment_variant = {
+						name = "Comandanti Medaglie d'Oro Class"
+						type = ship_hull_light_3
+						name_group = ITA_DD_HISTORICAL #TODO_Manu: Name List
+						parent_version = 0
+						modules = {
+							fixed_ship_battery_slot = ship_light_battery_2
+							fixed_ship_anti_air_slot = ship_anti_air_2
+							fixed_ship_fire_control_system_slot = ship_sonar_1
+							fixed_ship_radar_slot = ship_radar_1
+							fixed_ship_engine_slot = light_ship_engine_2
+							fixed_ship_torpedo_slot = ship_torpedo_2
+							mid_1_custom_slot = ship_mine_layer_1
+							rear_1_custom_slot = ship_depth_charge_2
+							front_1_custom_slot = ship_light_battery_2
+						}
+					}
+				}
+				#Line Production
+				add_equipment_production = {
+					equipment = {
+						type = ship_hull_light_3
+						creator = "ITA"
+						version_name = "Comandanti Medaglie d'Oro Class"
+					}
+					name = "Comandante Margottini"
+					requested_factories = 2
+					progress = 0.35
+					amount = 3
+				}
+			}
+
+			##############
+			### NO MTG ###
+			##############
+			else = {
+				if = {
+					limit = {
+						NOT = { has_tech = improved_destroyer }
+					}
+					set_technology = { improved_destroyer = 1 }
+				}
+				create_equipment_variant = {
+					name = "Comandanti Medaglie d'Oro Class"
+					type = destroyer_3
+					upgrades = {
+						ship_torpedo_upgrade = 2
+						destroyer_engine_upgrade = 2
+						ship_ASW_upgrade = 2
+						ship_anti_air_upgrade = 2
+					}
+				}
+				add_equipment_production = {
+					equipment = {
+						type = destroyer_3
+						creator = "ITA"
+						version_name = "Comandanti Medaglie d'Oro Class"
+					}
+					requested_factories = 2
+					progress = 0.35
+					amount = 3
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					is_coastal = yes
+				}
+				prioritize = { 162 158 } ##TUSCANY (Livorno) / PIEDMONT (Genova) (First ones built in Genova, others in Livorno, but Genova already receives a bunch of buildings)
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
   }
 
   shared_focus = {
@@ -5446,11 +6050,47 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus =  {
-			  bonus = 1
-			  uses = 1
-			  category = naval_bomber
-		  }
+		  air_experience = 25
+			navy_experience = 25
+
+			add_tech_bonus = {
+				name = ITA_naval_air_coordination
+				bonus = 1.0
+				uses = 2
+				category = naval_bomber
+			}
+			add_ace = {
+				type = "support_unique"
+				name = "Giulio" #MM: Real name Giulio Cesare Graziani but art won't hook-in with double name :D
+				surname = "Graziani"
+				callsign = "Torpedo Twin"
+			}
+			add_ace = {
+				type = "support_good"
+				name = "Carlo"
+				surname = "Faggioni"
+				callsign = "Torpedo Twin"
+			}
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				create_equipment_variant = {
+				name = "CANT Z.1007 Alcione"
+				type = medium_plane_airframe_1
+				parent_version = 0
+				modules = {
+						fixed_main_weapon_slot = medium_bomb_bay
+						fixed_auxiliary_weapon_slot_1 = bomb_locks
+						fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+						fixed_auxiliary_weapon_slot_3 = torpedo_mounting
+						special_type_slot_1 = lmg_defense_turret_2x
+						special_type_slot_2 = hmg_defense_turret_2x
+						engine_type_slot = engine_1_3x
+					}
+				icon = "GFX_ITA_tactical_bomber1_medium"
+				}
+			}
 	  }
   }
 
@@ -5481,7 +6121,41 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  air_experience = 20
+		  air_experience = 25
+		  add_doctrine_cost_reduction = {
+				name = ITA_BUILD_AIR
+				cost_reduction = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+			if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				create_equipment_variant = {
+					name = "Ro.57"
+					type = medium_plane_fighter_airframe_1
+					parent_version = 0
+					modules = {
+							fixed_main_weapon_slot = heavy_mg_2x
+							fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+							fixed_auxiliary_weapon_slot_2 = bomb_locks
+							engine_type_slot = engine_2_2x
+						}
+					icon = "GFX_ITA_heavy_fighter1_medium"
+				}
+
+				create_equipment_variant = {
+					name = "C.200 Saetta"
+					type = small_plane_airframe_1
+					parent_version = 0
+					modules = {
+							fixed_main_weapon_slot = heavy_mg_2x
+							engine_type_slot = engine_2_1x
+						}
+					icon = "GFX_ITA_fighter1_medium"
+				}
+			}
 	  }
   }
 
@@ -5509,6 +6183,74 @@ shared_focus = {
 			  uses = 1
 			  category = cat_strategic_bomber
 		  }
+		  random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				if = {
+					limit = {
+						has_dlc = "By Blood Alone"
+					}
+					create_equipment_variant = {
+						name = "Ro.58"
+						type = small_plane_airframe_2
+						parent_version = 0
+						modules = {
+								fixed_main_weapon_slot = aircraft_cannon_1_2x
+								fixed_auxiliary_weapon_slot_1 = aircraft_cannon_1_2x
+								fixed_auxiliary_weapon_slot_2 = aircraft_cannon_1_1x
+								engine_type_slot = engine_3_2x
+								special_type_slot_1 = fuel_tanks_small
+								special_type_slot_2 = hmg_defense_turret
+							}
+						icon = "GFX_ITA_heavy_fighter2_medium"
+					}
+
+					create_equipment_variant = {
+						name = "P.108"
+						type = large_plane_airframe_2
+						parent_version = 0
+						modules = {
+								fixed_main_weapon_slot = large_bomb_bay
+								fixed_auxiliary_weapon_slot_1 = large_bomb_bay
+								special_type_slot_1 = hmg_defense_turret_2x
+								special_type_slot_2 = hmg_defense_turret_2x
+								engine_type_slot = engine_3_4x
+							}
+						icon = "GFX_ITA_strategic_bomber3_medium"
+					}
+
+					create_equipment_variant = {
+						name = "CANTZ.511"
+						type = large_plane_maritime_patrol_plane_airframe_2
+						parent_version = 0
+						modules = {
+								fixed_main_weapon_slot = torpedo_mounting
+								fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+								fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+								fixed_auxiliary_weapon_slot_3 = large_bomb_bay
+								special_type_slot_1 = hmg_defense_turret_2x
+								special_type_slot_2 = hmg_defense_turret_2x
+								special_type_slot_3 = hmg_defense_turret_2x
+								special_type_slot_4 = flying_boat_large
+								engine_type_slot = engine_3_4x
+
+							}
+						icon = "GFX_ITA_strategic_bomber1_medium"
+					}
+				}
+			}
 	  }
   }
 
@@ -5529,17 +6271,34 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  add_tech_bonus = {
-			  bonus = 1
-			  uses = 1
-			  category = cas_bomber
-		  }
+		  air_experience = 15
+			if = {
+				limit = {
+					country_exists = GER
+					NOT = { has_war_with = GER }
+				}
+				add_equipment_to_stockpile = { 
+					type = small_plane_cas_airframe_1
+					amount = 50
+					producer = GER
+					variant_name = "Ju 87"
+				}
+			}
+			else = {
+				add_tech_bonus = {
+					name = ITA_diving_bombers
+					bonus = 0.5
+					uses = 1
+					category = cas_bomber
+					category = naval_bomber
+				}	
+			}
 	  }
   }
 
   shared_focus = {
 	  id = ITA_target_industrial_facitilies
-	  icon = GFX_focus_wonderweapons
+	  icon = GFX_focus_generic_long_range_aircraft
 	  text = ITA_target_industrial_facitilies
 	  prerequisite = { focus = ITA_support_bombs }
 	  prerequisite = {
@@ -5557,11 +6316,61 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
+		  air_experience = 25
 		  add_tech_bonus =  {
+			  name = ITA_target_industrial_facitilies
 			  bonus = 1
 			  uses = 1
 			  category = tactical_bomber
 		  }
+		  random_core_state = {
+				limit = {
+					is_fully_controlled_by = ROOT
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		  if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				create_equipment_variant = {
+					name = "Ba.201"
+					type = small_plane_cas_airframe_2
+					parent_version = 0
+					modules = {
+							fixed_main_weapon_slot = bomb_locks
+							fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+							engine_type_slot = engine_2_1x
+						}
+					icon = "GFX_ITA_CAS2_medium"
+				}
+
+				create_equipment_variant = {
+					name = "CANT Z.1007 Alcione"
+					type = medium_plane_airframe_1
+					parent_version = 0
+					modules = {
+							fixed_main_weapon_slot = medium_bomb_bay
+							fixed_auxiliary_weapon_slot_1 = bomb_locks
+							fixed_auxiliary_weapon_slot_2 = torpedo_mounting
+							fixed_auxiliary_weapon_slot_3 = torpedo_mounting
+							special_type_slot_1 = lmg_defense_turret_2x
+							special_type_slot_2 = hmg_defense_turret_2x
+							engine_type_slot = engine_2_3x
+						}
+					icon = "GFX_ITA_tactical_bomber1_medium"
+				}
+			}
 	  }
   }
 
@@ -5652,11 +6461,30 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
+		  air_experience = 25
 		  add_tech_bonus =  {
 			  bonus = 1
 			  uses = 1
 			  category = light_fighter
 		  }
+		  if = {
+				limit = {
+					has_dlc = "By Blood Alone"
+				}
+				create_equipment_variant = {
+					name = "C.202 Folgore"
+					type = small_plane_airframe_2
+					parent_version = 0
+					modules = {
+							fixed_main_weapon_slot = light_mg_2x
+							fixed_auxiliary_weapon_slot_1 = heavy_mg_2x
+							fixed_auxiliary_weapon_slot_2 = bomb_locks
+							engine_type_slot = engine_2_1x
+							special_type_slot_1 = drop_tanks
+						}
+					icon = "GFX_ITA_fighter2_medium"
+				}
+			}
 	  }
   }
 
@@ -5751,25 +6579,53 @@ shared_focus = {
 	  search_filters = { FOCUS_FILTER_RESEARCH }
 
 	  completion_reward = {
-		  
-		  random_owned_controlled_state = {
-			prioritize = { 161 }  
-			limit = {
-				  free_building_slots = {
-					  building = radar_station
-					  size > 1
-					  include_locked = yes
-				  }
-				  is_coastal = yes
-			  }
-			  add_extra_state_shared_building_slots = 1
-			  add_building_construction = {
-				  type = radar_station
-				  level = 1
-				  instant_build = yes
-			  }
-		  }
-	  }
+			add_tech_bonus = {
+				name = ITA_citta_dell_aria
+				bonus = 0.25
+				uses = 4
+				category = air_equipment
+			}
+
+			if = {
+				limit = {
+					2 = {
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+						is_controlled_by = ROOT
+					}
+				}
+				2 = { #LATIUM (Rome)
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			else = {
+				random_core_state = {
+					limit = {
+						is_controlled_by = ROOT
+						free_building_slots = {
+							building = arms_factory
+							size > 0
+							include_locked = yes
+						}
+					}
+					prioritize = { 157 849 117 } #ABRUZZO as main fallback
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
   }
 
   ##internal reform stuff for all the leaders
