@@ -315,6 +315,9 @@ shared_focus = {
 		remove_ideas= GER_Clash_Of_The_Militias
 		# remove_unit_leader = 11
 		# remove_unit_leader = 17
+		retire_character = GER_eberhard_von_mackensen
+		retire_character = GER_kurt_von_hammerstein_equord
+		retire_character = GER_alfred_von_vollard_bockelberg
 	}
 	ai_will_do = {
 		factor = 60
@@ -6115,7 +6118,7 @@ shared_focus = {
 
 		}
 
-		cost = 5
+		cost = 10
 		prerequisite = { focus = GER_the_uboat }
 		prerequisite = {
 			focus = GER_rudeltaktik
@@ -6126,11 +6129,83 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = bb_tech
-			}
+			navy_experience = 25
+	        add_tech_bonus = {
+	            name = GER_the_bismarck_class
+	            bonus = 1.0
+	            uses = 2
+	            category = bb_tech
+	        }
+
+	        #H-Class Super-Heavy Battleship
+	        if = {
+	            limit = {
+	                NOT = { has_dlc = "Man the Guns" }
+	            }
+	            add_tech_bonus = {
+	                name = GER_the_bismarck_class
+	                bonus = 3.0
+	                uses = 1
+	                category = shbb_tech    
+	            }
+	        }
+	        else = {
+	            #Grant SHBB Tech and required battery modules (not fire control)
+	            if = {
+	                limit = {
+	                    NOT = { has_tech = ship_hull_super_heavy }
+	                }
+	                hidden_effect = {
+	                    set_technology = {
+	                        ship_hull_super_heavy = 1
+	                    }
+	                }
+	                custom_effect_tooltip = GER_h_class_shbb_tt
+	            }
+	            create_equipment_variant = { 
+	                name = "H-Class"
+	                type = ship_hull_super_heavy_1
+	                name_group = GER_BB_HISTORICAL
+	                parent_version = 0
+	                modules = {
+	                    fixed_ship_battery_slot = ship_super_heavy_battery_1
+	                    fixed_ship_anti_air_slot = ship_anti_air_2
+	                    fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+	                    fixed_ship_radar_slot = empty
+	                    fixed_ship_engine_slot = heavy_ship_engine_2
+	                    fixed_ship_secondaries_slot = ship_secondaries_2
+	                    fixed_ship_armor_slot = ship_armor_shbb
+	                    front_1_custom_slot = ship_anti_air_2
+	                    front_2_custom_slot = empty
+	                    mid_1_custom_slot = empty
+	                    mid_2_custom_slot = ship_secondaries_2
+	                    mid_3_custom_slot = ship_secondaries_2
+	                    rear_1_custom_slot = ship_super_heavy_battery_1
+	                    rear_2_custom_slot = ship_airplane_launcher_1
+	                }
+	            }
+	            #Line Production
+	            add_equipment_production = {
+	                equipment = {
+	                    type = ship_hull_super_heavy_1
+	                    creator = "GER"
+	                    version_name = "H-Class"
+	                }
+	                requested_factories = 1
+	                progress = 0.50
+	                amount = 1
+	            }
+	            add_equipment_production = {
+	                equipment = {
+	                    type = ship_hull_super_heavy_1
+	                    creator = "GER"
+	                    version_name = "H-Class"
+	                }
+	                requested_factories = 1
+	                progress = 0.40
+	                amount = 1
+	            }
+	        }
 
 		}
 		ai_will_do = {
@@ -6148,6 +6223,7 @@ shared_focus = {
 		relative_position_id = GER_preussische_reichsmarine
 		
 		available = {
+			controls_state = 61
 		}
 		bypass = {
 

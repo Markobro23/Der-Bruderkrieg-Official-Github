@@ -496,6 +496,9 @@ characters={
 			slot = high_command
 			idea_token = gunther_lutjens
 			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
 			traits = {
 				navy_fleet_logistics_2
 			}
@@ -504,13 +507,22 @@ characters={
 				factor = 1.000
 			}
 		}
+		advisor = {
+			slot = navy_chief
+			idea_token = gunther_lutjens_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
 		navy_leader={
 			traits={ gentlemanly navy_career_officer superior_tactician }
 			skill=3
-			attack_skill=4
+			attack_skill=3
 			defense_skill=1
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=3
 			legacy_id=31
 		}
 	}
