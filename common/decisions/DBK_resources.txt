@@ -2658,9 +2658,19 @@ prospect_for_resources = {
 				factor = 2 #1 was the default weight before
 				original_tag = USA
 			}
+			modifier = {
+				factor = 0
+				OR = {
+					AND = { #Too low MP we need to save PP for the laws
+						has_manpower < 10000
+						NOT = { has_idea = scraping_the_barrel }
+					}
+					has_political_power < 200
+				}
+			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = chromium
 					amount < 1
 				}
@@ -2755,9 +2765,18 @@ prospect_for_resources = {
 				factor = 2 #1 was the default weight before
 				original_tag = USA
 			}
+			modifier = {
+				factor = 0
+					AND = { #Too low MP we need to save PP for the laws
+						has_manpower < 10000
+						NOT = { has_idea = scraping_the_barrel }
+					}
+					has_political_power < 200
+				}
+			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = chromium
 					amount < 1
 				}
@@ -4917,7 +4936,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = chromium
 					amount < 1
 				}
@@ -4976,6 +4995,15 @@ prospect_for_resources = {
 
 		ai_will_do = {
 			base = 0.3
+			modifier = {
+				factor = 0
+				OR = {
+					AND = { #Too low MP we need to save PP for the laws
+						has_manpower < 10000
+						NOT = { has_idea = scraping_the_barrel }
+					}
+				}
+			}
 			modifier = {  # Too low PP
 				factor = 0.5
 					has_political_power < 80
@@ -4986,7 +5014,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = chromium
 					amount < 1
 				}
@@ -5045,6 +5073,15 @@ prospect_for_resources = {
 
 		ai_will_do = {
 			base = 0.3
+			modifier = {
+				factor = 0
+				OR = {
+					AND = { #Too low MP we need to save PP for the laws
+						has_manpower < 10000
+						NOT = { has_idea = scraping_the_barrel }
+					}
+				}
+			}
 			modifier = {  # Too low PP
 				factor = 0.5
 					has_political_power < 80
@@ -5055,7 +5092,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = chromium
 					amount < 1
 				}
@@ -5124,7 +5161,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = steel
 					amount < 1
 				}
@@ -5197,7 +5234,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = steel
 					amount < 1
 				}
@@ -5271,7 +5308,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = oil
 					amount < 1
 				}
@@ -5341,7 +5378,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = oil
 					amount < 1
 				}
@@ -5418,7 +5455,7 @@ prospect_for_resources = {
 			}
 			modifier = { #Running out of the stuff, need more!
 				factor = 5
-				has_resources_amount = {
+				has_resources_in_country = {
 					resource = oil
 					amount < 1
 				}
