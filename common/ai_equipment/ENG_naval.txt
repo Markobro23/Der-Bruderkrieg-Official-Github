@@ -3,8 +3,8 @@
 ENG_destroyers = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -319,8 +319,8 @@ ENG_destroyers = {
 ENG_escorts = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -430,8 +430,8 @@ ENG_naval_light_cruiser = {
 
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -659,7 +659,7 @@ ENG_naval_light_cruiser = {
 	cruiser_light_improved = {
 		
 		priority = {
-			factor = 500
+			factor = 450
 		}
 		role_icon_index = 2
 		
@@ -876,8 +876,8 @@ ENG_naval_light_AA_cruiser = {
 
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -949,8 +949,8 @@ ENG_naval_light_AA_cruiser = {
 ENG_naval_cruiser_heavy = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -1202,8 +1202,8 @@ ENG_naval_cruiser_heavy = {
 ENG_naval_capital_battleship = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -1303,10 +1303,10 @@ ENG_naval_capital_battleship = {
 		}
 	}
 
-	capital_battleship_basic = { 
+	capital_battleship_basic = { #KGV
 	
 		priority = {
-			factor = 20
+			factor = 25
 		}
 		enable = { not = { has_tech = improved_ship_hull_heavy } }
 		role_icon_index = 1
@@ -1314,18 +1314,18 @@ ENG_naval_capital_battleship = {
 		target_variant = {
 			match_value = 2000.0
 			
-			type = ship_hull_heavy_1
+			type = ship_hull_heavy_2
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery_2
 				fixed_ship_anti_air_slot = ship_anti_air_1
 				fixed_ship_fire_control_system_slot = ship_fire_control_system_1
 				fixed_ship_radar_slot = empty
 				fixed_ship_engine_slot = heavy_ship_engine_2
-				fixed_ship_secondaries_slot = dp_ship_secondaries_1
+				fixed_ship_secondaries_slot = dp_ship_secondaries_2
 				fixed_ship_armor_slot = ship_armor_bb_2
 				front_1_custom_slot = ship_heavy_battery_2
-				mid_1_custom_slot = empty
-				mid_2_custom_slot = empty
+				mid_1_custom_slot = ship_airplane_launcher
+				mid_2_custom_slot = dp_ship_secondaries_2
 				rear_1_custom_slot = empty
 			}
 		}
@@ -1343,7 +1343,7 @@ ENG_naval_capital_battleship = {
 		}
 	}
 
-	capital_battleship_basic_aa_upgrade = {
+	capital_battleship_basic_aa_upgrade = { #KGV now with AA
 	
 		priority = {
 			factor = 5
@@ -1357,7 +1357,7 @@ ENG_naval_capital_battleship = {
 		target_variant = {
 			match_value = 2200.0
 			
-			type = ship_hull_heavy_1
+			type = ship_hull_heavy_2
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery_2
 				fixed_ship_anti_air_slot = ship_anti_air
@@ -1367,8 +1367,8 @@ ENG_naval_capital_battleship = {
 				fixed_ship_secondaries_slot = dp_ship_secondaries_2
 				fixed_ship_armor_slot = ship_armor_bb_2
 				front_1_custom_slot = ship_heavy_battery_2
-				mid_1_custom_slot = ship_anti_air
-				mid_2_custom_slot = ship_anti_air
+				mid_1_custom_slot = ship_airplane_launcher
+				mid_2_custom_slot = dp_ship_secondaries_2
 				rear_1_custom_slot = ship_anti_air
 			}
 		}
@@ -1384,7 +1384,7 @@ ENG_naval_capital_battleship = {
 			ship_airplane_launcher
 		}
 	}
-	capital_battleship_improved = { #KGV
+	capital_battleship_improved = {  #Lion
 	
 		priority = {
 			factor = 2000
@@ -1395,7 +1395,7 @@ ENG_naval_capital_battleship = {
 		target_variant = {
 			match_value = 3000.0
 			
-			type = ship_hull_heavy_2
+			type = ship_hull_heavy_3
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery
 				fixed_ship_anti_air_slot = ship_anti_air
@@ -1403,8 +1403,9 @@ ENG_naval_capital_battleship = {
 				fixed_ship_engine_slot = heavy_ship_engine
 				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_heavy_armor
-				front_1_custom_slot = ship_anti_air
-				mid_1_custom_slot = ship_airplane_launcher
+				fixed_ship_radar_slot = ship_radar
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
 				mid_2_custom_slot = ship_dp_secondaries
 				rear_1_custom_slot = ship_heavy_battery
 			}
@@ -1421,7 +1422,7 @@ ENG_naval_capital_battleship = {
 			ship_heavy_armor
 		}
 	}
-	capital_battleship_improved_upgrade = { #KGV
+	capital_battleship_improved_upgrade = { #Lion
 	
 		priority = {
 			factor = 10
@@ -1431,17 +1432,17 @@ ENG_naval_capital_battleship = {
 		target_variant = {
 			match_value = 3300.0
 			
-			type = ship_hull_heavy_2
+			type = ship_hull_heavy_3
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery
 				fixed_ship_anti_air_slot = ship_anti_air
 				fixed_ship_fire_control_system_slot = ship_fire_control_system
-				fixed_ship_radar_slot = ship_radar
 				fixed_ship_engine_slot = heavy_ship_engine
 				fixed_ship_secondaries_slot = ship_dp_secondaries
 				fixed_ship_armor_slot = ship_heavy_armor
-				front_1_custom_slot = ship_anti_air
-				mid_1_custom_slot = ship_airplane_launcher
+				fixed_ship_radar_slot = ship_radar
+				front_1_custom_slot = ship_heavy_battery
+				mid_1_custom_slot = ship_dp_secondaries
 				mid_2_custom_slot = ship_dp_secondaries
 				rear_1_custom_slot = ship_heavy_battery
 			}
@@ -1458,7 +1459,7 @@ ENG_naval_capital_battleship = {
 			ship_heavy_armor
 		}
 	}
-	capital_battleship_advanced = { #Lion
+	capital_battleship_advanced = { #Vanguard
 	
 		priority = {
 			factor = 10
@@ -1468,7 +1469,7 @@ ENG_naval_capital_battleship = {
 		target_variant = {
 			match_value = 4000.0
 			
-			type = ship_hull_heavy_3
+			type = ship_hull_heavy_4
 			modules = {
 				fixed_ship_battery_slot = ship_heavy_battery_3
 				fixed_ship_anti_air_slot = ship_anti_air
@@ -1480,7 +1481,7 @@ ENG_naval_capital_battleship = {
 				front_1_custom_slot = ship_anti_air
 				mid_1_custom_slot = ship_anti_air
 				mid_2_custom_slot = ship_dp_secondaries
-				mid_3_custom_slot = ship_airplane_launcher
+				mid_3_custom_slot = ship_dp_secondaries
 				rear_1_custom_slot = ship_heavy_battery_3
 			}
 		}
@@ -1501,9 +1502,9 @@ ENG_naval_capital_battleship = {
 ENG_naval_capital_bc = {
 	category = naval
 	
-	# blocked_for = {
+	blocked_for = {
 		
-	# }
+	}
 	
 	available_for = {
 		ENG
@@ -1682,8 +1683,8 @@ ENG_naval_capital_bc = {
 ENG_naval_carrier = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -1879,8 +1880,8 @@ ENG_naval_carrier = {
 naval_carrier_light = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -1936,8 +1937,8 @@ naval_carrier_light = {
 naval_submarine = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -2081,8 +2082,8 @@ naval_submarine = {
 naval_mine_sweeper = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
@@ -2190,8 +2191,8 @@ naval_mine_sweeper = {
 naval_mine_layer = {
 	category = naval
 	
-	#blocked_for = {
-#	}
+	blocked_for = {
+	}
 	
 	available_for = {
 		ENG
