@@ -93,7 +93,7 @@ set_politics = {
 	ruling_party = democratic_liberalism
 	last_election = "1934.7.17"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 
 set_popularities = {
@@ -219,22 +219,4 @@ if = {
 	}
 }
 
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = {
-			has_dlc = "Man the Guns"
-		}
-		create_equipment_variant = {
-			name = "Tupi Class"
-			type = ship_hull_submarine_2
-			name_group = BRA_SS_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_torpedo_slot = ship_torpedo_sub_1
-				fixed_ship_engine_slot = sub_ship_engine_1
-				rear_1_custom_slot = empty
-			}
-		}
-	}
-}
+
