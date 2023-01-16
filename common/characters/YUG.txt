@@ -56,6 +56,22 @@ characters={
 			id=-1
 		}
 	}
+	YUG_petar_bojovic = {
+		name = "Petar Bojović"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Petar_Bojovic.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard war_hero inflexible_strategist }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
 	YUG_vladimir_Čukavac={
 		name="Vladimir Čukavac"
 		portraits={
@@ -119,9 +135,7 @@ characters={
 		name="Milutin Nedić"
 		portraits={
 			army={
-				small="GFX_Portrait_yugoslavia_milutin_nedic_small"
-			}
-			army={
+				small = "gfx/interface/ideas/YUG_milutin_nedic.png"
 				large="gfx/leaders/YUG/Portrait_SER_Milutin_Nedic.png"
 			}
 		}
@@ -132,6 +146,25 @@ characters={
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = SER_milutin_nedic_ac
+			available = {
+				not_already_hired_except_as = air_chief
+			}
+			traits = { air_chief_ground_support_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SER_milutin_nedic_mhc
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_pilot_training_1 }
+			cost = 50
 		}
 	}
 	YUG_milan_nedic = {
