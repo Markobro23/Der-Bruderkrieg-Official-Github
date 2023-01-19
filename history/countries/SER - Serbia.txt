@@ -18,6 +18,17 @@ set_technology = {
 }
 
 if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_technology = {
+			iw_small_airframe = 1
+			basic_small_airframe = 1
+			engines_1 = 1
+			aa_lmg = 1
+			aa_cannon_1 = 1
+		}
+}
+
+if = {
 	limit = {
 		not = { has_dlc = "Man the Guns" }
 	}
@@ -102,60 +113,27 @@ if = {
 set_convoys = 0
 
 set_politics = {
-	ruling_party = fascism
+	ruling_party = democratic
 	last_election = "1936.1.1"
 	election_frequency = 36
 	elections_allowed = no
 }
 set_popularities = {
-	democratic = 20
-	communism = 20
-	fascism = 60
+	democratic = 55
+	socialism_democratic = 6
+	democratic_liberalism = 33
+	communism = 2
+	fascism = 4
 }
 
 
 set_stability = 0.6
 
-create_country_leader = {
-	name = "Draza Mihailovic"
-	desc = ""
-	picture = "gfx/leaders/Europe/portrait_europe_generic_land_19.dds"
-	expire = "1965.1.1"
-ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
+recruit_character = SER_milan_gavrilovic
+recruit_character = SER_milorad_petrovic
+recruit_character = SER_dusan_trifunovic
+recruit_character = SER_dusan_simovic
 
-create_country_leader = {
-	name = "Milan Nedic"
-	desc = ""
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
 
-create_country_leader = {
-	name = "Đorđe Karađorđević"
-	desc = ""
-	picture = "gfx/leaders/georgekaradordevic.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
 
-create_country_leader = {
-	name = "Zivorad Jovanovic"
-	desc = ""
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
-	expire = "1965.1.1"
-	ideology = leninism
-	traits = {
-		#
-	}
-}
+
