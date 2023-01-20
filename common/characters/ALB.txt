@@ -16,13 +16,24 @@ characters={
 		name="Mid'hat Frashëri"
 		portraits={
 			civilian={
-				large="gfx/leaders/ALB/Portrait_Albania_Elez_Isufi.png"
+				large="gfx/leaders/ALB/Portrait_Albania_Midhat_Frasheri.png"
 			}
 		}
 		country_leader={
 			ideology=fascism_ideology
 			expire="1965.1.1.1"
 			id=-1
+		}
+	}
+	ALB_ahmet_zogu = {
+		name = "Ahmet Zogu"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/ALB/Portrait_Albania_Ahmet_Zogu.png"
+			}
+		}
+		country_leader = {
+			ideology = social_conservatism
 		}
 	}
 	ALB_fan_noli={
@@ -53,21 +64,52 @@ characters={
 			id=-1
 		}
 	}
+	ALB_gustaf_von_myrdacz = {
+		name = "Gustav von Myrdacz"
+		portraits = {
+			army = {
+				small="gfx/interface/ideas/ALB_gustaf_von_myrdacz.png"
+				large="gfx/leaders/ALB/Portrait_Albania_Gustav_von_Myrdacz.png"
+			}
+		}
+		field_marshal = {
+			traits = { old_guard war_hero trait_engineer infantry_leader skilled_staffer expert_delegator organizer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = ALB_gustaf_von_myrdacz
+			traits = { army_chief_reform_2 }
+			cost = 100
+		}
+	}
 	ALB_prenk_pervizi={
 		name="Prenk Pervizi"
 		portraits={
 			army={
 				large="gfx/leaders/ALB/Portrait_Albania_Prenk_Pervizi.png"
+				small="gfx/interface/ideas/ALB_prenk_pervizi.png"
 			}
 		}
 		field_marshal={
-			traits={ politically_connected skilled_staffer expert_delegator infantry_leader }
+			traits={ politically_connected skilled_staffer infantry_leader }
 			skill=2
 			attack_skill=2
 			defense_skill=1
 			planning_skill=3
 			logistics_skill=1
 			legacy_id=-1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = ALB_prenk_pervizi
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
 		}
 	}
 	ALB_muharrem_bajraktari={
@@ -77,14 +119,13 @@ characters={
 				large="gfx/leaders/ALB/Portrait_Albania_Muharrem_Bajraktari.png"
 			}
 		}
-		corps_commander={
-			traits={ infantry_officer infantry_leader commando hill_fighter }
-			skill=2
-			attack_skill=1
-			defense_skill=1
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=-1
+		corps_commander = {
+			traits = { infantry_officer infantry_leader commando hill_fighter }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
 		}
 	}
 	ALB_elez_isufi={
