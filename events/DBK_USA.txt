@@ -188,7 +188,12 @@ country_event = {
 	fire_only_once = yes
 	option = { 
 		name = USA_starting_events.9.a
-	
+		hidden_effect = {
+			country_event = {
+				id = USA_starting_events.12
+				days = 15
+			}
+		}
 	}
 }
 
@@ -259,6 +264,22 @@ country_event = {
 		}
 	}
 }
+
+## Goodbye J Ham
+country_event = {
+	id = USA_starting_events.12
+	title = USA_starting_events.12.t
+	desc = USA_starting_events.12.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.12.a
+		add_country_leader_trait = lame_duck_president
+	}
+}
+
 
 
 add_namespace = USA_election_leadup
