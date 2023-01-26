@@ -30,9 +30,21 @@ characters={
 			}
 		}
 		country_leader={
-			ideology=social_democratic
+			ideology=syndicalism
 			expire="1965.1.1.1"
 			id=-1
+		}
+	}
+	MON_davizavyn_losol = {
+		name = "Darizavyn Losol"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/MON/Portrait_MON_Davizavyn_Losol.png"
+			}
+		}
+		country_leader = {
+			ideology = liberal_socialism
+			#traits = { MON_isolated_centrist }
 		}
 	}
 	MON_khorloogiin_choibalsan={
@@ -49,28 +61,48 @@ characters={
 		}
 	}
 	MON_olziytrygyn_badrak={
-		advisor={
-			
-			
-			slot = army_chief
-			idea_token = MON_olziytrygyn_badrak
-			allowed = {
-					original_tag = MON
-				}
-				traits = {
-					army_chief_defensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
 		name="Ölziytrygyn Badrak"
 		portraits={
 			army={
 				small="GFX_idea_generic_army_asia_4"
 				large="gfx/leaders/MON/Portrait_MON_Olziin_Badrakh.png"
 			}
+		}
+	}
+	MON_khatanbaatar_magsarjav = {
+		name = "Khatanbaatar Magsarjav"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/MON_khatanbaatar_magsarjav.png"
+				large = "gfx/leaders/MON/Portrait_MON_Khatanbaatar_Magsarjav.png"
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = MON_khatanbaatar_magsarjav_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_morale_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = MON_khatanbaatar_magsarjav_MHC
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_cavalry_1 }
+			cost = 50
+		}
+		corps_commander = {
+			traits = { cavalry_officer war_hero fortress_buster guerilla_fighter }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 1
 		}
 	}
 }
