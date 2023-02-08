@@ -1,36 +1,3 @@
-generic_infantry_role = {
-    
-    roles = {
-        infantry
-    }
-    
-    match_to_count = 0.7
-    
-    generic_infantry_role_1 = {
-        production_prio = {
-            base = 0
-        }
-        upgrade_prio = {
-            base = 0
-        }
-        
-        reinforce_prio = 1
-        
-        target_template = {
-            weight = 1 #always leave at 1
-            match_value = 1000
-        
-            support = {
-                DIV_HQ = 1
-            }
-        
-            regiments = {
-                infantry = 1
-            }
-        }
-    }
-}
-
 armor_generic = {
 
 	blocked_for = {
@@ -51,12 +18,18 @@ armor_generic = {
 
 		modifier = {
 			factor = 7
-			has_tech = basic_medium_tank
+			OR = {
+				has_tech = basic_medium_tank
+				has_tech = basic_medium_tank_chassis
+			}
 		}
 		
 		modifier = {
 			factor = 2
-			has_tech = main_battle_tank
+			OR = {
+				has_tech = main_battle_tank
+				has_tech = main_battle_tank_chassis
+			}
 		}
 	}
 	
@@ -81,7 +54,7 @@ armor_generic = {
 		}
 		
 		can_upgrade_in_field = {
-			#has_equipment = { light_tank_chassis < 500 } 
+			has_equipment = { light_tank_chassis < 500 } 
 		}
 		
 		target_width = 18.0
@@ -259,7 +232,10 @@ armor_generic = {
 
 			modifier = {
 				factor = 4
-				has_tech = basic_medium_tank
+				OR = {
+					has_tech = basic_medium_tank
+					has_tech = basic_medium_tank_chassis
+				}
 			}
 		}
 		
@@ -1201,6 +1177,9 @@ marines_generic = {
 				NOT = {
 					has_tech = amphibious_tank
 					has_tech = amphibious_mechanized_infantry
+				}
+				NOT = {
+					has_tech = amphibious_tank_chassis
 				}
 			}
 			modifier = {
