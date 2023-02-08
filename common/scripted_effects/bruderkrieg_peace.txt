@@ -1800,10 +1800,11 @@ france_beats_prussia_peace_deal = {
         set_faction_leader = yes
        }
     }
-    else = {
+    else_if = {
            random_country = {
                limit = {
                    is_in_faction_with = GER
+                   has_capitulated = no
                    NOT = {
                        tag = GER
                    }
@@ -1811,6 +1812,11 @@ france_beats_prussia_peace_deal = {
                set_faction_leader = yes
            }
        }
+    else = {
+        GER = {
+            dismantle_faction = yes
+        }
+    }
     FRA = { white_peace = GER  set_country_flag = FRA_has_beaten_prussia }
 
 	if = {
