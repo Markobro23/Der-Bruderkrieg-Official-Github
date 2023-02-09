@@ -66,7 +66,7 @@ prussia_russia_wins_states = {
             set_faction_leader = yes
         }
     }
-    else = {
+    else_if = {
         random_country = {
             limit = {
                 NOT = {
@@ -78,6 +78,11 @@ prussia_russia_wins_states = {
         }
         event_target:new_pakt_faction_leader = {
             set_faction_leader = yes
+        }
+    }
+    else = {
+        AUS = {
+            dismantle_faction = yes
         }
     }
     AUS = {
@@ -3651,6 +3656,8 @@ prussia_beats_the_uk = {
         transfer_state = 658
         transfer_state = 964
     }
+
+
     
         GER = {
             annex_country = {
