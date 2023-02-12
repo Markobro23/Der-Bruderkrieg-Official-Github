@@ -6,10 +6,15 @@ characters={
 				large="gfx/leaders/ENG/Portrait_Britain_Winston_Churchill.dds"
 			}
 		}
-		
+		country_leader={
+			#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+			ideology=democratic_conservative
+			expire="1965.1.1.1"
+			id=-1
+		}
 	}
 	ENG_albert_i={
-		name="Edward VIII"
+		name="Albert I"
 		portraits={
 			civilian={
 				large="gfx/leaders/AlbertVictor.dds"
@@ -18,78 +23,25 @@ characters={
 		country_leader={
 			desc="ALBERT_VICTOR"
 			ideology=democratic_conservative
-			traits={ paranoid_monarch }
-			expire="1965.1.1.1"
+			traits={ unpopular_monarch }
+			expire="1938.1.1.1"
 			id=-1
 		}
-		country_leader={
-			desc="ALBERT_VICTOR"
-			ideology=democratic_liberal
-			traits={ paranoid_monarch }
-			expire="1965.1.1.1"
-			id=-1
+	}
+	ENG_oswald_mosley={
+		name="Oswald Mosley"
+		portraits={
+			civilian={
+				large="gfx/leaders/ENG/Portrait_Britain_Oswald_Mosley.dds"
+			}
 		}
 		country_leader={
-			desc="ALBERT_VICTOR"
-			ideology= social_democratic
-			traits={ paranoid_monarch }
-			expire="1965.1.1.1"
-			id=-1
-		}
-		#country_leader={
-		#	desc="ALBERT_VICTOR"
-		#	ideology=libertarian_socialism
-		#	traits={ paranoid_monarch }
-		#	expire="1965.1.1.1"
-		#	id=-1
-		#}
-		country_leader={
-			desc="ALBERT_VICTOR"
-			ideology=despotic
-			traits={ paranoid_monarch }
-			expire="1965.1.1.1"
-			id=-1
-		}
-		country_leader={
-			desc="ALBERT_VICTOR"
-			ideology=authoritarian_democrat
-			traits={ paranoid_monarch }
-			expire="1965.1.1.1"
-			id=-1
-		}
-		country_leader={
-			desc="ALBERT_VICTOR"
+			#desc="POLITICS_OSWALD_MOSLEY_DESC"
 			ideology=fascism_ideology
-			traits={ paranoid_monarch }
+			traits={ champion_of_peace_1 economic_reformer }
 			expire="1965.1.1.1"
 			id=-1
 		}
-	}
-	ENG_henry_ix ={
-		name="Henry IX"
-		portraits={
-			civilian={
-				large="gfx/leaders/ENG/HenryIX.dds"
-			}
-		}
-	}
-	ENG_harold_hamsworth={
-		name="Harold Hamsworth"
-		portraits={
-			civilian={
-				large="gfx/leaders/ENG/HaroldHamsworth.dds"
-			}
-		}
-		## can become leader soon
-	}
-	ENG_clement_attlee={
-		name="Clement Attlee"
-		portraits={
-			civilian={
-				large="gfx/leaders/ENG/ClementAttlee.png"
-			}
-		}
-		## can become leader soon
 	}
 	ENG_harry_pollitt={
 		name="Harry Pollitt"
@@ -102,36 +54,6 @@ characters={
 			#desc="POLITICS_HARRY_POLLITT_DESC"
 			ideology=leninism
 			traits={ staunch_stalinist }
-			expire="1965.1.1.1"
-			id=-1
-		}
-	}
-	ENG_john_beckett={
-		name="John Beckett"
-		portraits={
-			civilian={
-				large="gfx/leaders/ENG/Portrait_ENG_John_Beckett.dds"
-			}
-		}
-		country_leader={
-			#desc="POLITICS_HARRY_POLLITT_DESC"
-			ideology=national_syndicalism
-			traits={  }
-			expire="1965.1.1.1"
-			id=-1
-		}
-	}
-	ENG_ernest_bevin={
-		name="Ernest Bevin"
-		portraits={
-			civilian={
-				large="gfx/leaders/ENG/Portrait_ENG_Ernest_Bevin.dds"
-			}
-		}
-		country_leader={
-			#desc="POLITICS_HARRY_POLLITT_DESC"
-			ideology=syndicalism
-			traits={  }
 			expire="1965.1.1.1"
 			id=-1
 		}
@@ -412,8 +334,8 @@ characters={
 		name="John Vereker Lord Gort"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_ENG_john_vereker.dds"
-				large="gfx/leaders/ENG/Portrait_Canada_John_Vereker.png"
+				small="gfx/interface/advisors/ENG/ENG_John_Vereker.png"
+				large="gfx/leaders/ENG/Portrait_ENG_John_Vereker_KR.png"
 			}
 		}
 		advisor={
@@ -462,8 +384,8 @@ characters={
 		name="William Gott"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_ENG_william_gott.dds"
-				large="gfx/leaders/ENG/Portrait_Britain_William_Gott.dds"
+				small="gfx/interface/advisors/ENG/ENG_william_gott.png"
+				large="gfx/leaders/ENG/Portrait_England_William_Gott.png"
 			}
 		}
 		corps_commander={
@@ -530,31 +452,30 @@ characters={
 			legacy_id=-1
 		}
 	}
-	ENG_brian_horrocks={
-		name="Brian Horrocks"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_ENG_brian_horrocks.dds"
-				large="gfx/leaders/ENG/Portrait_Britain_Brian_Horrocks.dds"
-			}
-		}
-		corps_commander={
-			traits={ career_officer armor_officer war_hero }
-			skill=3
-			attack_skill=1
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=-1
-		}
+	ENG_brian_horrocks = {
+    	name = "Brian Horrocks"
+    	portraits = {
+        	army = {
+            	large = "gfx/leaders/ENG/Portrait_England_Brian_Horrocks.png"
+            	small = "gfx/interface/advisors/ENG/ENG_brian_horrocks.png"
+        	}
+    	}
+    	corps_commander = {
+    		traits = { war_hero organizer urban_assault_specialist }
+    		skill = 4
+    		attack_skill = 4
+        	defense_skill = 3
+        	planning_skill = 4
+        	logistics_skill = 2
+    	}
 	}
 	
 	ENG_james_fownes_somerville={
 		name="James Fownes Somerville"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_ENG_james_fownes_somerville.dds"
-				large="gfx/leaders/ENG/Portrait_Canada_James_Somerville.png"
+				small="gfx/interface/advisors/ENG/ENG_James_Somerville.png"
+				large="gfx/leaders/ENG/Portrait_ENG_James_Somerville_KR.png"
 			}
 		}
 		advisor={
@@ -617,8 +538,8 @@ characters={
 		name="Andrew Cunningham"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_ENG_andrew_cunningham.dds"
-				large="gfx/leaders/ENG/Portrait_Canada_Andrew_Cunningham.png"
+				small="gfx/interface/advisors/ENG/ENG_Andrew_Cunningham.png"
+				large="gfx/leaders/ENG/Portrait_ENG_Andrew_Cunningham_KR.png"
 			}
 		}
 		advisor={
@@ -739,8 +660,8 @@ characters={
 		name="Algernon Willis"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_ENG_algernon_willis.dds"
-				large="gfx/leaders/ENG/Portrait_Britain_Algernon_Willis.dds"
+				small="gfx/interface/advisors/ENG/ENG_algernon_willis.png"
+				large="gfx/leaders/ENG/Portrait_England_Algernon_Willis.png"
 			}
 		}
 		navy_leader={
@@ -753,13 +674,12 @@ characters={
 			legacy_id=991
 		}
 	}
-	
 
 	ENG_tom_phillips={
 		name= "Tom Phillips"
 		portraits={
 			army={
-				small="GFX_idea_tom_phillips"
+				small="gfx/interface/advisors/ENG/ENG_Tom_Phillips.png"
 				large="gfx/leaders/ENG/Portrait_ENG_Tom_Phillips.png"
 			}
 		}
@@ -1035,16 +955,7 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_kenneth_anderson"
-				large="gfx/leaders/ENG/Portrait_England_Kenneth_Anderson.png"
 			}
-		}
-		corps_commander = {
-			traits = { harsh_leader infantry_leader }
-			skill = 2
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 1
 		}
 		advisor={
 			slot = high_command
@@ -1174,16 +1085,7 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_max_horton"
-				large="gfx/leaders/ENG/Portrait_England_Max_Horton.png"
 			}
-		}
-		navy_leader = {
-			traits = { caustic_personality seawolf }
-			skill = 4
-			attack_skill = 4
-			defense_skill = 3
-			maneuvering_skill = 3
-			coordination_skill = 3
 		}
 		advisor={
 			slot = high_command
