@@ -8,9 +8,9 @@ POR_prospect_for_resources = {
 		}
 
 		highlight_states = {
-		 highlight_state_targets = {
-					state = 112
-				} 
+			highlight_state_targets = {
+				state = 112
+			} 
 		}
 
 		available = {
@@ -64,10 +64,10 @@ POR_prospect_for_resources = {
 		}
 
 		highlight_states = {
- highlight_state_targets = {
-			state = 795
-		} 
-}
+			highlight_state_targets = {
+				state = 795
+			} 
+		}
 
 		available = {
 			has_completed_focus = POR_extraction_industries
@@ -139,6 +139,84 @@ POR_prospect_for_resources = {
 					check_variable = { var = POR_santarem_chromium_duration value = 30 compare = less_than }
 				}
 				set_variable = { var = POR_santarem_chromium_duration value = 15 }
+			}
+		}
+	}
+}
+POR_colonial_construction = {
+	POR_develop_angola_air = { #963
+		
+		icon = generic_construction
+
+		allowed = {
+
+		}
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 963
+			} 
+		}
+
+		available = {
+			has_completed_focus = POR_colonial_construction_bureau
+			num_of_civilian_factories_available_for_projects > 1
+			owns_state = 963
+			has_full_control_of_state = 963
+			owns_state = 540
+			has_full_control_of_state = 540
+		}
+
+		visible = {
+			owns_state = 963
+			controls_state = 963
+			963 = {
+				NOT = {	has_state_flag = POR_nova_braga }
+			}
+		}
+
+		cost = 25
+		days_remove = 90
+		fire_only_once = yes
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		remove_effect = {
+			963 = {	set_state_flag = POR_nova_braga }
+			963 = {
+				add_building_construction = {
+					type = anti_air_building
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = air_base
+					level = 4
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = supply_node
+					level = 1
+					province = 12925
+					instant_build = yes
+				}
+			}
+			build_railway = {
+				path = { 8248 8219 12925 }
+			}
+			add_victory_points = {
+				province = 12925
+				value = 2
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				has_political_power < 200
+				factor = 0
 			}
 		}
 	}
