@@ -34,7 +34,7 @@ focus_tree = {
 		icon = GFX_focus_generic_africa_factory
 		x = 0
 		y = 5
-		cost = 7
+		cost = 5
 		available_if_capitulated = yes
 		
 		prerequisite = { 
@@ -45,11 +45,13 @@ focus_tree = {
 			factor = 1
 		}
 		completion_reward = {
-			add_ideas = POR_colonial_construction_bureau
-			if = {
-				limit = { has_full_control_of_state = 963 }
-				unlock_decision_tooltip = POR_develop_angola_air
-			}	
+			#add_ideas = POR_colonial_construction_bureau
+			unlock_decision_tooltip = POR_develop_angola_air
+			unlock_decision_tooltip = POR_develop_angola
+			unlock_decision_tooltip = POR_develop_mozabique
+			unlock_decision_tooltip = POR_tai_heng_company
+			unlock_decision_tooltip = POR_sal_island_airport
+
 		}
 	}
 
@@ -434,6 +436,10 @@ focus_tree = {
 				limit = { has_full_control_of_state = 796 }
 				unlock_decision_tooltip = POR_north_angola_oil
 			}		
+			unlock_decision_tooltip = POR_angola_steel
+			unlock_decision_tooltip = POR_angola_rubber
+			unlock_decision_tooltip = POR_mozambique_aluminium
+			unlock_decision_tooltip = POR_timor_rubber
 		}
 	}
 
