@@ -1,37 +1,42 @@
 characters={
-	HOL_hendrikus_colijn={
-		name=HOL_hendrikus_colijn
-		portraits={
-			civilian={
-				large="GFX_portrait_holland_hendrikus_colijn"
+	HOL_carel_goseling = {
+		name = "Carel Goseling"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Carel_Goseling.png"
 			}
 		}
-		country_leader={
-			ideology=democratic_conservative
-			traits={ strict_austerity_adherent }
-			expire="1965.1.1.1"
-			id=-1
+		country_leader = {
+			ideology = christian_conservatism
 		}
 	}
-	HOL_anton_mussert={
-		name=HOL_anton_mussert
-		portraits={
-			civilian={
-				large="GFX_portrait_hol_anton_mussert"
+	HOL_henk_sneevliet = {
+		name = "Henk Sneevliet"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Henk_Sneevliet.png"
 			}
 		}
-		country_leader={
-			ideology=fascism_ideology
-			traits={ leider }
-			expire="1965.1.1.1"
-			id=-1
+		country_leader = {
+			ideology = radical_socialism
+		}
+	}
+	HOL_cornelis_van_geelkerken = {
+		name = "Cornelis van Geelkerken"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Cornelis_van_Geelkerken.png"
+			}
+		}
+		country_leader = {
+			ideology = fascism_ideology
 		}
 	}
 	HOL_lou_de_visser={
 		name=HOL_lou_de_visser
 		portraits={
 			civilian={
-				large="GFX_portrait_HOL_lou_de_visser"
+				large="gfx/leaders/JNE/Portrait_JNE_Louis_de_Visser.png"
 			}
 		}
 		country_leader={
@@ -41,67 +46,54 @@ characters={
 			id=-1
 		}
 	}
-	HOL_dirk_jan_de_geer = {
-		name=HOL_dirk_jan_de_geer
-		country_leader={
-			expire = "1965.1.1"
-			ideology = democratic_conservative
-			traits = {
-				defeatist
-			}
-		}
-		portraits={
-			civilian={
-				large="GFX_Portrait_Netherlands_Dirk_Jan_de_Geer"
-			}
-		}
-	}
-	HOL_pieter_sjoerds_gerbrandy = {
-		name=HOL_pieter_sjoerds_gerbrandy
-		country_leader={
-			expire = "1965.1.1"
-			ideology = democratic_conservative
-			traits = {
-				little_churchill
-			}
-		}
-		portraits={
-			civilian={
-				large="GFX_portrait_HOL_pieter_sjoerds_gerbrandy"
-			}
-		}
-	}
 	HOL_wilhelmina = {
-		name=HOL_wilhelmina
+		name= "Wilhelmina"
 		gender = female 
 		country_leader={
 			expire = "1965.1.1"
-			ideology = centrism
+			ideology = nationalist_autocrat
 			traits = {
-				wilhelmina
-				disdain_for_politicians_1
-				queen_of_the_people
+				#wilhelmina
+				#queen_of_the_people
 			}
 		}
 		portraits={
 			civilian={
-				large="GFX_portrait_HOL_wilhelmina"
+				large="gfx/leaders/HOL/Portrait_HOL_Wilhelmina_KR.png"
 			}
 		}
 	}
-	
-	HOL_willem_schermerhorn={
-		name=HOL_willem_schermerhorn
-		portraits={
-			army={
-				small="GFX_idea_HOL_willem_schermerhorn"
+	HOL_roelof_kranenburg = {
+		name = "Roelof Kranenburg"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Roelof_Kranenburg.png"
 			}
-			civilian={
-				large="GFX_portrait_hol_wim_schermerhorn"
+		}
+		country_leader = {
+			ideology = social_liberalism
+		}
+	}
+	HOL_adriaan_henri_gerhard = {
+		name = "Adriaan Gerhard"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Adriaan_Gerhard.png"
+			}
+		}
+		country_leader = {
+			ideology = social_democratic
+		}
+	}
+	HOL_military_junta = {
+		name = "Military Junta"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/HOL/Portrait_HOL_Junta.png"
 			}
 		}
 		country_leader={
-			ideology=centrism
+			ideology=authoritarian_democrat
 			expire="1965.1.1.1"
 			id=-1
 		}
@@ -110,7 +102,7 @@ characters={
 		name=HOL_izaak_reijnders
 		portraits={
 			civilian={
-				large="gfx/leaders/HOL/Reijnders.dds"
+				large="gfx/leaders/HOL/Portrait_HOL_Izaak_Reijnders_KR.png"
 			}
 			army={
 				large="gfx/leaders/HOL/Portrait_HOL_Izaak_Reijnders_KR.png"
@@ -126,32 +118,19 @@ characters={
 			logistics_skill=3
 			legacy_id=980
 		}
-		country_leader={
-			ideology=authoritarian_democrat
-			expire="1965.1.1.1"
-			id=-1
-		}
 		advisor={
 			slot = army_chief
 			idea_token = HOL_izaak_reijnders
 			allowed = {
-					original_tag = HOL
-				}
-				available = {
-					if = {
-						limit = {
-							has_dlc = "Man the Guns"
-						}
-						
-					}
-				}
-				traits = {
-					army_chief_maneuver_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				army_chief_maneuver_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	HOL_petrus_wilhelmus_best={
@@ -175,15 +154,15 @@ characters={
 			slot = air_chief
 			idea_token = HOL_petrus_wilhelmus_best
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					air_chief_night_operations_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				air_chief_night_operations_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	HOL_godfried_van_voorst_tot_voorst={
@@ -208,13 +187,13 @@ characters={
 			slot = theorist
 			idea_token = HOL_godfried_van_voorst_tot_voorst
 			ledger = army
-				allowed = {
-					original_tag = HOL
-				}
-				
-				traits = {
-					military_theorist
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			
+			traits = {
+				military_theorist
+			}
 		}
 	}
 	HOL_johannes_theodorus_furstner={
@@ -233,13 +212,13 @@ characters={
 			slot = theorist
 			idea_token = HOL_johan_furstner
 			ledger = navy
-				allowed = {
-					original_tag = HOL
-				}
-				
-				traits = {
-					naval_theorist
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			
+			traits = {
+				naval_theorist
+			}
 		}
 		navy_leader={
 			traits={ caustic_personality blockade_runner fly_swatter }
@@ -272,15 +251,15 @@ characters={
 			slot = navy_chief
 			idea_token = HOL_conrad_helfrich
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					navy_chief_commerce_raiding_3
-				}
-				cost = 200
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				navy_chief_commerce_raiding_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 	}
 	HOL_karel_doorman={
@@ -304,15 +283,15 @@ characters={
 			slot = navy_chief
 			idea_token = HOL_karel_doorman
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					navy_chief_decisive_battle_1
-				}
-				cost =  50
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				navy_chief_decisive_battle_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 
 	}
@@ -321,16 +300,16 @@ characters={
 			slot = high_command
 			idea_token = HOL_charles_douw_van_der_krap
 			ledger = navy
-				allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					air_naval_strike_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			traits = {
+				air_naval_strike_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		name=HOL_charles_douw_van_der_krap
 		portraits={
@@ -344,16 +323,16 @@ characters={
 			slot = high_command
 			idea_token = HOL_nico_van_straten
 			ledger = army
-				allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					army_cavalry_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			traits = {
+				army_cavalry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 
 		name=HOL_nico_van_straten
@@ -368,15 +347,15 @@ characters={
 			slot = army_chief
 			idea_token = HOL_hein_ter_poorten
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					army_chief_morale_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				army_chief_morale_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		field_marshal = {
 			traits = { old_guard }
@@ -399,16 +378,16 @@ characters={
 			slot = high_command
 			idea_token = HOL_adrianus_rudolphus_van_den_bent
 			ledger = army
-				allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					army_infantry_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		name=HOL_adrianus_rudolphus_van_den_bent
 		portraits={
@@ -422,15 +401,15 @@ characters={
 			slot = air_chief
 			idea_token = HOL_hendrik_van_oyen
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					air_chief_reform_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				air_chief_reform_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		name=HOL_hendrik_van_oyen
 		portraits={
@@ -444,16 +423,15 @@ characters={
 			slot = army_chief
 			idea_token = HOL_hendrik_seyffardt
 			allowed = {
-					original_tag = HOL
-					has_dlc = "Man the Guns"
-				}
-				traits = {
-					army_chief_offensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				army_chief_offensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		corps_commander = {
 			traits = { old_guard politically_connected }
@@ -476,15 +454,15 @@ characters={
 			slot = army_chief
 			idea_token = HOL_henri_winkelman
 			allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					army_chief_defensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = HOL
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		field_marshal = {
 			skill = 3
@@ -506,16 +484,16 @@ characters={
 			slot = high_command
 			idea_token = HOL_maarten_belzer
 			ledger = army
-				allowed = {
-					original_tag = HOL
-				}
-				traits = {
-					army_concealment_1
-				}
-				cost =  50
-				ai_will_do = {
-					factor = 1.000
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			traits = {
+				army_concealment_1
+			}
+			cost =  50
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		name=HOL_maarten_belzer
 		portraits={
@@ -531,13 +509,13 @@ characters={
 			slot = theorist
 			idea_token = HOL_marius_raaijmakers
 			ledger = air
-				allowed = {
-					original_tag = HOL
-				}
-				
-				traits = {
-					air_warfare_theorist
-				}
+			allowed = {
+				original_tag = HOL
+			}
+			
+			traits = {
+				air_warfare_theorist
+			}
 		}
 		name=HOL_marius_raaijmakers
 		portraits={
