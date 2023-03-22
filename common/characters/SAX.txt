@@ -3,10 +3,10 @@ characters={
 		name="Georg I"
 		portraits={
 			civilian={
-				large="gfx/leaders/SAX/Georg_Saxony.dds"
+				large="gfx/leaders/SAX/Portrait_SAX_Georg_Saxony.png"
 			}
 			army={
-				large="gfx/leaders/SAX/Georg_Saxony.png"
+				large="gfx/leaders/SAX/Portrait_SAX_Georg_Saxony.png"
 			}
 		}
 		country_leader={
@@ -22,12 +22,12 @@ characters={
 			id=-1
 		}
 		field_marshal={
-			traits={ politically_connected war_hero infantry_officer }
-			skill=3
-			attack_skill=2
-			defense_skill=2
-			planning_skill=4
-			logistics_skill=2
+			traits={ politically_connected infantry_officer }
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=1
 			legacy_id=-1
 		}
 	}
@@ -35,14 +35,20 @@ characters={
 		name="Friedrich Christian"
 		portraits={
 			army={
-				
-			}
-			army={
-				large="gfx/leaders/SAX/Friedrich_Christian.dds"
+				large="gfx/leaders/SAX/Portrait_SAX_Friedrich_Christian.png"
+				small="gfx/interface/advisors/SAX/SAX_Friedrich_Christian.png"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = friedrich_christian
+			traits = {
+				army_chief_morale_1
+			}
+			cost = 50
+		}
 		field_marshal={
-			traits={ politically_connected }
+			traits={ politically_connected media_personality }
 			skill=1
 			attack_skill=1
 			defense_skill=1
@@ -72,16 +78,8 @@ characters={
 			slot = high_command
 			idea_token = georghans_reinhardt
 			ledger = army
-			allowed = {
-				original_tag = SAX
-			}
-			available = {
-
-			}
-			traits = {
-				army_armored_1
-			}
-				cost = 50
+			traits = { army_armored_1 }
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -91,8 +89,8 @@ characters={
 		name = "Hellmuth von Mücke"
 		portraits = {
 			army = {
-				small = "gfx/interface/ideas/GPU_hellmuth_von_muecke.png"
-				large = "gfx/leaders/SAX/Portrait_GEA_Hellmuth_von_Mucke.png"
+				small = "gfx/interface/advisors/SAX/SAX_hellmuth_von_muecke.png"
+				large = "gfx/leaders/SAX/Portrait_SAX_Hellmuth_von_Mucke.png"
 			}
 		}
 		navy_leader = {
@@ -109,6 +107,52 @@ characters={
 			ledger = navy
 			traits = { naval_theorist }
 			cost = 100
+		}
+	}
+	SAX_friedrich_olbricht = {
+		name = "Friedrich Olbricht"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/SAX/SAX_Friedrich_Olbricht.png" 
+				large="gfx/leaders/SAX/Portrait_SAX_Friedrich_Olbricht.png" 
+			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer organizer }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=-1
+		}
+		advisor = {
+			slot= theorist
+			idea_token = SAX_friedrich_olbricht
+			ledger = army
+			traits = { military_theorist }
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	SAX_hans_oster = {
+		name = "Hans Oster"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/SAX/SAX_Hans_Oster.png" 
+				large="gfx/leaders/SAX/Portrait_SAX_Hans_Oster.png"
+			}
+		}
+		corps_commander={
+			traits={ trickster }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
 		}
 	}
 }
