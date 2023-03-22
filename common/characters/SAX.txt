@@ -3,10 +3,10 @@ characters={
 		name="Georg I"
 		portraits={
 			civilian={
-				large="gfx/leaders/SAX/Georg_Saxony.png"
+				large="gfx/leaders/SAX/Portrait_SAX_Georg_Saxony.png"
 			}
 			army={
-				large="gfx/leaders/SAX/Georg_Saxony.png"
+				large="gfx/leaders/SAX/Portrait_SAX_Georg_Saxony.png"
 			}
 		}
 		country_leader={
@@ -35,14 +35,20 @@ characters={
 		name="Friedrich Christian"
 		portraits={
 			army={
-				
-			}
-			army={
 				large="gfx/leaders/SAX/Portrait_SAX_Friedrich_Christian.png"
+				small="gfx/interface/advisors/SAX/SAX_Friedrich_Christian.png"
 			}
 		}
+		advisor={
+			slot = army_chief
+			idea_token = friedrich_christian
+			traits = {
+				army_chief_morale_1
+			}
+			cost = 50
+		}
 		field_marshal={
-			traits={ politically_connected media_personality}
+			traits={ politically_connected media_personality }
 			skill=1
 			attack_skill=1
 			defense_skill=1
@@ -72,16 +78,8 @@ characters={
 			slot = high_command
 			idea_token = georghans_reinhardt
 			ledger = army
-			allowed = {
-				original_tag = SAX
-			}
-			available = {
-
-			}
-			traits = {
-				army_armored_1
-			}
-				cost = 50
+			traits = { army_armored_1 }
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -91,8 +89,8 @@ characters={
 		name = "Hellmuth von Mücke"
 		portraits = {
 			army = {
-				small = "gfx/interface/ideas/GPU_hellmuth_von_muecke.png"
-				large = "gfx/leaders/SAX/Portrait_GEA_Hellmuth_von_Mucke.png"
+				small = "gfx/interface/advisors/SAX/SAX_hellmuth_von_muecke.png"
+				large = "gfx/leaders/SAX/Portrait_SAX_Hellmuth_von_Mucke.png"
 			}
 		}
 		navy_leader = {
@@ -115,21 +113,21 @@ characters={
 		name = "Friedrich Olbricht"
 		portraits = {
 			army = {
-				small = "gfx/interface/ideas/GPU_hellmuth_von_muecke.png" #PLACEHOLDER
+				small = "gfx/interface/advisors/SAX/SAX_Friedrich_Olbricht.png" 
 				large="gfx/leaders/SAX/Portrait_SAX_Friedrich_Olbricht.png" 
 			}
-			corps_commander={
-				traits={ career_officer infantry_officer organizer }
-				skill=4
-				attack_skill=3
-				defense_skill=3
-				planning_skill=4
-				logistics_skill=3
-				legacy_id=-1
-			}
+		}
+		corps_commander={
+			traits={ career_officer infantry_officer organizer }
+			skill=4
+			attack_skill=3
+			defense_skill=3
+			planning_skill=4
+			logistics_skill=3
+			legacy_id=-1
 		}
 		advisor = {
-			slot= high_command
+			slot= theorist
 			idea_token = SAX_friedrich_olbricht
 			ledger = army
 			traits = { military_theorist }
@@ -143,18 +141,18 @@ characters={
 		name = "Hans Oster"
 		portraits = {
 			army = {
-				small = "gfx/interface/ideas/Portrait_SAX_Hans_Oster.png" #PLACEHOLDER
-				large="gfx/leaders/SAX/Georg_Saxony.png" #PLACEHOLDER
+				small = "gfx/interface/advisors/SAX/SAX_Hans_Oster.png" 
+				large="gfx/leaders/SAX/Portrait_SAX_Hans_Oster.png"
 			}
-			corps_commander={
-				traits={ trickster }
-				skill=2
-				attack_skill=2
-				defense_skill=2
-				planning_skill=2
-				logistics_skill=3
-				legacy_id=-1
-			}
-		}d
+		}
+		corps_commander={
+			traits={ trickster }
+			skill=3
+			attack_skill=2
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=-1
+		}
 	}
 }
