@@ -2,8 +2,11 @@ characters={
 	BEL_leon_degrelle={
 		name="Leopold III"
 		portraits={
+			army = {
+				large="gfx/leaders/BEL/Portrait_Belgium_Leopold_III.png"
+			}
 			civilian={
-				large="gfx/leaders/BEL/Portrait_Belgium_Leopold_III.dds"
+				large="gfx/leaders/BEL/Portrait_Belgium_Leopold_III.png"
 			}
 		}
 		country_leader={
@@ -29,6 +32,14 @@ characters={
 			ideology= ultranationalist
 			expire="1965.1.1.1"
 			id=-1
+		}
+		field_marshal = {
+			traits = { politically_connected }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
 	BEL_leon_degrelle_actual={
@@ -97,7 +108,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/BEL/Portrait_Belgium_MCL_Keyaerts.png"
-				small="gfx/interface/ideas/BEL_mcl_keyaerts.png"
+				small="gfx/interface/advisors/BEL/BEL_mcl_keyaerts.png"
 			}
 		}
 		corps_commander={
@@ -123,12 +134,76 @@ characters={
 			}
 		}
 	}
+	BEL_edouard_van_den_bergen = {
+		name = "Edouard-Marie Van den Bergen"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BEL/Portrait_Belgium_Edouard_van_den_Bergen.png"
+				small = "gfx/interface/advisors/BEL/BEL_edouard_van_den_bergen.png"
+			}
+		}
+		corps_commander = {
+			traits = { fortress_buster }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = theorist
+			idea_token = BEL_edouard_van_den_bergen
+			ledger = army
+			traits = { military_theorist }
+			cost = 100
+		}
+	}
+	BEL_jean_baptiste_piron = {
+		name = "Jean-Baptiste Piron"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BEL/Portrait_Belgium_Jean_Baptiste_Piron.png"
+				small = "gfx/interface/advisors/BEL/BEL_jean_baptiste_piron.png"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer trickster }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = BEL_jean_baptiste_piron
+			traits = { army_chief_morale_2 }
+			cost = 100
+		}
+	}
+	BEL_maximilien_de_neve_de_roden = {
+		name = "Maximilien de Nève de Roden"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BEL/Portrait_Belgium_de_Neve_de_Roden.png"
+				small = "gfx/interface/advisors/BEL/BEL_maximilien_de_neve_de_roden.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
 	BEL_georges_timmermans={
 		name=BEL_georges_timmermans
 		portraits={
 			army={
 				large="gfx/leaders/BEL/Portrait_Belgium_Georges_Timmermans.png"
-				small="gfx/interface/ideas/BEL_georges_timmermans.png"
+				small="gfx/interface/advisors/BEL/BEL_georges_timmermans.png"
 			}
 		}
 		navy_leader={
@@ -140,41 +215,46 @@ characters={
 			coordination_skill=4
 			legacy_id=-1
 		}
-	}
-	BEL_gilles_wyvekens={
-		name=BEL_gilles_wyvekens
-		portraits={
-			civilian={
-				large=GFX_portrait_BEL_gilles_wyvekens
-			}
-		}
-		country_leader={
-			ideology=centrism
-			traits={ financial_expert }
-			expire="1945.1.1.12"
-			id=-1
-		}
-	}
-	BEL_fritz_conrad={
-		advisor={
+		advisor = {
 			slot = navy_chief
-			idea_token = BEL_fritz_conrad
-			allowed = {
-				original_tag = BEL
+			idea_token = BEL_georges_timmermans_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
 			}
-			traits = {
-				navy_chief_naval_aviation_2
+			traits = { navy_chief_commerce_raiding_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = theorist
+			idea_token = BEL_georges_timmermans_theorist
+			available = {
+				not_already_hired_except_as = theorist
 			}
+			ledger = navy
+			traits = { naval_theorist }
 			cost = 100
-			ai_will_do = {
-				factor = 1.000
+		}
+	}
+	BEL_victor_billet = {
+		name = "Victor Billet"
+		portraits = {
+			army = {
+				large = "gfx/leaders/BEL/Portrait_Belgium_Victor_Billet.png"
+				small = "gfx/interface/advisors/BEL/BEL_victor_billet.png"
 			}
 		}
-		name=BEL_fritz_conrad
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_europe_2"
-			}
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = BEL_victor_billet
+			traits = { navy_chief_reform_1 }
+			cost = 50
 		}
 	}
 	BEL_raoul_overstraeten={
@@ -199,24 +279,17 @@ characters={
 		}
 	}
 	BEL_georges_deffontaine={
-		advisor={
-			cost = 100
-			
-			slot = theorist
+		advisor = {
+			slot = high_command
 			idea_token = BEL_georges_deffontaine
-			ledger = navy
-				allowed = {
-					original_tag = BEL
-				}
-				
-				traits = {
-					naval_theorist
-				}
+			ledger = army
+			traits = { army_infantry_1 }
+			cost = 50
 		}
 		name=BEL_georges_deffontaine
 		portraits={
 			army={
-				small="gfx/interface/ideas/BEL_Georges_Deffontaine.png"
+				small="gfx/interface/advisors/BEL/BEL_Georges_Deffontaine.png"
 				large="gfx/leaders/BEL/Portrait_Belgium_Georges_Deffontaine.png"
 			}
 		}
@@ -230,50 +303,6 @@ characters={
 		}
 	}
 	
-	BEL_georges_vereecken={
-		advisor={
-			slot = navy_chief
-			idea_token = BEL_georges_vereecken
-			allowed = {
-				original_tag = BEL
-			}
-			traits = {
-				navy_chief_maneuver_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-		name=BEL_georges_vereecken
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_europe_1"
-			}
-		}
-	}
-	BEL_jules_pire={
-		advisor={
-			cost = 100
-			
-			slot = theorist
-			idea_token = BEL_jules_pire
-			ledger = army
-			allowed = {
-				original_tag = BEL
-			}
-			
-			traits = {
-				military_theorist
-			}
-		}
-		name=BEL_jules_pire
-		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_6"
-			}
-		}
-	}
 	BEL_oscar_michiels={
 		advisor={
 			slot = high_command
@@ -294,28 +323,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_idea_generic_army_europe_5"
-			}
-		}
-	}
-	BEL_charles_bastin={
-		advisor={
-			slot = army_chief
-			idea_token = BEL_charles_bastin
-			allowed = {
-				original_tag = BEL
-			}
-			traits = {
-				army_chief_morale_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-		name=BEL_charles_bastin
-		portraits={
-			army={
-				small="GFX_idea_generic_army_europe_4"
 			}
 		}
 	}
@@ -409,28 +416,14 @@ characters={
 		}
 	}
 	BEL_victor_van_strydonck_de_burkel={
-		advisor={
-			slot = high_command
-			idea_token = BEL_victor_van_strydonck_de_burkel
-			ledger = army
-			allowed = {
-				original_tag = BEL
-			}
-			traits = {
-				army_infantry_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-		advisor={
-			
-			
+		advisor={ 
 			slot = army_chief
 			idea_token = BEL_victor_strydonck_burkel
 			allowed = {
 				original_tag = BEL
+			}
+			available = {
+				not_already_hired_except_as = army_chief
 			}
 			traits = {
 				army_chief_offensive_2
@@ -439,6 +432,16 @@ characters={
 			ai_will_do = {
 				factor = 1.000
 			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = BEL_victor_van_strydonck_de_burkel
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			ledger = army
+			traits = { army_cavalry_1 }
+			cost = 50
 		}
 		corps_commander = {
 			traits = { cavalry_officer war_hero }
@@ -451,7 +454,7 @@ characters={
 		name=BEL_victor_van_strydonck_de_burkel
 		portraits={
 			army={
-				small="gfx/interface/ideas/BEL_Victor_van_Strydonck_de_Burkel.png"
+				small="gfx/interface/advisors/BEL/BEL_Victor_van_Strydonck_de_Burkel.png"
 				large="gfx/leaders/BEL/Portrait_Belgium_Victor_van_Strydonck_de_Burkel.png"
 			}
 		}
