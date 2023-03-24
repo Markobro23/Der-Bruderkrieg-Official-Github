@@ -171,8 +171,13 @@
 ARG_decisions = {
 	ARG_invade_uraguay = {
 		available = {
-			GER = {
-				has_war_with = SAX
+			OR = {
+				GER = {
+					has_war_with = SAX
+				}
+				NOT = {
+					country_exists = SAX
+				}
 			}
 		}
 		fire_only_once = yes
@@ -189,8 +194,13 @@ ARG_decisions = {
 	}
 	ARG_invade_PBC = {
 		available = {
-			GER = {
-				has_war_with = AUS
+			OR = {
+				GER = {
+					has_war_with = AUS
+				}
+				NOT = {
+					country_exists = AUS
+				}
 			}
 		}
 		fire_only_once = yes
@@ -203,23 +213,6 @@ ARG_decisions = {
 				id = great_south_american_war.1
 				days = 45
 			}
-		}
-		ai_will_do = {
-			factor = 1000
-		}
-	}
-	ARG_invite_venezuela = {
-		available = {
-			ARG = {
-				has_war_with = USA
-			}
-		}
-		fire_only_once = yes
-		days_remove = 10
-		complete_effect = {
-		}
-		remove_effect = {
-			add_to_faction = VEN
 		}
 		ai_will_do = {
 			factor = 1000
@@ -338,7 +331,7 @@ ARG_decisions = {
 		fire_only_once = yes
 		days_remove = 0
 		remove_effect = {
-			add_threat = 5
+			add_threat = 4
 			add_to_faction = BRS
 		}
 	}
