@@ -160,4 +160,102 @@ ideas = {
 
     }
 
+
+  industrial_concern = {
+    somisa = {
+      allowed = { original_tag = ARG }
+      traits = { industrial_concern }
+      research_bonus = { industry = 0.15 }
+      ai_will_do = { factor = 1.0 }
+    }
+    universidad_buenos_aires = {
+      allowed = { original_tag = ARG }
+      traits = { electronics_concern }
+      research_bonus = { electronics = 0.15 }
+      ai_will_do = { factor = 0.1 }
+    }
+    ypf = {
+      allowed = { original_tag = ARG }
+      traits = { refinery_concern }
+      research_bonus = {
+        synth_resources = 0.15
+        industry = 0.05
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+  }
+  materiel_manufacturer = {
+    designer = yes
+    fabricaciones_militares = {
+      allowed = { tag = ARG }
+      traits = {
+        infantry_equipment_manufacturer
+      }
+      research_bonus = {
+        infantry_weapons = 0.15
+      }
+      ai_will_do = { factor = 0.5 }
+    }
+    hispano_argentina = {
+      allowed = { tag = ARG  }
+      traits = {
+        motorized_equipment_manufacturer
+      }
+      research_bonus = {
+        motorized_equipment = 0.15
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+  }
+  #### Heavy Equipment Manufacturer ####
+  tank_manufacturer = {
+    designer = yes
+    seccion_industrial_amasadoras_mecanicas = {
+      allowed = { tag = ARG }
+      traits = {
+        tank_manufacturer
+      }
+      research_bonus = {
+        armor = 0.15
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+  }
+  #### Air and Naval Manufacturer ####
+  naval_manufacturer = {
+    designer = yes
+    astarsa = {
+      allowed = { tag = ARG }
+      traits = {
+        convoy_escort_naval_manufacturer
+      }
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+    astilleros_alianza = {
+      allowed = { tag = ARG }
+      traits = {
+        repair_and_refurbishment_plant
+      }
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+  }
+  aircraft_manufacturer = {
+    designer = yes
+    fabrica_militar_aviones = {
+      allowed = { tag = ARG }
+      traits = {
+        light_aircraft_manufacturer
+      }
+      research_bonus = {
+        air_equipment = 0.1
+      }
+      ai_will_do = { factor = 0.1 }
+    }
+  }
 }

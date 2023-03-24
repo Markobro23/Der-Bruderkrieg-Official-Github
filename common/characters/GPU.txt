@@ -77,7 +77,7 @@ characters={
 				
 			}
 			army={
-				large="gfx/leaders/FranzFerdinandPortrait.dds"
+				large="gfx/leaders/GPU/FranzFerdinandPortrait.dds"
 			}
 		}
 		field_marshal={
@@ -406,8 +406,17 @@ characters={
 		name= "Robert Ritter von Greim"
 		portraits={
 			army={
-				small="GFX_idea_ritter_von_greim"
+				small="gfx/interface/advisors/GPU/GPU_Robert_Ritter_von_Greim.png"
+				large="gfx/leaders/GPU/Portrait_GPU_Robert_Ritter_von_Greim.png"
 			}
+		}
+		corps_commander={
+			traits={ fortress_buster inflexible_strategist career_officer war_hero }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			planning_skill=2
+			logistics_skill=2
 		}
 		advisor={
 			cost = 100
@@ -425,15 +434,28 @@ characters={
 		advisor={
 			slot = air_chief
 			idea_token = ritter_von_greim
-			allowed = {
-				original_tag = GPU
-			}
 			traits = {
 				air_chief_all_weather_2
+			}
+			available = {
+				not_already_hired_except_as = air_chief
 			}
 			cost = 100
 			ai_will_do = {
 				factor = 0.500
+			}
+		}
+		advisor={
+			cost = 100
+			
+			slot = theorist
+			idea_token = ritter_von_greim_theorist
+			ledger = air
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = {
+				air_warfare_theorist
 			}
 		}
 	}

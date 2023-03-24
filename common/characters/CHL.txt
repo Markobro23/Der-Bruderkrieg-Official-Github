@@ -3,23 +3,8 @@ characters={
 		name="Marmaduke Grove"
 		portraits={
 			civilian={
-				large="gfx/leaders/CHL/Marmaduke.dds"
+				large="gfx/leaders/CHL/Portrait_Chile_Marmaduke_Grove.png"
 			}
-		}
-		advisor={
-			
-			
-			slot = air_chief
-			idea_token = CHL_marmaduke_grove
-			allowed = {
-					original_tag = CHL
-				}
-				traits = {
-					air_chief_old_guard
-				}
-				ai_will_do = {
-					factor = 1.000
-				}
 		}
 		country_leader={
 			#desc="POLITICS_ARTURO_ALESSANDRI_DESC"
@@ -32,7 +17,7 @@ characters={
 		name="Salvador Allende"
 		portraits={
 			civilian={
-				large="gfx/leaders/Salvador_Allende.dds"
+				large="gfx/leaders/CHL/Portrait_CHL_Salvador_Allende.dds"
 			}
 		}
 		country_leader={
@@ -46,7 +31,7 @@ characters={
 		name="Jorge González von Marées"
 		portraits={
 			civilian={
-				large="gfx/leaders/South America/Portrait_South_America_Generic_land_5.dds"
+				large="gfx/leaders/CHL/Portrait_Chile_Jorge_Von_Marees.png"
 			}
 		}
 		country_leader={
@@ -60,7 +45,7 @@ characters={
 		name="Carlos Contreras Labarca"
 		portraits={
 			civilian={
-				large="gfx/leaders/South America/Portrait_South_America_Generic_navy_1.dds"
+				large = "gfx/leaders/CHL/Portrait_Chile_Carlos_Labarca.png"
 			}
 		}
 		country_leader={
@@ -83,6 +68,105 @@ characters={
 			id=-1
 		}
 	}
+	CHL_juan_pablo_bennett_argandona = {
+		name = "Juan Pablo Bennett Argandoña"
+		portraits = {
+			civilian={
+				large = "gfx/leaders/CHL/Portrait_CHL_Bennett.png"
+			}
+			army = {
+				large = "gfx/leaders/CHL/Portrait_CHL_Bennett.png"
+				small = "gfx/interface/advisors/CHL/CHL_Bennett.png"
+			}
+		}
+		country_leader = {
+			ideology = paternalistic_conservatism
+		}
+		country_leader = {
+			ideology = authoritarian_democrat
+		}
+		advisor={
+			slot = army_chief
+			idea_token = CHL_julio_allard_pinto
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			allowed = {
+				original_tag = CHL
+			}
+			traits = {
+				army_chief_maneuver_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor = {
+			idea_token = CHL_julio_allard_pinto_theorist
+			slot = theorist
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			ledger = army
+			traits = { military_theorist }
+			cost = 100
+		}
+		corps_commander = {
+			traits = { inflexible_strategist harsh_leader trait_mountaineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	CHL_arturo_puga_osorio = {
+		name = "Arturo Puga Osorio"
+		portraits = {
+			army = {
+				large = "gfx/leaders/CHL/Portrait_Chile_Arturo_Puga.png"
+				small = "gfx/interface/advisors/CHL/CHL_Arturo_Puga.png"
+			}
+		}
+		field_marshal = {
+			traits = { politically_connected war_hero inspirational_leader }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		advisor = {
+			idea_token = CHL_arturo_puga_osorio
+			slot = high_command
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
+		}
+	}
+	CHL_bartolome_guillermo_blanche_espejo = {
+		name = "Bartolomé Blanche"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CHL/Portrait_Bartolome_Blanche.png"
+			}
+			army = {
+				large = "gfx/leaders/CHL/Portrait_Bartolome_Blanche.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard career_officer hill_fighter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		country_leader = {
+			ideology = nationalist_autocrat
+		}
+	}
 	CHL_escudero_oscar_otárola={
 		name="Escudero Oscar Otárola"
 		portraits={
@@ -102,7 +186,13 @@ characters={
 		}
 	}
 	CHL_julio_allard_pinto={
-		
+		name="Julio Allard Pinto"
+		portraits={
+			army={
+				large = "gfx/leaders/CHL/Portrait_CHL_Julio_Allard_Pinto.png"
+				small="gfx/interface/advisors/CHL/CHL_julio_allard_pinto.png"
+			}
+		}
 		navy_leader = {
 			skill = 2
 			attack_skill = 2
@@ -110,36 +200,97 @@ characters={
 			maneuvering_skill = 2
 			coordination_skill = 1
 		}
-		name="Julio Allard Pinto"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_south_america_1"
+		advisor = {
+			idea_token = CHL_julio_allard_pinto_navy_chief
+			slot = navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
 			}
+			traits = { navy_chief_commerce_raiding_2 }
+			cost = 100
+		}
+		advisor = {
+			idea_token = CHL_julio_allard_pinto_high_command
+			slot = high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_submarine_2 }
+			cost = 100
 		}
 	}
-	CHL_gustavo_silva={
+	CHL_c_j_de_la_motte={
+		name="C.J. de la Motte"
+		portraits={
+			army={
+				large = "gfx/leaders/CHL/Portrait_CHL_carlos_jouanne_de_la_motte_du_portail.png"
+				small = "gfx/interface/advisors/CHL/CHL_carlos_jouanne_de_la_motte_du_portail.png"
+			}
+		}
+		advisor={
+			slot = navy_chief
+			idea_token = CHL_c_j_de_la_motte
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = {
+				navy_chief_maneuver_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		advisor = {
+			idea_token = CHL_cj_de_la_motte_high_command
+			slot = high_command
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_screen_2 }
+			cost = 100
+		}
+		navy_leader = {
+			traits = { old_guard_navy spotter }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+	}
+	CHL_francisco_o_ryan_orrego={
 		advisor={
 			
 			
-			slot = high_command
-			idea_token = CHL_gustavo_silva
-			ledger = navy
-				allowed = {
+			slot = navy_chief
+			idea_token = CHL_francisco_o_ryan_orrego
+			allowed = {
 					original_tag = CHL
 				}
 				traits = {
-					navy_naval_air_defense_2
+					navy_chief_decisive_battle_2
 				}
 				cost = 100
 				ai_will_do = {
 					factor = 1.000
 				}
 		}
+		navy_leader = {
+			traits = { old_guard_navy superior_tactician }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 4
+			coordination_skill = 1
+		}
 # TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Gustavo Silva"
+		name="Francisco O'Ryan Orrego"
 		portraits={
 			army={
-				small="GFX_idea_generic_navy_south_america_3"
+				small="GFX_idea_generic_navy_south_america_1"
 			}
 		}
 	}
@@ -219,62 +370,6 @@ characters={
 			}
 		}
 	}
-	CHL_c_j_de_la_motte={
-		advisor={
-			
-			
-			slot = navy_chief
-			idea_token = CHL_c_j_de_la_motte
-			allowed = {
-					original_tag = CHL
-				}
-				traits = {
-					navy_chief_maneuver_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-		navy_leader = {
-			traits = { old_guard_navy spotter }
-			skill = 1
-			attack_skill = 1
-			defense_skill = 1
-			maneuvering_skill = 1
-			coordination_skill = 1
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="C.J. de la Motte"
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_south_america_2"
-			}
-		}
-	}
-	CHL_carlos_fuentes_rabe={
-		advisor={
-			cost = 100
-			
-			slot = theorist
-			idea_token = CHL_carlos_fuentes_rabe
-			ledger = army
-				allowed = {
-					original_tag = CHL
-				}
-				
-				traits = {
-					military_theorist
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Carlos Fuentes Rabe"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_south_america_3"
-			}
-		}
-	}
 	CHL_arturo_espinoza_mujica={
 		advisor={
 			
@@ -327,65 +422,6 @@ characters={
 			}
 		}
 	}
-	CHL_francisco_o_ryan_orrego={
-		advisor={
-			
-			
-			slot = navy_chief
-			idea_token = CHL_francisco_o_ryan_orrego
-			allowed = {
-					original_tag = CHL
-				}
-				traits = {
-					navy_chief_decisive_battle_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-		navy_leader = {
-			traits = { old_guard_navy superior_tactician }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 2
-			maneuvering_skill = 4
-			coordination_skill = 1
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Francisco O'Ryan Orrego"
-		portraits={
-			army={
-				small="GFX_idea_generic_navy_south_america_1"
-			}
-		}
-	}
-	CHL_ernesto_m_orlando={
-		advisor={
-			
-			
-			slot = high_command
-			idea_token = CHL_ernesto_m_orlando
-			ledger = army
-				allowed = {
-					original_tag = CHL
-				}
-				traits = {
-					army_infantry_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-# TODO[ PORTRAIT LARGE ]: Missing large portrait please check!
-		name="Ernesto M. Orlando"
-		portraits={
-			army={
-				small="GFX_idea_generic_army_south_america_2"
-			}
-		}
-	}
 	CHL_dario_cellejas_rojas={
 		advisor={
 			cost = 100
@@ -430,70 +466,6 @@ characters={
 			army={
 				small="GFX_idea_generic_air_south_america_1"
 			}
-		}
-	}
-	CHL_juan_pablo_bennett_argandona = {
-		name = "Juan Pablo Bennett Argandoña"
-		portraits = {
-			army = {
-				large = "gfx/leaders/CHL/Portrait_CHL_Bennett.png"
-			}
-		}
-		advisor={
-			
-			
-			slot = army_chief
-			idea_token = CHL_julio_allard_pinto
-			allowed = {
-					original_tag = CHL
-				}
-				traits = {
-					army_chief_maneuver_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
-		}
-		corps_commander = {
-			traits = { inflexible_strategist harsh_leader trait_mountaineer }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 1
-			logistics_skill = 2
-		}
-	}
-	CHL_bartolome_guillermo_blanche_espejo = {
-		name = "Bartolomé Blanche"
-		portraits = {
-			army = {
-				large = "gfx/leaders/CHL/Portrait_Bartolome_Blanche.png"
-			}
-		}
-		corps_commander = {
-			traits = { old_guard career_officer hill_fighter }
-			skill = 3
-			attack_skill = 3
-			defense_skill = 2
-			planning_skill = 3
-			logistics_skill = 2
-		}
-	}
-	CHL_arturo_puga_osorio = {
-		name = "Arturo Puga Osorio"
-		portraits = {
-			army = {
-				large = "gfx/leaders/CHL/Portrait_Chile_Arturo_Puga.png"
-			}
-		}
-		field_marshal = {
-			traits = { politically_connected war_hero inspirational_leader }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 2
-			planning_skill = 2
-			logistics_skill = 1
 		}
 	}
 }

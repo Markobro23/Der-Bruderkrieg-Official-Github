@@ -68,4 +68,81 @@ ideas = {
       }
     }
   }
+  ### Industrial Companies ###
+  industrial_concern = {
+    enel_generacion_peru = {
+      allowed = { 
+        OR = {
+          original_tag = PRU
+          original_tag = PBC
+        }
+      }
+      traits = { electronics_concern }
+      research_bonus = {
+        electronics = 0.15
+      }
+    }
+    compania_minera_atacocha = {
+      allowed = { 
+        OR = {
+          original_tag = PRU
+          original_tag = PBC
+        }
+      }
+      traits = { industrial_concern }
+      modifier = { local_resources_factor = 0.05 }
+      research_bonus = {
+        industry = 0.15
+      }
+    }
+  }
+  #### Air and Naval Manufacturer ####
+  naval_manufacturer = {
+    designer = yes
+
+    servicios_industriales_de_la_marina = {
+      allowed = { 
+        OR = {
+          original_tag = PRU
+          original_tag = PBC
+        }
+      }
+      traits = { repair_and_refurbishment_plant }
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+    }
+  }
+
+  aircraft_manufacturer = {
+    designer = yes
+    taller_central_de_aviacion = {
+      allowed = { 
+        OR = {
+          original_tag = PRU
+          original_tag = PBC
+        }
+      }
+      traits = { fuel_efficient_aircraft_manufacturer }
+      research_bonus = {
+        air_equipment = 0.15
+      }
+    }
+  }
+
+  aircraft_manufacturer = {
+    designer = yes
+    compania_de_aviacion_faucett = {
+      allowed = { 
+        OR = {
+          original_tag = PRU
+          original_tag = PBC
+        }
+      }
+      traits = { medium_aircraft_manufacturer }
+      research_bonus = {
+        air_equipment = 0.15
+      }
+    }
+  }
 }
