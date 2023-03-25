@@ -3974,7 +3974,7 @@ country_event = { # Yakutia Declares Independence
 	is_triggered_only = yes
 
 	immediate = {
-		SOV_release_YAK = yes
+		#SOV_release_YAK = yes
 	}
 
 	option = {
@@ -3982,23 +3982,23 @@ country_event = { # Yakutia Declares Independence
 		ai_chance = {
 			factor = 100
 		}
-		for_each_loop = {
-			array = controlled_states
-			value = controlled_state
+		SOV_setup_civil_war = yes
 		
-			SOV = {
-				delete_unit = {
-					state = var:controlled_state
-					disband = yes # or no
-				}
-			}    
-		}
-		
-		YAK = {
-			set_country_flag = choice_made
-		}
 		hidden_effect = {
-			country_event = { id = SOV_russian_collapse_events.2 } #Adjust this to what you want
+			#country_event = { id = SOV_russian_collapse_events.2 } #Adjust this to what you want
+			# YAK = { country_event = { id = yakutia.1 hours = 3 }}#Adjust this to what you want
+		}
+	}
+	option = {
+		name = SOV_russian_collapse_events.1.b
+		ai_chance = {
+			factor = 100
+		}
+		KLV = { change_tag_from = ROOT }
+		SOV_setup_civil_war = yes
+		
+		hidden_effect = {
+			#country_event = { id = SOV_russian_collapse_events.2 } #Adjust this to what you want
 			# YAK = { country_event = { id = yakutia.1 hours = 3 }}#Adjust this to what you want
 		}
 	}
