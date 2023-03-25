@@ -249,7 +249,7 @@ characters={
 		name = "Mikhail Frunze"
 		portraits = {
 			army = {
-				large = "gfx/leaders/RUS/Portrait_RUS_Mikhail_Frunze.png"
+				large = "gfx/leaders/SOV/Portrait_RUS_Mikhail_Frunze.png"
 				small = "gfx/interface/ideas/SOV_mikhail_frunze.png"
 			}
 		}
@@ -267,9 +267,12 @@ characters={
 		advisor = {
 			slot = army_chief
 			idea_token = RUS_mikhail_frunze_army_chief
+			allowed = {
+				original_tag = SOV
+			}
 			available = {
 				not_already_hired_except_as = army_chief
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = { army_chief_morale_2 }
 			cost = 100
@@ -280,7 +283,7 @@ characters={
 			ledger = army
 			available = {
 				not_already_hired_except_as = theorist
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = { military_theorist }
 			cost = 100
@@ -462,8 +465,11 @@ characters={
 			slot = theorist
 			idea_token = mikhail_tukhachevsky
 			ledger = army
+			allowed = {
+				original_tag = SOV
+			}
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = {
 				mass_assault_expert
@@ -556,7 +562,10 @@ characters={
 			slot = army_chief
 			idea_token = SOV_aleksandr_yegorov
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
+			}
+			allowed = {
+				original_tag = SOV
 			}
 			traits = {
 				army_chief_defensive_2
@@ -592,7 +601,10 @@ characters={
 			slot = army_chief
 			idea_token = SOV_vasily_blyukher
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
+			}
+			allowed = {
+				original_tag = SOV
 			}
 			traits = {
 				army_chief_morale_2
