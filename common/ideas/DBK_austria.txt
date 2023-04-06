@@ -2561,198 +2561,7 @@ ideas = {
       
 # 	}
 
-	army_chief = {
-		AUS_alfred_jansa = {
-			ledger = army
-
-			picture = generic_army_europe_3
-			
-			allowed = {
-				original_tag = AUS
-			}
-
-			cost = 150
-			
-			
-			traits = { army_chief_defensive_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}		
-		AUS_eduard_freiherr = {
-			picture = generic_army_europe_1
-			
-			allowed = {
-				original_tag = AUS
-			}
-			
-			cost = 150
-			
-			traits = { army_chief_offensive_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		AUS_franz_bohme_chief = {
-			picture = generic_army_europe_2
-			
-			allowed = {
-				original_tag = AUS
-			}
-			
-
-			
-			traits = { army_chief_maneuver_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-	}
-
-	navy_chief = {
-		
-		AUS_paul_von_hegedus = {
-			picture = generic_navy_europe_1
-			
-			allowed = {
-				OR = {
-					original_tag = AUS
-				}
-			}
-
-			cost = 150
-			
-			
-
-			
-			traits = { navy_chief_maneuver_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-
-	}
-
-	high_command = {
-		AUS_odilo_globocnik = {
-			ledger = army
-			picture = generic_army_europe_2
-			
-			allowed = {
-				original_tag = AUS
-			}
-			
-			cost = 150
-			
-			traits = { army_entrenchment_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		AUS_viktor_seebauer = {
-			ledger = air
-
-			picture = generic_air_europe_2
-			
-			allowed = {
-				original_tag = AUS
-			}
-
-			cost = 150
-			
-			traits = { air_bomber_interception_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		AUS_eugen_beyer = {
-			ledger = army
-
-			picture = generic_army_europe_4
-			
-			allowed = {
-				original_tag = AUS
-			}
-
-			cost = 150
-			
-			traits = { army_commando_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		josef_august = {
-			ledger = army
-
-			picture = generic_army_europe_5
-
-			allowed = {
-				original_tag = AUS
-			}
-
-			cost = 150
-
-			traits = { army_infantry_2 }
-
-			ai_will_do = {
-				factor = 2
-			}
-		}
-		
-
-	}
-
-	theorist = {
-		AUS_otto_meixner_von_zweienstamm = {
-			ledger = army
-			
-			picture = generic_army_europe_3
-
-			allowed = {
-				original_tag = AUS
-			}
-
-			cost = 150
-			
-			research_bonus = {
-				land_doctrine = 0.10
-			}
-			
-			traits = { military_theorist }
-		}
-
-		erwin_rommel = {
-		 	ledger = army
-
-
-			allowed = {
-		 		original_tag = AUS
-		 	}
-
-		 	research_bonus = {
-				cat_mobile_warfare = 0.15
-			}
-
-		 	traits = { mobile_warfare_expert }
-
-			
-		 }
-
-		
-	}
+	
 
 
 	industrial_concern = {
@@ -2790,7 +2599,7 @@ ideas = {
 			
 			traits = { industrial_concern }
 		}	
-		AUS_RAG_oil = {
+		semperit = {
 			
 			
 			allowed = {
@@ -2798,10 +2607,6 @@ ideas = {
 			}
 
 			picture = generic_industrial_concern_3
-
-			available = { 
-				has_completed_focus = AUS_rag
-			}
 			
 
 			
@@ -2822,7 +2627,7 @@ ideas = {
 		designer = yes
 	
 		
-		CZE_zbrojovka_brno = {
+		steyr = {
 			
 			picture = generic_infantry_equipment_manufacturer_2
 
@@ -2836,14 +2641,14 @@ ideas = {
 				infantry_weapons = 0.15
 			}
 			
-			traits = { infantry_equipment_manufacturer }
+			traits = { steyr_arms_facility }
 			
 			ai_will_do = {
 				factor = 1
 			}
 		}
 		
-		CZE_skoda_artillery = {
+		hirtenberger = {
 			
 			picture = generic_artillery_manufacturer_2
 
@@ -2852,11 +2657,7 @@ ideas = {
 				original_tag = AUS
 			}
 
-			cost = 50
-
-			available = { 
-				has_completed_focus = AUS_koda_works
-			}
+			cost = 150
 			
 			research_bonus = {
 				artillery = 0.15
@@ -2869,7 +2670,7 @@ ideas = {
 			}
 		}
 		
-		CZE_praga = {
+		puch = {
 			
 			picture = generic_motorized_equipment_manufacturer_2
 			
@@ -2892,7 +2693,7 @@ ideas = {
 
 		designer = yes
 
-		CZE_ckd = {
+		graef_stift = {
 			
 			picture = generic_tank_manufacturer_1
 
@@ -2908,7 +2709,7 @@ ideas = {
 			traits = { fast_tank_manufacturer }
 			
 			equipment_bonus = {
-				# made light/medium tanks panzerkampfwagen 38
+				
 			}
 		}
 
@@ -2920,14 +2721,17 @@ ideas = {
 
 			
 			allowed = {
-				original_tag = AUS
+				OR = {
+					original_tag = AUS
+					original_tag = CZE
+				}
 			}
 			
 			research_bonus = {
 				armor = 0.15
 			}
 			
-			traits = { heavy_tank_manufacturer }
+			traits = { skoda_tank_factories }
 			
 			equipment_bonus = {
 			}
@@ -3010,8 +2814,17 @@ ideas = {
 				
 			}
 			
-			traits = { coastal_defence_naval_manufacturer }
+			traits = { mediterranean_naval_manufacturer }
 			
+		}
+		stabilimento_tecnico_triestino = {
+			allowed = {
+				original_tag = AUS
+			}
+			traits = { battlefleet_designer }
+			research_bonus = {
+				naval_equipment = 0.15
+			}
 		}
 	}
 
@@ -3021,7 +2834,7 @@ ideas = {
 		designer = yes
 		
 
-		CZE_ckd_praga = {
+		oeffag = {
 			
 			picture = generic_air_manufacturer_1
 
@@ -3035,8 +2848,6 @@ ideas = {
 			}
 			
 			traits = { naval_aircraft_manufacturer }
-			
-			# fighter aircraft B-534, versitile and high performing in manuverability and speed
 			
 			ai_will_do = {
 				factor = 1
@@ -3072,7 +2883,7 @@ ideas = {
 		}
 		
 
-		CZE_aero = {
+		aviatik = {
 			
 			picture = generic_air_manufacturer_2
 
