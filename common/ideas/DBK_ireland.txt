@@ -256,4 +256,93 @@ ideas = {
 		
 		
     }
+    industrial_concern = {
+
+		goulding_chemicals = {
+			allowed = { original_tag = IRE }
+			traits = { industrial_concern }
+			modifier = {
+			}
+			research_bonus = {
+				industry = 0.15
+			}
+		}
+
+		murphy_radio = {
+			allowed = { original_tag = IRE }
+			traits = { electronics_concern }
+			research_bonus = {
+				electronics = 0.15
+			}
+		}
+
+		mcmullan_bros = {
+			allowed = { original_tag = IRE }
+			traits = { refinery_concern }
+			research_bonus = {
+				synth_resources = 0.15
+				industry = 0.05
+			}
+		}
+	}
+
+#### Weapons Manufacturer ####
+	materiel_manufacturer = {
+		designer = yes
+
+		john_rigby = {
+			allowed = { original_tag = IRE }
+			traits = { infantry_equipment_manufacturer }
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+		}
+
+		james_mackie_sons = {
+			allowed = {
+				original_tag = IRE
+			}
+			visible = { owns_state = 119 }
+			traits = { artillery_manufacturer }
+			research_bonus = {
+				artillery = 0.15
+			}
+		}
+
+		o_gorman = {
+			allowed = { original_tag = IRE }
+			traits = { motorized_equipment_manufacturer }
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+		}
+	}
+
+#### Air and Naval Manufacturer ####
+	naval_manufacturer = {
+		designer = yes
+
+		workman_clark_company = {
+			allowed = {
+				original_tag = IRE
+			}
+			visible = { owns_state = 119 }
+			traits = { convoy_escort_naval_manufacturer }
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+		}
+	}
+
+	aircraft_manufacturer = {
+		designer = yes
+
+		aer_lingus = {
+			allowed = { original_tag = IRE }
+			traits = { aircraft_manufacturer }
+			research_bonus = {
+				air_equipment = 0.15
+			}
+		}
+	}
 }
