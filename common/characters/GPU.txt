@@ -111,9 +111,6 @@ characters={
 			slot = high_command
 			idea_token = ferdinand_schorner
 			ledger = army
-			allowed = {
-				original_tag = GPU
-			}
 			traits = {
 				army_infantry_2
 			}
@@ -123,7 +120,6 @@ characters={
 			}
 		}
 	}
-
 	GPU_archduke_leopold_salvator={
 		name="Leopold Salvator von Habsburg-Lothringen"
 		portraits={
@@ -162,6 +158,20 @@ characters={
 			defense_skill = 4
 			planning_skill = 4
 			logistics_skill = 3
+		}
+		advisor={
+			slot = army_chief
+			idea_token = rupprecht
+			allowed = {
+				original_tag = GPU
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 4.000
+			}
 		}
 		country_leader={
 			#desc="POLITICS_KING_ZOG_DESC"
@@ -378,20 +388,6 @@ characters={
 				large="gfx/leaders/GPU/Portrait_GPU_Wihelm_List.png"
 			}
 		}
-		advisor={
-			slot = army_chief
-			idea_token = wilhelm_list
-			allowed = {
-				original_tag = GPU
-			}
-			traits = {
-				army_chief_defensive_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 4.000
-			}
-		}
 		corps_commander={
 			traits={ inflexible_strategist career_officer }
 			skill=2
@@ -504,6 +500,30 @@ characters={
 			idea_token = GPU_franz_von_bayern
 			traits = { army_entrenchment_2 }
 			cost = 100
+		}
+	}
+	GPU_claus_von_stauffenberg = {
+		name = "Claus von Stauffenberg"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GPU/Portrait_GPU_Claus_von_Stauffenberg.png"
+				small = "gfx/interface/advisors/GPU/GPU_Claus_von_Stauffenberg.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer cavalry_officer brilliant_strategist }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = GPU_claus_von_stauffenberg
+			traits = { army_CombinedArms_1 }
+			cost = 50
 		}
 	}
 	GPU_gunther_lutjens={

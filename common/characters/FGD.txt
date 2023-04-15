@@ -106,7 +106,20 @@ characters={
 		name = "Curt Haase"
 		portraits = {
 			army = {
-				large = "gfx/leaders/FGD/Portrait_Germany_Curt_Hasse.png"
+				large = "gfx/leaders/FGD/Portrait_FGD_Curt_Hasse.png"
+				small = "gfx/interface/advisors/FGD/FGD_Curt_Hasse.png"
+			}
+		}
+		advisor={
+			slot = army_chief
+			idea_token = curt_haase
+			ledger = army
+			traits = {
+				army_chief_drill_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
 			}
 		}
 		corps_commander = {
@@ -166,6 +179,35 @@ characters={
 			defense_skill = 3
 			maneuvering_skill = 2
 			coordination_skill = 3
+		}
+	}
+	FGD_Ernst_Busch = {
+		name = "Ernst Busch"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FGD/Portrait_FGD_Ernst_Busch.png"
+				small = "gfx/interface/advisors/FGD/FGD_Ernst_Busch.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer infantry_leader }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		advisor={
+			slot = high_command
+			idea_token = ernst_busch
+			ledger = army
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 2.000
+			}
 		}
 	}
 }
