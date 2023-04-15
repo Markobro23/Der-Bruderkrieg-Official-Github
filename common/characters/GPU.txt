@@ -111,45 +111,12 @@ characters={
 			slot = high_command
 			idea_token = ferdinand_schorner
 			ledger = army
-			allowed = {
-				original_tag = GPU
-			}
 			traits = {
 				army_infantry_2
 			}
 			cost = 100
 			ai_will_do = {
 				factor = 2.000
-			}
-		}
-	}
-	GPU_gerd_von_rundstedt={
-		name="Gerd von Rundstedt"
-		portraits={
-			army={
-				small="gfx/interface/ideas/GPU_gerd_von_rundstedt.png"
-				large="gfx/leaders/GER/Portrait_Germany_Gerd_von_Rundstedt_kr.png"
-			}
-		}
-		field_marshal={
-			traits={ old_guard urban_assault_specialist defensive_doctrine }
-			skill=3
-			attack_skill=3
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=2
-			legacy_id=1
-		}
-		advisor={
-			slot = high_command
-			idea_token = gerd_von_rundstedt
-			ledger = army
-			traits = {
-				army_regrouping_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.500
 			}
 		}
 	}
@@ -191,6 +158,20 @@ characters={
 			defense_skill = 4
 			planning_skill = 4
 			logistics_skill = 3
+		}
+		advisor={
+			slot = army_chief
+			idea_token = rupprecht
+			allowed = {
+				original_tag = GPU
+			}
+			traits = {
+				army_chief_defensive_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 4.000
+			}
 		}
 		country_leader={
 			#desc="POLITICS_KING_ZOG_DESC"
@@ -387,20 +368,6 @@ characters={
 				large="gfx/leaders/GPU/Portrait_GPU_Wihelm_List.png"
 			}
 		}
-		advisor={
-			slot = army_chief
-			idea_token = wilhelm_list
-			allowed = {
-				original_tag = GPU
-			}
-			traits = {
-				army_chief_defensive_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 4.000
-			}
-		}
 		corps_commander={
 			traits={ inflexible_strategist career_officer }
 			skill=2
@@ -507,13 +474,13 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/GPU/Portrait_GPU_Claus_von_Stauffenberg.png"
-				#small = placeholder
+				small = "gfx/interface/advisors/GPU/GPU_Claus_von_Stauffenberg.png"
 			}
 		}
 		corps_commander = {
 			traits = { career_officer cavalry_officer brilliant_strategist }
 			skill = 2
-			attack_skill = 1
+			attack_skill = 2
 			defense_skill = 1
 			planning_skill = 2
 			logistics_skill = 2
@@ -522,7 +489,7 @@ characters={
 			slot = high_command
 			ledger = army
 			idea_token = GPU_claus_von_stauffenberg
-			traits = { army_regrouping_1 }
+			traits = { army_CombinedArms_1 }
 			cost = 50
 		}
 	}
