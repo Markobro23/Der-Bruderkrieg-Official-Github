@@ -3,7 +3,7 @@ characters={
 		name="Ernst Ludwig"
 		portraits={
 			civilian={
-				large="gfx/leaders/HES/Ernst_Ludwig.dds"
+				large="gfx/leaders/HES/Portrait_HES_Ernst_Ludwig.dds"
 			}
 		}
 		country_leader={
@@ -32,6 +32,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/HES/Portrait_HES_heinrich_von_vietinghoff.png"
+				small="gfx/interface/advisors/HES/HES_heinrich_von_vietinghoff.png"
 			}
 		}
 		corps_commander={
@@ -47,9 +48,6 @@ characters={
 			slot = high_command
 			idea_token = HES_heinrich_von_vietinghoff
 			ledger = army
-			allowed = {
-				original_tag = HES
-			}
 			traits = {
 				army_armored_2
 			}
@@ -64,10 +62,10 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_GER_georg_von_kuchler.dds"
-				large="gfx/leaders/HES/Portrait_Germany_Georg_Kuchler_kr.png"
+				large="gfx/leaders/HES/Portrait_HES_Georg_Kuchler.png"
 			}
 		}
-		corps_commander={
+		field_marshal={
 			skill=4
 			attack_skill=3
 			defense_skill=2
@@ -75,12 +73,23 @@ characters={
 			logistics_skill=4
 			legacy_id=22
 		}
+		advisor={
+			slot = army_chief
+			idea_token = georg_von_kuchler
+			traits = {
+				army_chief_organizational_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
+			}
+		}
 	}
 	HES_karl_freiherr_von_thungen={
 		name = "Karl Freiherr von Thüngen"
 		portraits = {
 			army = {
-				#small = placeholder
+				small = "gfx/interface/advisors/HES/HES_Karl_Freiherr_von_Thungen.png"
 				large = "gfx/leaders/HES/Portrait_HES_Karl_Freiherr_von_Thüngen.png"
 			}
 		}
@@ -92,14 +101,13 @@ characters={
 			planning_skill = 3
 			logistics_skill = 3
 		}
-		advisor = {
-			slot = high_command
-			ledger = army
-			idea_token = karl_freiherr_von_thungen
-			traits = { army_armored_3 }
+		advisor={
 			cost = 150
-			ai_will_do = {
-				factor = 200
+			slot = theorist
+			idea_token = karl_freiherr_von_thungen
+			ledger = army
+			traits = {
+				mobile_warfare_expert
 			}
 		}
 	}
