@@ -7,10 +7,10 @@ division_template = {
 		infantry = { x = 0 y = 0 }
 		infantry = { x = 0 y = 1 }
 		infantry = { x = 0 y = 2 }
-    infantry = { x = 1 y = 0 }
+    	infantry = { x = 1 y = 0 }
 		infantry = { x = 1 y = 1 }
 		infantry = { x = 1 y = 2 }
-    infantry = { x = 2 y = 0 }
+    	infantry = { x = 2 y = 0 }
 		infantry = { x = 2 y = 1 }
 		infantry = { x = 2 y = 2 }
 	}
@@ -27,10 +27,8 @@ division_template = {
 	regiments = {
 		light_armor = { x = 0 y = 0 }
 		light_armor = { x = 0 y = 1 }
-        light_armor = { x = 1 y = 0 }
-		light_armor = { x = 1 y = 1 }
-		motorized = { x = 2 y = 0 }
-        motorized = { x = 2 y = 1 }
+        motorized = { x = 1 y = 0 }
+		motorized = { x = 1 y = 1 }
 	}
 	support = {
         mot_recon = { x = 0 y = 0 }
@@ -56,27 +54,8 @@ units = {
 	  }
 	  location = 692
 	  division_template = "Panzer-Division"
-	  start_experience_factor = 0.3
+	  start_experience_factor = 0.2
 
-	}
-	division = {
-	  division_name = {
-	      is_name_ordered = yes
-	      name_order = 1
-	  }
-	  location = 692
-	  division_template = "Panzer-Division"
-	  start_experience_factor = 0.3
-
-	}
-	division = {
-	  division_name = {
-	      is_name_ordered = yes
-	      name_order = 24s
-	  }
-	  location = 692
-	  division_template = "Infanterie-Division"
-	  start_experience_factor = 0.3
 	}
 	division = {
 	  division_name = {
@@ -85,16 +64,48 @@ units = {
 	  }
 	  location = 692
 	  division_template = "Infanterie-Division"
-	  start_experience_factor = 0.3
+	  start_experience_factor = 0.2
+	  start_equipment_factor = 0.6
 	}
 	division = {
 	  division_name = {
 	      is_name_ordered = yes
-	      name_order = 24
+	      name_order = 25
 	  }
 	  location = 692
 	  division_template = "Infanterie-Division"
-	  start_experience_factor = 0.3
+	  start_experience_factor = 0.2
+	  start_equipment_factor = 0.6
+	}
+	division = {
+	  division_name = {
+	      is_name_ordered = yes
+	      name_order = 26
+	  }
+	  location = 11544
+	  division_template = "Infanterie-Division"
+	  start_experience_factor = 0.2
+	  start_equipment_factor = 0.6
+	}
+	division = {
+	  division_name = {
+	      is_name_ordered = yes
+	      name_order = 27
+	  }
+	  location = 9515
+	  division_template = "Infanterie-Division"
+	  start_experience_factor = 0.2
+	  start_equipment_factor = 0.6
+	}
+	division = {
+	  division_name = {
+	      is_name_ordered = yes
+	      name_order = 28
+	  }
+	  location = 708
+	  division_template = "Infanterie-Division"
+	  start_experience_factor = 0.2
+	  start_equipment_factor = 0.6
 	}
 }
 
@@ -104,7 +115,7 @@ instant_effect = {
 			type = infantry_equipment_1
 			creator = "GPU"
 		}
-		requested_factories = 10
+		requested_factories = 1
 		progress = 0.1
 		efficiency = 50
 	}
@@ -114,7 +125,7 @@ instant_effect = {
 			type = support_equipment_1
 			creator = "GPU"
 		}
-		requested_factories = 2
+		requested_factories = 1
 		progress = 0.3
 		efficiency = 50
 	}
