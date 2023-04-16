@@ -31,7 +31,7 @@ focus_tree = {
 	focus = {
 		id = BUL_king_of_balkans
 		icon = GFX_focus_BUL_guardians_of_the_balkans
-		x = 15
+		x = 17
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
@@ -51,7 +51,7 @@ focus_tree = {
 	focus = {
 		id = BUL_keeping_the_crown
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
+		x = 17
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
@@ -71,7 +71,7 @@ focus_tree = {
 	focus = {
 		id = BUL_the_external_struggle
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 11
+		x = 13
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -149,7 +149,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_reinforcing_border
+		id = BUL_reinforcing_austrian_border
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
 		x = 11
 		y = 4
@@ -177,7 +177,7 @@ focus_tree = {
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_reinforcing_border
+			focus = BUL_reinforcing_austrian_border
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
@@ -254,7 +254,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_reform_the_sofia_charter
+		id = BUL_reform_the_wallachian_sofia_charter
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
 		x = 7
 		y = 9
@@ -357,7 +357,7 @@ focus_tree = {
 	focus = {
 		id = BUL_southern_puppet
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 12
+		x = 17
 		y = 3
 		cost = 5
 		available_if_capitulated = yes
@@ -375,9 +375,256 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_the_internal_struggle
+		id = BUL_greek_land_forts
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_southern_puppet
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_greek_coastal_forts
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_greek_land_forts
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_crush_greek_nationalists
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 19
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_southern_puppet
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_exile_petthalian_radicals
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 19
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_crush_greek_nationalists
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_the_petthalian_decision
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
 		x = 17
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_greek_coastal_forts
+		}
+		prerequisite = { 
+			focus = BUL_exile_petthalian_radicals
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_the_petthalian_decision
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_petthalian_decision
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_increase_the_garrison
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_petthalian_decision
+		}
+		mutually_exclusive = {focus = BUL_reduce_the_garrison }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_lower_petthalian_autonomy
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_increase_the_garrison
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_demand_claimed_petthalian_lands
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_lower_petthalian_autonomy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_reduce_the_garrison
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 19
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_petthalian_decision
+		}
+		mutually_exclusive = {focus = BUL_increase_the_garrison }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_increase_petthalian_autonomy
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 19
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_reduce_the_garrison
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_reform_the_petthalian_sofia_charter
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 19
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_increase_petthalian_autonomy
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+
+
+	focus = {
+		id = BUL_the_internal_struggle
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 21
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
