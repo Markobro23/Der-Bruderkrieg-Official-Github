@@ -49,7 +49,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_yet_no_king
+		id = BUL_keeping_the_crown
 		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
 		x = 15
 		y = 1
@@ -67,6 +67,333 @@ focus_tree = {
 
 		}
 	}
+
+	focus = {
+		id = BUL_the_external_struggle
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 11
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_keeping_the_crown
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_northern_puppet
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 9
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_external_struggle
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_silencing_the_RRL
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 7
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_northern_puppet
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_exiling_antonescu
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 7
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_silencing_the_RRL
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_reinforcing_border
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 11
+		y = 4
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_northern_puppet
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_wallachian_industry
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 11
+		y = 5
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_reinforcing_border
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+	
+
+	focus = {
+		id = BUL_the_wallachian_decision
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 9
+		y = 6
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_wallachian_industry
+		}
+		prerequisite = { 
+			focus = BUL_exiling_antonescu
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_loosen_our_grip
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 7
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_wallachian_decision
+		}
+		mutually_exclusive = {focus = BUL_tighten_our_grip }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_wallachian_political_freedom
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 7
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_loosen_our_grip
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_reform_the_sofia_charter
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 7
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_wallachian_political_freedom
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_tighten_our_grip
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 11
+		y = 7
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_wallachian_decision
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_destroy_political_opposition
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 11
+		y = 8
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_tighten_our_grip
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_lower_wallachian_autonomy
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 10
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_destroy_political_opposition
+		}
+		mutually_exclusive = {focus = BUL_take_direct_control }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_take_direct_control
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 12
+		y = 9
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_destroy_political_opposition
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_southern_puppet
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 12
+		y = 3
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_the_external_struggle
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_the_internal_struggle
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 17
+		y = 2
+		cost = 5
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_keeping_the_crown
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
 
 
 	
