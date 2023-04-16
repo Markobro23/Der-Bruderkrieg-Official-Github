@@ -1,0 +1,79 @@
+
+
+### search_filters = {FOCUS_FILTER_POLITICAL}
+### search_filters = {FOCUS_FILTER_RESEARCH}
+### search_filters = {FOCUS_FILTER_INDUSTRY}
+### search_filters = {FOCUS_FILTER_STABILITY}
+### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
+
+
+#Made by Cheesemeister
+
+focus_tree = {
+	id = bulgaria_focus
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BUL
+		}
+	}
+
+	default = no
+	continuous_focus_position = { x = 50 y = 1300}
+
+
+
+
+
+
+#Wholesome balkan hegemon larp
+	focus = {
+		id = BUL_king_of_balkans
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 15
+		y = 0
+		cost = 6
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_yet_no_king
+		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		x = 15
+		y = 1
+		cost = 6
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_king_of_balkans
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+
+	
+
+
+
+
+
+#End of focuses 
+ }
