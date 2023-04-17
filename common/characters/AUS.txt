@@ -1165,11 +1165,53 @@ characters={
 			traits = { air_warfare_theorist }
 		}
 	}
+	AUS_manfred_von_richthofen = {
+		name = "Manfred von Richthofen"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_manfred_von_richthofen.png"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = manfred_von_richthofen
+			traits = { air_chief_ground_support_3 }
+			cost = 200
+		}
+	}
+	AUS_alexander_loehr = {
+		name = "Alexander Löhr"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_alexander_loehr.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = AUS_alexander_loehr_high_command
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_strategic_bombing_3 }
+			cost = 200
+		}
+		advisor = {
+			slot = theorist
+			idea_token = AUS_alexander_loehr_theorist
+			ledger = air
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { victory_through_airpower }
+			cost = 150
+		}
+	}
 	AUS_gottfried_von_banfield={
 		name= "Gottfried Freiherr von Banfield"
 		portraits={
 			army={
-				small="GFX_idea_generic_navy_europe_3"
+				small = "gfx/interface/advisors/AUS/AUS_gottfried_von_banfeld.png"
 			}
 		}
 		advisor={
