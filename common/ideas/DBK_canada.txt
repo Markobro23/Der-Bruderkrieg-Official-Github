@@ -71,6 +71,28 @@ ideas = {
 	tank_manufacturer = {
 
 		designer = yes
+		massey_harris = {
+			allowed = {
+				original_tag = CAN
+			}
+			visible = {
+				tag = CAN
+			}
+			traits = { heavy_tank_manufacturer }
+			research_bonus = {
+				armor = 0.15
+			}
+		}
+
+		montreal_locomotive_works = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { infantry_tank_manufacturer }
+			research_bonus = {
+				armor = 0.15
+			}
+		}
 
 		vickers_armstrong_can = {
 
@@ -92,12 +114,12 @@ ideas = {
 
 
 
-		montreal_lab = {
+		bell_canada = {
 
 			picture = generic_industrial_concern_1
 
 			allowed = {
-				original_TAG = CAN
+				original_tag = CAN
 			}
 
 
@@ -112,7 +134,7 @@ ideas = {
 			}
 		}
 
-		polymer_corporation = {
+		imperial_oil = {
 
 			picture = generic_industrial_concern_2
 
@@ -121,13 +143,32 @@ ideas = {
 			}
 
 			research_bonus = {
-				synth_resources = 0.1
+				synth_resources = 0.15
 				industry = 0.05
 			}
 
 			traits = { refinery_concern }
 		}
 
+		dominion_steel_and_coal = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { industrial_concern }
+			research_bonus = {
+				industry = 0.15
+			}
+		}
+
+		canadian_pacific = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { railway_company }
+			research_bonus = {
+				train_tech = 0.1
+			}
+		}
 	}
 
 	materiel_manufacturer = {
@@ -153,7 +194,7 @@ ideas = {
 
 		}
 
-		small_arms_limited = {
+		dominion_cartridge = {
 
 			picture = generic_infantry_equipment_manufacturer_1
 
@@ -169,8 +210,27 @@ ideas = {
 
 			traits = { infantry_equipment_manufacturer }
 
-					}
+		}
 
+		canadian_industries_limited = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { artillery_manufacturer }
+			research_bonus = {
+				artillery = 0.15
+			}
+		}
+
+		general_motors_canada = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { motorized_equipment_manufacturer }
+			research_bonus = {
+				motorized_equipment = 0.15
+			}
+		}
 	}
 
 	naval_manufacturer = {
@@ -214,6 +274,16 @@ ideas = {
 
 			traits = { convoy_escort_naval_manufacturer }
 		}
+
+		davie_shipbuilding = {
+			allowed = {
+				original_tag = CAN
+			}
+			traits = { atlantic_fleet_naval_manufacturer }
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+		}
 	}
 
 	aircraft_manufacturer = {
@@ -241,7 +311,7 @@ ideas = {
 			}
 		}
 
-		canadian_car_foundry = {
+		canadian_car = {
 			picture = generic_air_manufacturer_2
 
 
@@ -262,7 +332,7 @@ ideas = {
 			}
 		}
 
-		CAN_fairchild_aircraft_ltd = {
+		canadair = {
 			picture = generic_air_manufacturer_2
 
 			cost = 150
@@ -279,14 +349,12 @@ ideas = {
 
 			traits = { naval_aircraft_manufacturer }
 
-			# fighter/interceptors like Hurricane
-
 			ai_will_do = {
 				factor = 1
 			}
 		}
 
-		CAN_handley_page = {
+		avro_canada = {
 			picture = generic_air_manufacturer_3
 
 			cost = 150
