@@ -31,7 +31,7 @@ focus_tree = {
 	focus = {
 		id = BUL_king_of_balkans
 		icon = GFX_focus_BUL_guardians_of_the_balkans
-		x = 17
+		x = 10
 		y = 0
 		cost = 6
 		available_if_capitulated = yes
@@ -49,9 +49,9 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_slipping_crown_at_home
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 17
+		id = BUL_the_ethnic_crisis
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 8
 		y = 1
 		cost = 6
 		available_if_capitulated = yes
@@ -68,17 +68,16 @@ focus_tree = {
 		}
 	}
 
-
 	focus = {
-		id = BUL_the_internal_struggle
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 17
+		id = BUL_expel_serbian_unionists
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 7
 		y = 2
-		cost = 5
+		cost = 6
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_slipping_crown_at_home
+			focus = BUL_the_ethnic_crisis
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
@@ -90,15 +89,15 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_the_macedonian_lands
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 11
-		y = 3
-		cost = 2
+		id = BUL_removing_political_extremists
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 9
+		y = 2
+		cost = 6
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_the_internal_struggle
+			focus = BUL_the_ethnic_crisis
 		}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
@@ -110,101 +109,16 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_build_macedonian_infrastructure
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 11
-		y = 4
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_the_macedonian_lands
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_buy_corporation_loyalty
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 11
-		y = 5
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_build_macedonian_infrastructure
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_silence_serbian_unionists
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 11
-		y = 6
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_buy_corporation_loyalty
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_promise_higher_future_autonomy
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		id = BUL_industrialising_the_nation
+		icon = GFX_focus_BUL_guardians_of_the_balkans
 		x = 12
-		y = 7
-		cost = 3
+		y = 1
+		cost = 6
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_silence_serbian_unionists
+			focus = BUL_king_of_balkans
 		}
-		mutually_exclusive = {focus = BUL_centralise_macedonian_control}
-		mutually_exclusive = {focus = BUL_centralise_southern_control}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-
-
-	focus = {
-		id = BUL_centralise_macedonian_control
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 10
-		y = 7
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_silence_serbian_unionists
-		}
-		mutually_exclusive = {focus = BUL_promise_higher_future_autonomy}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
 			factor = 1
@@ -215,38 +129,37 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_secure_macedonia
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
+		id = BUL_developing_the_economy
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 12
+		y = 2
+		cost = 6
+		available_if_capitulated = yes
+		
+		prerequisite = { 
+			focus = BUL_industrialising_the_nation
+		}
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+
+		}
+	}
+
+	focus = {
+		id = BUL_ask_for_russian_support
+		icon = GFX_focus_BUL_guardians_of_the_balkans
 		x = 11
-		y = 8
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_promise_higher_future_autonomy
-			focus = BUL_centralise_macedonian_control
-		}
-		mutually_exclusive = {focus = BUL_promise_higher_future_autonomy}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_the_greek_lands
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
 		y = 3
-		cost = 2
+		cost = 6
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_the_internal_struggle
+			focus = BUL_developing_the_economy
 		}
+		mutually_exclusive = {focus = BUL_develop_alone}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
 			factor = 1
@@ -257,142 +170,17 @@ focus_tree = {
 	}
 
 	focus = {
-		id = BUL_southern_factories
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
-		y = 4
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_the_greek_lands
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_make_concessions_to_locals
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
-		y = 5
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_southern_factories
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_quell_hellenic_sympathisers
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
-		y = 6
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_make_concessions_to_locals
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_centralise_southern_control
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 14
-		y = 7
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_quell_hellenic_sympathisers
-		}
-		mutually_exclusive = {focus = BUL_promise_higher_future_autonomy}
-		mutually_exclusive = {focus = BUL_centralise_thrace_control}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-
-	focus = {
-		id = BUL_centralise_thrace_control
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 16
-		y = 7
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_quell_hellenic_sympathisers
-		}
-		mutually_exclusive = {focus = BUL_centralise_southern_control}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_secure_southern_lands
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 15
-		y = 8
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_centralise_southern_control
-			focus = BUL_centralise_thrace_control
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-	
-
-	focus = {
-		id = BUL_the_ottoman_lands
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
+		id = BUL_develop_alone
+		icon = GFX_focus_BUL_guardians_of_the_balkans
+		x = 13
 		y = 3
-		cost = 2
+		cost = 6
 		available_if_capitulated = yes
 		
 		prerequisite = { 
-			focus = BUL_the_internal_struggle
+			focus = BUL_developing_the_economy
 		}
+		mutually_exclusive = {focus = BUL_ask_for_russian_support}
 		search_filters = { FOCUS_FILTER_POLITICAL } 
 		ai_will_do = {
 			factor = 1
@@ -401,228 +189,6 @@ focus_tree = {
 
 		}
 	}
-
-	focus = {
-		id = BUL_build_ottoman_factories
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
-		y = 4
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_the_ottoman_lands
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_allow_religious_freedom
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
-		y = 5
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_build_ottoman_factories
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_exile_ottoman_unionists
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
-		y = 6
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_allow_religious_freedom
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_centralise_edirne_control
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
-		y = 7
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_exile_ottoman_unionists
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_secure_edirne
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 19
-		y = 8
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_centralise_edirne_control
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_the_wallachian_lands
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 3
-		cost = 2
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_the_internal_struggle
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_build_dobrudjan_industry
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 4
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_the_wallachian_lands
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_increase_dobrujdan_political_freedom
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 5
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_build_dobrudjan_industry
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_but_kick_out_the_RRL
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 6
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_increase_dobrujdan_political_freedom
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_centralise_northern_control
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 7
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_but_kick_out_the_RRL
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-	focus = {
-		id = BUL_secure_dobrudja
-		icon = GFX_focus_BUL_oppose_the_royal_dictatorship
-		x = 23
-		y = 8
-		cost = 3
-		available_if_capitulated = yes
-		
-		prerequisite = { 
-			focus = BUL_centralise_northern_control
-		}
-		search_filters = { FOCUS_FILTER_POLITICAL } 
-		ai_will_do = {
-			factor = 1
-		}
-		completion_reward = {
-
-		}
-	}
-
-
 
 	
 
