@@ -175,6 +175,13 @@ characters={
 			logistics_skill=3
 			legacy_id=-1
 		}
+		advisor = {
+			slot = high_command
+			idea_token = CAN_bert_hoffmeister
+			ledger = army
+			traits = { army_armored_1 }
+			cost = 50
+		}
 	}
 	CAN_george_kitching = {
 		name = "George Kitching"
@@ -197,6 +204,7 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/CAN/Portrait_Canada_Georges_Vanier.png"
+				small="gfx/interface/advisors/CAN/CAN_Georges_Vanier.png"
 			}
 		}
 		corps_commander = {
@@ -206,6 +214,15 @@ characters={
 			defense_skill = 1
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = georges_vanier
+			ledger = army
+			traits = {
+				military_theorist
+			}
 		}
 	}
 	CAN_harry_leonard_nowell_salmon = {
@@ -229,6 +246,7 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/CAN/Portrait_Canada_John_Hamilton_Roberts.png"
+				small="gfx/interface/advisors/CAN/CAN_John_Hamilton_Roberts.png"
 			}
 		}
 		corps_commander = {
@@ -249,12 +267,20 @@ characters={
 			}
 		}
 		navy_leader={
-			skill=4
-			attack_skill=4
-			defense_skill=3
-			maneuvering_skill=3
-			coordination_skill=3
+			traits = { old_guard_navy blockade_runner }
+			skill=2
+			attack_skill=1
+			defense_skill=2
+			maneuvering_skill=2
+			coordination_skill=2
 			legacy_id=-1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = CAN_leonard_murray
+			ledger = navy
+			traits = { navy_fleet_logistics_1 }
+			cost = 50
 		}
 	}
 	CAN_ht_bailliegrohman={
@@ -312,6 +338,13 @@ characters={
 			coordination_skill=5
 			legacy_id=-1
 		}
+		advisor = {
+			slot = high_command
+			idea_token = CAN_harry_dewolf
+			ledger = navy
+			traits = { navy_screen_2 }
+			cost = 100
+		}
 	}
 
 	CAN_horatio_nelson_lay = {
@@ -343,14 +376,10 @@ characters={
 		}
 		advisor={
 			cost = 100
-			slot = theorist
+			slot = army_chief
 			idea_token = CAN_kenneth_stuart
-			ledger = army
-			allowed = {
-				original_tag = CAN
-			}
 			traits = {
-				military_theorist
+				army_chief_reform_2
 			}
 		}
 		corps_commander = {
@@ -403,7 +432,7 @@ characters={
 				original_tag = CAN
 			}
 			traits = {
-				air_warfare_theorist
+				dive_bomber
 			}
 		}
 	}
@@ -425,12 +454,10 @@ characters={
 		advisor={	
 			slot = army_chief
 			idea_token = CAN_harry_crerar
-			allowed = {
-				original_tag = CAN
-			}
 			traits = {
-				army_chief_old_guard
+				army_chief_maneuver_1
 			}
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -460,13 +487,10 @@ characters={
 			}
 		}
 		advisor={
-			slot = army_chief
+			slot = high_command
 			idea_token = CAN_andrew_mcnaughton
-			allowed = {
-				original_tag = CAN
-			}
 			traits = {
-				army_chief_offensive_2
+				army_artillery_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -572,7 +596,7 @@ characters={
 			}
 		}
 		advisor={
-			slot = navy_chief
+			slot = high_command
 			idea_token = CAN_george_jones
 			allowed = {
 				original_tag = CAN
@@ -598,7 +622,7 @@ characters={
 			}
 		}
 		advisor={
-			slot = air_chief
+			slot = high_command
 			idea_token = CAN_lloyd_samuel_breadner
 			allowed = {
 				original_tag = CAN
@@ -667,7 +691,7 @@ characters={
 			}
 		}
 		advisor={
-			slot = air_chief
+			slot = high_command
 			idea_token = CAN_raymond_collishaw
 			allowed = {
 				original_tag = CAN
@@ -697,11 +721,8 @@ characters={
 			slot = high_command
 			idea_token = CAN_guy_simonds
 			ledger = army
-			allowed = {
-				original_tag = CAN
-			}
 			traits = {
-				army_artillery_2
+				army_infantry_2
 			}
 			cost = 100
 			ai_will_do = {
@@ -787,6 +808,33 @@ characters={
 			ai_will_do = {
 				factor = 1.000
 			}
+		}
+	}
+	CAN_william_avery_bishop = {
+		name = "Billy Bishop"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/CAN/CAN_william_avery_bishop.png"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = CAN_william_avery_bishop_air_chief
+			available = {
+				not_already_hired_except_as = air_chief
+			}
+			traits = { air_chief_reform_3 }
+			cost = 200
+		}
+		advisor = {
+			slot = high_command
+			idea_token = CAN_william_avery_bishop_high_command
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_pilot_training_2 }
+			cost = 100
 		}
 	}
 }

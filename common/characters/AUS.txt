@@ -499,7 +499,7 @@ characters={
 		name="Julius Ringel"
 		portraits={
 			army={
-				small="GFX_Portrait_europe_generic_land_6_small"
+				small="gfx/interface/advisors/AUS/AUS_Julius_Ringel.png"
 				large="gfx/leaders/AUS/Portrait_AUS_Julius_Ringel.png"
 			}
 		}
@@ -943,16 +943,26 @@ characters={
 		advisor={
 			slot = navy_chief
 			idea_token = trapp
-			allowed = {
-				original_tag = AUS
-			}
 			traits = {
-				navy_chief_commerce_raiding_2
+				navy_chief_commerce_raiding_3
 			}
-			cost = 100
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			cost = 200
 			ai_will_do = {
 				factor = 0.100
 			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = AUS_georg_von_trapp_theorist
+			ledger = navy
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { submarine_specialist }
+			cost = 150
 		}
 		navy_leader={
 			traits={ navy_media_personality bold navy_career_officer naval_lineage seawolf silent_hunter }
@@ -1102,29 +1112,6 @@ characters={
 			legacy_id=13506
 		}
 	}
-	AUS_alexander_lohr={
-		name= "Alexander Lohr"
-		portraits={
-			army={
-				small="GFX_Portrait_europe_generic_land_6_small"
-				large="gfx/leaders/AUS/alexander_lohr.dds"
-			}
-		}
-		advisor={
-			slot = air_chief
-			idea_token = alexander_lohr
-			allowed = {
-				original_tag = AUS
-			}
-			traits = {
-				air_chief_reform_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-	}
 	AUS_otto_schobel={
 		name= "Otto Schobel"
 		portraits={
@@ -1165,11 +1152,53 @@ characters={
 			traits = { air_warfare_theorist }
 		}
 	}
+	AUS_manfred_von_richthofen = {
+		name = "Manfred von Richthofen"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_manfred_von_richthofen.png"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = manfred_von_richthofen
+			traits = { air_chief_ground_support_3 }
+			cost = 200
+		}
+	}
+	AUS_alexander_loehr = {
+		name = "Alexander Löhr"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_alexander_loehr.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = AUS_alexander_loehr_high_command
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_strategic_bombing_3 }
+			cost = 200
+		}
+		advisor = {
+			slot = theorist
+			idea_token = AUS_alexander_loehr_theorist
+			ledger = air
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { victory_through_airpower }
+			cost = 150
+		}
+	}
 	AUS_gottfried_von_banfield={
 		name= "Gottfried Freiherr von Banfield"
 		portraits={
 			army={
-				small="GFX_idea_generic_navy_europe_3"
+				small = "gfx/interface/advisors/AUS/AUS_gottfried_von_banfeld.png"
 			}
 		}
 		advisor={
@@ -1184,29 +1213,6 @@ characters={
 			cost = 100
 			ai_will_do = {
 				factor = 1.000
-			}
-		}
-	}
-	AUS_heisenberg={
-		name= "Werner Hesenberg"
-		portraits={
-			army={
-				small="GFX_idea_heisenberg"
-			}
-		}
-		advisor={
-			cost = 150
-			slot = theorist
-			idea_token = heisenberg
-			ledger = army
-			allowed = {
-				original_tag = AUS
-			}
-			research_bonus = {
-				nuclear = 0.150
-			}
-			traits = {
-				nuclear_scientist
 			}
 		}
 	}
@@ -1257,6 +1263,42 @@ characters={
 			defense_skill = 1
 			planning_skill = 3
 			logistics_skill = 2
+		}
+	}
+	AUS_eugen_saenger = {
+		name = "Eugen Sänger"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_eugen_saenger.png"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = AUS_eugen_saenger
+			ledger = army
+			traits = { rocket_scientist }
+			research_bonus = {
+				rocketry = 0.150
+			}
+			cost = 100
+		}
+	}
+	AUS_otto_robert_frisch = {
+		name = "Otto Robert Frisch"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_otto_robert_frisch.png"
+			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = AUS_otto_robert_frisch
+			ledger = army
+			traits = { nuclear_scientist }
+			research_bonus = {
+				nuclear = 0.150
+			}
+			cost = 100
 		}
 	}
 }

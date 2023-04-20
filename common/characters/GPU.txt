@@ -233,9 +233,6 @@ characters={
 			slot = theorist
 			idea_token = ritter_thoma
 			ledger = army
-			allowed = {
-				original_tag = GPU
-			}
 			traits = {
 				military_theorist
 			}
@@ -526,6 +523,29 @@ characters={
 			cost = 50
 		}
 	}
+	GPU_eduard_wagner = {
+		name = "Eduard Wagner"
+		portraits = {
+			army = {
+				large = "gfx/leaders/GPU/Portrait_GPU_Eduard_Wagner.png"
+				small = "gfx/interface/GPU/GPU_Eduard_Wagner.png"
+			}
+		}
+		corps_commander = {
+			traits = { bearer_of_artillery harsh_leader }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = GPU_eduard_wagner
+			traits = { army_logistics_2 }
+			cost = 100
+		}
+	}
 	GPU_gunther_lutjens={
 		name="Günther Lütjens"
 		portraits={
@@ -566,6 +586,26 @@ characters={
 			maneuvering_skill=3
 			coordination_skill=3
 			legacy_id=31
+		}
+	}
+	GPU_heisenberg={
+		name= "Werner Hesenberg"
+		portraits={
+			army={
+				small="GFX_idea_heisenberg"
+			}
+		}
+		advisor={
+			cost = 150
+			slot = theorist
+			idea_token = heisenberg
+			ledger = army
+			research_bonus = {
+				nuclear = 0.150
+			}
+			traits = {
+				nuclear_scientist
+			}
 		}
 	}
 }

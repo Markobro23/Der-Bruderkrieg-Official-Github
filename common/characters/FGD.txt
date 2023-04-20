@@ -12,7 +12,7 @@ characters={
 			ideology=despotic
 			expire="1965.1.1.1"
 			id=-1
-			traits = {regent}
+			traits = {regent} #Someone please check this error!
 		}
 		country_leader={
 			#desc="POLITICS_KURT_SCHUSCHNIGG_DESC"
@@ -158,7 +158,7 @@ characters={
 			}
 		}
 	}
-	FGD_Max_von_Looff = {
+	FGD_max_von_looff = {
 		name = "Max Looff"
 		portraits = {
 			navy = {
@@ -181,7 +181,7 @@ characters={
 			coordination_skill = 3
 		}
 	}
-	FGD_Ernst_Busch = {
+	FGD_ernst_busch = {
 		name = "Ernst Busch"
 		portraits = {
 			army = {
@@ -208,6 +208,46 @@ characters={
 			ai_will_do = {
 				factor = 2.000
 			}
+		}
+	}
+	FGD_hans_jordan = {
+		name = "Hans Jordan"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FGD/Portrait_FGD_Hans_Jordan.png"
+				small = "gfx/interface/FGD/FGD_Hans_Jordan.png"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer trait_cautious }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = hans_jordan
+			traits = { army_infantry_1 }
+			cost = 50
+		}
+	}
+	FGD_rudolf_schmundt = {
+		name = "Rudolf Schmundt"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FGD/Portrait_FGD_Rudolf_Schmundt.png"
+				small = "gfx/leaders/FGD/FGD_Rudolf_Schmundt.png"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_officer inflexible_strategist }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 1
 		}
 	}
 }
