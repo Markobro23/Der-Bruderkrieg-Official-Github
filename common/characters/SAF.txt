@@ -3,10 +3,11 @@ characters={
 		name="Jan Smuts"
 		portraits={
 			civilian={
-				large="gfx/leaders/SAF/Jan_Smuts.dds"
+				large="gfx/leaders/SAF/Portrait_SAF_Jan_Smuts.png"
 			}
 			army={
-				large="gfx/leaders/SAF/Jan_Smuts.dds"
+				large="gfx/leaders/SAF/Portrait_SAF_Jan_Smuts.png"
+				small="gfx/interface/advisors/SAF/SAF_Jan_Smuts.png"
 			}
 		}
 		country_leader={
@@ -22,6 +23,15 @@ characters={
 			defense_skill = 3
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = jan_smuts
+			ledger = army
+			traits = {
+				military_theorist
+			}
 		}
 	}
 	SAF_j_b_m_hertzog={
@@ -97,6 +107,27 @@ characters={
 			logistics_skill=1
 			legacy_id=-1
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = SAF_george_edwin_brink_army_chief
+			allowed = { original_tag = SAF }
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_offensive_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SAF_george_edwin_brink_high_command
+			ledger = army
+			allowed = { original_tag = SAF }
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_commando_2 }
+			cost = 100
+		}
 	}
 
 	SAF_guy_hallifax={
@@ -108,13 +139,34 @@ characters={
 			}
 		}
 		navy_leader={
-			traits={ battleship_adherent blockade_runner }
+			traits={ blockade_runner }
 			skill=3
 			attack_skill=4
 			defense_skill=2
 			maneuvering_skill=2
 			coordination_skill=2
 			legacy_id=-1
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = SAF_guy_waterhouse_hallifax_navy_chief
+			allowed = { original_tag = SAF }
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_maneuver_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = theorist
+			idea_token = SAF_guy_waterhouse_hallifax_theorist
+			ledger = navy
+			allowed = { original_tag = SAF }
+			available = {
+				not_already_hired_except_as = theorist
+			}
+			traits = { naval_theorist }
+			cost = 100
 		}
 	}
 
@@ -130,18 +182,6 @@ characters={
 			civilian={
 				small="GFX_idea_SAF_j_f_van_rensburg" #small="GFX_idea_generic_political_advisor_europe_4"
 				large="gfx/leaders/SAF/Portrait_SAF_Johannes_van_Rensburg.png"
-			}
-		}
-		advisor={
-			cost = 100
-			slot = theorist
-			idea_token = SAF_j_f_van_rensburg
-			ledger = army
-			allowed = {
-				original_tag = SAF
-			}
-			traits = {
-				military_theorist
 			}
 		}
 	}
@@ -210,15 +250,15 @@ characters={
 			logistics_skill = 1
 		}
 		advisor={
-			slot = army_chief
+			slot = high_command
 			idea_token = SAF_leonard_beyers
 			allowed = {
 				original_tag = SAF
 			}
 			traits = {
-				army_chief_defensive_2
+				army_regrouping_1
 			}
-			cost = 100
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -444,15 +484,36 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/SAF/Portrait_SAF_Dan_Pienaar.png"
+				small = "gfx/interface/advisors/SAF/SAF_Dan_Pienaar.png"
 			}
 		}
 		corps_commander = {
-			traits = { old_guard desert_fox }
-			skill = 2
-			attack_skill = 1
-			defense_skill = 2
+			traits = { old_guard desert_fox hidden_sympathies }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
 			planning_skill = 2
-			logistics_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SAF_daniel_hermanus_pienaar_army_chief
+			allowed = { original_tag = SAF }
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_reform_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = high_command
+			ledger = army
+			idea_token = SAF_daniel_hermanus_pienaar_high_command
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_concealment_2 }
+			cost = 100
 		}
 	}
 	SAF_hendrik_klopper = {
@@ -460,15 +521,23 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/SAF/Portrait_SAF_Hendrik_Klopper.png"
+				small = "gfx/interface/advisors/SAF/SAF_hendrik_balzazar_klopper.png"
 			}
 		}
 		corps_commander = {
-			traits = { infantry_officer trait_engineer }
+			traits = { infantry_officer trait_engineer hidden_sympathies }
 			skill = 2
 			attack_skill = 1
 			defense_skill = 2
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SAF_hendrik_balzazar_klopper
+			ledger = army
+			traits = { army_entrenchment_1 }
+			cost = 50
 		}
 	}
 	SAF_isaac_pierre_de_villiers = {
@@ -543,7 +612,7 @@ characters={
 			}
 		}
 		navy_leader = {
-			traits = { spotter }
+			traits = { hidden_sympathies spotter }
 			skill = 1
 			attack_skill = 1
 			defense_skill = 1
