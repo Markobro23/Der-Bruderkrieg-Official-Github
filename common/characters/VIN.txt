@@ -1,5 +1,5 @@
 characters={
-	VIN_phan_bôi_châu={
+	VIN_phan_boi_chau={
 		name="Phan Bôi Châu"
 		portraits={
 			civilian={
@@ -12,20 +12,20 @@ characters={
 			id=-1
 		}
 	}
-	VIN_ho_chí_minh={
+	VIN_ho_chi_minh={
 		name="Ho Chí Minh"
 		portraits={
 			civilian={
-				large="gfx/leaders/Ho_Chi_Minh.dds"
+				large="gfx/leaders/VIN/Ho_Chi_Minh.dds"
 			}
 		}
 		country_leader={
-			ideology=marxism
+			ideology=marxism_trotskyism
 			expire="1953.3.1.1"
 			id=-1
 		}
 	}
-	VIN_ngô_Đình_diêm={
+	VIN_ngo_dinh_diem={
 		name="Ngô Đình Diêm"
 		portraits={
 			civilian={
@@ -33,7 +33,7 @@ characters={
 			}
 		}
 		country_leader={
-			ideology=democratic_conservative
+			ideology=authoritarian_democrat
 			expire="1953.3.1.1"
 			id=-1
 		}
@@ -51,74 +51,84 @@ characters={
 			id=-1
 		}
 	}
-	VIN_alex_wilson={
-		name="Alex Wilson"
+	VIN_bao_dai={
+		name="Bảo Đại"
 		portraits={
 			civilian={
-				large="GFX_portrait_asia_generic_4"
+				large="gfx/leaders/VIN/BaoDai.dds"
 			}
 		}
 		country_leader={
-			ideology=centralism
-			traits={ efficient_budgeter }
-			expire="1956.1.1.12"
+			ideology=democratic_conservative
+			expire="1953.3.1.1"
 			id=-1
 		}
 	}
-	VIN_bob_white={
-		name="Bob White"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	VIN_georges_catroux = {
+		name = "Georges Catroux"
+		portraits = {
+			army = {
+				large = "gfx/leaders/VIN/Portrait_VIN_Georges_Catroux.png"
+				small = "gfx/interface/advisors/VIN/VIN_georges_catroux.png"
 			}
 		}
-		country_leader={
-			ideology=market_socialism
-			traits={ compassionate_gentleman }
-			expire="1956.1.1.12"
-			id=-1
+		field_marshal = {
+			#desc = VIN_georges_catroux_commander_desc
+			traits = { organizer offensive_doctrine }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = VIN_georges_catroux
+			traits = { army_chief_offensive_2 }
+			cost = 100
 		}
 	}
-	VIN_alex_smith={
-		name="Alex Smith"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_2.dds"
+	VIN_gabriel_auphan = {
+		name = "Gabriel Auphan"
+		portraits = {
+			army = {
+				large = "gfx/leaders/VIN/Portrait_VIN_Gabriel_Auphan.png"
+				small = "gfx/interface/advisors/VIN/VIN_gabriel_auphan.png"
 			}
 		}
-		country_leader={
-			ideology=oligarchic_republicanism
-			traits={ silent_workhorse economist }
-			expire="1956.1.1.12"
-			id=-1
+		navy_leader = {
+			#desc = VIN_gabriel_auphan_admiral_desc
+			traits = { seawolf }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
 	}
-	VIN_marcus_jones={
-		name="Marcus Jones"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
+	VIN_philippe_auboyneau = {
+		name = "Philippe Auboyneau"
+		portraits = {
+			army = {
+				large = "gfx/leaders/VIN/Portrait_VIN_Philippe_Auboyneau.png"
+				small = "gfx/interface/advisors/VIN/VIN_philippe_auboyneau.png"
 			}
 		}
-		country_leader={
-			ideology=nationalist_autocrat
-			traits={ eager_collaborator }
-			expire="1956.1.1.12"
-			id=-1
+		navy_leader = {
+			#desc = VIN_philippe_auboyneau_admiral_desc
+			traits = { fleet_protector }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 2
 		}
-	}
-	VIN_jim_brown={
-		name="Jim Brown"
-		portraits={
-			civilian={
-				large="gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=totalitarian_conservatism
-			traits={ financial_expert }
-			expire="1956.1.1.12"
-			id=-1
+		advisor = {
+			slot = high_command
+			idea_token = VIN_philippe_auboyneau
+			ledger = navy
+			traits = { navy_amphibious_assault_2 }
+			cost = 100
 		}
 	}
 }

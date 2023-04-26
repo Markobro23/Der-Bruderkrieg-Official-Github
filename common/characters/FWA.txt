@@ -3,7 +3,7 @@ characters={
 		name="Maurice Viollette"
 		portraits={
 			civilian={
-				large="gfx/leaders/jules_breve.dds"
+				large="gfx/leaders/FWA/Portrait_FWA_Maurice_Viollette.dds"
 			}
 		}
 		country_leader={
@@ -13,115 +13,88 @@ characters={
 			id=-1
 		}
 	}
-	FWA_peter_walker={
-		name="Peter Walker"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_1.dds"
+	FWA_diego_brosset = {
+		name = "Diego Brosset"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FWA/Portrait_FWA_Diego_Brosset.png"
+				small = "gfx/interface/advisors/FWA/FWA_diego_brosset.png"
 			}
 		}
-		country_leader={
-			ideology=marxism_trotskyism
-			traits={ hawk }
-			expire="1941.1.1.12"
-			id=-1
+		corps_commander = {
+			#desc = FRA_diego_brosset_commander_desc
+			traits = { adaptable trait_reckless infantry_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
 		}
 	}
-	FWA_bob_roberts={
-		name="Bob Roberts"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic_2.dds"
+	FWA_raoul_magrin_vernerey = {
+		name = "Raoul Magrin-Vernerey"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FWA/Portrait_FWA_Raoul_Magrin_Vernerey.png"
+				small = "gfx/interface/advisors/FWA/FWA_raoul_magrin_vernerey.png"
 			}
 		}
-		country_leader={
-			ideology=radical_socialism
-			traits={ armaments_organizer tenacious_negotiator }
-			expire="1955.1.1.12"
-			id=-1
+		corps_commander = {
+			#desc = FWA_raoul_magrin_vernerey_commander_desc
+			traits = { adaptable trait_reckless infantry_officer }
+			skill = 2
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = FWA_raoul_magrin_vernerey
+			ledger = army
+			traits = { army_commando_2 }
+			cost = 100
 		}
 	}
-	FWA_alex_taylor={
-		name="Alex Taylor"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_2.dds"
+	FWA_ernest_petit = {
+		name = "Ernest Petit"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FWA/Portrait_FWA_Ernest_Petit.png"
+				small = "gfx/interface/advisors/FWA/FWA_ernest_petit.png"
 			}
 		}
-		country_leader={
-			ideology=market_socialism
-			traits={ captain_of_industry charismatic_ego }
-			expire="1952.1.1.12"
-			id=-1
+		corps_commander = {
+			#desc = FWA_ernest_petit_commander_desc
+			traits = { politically_connected career_officer infantry_leader }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = FWA_ernest_petit
+			ledger = army
+			traits = { army_infantry_2 }
+			cost = 100
 		}
 	}
-	FWA_bob_taylor={
-		name="Bob Taylor"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
+	FWA_pierre_lelong = {
+		name = "Pierre Lelong"
+		portraits = {
+			army = {
+				large = "gfx/leaders/FWA/Portrait_FWA_Pierre_Lelong.png"
 			}
 		}
-		country_leader={
-			ideology=democratic_liberal
-			traits={ longist_puppet efficient_budgeter }
-			expire="1949.1.1.12"
-			id=-1
-		}
-	}
-	FWA_johannes_wilson={
-		name="Johannes Wilson"
-		portraits={
-			civilian={
-				large="gfx/leaders/SAF/Portrait_South_Africa_Political_Leader_Generic.dds"
-			}
-		}
-		country_leader={
-			ideology=liberal_conservatism
-			traits={ medical_crusaders tenacious_negotiator }
-			expire="1946.1.1.12"
-			id=-1
-		}
-	}
-	FWA_marcus_evans={
-		name="Marcus Evans"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=authoritarian_democrat
-			traits={ efficient_budgeter friend_of_the_unions }
-			expire="1943.1.1.12"
-			id=-1
-		}
-	}
-	FWA_jim_wilson={
-		name="Jim Wilson"
-		portraits={
-			civilian={
-				large="GFX_Portrait_Africa_Generic_4"
-			}
-		}
-		country_leader={
-			ideology=esotheric_pharaohnism
-			expire="1956.1.1.12"
-			id=-1
-		}
-	}
-	FWA_alex_wilson={
-		name="Alex Wilson"
-		portraits={
-			civilian={
-				large="gfx/leaders/Africa/Portrait_Africa_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=ultranationalist
-			traits={ quartermaster_general }
-			expire="1953.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
 		}
 	}
 }

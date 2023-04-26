@@ -2,7 +2,8 @@
 
 oob = "VIN_1936"
 
-set_research_slots = 3
+set_research_slots = 2
+set_convoys = 50
 
 # Starting tech
 # clone of France
@@ -15,18 +16,6 @@ set_technology = {
 	motorised_infantry = 1
 	gw_artillery = 1
 	interwar_antiair = 1
-	gwtank = 1
-	basic_light_tank = 1
-	improved_light_tank = 1
-	early_fighter = 1
-	naval_bomber1 = 1
-	cv_early_fighter = 1
-	cv_naval_bomber1 = 1
-	early_bomber = 1
-	tactical_bomber1 = 1
-	CAS1 = 1
-	trench_warfare = 1
-	fleet_in_being = 1
 }
 
 if = {
@@ -63,6 +52,7 @@ if = {
 		basic_battery = 1
 		basic_torpedo = 1
 	}
+	set_naval_oob = "VIN_naval_mtg"
 }
 
 set_politics = {
@@ -89,57 +79,52 @@ set_cosmetic_tag = VIN_french_puppet
 
 #NOTICE# please watch out for spelling, im using Vietnamese names as they spell them, game might not support these characters!
 
-create_country_leader = {
-	name = "Phan Bôi Châu"
-	desc = ""
-	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_warlord2.dds"
-	expire = "1953.3.1"
-	ideology = fascism_ideology
-	traits = {
+recruit_character = VIN_phan_boi_chau
+recruit_character = VIN_ho_chi_minh
+recruit_character = VIN_ngo_dinh_diem
+recruit_character = VIN_nguyen_tuong_tam
+recruit_character = VIN_bao_dai
+recruit_character = VIN_georges_catroux
+recruit_character = VIN_gabriel_auphan
+recruit_character = VIN_philippe_auboyneau
 
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	# Heavy Cruisers #
+	create_equipment_variant = {
+		name = "Suffren Class"
+		type = ship_hull_cruiser_1
+		name_group = FRA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_medium_battery_1
+			mid_2_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+		obsolete = yes
 	}
-}
-
-create_country_leader = {
-	name = "Ho Chí Minh"
-	desc = ""
-	picture = "gfx/leaders/Ho_Chi_Minh.dds"
-	expire = "1953.3.1"
-	ideology = marxism_trotskyism
-	traits = {
-
-	}
-}
-
-create_country_leader = {
-	name = "Ngô Đình Diêm"
-	desc = ""
-	picture = "gfx/leaders/No_Ding_Ziem.dds"
-	expire = "1953.3.1"
-	ideology = authoritarian_democrat
-	traits = {
-
-	}
-}
-
-create_country_leader = {
-	name = "Bảo Đại"
-	desc = ""
-	picture = "gfx/leaders/VIN/BaoDai.dds"
-	expire = "1953.3.1"
-	ideology = democratic_conservative
-	traits = {
-
-	}
-}
-
-create_country_leader = {
-	name = "Nguyen Tuong Tam"
-	desc = ""
-	picture = "gfx/leaders/Asia/Portrait_Asia_Generic_3.dds"
-	expire = "1953.3.1"
-	ideology = centrism
-	traits = {
-
+	# Light Cruisers #
+	create_equipment_variant = {
+		name = "Duguay-Trouin Class"
+		type = ship_hull_cruiser_1
+		name_group = FRA_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			mid_1_custom_slot = ship_torpedo_1
+			mid_2_custom_slot = ship_light_medium_battery_1
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+		obsolete = yes
 	}
 }
