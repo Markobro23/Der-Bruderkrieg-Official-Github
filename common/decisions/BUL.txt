@@ -237,6 +237,9 @@ BUL_ethnic_crisis = {
     		AND = {
        			has_completed_focus = BUL_the_ethnic_crisis
        			tag = BUL
+				NOT = {
+					has_country_flag = the_ottoman_lands_completed
+				}
 			}
 		}
 
@@ -257,11 +260,211 @@ BUL_ethnic_crisis = {
       		AND = {
 				has_completed_focus = BUL_the_ethnic_crisis
        			tag = BUL
+				NOT = {
+					has_country_flag = the_ottoman_lands_completed
+				}
       		}
 		}
 
         complete_effect = {
 			
+		}
+
+		remove_effect = {
+		set_country_flag = the_ottoman_lands_completed	
+		}
+	}
+
+	BUL_allow_ottomans_religious_freedom = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_ottoman_lands_completed
+				NOT = {
+					has_country_flag = allow_ottomans_religious_freedom_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_ottoman_lands_completed
+				NOT = {
+					has_country_flag = allow_ottomans_religious_freedom_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = allow_ottomans_religious_freedom_completed
+		}
+	}
+
+	BUL_improve_edirne_infrastructure = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_ottomans_religious_freedom_completed
+				NOT = {
+					has_country_flag = improve_edirne_infrastructure_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_ottomans_religious_freedom_completed
+				NOT = {
+					has_country_flag = improve_edirne_infrastructure_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = improve_edirne_infrastructure_completed
+		}
+	}
+
+	BUL_dealing_with_sultan_loyalists = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_completed_focus = BUL_removing_political_extremists
+       			tag = BUL
+				has_country_flag = improve_edirne_infrastructure_completed
+				NOT = {
+					has_country_flag = dealing_with_sultan_loyalists_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = improve_edirne_infrastructure_completed
+				NOT = {
+					has_country_flag = dealing_with_sultan_loyalists_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = dealing_with_sultan_loyalists_completed
+		}
+	}
+
+	BUL_secure_edirne = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_sultan_loyalists_completed
+				NOT = {
+					has_country_flag = secure_edirne_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_sultan_loyalists_completed
+				NOT = {
+					has_country_flag = secure_edirne_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = secure_edirne_completed
 		}
 	}
 
