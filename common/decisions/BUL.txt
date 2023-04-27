@@ -76,11 +76,156 @@ BUL_ethnic_crisis = {
 				has_completed_focus = BUL_the_ethnic_crisis
 				has_country_flag = the_macedonian_lands_completed
        			tag = BUL
+				NOT = {
+					has_country_flag = make_concessions_to_macedonian_locals_completed	
+				}
       		}
 		}
 
         complete_effect = {
 			
+		}
+
+		remove_effect = {
+		set_country_flag = make_concessions_to_macedonian_locals_completed
+		}
+	}
+
+	BUL_improve_macedonian_infrastructure = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = make_concessions_to_macedonian_locals_completed
+       			tag = BUL
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = make_concessions_to_macedonian_locals_completed
+       			tag = BUL
+				NOT = {
+					has_country_flag = improve_macedonian_infrastructure_completed	
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = improve_macedonian_infrastructure_completed	
+		}
+	}
+
+	BUL_dealing_with_serbian_unionists_in_macedonia = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = improve_macedonian_infrastructure_completed
+       			tag = BUL
+				has_completed_focus = BUL_expel_serbian_unionists
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = improve_macedonian_infrastructure_completed
+       			tag = BUL
+				has_completed_focus = BUL_expel_serbian_unionists
+				NOT = {
+					has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = dealing_with_serbian_unionists_in_macedonia_completed	
+		}
+	}
+	
+
+	BUL_secure_macedonia = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+       			tag = BUL
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 30
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+       			tag = BUL
+				NOT = {
+					has_country_flag = secure_macedonia_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = secure_macedonia_completed	
 		}
 	}
 
