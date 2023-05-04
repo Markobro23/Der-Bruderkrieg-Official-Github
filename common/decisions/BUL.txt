@@ -16,7 +16,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -60,7 +60,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -105,7 +105,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -151,7 +151,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -198,7 +198,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -245,7 +245,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -292,7 +292,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -340,7 +340,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -389,7 +389,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -437,7 +437,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -485,7 +485,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -532,7 +532,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -580,7 +580,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -628,7 +628,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -676,7 +676,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -721,7 +721,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -766,7 +766,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -814,7 +814,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -862,7 +862,7 @@ BUL_ethnic_crisis = {
 
 		fire_only_once = no
 
-		cost = 30
+		cost = 15
 		days_remove = 30
 
 		modifier = {
@@ -892,6 +892,393 @@ BUL_ethnic_crisis = {
 			set_country_flag = dealing_with_the_RRL_completed
 		}
 	}
+}
+
+BUL_industrialising_the_nation = {
+
+
+	BUL_build_civilian_factories_in_western_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_western_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_western_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_western_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_western_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_western_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_western_bulgaria_completed
+		}
+	}
+
+
+
+	BUL_build_civilian_factories_in_southern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_southern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_southern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_southern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_southern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_southern_bulgaria_completed
+		}
+	}
+
+	BUL_build_civilian_factories_in_eastern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_eastern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_eastern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_eastern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_eastern_bulgaria_completed
+		}
+	}
+
+
+	BUL_build_civilian_factories_in_central_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_central_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_central_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_central_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_central_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_central_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_central_bulgaria_completed
+		}
+	}
+
+
+	
+
 }
 
 
