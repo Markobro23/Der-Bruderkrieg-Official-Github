@@ -129,7 +129,7 @@ characters={
 		name="Douglas MacArthur"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_USA_douglas_macarthur.dds"
+				small="gfx/interface/advisors/USA/USA_douglas_macarthur.png"
 				large="gfx/leaders/USA/Portrait_USA_Douglas_MacArthur_KR.png"
 			}
 		}
@@ -164,23 +164,24 @@ characters={
 				large="gfx/leaders/USA/Portrait_USA_Dwight_Eisenhower.png"
 			}
 			army={
-				small="gfx/interface/ideas/idea_USA_dwight_d_eisenhower.dds"
+				small="gfx/interface/advisors/USA/USA_dwight_d_eisenhower.png"
 				large="gfx/leaders/USA/Portrait_USA_Dwight_Eisenhower_army.png"
 			}
 		}
 		advisor={
-			slot = army_chief
+			slot = high_command
 			idea_token = dwight_eisenhower
+			ledger = army
 			allowed = {
-					original_tag = USA
-				}
-				traits = {
-					army_chief_offensive_2
-				}
-				cost = 100
-				ai_will_do = {
-					factor = 1.000
-				}
+				original_tag = USA
+			}
+			traits = {
+				army_logistics_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
 		}
 		corps_commander={
 			traits={ trait_cautious armor_officer politically_connected organizer }
@@ -333,8 +334,8 @@ characters={
 		name="George S. Patton"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_USA_george_s_patton.dds"
-				large="gfx/leaders/USA/Portrait_TEX_george_patton.png"
+				small="gfx/interface/advisors/USA/USA_george_s_patton.png"
+				large="gfx/leaders/USA/Portrait_USA_george_patton_KR.png"
 			}
 		}
 		advisor={
@@ -397,26 +398,11 @@ characters={
 		}
 	}
 	USA_joseph_stillwell={
-		name="Joseph Stillwell"
+		name="Joseph Stilwell"
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_USA_joseph_stilwell.dds"
 				large="gfx/leaders/USA/Portrait_USA_Joseph_Stilwell_KR.png"
-			}
-		}
-		advisor={
-			slot = high_command
-			idea_token = joseph_stilwell
-			ledger = army
-			allowed = {
-				original_tag = USA
-			}
-			traits = {
-				army_logistics_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
 			}
 		}
 		corps_commander={
@@ -556,7 +542,7 @@ characters={
 		name="Omar Bradley"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_USA_omar_bradley.dds"
+				small="gfx/interface/advisors/USA/USA_omar_bradley.png"
 				large="gfx/leaders/USA/Portrait_USA_Omar_Bradley_KR.png"
 			}
 		}
@@ -645,8 +631,8 @@ characters={
 			traits={ brilliant_strategist career_officer armor_officer }
 			skill=3
 			attack_skill=3
-			defense_skill=3
-			planning_skill=1
+			defense_skill=2
+			planning_skill=3
 			logistics_skill=2
 			legacy_id=22408
 		}
@@ -843,13 +829,13 @@ characters={
 				large="gfx/leaders/USA/Portrait_USA_Malin_Craig.png"
 			}
 		}
-		corps_commander={
-			traits={ old_guard war_hero }
-			skill=2
-			attack_skill=2
+		field_marshal={
+			traits={ trait_cautious organizer logistics_wizar }
+			skill=3
+			attack_skill=1
 			defense_skill=2
-			planning_skill=1
-			logistics_skill=1
+			planning_skill=3
+			logistics_skill=4
 			legacy_id=22383
 		}
 	}
@@ -951,6 +937,25 @@ characters={
 			planning_skill=1
 			logistics_skill=1
 			legacy_id=22395
+		}
+	}
+	USA_george_van_horn_moseley = {
+		name = "George Van Horn Moseley"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/USA/USA_george_van_horn_moseley.png"
+			}
+			civilian = {
+				large = "gfx/leaders/USA/Portrait_USA_George_Van_Horn_Moseley.png"
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist politically_connected }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
 		}
 	}
 	USA_ernest_king={
@@ -1281,8 +1286,8 @@ characters={
 		name=USA_claire_lee_chennault
 		portraits={
 			army={
-				small="GFX_idea_claire_lee_chennault"
-				large="gfx/leaders/USA/Portrait_TEX_claire_chennault.png"
+				small="gfx/interface/advisors/USA/USA_claire_chennault.png"
+				large="gfx/leaders/USA/Portrait_USA_Claire_Chennault.png"
 			}
 		}
 		advisor={
