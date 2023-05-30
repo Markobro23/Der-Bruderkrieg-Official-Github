@@ -499,9 +499,6 @@ characters={
 			slot = high_command
 			idea_token = mark_clark
 			ledger = army
-				allowed = {
-					original_tag = USA
-				}
 				traits = {
 					army_infantry_2
 				}
@@ -734,11 +731,11 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ cavalry_officer politically_connected }
+			traits={ cavalry_officer cavalry_leader politically_connected }
 			skill=2
-			attack_skill=1
+			attack_skill=3
 			defense_skill=1
-			planning_skill=3
+			planning_skill=1
 			logistics_skill=2
 			legacy_id=22377
 		}
@@ -766,13 +763,12 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ brilliant_strategist }
-			skill=3
-			attack_skill=2
-			defense_skill=1
-			planning_skill=5
-			logistics_skill=2
-			legacy_id=22380
+			traits={ brilliant_strategist career_officer politically_connected organizer }
+			skill=4
+			attack_skill=3
+			defense_skill=2
+			planning_skill=4
+			logistics_skill=4
 		}
 	}
 	USA_james_doolittle={
@@ -802,7 +798,6 @@ characters={
 		#	defense_skill=3
 		#	planning_skill=5
 		#	logistics_skill=2
-		#	legacy_id=22376
 		#}
 	}
 	USA_fox_conner={
@@ -819,7 +814,6 @@ characters={
 			defense_skill=4
 			planning_skill=2
 			logistics_skill=4
-			legacy_id=22381
 		}
 	}
 	USA_malin_craig={
@@ -830,13 +824,12 @@ characters={
 			}
 		}
 		field_marshal={
-			traits={ trait_cautious organizer logistics_wizar }
+			traits={ trait_cautious organizer logistics_wizard }
 			skill=3
 			attack_skill=1
 			defense_skill=2
 			planning_skill=3
 			logistics_skill=4
-			legacy_id=22383
 		}
 	}
 	USA_daniel_van_voorhis={
@@ -853,7 +846,6 @@ characters={
 			defense_skill=2
 			planning_skill=3
 			logistics_skill=2
-			legacy_id=22384
 		}
 	}
 	USA_edwin_f_harding={
@@ -861,10 +853,11 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/USA/Portrait_USA_edwin_harding.png"
+				small="gfx/interface/advisors/USA/USA_edwin_f_harding.png"
 			}
 		}
 		corps_commander={
-			traits={ brilliant_strategist infantry_leader }
+			traits={ brilliant_strategist infantry_leader career_officer trait_engineer commando }
 			skill=3
 			attack_skill=3
 			defense_skill=3
@@ -877,7 +870,8 @@ characters={
 		name="Henry I. Hodes"
 		portraits={
 			army={
-				large="gfx/leaders/USA/Portrait_TEX_henry_hodes.png"
+				large="gfx/leaders/USA/Portrait_USA_Henry_Hodes.png"
+				small="gfx/interface/advisors/USA/USA_henry_hodes.png"
 			}
 		}
 		corps_commander={
@@ -910,11 +904,12 @@ characters={
 		name="Jacob L. Devers"
 		portraits={
 			army={
-				large="gfx/leaders/USA/Portrait_TEX_jacob_devers.png"
+				large="gfx/leaders/USA/Portrait_USA_Jacob_Devers.png"
+				small="gfx/interface/advisors/USA/USA_jacob_devers.png"
 			}
 		}
 		corps_commander={
-			traits={ armor_officer }
+			traits={ trait_reckless armor_officer }
 			skill=2
 			attack_skill=3
 			defense_skill=1
