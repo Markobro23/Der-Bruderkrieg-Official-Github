@@ -514,7 +514,6 @@ characters={
 			defense_skill=3
 			planning_skill=2
 			logistics_skill=3
-			legacy_id=22386
 		}
 	}
 	USA_maurice_rose={
@@ -532,7 +531,6 @@ characters={
 			defense_skill=1
 			planning_skill=2
 			logistics_skill=3
-			legacy_id=22396
 		}
 	}
 	USA_omar_bradley={
@@ -548,13 +546,22 @@ characters={
 			slot = theorist
 			idea_token = omar_bradley
 			ledger = army
-			allowed = {
-				original_tag = USA
+			available = {
+				not_already_hired_except_as = theorist
 			}
-			
 			traits = {
 				superior_firepower_expert
 			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = USA_omar_nelson_bradley_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { army_artillery_2 }
+			cost = 100
 		}
 		corps_commander={
 			traits={ brilliant_strategist trait_cautious harsh_leader trait_engineer }
@@ -563,7 +570,6 @@ characters={
 			defense_skill=5
 			planning_skill=4
 			logistics_skill=4
-			legacy_id=22372
 		}
 	}
 	USA_oscar_griswold={
@@ -581,7 +587,6 @@ characters={
 			defense_skill=1
 			planning_skill=2
 			logistics_skill=2
-			legacy_id=22406
 		}
 	}
 	USA_russell_hartle={
@@ -599,7 +604,6 @@ characters={
 			defense_skill=1
 			planning_skill=1
 			logistics_skill=1
-			legacy_id=22407
 		}
 	}
 	USA_walter_krueger={
@@ -631,7 +635,6 @@ characters={
 			defense_skill=2
 			planning_skill=3
 			logistics_skill=2
-			legacy_id=22408
 		}
 	}
 	USA_william_simpson={
@@ -649,7 +652,6 @@ characters={
 			defense_skill=4
 			planning_skill=2
 			logistics_skill=2
-			legacy_id=22409
 		}
 	}
 	USA_f_scott_fitzgerald={
@@ -666,7 +668,6 @@ characters={
 			defense_skill=2
 			planning_skill=3
 			logistics_skill=2
-			legacy_id=22392
 		}
 	}
 	USA_adna_r_chaffee_jr={
@@ -683,7 +684,6 @@ characters={
 			defense_skill=3
 			planning_skill=3
 			logistics_skill=2
-			legacy_id=22378
 		}
 	}
 	USA_harry_truman={
@@ -698,19 +698,19 @@ characters={
 		}
 		corps_commander={
 			traits={ politically_connected }
-			skill=3
-			attack_skill=2
-			defense_skill=2
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=22410
+			skill=1
+			attack_skill=1
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=1
 		}
 	}
 	USA_matthew_ridgeway={
 		name="Matthew Ridgeway"
 		portraits={
 			army={
-				large="gfx/leaders/USA/Portrait_TEX_matthew_ridgway.png"
+				large="gfx/leaders/USA/Portrait_USA_Matthew_Ridgway.png"
+				small="gfx/interface/advisors/USA/USA_matthew_ridgway.png"
 			}
 		}
 		corps_commander={
@@ -720,14 +720,14 @@ characters={
 			defense_skill=1
 			planning_skill=3
 			logistics_skill=3
-			legacy_id=22374
 		}
 	}
 	USA_benjamin_o_davis_sr={
 		name="Benjamin O. Davis Sr."
 		portraits={
 			army={
-				large="gfx/leaders/USA/Portrait_CSA_Benjamin_Oliver_Davis_Sr.png"
+				large="gfx/leaders/USA/Portrait_USA_Benjamin_Oliver_Davis_Sr.png"
+				small="gfx/interface/advisors/USA/USA_benjamin_oliver_davis_sr.png"
 			}
 		}
 		corps_commander={
@@ -737,7 +737,6 @@ characters={
 			defense_skill=1
 			planning_skill=1
 			logistics_skill=2
-			legacy_id=22377
 		}
 	}
 	USA_henry_h_arnold={
@@ -982,7 +981,29 @@ characters={
 			defense_skill=3
 			maneuvering_skill=3
 			coordination_skill=6
-			legacy_id=-1
+		}
+	}
+	USA_john_sidney_mccain_sr = {
+		name = "John S. McCain Sr."
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_john_mccain.png"
+				small = "gfx/interface/advisors/USA/USA_john_sidney_mccain_sr.png"
+			}
+		}
+		navy_leader = {
+			traits = { aviation_enthusiast superior_tactician }
+			skill=2
+			attack_skill=2
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = USA_john_sidney_mccain_sr
+			traits = { navy_chief_naval_aviation_1 }
+			cost = 50
 		}
 	}
 	USA_raymond_a_spruance={
@@ -1015,7 +1036,6 @@ characters={
 			defense_skill=3
 			maneuvering_skill=3
 			coordination_skill=3
-			legacy_id=-1
 		}
 	}
 	USA_harold_rainsford_stark={
@@ -1033,7 +1053,6 @@ characters={
 			defense_skill=1
 			maneuvering_skill=2
 			coordination_skill=2
-			legacy_id=-1
 		}
 	}
 	USA_arleigh_burke={
@@ -1051,7 +1070,6 @@ characters={
 			defense_skill=3
 			maneuvering_skill=3
 			coordination_skill=4
-			legacy_id=-1
 		}
 	}
 	USA_charles_m_cooke_jr={
@@ -1069,7 +1087,6 @@ characters={
 			defense_skill=1
 			maneuvering_skill=1
 			coordination_skill=1
-			legacy_id=-1
 		}
 	}
 	USA_dewitt_clinton_ramsey={
