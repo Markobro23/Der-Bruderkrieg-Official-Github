@@ -195,17 +195,6 @@ characters={
 				small="GFX/interface/advisors/AUS/AUS_Archduke_Josef.png"
 			}
 		}
-		advisor={
-			slot = army_chief
-			idea_token = joseph_habsburg
-			allowed = {
-				original_tag = AUS
-			}
-			traits = {
-				army_chief_defensive_2
-			}
-			cost = 100
-		}
 		field_marshal={
 			traits={ inflexible_strategist trait_reckless war_hero unyielding_defender inspirational_leader }
 			skill=4
@@ -214,6 +203,29 @@ characters={
 			planning_skill=4
 			logistics_skill=5
 			legacy_id=-1
+		}
+	}
+	AUS_alfred_jansa={
+		name="Alfred Jansa"
+		portraits={
+			civilian={
+				large="gfx/leaders/AUS/Portrait_AUS_Alfred_Jansa.png"
+				small="gfx/interface/advisors/AUS/AUS_alfred_jansa_von_tannenau.png"
+			}
+		}
+		field_marshal = {
+			traits = { skilled_staffer expert_delegator organizer }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = AUS_alfred_jansa_von_tannenau
+			traits = { army_chief_defensive_2 }
+			cost = 100
 		}
 	}
 	AUS_lajos_veress={
@@ -441,6 +453,9 @@ characters={
 			allowed = {
 				original_tag = AUS
 			}
+			available = {
+				not_already_hired_except_as = army_chief
+			}
 			traits = {
 				army_chief_maneuver_2
 			}
@@ -456,6 +471,9 @@ characters={
 			ledger = army
 			allowed = {
 				original_tag = AUS
+			}
+			available = {
+				not_already_hired_except_as = theorist
 			}
 			traits = {
 				grand_battle_plan_expert
