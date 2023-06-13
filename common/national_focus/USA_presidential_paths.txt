@@ -672,7 +672,7 @@ focus_tree = {
 			date > 1936.6.1
 		}
 		bypass = {
-			has_country_flag = USA_the_warren_campaign_unlock
+			has_country_flag = USA_the_shipstead_campaign_unlock
 		}
 		mutually_exclusive = {
 			focus = USA_1936_DNC
@@ -686,8 +686,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_the_warren_campaign
-		icon = GFX_goal_USA_the_warren_campaign
+		id = USA_the_shipstead_campaign
+		icon = GFX_goal_USA_the_shipstead_campaign
 		x = 0
 		y = 1
 		cost = 2
@@ -695,7 +695,7 @@ focus_tree = {
 			factor = 100
 		}
 		available = {
-			has_country_flag = USA_the_warren_campaign_unlock
+			has_country_flag = USA_the_shipstead_campaign_unlock
 		}
 		bypass = {
 		}
@@ -723,10 +723,10 @@ focus_tree = {
 	focus = { 
 		id = USA_model_teddys_runs
 		icon = GFX_goal_USA_model_teddys_runs
-		prerequisite = { focus = USA_the_warren_campaign }
+		prerequisite = { focus = USA_the_shipstead_campaign }
 		x = -1
 		y = 1
-		relative_position_id = USA_the_warren_campaign
+		relative_position_id = USA_the_shipstead_campaign
 	
 		cost = 2
 		ai_will_do = {
@@ -782,10 +782,10 @@ focus_tree = {
 	focus = { 
 		id = USA_continue_the_taft_pact
 		icon = GFX_goal_USA_continue_the_taft_pact
-		prerequisite = { focus = USA_the_warren_campaign }
+		prerequisite = { focus = USA_the_shipstead_campaign }
 		x = 1
 		y = 1
-		relative_position_id = USA_the_warren_campaign
+		relative_position_id = USA_the_shipstead_campaign
 	
 		cost = 2
 		ai_will_do = {
@@ -1464,7 +1464,7 @@ focus_tree = {
 		}
 		offset = {
 			trigger = {
-				has_focus_tree = USA_warren_presidency_tree
+				has_focus_tree = USA_shipstead_presidency_tree
 			}
 			x = 3
 			y = 1
@@ -8368,7 +8368,7 @@ shared_focus = {
 
 
 focus_tree = {
-    id = USA_warren_presidency_tree
+    id = USA_shipstead_presidency_tree
     country = {
 		factor = 0
 		modifier = {
@@ -8381,7 +8381,7 @@ focus_tree = {
 		x = 0
 		y = 2500
 	}
-	shared_focus = USA_the_warren_cabinet
+	shared_focus = USA_the_shipstead_cabinet
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
@@ -8395,7 +8395,7 @@ focus_tree = {
 } 
 
 shared_focus = {
-	id = USA_the_warren_cabinet
+	id = USA_the_shipstead_cabinet
 	icon = GFX_goal_USA_warren_cabinet
 	x = 3
 	y = 0
@@ -8406,36 +8406,36 @@ shared_focus = {
 	}
 	completion_reward = {
 		country_event = {
-			id = USA_warren_tree.1
+			id = USA_shipstead_tree.1
 			days = 1
 		}
 		country_event = {
-			id = USA_warren_tree.2
+			id = USA_shipstead_tree.2
 			days = 3
 		}
 		country_event = {
-			id = USA_warren_tree.3
+			id = USA_shipstead_tree.3
 			days = 5
 		}
 
 		hidden_effect = {
 			remove_ideas = USA_great_depression
-			add_ideas = USA_warren_great_depression_idea
+			add_ideas = USA_shipstead_great_depression_idea
 			set_variable = {
-				USA_warren_great_depression_industrial_capacity_factory = -0.45
+				USA_shipstead_great_depression_industrial_capacity_factory = -0.45
 			}
 			set_variable = {
-				USA_warren_great_depression_stability_factor = -0.5
+				USA_shipstead_great_depression_stability_factor = -0.5
 			}
 			set_variable = {
-				USA_warren_great_depression_consumer_goods_factor = 0.25
+				USA_shipstead_great_depression_consumer_goods_factor = 0.25
 			}
 			set_variable = {
-				USA_warren_great_depression_production_factory_efficiency_gain_factor = -0.1
+				USA_shipstead_great_depression_production_factory_efficiency_gain_factor = -0.1
 			}
-			USA_warren_great_depression_loc = yes
+			USA_shipstead_great_depression_loc = yes
 			add_dynamic_modifier = {
-				modifier = USA_warren_great_depression
+				modifier = USA_shipstead_great_depression
 			}
 		}
 	}
@@ -8447,18 +8447,18 @@ shared_focus = {
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_the_warren_cabinet
-	prerequisite = { focus = USA_the_warren_cabinet }
+	relative_position_id = USA_the_shipstead_cabinet
+	prerequisite = { focus = USA_the_shipstead_cabinet }
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
 		add_to_variable = {
-			USA_warren_great_depression_industrial_capacity_factory = 0.1
+			USA_shipstead_great_depression_industrial_capacity_factory = 0.1
 		}
 		effect_tooltip = {
 			swap_ideas = {
-				add_idea = USA_great_depression_warren_economic_reivlization
+				add_idea = USA_great_depression_shipstead_economic_reivlization
 				remove_idea = USA_great_depression
 			}
 		}
@@ -8492,7 +8492,7 @@ shared_focus = {
 	completion_reward = {
 		 hidden_effect = {
 			 remove_dynamic_modifier = {
-				 modifier = USA_warren_great_depression
+				 modifier = USA_shipstead_great_depression
 			 }
 		 }
 		effect_tooltip = {
@@ -8532,17 +8532,17 @@ shared_focus = {
 			limit = {
 				has_idea = herbert_hoover
 			}
-			country_event = USA_warren_tree.4
+			country_event = USA_shipstead_tree.4
 		}
 		else_if = {
 			limit = {
 				has_idea = james_j_couzens
 			}
-			country_event = USA_warren_tree.5
+			country_event = USA_shipstead_tree.5
 		}
 		else = {
 			effect_tooltip = {
-				country_event = USA_warren_tree.5
+				country_event = USA_shipstead_tree.5
 			}
 		}
 	}
