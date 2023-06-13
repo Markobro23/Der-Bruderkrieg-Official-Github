@@ -101,7 +101,7 @@ progressbar_calc_usa_election_stuff = {
 d_long_test_stuff = {
 	378 = {
 		add_to_variable = {
-		  long_support = 3
+		  maverick_support = 3
 		}
 		usa_modify_electoral_college_effect = yes
 		custom_effect_tooltip = USA_increase_borah_support_by_three
@@ -129,9 +129,9 @@ d_borah_test_stuff = {
 usa_modify_electoral_college_effect ={
 	if = {
 		limit = {
-			has_completed_focus = USA_longs_campaign_speech
+			has_completed_focus = USA_mavericks_campaign_speech
 		}
-		usa_long_modify_electoral_college_effect = yes
+		usa_maverick_modify_electoral_college_effect = yes
 	}
 	if = {
 		limit = {
@@ -148,11 +148,11 @@ usa_modify_electoral_college_effect ={
 	USA_electoral_vars_setup = yes
 }
 
-usa_long_modify_electoral_college_effect = {
+usa_maverick_modify_electoral_college_effect = {
 	#custom_effect_tooltip = usa_modify_electoral_college_effect_tt
 	add_to_variable = {
-		tooltip = USA_increase_long_support_by_two
-		long_support = 2
+		tooltip = USA_increase_maverick_support_by_two
+		maverick_support = 2
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_smiths_support_by_1
@@ -173,7 +173,7 @@ usa_smith_modify_electoral_college_effect ={
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_longs_support_by_1
-		long_support = -1
+		maverick_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_warrens_support_by_1
@@ -190,7 +190,7 @@ usa_borah_modify_electoral_college_effect ={
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_longs_support_by_1
-		long_support = -1
+		maverick_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_smiths_support_by_1
@@ -201,11 +201,11 @@ usa_borah_modify_electoral_college_effect ={
 usa_smith_decrease_long_electoral_college_effect = {
 	random_owned_controlled_state = {
 		limit = {
-			is_long_state = yes
+			is_maverick_state = yes
 		}
 		add_to_variable = {
 			tooltip = USA_decrease_longs_support_by_2
-			long_support = -2
+			maverick_support = -2
 		}
 		add_to_variable = {
 			tooltip = USA_increase_smith_support_by_two
@@ -240,8 +240,8 @@ usa_long_decrease_smith_electoral_college_effect = {
 			smith_support = -2
 		}
 		add_to_variable = {
-			tooltip = USA_increase_long_support_by_two
-			long_support = 2
+			tooltip = USA_increase_maverick_support_by_two
+			maverick_support = 2
 		}
 	}
 }
@@ -255,8 +255,8 @@ usa_long_decrease_warren_electoral_college_effect = {
 			borah_support = -2
 		}
 		add_to_variable = {
-			tooltip = USA_increase_long_support_by_two
-			long_support = 2
+			tooltip = USA_increase_maverick_support_by_two
+			maverick_support = 2
 		}
 	}
 }
@@ -279,11 +279,11 @@ usa_warren_decrease_smith_electoral_college_effect = {
 usa_warren_decrease_long_electoral_college_effect = {
 	random_owned_controlled_state = {
 		limit = {
-			is_long_state = yes
+			is_maverick_state = yes
 		}
 		add_to_variable = {
 			tooltip = USA_decrease_longs_support_by_2
-			long_support = -2
+			maverick_support = -2
 		}
 		add_to_variable = {
 			tooltip = USA_increase_borah_support_by_two
@@ -296,7 +296,7 @@ usa_warren_decrease_long_electoral_college_effect = {
 d_us_election_debug = {
 	379 = {
 		add_to_variable = {
-			long_support = 100
+			maverick_support = 100
 		}
 	}
 }
@@ -316,7 +316,7 @@ USA_electoral_vars_setup = {
 	hidden_effect = {
 		every_owned_state = {
 			limit = {
-				is_long_state = yes
+				is_maverick_state = yes
 			}
 			add_to_variable = {
 				USA.long_electoral = THIS.electoral_college_value
@@ -351,8 +351,8 @@ USA_election_timeout_effect = {
 		limit = {
 			check_variable = { long_electoral > 266 }
 		}
-		country_event = { id = USA_long_victory.1  days = 1}
-		set_country_flag = USA_long_wins_elections
+		country_event = { id = USA_maverick_victory.1  days = 1}
+		set_country_flag = USA_maverick_wins_elections
 	}
 	else_if = {
 		limit = {

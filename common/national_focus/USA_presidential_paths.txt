@@ -43,10 +43,10 @@ focus_tree = {
 	focus = {
 		id = USA_the_end_of_the_first_four
 		icon = GFX_goal_USA_end_of_the_first_four
-		#prerequisite = { focus = USA_longs_campaign_speech }
+		#prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = 3
 		y = 0
-		#relative_position_id = USA_longs_campaign_speech
+		#relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -389,7 +389,7 @@ focus_tree = {
 	
 
     focus = { 
-		id = USA_longs_campaign_speech
+		id = USA_mavericks_campaign_speech
 		icon = GFX_goal_USA_longs_relection_speech
 		prerequisite = { focus = USA_1936_DNC }
 		x = -2
@@ -410,7 +410,7 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-					#	load_focus_tree = usa_long_new_deal_tree
+					#	load_focus_tree = usa_maverick_new_deal_tree
 			country_event = USA_election_leadup.1
 
 		}
@@ -419,10 +419,10 @@ focus_tree = {
 	focus = {
 		id = USA_a_fresh_start
 		icon = GFX_goal_USA_time_for_a_fresh_start
-		prerequisite = { focus = USA_longs_campaign_speech }
+		prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = -1
 		y = 1
-		relative_position_id = USA_longs_campaign_speech
+		relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -443,12 +443,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_longs_tour_of_america
+		id = USA_mavericks_tour_of_america
 		icon = GFX_goal_USA_longs_great_tour_of_america
-		prerequisite = { focus = USA_longs_campaign_speech }
+		prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = 1
 		y = 1
-		relative_position_id = USA_longs_campaign_speech
+		relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -475,10 +475,10 @@ focus_tree = {
     # focus = {
 	# 	id = USA_california_workers
 	# 	icon = GFX_goal_USA_meeting_with_california_dock_workers
-	# 	prerequisite = { focus = USA_longs_tour_of_america }
+	# 	prerequisite = { focus = USA_mavericks_tour_of_america }
 	# 	x = -1
 	# 	y = 1
-	# 	relative_position_id = USA_longs_tour_of_america
+	# 	relative_position_id = USA_mavericks_tour_of_america
 	# 	cost = 2
 	# 	ai_will_do = {
 	# 		factor = 1
@@ -492,20 +492,20 @@ focus_tree = {
 	# 	completion_reward = {
 	# 		378 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
     # focus = {
 	# 	id = USA_missouri_farmers
 	# 	icon = GFX_goal_USA_and_missouri_dock_workers
-	# 	prerequisite = { focus = USA_longs_tour_of_america }
+	# 	prerequisite = { focus = USA_mavericks_tour_of_america }
 	# 	x = 1
 	# 	y = 1
-	# 	relative_position_id = USA_longs_tour_of_america
+	# 	relative_position_id = USA_mavericks_tour_of_america
 	# 	cost = 2
 	# 	ai_will_do = {
 	# 		factor = 1
@@ -519,10 +519,10 @@ focus_tree = {
 	# 	completion_reward = {
 	# 		362 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
@@ -548,10 +548,10 @@ focus_tree = {
 	# 		add_political_power = 20
 	# 		371 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
@@ -602,13 +602,13 @@ focus_tree = {
      focus = {
 		id = USA_denouncing_republican_candidate
 		icon = GFX_goal_USA_smashing_conservative_democrats
-		prerequisite = { focus = USA_longs_tour_of_america }
+		prerequisite = { focus = USA_mavericks_tour_of_america }
 		prerequisite = {
 			focus = USA_a_fresh_start
 		}
 		x = -1
 		y = 1
-		relative_position_id = USA_longs_tour_of_america
+		relative_position_id = USA_mavericks_tour_of_america
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -647,13 +647,13 @@ focus_tree = {
 				limit = {
 					is_borah_state = yes
 				}
-				usa_long_modify_electoral_college_effect = yes
+				usa_maverick_modify_electoral_college_effect = yes
 			}
 			random_owned_controlled_state = {
 				limit = {
 					is_borah_state = yes
 				}
-				usa_long_modify_electoral_college_effect = yes
+				usa_maverick_modify_electoral_college_effect = yes
 			}
 		}
 	}
@@ -766,13 +766,13 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
-					is_long_state = yes
+					is_maverick_state = yes
 				}
 				usa_borah_modify_electoral_college_effect = yes
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_long_state = yes
+					is_maverick_state = yes
 				}
 				usa_borah_modify_electoral_college_effect = yes
 			}
@@ -799,7 +799,7 @@ focus_tree = {
 	
 		completion_reward = {
 			add_political_power = 50	
-			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_denounce_mavericks_populism
 			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
 			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
 		}
@@ -890,7 +890,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = USA_1936_DNC
 		mutually_exclusive = {
-			focus = USA_longs_campaign_speech
+			focus = USA_mavericks_campaign_speech
 		}
 		cost = 2
 		ai_will_do = {
@@ -975,8 +975,8 @@ focus_tree = {
 	}
 
 	focus = { 
-		id = USA_attack_longs_treachery
-		icon = GFX_goal_USA_attack_longs_treachery
+		id = USA_attack_mavericks_treachery
+		icon = GFX_goal_USA_attack_mavericks_treachery
 		prerequisite = { focus = USA_smith_campaign }
 		x = 1
 		y = 1
@@ -994,7 +994,7 @@ focus_tree = {
 	
 		completion_reward = {
 			##long attack
-			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_denounce_mavericks_populism
 			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
 			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
 		}
@@ -1002,10 +1002,10 @@ focus_tree = {
 	focus = { 
 		id = USA_rally_the_northern_base
 		icon = GFX_goal_USA_meeting_with_california_dock_workers
-		prerequisite = { focus = USA_attack_longs_treachery }
+		prerequisite = { focus = USA_attack_mavericks_treachery }
 		x = 0
 		y = 1
-		relative_position_id = USA_attack_longs_treachery
+		relative_position_id = USA_attack_mavericks_treachery
 	
 		cost = 2
 		ai_will_do = {
@@ -1058,7 +1058,7 @@ focus_tree = {
 
 
 focus_tree = {
-	id = usa_long_new_deal_tree
+	id = usa_maverick_new_deal_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -1072,9 +1072,9 @@ focus_tree = {
 		y = 1500
 	} 
 	
-	shared_focus = USA_longs_new_deal
+	shared_focus = USA_mavericks_new_deal
 	shared_focus = USA_fortification_commission
-	shared_focus = USA_the_long_doctrine
+	shared_focus = USA_the_maverick_doctrine
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
@@ -1088,8 +1088,8 @@ focus_tree = {
 }
 
     shared_focus = {
-		id = USA_longs_new_deal
-		icon = GFX_goal_USA_longs_new_deal
+		id = USA_mavericks_new_deal
+		icon = GFX_goal_USA_mavericks_new_deal
 		x = 5
 		y = 0
 		cost = 1
@@ -1099,26 +1099,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = USA_great_depression_recovery
-			country_event = USA_long_events.3 
+			country_event = USA_maverick_events.3 
 		}
 	}
 	shared_focus = {
-		id = USA_the_long_plan
-		icon = GFX_goal_USA_the_long_plan
+		id = USA_the_maverick_plan
+		icon = GFX_goal_USA_the_maverick_plan
 		x = 3
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_longs_new_deal
+			focus = USA_mavericks_new_deal
 
 		}
-		relative_position_id = USA_longs_new_deal
+		relative_position_id = USA_mavericks_new_deal
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.4
+			country_event = USA_maverick_events.4
 		}
 	}
 	# shared_focus = {
@@ -1129,10 +1129,10 @@ focus_tree = {
 	# 	cost = 3
 	# 	available_if_capitulated = yes
 	# 	prerequisite = {
-	# 		focus = USA_the_long_plan
+	# 		focus = USA_the_maverick_plan
 
 	# 	}
-	# 	relative_position_id = USA_the_long_plan
+	# 	relative_position_id = USA_the_maverick_plan
 	# 	ai_will_do = {
 	# 		factor = 100
 	# 	}
@@ -1151,13 +1151,13 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_the_maverick_plan
 
 		}
 		# available = {
 		# 	USA_has_congress_majority = yes
 		# }
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_the_maverick_plan
 		ai_will_do = {
 			factor = 100
 		}
@@ -1207,7 +1207,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.6	
+			country_event = USA_maverick_events.6	
 		}
 	}
 	# shared_focus = {
@@ -1241,10 +1241,10 @@ focus_tree = {
 	# 	cost = 2
 	# 	available_if_capitulated = yes
 	# 	prerequisite = {
-	# 		focus = USA_the_long_plan
+	# 		focus = USA_the_maverick_plan
 	
 	# 	}
-	# 	relative_position_id = USA_the_long_plan
+	# 	relative_position_id = USA_the_maverick_plan
 	# 	ai_will_do = {
 	# 		factor = 100
 	# 	}
@@ -1273,15 +1273,15 @@ focus_tree = {
 		cost = 3
 		available_if_capitulated = yes 
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_the_maverick_plan
 	
 		}
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_the_maverick_plan
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.5
+			country_event = USA_maverick_events.5
 		}
 	}
 	
@@ -1425,10 +1425,10 @@ focus_tree = {
 		cost = 1
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_longs_new_deal
+			focus = USA_mavericks_new_deal
 
 		}
-		relative_position_id = USA_longs_new_deal
+		relative_position_id = USA_mavericks_new_deal
 		ai_will_do = {
 			factor = 100
 		}
@@ -1705,7 +1705,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			unlock_decision_category_tooltip = USA_huey_longs_road_plan
+			unlock_decision_category_tooltip = USA_maury_mavericks_road_plan
 
 			custom_effect_tooltip = USA_new_roads_tt
 		}
@@ -1997,7 +1997,7 @@ focus_tree = {
 	# 		factor = 100
 	# 	}
 	# 	completion_reward = {
-	# 		country_event = USA_long_events.8	
+	# 		country_event = USA_maverick_events.8	
 	# 	}
 	# }
 	
@@ -2083,7 +2083,7 @@ focus_tree = {
 	# 		factor = 100
 	# 	}
 	# 	completion_reward = {
-	# 		country_event = USA_long_events.9
+	# 		country_event = USA_maverick_events.9
 	# 	}
 	# }
 	shared_focus = {
@@ -2150,7 +2150,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.10
+			country_event = USA_maverick_events.10
 		}
 	}
 
@@ -2174,8 +2174,8 @@ focus_tree = {
 
 
 shared_focus = {
-    id = USA_the_long_doctrine
-    icon = GFX_goal_USA_the_long_doctrine
+    id = USA_the_maverick_doctrine
+    icon = GFX_goal_USA_the_maverick_doctrine
     x = -3
     y = 1
     cost = 2
@@ -2196,11 +2196,11 @@ shared_focus = {
 		focus = USA_a_new_dawn_for_america
 	}
 	allow_branch = {
-		has_focus_tree = usa_long_new_deal_tree
+		has_focus_tree = usa_maverick_new_deal_tree
 	}
 	relative_position_id = USA_a_new_dawn_for_america
 	completion_reward = {
-        country_event = USA_long_events.17
+        country_event = USA_maverick_events.17
     }
 }
 
@@ -2212,15 +2212,15 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_the_long_doctrine
+        focus = USA_the_maverick_doctrine
 
     }
-    relative_position_id = USA_the_long_doctrine
+    relative_position_id = USA_the_maverick_doctrine
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-		country_event = USA_long_events.18
+		country_event = USA_maverick_events.18
         add_political_power = 50
 		add_war_support = 0.05
     }
@@ -2241,7 +2241,7 @@ shared_focus = {
 #         factor = 1000
 #     }
 #     completion_reward = {
-#         country_event = USA_long_events.18
+#         country_event = USA_maverick_events.18
 #     }
 # }
 shared_focus = {
@@ -2466,7 +2466,7 @@ shared_focus = {
 	}
     completion_reward = {
         set_variable = { IRA_ability_to_revolt = 0 } 
-		country_event = USA_long_events.19
+		country_event = USA_maverick_events.19
     }
 }
 
@@ -2882,7 +2882,7 @@ shared_focus = {
 		}
 	}
     completion_reward = {
-        country_event = USA_long_events.20
+        country_event = USA_maverick_events.20
     }
 }
 shared_focus = {
@@ -2901,7 +2901,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        country_event = USA_long_events.21
+        country_event = USA_maverick_events.21
 		set_variable = {
 			USA_Military_Power = 15
 		}
@@ -3361,13 +3361,13 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-       # focus = USA_the_long_doctrine
+       # focus = USA_the_maverick_doctrine
 
     }
     allow_branch = {
         always = no
     }
-    relative_position_id = USA_the_long_doctrine
+    relative_position_id = USA_the_maverick_doctrine
     ai_will_do = {
         factor = 1000
     }
@@ -6479,7 +6479,7 @@ shared_focus = {
 	
 # 	offset = {
 # 		trigger = {
-# 			has_focus_tree = usa_long_new_deal_tree
+# 			has_focus_tree = usa_maverick_new_deal_tree
 # 		}
 # 		x = 10
 # 		y = 2
@@ -6543,7 +6543,7 @@ shared_focus = {
 	}
 	# allow_branch = {
 	# 	NOT = {
-	# 		has_focus_tree = usa_long_new_deal_tree
+	# 		has_focus_tree = usa_maverick_new_deal_tree
 	# 	}
 	# }
 	
