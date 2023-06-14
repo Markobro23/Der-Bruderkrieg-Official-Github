@@ -1157,7 +1157,7 @@ shared_focus = {
           ruling_party = democratic
           last_election = "1935.3.31"
           election_frequency = 48
-          elections_allowed = no
+          elections_allowed = yes
         }
         set_popularities = {
           democratic = 95
@@ -1171,7 +1171,7 @@ shared_focus = {
           ruling_party = democratic_liberalism
           last_election = "1935.3.31"
           election_frequency = 48
-          elections_allowed = no
+          elections_allowed = yes
         }
         set_popularities = {
           democratic_liberalism = 95
@@ -1193,6 +1193,22 @@ shared_focus = {
     AUS_josef_votruba = {
       set_nationality = CZE
     }
+    AUS_albrect_von_teschen = {
+      set_nationality = CZE
+    }
+    CZE = {
+      add_country_leader_role = {
+        character = AUS_albrect_von_teschen
+        country_leader = {
+          expire = "1965.1.1"
+          ideology = democratic_liberal
+          traits = {
+            Habsburg_monarch
+          }
+        }
+        promote_leader = yes
+      }
+    }
     AUS_karl_albrecht_von_habsburglothringen = {
       set_nationality = GLC
     }
@@ -1207,10 +1223,6 @@ shared_focus = {
           }
         }
         promote_leader = yes
-      }
-      add_popularity = {
-        ideology = neutrality
-        popularity = 0.1
       }
     }
     AUS_stanislaw_szeptycki = {
@@ -1285,7 +1297,7 @@ shared_focus = {
           ruling_party = socialism_democratic
           last_election = "1935.3.31"
           election_frequency = 48
-          elections_allowed = no
+          elections_allowed = yes
         }
         set_popularities = {
           socialism_democratic = 65
@@ -1318,6 +1330,22 @@ shared_focus = {
     }
     AUS_dome_sztojay = {
       set_nationality = HUN
+    }
+    AUS_joseph_von_habsburglothringen = {
+      set_nationality = HUN
+    }
+    HUN = {
+      add_country_leader_role = {
+        character = AUS_joseph_von_habsburglothringen
+        country_leader = {
+          expire = "1965.1.1"
+          ideology = social_democratic
+          traits = {
+            Habsburg_monarch
+          }
+        }
+        promote_leader = yes
+      }
     }
 
     hidden_effect = {
