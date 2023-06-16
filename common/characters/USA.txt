@@ -649,17 +649,6 @@ characters={
 			civilian={
 				large="gfx/leaders/USA/Harry_Truman.png"
 			}
-			army={
-				large="gfx/leaders/USA/Harry_Truman.png"
-			}
-		}
-		corps_commander={
-			traits={ politically_connected }
-			skill=1
-			attack_skill=1
-			defense_skill=1
-			planning_skill=1
-			logistics_skill=1
 		}
 	}
 	USA_matthew_ridgeway={
@@ -1029,8 +1018,8 @@ characters={
 		name="Arleigh Burke"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_USA_arleigh_burke.dds"
-				large="gfx/leaders/USA/Portrait_CSA_Arleigh_Burke.png"
+				small="gfx/interface/advisors/USA/USA_arleigh_burke.png"
+				large="gfx/leaders/USA/Portrait_USA_Arleigh_Burke.png"
 			}
 		}
 		navy_leader={
@@ -1316,6 +1305,57 @@ characters={
 			defense_skill = 4
 			maneuvering_skill = 2
 			coordination_skill = 2
+		}
+	}
+
+	USA_charles_lindbergh={
+		name="Charles Lindbergh"
+		portraits={
+			army={
+				small="gfx/interface/advisors/USA/USA_charles_lindbergh.png"
+			}
+			civilian={
+				large = "gfx/leaders/USA/Portrait_USA_charles_lindbergh.png"
+			}
+		}
+
+		advisor={
+			slot = high_command
+			idea_token = USA_charles_lindbergh
+			# TODO [AB] add support for equipment bonuses
+			#equipment_bonus = {
+			#	fighter_equipment = {
+			#		instant = yes
+			#		fuel_consumption = -0.100
+			#	}
+			#	heavy_fighter_equipment = {
+			#		instant = yes
+			#		fuel_consumption = -0.100
+			#	}
+			#}
+			traits = {
+				air_pilot_training_3
+			}
+			cost = 200
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+	}
+	USA_isaac_davis_white = {
+		name = "Isaac D. White"
+		portraits = {
+			army = {
+				large = "gfx/leaders/USA/Portrait_USA_Isaac_White.png"
+				small = "gfx/interface/advisors/USA/USA_isaac_davis_white.png"
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = isaac_davis_white
+			ledger = army
+			traits = { army_armored_2 }
+			cost = 100
 		}
 	}
 }
