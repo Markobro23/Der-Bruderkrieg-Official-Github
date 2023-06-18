@@ -8516,7 +8516,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = USA_investment_in_the_public
-	icon = GFX_goal_USA_share_our_wealth
+	icon = GFX_focus_usa_guarantee_the_american_dream
 	x = -2
 	y = 1
 	cost = 2
@@ -8745,102 +8745,7 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = USA_send_in_dewey
-	icon = GFX_goal_USA_send_out_dewey
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_rid_of_prohibition
-	prerequisite = { focus = USA_rid_of_prohibition }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-		add_to_variable = {
-			global.usa_senate_seat_array^2 = 2
-		}
-		add_to_variable = {
-			global.usa_senate_seat_array^1 = -2
-		}
-	}
-}
-shared_focus = {
-	id = USA_the_policy_of_neosanl
-	icon = GFX_goal_USA_anti_klan_laws
-	x = 1
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_investment_in_the_public
-	prerequisite = { focus = USA_investment_in_the_public }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-	}
-}
-shared_focus = {
-	id = USA_combat_the_yellow_peril
-	icon = GFX_goal_USA_combat_the_yellow_peril
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_the_policy_of_neosanl
-	prerequisite = { focus = USA_the_policy_of_neosanl }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		JAP = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = medium_decrease
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_lay_the_foundation
-	icon = GFX_USA_trust_busting
-	x = -1
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_combat_the_yellow_peril
-	prerequisite = { focus = USA_combat_the_yellow_peril }
-    prerequisite = {
-        focus = USA_send_in_dewey
-    }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-	}
-}
 
-
-shared_focus = {
-	id = USA_the_great_pacifican
-	icon = GFX_goal_USA_the_great_pacifican
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_lay_the_foundation
-	prerequisite = { focus = USA_lay_the_foundation }
-
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-	}
-}
 
 
 
