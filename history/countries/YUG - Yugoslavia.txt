@@ -9,16 +9,6 @@ if = {
 	}
 }
 
-
-set_autonomy = {
-	target = MNT
-	autonomous_state =  autonomy_puppet
-}
-set_autonomy = {
-	target = HRZ
-	autonomous_state =  autonomy_puppet
-}
-
 if = {
 	limit = { has_dlc = "By Blood Alone" }
 		set_air_oob = "YUG_1936_air_bba"
@@ -43,11 +33,11 @@ add_ideas = {
 add_ideas = {
 	Alexander_the_Mad
 	Balkan_depression_economic_1
-Balkan_depression_industry_1
-Balkan_depression_population
+	Balkan_depression_industry_1
+	Balkan_depression_population
 	Alexanders_Nepotism
 	Army_in_Chaos
-	Agrarianism
+	#Agrarianism
 }
 
 set_technology = {
@@ -280,34 +270,6 @@ if = {
 			fixed_ship_torpedo_slot = ship_torpedo_1
 			mid_1_custom_slot = ship_mine_layer_1
 			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-}
-
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Beograd Class"
-			type = ship_hull_light_2
-			name_group = YUG_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_mine_layer_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
 		}
 	}
 }

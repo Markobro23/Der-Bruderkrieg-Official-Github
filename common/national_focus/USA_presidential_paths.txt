@@ -33,7 +33,7 @@ focus_tree = {
 	# 	}
 	# 	available = {
 	# 		always = no
-	# 	}
+	# 	} 
 		
 	# 	completion_reward = {
 			
@@ -43,10 +43,10 @@ focus_tree = {
 	focus = {
 		id = USA_the_end_of_the_first_four
 		icon = GFX_goal_USA_end_of_the_first_four
-		#prerequisite = { focus = USA_longs_campaign_speech }
+		#prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = 3
 		y = 0
-		#relative_position_id = USA_longs_campaign_speech
+		#relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -389,7 +389,7 @@ focus_tree = {
 	
 
     focus = { 
-		id = USA_longs_campaign_speech
+		id = USA_mavericks_campaign_speech
 		icon = GFX_goal_USA_longs_relection_speech
 		prerequisite = { focus = USA_1936_DNC }
 		x = -2
@@ -410,7 +410,7 @@ focus_tree = {
 		#search_filters = { FOCUS_FILTER_POLITICAL }
 
 		completion_reward = {
-					#	load_focus_tree = usa_long_new_deal_tree
+					#	load_focus_tree = usa_maverick_new_deal_tree
 			country_event = USA_election_leadup.1
 
 		}
@@ -419,10 +419,10 @@ focus_tree = {
 	focus = {
 		id = USA_a_fresh_start
 		icon = GFX_goal_USA_time_for_a_fresh_start
-		prerequisite = { focus = USA_longs_campaign_speech }
+		prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = -1
 		y = 1
-		relative_position_id = USA_longs_campaign_speech
+		relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -443,12 +443,12 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_longs_tour_of_america
+		id = USA_mavericks_tour_of_america
 		icon = GFX_goal_USA_longs_great_tour_of_america
-		prerequisite = { focus = USA_longs_campaign_speech }
+		prerequisite = { focus = USA_mavericks_campaign_speech }
 		x = 1
 		y = 1
-		relative_position_id = USA_longs_campaign_speech
+		relative_position_id = USA_mavericks_campaign_speech
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -475,10 +475,10 @@ focus_tree = {
     # focus = {
 	# 	id = USA_california_workers
 	# 	icon = GFX_goal_USA_meeting_with_california_dock_workers
-	# 	prerequisite = { focus = USA_longs_tour_of_america }
+	# 	prerequisite = { focus = USA_mavericks_tour_of_america }
 	# 	x = -1
 	# 	y = 1
-	# 	relative_position_id = USA_longs_tour_of_america
+	# 	relative_position_id = USA_mavericks_tour_of_america
 	# 	cost = 2
 	# 	ai_will_do = {
 	# 		factor = 1
@@ -492,20 +492,20 @@ focus_tree = {
 	# 	completion_reward = {
 	# 		378 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
     # focus = {
 	# 	id = USA_missouri_farmers
 	# 	icon = GFX_goal_USA_and_missouri_dock_workers
-	# 	prerequisite = { focus = USA_longs_tour_of_america }
+	# 	prerequisite = { focus = USA_mavericks_tour_of_america }
 	# 	x = 1
 	# 	y = 1
-	# 	relative_position_id = USA_longs_tour_of_america
+	# 	relative_position_id = USA_mavericks_tour_of_america
 	# 	cost = 2
 	# 	ai_will_do = {
 	# 		factor = 1
@@ -519,10 +519,10 @@ focus_tree = {
 	# 	completion_reward = {
 	# 		362 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
@@ -548,10 +548,10 @@ focus_tree = {
 	# 		add_political_power = 20
 	# 		371 = {
 	# 			add_to_variable = {
-	# 			  long_support = 2
+	# 			  maverick_support = 2
 	# 			}
 	# 			usa_modify_electoral_college_effect = yes
-	# 			custom_effect_tooltip = USA_increase_long_support_by_two
+	# 			custom_effect_tooltip = USA_increase_maverick_support_by_two
 	# 		}
 	# 	}
 	# }
@@ -602,13 +602,13 @@ focus_tree = {
      focus = {
 		id = USA_denouncing_republican_candidate
 		icon = GFX_goal_USA_smashing_conservative_democrats
-		prerequisite = { focus = USA_longs_tour_of_america }
+		prerequisite = { focus = USA_mavericks_tour_of_america }
 		prerequisite = {
 			focus = USA_a_fresh_start
 		}
 		x = -1
 		y = 1
-		relative_position_id = USA_longs_tour_of_america
+		relative_position_id = USA_mavericks_tour_of_america
 		cost = 2
 		ai_will_do = {
 			factor = 100
@@ -647,13 +647,13 @@ focus_tree = {
 				limit = {
 					is_borah_state = yes
 				}
-				usa_long_modify_electoral_college_effect = yes
+				usa_maverick_modify_electoral_college_effect = yes
 			}
 			random_owned_controlled_state = {
 				limit = {
 					is_borah_state = yes
 				}
-				usa_long_modify_electoral_college_effect = yes
+				usa_maverick_modify_electoral_college_effect = yes
 			}
 		}
 	}
@@ -672,7 +672,7 @@ focus_tree = {
 			date > 1936.6.1
 		}
 		bypass = {
-			has_country_flag = USA_the_warren_campaign_unlock
+			has_country_flag = USA_the_shipstead_campaign_unlock
 		}
 		mutually_exclusive = {
 			focus = USA_1936_DNC
@@ -686,8 +686,8 @@ focus_tree = {
 		}
 	}
 	focus = {
-		id = USA_the_warren_campaign
-		icon = GFX_goal_USA_the_warren_campaign
+		id = USA_the_shipstead_campaign
+		icon = GFX_goal_USA_the_shipstead_campaign
 		x = 0
 		y = 1
 		cost = 2
@@ -695,7 +695,7 @@ focus_tree = {
 			factor = 100
 		}
 		available = {
-			has_country_flag = USA_the_warren_campaign_unlock
+			has_country_flag = USA_the_shipstead_campaign_unlock
 		}
 		bypass = {
 		}
@@ -723,10 +723,10 @@ focus_tree = {
 	focus = { 
 		id = USA_model_teddys_runs
 		icon = GFX_goal_USA_model_teddys_runs
-		prerequisite = { focus = USA_the_warren_campaign }
+		prerequisite = { focus = USA_the_shipstead_campaign }
 		x = -1
 		y = 1
-		relative_position_id = USA_the_warren_campaign
+		relative_position_id = USA_the_shipstead_campaign
 	
 		cost = 2
 		ai_will_do = {
@@ -766,13 +766,13 @@ focus_tree = {
 		completion_reward = {
 			random_owned_controlled_state = {
 				limit = {
-					is_long_state = yes
+					is_maverick_state = yes
 				}
 				usa_borah_modify_electoral_college_effect = yes
 			}
 			random_owned_controlled_state = {
 				limit = {
-					is_long_state = yes
+					is_maverick_state = yes
 				}
 				usa_borah_modify_electoral_college_effect = yes
 			}
@@ -782,10 +782,10 @@ focus_tree = {
 	focus = { 
 		id = USA_continue_the_taft_pact
 		icon = GFX_goal_USA_continue_the_taft_pact
-		prerequisite = { focus = USA_the_warren_campaign }
+		prerequisite = { focus = USA_the_shipstead_campaign }
 		x = 1
 		y = 1
-		relative_position_id = USA_the_warren_campaign
+		relative_position_id = USA_the_shipstead_campaign
 	
 		cost = 2
 		ai_will_do = {
@@ -799,7 +799,7 @@ focus_tree = {
 	
 		completion_reward = {
 			add_political_power = 50	
-			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_denounce_mavericks_populism
 			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
 			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
 		}
@@ -890,7 +890,7 @@ focus_tree = {
 		y = 1
 		relative_position_id = USA_1936_DNC
 		mutually_exclusive = {
-			focus = USA_longs_campaign_speech
+			focus = USA_mavericks_campaign_speech
 		}
 		cost = 2
 		ai_will_do = {
@@ -975,8 +975,8 @@ focus_tree = {
 	}
 
 	focus = { 
-		id = USA_attack_longs_treachery
-		icon = GFX_goal_USA_attack_longs_treachery
+		id = USA_attack_mavericks_treachery
+		icon = GFX_goal_USA_attack_mavericks_treachery
 		prerequisite = { focus = USA_smith_campaign }
 		x = 1
 		y = 1
@@ -994,7 +994,7 @@ focus_tree = {
 	
 		completion_reward = {
 			##long attack
-			unlock_decision_tooltip = USA_denounce_longs_populism
+			unlock_decision_tooltip = USA_denounce_mavericks_populism
 			unlock_decision_tooltip = USA_call_out_his_governing_incompetence
 			unlock_decision_tooltip = USA_questioning_his_extensive_ambitions
 		}
@@ -1002,10 +1002,10 @@ focus_tree = {
 	focus = { 
 		id = USA_rally_the_northern_base
 		icon = GFX_goal_USA_meeting_with_california_dock_workers
-		prerequisite = { focus = USA_attack_longs_treachery }
+		prerequisite = { focus = USA_attack_mavericks_treachery }
 		x = 0
 		y = 1
-		relative_position_id = USA_attack_longs_treachery
+		relative_position_id = USA_attack_mavericks_treachery
 	
 		cost = 2
 		ai_will_do = {
@@ -1058,7 +1058,7 @@ focus_tree = {
 
 
 focus_tree = {
-	id = usa_long_new_deal_tree
+	id = usa_maverick_new_deal_tree
 	country = {
 		factor = 0
 		modifier = {
@@ -1072,9 +1072,9 @@ focus_tree = {
 		y = 1500
 	} 
 	
-	shared_focus = USA_longs_new_deal
+	shared_focus = USA_mavericks_new_deal
 	shared_focus = USA_fortification_commission
-	shared_focus = USA_the_long_doctrine
+	shared_focus = USA_the_maverick_doctrine
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
@@ -1088,8 +1088,8 @@ focus_tree = {
 }
 
     shared_focus = {
-		id = USA_longs_new_deal
-		icon = GFX_goal_USA_longs_new_deal
+		id = USA_mavericks_new_deal
+		icon = GFX_goal_USA_mavericks_new_deal
 		x = 5
 		y = 0
 		cost = 1
@@ -1099,26 +1099,26 @@ focus_tree = {
 		}
 		completion_reward = {
 			unlock_decision_category_tooltip = USA_great_depression_recovery
-			country_event = USA_long_events.3 
+			country_event = USA_maverick_events.3 
 		}
 	}
 	shared_focus = {
-		id = USA_the_long_plan
-		icon = GFX_goal_USA_the_long_plan
+		id = USA_the_maverick_plan
+		icon = GFX_goal_USA_the_maverick_plan
 		x = 3
 		y = 1
 		cost = 4
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_longs_new_deal
+			focus = USA_mavericks_new_deal
 
 		}
-		relative_position_id = USA_longs_new_deal
+		relative_position_id = USA_mavericks_new_deal
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.4
+			country_event = USA_maverick_events.4
 		}
 	}
 	# shared_focus = {
@@ -1129,10 +1129,10 @@ focus_tree = {
 	# 	cost = 3
 	# 	available_if_capitulated = yes
 	# 	prerequisite = {
-	# 		focus = USA_the_long_plan
+	# 		focus = USA_the_maverick_plan
 
 	# 	}
-	# 	relative_position_id = USA_the_long_plan
+	# 	relative_position_id = USA_the_maverick_plan
 	# 	ai_will_do = {
 	# 		factor = 100
 	# 	}
@@ -1151,13 +1151,13 @@ focus_tree = {
 		cost = 5
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_the_maverick_plan
 
 		}
 		# available = {
 		# 	USA_has_congress_majority = yes
 		# }
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_the_maverick_plan
 		ai_will_do = {
 			factor = 100
 		}
@@ -1207,7 +1207,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.6	
+			country_event = USA_maverick_events.6	
 		}
 	}
 	# shared_focus = {
@@ -1241,10 +1241,10 @@ focus_tree = {
 	# 	cost = 2
 	# 	available_if_capitulated = yes
 	# 	prerequisite = {
-	# 		focus = USA_the_long_plan
+	# 		focus = USA_the_maverick_plan
 	
 	# 	}
-	# 	relative_position_id = USA_the_long_plan
+	# 	relative_position_id = USA_the_maverick_plan
 	# 	ai_will_do = {
 	# 		factor = 100
 	# 	}
@@ -1273,15 +1273,15 @@ focus_tree = {
 		cost = 3
 		available_if_capitulated = yes 
 		prerequisite = {
-			focus = USA_the_long_plan
+			focus = USA_the_maverick_plan
 	
 		}
-		relative_position_id = USA_the_long_plan
+		relative_position_id = USA_the_maverick_plan
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.5
+			country_event = USA_maverick_events.5
 		}
 	}
 	
@@ -1425,10 +1425,10 @@ focus_tree = {
 		cost = 1
 		available_if_capitulated = yes
 		prerequisite = {
-			focus = USA_longs_new_deal
+			focus = USA_mavericks_new_deal
 
 		}
-		relative_position_id = USA_longs_new_deal
+		relative_position_id = USA_mavericks_new_deal
 		ai_will_do = {
 			factor = 100
 		}
@@ -1464,10 +1464,10 @@ focus_tree = {
 		}
 		offset = {
 			trigger = {
-				has_focus_tree = USA_warren_presidency_tree
+				has_focus_tree = USA_shipstead_presidency_tree
 			}
 			x = 3
-			y = 3
+			y = 1
 		}
 		completion_reward = {
 			country_event = USA_wallace_events.2
@@ -1705,7 +1705,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			unlock_decision_category_tooltip = USA_huey_longs_road_plan
+			unlock_decision_category_tooltip = USA_maury_mavericks_road_plan
 
 			custom_effect_tooltip = USA_new_roads_tt
 		}
@@ -1997,7 +1997,7 @@ focus_tree = {
 	# 		factor = 100
 	# 	}
 	# 	completion_reward = {
-	# 		country_event = USA_long_events.8	
+	# 		country_event = USA_maverick_events.8	
 	# 	}
 	# }
 	
@@ -2083,11 +2083,11 @@ focus_tree = {
 	# 		factor = 100
 	# 	}
 	# 	completion_reward = {
-	# 		country_event = USA_long_events.9
+	# 		country_event = USA_maverick_events.9
 	# 	}
 	# }
 	shared_focus = {
-		id = USA_all_hail_the_kingfish
+		id = USA_every_american_a_maverick
 		icon = GFX_goal_USA_god_bless_the_kingfish
 		x = 1
 		y = 1
@@ -2105,7 +2105,7 @@ focus_tree = {
 		}
 		completion_reward = {
 		
-			swap_ruler_traits = { remove = USA_kingfish add = USA_kingfish_2 }
+			swap_ruler_traits = { remove = USA_americas_maverick add = USA_americas_maverick_2 }
 		}
 	}
 		
@@ -2140,17 +2140,17 @@ focus_tree = {
 		available_if_capitulated = yes
 	
 		prerequisite = {
-			focus = USA_all_hail_the_kingfish
+			focus = USA_every_american_a_maverick
 		}
 		prerequisite = {
 			focus = USA_the_american_dream_reborn
 		}
-		relative_position_id = USA_all_hail_the_kingfish
+		relative_position_id = USA_every_american_a_maverick
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			country_event = USA_long_events.10
+			country_event = USA_maverick_events.10
 		}
 	}
 
@@ -2174,8 +2174,8 @@ focus_tree = {
 
 
 shared_focus = {
-    id = USA_the_long_doctrine
-    icon = GFX_goal_USA_the_long_doctrine
+    id = USA_the_maverick_doctrine
+    icon = GFX_goal_USA_the_maverick_doctrine
     x = -3
     y = 1
     cost = 2
@@ -2196,11 +2196,11 @@ shared_focus = {
 		focus = USA_a_new_dawn_for_america
 	}
 	allow_branch = {
-		has_focus_tree = usa_long_new_deal_tree
+		has_focus_tree = usa_maverick_new_deal_tree
 	}
 	relative_position_id = USA_a_new_dawn_for_america
 	completion_reward = {
-        country_event = USA_long_events.17
+        country_event = USA_maverick_events.17
     }
 }
 
@@ -2212,15 +2212,15 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-        focus = USA_the_long_doctrine
+        focus = USA_the_maverick_doctrine
 
     }
-    relative_position_id = USA_the_long_doctrine
+    relative_position_id = USA_the_maverick_doctrine
     ai_will_do = {
         factor = 1000
     }
     completion_reward = {
-		country_event = USA_long_events.18
+		country_event = USA_maverick_events.18
         add_political_power = 50
 		add_war_support = 0.05
     }
@@ -2241,7 +2241,7 @@ shared_focus = {
 #         factor = 1000
 #     }
 #     completion_reward = {
-#         country_event = USA_long_events.18
+#         country_event = USA_maverick_events.18
 #     }
 # }
 shared_focus = {
@@ -2466,7 +2466,7 @@ shared_focus = {
 	}
     completion_reward = {
         set_variable = { IRA_ability_to_revolt = 0 } 
-		country_event = USA_long_events.19
+		country_event = USA_maverick_events.19
     }
 }
 
@@ -2882,7 +2882,7 @@ shared_focus = {
 		}
 	}
     completion_reward = {
-        country_event = USA_long_events.20
+        country_event = USA_maverick_events.20
     }
 }
 shared_focus = {
@@ -2901,7 +2901,7 @@ shared_focus = {
         factor = 1000
     }
     completion_reward = {
-        country_event = USA_long_events.21
+        country_event = USA_maverick_events.21
 		set_variable = {
 			USA_Military_Power = 15
 		}
@@ -3361,13 +3361,13 @@ shared_focus = {
     cost = 2
     available_if_capitulated = yes
     prerequisite = {
-       # focus = USA_the_long_doctrine
+       # focus = USA_the_maverick_doctrine
 
     }
     allow_branch = {
         always = no
     }
-    relative_position_id = USA_the_long_doctrine
+    relative_position_id = USA_the_maverick_doctrine
     ai_will_do = {
         factor = 1000
     }
@@ -6479,7 +6479,7 @@ shared_focus = {
 	
 # 	offset = {
 # 		trigger = {
-# 			has_focus_tree = usa_long_new_deal_tree
+# 			has_focus_tree = usa_maverick_new_deal_tree
 # 		}
 # 		x = 10
 # 		y = 2
@@ -6543,7 +6543,7 @@ shared_focus = {
 	}
 	# allow_branch = {
 	# 	NOT = {
-	# 		has_focus_tree = usa_long_new_deal_tree
+	# 		has_focus_tree = usa_maverick_new_deal_tree
 	# 	}
 	# }
 	
@@ -8368,7 +8368,7 @@ shared_focus = {
 
 
 focus_tree = {
-    id = USA_warren_presidency_tree
+    id = USA_shipstead_presidency_tree
     country = {
 		factor = 0
 		modifier = {
@@ -8381,7 +8381,7 @@ focus_tree = {
 		x = 0
 		y = 2500
 	}
-	shared_focus = USA_the_warren_cabinet
+	shared_focus = USA_the_shipstead_cabinet
 	shared_focus = USA_agricultural_relief_program
 	shared_focus = USA_establishing_the_dc_pact
 	shared_focus = USA_the_british_situation
@@ -8395,7 +8395,7 @@ focus_tree = {
 } 
 
 shared_focus = {
-	id = USA_the_warren_cabinet
+	id = USA_the_shipstead_cabinet
 	icon = GFX_goal_USA_warren_cabinet
 	x = 3
 	y = 0
@@ -8406,36 +8406,36 @@ shared_focus = {
 	}
 	completion_reward = {
 		country_event = {
-			id = USA_warren_tree.1
+			id = USA_shipstead_tree.1
 			days = 1
 		}
 		country_event = {
-			id = USA_warren_tree.2
+			id = USA_shipstead_tree.2
 			days = 3
 		}
 		country_event = {
-			id = USA_warren_tree.3
+			id = USA_shipstead_tree.3
 			days = 5
 		}
 
 		hidden_effect = {
 			remove_ideas = USA_great_depression
-			add_ideas = USA_warren_great_depression_idea
+			add_ideas = USA_shipstead_great_depression_idea
 			set_variable = {
-				USA_warren_great_depression_industrial_capacity_factory = -0.45
+				USA_shipstead_great_depression_industrial_capacity_factory = -0.45
 			}
 			set_variable = {
-				USA_warren_great_depression_stability_factor = -0.5
+				USA_shipstead_great_depression_stability_factor = -0.5
 			}
 			set_variable = {
-				USA_warren_great_depression_consumer_goods_factor = 0.25
+				USA_shipstead_great_depression_consumer_goods_factor = 0.25
 			}
 			set_variable = {
-				USA_warren_great_depression_production_factory_efficiency_gain_factor = -0.1
+				USA_shipstead_great_depression_production_factory_efficiency_gain_factor = -0.1
 			}
-			USA_warren_great_depression_loc = yes
+			USA_shipstead_great_depression_loc = yes
 			add_dynamic_modifier = {
-				modifier = USA_warren_great_depression
+				modifier = USA_shipstead_great_depression
 			}
 		}
 	}
@@ -8447,18 +8447,18 @@ shared_focus = {
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_the_warren_cabinet
-	prerequisite = { focus = USA_the_warren_cabinet }
+	relative_position_id = USA_the_shipstead_cabinet
+	prerequisite = { focus = USA_the_shipstead_cabinet }
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
 		add_to_variable = {
-			USA_warren_great_depression_industrial_capacity_factory = 0.1
+			USA_shipstead_great_depression_industrial_capacity_factory = 0.1
 		}
 		effect_tooltip = {
 			swap_ideas = {
-				add_idea = USA_great_depression_warren_economic_reivlization
+				add_idea = USA_great_depression_shipstead_economic_reivlization
 				remove_idea = USA_great_depression
 			}
 		}
@@ -8466,427 +8466,57 @@ shared_focus = {
 		add_ideas = USA_economic_rejuvination_plan
 	}
 }
-shared_focus = {
-	id = USA_promote_government_bonds
-	icon = GFX_goal_SOV_eastern_balkan_industry
-	x = -2
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_economic_revitalization
-	prerequisite = { focus = USA_economic_revitalization }
-	ai_will_do = {
-		factor = 100
-	}
-	mutually_exclusive = {
-		focus = USA_promote_confidence_in_the_market
-	}
-	available = {
-		has_idea = james_j_couzens
-	}
-	completion_reward = {
-		add_to_variable = {
-			USA_warren_great_depression_consumer_goods_factor = -0.05
-		}
-		USA_warren_great_depression_loc = yes
 
-		effect_tooltip = {
-			swap_ideas = {
-				add_idea = USA_great_depression_warren_promote_con_in_market
-				remove_idea = USA_great_depression
-			}
-		}
-		
-		
-		if = {
-			limit = { has_idea = USA_economic_rejuvination_plan }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan
-				add_idea = USA_economic_rejuvination_plan_2
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_economic_rejuvination_plan_2_alt }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan_2_alt
-				add_idea = USA_economic_rejuvination_plan_3_alt
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_economic_rejuvination_plan_2_alt
-					add_idea = USA_economic_rejuvination_plan_3_alt
-				}
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_keep_tarrifs_to_a_minimum
-	icon = GFX_goal_abolish_price_caps
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_promote_government_bonds
-	prerequisite = { focus = USA_promote_government_bonds }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		add_ideas = export_focus
-		ENG = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = lowered_tarrifs
-			}
-		}
-		FRA = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = lowered_tarrifs
-			}
-		}
-		AUS = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = lowered_tarrifs
-			}
-		}
-		SPR = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = lowered_tarrifs
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_promote_confidence_in_the_market
-	icon = GFX_goal_support_small_bussinesses
-	x = -4
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_economic_revitalization
-	prerequisite = { focus = USA_economic_revitalization }
-	mutually_exclusive = {
-		focus = USA_promote_government_bonds
-	}
-	ai_will_do = {
-		factor = 100
-	}
-	available = {
-		has_idea = herbert_hoover
-	}
-	completion_reward = {
-		add_to_variable = {
-			USA_warren_great_depression_industrial_capacity_factory = 0.05
-		}
-		add_to_variable = {
-			USA_warren_great_depression_stability_factor = 0.05
-		}
-		USA_warren_great_depression_loc = yes
-
-		effect_tooltip = {
-			swap_ideas = {
-				add_idea = USA_great_depression_warren_promote_government_bonds
-				remove_idea = USA_great_depression
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_revive_the_smooth_hawley_tarrif_act
-	icon = GFX_goal_AUS_sign_a_new_constitution
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_promote_confidence_in_the_market
-	prerequisite = { focus = USA_promote_confidence_in_the_market }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		add_ideas = limited_exports
-
-		ENG = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = tarrifs
-			}
-		}
-		FRA = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = tarrifs
-			}
-		}
-		AUS = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = tarrifs
-			}
-		}
-		SPR = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = tarrifs
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_cut_sales_tax
-	icon = GFX_goal_USA_promote_federal_removal_of_prohibition
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_economic_revitalization
-	prerequisite = { focus = USA_economic_revitalization }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		add_to_variable = {
-			USA_warren_great_depression_consumer_goods_factor = -0.05
-		}
-		USA_warren_great_depression_loc = yes
-		effect_tooltip = {
-			swap_ideas = {
-				add_idea = USA_great_depression_cut_sales_taxes
-				remove_idea = USA_great_depression
-			}
-		}
-		add_war_support = 0.03
-	}
-}
-shared_focus = {
-	id = USA_raise_gas_taxes
-	icon = GFX_goal_USA_take_down_standard_oil
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_cut_sales_tax
-	prerequisite = { focus = USA_cut_sales_tax }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		if = {
-			limit = { has_idea = USA_economic_rejuvination_plan }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan
-				add_idea = USA_economic_rejuvination_plan_2_alt
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_economic_rejuvination_plan_2 }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan_2
-				add_idea = USA_economic_rejuvination_plan_3_alt
-			}
-		}
-		else_if = {
-			limit = { has_idea = USA_economic_rejuvination_plan_3 }
-			swap_ideas = {
-				remove_idea = USA_economic_rejuvination_plan_3
-				add_idea = USA_economic_rejuvination_plan_4_alt
-			}
-		}
-		else = {
-			effect_tooltip = {
-				swap_ideas = {
-					remove_idea = USA_economic_rejuvination_plan_3
-					add_idea = USA_economic_rejuvination_plan_4_alt
-				}
-			}
-		}
-		
-
-	}
-}
-
-shared_focus = {
-	id = USA_raise_taxes_on_the_top_1
-	icon = GFX_goal_USA_shut_down_the_stock_exchange
-	x = 2
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_economic_revitalization
-	prerequisite = { focus = USA_economic_revitalization }
-	ai_will_do = {
-		factor = 100
-	}
-	mutually_exclusive = {
-		focus = USA_american_jobs_for_americans_only
-	}
-	
-	available = {
-		has_idea = james_j_couzens
-	}
-	completion_reward = {
-		add_political_power = 100
-		add_to_variable = {
-			USA_warren_great_depression_industrial_capacity_factory = 0.05
-		}
-		USA_warren_great_depression_loc = yes
-		effect_tooltip = {
-			
-			swap_ideas = {
-				add_idea = USA_great_depression_warren_raise_taxes_on_the_top_1
-				remove_idea = USA_great_depression
-			}
-		}
-
-		
-	}
-
-}
-shared_focus = {
-	id = USA_issue_stimulus_checks
-	icon = GFX_Generic_Conservativsm
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_raise_taxes_on_the_top_1
-	prerequisite = { focus = USA_raise_taxes_on_the_top_1 }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = { 
-
-		add_to_variable = {
-			USA_warren_great_depression_production_factory_efficiency_gain_factor = 0.05
-		}
-		USA_warren_great_depression_loc = yes
-		effect_tooltip = {
-			swap_ideas = {
-				add_idea = USA_great_depression_warren_issue_stimulus_checks
-				remove_idea = USA_great_depression
-			}
-		}
-		
-		add_timed_idea = {
-			idea = USA_stimulus_check_payments
-			days = 60
-		}
-	}
-}
-
-shared_focus = {
-	id = USA_american_jobs_for_americans_only
-	icon = GFX_goal_USA_government_work_programs
-	x = 4
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_economic_revitalization
-	prerequisite = { focus = USA_economic_revitalization }
-	ai_will_do = {
-		factor = 100
-	}
-	mutually_exclusive = {
-		focus = USA_raise_taxes_on_the_top_1
-	}
-	available = {
-		has_idea = herbert_hoover
-	}
-
-	completion_reward = {
-		add_ideas = USA_hoover_quotas
-		add_to_variable = {
-			USA_warren_great_depression_consumer_goods_factor = -0.05
-		}
-		USA_warren_great_depression_loc = yes
-
-		effect_tooltip = {
-			swap_ideas = {
-				add_idea = USA_great_depression_warren_promote_con_in_market
-				remove_idea = USA_great_depression
-			}
-		}
-	}
-
-}
-shared_focus = {
-	id = USA_mexican_repatriation
-	icon = GFX_goal_USA_mexico_diplo
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_american_jobs_for_americans_only
-	prerequisite = { focus = USA_american_jobs_for_americans_only }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = { 
-		country_event = USA_warren_tree.6
-		MEX = {
-			country_event = USA_warren_tree.6
-			add_manpower = 25000
-		}
-		CEN = {
-			country_event = USA_warren_tree.6
-			add_manpower = 10000
-		}
-	}
-}
 
 shared_focus = {
 	id = USA_onto_true_recovery
 	icon = GFX_goal_USA_an_end_to_the_decline
-	x = -2
+	x = 0
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_issue_stimulus_checks
-	prerequisite = { focus = USA_issue_stimulus_checks focus = USA_mexican_repatriation }
-    prerequisite = {
-        focus = USA_raise_gas_taxes
-    }
-    prerequisite = {
-        focus = USA_keep_tarrifs_to_a_minimum
-		focus = USA_revive_the_smooth_hawley_tarrif_act
-    }
+	relative_position_id = USA_economic_revitalization
+	prerequisite = { focus = USA_economic_revitalization }
+	available = {
+		custom_trigger_tooltip = {
+			tooltip = USA_onto_true_recovery_available_tt
+			check_variable = {
+				USA_onto_true_recovery_available = 6
+			}
+		}
+	}
+
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
 		 hidden_effect = {
 			 remove_dynamic_modifier = {
-				 modifier = USA_warren_great_depression
+				 modifier = USA_shipstead_great_depression
 			 }
 		 }
 		effect_tooltip = {
-		remove_ideas = USA_great_depression_3
+			remove_ideas = USA_great_depression_3
 		}
-		 if = {
+		if = {
 		 	limit = { has_idea = james_j_couzens } 
 		 	add_timed_idea = {
 		 		days = 700
 		 		idea = USA_liberal_recovery
 		 	}
-		 }
-		 if = {
+		}
+		if = {
 		 	limit = { has_idea = herbert_hoover }
 		 	add_timed_idea = {
 		 		days = 700
 		 		idea = USA_conservative_recovery
 		 	}
-		 }
+		}
 	}
 }
 shared_focus = {
 	id = USA_investment_in_the_public
-	icon = GFX_goal_USA_share_our_wealth
+	icon = GFX_focus_usa_guarantee_the_american_dream
 	x = -2
 	y = 1
 	cost = 2
@@ -8902,17 +8532,17 @@ shared_focus = {
 			limit = {
 				has_idea = herbert_hoover
 			}
-			country_event = USA_warren_tree.4
+			country_event = USA_shipstead_tree.4
 		}
 		else_if = {
 			limit = {
 				has_idea = james_j_couzens
 			}
-			country_event = USA_warren_tree.5
+			country_event = USA_shipstead_tree.5
 		}
 		else = {
 			effect_tooltip = {
-				country_event = USA_warren_tree.5
+				country_event = USA_shipstead_tree.5
 			}
 		}
 	}
@@ -9115,102 +8745,7 @@ shared_focus = {
 		}
 	}
 }
-shared_focus = {
-	id = USA_send_in_dewey
-	icon = GFX_goal_USA_send_out_dewey
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_rid_of_prohibition
-	prerequisite = { focus = USA_rid_of_prohibition }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-		add_to_variable = {
-			global.usa_senate_seat_array^2 = 2
-		}
-		add_to_variable = {
-			global.usa_senate_seat_array^1 = -2
-		}
-	}
-}
-shared_focus = {
-	id = USA_the_policy_of_neosanl
-	icon = GFX_goal_USA_anti_klan_laws
-	x = 1
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_investment_in_the_public
-	prerequisite = { focus = USA_investment_in_the_public }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-	}
-}
-shared_focus = {
-	id = USA_combat_the_yellow_peril
-	icon = GFX_goal_USA_combat_the_yellow_peril
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_the_policy_of_neosanl
-	prerequisite = { focus = USA_the_policy_of_neosanl }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		JAP = {
-			add_opinion_modifier = {
-				target = USA
-				modifier = medium_decrease
-			}
-		}
-	}
-}
-shared_focus = {
-	id = USA_lay_the_foundation
-	icon = GFX_USA_trust_busting
-	x = -1
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_combat_the_yellow_peril
-	prerequisite = { focus = USA_combat_the_yellow_peril }
-    prerequisite = {
-        focus = USA_send_in_dewey
-    }
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-		#*shrug*
-	}
-}
 
-
-shared_focus = {
-	id = USA_the_great_pacifican
-	icon = GFX_goal_USA_the_great_pacifican
-	x = 0
-	y = 1
-	cost = 2
-	available_if_capitulated = yes
-	relative_position_id = USA_lay_the_foundation
-	prerequisite = { focus = USA_lay_the_foundation }
-
-	ai_will_do = {
-		factor = 100
-	}
-	completion_reward = {
-	}
-}
 
 
 
