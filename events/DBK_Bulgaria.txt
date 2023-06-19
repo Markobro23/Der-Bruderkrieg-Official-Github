@@ -103,14 +103,15 @@ country_event = {
 	trigger = {
 		original_tag = BUL
 		date > 1937.06.11
-		NOT = {
-			has_country_flag = secure_macedonia_completed
-		}
 	}
 
 	option = {
 		name = bulgaria_civil_war.3.a #needs to be localized
 		
+		trigger = {
+			NOT = has_country_flag = secure_macedonia_completed
+		}
+			
 		MAC = {
 			set_state_owner = 106
 			set_state_controller = 106
@@ -124,8 +125,43 @@ country_event = {
 				set_state_controller = 1052
 			}
 		}
+
+		
 	}
-} 
+
+	option = {
+		name = bulgaria_civil_war.3.b #needs to be localized
+		
+		trigger = {
+			has_country_flag = secure_macedonia_completed
+		}
+			
+		MAC = {
+			set_state_owner = 106
+			set_state_controller = 106
+			if = {
+				limit = {
+					1052 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 1052
+				set_state_controller = 1052
+			}
+		}
+
+		BUL = {
+			set_autonomy = {
+    			target = MAC
+    			autonomy_state = autonomy_dominion
+    			end_wars = yes
+    			end_civil_wars = yes
+			}
+		}
+	}
+}
+
+
 
 country_event = {
 	id = bulgaria_civil_war.4
@@ -201,12 +237,134 @@ country_event = {
 
 	option = {
 		name = bulgaria_civil_war.6.a #needs to be localized
+
+		BLC = {
+			set_state_owner = 212
+			set_state_controller = 212
+			if = {
+				limit = {
+					829 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 829
+				set_state_controller = 829
+			}
+			if = {
+				limit = {
+					184 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 184
+				set_state_controller = 184
+			}
+			if = {
+				limit = {
+					833 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 833
+				set_state_controller = 833
+			}
+			if = {
+				limit = {
+					948 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 948
+				set_state_controller = 948
+			}
+		}
 		
 	}
 
-	option = {
-		name = bulgaria_civil_war.6.b #needs to be localized
+} 
 
+
+country_event = {
+	id = bulgaria_civil_war.7
+	title = bulgaria_civil_war.7.t
+	desc = bulgaria_civil_war.7.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	#is_triggered_only = yes
+
+	trigger = {
+		original_tag = BUL
+		date > 1937.06.27
 	}
+
+	option = {
+		name = bulgaria_civil_war.7.a #needs to be localized
+
+		BLS = {
+			set_state_owner = 806
+			set_state_controller = 806
+			set_state_owner = 211
+			set_state_controller = 211
+			if = {
+				limit = {
+					77 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 77
+				set_state_controller = 77
+			}
+			if = {
+				limit = {
+					811 = {
+						is_owned_by = BUL 
+					} 
+				}
+				set_state_owner = 811
+				set_state_controller = 811
+			}
+		}
+		
+	}
+
+} 
+
+country_event = {
+	id = bulgaria_civil_war.8
+	title = bulgaria_civil_war.8.t
+	desc = bulgaria_civil_war.8.d
+	picture = GFX_report_event_vienna_award_hungary
+
+	fire_only_once = yes   
+	#is_triggered_only = yes
+
+	trigger = {
+		original_tag = BUL
+		date > 1937.06.27
+	}
+
+	option = {
+		name = bulgaria_civil_war.8.a #needs to be localized
+
+		BLS = {
+			declare_war_on = {
+   				target = BUL
+    			type = annex_everything
+			}
+		}
+		BLC = {
+			declare_war_on = {
+   				target = BUL
+    			type = annex_everything
+			}
+			declare_war_on = {
+   				target = BLS
+    			type = annex_everything
+			}
+		}
+		
+	}
+
 } 
 
