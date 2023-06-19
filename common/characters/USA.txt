@@ -1019,7 +1019,7 @@ characters={
 		portraits={
 			army={
 				small="gfx/interface/advisors/USA/USA_arleigh_burke.png"
-				large="gfx/leaders/USA/Portrait_USA_Arleigh_Burke.png"
+				large="gfx/leaders/USA/Portrait_USA_Arleigh_Burke_KR.png"
 			}
 		}
 		navy_leader={
@@ -1356,6 +1356,47 @@ characters={
 			ledger = army
 			traits = { army_armored_2 }
 			cost = 100
+		}
+	}
+	USA_william_donovan={
+		name= "William J. Donovan"
+		portraits={
+			army={
+				small="GFX_idea_usa_william_donovan"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = usa_william_donovan
+			available  = {
+				has_intelligence_agency  = yes 
+				threat > 0.500
+			}
+			allowed  = {
+				original_tag  = USA
+				has_dlc = "La Resistance"
+			}
+			traits  = {
+				head_of_intelligence 
+			}
+		}		
+	}
+	USA_mayo_brothers={
+		name= "The Mayo Brothers"
+		portraits={
+			army={
+				small="gfx/interface/advisors/USA/USA_mayo_brothers.dds"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = mayo_brothers
+			allowed  = {
+				original_tag  = USA
+			}
+			traits  = {
+				medical_crusaders 
+			}
 		}
 	}
 }
