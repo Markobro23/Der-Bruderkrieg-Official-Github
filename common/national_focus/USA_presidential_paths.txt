@@ -1439,7 +1439,7 @@ focus_tree = {
 	shared_focus = {
 		id = USA_agricultural_relief_program
 		icon = GFX_goal_USA_agricultural_reform_bill
-		x = 2
+		x = 4
 		y = 2
 		cost = 5
 		available_if_capitulated = yes
@@ -1466,7 +1466,7 @@ focus_tree = {
 			trigger = {
 				has_focus_tree = USA_shipstead_presidency_tree
 			}
-			x = 3
+			x = 6
 			y = 1
 		}
 		completion_reward = {
@@ -8397,7 +8397,7 @@ focus_tree = {
 shared_focus = {
 	id = USA_the_shipstead_cabinet
 	icon = GFX_goal_USA_warren_cabinet
-	x = 3
+	x = 6
 	y = 0
 	cost = 2
 	available_if_capitulated = yes
@@ -8517,7 +8517,7 @@ shared_focus = {
 shared_focus = {
 	id = USA_investment_in_the_public
 	icon = GFX_focus_usa_guarantee_the_american_dream
-	x = -2
+	x = -4
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
@@ -8547,161 +8547,266 @@ shared_focus = {
 		}
 	}
 }
-# shared_focus = {
-# 	id = USA_an_american_freeway_system
-# 	icon = GFX_goal_generic_roads
-# 	x = -1
-# 	y = 1
-# 	cost = 2
-# 	available_if_capitulated = yes
-# 	relative_position_id = USA_investment_in_the_public
-# 	prerequisite = { focus = USA_investment_in_the_public }
-# 	ai_will_do = {
-# 		factor = 100
-# 	}
-# 	completion_reward = {
-# 		swap_ideas = {
-# 			remove_idea = USA_economic_rejuvination_plan_4_alt
-# 			add_idea = USA_economic_rejuvination_plan_5
-# 		}
-# 		swap_ideas = {
-# 			remove_idea = USA_dust_bowl_2
-# 			add_idea = USA_dust_bowl_3
-# 		}
-# 	}
-# }
-# shared_focus = {
-# 	id = USA_build_community_colleges
-# 	icon = GFX_goal_USA_literacy_programs
-# 	x = 0
-# 	y = 1
-# 	cost = 2
-# 	available_if_capitulated = yes
-# 	relative_position_id = USA_an_american_freeway_system
-# 	prerequisite = { focus = USA_an_american_freeway_system }
-# 	ai_will_do = {
-# 		factor = 100
-# 	}
-# 	available = {
-# 		hidden_trigger = {
-# 			NOT = {
-# 				has_idea = USA_plagued_by_polio
-# 			}
-# 		}
-# 	}
-# 	completion_reward = {
-# 		if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_2 }
-# 			swap_ideas = {
-# 				remove_idea = USA_plagued_by_polio_warren_2
-# 				add_idea = USA_plagued_by_polio_warren_3
-# 			}
-# 		}
-# 		else_if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_4 }
-# 			swap_ideas = {
-# 				remove_idea = USA_plagued_by_polio_warren_4
-# 				add_idea = USA_plagued_by_polio_warren_5
-# 			}
-# 		}
-# 		else = {
-# 			effect_tooltip = {
-# 				swap_ideas = {
-# 					remove_idea = USA_plagued_by_polio_warren_4
-# 					add_idea = USA_plagued_by_polio_warren_5
-# 				}
-# 			}
-# 		}
-# 	}
-# }
-# shared_focus = {
-# 	id = USA_invest_in_usphs
-# 	icon = GFX_goal_USA_tax_breaks_for_private_medical 
-# 	x = 1
-# 	y = 1
-# 	cost = 2
-# 	available_if_capitulated = yes
-# 	relative_position_id = USA_investment_in_the_public
-# 	prerequisite = { focus = USA_investment_in_the_public }
-# 	ai_will_do = {
-# 		factor = 100
-# 	}
-# 	completion_reward = {
-# 		swap_ideas = {
-# 			remove_idea = USA_plagued_by_polio
-# 			add_idea = USA_plagued_by_polio_warren_2
-# 		}
-# 	}
-# }
-# shared_focus = {
-# 	id = USA_create_the_crdc
-# 	icon = GFX_goal_SOV_path_to_liberal_society
-# 	x = 0
-# 	y = 1
-# 	cost = 2
-# 	available_if_capitulated = yes
-# 	relative_position_id = USA_invest_in_usphs
-# 	prerequisite = { focus = USA_invest_in_usphs }
-# 	ai_will_do = {
-# 		factor = 100
-# 	}
-# 	completion_reward = {
-# 		if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_2 }
-# 			swap_ideas = {
-# 				remove_idea = USA_plagued_by_polio_warren_2
-# 				add_idea = USA_plagued_by_polio_warren_4
-# 			}
-# 		}
-# 		else_if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_3 }
-# 			swap_ideas = {
-# 				remove_idea = USA_plagued_by_polio_warren_3
-# 				add_idea = USA_plagued_by_polio_warren_5
-# 			}
-# 		}
-# 		else = {
-# 			effect_tooltip = {
-# 				swap_ideas = {
-# 					remove_idea = USA_plagued_by_polio_warren_3
-# 					add_idea = USA_plagued_by_polio_warren_5
-# 				}
-# 			}
-# 		}
-# 	}
-# }
-# shared_focus = {
-# 	id = USA_lay_the_foundation
-# 	icon = GFX_USA_trust_busting
-# 	x = -1
-# 	y = 1
-# 	cost = 2
-# 	available_if_capitulated = yes
-# 	relative_position_id = USA_create_the_crdc
-# 	prerequisite = { focus = USA_create_the_crdc }
-#     prerequisite = {
-#         focus = USA_build_community_colleges
-#     }
-# 	ai_will_do = {
-# 		factor = 100
-# 	}
-# 	completion_reward = {
-# 		#new congress decision for national healthcare program
-# 		if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_5 }
-# 			remove_ideas = USA_plagued_by_polio_warren_5
-# 		}
-# 		else_if = {
-# 			limit = { has_idea = USA_plagued_by_polio_warren_4 }
-# 			remove_ideas = USA_plagued_by_polio_warren_4
-# 		}
-# 		else = {
-# 			effect_tooltip = {
-# 				remove_ideas = USA_plagued_by_polio_warren_4
-# 			}
-# 		}
-# 	}
-# }
+shared_focus = {
+	id = USA_an_american_freeway_system
+	icon = GFX_goal_generic_roads
+	x = -1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_investment_in_the_public
+	prerequisite = { focus = USA_investment_in_the_public }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_lindbergh_air_iniative
+	icon = GFX_goal_generic_roads
+	x = 1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_investment_in_the_public
+	prerequisite = { focus = USA_investment_in_the_public }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_economic_diversification_iniaitive
+	icon = GFX_goal_generic_roads
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_an_american_freeway_system
+	prerequisite = { focus = USA_an_american_freeway_system }
+	prerequisite = {
+		focus = USA_lindbergh_air_iniative
+	}
+	mutually_exclusive = {
+		focus = USA_adopt_the_silver_standard
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_international_trade_agreements
+	icon = GFX_goal_generic_roads
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_economic_diversification_iniaitive
+	prerequisite = { focus = USA_economic_diversification_iniaitive }
+	
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_adopt_the_silver_standard
+	icon = GFX_goal_generic_roads
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_lindbergh_air_iniative
+	prerequisite = { focus = USA_lindbergh_air_iniative }
+	prerequisite = { focus = USA_an_american_freeway_system }
+	mutually_exclusive = {
+		focus = USA_economic_diversification_iniaitive
+	}
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_invest_in_silver_nations
+	icon = GFX_goal_generic_roads
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_adopt_the_silver_standard
+	prerequisite = { focus = USA_adopt_the_silver_standard }
+
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+shared_focus = {
+	id = USA_alliance_with_detriot
+	icon = GFX_goal_generic_roads
+	x = -1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_invest_in_silver_nations
+	prerequisite = { focus = USA_invest_in_silver_nations focus = USA_international_trade_agreements }
+
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		
+	}
+}
+
+shared_focus = {
+	id = USA_invest_in_usphs
+	icon = GFX_goal_USA_tax_breaks_for_private_medical 
+	x = 0
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_rid_of_prohibition
+	prerequisite = { focus = USA_rid_of_prohibition }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		swap_ideas = {
+			remove_idea = USA_plagued_by_polio
+			add_idea = USA_plagued_by_polio_warren_2
+		}
+	}
+}
+
+shared_focus = {
+	id = USA_build_community_colleges
+	icon = GFX_goal_USA_literacy_programs
+	x = -1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_invest_in_usphs
+	prerequisite = { focus = USA_invest_in_usphs }
+	ai_will_do = {
+		factor = 100
+	}
+	available = {
+		hidden_trigger = {
+			NOT = {
+				has_idea = USA_plagued_by_polio
+			}
+		}
+	}
+	completion_reward = {
+		if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_2 }
+			swap_ideas = {
+				remove_idea = USA_plagued_by_polio_warren_2
+				add_idea = USA_plagued_by_polio_warren_3
+			}
+		}
+		else_if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_4 }
+			swap_ideas = {
+				remove_idea = USA_plagued_by_polio_warren_4
+				add_idea = USA_plagued_by_polio_warren_5
+			}
+		}
+		else = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_plagued_by_polio_warren_4
+					add_idea = USA_plagued_by_polio_warren_5
+				}
+			}
+		}
+	}
+}
+
+shared_focus = {
+	id = USA_create_the_crdc
+	icon = GFX_goal_SOV_path_to_liberal_society
+	x = 1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_invest_in_usphs
+	prerequisite = { focus = USA_invest_in_usphs }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_2 }
+			swap_ideas = {
+				remove_idea = USA_plagued_by_polio_warren_2
+				add_idea = USA_plagued_by_polio_warren_4
+			}
+		}
+		else_if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_3 }
+			swap_ideas = {
+				remove_idea = USA_plagued_by_polio_warren_3
+				add_idea = USA_plagued_by_polio_warren_5
+			}
+		}
+		else = {
+			effect_tooltip = {
+				swap_ideas = {
+					remove_idea = USA_plagued_by_polio_warren_3
+					add_idea = USA_plagued_by_polio_warren_5
+				}
+			}
+		}
+	}
+}
+shared_focus = {
+	id = USA_lay_the_foundation
+	icon = GFX_USA_trust_busting
+	x = -1
+	y = 1
+	cost = 2
+	available_if_capitulated = yes
+	relative_position_id = USA_create_the_crdc
+	prerequisite = { focus = USA_create_the_crdc }
+    prerequisite = {
+        focus = USA_build_community_colleges
+    }
+	ai_will_do = {
+		factor = 100
+	}
+	completion_reward = {
+		#new congress decision for national healthcare program
+		if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_5 }
+			remove_ideas = USA_plagued_by_polio_warren_5
+		}
+		else_if = {
+			limit = { has_idea = USA_plagued_by_polio_warren_4 }
+			remove_ideas = USA_plagued_by_polio_warren_4
+		}
+		else = {
+			effect_tooltip = {
+				remove_ideas = USA_plagued_by_polio_warren_4
+			}
+		}
+	}
+}
 
 
 
@@ -8724,12 +8829,12 @@ shared_focus = {
 shared_focus = {
 	id = USA_rid_of_prohibition
 	icon = GFX_goal_USA_the_issue_of_prohibition
-	x = -1
+	x = 0
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
-	relative_position_id = USA_investment_in_the_public
-	prerequisite = { focus = USA_investment_in_the_public }
+	relative_position_id = USA_onto_true_recovery
+	prerequisite = { focus = USA_onto_true_recovery }
 	ai_will_do = {
 		factor = 100
 	}
