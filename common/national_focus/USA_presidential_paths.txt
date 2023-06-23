@@ -1705,7 +1705,7 @@ focus_tree = {
 			factor = 100
 		}
 		completion_reward = {
-			unlock_decision_category_tooltip = USA_maury_mavericks_road_plan
+			unlock_decision_category_tooltip = USA_presidential_road_plan
 
 			custom_effect_tooltip = USA_new_roads_tt
 		}
@@ -8549,7 +8549,7 @@ shared_focus = {
 }
 shared_focus = {
 	id = USA_an_american_freeway_system
-	icon = GFX_goal_generic_roads
+	icon = GFX_goal_USA_build_new_roads
 	x = -1
 	y = 1
 	cost = 2
@@ -8560,12 +8560,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		unlock_decision_category_tooltip = USA_maury_mavericks_road_plan
 	}
 }
 shared_focus = {
 	id = USA_lindbergh_air_iniative
-	icon = GFX_goal_generic_roads
+	icon = GFX_focus_generic_air_defense
 	x = 1
 	y = 1
 	cost = 2
@@ -8576,12 +8576,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		unlock_decision_category_tooltip = USA_lindbergh_air_iniaitive_decisions
 	}
 }
 shared_focus = {
 	id = USA_economic_diversification_iniaitive
-	icon = GFX_goal_generic_roads
+	icon = GFX_goal_USA_economic_reform_plan
 	x = 0
 	y = 1
 	cost = 2
@@ -8598,12 +8598,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_ideas = USA_diversified_prosperity
 	}
 }
 shared_focus = {
 	id = USA_international_trade_agreements
-	icon = GFX_goal_generic_roads
+	icon = GFX_goal_generic_positive_trade_relations
 	x = 0
 	y = 1
 	cost = 2
@@ -8615,12 +8615,15 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		swap_ideas = {
+			remove_idea = USA_diversified_prosperity
+			add_idea = USA_diversified_prosperity_2
+		}
 	}
 }
 shared_focus = {
 	id = USA_adopt_the_silver_standard
-	icon = GFX_goal_generic_roads
+	icon = GFX_goal_FGD_economic_austerity
 	x = 0
 	y = 1
 	cost = 2
@@ -8635,12 +8638,12 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_ideas = USA_silver_standard
 	}
 }
 shared_focus = {
 	id = USA_invest_in_silver_nations
-	icon = GFX_goal_generic_roads
+	icon = GFX_goal_GER_increase_state_investment
 	x = 0
 	y = 1
 	cost = 2
@@ -8652,24 +8655,40 @@ shared_focus = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		# Temporary effect
+		PBC = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = silver_investment_trade
+			}
+		}
+		MEX = {
+			add_opinion_modifier = {
+				target = USA
+				modifier = silver_investment_trade
+			}
+		}
 	}
 }
 shared_focus = {
-	id = USA_alliance_with_detriot
-	icon = GFX_goal_generic_roads
-	x = -1
+	id = USA_republican_revolution
+	icon = GFX_goal_USA_the_american_dream_reborn
+	x = 1
 	y = 1
 	cost = 2
 	available_if_capitulated = yes
 	relative_position_id = USA_invest_in_silver_nations
 	prerequisite = { focus = USA_invest_in_silver_nations focus = USA_international_trade_agreements }
+	prerequisite = {
+		focus = USA_lay_the_foundation
+	}
 
 	ai_will_do = {
 		factor = 100
 	}
 	completion_reward = {
-		
+		add_stability = 0.15
+		add_political_power = 100
 	}
 }
 

@@ -2822,7 +2822,7 @@ USA_the_banana_war = {
 
 }
 
-USA_maury_mavericks_road_plan = {
+USA_presidential_road_plan = {
 	USA_highway_1 = {
 
 		icon = generic_construction
@@ -3166,6 +3166,113 @@ USA_maury_mavericks_road_plan = {
 			}
 			set_country_flag = USA_highway_3_built
 		}
+	}
+}
+
+USA_lindbergh_air_iniaitive_decisions = {
+	USA_airbase_infrastructure_development = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 150
+
+		modifier = {
+			civilian_factory_use = 2
+			production_speed_air_base_factor = 0.15
+			industry_free_repair_factor	= 0.35
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+	}
+	USA_transcontinental_mail_service = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 200
+
+		modifier = {
+			civilian_factory_use = 3
+			consumer_goods_factor = -0.05
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = radar_tech
+			}
+			add_stability = 0.03
+		}
+	}
+	USA_expand_skyway_patrols = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 30000
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 300
+
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 30000
+			}
+		}
+		custom_cost_text = USA_expand_skyway_patrols_tt
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			add_manpower = -30000
+		} 
 	}
 }
 
