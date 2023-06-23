@@ -4,6 +4,7 @@ characters={
 		portraits={
 			civilian={
 				large="gfx/leaders/ENG/Portrait_Britain_Winston_Churchill.dds"
+				small="gfx/interface/advisors/ENG/ENG_winston_churchill.dds"
 			}
 		}
 		country_leader={
@@ -11,6 +12,22 @@ characters={
 			ideology=democratic_conservative
 			expire="1965.1.1.1"
 			id=-1
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = winston_churchill
+			allowed  = {
+				original_tag  = ENG
+			}
+			traits  = {
+				british_bulldog 
+			}
+			available = {
+				has_country_flag = UK_chose_churchill
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
 		}
 	}
 	ENG_albert_i={
@@ -1124,6 +1141,106 @@ characters={
 			cost = 200
 			ai_will_do = {
 				factor = 0.200
+			}
+		}
+	}
+
+	ENG_stewart_menzies={
+		name= "Stewart Menzies"
+		portraits={
+			army={
+				small="gfx/interface/advisors/ENG/ENG_stewart_menzies.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = eng_stewart_menzies
+			available  = {
+				has_intelligence_agency  = yes 
+			}
+			allowed  = {
+				original_tag  = ENG
+				has_dlc = "La Resistance"
+			}
+			traits  = {
+				head_of_intelligence 
+			}
+		}
+	}
+
+	ENG_alan_turing={
+		name= "Alan Turing"
+		portraits={
+			army={
+				small="gfx/interface/advisors/ENG/ENG_alan_turing.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = eng_alan_turing
+			available  = {
+				has_intelligence_agency  = yes 
+				custom_trigger_tooltip  = {
+					tooltip  = cyptology_tooltip_tt
+					has_done_agency_upgrade  = upgrade_form_department 
+				}
+			}
+			ai_will_do  = {
+				factor  = 1.000
+				modifier  = {
+					has_political_power < 200.000
+					factor  = 0.000
+				}
+			}
+			allowed  = {
+				original_tag  = ENG
+				has_dlc = "La Resistance"
+			}
+			traits  = {
+				mastermind_code_cracker 
+			}
+		}
+	}
+
+	ENG_maxwell_aitken={
+		name= "Maxwell Aitken"
+		portraits={
+			army={
+				small="gfx/interface/advisors/ENG/ENG_maxwell_aitken.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ENG_max_aitken
+			allowed  = {
+				original_tag  = ENG
+			}
+			traits  = {
+				free_trade_advocate 
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
+		}
+	}
+	ENG_ernest_bevin={
+		name="Ernest Bevin"
+		portraits={
+			army={
+				small="gfx/interface/advisors/ENG/ENG_ernest_bevin.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = ENG_ernest_bevin
+			allowed  = {
+				original_tag  = ENG
+			}
+			traits  = {
+				friend_of_the_unions 
+			}
+			ai_will_do  = {
+				factor  = 1.000
 			}
 		}
 	}
