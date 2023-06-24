@@ -6,19 +6,6 @@ characters={
 				large="gfx/leaders/USA/Portrait_USA_Maury_Maverick.png"
 			}
 		}
-		advisor={
-			slot = head_of_government
-			idea_token = maury_maverick
-			allowed  = {
-				original_tag = USA
-			}
-			available = {
-		    	has_government = socialism_democratic
-		    }
-			traits  = {
-				charismatic_ego 
-			}
-		}
 	}
 	USA_floyd_olson = {
 		portraits = {
@@ -50,22 +37,10 @@ characters={
 				small="gfx/interface/advisors/USA/USA_alfred_smith.dds"
 			}
 		}
-		advisor={
-			slot = head_of_government
-			idea_token = al_smith
-			allowed  = {
-				original_tag = USA
-			}
-			available = {
-		    	has_government = democratic
-		    }
-			traits  = {
-				efficient_budgeter 
-			}
-		}
 		country_leader={
 			ideology=democratic_conservative
 			expire="1947.1.1.1"
+			traits  = { efficient_budgeter }
 			id=-1
 		}
 	}
@@ -81,19 +56,7 @@ characters={
 			ideology=authoritarian_democrat
 			expire="1947.1.1.1"
 			id=-1
-		}
-		advisor={
-			slot = head_of_government
-			idea_token = william_gibbs_mcadoo
-			allowed  = {
-				original_tag = USA
-			}
-			available = {
-		    	has_government = authoritarian_democratic
-		    }
-			traits  = {
-				mysterious_manipulator 
-			}
+			traits  = { mysterious_manipulator }
 		}
 	}
 	USA_henrik_shipstead={
@@ -172,6 +135,23 @@ characters={
 			ideology=racial_nationalism
 			expire="1965.1.1.1"
 			id=-1
+		}
+	}
+
+	USA_congress = {
+		name = "United States Congress"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/USA/USA_united_states_congress.png"
+			}
+		}
+		advisor = {
+			slot = head_of_government
+			idea_token = USA_congress
+			traits = { dealbroker }
+			#desc = USA_congress_desc
+			cost = 0
+			can_be_fired = no
 		}
 	}
 	
@@ -853,6 +833,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/USA/Portrait_USA_Daniel_Van_Voorhis.png"
+				small="gfx/interface/advisors/USA/USA_daniel_van_voorhis.png"
 			}
 		}
 		corps_commander={
@@ -1471,7 +1452,7 @@ characters={
 				original_tag  = USA
 			}
 			traits  = {
-				smooth_talking_charmer 
+				diplomat 
 			}
 		}		
 	}
@@ -1583,6 +1564,25 @@ characters={
 			traits  = {
 				war_industrialist 
 			}
+		}
+	}
+	USA_hjalmar_petersen = {
+		name = "Hjalmar Petersen"
+		portraits = {
+			civilian = {
+				small = "gfx/interface/advisors/USA/USA_hjalmar_petersen.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = USA_hjalmar_petersen
+			available = {
+		    	OR = {
+		    		has_government = socialism_democratic
+		    		has_government = democratic_liberalism
+		    	}
+		    }
+			traits = { agricultural_reformer }
 		}
 	}
 }
