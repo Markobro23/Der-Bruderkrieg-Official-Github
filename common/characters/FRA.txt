@@ -19,6 +19,7 @@ characters={
 		portraits={
 			civilian={
 				large="gfx/leaders/FRA/PierreLaval.dds"
+				small="gfx/interface/advisors/FRA/FRA_pierre_laval.dds"
 			}
 		}
 		country_leader={
@@ -27,6 +28,27 @@ characters={
 			traits={ stout_defender }
 			expire="1965.1.1.1"
 			id=-1
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = pierre_laval
+			allowed  = {
+				original_tag  = FRA
+			}
+			traits  = {
+				conservative_grandee 
+			}
+			available = {
+				NOT = {
+					has_completed_focus = FRA_movement_francaise
+					has_completed_focus = FRA_CAGOULE_CABINET
+				}
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
+			cost = 0
+			can_be_fired = no
 		}
 	}
 	FRA_maurice_thorez={
@@ -48,9 +70,11 @@ characters={
 		portraits={
 			civilian={
 				large="gfx/leaders/FRA/Portrait_FRA_Philippe_Petain_DBK.dds"
+				small="gfx/interface/advisors/FRA/FRA_philippe_petain.png"
 			}
 			army = {
 				large="gfx/leaders/FRA/Portrait_FRA_Petain_Army.png"
+				small="gfx/interface/advisors/FRA/FRA_philippe_petain_army.png"
 			}
 		}
 		country_leader={
@@ -72,6 +96,19 @@ characters={
 			defense_skill = 4
 			planning_skill = 2
 			logistics_skill = 2
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = phillipe_petain
+			allowed  = {
+				original_tag  = FRA
+			}
+			available = {
+				has_completed_focus = FRA_CAGOULE_CABINET
+			}
+			traits  = {
+				fascist_sympathies 
+			}
 		}
 		
 		
@@ -1065,6 +1102,125 @@ characters={
 			cost = 100
 			ai_will_do = {
 				factor = 1.000
+			}
+		}
+	}
+	FRA_marcel_deat={
+		name="Marcel Déat"
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_FRA_Marcel_Deat.png"
+				small="gfx/interface/advisors/FRA/FRA_marcel_deat.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = marcel_deat
+			allowed  = {
+				original_tag  = FRA
+			}
+			traits  = {
+				integralist 
+			}
+			available = {
+				has_completed_focus = FRA_movement_francaise
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	FRA_joseph_darnand={
+		name="Joseph Darnand"
+		portraits={
+			civilian={
+				small="gfx/interface/advisors/FRA/FRA_joseph_darnand.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = joseph_darnand
+			allowed  = {
+				original_tag  = FRA
+			}
+			traits  = {
+				italian_militarism 
+			}
+			available = {
+				has_completed_focus = FRA_CAGOULE_CABINET
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	FRA_paul_reynaud={
+		name="Paul Reynaud"
+		portraits={
+			civilian={
+				large="gfx/leaders/FRA/Portrait_FRA_Paul_Reynaud_KR.png"
+				small="gfx/interface/advisors/FRA/FRA_paul_reynaud.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = paul_reynaud_hog
+			allowed  = {
+				original_tag  = FRA
+			}
+			traits  = {
+				reformer 
+			}
+			available = {
+				has_completed_focus = FRA_assembly_head_government
+			}
+			ai_will_do  = {
+				factor  = 2.000
+			}
+			cost = 0
+			can_be_fired = no
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = paul_reynaud
+			allowed  = {
+				original_tag  = FRA
+			}
+			available = {
+				NOT = {
+					has_completed_focus = FRA_movement_francaise
+					has_completed_focus = FRA_CAGOULE_CABINET
+					has_completed_focus = FRA_assembly_head_government
+				}
+			}
+			traits  = {
+				reformer 
+			}
+		}
+	}
+	FRA_eugene_deloncle={
+		name="Eugène Deloncle"
+		portraits={
+			army={
+				small="gfx/interface/advisors/FRA/FRA_eugene_deloncle.png"
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = FRA_eugene_deloncle
+			available  = {
+				has_intelligence_agency  = yes 
+			}
+			allowed  = {
+				original_tag  = FRA
+				has_dlc = "La Resistance"
+			}
+			traits  = {
+				head_of_intelligence 
 			}
 		}
 	}
