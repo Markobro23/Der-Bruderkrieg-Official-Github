@@ -13,6 +13,8 @@ focus_tree = {
     shared_focus = ENG_broken_crown_jewel
     shared_focus = ENG_stayin_steady
     shared_focus = ENG_the_imperial_federation
+    shared_focus = ENG_rearmament
+    shared_focus = ENG_royal_air_force
 	continuous_focus_position = { x = -50 y = 2400 } 
 }
 focus_tree = {
@@ -4254,7 +4256,7 @@ shared_focus = {
         311 = {
             add_victory_points = {
                 province = 2077
-                value = 10
+                value = 9
             }
         }
     }
@@ -4739,6 +4741,557 @@ shared_focus = {
             annex_country = {
                 target = SAF
                 transfer_troops = yes
+            }
+        }
+
+    }
+}
+
+shared_focus = {
+    id = ENG_rearmament
+    icon = GFX_focus_generic_commonwealth_build_infantry
+    x = 16
+    y = 2
+    cost = 7
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    relative_position_id = ENG_the_imperial_federation
+    available = {
+        threat > 0.05
+    }
+    completion_reward = {
+        army_experience = 10
+        navy_experience = 10
+        air_experience = 10
+        random_owned_controlled_state = {
+            limit = {
+                is_in_home_area = yes
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+        }
+        random_owned_controlled_state = {
+            limit = {
+                is_in_home_area = yes
+                free_building_slots = {
+                    building = arms_factory
+                    size > 1
+                    include_locked = yes
+                }
+            }
+            add_extra_state_shared_building_slots = 2
+            add_building_construction = {
+                type = arms_factory
+                level = 2
+                instant_build = yes
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_royal_air_force
+    icon = GFX_goal_generic_air_doctrine
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rearmament
+    }
+
+    relative_position_id = ENG_rearmament
+    available = {
+    }
+    completion_reward = {
+        air_experience = 50
+        add_doctrine_cost_reduction = {
+            name = ENG_royal_air_force
+            cost_reduction = 0.5
+            uses = 1
+            category = air_doctrine
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_harris_bombers
+    icon = GFX_goal_generic_air_bomber
+    x = -1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_royal_air_force
+    }
+
+    relative_position_id = ENG_royal_air_force
+    available = {
+    }
+    completion_reward = {
+        air_experience = 25
+        add_tech_bonus = {
+            name = ENG_harris_bombers
+            bonus = 1.0
+            uses = 1
+            category = cat_strategic_bomber
+            category = tactical_bomber
+        }
+        add_doctrine_cost_reduction = {
+            name = ENG_harris_bombers
+            cost_reduction = 0.5
+            uses = 1
+            category = air_doctrine
+        }
+        if = {
+            limit = {
+                has_dlc = "By Blood Alone"
+            }
+            create_equipment_variant = {
+                name = "Vickers Wellington" 
+                type = medium_plane_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = medium_bomb_bay
+                    fixed_auxiliary_weapon_slot_1 = medium_bomb_bay
+                    engine_type_slot = engine_2_2x
+                    special_type_slot_1 = lmg_defense_turret_2x
+                    special_type_slot_2 = lmg_defense_turret
+
+                }
+                icon = "GFX_ENG_tactical_bomber1_medium"
+            }
+        }
+        custom_effect_tooltip = available_theorist
+        show_ideas_tooltip = arthur_harris
+    }
+}
+
+shared_focus = {
+    id = ENG_rolls_royce_merlin
+    icon = GFX_goal_generic_air_fighter
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_royal_air_force
+    }
+
+    relative_position_id = ENG_royal_air_force
+    available = {
+    }
+    completion_reward = {
+        air_experience = 25
+        add_tech_bonus = {
+            name = ENG_rolls_royce_merlin
+            bonus = 1.0
+            uses = 2
+            category = light_fighter
+            category = cat_heavy_fighter
+        }
+        if = {
+            limit = {
+                has_dlc = "By Blood Alone"
+            }
+            create_equipment_variant = {
+                name = "Hawker Hurricane" 
+                type = small_plane_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = light_mg_4x
+                    fixed_auxiliary_weapon_slot_1 = light_mg_4x
+                    engine_type_slot = engine_2_1x
+                    special_type_slot_1 = empty
+                }
+                icon = "GFX_ENG_fighter1_medium"
+            }
+            create_equipment_variant = {
+                name = "Fairey Battle" 
+                type = small_plane_cas_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = small_bomb_bay
+                    fixed_auxiliary_weapon_slot_1 = bomb_locks
+                    engine_type_slot = engine_2_1x
+                    special_type_slot_1 = empty
+                }
+                icon = "GFX_ENG_light_plane_1_medium"
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_air_observer_corps
+    icon = GFX_goal_generic_construct_military
+    x = -1
+    y = 1
+    cost = 7
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rolls_royce_merlin
+        focus = ENG_harris_bombers
+    }
+
+    relative_position_id = ENG_rolls_royce_merlin
+    available = {
+    }
+
+    bypass = {
+        custom_trigger_tooltip =  {
+            tooltip = air_defense_focus_bypass_tt
+            NOT = {
+                any_owned_state = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 0
+                    }
+                }
+            }
+        }
+    }
+    complete_tooltip = {
+        air_experience = 25
+        if = {
+            limit = { has_country_flag = air_defense_focus_built_max }
+            custom_effect_tooltip = air_defense_focus_tt            
+        }
+        if = {
+            limit = { NOT = { has_country_flag = air_defense_focus_built_max } }
+            every_state = {
+                limit = { has_state_flag = ENG_air_defense_focus_built_2 }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+            }
+        }
+    }
+
+    completion_reward = {
+        air_experience = 25
+        if = {
+            limit = {
+                NOT = {
+                    OR = {
+                        123 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                        125 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                        127 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                    }
+                }
+                NOT = {
+                    any_owned_state = {
+                        free_building_slots = {
+                            building = anti_air_building
+                            size > 1
+                        }
+                        OR = {
+                            region = 1
+                            region = 2
+                            region = 3
+                        }
+                    }
+                }
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 1
+                    }
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+                set_state_flag = ENG_air_defense_focus_built_2
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 1
+                    }           
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+                set_state_flag = ENG_air_defense_focus_built_2
+            }
+        }
+        if = {
+            limit = {
+                NOT = {
+                    OR = {
+                        123 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                        125 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                        127 = {
+                            free_building_slots = {
+                                building = anti_air_building
+                                size > 1
+                            }
+                        }
+                    }
+                }
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 1
+                    }
+                    OR = {
+                        region = 1
+                        region = 2
+                        region = 3
+                    }
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+                set_state_flag = ENG_air_defense_focus_built_2
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 1
+                    }
+                    OR = {
+                        region = 1
+                        region = 2
+                        region = 3
+                    }                       
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+                set_state_flag = ENG_air_defense_focus_built_2
+            }
+            random_owned_controlled_state = {
+                limit = {
+                    free_building_slots = {
+                        building = anti_air_building
+                        size > 1
+                    }
+                    OR = {
+                        region = 1
+                        region = 2
+                        region = 3
+                    }                       
+                }
+                add_building_construction = {
+                    type = anti_air_building
+                    level = 2
+                    instant_build = yes
+                }
+                set_state_flag = ENG_air_defense_focus_built_2
+            }
+        }           
+        if = {
+            limit = {
+                OR = {
+                    123 = {
+                        free_building_slots = {
+                            building = anti_air_building
+                            size > 1
+                        }
+                    }
+                    125 = {
+                        free_building_slots = {
+                            building = anti_air_building
+                            size > 1
+                        }
+                    }
+                    127 = {
+                        free_building_slots = {
+                            building = anti_air_building
+                            size > 1
+                        }
+                    }
+                }
+            }
+            custom_effect_tooltip = air_defense_focus_tt
+            hidden_effect = {
+                123 = {
+                    add_building_construction = {
+                        type = anti_air_building
+                        level = 5
+                        instant_build = yes
+                    }
+                }
+                125 = {
+                    add_building_construction = {
+                        type = anti_air_building
+                        level = 5
+                        instant_build = yes
+                    }
+                }
+                127 = {
+                    add_building_construction = {
+                        type = anti_air_building
+                        level = 5
+                        instant_build = yes
+                    }
+                }
+                set_country_flag = air_defense_focus_built_max
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_radar
+    icon = GFX_goal_generic_radar
+    x = 0
+    y = 1
+    cost = 7
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_air_observer_corps
+    }
+
+    relative_position_id = ENG_air_observer_corps
+    available = {
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH}
+    completion_reward = {
+        air_experience = 25
+        add_tech_bonus = {
+            name = ENG_radar
+            bonus = 1.0
+            uses = 3
+            category = radar_tech
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_coastal_patrol
+    icon = GFX_goal_generic_air_naval_bomber
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rolls_royce_merlin
+        focus = ENG_harris_bombers
+    }
+
+    relative_position_id = ENG_rolls_royce_merlin
+    available = {
+    }
+    completion_reward = {
+        air_experience = 25
+        add_tech_bonus = {
+            name = ENG_coastal_patrol
+            bonus = 1.0
+            uses = 1
+            category = naval_bomber
+            category = cas_bomber
+        }
+        add_doctrine_cost_reduction = {
+            name = ENG_coastal_patrol
+            cost_reduction = 0.5
+            uses = 1
+            category = air_doctrine
+        }
+        if = {
+            limit = {
+                has_dlc = "By Blood Alone"
+            }
+            create_equipment_variant = {
+                name = "Short Sunderland" 
+                type = large_plane_maritime_patrol_plane_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = torpedo_mounting 
+                    fixed_auxiliary_weapon_slot_1 = empty
+                    engine_type_slot = engine_2_4x
+                    special_type_slot_1 = lmg_defense_turret_2x
+                    special_type_slot_2 = lmg_defense_turret_2x
+                    special_type_slot_3 = lmg_defense_turret_2x
+                    special_type_slot_4 = flying_boat_large
+                    special_type_slot_5 = self_sealing_fuel_tanks_large
+
+                }
+                icon = "GFX_ENG_heavy_plane_1_medium"
+            }
+            create_equipment_variant = {
+                name = "HP Hampden" 
+                type = medium_plane_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = medium_bomb_bay
+                    fixed_auxiliary_weapon_slot_1 = torpedo_mounting
+                    engine_type_slot = engine_2_2x
+                    special_type_slot_1 = lmg_defense_turret
+                }
             }
         }
     }
