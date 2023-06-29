@@ -4757,7 +4757,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP FOCUS_FILTER_ARMY_XP FOCUS_FILTER_INDUSTRY}
     relative_position_id = ENG_the_imperial_federation
     available = {
         threat > 0.05
@@ -4802,9 +4802,38 @@ shared_focus = {
 }
 
 shared_focus = {
+    id = ENG_royal_army
+    icon = GFX_ENG_royal_army
+    x = -4
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_ARMY_XP}
+    prerequisite = {
+        focus = ENG_rearmament
+    }
+
+    relative_position_id = ENG_rearmament
+    available = {
+    }
+    completion_reward = {
+        army_experience = 25
+        add_doctrine_cost_reduction = {
+            name = ENG_royal_army
+            cost_reduction = 0.5
+            uses = 2
+            category = land_doctrine
+        }
+    }
+}
+
+shared_focus = {
     id = ENG_special_air_service
     icon = GFX_focus_eng_special_air_service
-    x = -3
+    x = -2
     y = 1
     cost = 5
     available_if_capitulated = yes
@@ -4828,7 +4857,7 @@ shared_focus = {
 
 shared_focus = {
     id = ENG_royal_air_force
-    icon = GFX_goal_generic_air_doctrine
+    icon = GFX_ENG_royal_air_force
     x = 0
     y = 1
     cost = 5
@@ -4836,7 +4865,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
     prerequisite = {
         focus = ENG_rearmament
     }
@@ -4865,7 +4894,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
     prerequisite = {
         focus = ENG_royal_air_force
     }
@@ -4921,7 +4950,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
     prerequisite = {
         focus = ENG_royal_air_force
     }
@@ -4970,7 +4999,7 @@ shared_focus = {
 
 shared_focus = {
     id = ENG_air_observer_corps
-    icon = GFX_goal_generic_construct_military
+    icon = GFX_focus_generic_air_defense2
     x = -1
     y = 1
     cost = 7
@@ -4978,7 +5007,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_AIR_XP FOCUS_FILTER_INDUSTRY}
     prerequisite = {
         focus = ENG_rolls_royce_merlin
         focus = ENG_harris_bombers
@@ -5234,7 +5263,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
     prerequisite = {
         focus = ENG_air_observer_corps
     }
@@ -5264,7 +5293,7 @@ shared_focus = {
     ai_will_do = {
         factor = 1
     }
-
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP}
     prerequisite = {
         focus = ENG_rolls_royce_merlin
         focus = ENG_harris_bombers
@@ -5319,5 +5348,632 @@ shared_focus = {
                 }
             }
         }
+    }
+}
+shared_focus = {
+    id = ENG_naval_aviation
+    icon = GFX_goal_generic_navy_carrier
+    x = 1
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_AIR_XP FOCUS_FILTER_NAVY_XP}
+    prerequisite = {
+        focus = ENG_coastal_patrol
+        focus = ENG_illustrious_class
+    }
+
+    relative_position_id = ENG_coastal_patrol
+    available = {
+    }
+    completion_reward = {
+        navy_experience = 25
+        air_experience = 25
+        add_tech_bonus = {
+            name = SOV_expand_the_morskaya_aviatsiya
+            bonus = 1
+            uses = 2
+            category = cv_tech
+            category = naval_air
+        }
+        if = {
+            limit = {
+                has_dlc = "By Blood Alone"
+            }
+            create_equipment_variant = {
+                name = "Sea Gladiator" 
+                type = cv_small_plane_airframe_0
+                modules = {
+                    fixed_main_weapon_slot = light_mg_4x
+                    engine_type_slot = engine_1_1x
+                    special_type_slot_1 = empty
+                }
+            }
+            create_equipment_variant = {
+                name = "Blackburn Skua" 
+                type = cv_small_plane_cas_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = bomb_locks
+                    fixed_auxiliary_weapon_slot_1 = light_mg_4x
+                    engine_type_slot = engine_2_1x
+                    special_type_slot_1 = dive_brakes_small
+                    special_type_slot_2 = fuel_tanks_small
+                }
+                icon = "GFX_ENG_CAS1_medium"
+            }
+            create_equipment_variant = {
+                name = "Fairey Swordfish" 
+                type = cv_small_plane_naval_bomber_airframe_1
+                modules = {
+                    fixed_main_weapon_slot = torpedo_mounting
+                    engine_type_slot = engine_1_1x
+                    special_type_slot_1 = empty
+                }
+                icon = "GFX_ENG_nav_bomber1_medium"
+            }
+        }
+    }
+}
+shared_focus = {
+    id = ENG_royal_navy
+    icon = GFX_ENG_royal_navy
+    x = 6
+    y = 1
+    cost = 7
+    available_if_capitulated = yes
+    search_filters = {FOCUS_FILTER_NAVY_XP FOCUS_FILTER_INDUSTRY}
+    bypass = {
+        custom_trigger_tooltip =  {
+            tooltip = naval_effort_tt
+            NOT = {
+                any_owned_state = {
+                    free_building_slots = {
+                        building = dockyard
+                        size > 1
+                        include_locked = yes
+                    }
+                }
+            }
+        }
+    }
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rearmament
+    }
+
+    relative_position_id = ENG_rearmament
+    available = {
+    }
+    completion_reward = {
+        navy_experience = 50
+        random_owned_controlled_state = {
+            limit = {
+                is_coastal = yes
+                free_building_slots = {
+                    building = dockyard
+                    size > 0
+                    include_locked = yes
+                }
+                is_core_of = ROOT
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+            }
+        }
+        random_owned_controlled_state = {
+            limit = {
+                is_coastal = yes
+                free_building_slots = {
+                    building = dockyard
+                    size > 0
+                    include_locked = yes
+                }
+                is_core_of = ROOT
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+            }
+        }
+        random_owned_controlled_state = {
+            limit = {
+                is_coastal = yes
+                free_building_slots = {
+                    building = dockyard
+                    size > 0
+                    include_locked = yes
+                }
+                is_core_of = ROOT
+            }
+            add_extra_state_shared_building_slots = 1
+            add_building_construction = {
+                type = dockyard
+                level = 1
+                instant_build = yes
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_fisher_plan
+    icon = GFX_goal_generic_naval_fleet_in_being
+    x = 2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = { focus = ENG_atlantic_carriers }
+    ai_will_do = {
+        factor = 0.1
+    }
+
+    prerequisite = {
+        focus = ENG_royal_navy
+    }
+
+    relative_position_id = ENG_royal_navy
+    available = {
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_XP}
+    completion_reward = {
+        navy_experience = 25
+        add_tech_bonus = {
+            name = ENG_fisher_plan
+            bonus = 1.0
+            uses = 2
+            category = bb_tech
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_magnificent
+    icon = GFX_goal_generic_naval_battleship2
+    x = 0
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = {FOCUS_FILTER_NAVY_XP}
+    prerequisite = {
+        focus = ENG_fisher_plan
+    }
+
+    relative_position_id = ENG_fisher_plan
+    available = {
+    }
+    completion_reward = {
+        navy_experience = 25
+        if = {
+            limit = {
+                NOT = { has_dlc = "Man the Guns" }
+            }
+            add_equipment_production = {
+                equipment = {
+                    type = SH_battleship_1
+                }
+                requested_factories = 1
+                progress = 0.5
+                amount = 1
+            }
+            add_equipment_production = {
+                equipment = {
+                    type = SH_battleship_1
+                }
+                requested_factories = 1
+                progress = 0.25
+                amount = 1
+            }
+        }
+        else = {
+            #Line Production
+            add_equipment_production = {
+                equipment = {
+                    type = ship_hull_super_heavy_1
+                    creator = "ENG"
+                    version_name = "Magnificent Class"
+                }
+                requested_factories = 1
+                progress = 0.50
+                amount = 1
+            }
+            add_equipment_production = {
+                equipment = {
+                    type = ship_hull_super_heavy_1
+                    creator = "ENG"
+                    version_name = "Magnificent Class"
+                }
+                requested_factories = 1
+                progress = 0.25
+                amount = 1
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_atlantic_carriers
+    icon = GFX_goal_generic_sea_focused_navy2
+    x = -2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+    mutually_exclusive = { focus = ENG_fisher_plan }
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_royal_navy
+    }
+
+    relative_position_id = ENG_royal_navy
+    available = {
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH FOCUS_FILTER_NAVY_XP}
+    completion_reward = {
+        navy_experience = 25
+        add_tech_bonus = {
+            name = ENG_atlantic_carriers
+            bonus = 1.0
+            uses = 2
+            category = cv_tech
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_illustrious_class
+    icon = GFX_goal_generic_naval_carrier2
+    x = 0
+    y = 1
+    cost = 8
+    available_if_capitulated = yes
+    mutually_exclusive = { focus = ENG_fisher_plan }
+    ai_will_do = {
+        factor = 1
+    }
+    search_filters = {FOCUS_FILTER_NAVY_XP}
+    prerequisite = {
+        focus = ENG_atlantic_carriers
+    }
+
+    relative_position_id = ENG_atlantic_carriers
+    available = {
+    }
+
+    completion_reward = {
+        navy_experience = 25
+        if = { #MTG 
+            limit = {
+                has_dlc = "Man the Guns"
+            }
+            if = {
+                limit = { #Carrier 4 
+                    has_tech = advanced_ship_hull_carrier
+                }
+                #Equipment Variant
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = ship_hull_carrier_3
+                    name_group = ENG_CV_HISTORICAL
+                    parent_version = 0
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    modules = {
+                        fixed_ship_deck_slot_1 = ship_deck_space
+                        fixed_ship_deck_slot_2 = ship_deck_space
+                        fixed_ship_anti_air_slot = ship_anti_air_2
+                        fixed_ship_radar_slot = empty
+                        fixed_ship_engine_slot = carrier_ship_engine_4
+                        fixed_ship_secondaries_slot = ship_secondaries_1
+                        front_1_custom_slot = ship_carrier_armor
+                    }
+                }
+                #Line Production
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_3
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.9
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_3
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+            else_if = {
+                limit = { #Carrier 3
+                    has_tech = improved_ship_hull_carrier
+                }
+                #Equipment Variant
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = ship_hull_carrier_2
+                    name_group = ENG_CV_HISTORICAL
+                    parent_version = 0
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    modules = {
+                        fixed_ship_deck_slot_1 = ship_deck_space
+                        fixed_ship_deck_slot_2 = ship_deck_space
+                        fixed_ship_anti_air_slot = ship_anti_air_2
+                        fixed_ship_radar_slot = empty
+                        fixed_ship_engine_slot = carrier_ship_engine_3
+                        fixed_ship_secondaries_slot = ship_secondaries_1
+                        front_1_custom_slot = ship_carrier_armor
+                    }
+                }
+                #Line Production
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_2
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.9
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_2
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+            else_if = {
+                limit = { #Carrier 2
+                    has_tech = basic_ship_hull_carrier
+                }
+                #Equipment Variant
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = ship_hull_carrier_1
+                    name_group = ENG_CV_HISTORICAL
+                    parent_version = 0
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    modules = {
+                        fixed_ship_deck_slot_1 = ship_deck_space
+                        fixed_ship_deck_slot_2 = ship_deck_space
+                        fixed_ship_anti_air_slot = ship_anti_air_2
+                        fixed_ship_radar_slot = empty
+                        fixed_ship_engine_slot = carrier_ship_engine_2
+                        fixed_ship_secondaries_slot = ship_secondaries_1
+                        front_1_custom_slot = ship_carrier_armor
+                    }
+                }
+                #Line Production
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_1
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.9
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = ship_hull_carrier_1
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    name = "HMS Illustrious"
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+        }
+
+        ##############
+        ### NO MTG ###
+        ##############
+        else = {
+            if = {
+                limit = { #Carrier 4 
+                    has_tech = advanced_carrier
+                }
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = carrier_4
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    upgrades = {
+                        ship_deckspace_upgrade = 4
+                        carrier_armor_upgrade = 4
+                        ship_engine_upgrade = 3
+                        ship_reliability_upgrade = 3
+                    }
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_4
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.9
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_4
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+            else_if = {
+                limit = { #Carrier 3
+                    has_tech = improved_carrier
+                }
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = carrier_3
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    upgrades = {
+                        ship_deckspace_upgrade = 3
+                        carrier_armor_upgrade = 3
+                        ship_engine_upgrade = 3
+                        ship_reliability_upgrade = 2
+                    }
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_3
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.9
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_3
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+            else_if = {
+                limit = { #Carrier 2
+                    has_tech = basic_carrier
+                }
+                create_equipment_variant = {
+                    name = "Illustrious Class"
+                    type = carrier_2
+                    allow_without_tech = yes #Makes no difference since focus requires appropriate tech (above), but it improves tooltip
+                    upgrades = {
+                        ship_deckspace_upgrade = 2
+                        carrier_armor_upgrade = 2
+                        ship_engine_upgrade = 2
+                        ship_reliability_upgrade = 2
+                    }
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_2
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.45
+                    amount = 1
+                }
+                add_equipment_production = {
+                    equipment = {
+                        type = carrier_2
+                        creator = "ENG"
+                        version_name = "Illustrious Class"
+                    }
+                    requested_factories = 1
+                    progress = 0.85
+                    amount = 1
+                }
+            }
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_rule_the_waves
+    icon = GFX_ENG_exile_fleets
+    x = 2
+    y = 1
+    cost = 5
+    available_if_capitulated = yes
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_atlantic_carriers
+        focus = ENG_fisher_plan
+    }
+
+    relative_position_id = ENG_atlantic_carriers
+    available = {
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH}
+    completion_reward = {
+        add_doctrine_cost_reduction = {
+            name = ENG_rule_the_waves
+            cost_reduction = 0.5
+            uses = 3
+            category = naval_doctrine
+        }
+    }
+}
+
+shared_focus = {
+    id = ENG_maritime_warfare
+    icon = GFX_ENG_british_naval_dominance
+    x = 0
+    y = 1
+    cost = 8
+    available_if_capitulated = yes
+
+    ai_will_do = {
+        factor = 1
+    }
+
+    prerequisite = {
+        focus = ENG_rule_the_waves
+    }
+
+    relative_position_id = ENG_rule_the_waves
+    available = {
+    }
+    search_filters = {FOCUS_FILTER_RESEARCH}
+    completion_reward = {
+        add_doctrine_cost_reduction = {
+            name = ENG_maritime_warfare
+            cost_reduction = 0.35
+            uses = 2
+            category = convoy_defense_tree
+        }
+        add_ideas = ENG_convoy_defence
     }
 }
