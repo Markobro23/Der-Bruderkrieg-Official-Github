@@ -2070,7 +2070,7 @@ shared_focus = {
     id = AUS_sponsor_voestalpine
     icon = GFX_goal_USA_economic_reform_plan
     relative_position_id = AUS_form_the_ork
-    x = 6
+    x = 4
     y = 1
     cost = 10
     available_if_capitulated = yes
@@ -2401,26 +2401,6 @@ shared_focus = {
 }
 
 shared_focus = {
-	id = AUS_resources_from_elsewhere
-	icon = GFX_Diplo_Ottoman
-	relative_position_id = AUS_sponsor_voestalpine
-	x = -2
-	y = 1
-	cost = 5
-	available_if_capitulated = yes
-	prerequisite = { focus = AUS_sponsor_voestalpine }
-	#search_filters = { FOCUS_FILTER_INDUSTRY } 
-	ai_will_do = {
-		factor = 10
-	}
-	completion_reward = {
-		unlock_decision_tooltip = AUS_isfahan_monopoly
-		unlock_decision_tooltip = AUS_afyon_monopoly
-		unlock_decision_tooltip = AUS_baghdad_monopoly
-	}
-}
-
-shared_focus = {
 	id = AUS_exploitation_of_ostafrika
 	icon = GFX_focus_generic_africa_infrastructure
 	relative_position_id = AUS_initiate_a_trial_run_in_togo
@@ -2513,6 +2493,26 @@ shared_focus = {
       ORA = {
         remove_ideas = ORA_ethnic_unrest
       }
+      if = {
+      limit = { country_exists = ORA }
+      effect_tooltip = {
+        ORA = {
+          remove_ideas = Stepjan_sarkotic
+        }
+      }
+      ORA = {
+        country_event = { id = austria.207 hours = 1 }
+      }
+      else = {
+        TZN = {
+          add_ideas = ORA_local_rule
+        }
+        KEN = {
+          add_ideas = ORA_local_rule
+        }
+        country_event = { id = austria.208 hours = 2 }
+      }
+    }
   }
 }
 
@@ -2587,93 +2587,6 @@ shared_focus = {
 	hidden_effect = {
       KEN = {
         transfer_state = 1059
-      }
-    }
-  }
-}
-
-shared_focus = {
-  id = AUS_direct_control
-  icon = GFX_goal_Generic_Ultranationalist_Monarchy
-  relative_position_id = AUS_secure_osterfrika
-  x = -1
-  y = 1
-  cost = 10
-  prerequisite = { focus = AUS_secure_osterfrika }
-  mutually_exclusive = { focus = AUS_replace_sarkotic }
-  #search_filters = { FOCUS_FILTER_INDUSTRY } 
-  ai_will_do = {
-    factor = 100
-  }
-  completion_reward = {
-      annex_country = {
-        target = ORA
-        transfer_troops = yes
-      }
-  }
-}
-
-shared_focus = {
-  id = AUS_replace_sarkotic
-  icon = GFX_ITA_purchase_small_arms
-  relative_position_id = AUS_osterfrikan_dominions
-  x = -1
-  y = 1
-  cost = 5
-
-  available = {
-    OR = {
-      ORA = {
-        is_subject_of = AUS
-      }
-      AND = {
-        TZN = {
-          is_subject_of = AUS
-        }
-        KEN = {
-          is_subject_of = AUS
-        }
-      }
-    }
-  }
-
-  prerequisite = { focus = AUS_secure_osterfrika focus = AUS_osterfrikan_dominions }
-  mutually_exclusive = { focus = AUS_direct_control }
-  #search_filters = { FOCUS_FILTER_INDUSTRY } 
-  ai_will_do = {
-    factor = 100
-  }
-  completion_reward = {
-    if = {
-      limit = { country_exists = ORA }
-      effect_tooltip = {
-        ORA = {
-          remove_ideas = Stepjan_sarkotic
-          #add_country_leader_role = {
-          #  character = ORA_alexander_von_falkenhausen
-          #  promote_leader = yes
-          #  country_leader = {
-          #    ideology = despotic
-          #    expire = "1965.1.1"
-          #  }
-          #}
-        }
-      }
-      ORA = {
-        country_event = { id = austria.207 hours = 1 }
-      }
-      #add_trait = {
-      #  character = ORA_alexander_von_falkenhausen
-      #  trait = old_tortoise
-      #}
-      else = {
-        TZN = {
-          add_ideas = ORA_local_rule
-        }
-        KEN = {
-          add_ideas = ORA_local_rule
-        }
-        country_event = { id = austria.208 hours = 2 }
       }
     }
   }
@@ -4499,7 +4412,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    army_experience = 20
+    army_experience = 25
     hidden_effect = {
     
     }
@@ -4929,7 +4842,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    navy_experience = 20
+    navy_experience = 50
     hidden_effect = {
     
     }
@@ -5144,7 +5057,7 @@ shared_focus = {
   }
   #prerequisite = {focus = AUS_BUILD_DOCKYARDS2}
   x = -2
-  y = 2
+  y = 1
   relative_position_id = AUS_PROJECT_Z
   cost = 5
   ai_will_do = {
@@ -5199,7 +5112,6 @@ shared_focus = {
   icon = GFX_goal_generic_build_navy
   text = AUS_BUILD_DOCKYARDS3
   prerequisite = { focus = AUS_DEATH_FROM_ABOVE focus = AUS_NAVY_FUTURE}
-  prerequisite = {focus = AUS_ALL_USE_PLANES focus = AUS_AIRLAND_BATTLE focus = AUS_BURN_TO_GROUND}
   x = -1
   y = 1
   relative_position_id = AUS_DEATH_FROM_ABOVE
@@ -5256,7 +5168,7 @@ shared_focus = {
   #search_filters = { FOCUS_FILTER_RESEARCH }
 
   completion_reward = {
-    air_experience = 20
+    air_experience = 50
     hidden_effect = {
     
     }
@@ -5341,32 +5253,11 @@ shared_focus = {
       uses = 1
       category = cat_strategic_bomber
     }
-
-  }
-}
-
-shared_focus = {
-  id = AUS_RAIN_OF_DEATH
-  icon = GFX_focus_wonderweapons
-  text = AUS_RAIN_OF_DEATH
-  prerequisite = { focus = AUS_RAIN_OF_FIRE }
-  x = 0
-  y = 1
-  relative_position_id = AUS_RAIN_OF_FIRE
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  #search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-  add_tech_bonus = {
-    bonus = 1
-    uses = 1
-    category = tactical_bomber
-  }
+    add_tech_bonus = {
+      bonus = 1
+      uses = 1
+      category = tactical_bomber
+    }
   }
 }
 
@@ -5420,30 +5311,9 @@ shared_focus = {
   completion_reward = {
     add_tech_bonus = {
       bonus = 1
-      uses = 1
+      uses = 2
       category = light_fighter
     }
-  }
-}
-
-shared_focus = {
-  id = AUS_ACES
-  icon = GFX_goal_generic_air_doctrine
-  text = AUS_ACES
-  prerequisite = { focus = AUS_STRAFING }
-  x = 0
-  y = 1
-  relative_position_id = AUS_STRAFING
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  #search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
-   set_rule =  { can_generate_female_aces = yes }
   }
 }
 
@@ -5496,26 +5366,6 @@ shared_focus = {
       uses = 1
       category = tactical_bomber
     }
-  }
-}
-
-shared_focus = {
-  id = AUS_ANTI_TROOP_BOMBS
-  icon = GFX_goal_generic_air_naval_bomber
-  text = AUS_ANTI_TROOP_BOMBS
-  prerequisite = { focus = AUS_BOMBERS }
-  x = 0
-  y = 1
-  relative_position_id = AUS_BOMBERS
-  cost = 5
-  ai_will_do = {
-    factor = 1
-  }
-
-  available_if_capitulated = yes
-  #search_filters = { FOCUS_FILTER_RESEARCH }
-
-  completion_reward = {
     add_tech_bonus = {
       bonus = 1
       uses = 1
@@ -5530,10 +5380,10 @@ shared_focus = {
   id = AUS_REFORMED_AIR_FORCE
   icon = GFX_Austrian_Air_Force
   text = AUS_REFORMED_AIR_FORCE
-  prerequisite = { focus = AUS_ANTI_TROOP_BOMBS focus = AUS_ACES focus = AUS_RAIN_OF_DEATH }
+  prerequisite = { focus = AUS_BOMBERS focus = AUS_STRAFING focus = AUS_RAIN_OF_FIRE }
   x = 0
   y = 1
-  relative_position_id = AUS_ACES
+  relative_position_id = AUS_STRAFING
   cost = 5
   ai_will_do = {
     factor = 1
