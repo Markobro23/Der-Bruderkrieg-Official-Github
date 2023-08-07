@@ -1,0 +1,32 @@
+scripted_gui = {
+	danubian_parliament_gui = {
+		context_type = decision_category
+		window_name = "danubian_parliament_diagram"
+	
+		dynamic_lists = {
+			danubian_parliament_semicircle_main_grid = {
+				array = danubian_parliament_main_array
+				index = danubian_danubian_parliament_main_index
+				change_scope = no
+				entry_container = danubian_parliament_semicircle_main_entry
+			}
+			danubian_parliament_member_grid = {
+				array = danubian_parliament_member_array
+				index = danubian_parliament_member_index
+				change_scope = no
+				entry_container = danubian_parliament_member_entry
+			}
+		}
+
+		properties = {
+			danubian_parliament_semicircle_main_icon = {
+				frame = v
+				x = danubian_parliament_x_array^danubian_parliament_main_index
+				y = danubian_parliament_y_array^danubian_parliament_main_index
+			}
+			danubian_parliament_member_icon = {
+				frame = v
+			}
+		}
+	}
+}
