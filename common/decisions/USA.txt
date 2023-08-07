@@ -1,544 +1,4 @@
 
-DBK_USA_content_category = {
-
-	USA_operation_emancipation = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 20
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			country_event = USA_starting_events.2
-		}
-	}
-
-	## LEADER CHOOAWE
-	USA_dnc_decision = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 156
-		ai_will_do = {
-		  factor = 3000
-		}
-		complete_effect = {
-			set_country_flag = USA_doing_dnc
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_doing_rnc
-			}
-		}
-		remove_effect = {
-			country_event = {
-				id = USA_democratic_national_convention.1
-			}
-		}
-	}
-	USA_rnc_decision = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 156
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_doing_dnc
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_doing_rnc
-		}
-		remove_effect = {
-			country_event = USA_republican_national_convention.1
-		}
-	}
-
-
-	## LONG REFORMS
-	USA_long_reforms = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 500
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			has_country_flag = USA_elections_over
-			NOT = {
-				has_country_flag = USA_smith_campaign_flag
-			}
-			NOT = {
-				has_country_flag = USA_the_warren_campaign_flag
-			}
-			has_country_leader = {
-				name = "Huey Long"
-				ruling_only = yes
-			}
-			date > 1937.2.2
-		}
-		complete_effect = {
-			set_country_flag = USA_doing_rnc
-		}
-		remove_effect = {
-			remove_ideas = USA_dust_bowl
-			remove_ideas = USA_great_depression
-			remove_ideas = USA_era_of_segregation
-
-			add_ideas = USA_the_american_dream_reborn	
-			add_ideas = USA_high_racial_tensions_2
-			add_ideas = USA_dust_bowl_reforms_3
-			add_ideas = USA_economic_reform_admin_2
-			swap_ruler_traits = { remove = USA_kingfish add = USA_kingfish_2 }
-		}
-	}
-	
-
-	## SMITH REFORMS
-	USA_smith_reforms = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 500
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			has_country_flag = USA_elections_over
-
-			has_country_leader = {
-				name = "Alfred Smith"
-				ruling_only = yes
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_doing_rnc
-		}
-		remove_effect = {
-			remove_ideas = USA_dust_bowl
-			remove_ideas = USA_great_depression
-			remove_ideas = USA_era_of_segregation
-
-			add_ideas = USA_revived_efficiency_movement_5	
-			swap_ideas = {
-				add_idea = USA_prohibition_2
-				remove_idea = USA_prohibition
-			}
-			add_ideas = USA_democratic_return_to_normalcy
-			add_ideas = USA_smiths_radical_safeguarding_3
-			add_country_leader_trait = USA_happy_warrior
-		}
-	}
-
-	## WARREN REFORMS
-	USA_warren_reforms = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 500
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			has_country_flag = USA_elections_over
-
-			has_country_leader = {
-				name = "Earl Warren"
-				ruling_only = yes
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_doing_rnc
-		}
-		remove_effect = {
-			remove_ideas = USA_dust_bowl
-			remove_ideas = USA_great_depression
-			remove_ideas = USA_era_of_segregation
-
-			add_ideas = USA_dust_bowl_reforms
-			
-			if = {
-				limit = { has_idea = james_j_couzens } 
-				add_timed_idea = {
-					days = 700
-					idea = USA_liberal_recovery
-				}
-			}
-			if = {
-				limit = { has_idea = herbert_hoover }
-				add_timed_idea = {
-					days = 700
-					idea = USA_conservative_recovery
-				}
-			}
-		
-		}
-	}
-
-
-	## Foriegn Policy
-	USA_go_ham_on_england= {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_has_already_chosen_european_decision_path
-			}
-			ENG = {
-				has_war_with = GER
-			}
-			OR = {
-				has_country_leader = {
-					name = "Earl Warren"
-					ruling_only = yes
-				}
-				has_country_leader = {
-					name = "Huey Long"
-					ruling_only = yes
-				}
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_has_already_chosen_european_decision_path
-		}
-		remove_effect = {
-			
-			create_wargoal = {
-				target = ENG
-				type = topple_government
-			}
-
-		}
-	}
-	USA_go_ham_on_prussia = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_has_already_chosen_european_decision_path
-			}
-			ENG = {
-				has_war_with = GER
-			}
-	
-			OR = {
-				has_country_leader = {
-					name = "Alfred Smith"
-					ruling_only = yes
-				}
-				has_country_leader = {
-					name = "Earl Warren"
-					ruling_only = yes
-				}
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_has_already_chosen_european_decision_path
-		}
-		remove_effect = {
-			
-			create_wargoal = {
-				target = GER
-				type = topple_government
-			}
-
-		}
-	}
-
-	USA_go_ham_on_england_prussia = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			NOT = {
-				has_country_flag = USA_has_already_chosen_european_decision_path
-			}
-			GER = {
-				has_completed_focus = GER_the_mosley_pact
-			}
-			ENG = {
-				has_war_with = FRA
-			}
-		}
-		complete_effect = {
-			set_country_flag = USA_has_already_chosen_european_decision_path
-		}
-		remove_effect = {
-			
-			create_wargoal = {
-				target = ENG
-				type = topple_government
-			}
-			create_wargoal = {
-				target = GER
-				type = topple_government
-			}
-		}
-	}
-
-	USA_go_ham_on_argentina = {
-
-		available = {
-			tag = USA
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		available = {
-			ARG = {
-				has_cosmetic_tag = la_plata
-			}
-		}
-		complete_effect = {
-		}
-		remove_effect = {
-			
-			create_wargoal = {
-				target = ARG
-				type = topple_government
-			}
-		
-		}
-	}
-
-	USA_declare_colloray_global = {
-
-		icon = GFX_decision_eng_propaganda_campaigns
-
-		fire_only_once = yes
-
-		days_remove = 35
-
-		ai_will_do = {
-			factor = 1000
-		}
-
-		available = {
-			date > 1937.6.1
-		}
-
-		remove_effect = {
-			set_country_flag = USA_big_boi_time
-			news_event = { id = USA_content_events.1 hours = 2 }
-		}
-
-	}
-
-	USA_add_mexico_to_faction = {
-
-		target_trigger = {
-			FROM = {
-				OR = {
-					tag = MEX
-					tag = COS
-					tag = ECU
-					tag = CEN
-				}
-			}
-		}
-
-		available = {
-			FROM = {
-				has_war = no
-			}
-			NOT = {
-				has_country_flag = USA_already_expanding_faction
-			}
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		visible = {
-			has_country_flag = USA_big_boi_time
-		}
-		complete_effect = {
-			set_country_flag = {
-				flag = USA_already_expanding_faction
-				days = 35
-				value = 1
-			}
-		}
-		remove_effect = {
-			FROM = {
-				country_event = generic.5
-			}	
-		}
-	}
-
-	USA_add_brazil_to_faction = {
-
-		available = {
-			has_global_flag = brazil_reunited
-			NOT = {
-				has_country_flag = USA_already_expanding_faction
-			}
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		visible = {
-			has_country_flag = USA_big_boi_time
-			country_exists = UBR
-		}
-		complete_effect = {
-			set_country_flag = {
-				flag = USA_already_expanding_faction
-				days = 35
-				value = 1
-			}
-		}
-		remove_effect = {
-			UBR = {
-				country_event = generic.5
-			}	
-		}
-	}
-
-	USA_add_central_america_to_faction = {
-
-		available = {
-			CEN = {
-				has_war = no
-			}
-			NOT = {
-				has_country_flag = USA_already_expanding_faction
-			}
-		}
-	
-		icon = GFX_decision_eng_propaganda_campaigns
-		fire_only_once = yes
-		cost = 0
-		days_remove = 35
-		ai_will_do = {
-		  factor = 1000
-		}
-		visible = {
-			has_country_flag = USA_big_boi_time
-			country_exists = CEN
-		}
-		complete_effect = {
-			set_country_flag = {
-				flag = USA_already_expanding_faction
-				days = 35
-				value = 1
-			}
-		}
-		remove_effect = {
-			CEN = {
-				country_event = generic.5
-			}	
-		}
-	}
-
-	USA_deciding_arg_occupation = {
-
-		icon = generic_industry
-
-		visible = {
-			NOT = {
-				has_country_leader = {
-					name = "William Gibbs McAdoo"
-					ruling_only = yes
-				}
-			}
-			has_war_with = ARG
-		}
-		fire_only_once = yes
-
-		cost = 25
-
-		complete_effect = {
-			USA = { country_event = { id = USA_content_events.2 hours = 1 } }
-		}
-
-	}
-
-}
-
 DBK_USA_house = {
 	USA_lobby_for_liberals_senate_small = {
 
@@ -918,7 +378,7 @@ DBK_USA_election = {
 
 	#	cancel_if_not_visible = yes
 
-		days_mission_timeout = 296
+		days_mission_timeout = 150
 		timeout_effect = {
 			
 
@@ -965,6 +425,7 @@ DBK_USA_election = {
 
 		complete_effect = {
 			set_country_flag = USA_open_election_view_GUI
+			set_country_flag = open_us_election_container
 		}
 	}
 	
@@ -988,7 +449,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1031,7 +492,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1077,7 +538,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1120,7 +581,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1163,7 +624,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1206,7 +667,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1250,7 +711,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1292,7 +753,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1336,7 +797,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1364,7 +825,7 @@ DBK_USA_election = {
 
 
 	###campaign for ai
-	USA_denounce_longs_populism = {
+	USA_denounce_mavericks_populism = {
 		
 		available = {
 			tag = USA			
@@ -1375,7 +836,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1403,7 +864,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1431,7 +892,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1460,7 +921,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1488,7 +949,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1516,7 +977,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1545,7 +1006,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1573,7 +1034,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1601,7 +1062,7 @@ DBK_USA_election = {
 		
 
 		visible = {
-		  #has_completed_focus = USA_longs_tour_of_america
+		  #has_completed_focus = USA_mavericks_tour_of_america
 		  	is_ai = yes
 		 
 		}
@@ -1620,6 +1081,1013 @@ DBK_USA_election = {
 	}
 }
 
+USA_great_depression_recovery = {
+
+	## Long
+	USA_share_our_wealth = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = USA_mavericks_new_deal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = { 
+				add_idea = USA_great_depression_2
+				remove_idea =  USA_great_depression
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_lower_taxes_on_small_businesses = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_2
+		}
+		visible = {
+			has_completed_focus = USA_mavericks_new_deal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = { 
+				add_idea = USA_great_depression_3
+				remove_idea =  USA_great_depression_2
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_government_work_programs = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_3
+		}
+		visible = {
+			has_completed_focus = USA_mavericks_new_deal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = { 
+				add_idea = USA_great_depression_4
+				remove_idea =  USA_great_depression_3
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_controlled_state = {
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_extra_state_shared_building_slots = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_no_more_slums = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_4
+		}
+		visible = {
+			has_completed_focus = USA_mavericks_new_deal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				add_idea = USA_great_depression_5
+				remove_idea =  USA_great_depression_4
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_large_and_prosperous_middle_class = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_5
+		}
+		visible = {
+			has_completed_focus = USA_mavericks_new_deal
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			remove_ideas = USA_great_depression_5
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	## Smith
+	USA_support_private_housing = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = USA_under_als_wing
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			country_event = USA_smith_tree.2
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_private_sector_contacts = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_7
+		}
+		visible = {
+			has_completed_focus = USA_under_als_wing
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = USA_great_depression_7
+				add_idea = USA_great_depression_8
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_adjusted_government_wage_system = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_8
+		}
+		visible = {
+			has_completed_focus = USA_under_als_wing
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = USA_great_depression_8
+				add_idea = USA_great_depression_9
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_an_end_to_decline = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_9
+		}
+		visible = {
+			has_completed_focus = USA_under_als_wing
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			remove_ideas = USA_great_depression_9
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	## Mcadodo
+	USA_shut_down_the_stock_exchange = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = USA_stolen_no_more
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			country_event = USA_mcadoo_tree.3
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_using_emergency_currency_provisions = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_10
+		}
+		visible = {
+			has_completed_focus = USA_stolen_no_more
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = USA_great_depression_10
+				add_idea = USA_great_depression_11
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_reestablish_the_gold_standard = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_11
+		}
+		visible = {
+			has_completed_focus = USA_stolen_no_more
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = USA_great_depression_11
+				add_idea = USA_great_depression_12
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_demand_franco_british_debts = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_12
+		}
+		visible = {
+			has_completed_focus = USA_stolen_no_more
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = USA_great_depression_12
+				add_idea = USA_great_depression_13
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_debt_re_negotiations = {
+		icon = generic_operation
+		available = {
+			has_idea = USA_great_depression_13
+		}
+		visible = {
+			has_completed_focus = USA_stolen_no_more
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			remove_ideas = USA_great_depression_13
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	## Warren
+	USA_cut_sales_tax = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				USA_shipstead_great_depression_consumer_goods_factor = -0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = USA_great_depression_cut_sales_taxes
+					remove_idea = USA_great_depression
+				}
+			}
+			add_war_support = 0.03
+
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_raise_gas_taxes = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			if = {
+				limit = { has_idea = USA_economic_rejuvination_plan }
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan
+					add_idea = USA_economic_rejuvination_plan_2_alt
+				}
+			}
+			else_if = {
+				limit = { has_idea = USA_economic_rejuvination_plan_2 }
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan_2
+					add_idea = USA_economic_rejuvination_plan_3_alt
+				}
+			}
+			else_if = {
+				limit = { has_idea = USA_economic_rejuvination_plan_3 }
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan_3
+					add_idea = USA_economic_rejuvination_plan_4_alt
+				}
+			}
+			else = {
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = USA_economic_rejuvination_plan_3
+						add_idea = USA_economic_rejuvination_plan_4_alt
+					}
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	USA_promote_government_bonds = {
+		icon = generic_operation
+		available = {
+			has_idea = james_j_couzens
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				USA_shipstead_great_depression_consumer_goods_factor = -0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = USA_great_depression_shipstead_promote_con_in_market
+					remove_idea = USA_great_depression
+				}
+			}
+			
+			
+			if = {
+				limit = { has_idea = USA_economic_rejuvination_plan }
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan
+					add_idea = USA_economic_rejuvination_plan_2
+				}
+			}
+			else_if = {
+				limit = { has_idea = USA_economic_rejuvination_plan_2_alt }
+				swap_ideas = {
+					remove_idea = USA_economic_rejuvination_plan_2_alt
+					add_idea = USA_economic_rejuvination_plan_3_alt
+				}
+			}
+			else = {
+				effect_tooltip = {
+					swap_ideas = {
+						remove_idea = USA_economic_rejuvination_plan_2_alt
+						add_idea = USA_economic_rejuvination_plan_3_alt
+					}
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_keep_tarrifs_to_a_minimum = {
+		icon = generic_operation
+		available = {
+			has_idea = james_j_couzens
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_ideas = export_focus
+			ENG = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = lowered_tarrifs
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = lowered_tarrifs
+				}
+			}
+			AUS = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = lowered_tarrifs
+				}
+			}
+			SPR = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = lowered_tarrifs
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_promote_confidence_in_the_market = {
+		icon = generic_operation
+		available = {
+			has_idea = herbert_hoover
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				USA_shipstead_great_depression_industrial_capacity_factory = 0.05
+			}
+			add_to_variable = {
+				USA_shipstead_great_depression_stability_factor = 0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = USA_great_depression_shipstead_promote_government_bonds
+					remove_idea = USA_great_depression
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_revive_the_smooth_hawley_tarrif_act = {
+		icon = generic_operation
+		available = {
+			has_idea = herbert_hoover
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_ideas = limited_exports
+
+			ENG = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = tarrifs
+				}
+			}
+			FRA = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = tarrifs
+				}
+			}
+			AUS = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = tarrifs
+				}
+			}
+			SPR = {
+				add_opinion_modifier = {
+					target = USA
+					modifier = tarrifs
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	USA_raise_taxes_on_the_top_1 = {
+		icon = generic_operation
+		available = {
+			has_idea = james_j_couzens
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_political_power = 100
+			add_to_variable = {
+				USA_shipstead_great_depression_industrial_capacity_factory = 0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+			effect_tooltip = {
+				
+				swap_ideas = {
+					add_idea = USA_great_depression_shipstead_raise_taxes_on_the_top_1
+					remove_idea = USA_great_depression
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_issue_stimulus_checks = {
+		icon = generic_operation
+		available = {
+			has_idea = james_j_couzens
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				USA_shipstead_great_depression_production_factory_efficiency_gain_factor = 0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = USA_great_depression_shipstead_issue_stimulus_checks
+					remove_idea = USA_great_depression
+				}
+			}
+			
+			add_timed_idea = {
+				idea = USA_stimulus_check_payments
+				days = 60
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+
+	USA_american_jobs_for_americans_only = {
+		icon = generic_operation
+		available = {
+			has_idea = herbert_hoover
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_ideas = USA_hoover_quotas
+			add_to_variable = {
+				USA_shipstead_great_depression_consumer_goods_factor = -0.05
+			}
+			USA_shipstead_great_depression_loc = yes
+
+			effect_tooltip = {
+				swap_ideas = {
+					add_idea = USA_great_depression_shipstead_promote_con_in_market
+					remove_idea = USA_great_depression
+				}
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	USA_mexican_repatriation = {
+		icon = generic_operation
+		available = {
+			has_idea = herbert_hoover
+		}
+		visible = {
+			has_completed_focus = USA_economic_revitalization
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			country_event = USA_shipstead_tree.6
+			MEX = {
+				country_event = USA_shipstead_tree.6
+				add_manpower = 25000
+			}
+			CEN = {
+				country_event = USA_shipstead_tree.6
+				add_manpower = 10000
+			}
+			add_to_variable = {
+				USA_onto_true_recovery_available = 1
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+}
 
 USA_the_mafia = {
 	USA_nyc_mafia_revolt = {
@@ -2018,6 +2486,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2051,6 +2520,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2084,6 +2554,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2117,6 +2588,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2133,12 +2605,12 @@ USA_the_banana_war = {
 
 		fire_only_once = yes
 
-		cost = 20
+		cost = 0
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 3
 		}
 
 		ai_will_do = {
@@ -2149,8 +2621,14 @@ USA_the_banana_war = {
 		
 		}
 
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 3
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_3
+
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 			set_global_flag = guatemala_railway_built
@@ -2166,17 +2644,22 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 10
+		cost = 0
 		days_remove = 70
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 2
 		}
 
 		ai_will_do = {
 			factor = 20
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 2
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_2
 
 		available = {
 			has_global_flag = guatemala_railway_built
@@ -2184,6 +2667,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2198,13 +2682,18 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 20
+		cost = 0
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 3
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 3
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_3
 
 		ai_will_do = {
 			factor = 20
@@ -2216,6 +2705,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 			set_country_flag = el_salvador_honduras_railway_built
@@ -2231,17 +2721,22 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 20
+		cost = 0
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 2
 		}
 
 		ai_will_do = {
 			factor = 20
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 2
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_2
 
 		available = {
 			has_global_flag = el_salvador_honduras_railway_built
@@ -2249,6 +2744,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2263,13 +2759,18 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 20
+		cost = 0
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 3
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 3
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_3
 
 		ai_will_do = {
 			factor = 20
@@ -2281,6 +2782,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 			set_global_flag = nicaragua_railway_built
@@ -2296,17 +2798,22 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 20
+		cost = 0
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 2
 		}
 
 		ai_will_do = {
 			factor = 20
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 2
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_2
 
 		available = {
 			has_global_flag = nicaragua_railway_built
@@ -2314,6 +2821,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2329,13 +2837,18 @@ USA_the_banana_war = {
 
 		fire_only_once = no
 
-		cost = 20
+		cost = 5
 		days_remove = 150
 
 		modifier = {
 			
-			political_power_gain = -0.03
+			civilian_factory_use = 2
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 2
+		}
+		custom_cost_text = USA_CEN_CIV_FACTORIES_2
 
 		ai_will_do = {
 			factor = 20
@@ -2347,6 +2860,7 @@ USA_the_banana_war = {
 
 		complete_effect = {
 			add_to_variable = {
+				tooltip = "USA_INCREASE_CEN_INFLUENCE_BY_40"
 				CEN_USA_Influence = 40
 			}
 		}
@@ -2354,7 +2868,7 @@ USA_the_banana_war = {
 
 }
 
-USA_huey_longs_road_plan = {
+USA_presidential_road_plan = {
 	USA_highway_1 = {
 
 		icon = generic_construction
@@ -2701,6 +3215,113 @@ USA_huey_longs_road_plan = {
 	}
 }
 
+USA_lindbergh_air_iniaitive_decisions = {
+	USA_airbase_infrastructure_development = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 150
+
+		modifier = {
+			civilian_factory_use = 2
+			production_speed_air_base_factor = 0.15
+			industry_free_repair_factor	= 0.35
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+	}
+	USA_transcontinental_mail_service = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 200
+
+		modifier = {
+			civilian_factory_use = 3
+			consumer_goods_factor = -0.05
+		}
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = radar_tech
+			}
+			add_stability = 0.03
+		}
+	}
+	USA_expand_skyway_patrols = {
+
+		icon = eng_propaganda_campaigns
+
+		visible = {
+			
+		}
+
+		available = {
+			has_army_manpower = {
+				size > 30000
+			}
+		}
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 300
+
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 30000
+			}
+		}
+		custom_cost_text = USA_expand_skyway_patrols_tt
+
+		ai_will_do = {
+			factor = 20
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			add_manpower = -30000
+		} 
+	}
+}
+
 USA_the_das_problem = {
 	COL_das_operation_mission = {
 		icon = generic_civil_support
@@ -2732,7 +3353,7 @@ USA_the_das_problem = {
 		timeout_effect = {
 			
 
-			country_event = USA_long_events.22
+			country_event = USA_maverick_events.22
 		}
 		complete_effect = {
 			
@@ -2833,7 +3454,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 484
@@ -2873,7 +3505,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 483
@@ -2913,7 +3556,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 482
@@ -2953,7 +3607,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 481
@@ -2995,7 +3660,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 480
@@ -3035,7 +3711,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 478
@@ -3075,10 +3762,21 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
-				state = 478
+				state = 479
 				size > 2
 			}
 			}
@@ -3095,7 +3793,7 @@ USA_mexico_rebels = {
 		}
 	
 		remove_effect = {
-			478 = {
+			479 = {
 				add_to_variable = {
 					tooltip = "USA_mexican_rebels_lose_5_resistance"
 				MEX_rebel_resistance = -5
@@ -3115,7 +3813,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 277
@@ -3155,7 +3864,18 @@ USA_mexico_rebels = {
 
 		days_re_enable = 35
 
+		custom_cost_trigger = {
+			has_army_manpower = {
+				size > 100
+			}
+		}
+		custom_cost_text = FGD_hinder_prussian_arms_shipments_tt
+
 		available = {
+			has_army_manpower = {
+				size > 100
+			}
+			
 			if = { limit = { is_ai = no }
 			divisions_in_state = {
 				state = 477
@@ -3187,7 +3907,7 @@ USA_mexico_rebels = {
 
 	USA_crush_mexican_rebel_movement = {
 
-		icon = generic_ignite_civil_war
+		icon = generic_assassination
 
 		fire_only_once = yes
 
@@ -3351,11 +4071,335 @@ USA_generic_foreign_far_east_decisions = {
 			always = no
 		}	
 	}
+	USA_funding_northern_showa_cells = {
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = USA_prepare_showa_resistance_cells
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		cost = 50
+		days_remove = 25
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			random_list = {
+				50 = {
+					536 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+
+				}
+			}
+			random_list = {
+				50 = {
+					533 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					555 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					537 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+		}
+	}
+	USA_funding_central_showa_cells = {
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = USA_prepare_showa_resistance_cells
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		cost = 50
+		days_remove = 25
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			random_list = {
+				50 = {
+					534 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+
+				}
+			}
+			random_list = {
+				50 = {
+					282 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					535 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					532 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					531 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+		}
+	}
+	USA_funding_southern_showa_cells = {
+		icon = generic_construction
+
+		visible = {
+			has_completed_focus = USA_prepare_showa_resistance_cells
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10000
+		}
+
+		cost = 50
+		days_remove = 25
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			random_list = {
+				50 = {
+					528 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt
+				}
+			}
+			random_list = {
+				50 = {
+					529 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					530 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+			random_list = {
+				50 = {
+					526 = {
+						custom_effect_tooltip = USA_JAP_state_joins_hirohitos_revolt
+						set_state_flag = JAP_joined_showa
+					}
+				}
+				50 = {
+					custom_effect_tooltip = USA_JAP_state_joins_yasuhitos_revolt	
+				}
+			}
+		
+		}
+	}
 
 	## china
 	USA_china_ambitions_blank = {
 		available = {
 			always = no
 		}	
+	}
+}
+
+USA_american_british_cold_war = {
+
+	## Pacific
+	USA_expand_influence_in_new_zealand = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		days_re_enable = 0
+
+		available = {
+				
+		}
+
+		visible = {
+			tag = USA
+			has_completed_focus = USA_manipulate_the_london_stock_exchange
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			AST = {
+				release = NZL
+			}
+			
+				
+		}
+	}
+	USA_expand_influence_in_australia = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		days_re_enable = 0
+
+		available = {
+				
+		}
+
+		visible = {
+			tag = USA
+			has_completed_focus = USA_manipulate_the_london_stock_exchange
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			ENG = {
+				set_autonomy = {
+					target = AST
+					autonomy_state = autonomy_free
+				}
+			}
+			AST = {
+				leave_faction = yes
+			}
+		}
+	}
+
+	## Canada
+	USA_expand_influence_in_canada = {
+
+		icon = generic_ignite_civil_war
+
+		fire_only_once = yes
+
+		cost = 0
+		days_remove = 0
+
+		days_re_enable = 0
+
+		available = {
+			
+		}
+
+		visible = {
+			tag = USA
+			has_completed_focus = USA_expand_operations_in_canada
+		}
+
+		ai_will_do = {
+			factor = 200
+		}
+	
+		remove_effect = {
+			ENG = {
+				set_autonomy = {
+					target = CAN
+					autonomy_state = autonomy_free
+				}
+			}
+			CAN = {
+				leave_faction = yes
+			}
+		}
 	}
 }

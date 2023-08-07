@@ -1423,8 +1423,8 @@ USA_the_american_dream_reborn = {
     always = yes
   }
   modifier = {
-    stability_factor = 0.1
-    war_support_factor = 0.05
+    army_morale_factor = 0.1
+    surrender_limit = 0.05
     MONTHLY_POPULATION = 0.3
   }
 }
@@ -1440,6 +1440,29 @@ USA_american_investors = {
   modifier = {
     consumer_goods_factor = -0.05
     production_speed_industrial_complex_factor = 0.05
+  }
+}
+USA_british_embargo = {
+  allowed = {
+  always = yes
+  }
+
+  allowed_civil_war = {
+  always = yes
+  }
+
+  cancel = {
+    ENG = {
+      is_subject = yes
+    }
+  }
+
+  removal_cost = -1
+
+  modifier = {
+    consumer_goods_factor = 0.05
+    trade_cost_factor = 0.2
+    faction_trade_opinion_factor = 0.25
   }
 }
 
@@ -1672,80 +1695,7 @@ USA_isolationism_2 = {
   }
 }
 
-ANC_usn = {
-      
-  allowed = {
-    always = no
-  }
 
-  allowed_civil_war = {
-    always = yes
-  }
-  
-  removal_cost = -1
-  
-  modifier = {
-    amphibious_invasion = 0.10
-    weekly_manpower = 500
-    conscription = 0.05
-  }
-}
-ANC_polynesian_support = {
-      
-  allowed = {
-    always = no
-  }
-
-  allowed_civil_war = {
-    always = yes
-  }
-  
-  removal_cost = -1
-  
-  modifier = {
-    army_core_attack_factor = 0.1
-    army_org_factor = 0.1
-    war_support_factor = 0.05
-  }
-}
-ANC_ghost_of_rabaul = {
-      
-  allowed = {
-    always = no
-  }
-
-  allowed_civil_war = {
-    always = yes
-  }
-  
-  removal_cost = -1
-  
-  modifier = {
-    political_power_factor = -0.2
-    industrial_capacity_dockyard = -0.25
-    industrial_capacity_factory = -0.25
-  }
-}
-ANC_massive_polynesian_resistance = {
-      
-  allowed = {
-    always = no
-  }
-
-  allowed_civil_war = {
-    always = yes
-  }
-  
-  removal_cost = -1
-  
-  modifier = {
-    political_power_factor = -0.4
-    industrial_capacity_dockyard = -0.5
-    industrial_capacity_factory = -0.5
-    army_core_attack_factor = -0.15
-    army_core_defence_factor = -0.15
-  }
-}
 NMA_military_gov = {
       
   allowed = {
@@ -1997,7 +1947,7 @@ USA_democratic_dictator = {
 
 
     ##warren
-    USA_warren_great_depression_idea= {
+    USA_shipstead_great_depression_idea= {
       picture = USA_great_depression
       allowed = {
         always = no
@@ -2098,7 +2048,63 @@ USA_democratic_dictator = {
         production_speed_infrastructure_factor = 0.05
       }
 
-    }
+    } 
+
+    USA_diversified_prosperity = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				industrial_capacity_factory = 0.08
+			}
+
+      research_bonus = {
+        industry = 0.1
+      } 
+		}
+    USA_diversified_prosperity_2 = {
+      name = USA_diversified_prosperity
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				industrial_capacity_factory = 0.08
+        trade_opinion_factor = 0.5
+			}
+
+      research_bonus = {
+        industry = 0.1
+      } 
+		}
+    USA_silver_standard = {
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				consumer_goods_factor = -0.075
+        min_export = 0.35
+        production_factory_efficiency_gain_factor = 0.1
+        local_resources_factor = 0.05
+			}
+
+      research_bonus = {
+        industry = 0.1
+      } 
+		}
 
     
 
@@ -2122,7 +2128,7 @@ USA_democratic_dictator = {
 
     }
 
-    USA_great_depression_warren_promote_government_bonds = {
+    USA_great_depression_shipstead_promote_government_bonds = {
 
       picture = USA_great_depression
       removal_cost = -1
@@ -2135,7 +2141,7 @@ USA_democratic_dictator = {
       }
 
     }
-    USA_great_depression_warren_promote_con_in_market = {
+    USA_great_depression_shipstead_promote_con_in_market = {
 
       picture = USA_great_depression
       removal_cost = -1
@@ -2160,7 +2166,7 @@ USA_democratic_dictator = {
         production_factory_efficiency_gain_factor = -0.1
       }
     }
-     USA_great_depression_warren_raise_taxes_on_the_top_1 = {
+     USA_great_depression_shipstead_raise_taxes_on_the_top_1 = {
 
       picture = USA_great_depression
       removal_cost = -1
@@ -2172,7 +2178,7 @@ USA_democratic_dictator = {
         production_factory_efficiency_gain_factor = -0.1
       }
     }
-    USA_great_depression_warren_issue_stimulus_checks = {
+    USA_great_depression_shipstead_issue_stimulus_checks = {
 
       picture = USA_great_depression
       removal_cost = -1
@@ -2184,7 +2190,7 @@ USA_democratic_dictator = {
         production_factory_efficiency_gain_factor = -0.05
       }
     }
-    USA_great_depression_warren_economic_reivlization = {
+    USA_great_depression_shipstead_economic_reivlization = {
 
       picture = USA_great_depression
       removal_cost = -1
@@ -2217,7 +2223,65 @@ USA_democratic_dictator = {
     }
 
      
+    USA_stand_against_the_brits = {
 
+      allowed = {
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        army_morale_factor = 0.05
+        drift_defence_factor = 0.25
+      }
+    }
+    USA_british_cooperation = {
+
+      allowed = {
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        research_speed_factor = 0.05
+      }
+      equipment_bonus = {
+				artillery = {
+					instant = yes
+					build_cost_ic = -0.15
+				}
+			}
+    }
+
+    USA_great_patriotic_war = {
+
+      allowed = {
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        army_core_defence_factor = 0.25
+        army_core_attack_factor = 0.15
+        supply_combat_penalties_on_core_factor = -0.15
+        training_time_factor = -0.25
+        industrial_capacity_factory = 0.35
+        industrial_capacity_dockyard = 0.35
+      }
+      
+    }
   }
 
 
@@ -2229,14 +2293,14 @@ USA_democratic_dictator = {
 
   ###cabinet
   head_of_government = {
-	huey_long = {
+	maury_maverick = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
-      has_country_leader = { name = "Huey Long" ruling_only = yes }
+      OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		
 		traits = { charismatic_ego  }
@@ -2249,7 +2313,7 @@ USA_democratic_dictator = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
       has_country_leader = { name = "Alfred Smith" ruling_only = yes }
@@ -2265,7 +2329,7 @@ USA_democratic_dictator = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2281,7 +2345,7 @@ USA_democratic_dictator = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
       has_country_leader = { name = "Earl Warren" ruling_only = yes }
@@ -2300,7 +2364,7 @@ economic_minister = {
     
     allowed = {
       tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
     }
     available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2317,10 +2381,10 @@ economic_minister = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
-			has_country_leader = { name = "Huey Long" ruling_only = yes }
+			OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		
 		traits = { longist_puppet }
@@ -2329,42 +2393,6 @@ economic_minister = {
 			factor = 0.5
 		}
 	}
-
-  james_j_couzens  = {
-
-    
-    allowed = {
-      tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-    }
-    available = {
-      has_country_leader = { name = "Earl Warren" ruling_only = yes }
-    }
-    
-    traits = { public_works_advocate }
-
-    ai_will_do = {
-      factor = 0.5
-    }
-  }
-
-  herbert_hoover  = {
-
-    
-    allowed = {
-      tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-    }
-    available = {
-      has_country_leader = { name = "Earl Warren" ruling_only = yes }
-    }
-    
-    traits = { austerity_advocate }
-
-    ai_will_do = {
-      factor = 0.5
-    }
-  }
   }
    
  
@@ -2374,10 +2402,10 @@ economic_minister = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
-      has_country_leader = { name = "Huey Long" ruling_only = yes }
+      OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		
 		traits = { friend_of_the_unions }
@@ -2390,7 +2418,7 @@ economic_minister = {
     
     allowed = {
       tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
     }
     available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2410,10 +2438,10 @@ economic_minister = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
-      has_country_leader = { name = "Huey Long" ruling_only = yes }
+      OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		} 
 		
 		traits = { diplomat }
@@ -2428,7 +2456,7 @@ economic_minister = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
       has_country_leader = { name = "Earl Warren" ruling_only = yes }
@@ -2445,7 +2473,7 @@ economic_minister = {
 		
 		allowed = {
 			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
 		}
 		available = {
       has_country_leader = { name = "Earl Warren" ruling_only = yes }
@@ -2461,7 +2489,7 @@ economic_minister = {
     
     allowed = {
       tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
     }
     available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2476,27 +2504,10 @@ economic_minister = {
   }   
   
    educational_minister = {
-	mayo_brothers = {
-
-		
-		allowed = {
-			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		available = {
-      has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		
-		traits = { medical_crusaders }
-
-		ai_will_do = {
-			factor = 0.5
-		}
-	}
   richard_russell_jr = {
     allowed = {
       tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
     }
     available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2511,61 +2522,10 @@ economic_minister = {
   }   
   
    minister_of_the_interior = {
-	harold_ickes = {
-
-		
-		allowed = {
-			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		available = {
-      has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		
-		traits = { old_guard_progressive }
-
-		ai_will_do = {
-			factor = 0.5
-		}
-	}
-  	teddy_roosevelt_sr = {
-
-		
-		allowed = {
-			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		available = {
-      has_country_leader = { name = "Earl Warren" ruling_only = yes }
-		}
-		
-		traits = { bull_moose}
-
-		ai_will_do = {
-			factor = 0.5
-		}
-	}
-  richard_nixon = {
-
-		
-		allowed = {
-			tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
-		}
-		available = {
-      has_country_leader = { name = "Earl Warren" ruling_only = yes }
-		}
-		
-		traits = { young_amateur }
-
-		ai_will_do = {
-			factor = 0.5
-		}
-	}
   fielding_l_wright = {
     allowed = {
       tag = USA
-      #has_country_leader = { name = "Huey Long" ruling_only = yes }
+      #OR = { has_country_leader = { name = "Huey Long" ruling_only = yes } has_country_leader = { name = "J. Hamilton Lewis" ruling_only = yes } }
     }
     available = {
       has_country_leader = { name = "William Gibbs McAdoo" ruling_only = yes }
@@ -2582,23 +2542,7 @@ economic_minister = {
   
     designer = yes
   
-    marmon_herrington = {
-      
-      
-      allowed = {
-        original_tag = USA
-      }     
-
-      
-      research_bonus = {
-        armor = 0.15
-      }
-      
-      traits = { fast_tank_manufacturer }
-      
-      modifier = {
-      }
-    }
+    
     
     chrysler = {
       
@@ -2613,36 +2557,28 @@ economic_minister = {
         armor = 0.15
       }
       
-      traits = { medium_tank_manufacturer }
+      traits = { fast_tank_manufacturer }
       
       modifier = {
       }
     }
-    detroit_arsenal = {
+    USA_general_motors = {
       
-      picture = generic_industrial_concern_1
+      picture = usa_general_motors
       allowed = {
         original_tag = USA
       }
+      
 
       
       research_bonus = {
         armor = 0.15
       }
       
-      traits = { }
+      traits = { detroit_arsenal }
       
-      equipment_bonus = {
-        medium_tank_chassis = {
-          build_cost_ic = -0.1
-        }
-        light_tank_chassis = {
-          build_cost_ic = -0.1
-        }
-      }
-
       modifier = {
-
+        industrial_capacity_factory = 0.05
       }
     }
     tank_destroyer_board = {
@@ -2682,7 +2618,7 @@ economic_minister = {
       }
     }
     
-    army_ordnance_department = {
+    ford_motor_company = {
       
       
       allowed = {
@@ -2696,6 +2632,24 @@ economic_minister = {
       }
       
       traits = { heavy_tank_manufacturer }
+      
+      modifier = {
+      }
+    } 
+    dodge = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }
+      
+
+      
+      research_bonus = {
+        armor = 0.15
+      }
+      
+      traits = { medium_tank_manufacturer }
       
       modifier = {
       }
@@ -2781,6 +2735,51 @@ economic_minister = {
       modifier = {
       }
     }
+    mare_island = {
+      
+      
+      allowed = {
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
+      }
+      
+
+      
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+      
+      traits = { convoy_escort_naval_manufacturer }
+      
+      modifier = {
+      }
+    }
+    kaiser_shipyards = {
+      
+      
+      allowed = {
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
+      }
+      
+
+      
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+      
+      traits = { repair_and_refurbishment_plant }
+      
+      equipment_bonus = {
+        convoy = {
+          build_cost_ic = -0.1 instant = yes
+        }
+      }
+    }
   }
   
   aircraft_manufacturer = { 
@@ -2806,24 +2805,27 @@ economic_minister = {
       }
     }
     
-    #bell = {
-    # 
-    # 
-    # allowed = {
-    #   original_tag = USA
-    # }
-    # 
-    #
-    # 
-    # research_bonus = {
-    #   air_equipment = 0.15
-    # }
-    # 
-    # traits = { light_aircraft_manufacturer }  #TODO, make different from north american
-    # 
-    # modifier = {
-    # }
-    #}  
+    bell = {
+    
+    
+      allowed = {
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
+      }
+    
+  
+    
+      research_bonus = {
+        air_equipment = 0.15
+      }
+     
+      traits = { light_aircraft_manufacturer }  #TODO, make different from north american
+    
+      modifier = {
+      }
+    }  
     
     lockheed = {
       
@@ -2883,29 +2885,35 @@ economic_minister = {
       }
     }
     
-    #consolidated_aircraft = {
-    # 
-    # 
-    # allowed = {
-    #   original_tag = USA
-    # }
-    # 
-    #
-    # 
-    # research_bonus = {
-    #   air_equipment = 0.15
-    # }
-    # 
-    # traits = { heavy_aircraft_manufacturer } #TODO remove?
-    # 
-    # modifier = {
-    # }
-    #}
+    consolidated_aircraft = {
+     
+     
+     allowed = {
+       or={
+          original_tag = USA
+          original_tag = ANC
+        }
+     }
+     
+    
+     
+     research_bonus = {
+       air_equipment = 0.15
+     }
+     
+     traits = { heavy_aircraft_manufacturer } #TODO remove?
+     
+     modifier = {
+     }
+    }
     grumman = {
       
       
       allowed = {
-        original_tag = USA
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
       }
       
 
@@ -2944,8 +2952,8 @@ economic_minister = {
       modifier = {
       }
     }
-    
-    ford_motor_company = {
+
+    browning = {
       
       
       allowed = {
@@ -2955,14 +2963,16 @@ economic_minister = {
 
       
       research_bonus = {
-        motorized_equipment = 0.15
+        infantry_weapons = 0.15
       }
       
-      traits = { motorized_equipment_manufacturer }
+      traits = { infantry_equipment_manufacturer }
       
       modifier = {
       }
     }
+    
+    
     
   
     
@@ -2980,6 +2990,82 @@ economic_minister = {
       }
       
       traits = { artillery_manufacturer }
+      
+      modifier = {
+      }
+    }
+
+    army_ordnance_department = {
+      
+      
+      allowed = {
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
+      }
+      
+
+      
+      research_bonus = {
+        artillery = 0.15
+      }
+      
+      traits = { artillery_manufacturer }
+      
+      modifier = {
+      }
+    }
+    marmon_herrington = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }     
+
+      
+      research_bonus = {
+        motorized_equipment = 0.10
+      }
+      
+      traits = { armored_car_manufacturer }
+      
+      modifier = {
+      }
+    }
+    willys = {
+      
+      
+      allowed = {
+        or={
+          original_tag = USA
+          original_tag = ANC
+        }
+      }   
+
+      
+      research_bonus = {
+        support_tech = 0.15
+      }
+      
+      traits = { support_equipment_manufacturer }
+      
+      modifier = {
+      }
+    }
+    studebaker = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }   
+
+      
+      research_bonus = {
+        motorized_equipment = 0.15
+      }
+
+      traits = { motorized_equipment_manufacturer }
       
       modifier = {
       }
@@ -3009,6 +3095,25 @@ economic_minister = {
       modifier = {
       }
     }
+
+    bethlehem = {
+      
+      
+      allowed = {
+        original_tag = USA
+      }
+      
+
+      
+      research_bonus = {
+        industry = 0.15
+      }
+      
+      traits = { industrial_concern }
+      
+      modifier = {
+      }
+    }
     
     general_electric = {
       
@@ -3028,25 +3133,20 @@ economic_minister = {
       modifier = {
       }
     }
-    USA_general_motors = {
-      
-      picture = usa_general_motors
+    baldwin_locomotive_works = {
+
       allowed = {
         original_tag = USA
       }
-      
 
-      
       research_bonus = {
-        industry = 0.15
+        train_tech = 0.15
+
       }
-      
-      traits = { industrial_concern }
-      
-      modifier = {
-        industrial_capacity_factory = 0.05
-      }
+
+      traits = { railway_company }
     }
+    
   } 
 }
  

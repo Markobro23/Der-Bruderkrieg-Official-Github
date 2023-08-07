@@ -168,6 +168,9 @@ characters={
 	SOV_larv_kornilov={
 		name="Larv Kornilov"
 		portraits={
+			civilian={
+				large="gfx/leaders/SOV/LarvKornilov.dds"
+			}
 			army={
 				large="gfx/leaders/SOV/LarvKornilov.dds"
 				small="gfx/interface/ideas/RUS_Lavr_Kornilov.png"
@@ -259,14 +262,18 @@ characters={
 			logistics_skill=3
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 		advisor = {
 			slot = army_chief
 			idea_token = RUS_mikhail_frunze_army_chief
+			allowed = {
+				original_tag = SOV
+			}
 			available = {
 				not_already_hired_except_as = army_chief
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = { army_chief_morale_2 }
 			cost = 100
@@ -275,9 +282,12 @@ characters={
 			slot = theorist
 			idea_token = RUS_mikhail_frunze_theorist
 			ledger = army
+			allowed = {
+				original_tag = SOV
+			}
 			available = {
 				not_already_hired_except_as = theorist
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = { military_theorist }
 			cost = 100
@@ -301,41 +311,6 @@ characters={
 			legacy_id=72006
 		}
 	}
-	SOV_carl_gustaf_emil_mannerheim={
-		name="Carl Gustaf Emil Mannerheim"
-		portraits={
-			army={
-				small="gfx/interface/ideas/idea_FIN_carl_mannerheim.dds"
-				large="gfx/leaders/FIN/Portrait_FIN_Carl_Gustaf_Mannerheim.png"
-			}
-		}
-		corps_commander={
-			traits={ inflexible_strategist trait_cautious war_hero trickster winter_specialist }
-			skill=5
-			attack_skill=3
-			defense_skill=5
-			planning_skill=5
-			logistics_skill=3
-			legacy_id=72005
-		}
-	}
-	SOV_vilho_petter_nenonen={
-		name="Vilho Petter Nenonen"
-		portraits={
-			army={
-				large="gfx/leaders/SOV/Portrait_FIN_Vilho_Peter_Nenonen.png"
-			}
-		}
-		corps_commander={
-			traits={ commando winter_specialist }
-			skill=3
-			attack_skill=3
-			defense_skill=1
-			planning_skill=4
-			logistics_skill=2
-			legacy_id=72004
-		}
-	}
 	SOV_georgy_zhukov={
 		name="Georgy Zhukov"
 		portraits={
@@ -345,31 +320,13 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ media_personality career_officer inflexible_strategist trait_reckless armor_officer war_hero winter_specialist }
-			skill=5
-			attack_skill=5
-			defense_skill=2
-			planning_skill=4
-			logistics_skill=5
+			traits={ career_officer inflexible_strategist trait_reckless }
+			skill=2
+			attack_skill=3
+			defense_skill=1
+			planning_skill=1
+			logistics_skill=2
 			legacy_id=72000
-		}
-
-		
-
-		advisor = {
-			slot = high_command
-			idea_token = georgy_zhukov_armor
-			ledger = army
-			available = {
-
-			}
-			traits = {
-				army_armored_3
-			}
-				cost = 150
-			ai_will_do = {
-				factor = 1.000
-			}
 		}
 	}
 	SOV_sergey_markov={
@@ -512,15 +469,18 @@ characters={
 			slot = theorist
 			idea_token = mikhail_tukhachevsky
 			ledger = army
+			allowed = {
+				original_tag = SOV
+			}
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
 			}
 			traits = {
 				mass_assault_expert
 			}
 		}
-		field_marshal={
-			traits={ brilliant_strategist career_officer trait_reckless infantry_officer offensive_doctrine }
+		corps_commander={
+			traits={ brilliant_strategist career_officer trait_reckless infantry_officer }
 			skill=4
 			attack_skill=3
 			defense_skill=4
@@ -529,6 +489,7 @@ characters={
 			legacy_id=72011
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 	}
@@ -548,6 +509,7 @@ characters={
 			logistics_skill = 2
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 	}
@@ -570,6 +532,7 @@ characters={
 			legacy_id = 404
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 	}
@@ -591,6 +554,7 @@ characters={
 			legacy_id = 0
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 	}
@@ -604,8 +568,12 @@ characters={
 		}
 		advisor = {
 			slot = army_chief
+			idea_token = SOV_aleksandr_yegorov
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
+			}
+			allowed = {
+				original_tag = SOV
 			}
 			traits = {
 				army_chief_defensive_2
@@ -626,6 +594,7 @@ characters={
 			legacy_id = 0
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}	
 	}
@@ -641,7 +610,10 @@ characters={
 			slot = army_chief
 			idea_token = SOV_vasily_blyukher
 			available = {
-				has_completed_focus = SOV_enforcing_loyalty
+				has_global_flag = new_officers_SOV
+			}
+			allowed = {
+				original_tag = SOV
 			}
 			traits = {
 				army_chief_morale_2
@@ -662,6 +634,7 @@ characters={
 			legacy_id = 0
 			visible = {
 				has_global_flag = new_officers_SOV
+				original_tag = SOV
 			}
 		}
 	}
@@ -1236,12 +1209,12 @@ characters={
 			}
 		}
 		navy_leader={
-			traits={ fleet_protector superior_tactician ironside big_guns_expert }
-			skill=5
-			attack_skill=5
-			defense_skill=4
+			traits={ superior_tactician ironside big_guns_expert }
+			skill=4
 			maneuvering_skill=3
-			coordination_skill=4
+			defense_skill=3
+			attack_skill=4
+			coordination_skill=3
 			legacy_id=72500
 		}
 	}
@@ -1384,14 +1357,13 @@ characters={
 				small="gfx/interface/ideas/idea_SOV_vladimir_kasatonov.dds"
 			}
 		}
-		navy_leader={
-			traits={ seawolf }
-			skill=2
-			attack_skill=1
-			defense_skill=2
-			maneuvering_skill=2
-			coordination_skill=2
-			legacy_id=72506
+	}
+	SOV_neon_antonov = {
+		name = "Neon Antonov"
+		portraits = {
+			army = {
+				large="gfx/leaders/SOV/Portrait_RUS_Neon_Antonov.png"
+			}
 		}
 	}
 	SOV_nestor_monastyryev={
@@ -1727,6 +1699,24 @@ characters={
 				cost = 100
 			ai_will_do = {
 				factor = 1.000
+			}
+		}
+	}
+	SOV_lev_dovator = {
+		name = "Lev Dovator"
+		portraits = {
+			army = {
+				large = "GFX_portrait_SOV_lev_dovator"
+				small = GFX_portrait_SOV_lev_dovator_small
+			}
+		}
+	}
+	SOV_pavel_rybalko = {
+		name = "Pavel Rybalko"
+		portraits = {
+			army = {
+				large = "gfx/leaders/SOV/Portrait_SOV_Pavel_Rybalko.png"
+				small = GFX_portrait_SOV_pavel_rybalko_small
 			}
 		}
 	}

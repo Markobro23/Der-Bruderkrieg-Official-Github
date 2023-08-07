@@ -17,9 +17,60 @@ ideas = {
 			modifier = {
 				stability_factor = 0.1
 				army_morale_factor = 0.1
+			} 
+		}
+		GPU_growing_nationalist_movement = {
+			name = Nationalist_Sympathisers
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				ultranationalism_drift = 0.05
+				stability_factor = -0.15
+				drift_defence_factor = -0.35
 			}
 		}
+		GPU_growing_nationalist_movement_2 = {
+			name = Nationalist_Sympathisers
+			allowed = {
+				always = yes
+			}
 
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.15
+				drift_defence_factor = -0.15
+			}
+		}
+		GPU_growing_nationalist_movement_3 = {
+			name = Nationalist_Sympathisers
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.05
+				drift_defence_factor = -0.15
+			}
+		}
 		GPU_unstable_nation = {
 
 			allowed = {
@@ -41,7 +92,7 @@ ideas = {
 		}
 
 		GPU_unstable_nation_2 = {
-
+			name = GPU_unstable_nation
 			allowed = {
 				always = yes
 			}
@@ -61,7 +112,7 @@ ideas = {
 		}
 
 		GPU_unstable_nation_3 = {
-
+			name = GPU_unstable_nation
 			allowed = {
 				always = yes
 			}
@@ -80,6 +131,80 @@ ideas = {
 			}
 		}
 
+		GPU_unstable_nation_4 = {
+			name = GPU_unstable_nation
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.1
+				stability_factor = -0.15 
+				industrial_capacity_factory = -0.1
+			}
+		}
+		GPU_unstable_nation_5 = {
+			name = GPU_unstable_nation
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.05
+				industrial_capacity_factory = -0.1
+			}
+		}
+		GPU_unstable_nation_von_rundstedt = {
+			name = GPU_unstable_nation
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				communism_drift = 0.05
+				neutrality_drift = 0.05
+				stability_factor = -0.1 
+				war_support_factor = -0.3
+				industrial_capacity_factory = -0.15
+			}
+		}
+		GPU_unstable_nation_von_rundstedt_2 = {
+			name = GPU_unstable_nation
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+			
+				stability_factor = -0.035 
+				war_support_factor = -0.15
+				industrial_capacity_factory = -0.075
+			}
+		}
 		GPU_court_factionalism = {
 
 			allowed = {
@@ -160,6 +285,84 @@ ideas = {
 			}
 		}
 
+		GPU_heimwehr = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = 0.05
+				stability_factor = -0.05
+				conscription_factor = 0.1
+				autonomy_gain = -0.25
+			}
+		}
+		GPU_heimwehr_2 = {
+			name = GPU_heimwehr
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = -0.05
+				conscription_factor = 0.15
+			}
+		}
+
+		GPU_sueddeutche_weir = {
+
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				stability_factor = -0.035
+				conscription_factor = 0.1
+				autonomy_gain = -0.25
+			}
+		}
+
+		GPU_sueddeutche_weir_2 = {
+			name = GPU_sueddeutche_weir
+			allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.05
+				war_support_factor = 0.05
+				stability_factor = -0.035
+				army_org_Factor = 0.05
+				planning_speed = 0.15
+			}
+		}
 		
 
 		GPU_king_and_country = {
@@ -175,12 +378,32 @@ ideas = {
 			removal_cost = -1
 		
 			modifier = {
-				stability_factor = 0.1
-				neutrality_drift = 0.1
+				war_support_factor = 0.1
+				army_morale_factor = 0.05
 			}
 		}
 
 		GPU_king_and_country_2 = {
+			name = GPU_king_and_country
+			allowed = {
+				always = yes
+			}
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -03
+		
+			modifier = {
+				custom_modifier_tooltip = GPU_confederation_stability_increases_by_half_monthly
+				local_resources_factor = 0.1
+				production_factory_max_efficiency_factor = 0.05
+				war_support_factor = 0.1
+				army_morale_factor = 0.05
+			}
+		}
+		GPU_farming_subsidies = {
 
 			allowed = {
 				always = yes
@@ -193,10 +416,7 @@ ideas = {
 			removal_cost = -1
 		
 			modifier = {
-				stability_factor = 0.1
-				neutrality_drift = 0.1
-				war_support_factor = 0.05
-				army_morale_factor = 0.05
+				consumer_goods_factor = -0.05
 			}
 		}
 		GPU_germany_sabotage = {
@@ -228,6 +448,105 @@ ideas = {
 		
 			modifier = {
 				recruitable_population = -0.01
+			}
+		}
+
+		GPU_franz_ferdinand_reforms_idea = {
+			allowed = {
+				always = yes
+			}
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				conscription_factor = 0.01
+				political_power_factor = 0.15
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		GPU_the_exiles_mustered = {
+			allowed = {
+				always = yes
+			}
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				army_org_factor = 0.075
+				max_planning_factor = 0.15
+			}
+		}
+		GPU_the_exiles_mustered_2 = {
+			name = GPU_the_exiles_mustered
+			allowed = {
+				always = yes
+			}
+		
+			allowed_civil_war = {
+				always = yes
+			}
+		
+			removal_cost = -1
+		
+			modifier = {
+				army_org_factor = 0.075
+				max_planning_factor = 0.15
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
+			}
+		}
+		
+		GPU_german_unification_modifier_idea = {
+			name = GPU_german_unification_modifier
+			modifier = {
+				local_resources_factor = -0.1
+				conscription_factor = -0.1
+				global_building_slots_factor = -0.1
+				industrial_capacity_factory = -0.1
+			}
+		}
+
+		GPU_the_new_monarchy = {
+			name = GPU_a_new_monarchy
+			modifier = {
+				local_resources_factor = 0.1
+				conscription_factor = 0.1
+			}
+		}
+		GPU_the_new_monarchy_2 = {
+			name = GPU_a_new_monarchy
+			modifier = {
+				local_resources_factor = 0.1
+				conscription_factor = 0.1
+				industrial_capacity_factory = 0.15
+				communism_drift = -0.05
+				socialism_democratic_drift = -0.05
+				democratic_communism_drift = -0.05
+				ultranationalism_drift = -0.05
+			}
+		}
+		GPU_the_new_monarchy_3 = {
+			name = GPU_a_new_monarchy
+			modifier = {
+				local_resources_factor = 0.1
+				conscription_factor = 0.1
+				industrial_capacity_factory = 0.15
+				communism_drift = -0.05
+				socialism_democratic_drift = -0.05
+				democratic_communism_drift = -0.05
+				ultranationalism_drift = -0.05
+				surrender_limit = 0.075
+				army_attack_factor = 0.1
+				army_defence_factor = 0.1
 			}
 		}
 
@@ -302,6 +621,19 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = 0.05
 			  	industrial_capacity_factory = -0.1
+			}
+		}
+	}
+
+	hidden_ideas = {
+		GPU_pakt_der_freundschaft_tech_bonus = {
+			research_bonus = {
+				electronics = 0.15
+			}
+			modifier = {
+				encryption_factor = 0.1
+				decryption_factor = 0.1
+				army_speed_factor = 0.05
 			}
 		}
 	}

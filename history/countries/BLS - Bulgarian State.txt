@@ -1,0 +1,193 @@
+﻿capital = 48
+
+oob = "BLS_1936"
+if = {
+	limit = { has_dlc = "Man the Guns" } 
+		set_naval_oob = "BUL_naval_mtg"
+}
+
+add_ideas = {
+	limited_conscription
+	BUL_racho_petrov
+	BUL_radko_dimitriev
+	BUL_petar_gabrovski
+	BUL_nikola_mushanov
+	BUL_aleksandar_stamboliyski
+}
+
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_air_oob = "BUL_air_bba"
+		set_technology = {
+			iw_small_airframe = 1
+			iw_medium_airframe = 1
+			engines_1 = 1
+			engines_2 = 1
+			early_bombs = 1
+			aa_lmg = 1
+		}
+	else = {
+		set_air_oob = "BUL_air_legacy"
+		set_technology = {
+			early_fighter = 1
+			early_bomber = 1
+		}
+	}
+}
+
+
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	gw_artillery = 1
+	tech_support = 1
+	tech_recon = 1
+	tech_engineers = 1
+	tech_mountaineers = 1
+	motorised_infantry = 1
+	fuel_silos = 1
+	basic_train = 1
+}
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_heavy = 1
+		basic_depth_charges = 1
+		basic_torpedo = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		#basic_secondary_battery = 1
+		improved_ship_torpedo_launcher = 1
+		basic_cruiser_armor_scheme = 1
+		basic_naval_mines = 1
+	}
+}
+
+if = {
+	limit = {
+		NOT = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_destroyer = 1
+		basic_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_submarine = 1
+		basic_submarine = 1
+		early_heavy_cruiser = 1
+		basic_heavy_cruiser = 1
+		early_battleship = 1
+	}
+}
+
+### Tanks - NSB ###
+if = {
+	limit = { has_dlc = "No Step Back" }
+	set_technology = {
+		gwtank_chassis = 1
+	}
+}
+
+### Tanks - non NSB ###
+if = {
+	limit = { NOT = { has_dlc = "No Step Back" } }
+	set_technology = {
+		gwtank = 1
+	}
+}
+
+
+
+set_convoys = 200
+
+set_politics = {
+	ruling_party = ultranationalism
+	last_election = "1935.6.21"
+	election_frequency = 48
+	elections_allowed = no
+}
+
+set_popularities = {
+	communism = 8
+	democratic_communism = 7
+	socialism_democratic = 4
+	democratic_liberalism = 5
+	democratic = 7
+	fascism = 21
+	neutrality = 5
+	authoritarian_democratic = 5
+	ultranationalism = 38
+}
+
+
+
+
+recruit_character = BUL_hristo_lukov
+recruit_character = BUL_teodosi_daskalov
+recruit_character = BUL_georgi_dimitrov
+recruit_character = BUL_nikola_petkov
+recruit_character = BUL_nikola_nedev
+recruit_character = BUL_asen_nikolov
+recruit_character = BUL_pencho_zlatev
+recruit_character = BUL_rusi_rusev
+recruit_character = BUL_konstantin_lukash
+recruit_character = BUL_nikola_hadzhipetov
+recruit_character = BUL_ivan_valkov
+recruit_character = BUL_nikola_nakov
+recruit_character = BUL_kyril_sakskoburggotski
+recruit_character = BUL_ivan_variklechkov
+recruit_character = BUL_sava_ivanov
+
+
+if = {
+	limit = { has_dlc = "No Step Back" }
+	create_equipment_variant = {
+		name = "St.Pzw. II"
+		type = light_tank_chassis_0
+		parent_version = 0
+		modules = {
+			main_armament_slot = tank_small_cannon
+			turret_type_slot = tank_light_two_man_tank_turret
+			suspension_type_slot = tank_christie_suspension
+			armor_type_slot = tank_riveted_armor
+			engine_type_slot = tank_gasoline_engine
+		}
+		#icon = "gfx/interface/equipmentdesigner/tanks/designer/Reichspakt/GER_gwtank.png"
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	create_equipment_variant = {
+		name = "Bretagne Class"
+		type = ship_hull_heavy_1
+		name_group = BUL_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = ship_heavy_battery_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+	}
+}

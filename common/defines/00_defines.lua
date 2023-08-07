@@ -1145,8 +1145,8 @@ NAir = {
 	BIGGEST_SPEED_FACTOR_DIFF = 3.5,					-- biggest factor difference in speed for doing damage (caps to this)
 	TOP_SPEED_DAMAGE_BONUS_FACTOR = 0.025,				-- A factor for scaling the top speed of a plane into damage buff. If an attacking wing has a speed advantage of any form their speed value will be converted into a percentage bonus with this modifier
 	COMBAT_DAMAGE_STATS_MULTILPIER = 0.2,
-	COMBAT_BETTER_AGILITY_DAMAGE_REDUCTION = 0.30, 		-- How much the better agility (than opponent's) can reduce their damage to us.
-	COMBAT_BETTER_SPEED_DAMAGE_INCREASE = 0.60, 		-- How much the better Speed (than opponent's) can reduce increase our damage to them.
+	COMBAT_BETTER_AGILITY_DAMAGE_REDUCTION = 0.45, 		-- How much the better agility (than opponent's) can reduce their damage to us.
+	COMBAT_BETTER_SPEED_DAMAGE_INCREASE = 0.65, 		-- How much the better Speed (than opponent's) can reduce increase our damage to them.
 														-- Both of these defines are combined with their sister FACTOR_DIFF defines to create defense or offensive buffs
 														-- In both cases the maximum bonus or reduction is (BIGGEST_X_FACTOR_DIFF - 1) * COMBAT_BETTER_X_DAMAGE_Y * Damage
 	COMBAT_MAX_WINGS_AT_ONCE = 10000, 						-- Max amount of air wings in one combat simulation. The higher value, the quicker countries may loose their wings. It's a gameplay balance value.
@@ -1357,7 +1357,7 @@ NAir = {
 
 	REINFORCEMENT_DISABLING_DURATION_IN_LAND_CARRIER_TRANSFER = 48,	-- The reinforcement disabling duration in hours when transfering from land to carrier and vice versa
 
-	THRUST_WEIGHT_SPEED_FACTOR = 3,								-- For plane designs, additive Km/h max speed bonus per point of thrust exceeding weight
+	THRUST_WEIGHT_AGILITY_FACTOR = 0.5,								-- For plane designs, additive agility bonus per point of thrust exceeding weight
 	MAX_QUICK_WING_SELECTION = 3,									-- Max possible selection for airwing quick deploy
 
 	USE_SINGLE_NAVAL_ARMAMENT_CATEGORY = true,						-- If true, only the armament module category that inflicts the greatest damage to naval targets will contribute naval strike and port strike mission specific stats. Only modules with both naval_strike_attack and naval_strike_targetting are considered. This is used to prevent torpedo_mounting and bomb_locks stats from stacking.
@@ -1783,8 +1783,8 @@ NNavy = {
 
 	SHIP_TO_FLEET_ANTI_AIR_RATIO									= 0.25,	-- total sum of fleet's anti air will be multiplied with this ratio and added to calculations anti-air of individual ships while air damage reduction
 
-	ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE								= 0.25,	-- received air damage is calculated using following: 1 - ( (ship_anti_air + fleet_anti_air * SHIP_TO_FLEET_ANTI_AIR_RATIO )^ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE ) * ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE
-	ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE							= 0.2,
+	ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE								= 0.225,	-- received air damage is calculated using following: 1 - ( (ship_anti_air + fleet_anti_air * SHIP_TO_FLEET_ANTI_AIR_RATIO )^ANTI_AIR_POW_ON_INCOMING_AIR_DAMAGE ) * ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE
+	ANTI_AIR_MULT_ON_INCOMING_AIR_DAMAGE							= 0.18,
 
 	MAX_ANTI_AIR_REDUCTION_EFFECT_ON_INCOMING_AIR_DAMAGE 			= 0.75,	-- damage reduction for incoming air attacks is clamped to this value at maximum.
 
@@ -1818,7 +1818,7 @@ NNavy = {
 
 	GUN_HIT_PROFILES = { -- hit profiles for guns, if target ih profile is lower the gun will have lower accuracy
 		80.0,	-- big guns
-		145.0,	-- torpedoes
+		100.0,	-- torpedoes
 		45.0,	-- small guns
 	},
 
@@ -1826,7 +1826,7 @@ NNavy = {
 	DEPTH_CHARGES_DAMAGE_MULT 										= 0.7, 		-- multiplies damage of depth charges
 	DEPTH_CHARGES_HIT_PROFILE 										= 100.0,	-- hit profile for depth charges
 
-	CONVOY_HIT_PROFILE												= 120.0,  	-- convoys has this contant hit profile
+	CONVOY_HIT_PROFILE												= 85.0,  	-- convoys has this contant hit profile
 	HIT_PROFILE_MULT 												= 100.0,  	-- multiplies hit profile of every ship
 	HIT_PROFILE_SPEED_FACTOR										= 0.5,		-- factors speed value when determining it profile (Vis * HIT_PROFILE_MULT * Ship Hit Profile Mult)
 	HIT_PROFILE_SPEED_BASE											= 20,		-- Base value added to hitprofile speed calulation
@@ -1939,6 +1939,18 @@ NNavy = {
 		0.10,
 		0.00 -- For criticals, you could reduce crit chance unlike damage in army combat, but we do not for now.
 	},
+
+	NAVY_PIERCING_THRESHOLD_DAMAGE_VALUES = {	-- 0 armor will always receive maximum damage (so add overmatching at your own peril). the system expects at least 2 values, with no upper limit.
+		1.00,
+		1.00,
+		0.90,
+		0.70,
+		0.50,
+		0.30 -- 
+	},
+
+	-- all of these NEED to be the same size!!!!
+
 },
 
 NRailwayGun = {
@@ -2775,7 +2787,7 @@ NAI = {
 	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.2,		-- deployment will try to buffer a ratio of manpower (for reinforcements) during peace time
 
 	MANPOWER_RATIO_REQUIRED_TO_PRIO_MOBILIZATION_LAW = 0.4,		-- percentage of manpower in field is desired to be buffered for AI when it has upcoming wars or already at war. if it has less manpower, it will prio manpower laws
-	UPGRADES_DEFICIT_LIMIT_DAYS = 50,                           -- Ai will avoid upgrading units in the field to new templates if it takes longer than this to fullfill their equipment need
+	UPGRADES_DEFICIT_LIMIT_DAYS = 180,                           -- Ai will avoid upgrading units in the field to new templates if it takes longer than this to fullfill their equipment need
 
 	GIE_EXILE_AIR_MANPOWER_USAGE_RATIO = 0.2, -- AI will not deploy new exile wings when this percentage of available exile manpower is already used for wing recruitment.
 

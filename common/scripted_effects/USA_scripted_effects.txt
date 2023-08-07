@@ -101,7 +101,7 @@ progressbar_calc_usa_election_stuff = {
 d_long_test_stuff = {
 	378 = {
 		add_to_variable = {
-		  long_support = 3
+		  maverick_support = 3
 		}
 		usa_modify_electoral_college_effect = yes
 		custom_effect_tooltip = USA_increase_borah_support_by_three
@@ -129,140 +129,166 @@ d_borah_test_stuff = {
 usa_modify_electoral_college_effect ={
 	if = {
 		limit = {
-			has_country_flag = USA_longs_tour_of_america_flag
+			has_completed_focus = USA_mavericks_campaign_speech
 		}
-		usa_long_modify_electoral_college_effect = yes
+		usa_maverick_modify_electoral_college_effect = yes
 	}
 	if = {
 		limit = {
-			has_country_flag = USA_smith_campaign_flag
+			has_completed_focus = USA_smith_campaign
 		}
 		usa_smith_modify_electoral_college_effect = yes
 	}
 	if = {
 		limit = {
-			has_country_flag = USA_the_warren_campaign_flag
+			has_completed_focus = USA_the_shipstead_campaign
 		}
 		usa_borah_modify_electoral_college_effect = yes
 	}
+	USA_electoral_vars_setup = yes
 }
 
-usa_long_modify_electoral_college_effect = {
-	custom_effect_tooltip = usa_modify_electoral_college_effect_tt
+usa_maverick_modify_electoral_college_effect = {
+	#custom_effect_tooltip = usa_modify_electoral_college_effect_tt
 	add_to_variable = {
-		long_electoral = 3
+		tooltip = USA_increase_maverick_support_by_two
+		maverick_support = 2
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_smiths_support_by_1
-		smith_electoral = -1
+		smith_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_warrens_support_by_1
-		borah_electoral = -1
+		borah_support = -1
 	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
-	}
+	
 }
 
 usa_smith_modify_electoral_college_effect ={
-	custom_effect_tooltip = usa_smith_modify_electoral_college_effect_tt
+	#custom_effect_tooltip = usa_smith_modify_electoral_college_effect_tt
 	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_1
-		long_electoral = -1
+		tooltip = USA_increase_smith_support_by_two
+		smith_support = 2
 	}
 	add_to_variable = {
-		smith_electoral = 3
+		tooltip = USA_decrease_longs_support_by_1
+		maverick_support = -1
 	}
 	add_to_variable = {
 		tooltip = USA_decrease_warrens_support_by_1
-		borah_electoral = -1
+		borah_support = -1
 	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
-	}
+	
 }
 
 usa_borah_modify_electoral_college_effect ={
-	custom_effect_tooltip = usa_warren_modify_electoral_college_effect_tt
+	#custom_effect_tooltip = usa_warren_modify_electoral_college_effect_tt
+	add_to_variable = {
+		tooltip = USA_increase_borah_support_by_two
+		borah_support = 2
+	}
 	add_to_variable = {
 		tooltip = USA_decrease_longs_support_by_1
-		long_electoral = -1
+		maverick_support = -1
 	}
 	add_to_variable = {
-		smith_electoral = -1
-	}
-	add_to_variable = {
-		borah_electoral = 3
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_undecided_support_by_1
-		undecided_electoral = -1
+		tooltip = USA_decrease_smiths_support_by_1
+		smith_support = -1
 	}
 }
 
 usa_smith_decrease_long_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = usa_smith_modify_electoral_college_effect_tt_2
-		long_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_2
-		smith_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_maverick_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_longs_support_by_2
+			maverick_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_smith_support_by_two
+			smith_support = 2
+		}
 	}
 }
 usa_smith_decrease_warren_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_warrens_support_by_2
-		borah_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_smith_modify_electoral_college_effect_tt_2
-		smith_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_borah_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_warrens_support_by_2
+			borah_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_smith_support_by_two
+			smith_support = 2
+		}
 	}
 }
 
 
 usa_long_decrease_smith_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_smiths_support_by_2
-		smith_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_modify_electoral_college_effect_tt_2
-		long_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_smith_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_smiths_support_by_2
+			smith_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_maverick_support_by_two
+			maverick_support = 2
+		}
 	}
 }
 usa_long_decrease_warren_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_warrens_support_by_2
-		borah_electoral = -2
-	}
-	add_to_variable = {
-		tooltip = usa_modify_electoral_college_effect_tt_2
-		long_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_borah_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_warrens_support_by_2
+			borah_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_maverick_support_by_two
+			maverick_support = 2
+		}
 	}
 }
 
 usa_warren_decrease_smith_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = USA_decrease_smiths_support_by_2
-		smith_electoral = -2
-	}
-	add_to_variable = {
-		borah_electoral = 2
+	random_owned_controlled_state = {
+		limit = {
+			is_smith_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_smiths_support_by_2
+			smith_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_borah_support_by_two
+			borah_support = 2
+		}
 	}
 }
 usa_warren_decrease_long_electoral_college_effect = {
-	add_to_variable = {
-		tooltip = usa_warren_modify_electoral_college_effect_tt_2
-		borah_electoral = 2
-	}
-	add_to_variable = {
-		tooltip = USA_decrease_longs_support_by_2
-		long_electoral = -2
+	random_owned_controlled_state = {
+		limit = {
+			is_maverick_state = yes
+		}
+		add_to_variable = {
+			tooltip = USA_decrease_longs_support_by_2
+			maverick_support = -2
+		}
+		add_to_variable = {
+			tooltip = USA_increase_borah_support_by_two
+			borah_support = 2
+		}
 	}
 }
 
@@ -270,18 +296,50 @@ usa_warren_decrease_long_electoral_college_effect = {
 d_us_election_debug = {
 	379 = {
 		add_to_variable = {
-			long_support = 100
+			maverick_support = 100
 		}
 	}
 }
-
+d_USA_electoral_vars_setup = {
+	USA_electoral_vars_setup = yes
+}
 USA_electoral_vars_setup = { 
-		set_variable = { long_electoral = 160}
-		set_variable = { borah_electoral = 153}
-		set_variable = { smith_electoral = 160}
-		set_variable = { undecided_electoral = 58}
+	set_variable = {
+		long_electoral = 0
+	}
+	set_variable = {
+		smith_electoral = 0
+	}
+	set_variable = {
+		borah_electoral = 0
+	}
+	hidden_effect = {
+		every_owned_state = {
+			limit = {
+				is_maverick_state = yes
+			}
+			add_to_variable = {
+				USA.long_electoral = THIS.electoral_college_value
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_smith_state = yes
+			}
+			add_to_variable = {
+				USA.smith_electoral = THIS.electoral_college_value
+			}
+		}
+		every_owned_state = {
+			limit = {
+				is_borah_state = yes
+			}
+			add_to_variable = {
+				USA.borah_electoral = THIS.electoral_college_value
+			}
+		}
 		progressbar_calc_usa_election_stuff = yes
-		
+	}
 }
 
 d_USA_election_timeout_effect = {
@@ -293,8 +351,8 @@ USA_election_timeout_effect = {
 		limit = {
 			check_variable = { long_electoral > 266 }
 		}
-		country_event = { id = USA_long_victory.1  days = 1}
-		set_country_flag = USA_long_wins_elections
+		country_event = { id = USA_maverick_victory.1  days = 1}
+		set_country_flag = USA_maverick_wins_elections
 	}
 	else_if = {
 		limit = {
@@ -314,31 +372,7 @@ USA_election_timeout_effect = {
 	}
 	set_country_flag = USA_elections_over
 }
-d_warren_check = {
-	if = {
-		limit = {
-			has_country_flag = USA_the_warren_campaign_flag
-		}
-		log = "USA_the_warren_campaign_flag"
-	}
-}
 
-d_long_check = {
-	if = {
-		limit = {
-			has_country_flag = USA_longs_tour_of_america_flag
-		}
-		log = "USA_longs_tour_of_america_flag"
-	}
-}
-d_smith_check = {
-	if = {
-		limit = {
-			has_country_flag = USA_smith_campaign_flag
-		}
-		log = "USA_smith_campaign_flag"
-	}
-}
 
 USA_mafia_initial = {
 		set_variable = { nyc_mafia_var = 8 }
@@ -444,6 +478,19 @@ d_USA_dustbowl_states_setup = {
 
 d_USA_dustbowl_remove = {
 	remove_ideas = USA_dust_bowl_3
+}
+
+d_usa_log_electoral_values = {
+	USA = {
+		every_owned_state = {
+			if = {
+				limit = {
+					is_core_of = USA
+				}
+				log = "[THIS.GetName]: [?THIS.electoral_college_value]"
+			}
+		}
+	}
 }
 
 USA_dustbowl_states_setup = {
@@ -1036,33 +1083,33 @@ d_bruh_bolivia = {
 	}
 }
 
-USA_warren_great_depression_loc = {
+USA_shipstead_great_depression_loc = {
 	set_variable = {
-		USA_warren_great_depression_industrial_capacity_factory_loc = USA_warren_great_depression_industrial_capacity_factory
+		USA_shipstead_great_depression_industrial_capacity_factory_loc = USA_shipstead_great_depression_industrial_capacity_factory
 	}
 	multiply_variable = {
-		USA_warren_great_depression_industrial_capacity_factory_loc = 100
+		USA_shipstead_great_depression_industrial_capacity_factory_loc = 100
 	}
 
 	set_variable = {
-		USA_warren_great_depression_stability_factor_loc = USA_warren_great_depression_stability_factor
+		USA_shipstead_great_depression_stability_factor_loc = USA_shipstead_great_depression_stability_factor
 	}
 	multiply_variable = {
-		USA_warren_great_depression_stability_factor_loc = 100
+		USA_shipstead_great_depression_stability_factor_loc = 100
 	}
 
 	set_variable = {
-		USA_warren_great_depression_consumer_goods_factor_loc = USA_warren_great_depression_consumer_goods_factor
+		USA_shipstead_great_depression_consumer_goods_factor_loc = USA_shipstead_great_depression_consumer_goods_factor
 	}
 	multiply_variable = {
-		USA_warren_great_depression_consumer_goods_factor_loc = 100
+		USA_shipstead_great_depression_consumer_goods_factor_loc = 100
 	}
 	
 	set_variable = {
-		USA_warren_great_depression_production_factory_efficiency_gain_factor_loc = USA_warren_great_depression_production_factory_efficiency_gain_factor
+		USA_shipstead_great_depression_production_factory_efficiency_gain_factor_loc = USA_shipstead_great_depression_production_factory_efficiency_gain_factor
 	}
 	multiply_variable = {
-		USA_warren_great_depression_production_factory_efficiency_gain_factor_loc = 100
+		USA_shipstead_great_depression_production_factory_efficiency_gain_factor_loc = 100
 	}
 
 	

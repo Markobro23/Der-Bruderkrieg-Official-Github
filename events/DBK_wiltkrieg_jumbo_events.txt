@@ -2077,110 +2077,575 @@ country_event = {
 
 	option = {
 		name = second_treaty_of_vienna.1.a
-		unlock_decision_category_tooltip = post_war_prussia_loses
-		set_country_flag = second_treaty_of_vienna_enacted
-		add_ideas = AUS_post_war_occupation
-
-		GER = {
-			transfer_state = 64
-			transfer_state = 61
-			set_cosmetic_tag = RAU_prussia
+		if = {
+			limit = {
+				tag = AUS
+			}
+			unlock_decision_category_tooltip = post_war_prussia_loses
+			set_country_flag = second_treaty_of_vienna_enacted
+			add_ideas = AUS_post_war_occupation
+			add_state_core = 58
+			transfer_state = 58
+			transfer_state = 801
+			hidden_effect = {
+				news_event = { id = second_treaty_of_vienna.3 hours = 6 }
+				country_event = { id = post_wiltkrieg_trials.1 days = 2 }
+			}
 		}
- 
- 
-		
-		 GPU = {
-			 transfer_state = 60
-			 transfer_state = 65
-			 transfer_state = 949
-		 }
-		 HES = {
-            transfer_state = 960
-        }
-		 58 = {
-			 add_core_of = AUS
-		 } 
-		 AUS = {
-			 transfer_state = 58
-			 transfer_state = 801
-		 }
-		
-		 if = {
-			 limit = {
-				 has_global_flag = france_austria_split_deal
-			 }
-			 FGD = {
-				 transfer_state = 56
-				transfer_state = 59
-				transfer_state = 817
-				transfer_state = 962
-				transfer_state = 955
-				add_state_core = 56
-				add_state_core = 59
-				add_state_core = 817
-				add_state_core = 962
-				add_state_core = 960
-				add_state_core = 955
-			 }
-		 }
-		 else = {
-			  HAN = {
-			 transfer_state = 56
-			 transfer_state = 59
-			 transfer_state = 817
-			 transfer_state = 962
-			 transfer_state = 955
-			 set_cosmetic_tag = RAU_hannover
-		 	}
-			release_puppet = HAN
-		 }
-		 puppet = GER
-		
-		hidden_effect = {
-			news_event = {id = second_treaty_of_vienna.3}
-			country_event = {id = post_wiltkrieg_trials.1 days = 2}
-
-
+		#hannover stuff
+		if = {
+			limit = {
+				NOT = {
+					has_global_flag = post_war_HAN_freed
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						FGD.race_for_german_unification_hannover > GPU.race_for_german_unification_hannover
+					}
+				}
+				if = {
+					limit = {
+						tag = FGD
+					}
+					transfer_state = 56
+					transfer_state = 59
+					transfer_state = 817
+					transfer_state = 960
+					transfer_state = 955
+					add_state_core = 56
+					add_state_core = 59
+					add_state_core = 817
+					add_state_core = 960
+					add_state_core = 955
+					else = {
+						effect_tooltip = {
+							FGD = {
+								transfer_state = 56
+								transfer_state = 59
+								transfer_state = 817
+								transfer_state = 960
+								transfer_state = 955
+								add_state_core = 56
+								add_state_core = 59
+								add_state_core = 817
+								add_state_core = 960
+								add_state_core = 955
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						FGD.race_for_german_unification_hannover < GPU.race_for_german_unification_hannover
+					}
+				}
+				if = {
+					limit = {
+						tag = AUS
+					}
+					transfer_state = 56
+					transfer_state = 59
+					transfer_state = 817
+					transfer_state = 960
+					transfer_state = 955
+					add_state_core = 56
+					add_state_core = 59
+					add_state_core = 817
+					add_state_core = 960
+					add_state_core = 955
+					else = {
+						effect_tooltip = {
+							HAN = {
+								transfer_state = 56
+								 transfer_state = 59
+								 transfer_state = 817
+								 transfer_state = 960
+								 transfer_state = 955
+								 set_cosmetic_tag = RAU_hannover
+							}
+							AUS = {
+								puppet = HAN
+							}
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						FGD.race_for_german_unification_hannover = GPU.race_for_german_unification_hannover
+					}
+				}
+				if = {
+					limit = {
+						tag = AUS
+					}
+					if = {
+						limit = {
+							HES = { exists = yes is_in_faction_with = AUS }
+						}
+						HES = {
+							transfer_state = 960
+						}
+					}
+					HAN = { #hannover more like halfover
+						transfer_state = 59
+						transfer_state = 817
+						if = {
+							limit = {
+								HES = { OR = { exists = no NOT = { is_in_faction_with = AUS } } }
+							}
+							transfer_state = 960
+						}
+						set_cosmetic_tag = RAU_hannover
+						create_country_leader = {
+							name = "Hans Speidel"
+							desc = ""
+							picture = "gfx/leaders/Hans_Steidel.dds"
+							expire = "1965.1.1"
+							ideology = despotic
+							traits = {
+								#
+							}
+						}
+					}
+					puppet = HAN
+					else = {
+						effect_tooltip = {
+							if = {
+								limit = {
+									HES = { exists = yes is_in_faction_with = AUS }
+								}
+								HES = {
+									transfer_state = 960
+								}
+							}
+							HAN = {
+								transfer_state = 59
+								transfer_state = 817
+								if = {
+									limit = {
+										HES = { OR = { exists = no is_in_faction_with = AUS } }
+									}
+									transfer_state = 960
+								}
+								set_cosmetic_tag = RAU_hannover
+								create_country_leader = {
+									name = "Hans Speidel"
+									desc = ""
+									picture = "gfx/leaders/Hans_Steidel.dds"
+									expire = "1965.1.1"
+									ideology = despotic
+									traits = {
+										#
+									}
+								}
+							}
+							AUS = {
+								puppet = HAN
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						tag = FGD
+					}
+					transfer_state = 56
+					transfer_state = 955
+					add_state_core = 56
+					add_state_core = 955
+					else = {
+						effect_tooltip = {
+							FGD = {
+								transfer_state = 56
+								transfer_state = 955
+							}
+						}
+					}
+				}
+			}
+		}
+		#is this proper coding? No. But this is the best way to avoid any funky if-else chaining stuff
+		if = {
+			limit = {
+				has_global_flag = post_war_HAN_freed
+			}
 			GER = {
-				load_focus_tree = generic_focus
-				add_popularity = {
-					ideology = neutrality
-					popularity = 0.1
-				}
-				kill_ideology_leader = neutrality
-				set_politics = {
-					ruling_party = neutrality
-				}
-
-				create_country_leader = {
-					name = "Erwin Rommel"
-					desc = ""
-					picture = "gfx/leaders/Erwin_Rommel.dds"
-					expire = "1965.1.1"
-					ideology = despotic
-					traits = {
-						#
-					}
-				}
-
-
-				
+				release = HAN
 			}
-
-			HAN = {
-				kill_ideology_leader = neutrality
-				create_country_leader = {
-					name = "Hans Speidel"
-					desc = ""
-					picture = "gfx/leaders/Hans_Steidel.dds"
-					expire = "1965.1.1"
-					ideology = despotic
-					traits = {
-						#
-					}
+		}
+		#central prussia stuff
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_central_prussia > GPU.race_for_german_unification_central_prussia
 				}
 			}
+			if = {
+				limit = {
+					tag = FRA
+				}
+				hidden_effect = {
+					SHL = {
+						add_state_core = 58
+        		add_state_core = 61
+        		add_state_core = 801
+					}
+				}
+				GER = {
+					hidden_effect = {
+						set_cosmetic_tag = mandat_du_prussia
+						release = SHL
+					}
+	        set_cosmetic_tag = duchy_of_brandenburg
+	        set_politics = {
+	            ruling_party = neutrality
+	        }
+	        create_country_leader = {
+	            name = "Napoleon, Governor-General of Berlin"
+	            desc = "NAPOELEON_DESC"
+	            picture = "gfx/leaders/NapoleonVIPortrait.dds"
+	            expire = "1965.1.1"
+	            ideology = despotic
+	            traits = {   
+	            }
+	        }
+				}
+				puppet = GER
+				puppet = SHL
+				else = {
+					effect_tooltip = {
+						GER = {
+			        set_cosmetic_tag = duchy_of_brandenburg
+			        create_country_leader = {
+			            name = "Napoleon, Governor-General of Berlin"
+			            desc = "NAPOELEON_DESC"
+			            picture = "gfx/leaders/NapoleonVIPortrait.dds"
+			            expire = "1965.1.1"
+			            ideology = despotic
+			            traits = {   
+			            }
+			        }
+						}
+						FRA = {
+							puppet = GER
+							puppet = SHL
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_central_prussia < GPU.race_for_german_unification_central_prussia
+				}
+			}
+			if = {
+				limit = {
+					tag = AUS
+				}
+				GER = {
+					set_cosmetic_tag = RAU_prussia
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.1
+					}
+					kill_ideology_leader = neutrality
+					set_politics = {
+						ruling_party = neutrality
+					}
 
+					create_country_leader = {
+						name = "Erwin Rommel"
+						desc = ""
+						picture = "gfx/leaders/Erwin_Rommel.dds"
+						expire = "1965.1.1"
+						ideology = despotic
+						traits = {
+							#
+						}
+					}
+				}
+				puppet = GER
+				else = {
+					effect_tooltip = {
+						GER = {
+			        set_cosmetic_tag = RAU_prussia
+			        create_country_leader = {
+								name = "Erwin Rommel"
+								desc = ""
+								picture = "gfx/leaders/Erwin_Rommel.dds"
+								expire = "1965.1.1"
+								ideology = despotic
+								traits = {
+									#
+								}
+							}
+						}
+						AUS = {
+							puppet = GER
+						}
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_central_prussia = GPU.race_for_german_unification_central_prussia
+				}
+			}
+			if = {
+				limit = {
+					tag = AUS
+				}
+				GER = {
+					set_cosmetic_tag = RAU_prussia
+					add_popularity = {
+						ideology = neutrality
+						popularity = 0.1
+					}
+					kill_ideology_leader = neutrality
+					set_politics = {
+						ruling_party = neutrality
+					}
+
+					create_country_leader = {
+						name = "Erwin Rommel"
+						desc = ""
+						picture = "gfx/leaders/Erwin_Rommel.dds"
+						expire = "1965.1.1"
+						ideology = despotic
+						traits = {
+							#
+						}
+					}
+				}
+				puppet = GER
+				else = {
+					effect_tooltip = {
+						GER = {
+			        set_cosmetic_tag = RAU_prussia
+			        create_country_leader = {
+								name = "Erwin Rommel"
+								desc = ""
+								picture = "gfx/leaders/Erwin_Rommel.dds"
+								expire = "1965.1.1"
+								ideology = despotic
+								traits = {
+									#
+								}
+							}
+						}
+						AUS = {
+							puppet = GER
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = FRA
+				}
+				SHL = {
+					hidden_effect = {
+						add_state_core = 58
+						add_state_core = 61
+						add_state_core = 801
+					}
+					transfer_state = 58
+					transfer_state = 61
+					if = {
+						limit = {
+							GER = { owns_state = 801 }
+						}
+						transfer_state = 801
+					}
+				}
+				puppet = SHL
+				else = {
+					effect_tooltip = {
+						FRA = {
+							puppet = SHL
+						}
+					}
+				}
+			}
+		}
+		#eastern prussia
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_eastern_prussia > GPU.race_for_german_unification_eastern_prussia
+				}
+			}
+			if = {
+				limit = {
+					tag = FRA
+				}
+				MAS = {
+          hidden_effect = {
+          	add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+            add_state_core = 85
+            add_state_core = 86
+            set_cosmetic_tag = austrian_french_puppet
+          }
+          if = {
+          	limit = {
+          		188 = { is_owned_by = GER }
+          	}
+          	transfer_state = 188
+          }
+          transfer_state = 763
+          transfer_state = 5
+          transfer_state = 85
+          transfer_state = 86
+          set_politics = {
+            ruling_party = neutrality
+          }
+          set_cosmetic_tag = kingdom_of_prussia
+          create_country_leader = {
+            name = "Napoleon, Duke of Prussia"
+            desc = "NAPOELEON_DESC"
+            picture = "gfx/leaders/NapoleonVIPortrait.dds"
+            expire = "1965.1.1"
+            ideology = despotic
+            traits = {   
+            }
+          }
+        }
+        puppet = MAS
+        else = {
+        	effect_tooltip = {
+        		FRA = {
+        			puppet = MAS
+        		}
+        		MAS = {
+        			set_cosmetic_tag = kingdom_of_prussia
+        			create_country_leader = {
+		            name = "Napoleon, Duke of Prussia"
+		            desc = "NAPOELEON_DESC"
+		            picture = "gfx/leaders/NapoleonVIPortrait.dds"
+		            expire = "1965.1.1"
+		            ideology = despotic
+		            traits = {   
+		            }
+		          }
+        		}
+        	}
+        }
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_eastern_prussia > GPU.race_for_german_unification_eastern_prussia
+				}
+			}
+			if = {
+				limit = {
+					tag = AUS
+				}
+				MAS = {
+          hidden_effect = {
+          	add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+            add_state_core = 85
+            add_state_core = 86
+          }
+          transfer_state = 188
+          transfer_state = 763
+          transfer_state = 5
+          transfer_state = 85
+          transfer_state = 86
+        }
+        puppet = MAS
+        else = {
+        	effect_tooltip = {
+        		AUS = {
+        			puppet = MAS
+        		}
+        	}
+        }
+			}
+		}
+		if = {
+			limit = {
+				check_variable = {
+					FGD.race_for_german_unification_eastern_prussia = GPU.race_for_german_unification_eastern_prussia
+				}
+			}
+			if = {
+				limit = {
+					tag = AUS
+					check_variable = {
+						FGD.race_for_german_unification_central_prussia > GPU.race_for_german_unification_central_prussia
+					}
+				}
+				MAS = {
+          hidden_effect = {
+          	add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+          }
+          transfer_state = 188
+          transfer_state = 763
+          transfer_state = 5
+        }
+        puppet = MAS
+        else_if = {
+        	limit = {
+        		check_variable = {
+							FGD.race_for_german_unification_central_prussia > GPU.race_for_german_unification_central_prussia
+						}
+        	}
+        	effect_tooltip = {
+        		AUS = {
+        			puppet = MAS
+        		}
+        	}
+        }
+			}
+			if = {
+				limit = {
+					tag = FRA
+					check_variable = {
+						FGD.race_for_german_unification_central_prussia < GPU.race_for_german_unification_central_prussia
+					}
+				}
+				MAS = {
+          hidden_effect = {
+          	add_state_core = 188
+            add_state_core = 763
+            add_state_core = 5
+          }
+          transfer_state = 188
+          transfer_state = 763
+          transfer_state = 5
+        }
+        puppet = MAS
+        else_if = {
+        	limit = {
+        		check_variable = {
+							GPU.race_for_german_unification_central_prussia > FGD.race_for_german_unification_central_prussia
+						}
+        	}
+        	effect_tooltip = {
+        		FRA = {
+        			puppet = MAS
+        		}
+        	}
+        }
+			}
 		}
 	} 
 }
@@ -2332,6 +2797,81 @@ country_event = { #france rejects the treaty
 		add_opinion_modifier = {
 			target = FRA
 			modifier = medium_decrease
+		}
+	}
+}
+
+#race for german unification stuff
+country_event = { #treaty of vienna being dealt with
+	id = second_treaty_of_vienna.8
+	title = second_treaty_of_vienna.8.t
+	desc = second_treaty_of_vienna.8.d
+	#picture = 
+	is_triggered_only = yes
+
+	option = { #oh okay
+		name = second_treaty_of_vienna.8.a
+		if = {
+			limit = {
+				tag = FGD
+			}
+			set_variable = {
+				race_for_german_unification_hannover = 15
+			}
+			set_variable = {
+				race_for_german_unification_central_prussia = 5
+			}
+			set_variable = {
+				race_for_german_unification_eastern_prussia = 0
+			}
+		}
+		if = {
+			limit = {
+				tag = GPU
+			}
+			set_variable = {
+				race_for_german_unification_hannover = 0
+			}
+			set_variable = {
+				race_for_german_unification_central_prussia = 10
+			}
+			set_variable = {
+				race_for_german_unification_eastern_prussia = 10
+			}
+		}
+		unlock_decision_category_tooltip = race_for_german_unification
+		activate_mission = race_for_german_unification_mission
+	}
+}
+
+country_event = { #Austria presses for Hannover's independence
+	id = second_treaty_of_vienna.9
+	title = second_treaty_of_vienna.9.t
+	desc = second_treaty_of_vienna.9.d
+	#picture = 
+	is_triggered_only = yes
+
+	option = { #perhaps
+		name = second_treaty_of_vienna.9.a
+		set_global_flag = post_war_HAN_freed
+		FGD = {
+			custom_effect_tooltip = post_war_hannover_influence_added_to_central_prussia
+			add_to_variable = {
+				race_for_german_unification_central_prussia = race_for_german_unification_hannover
+			}
+		}
+	}
+
+	option = { #perhaps not
+		name = second_treaty_of_vienna.9.b
+		FGD = {
+			custom_effect_tooltip = post_war_lose_influence_prussia
+			add_to_variable = {
+				race_for_german_unification_central_prussia = -5
+			}
+			add_to_variable = {
+				race_for_german_unification_eastern_prussia = -5
+			}
 		}
 	}
 }
@@ -2826,6 +3366,116 @@ news_event = {
 			OR = {
 				TAG = SOV
 				is_in_faction_with = SOV
+			}
+		}
+	}
+}
+
+add_namespace = superhumans
+
+## project completion
+country_event = {
+	id = superhumans.1
+	title = superhumans.1.t
+	desc = superhumans.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.1.a 
+		ai_chance = { factor = 90 } 
+		set_country_flag = unlock_superhuman_divisions
+	}
+}
+
+country_event = {
+	id = superhumans.2
+	title = superhumans.2.t
+	desc = superhumans.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.2.a 
+		ai_chance = { factor = 90 } 
+		random_owned_controlled_state = {
+			add_core_of = SUP
+		}
+		release = SUP
+		SUP = {
+			declare_war_on = {
+				target = ROOT
+				type = annex_everything
+			}
+			division_template = {
+					name = "Android Division"
+					is_locked = no
+					priority = 0
+					template_counter = 0
+					regiments = {
+						superhuman_subtype = { x = 0 y = 0 }
+						superhuman_subtype = { x = 0 y = 1 }
+						superhuman_subtype = { x = 0 y = 2 }
+						superhuman_subtype = { x = 0 y = 3 }
+					}
+					support = { 
+						military_police = { x = 0 y = 0 }
+					} 
+				}
+			random_owned_controlled_state = {
+				create_unit = {
+					division = "name = \"Superhuman Division\" division_template = \"Android Division\" start_experience_factor = 1 start_equipment_factor = 1 start_manpower_factor = 1"
+					count = 100
+					owner = SUP 
+				}
+			}
+			add_ideas = war_of_the_worlds
+		}
+
+		every_country = {
+			limit = {
+				NOT = {
+					tag = ROOT
+					tag = SUP
+				}
+			}
+			country_event = superhumans.3
+		}
+		set_cosmetic_tag = world_state
+	}
+}
+
+
+country_event = {
+	id = superhumans.3
+	title = superhumans.3.t
+	desc = superhumans.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = no  
+	is_triggered_only = yes 
+
+	option = { 
+		name = superhumans.3.a 
+		ai_chance = { factor = 90 } 
+		FROM = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = yes
+			}
+		}
+	}
+	option = { 
+		name = superhumans.3.b
+		ai_chance = { factor = 45 } 
+		SUP = {
+			annex_country = {
+				target = ROOT
+				transfer_troops = no
 			}
 		}
 	}

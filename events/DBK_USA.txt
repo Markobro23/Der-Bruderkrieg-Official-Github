@@ -188,9 +188,99 @@ country_event = {
 	fire_only_once = yes
 	option = { 
 		name = USA_starting_events.9.a
-	
+		hidden_effect = {
+			country_event = {
+				id = USA_starting_events.12
+				days = 15
+			}
+		}
 	}
 }
+
+##Failing Debt Bubble
+country_event = {
+	id = USA_starting_events.10
+	title = USA_starting_events.10.t
+	desc = USA_starting_events.10.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.10.a
+		add_ideas = USA_great_depression
+	}
+}
+
+## Caracas Conference
+country_event = {
+	id = USA_starting_events.11
+	title = USA_starting_events.11.t
+	desc = USA_starting_events.11.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.11.a
+		COL = {
+			add_timed_idea = {
+				idea = COL_american_loans
+				days = 800
+			}
+		}
+	}
+	option = { 
+		name = USA_starting_events.11.b
+		USA = {
+			transfer_state = 489
+			transfer_state = 970
+			transfer_state = 307
+			transfer_state = 972
+		}
+		COL = {
+			transfer_state = 971
+			transfer_state = 488
+			transfer_state = 973
+		}
+	}
+	option = { 
+		name = USA_starting_events.11.c
+		COL = {
+			set_cosmetic_tag = GCO_UNIFIED
+			annex_country = {
+				target = VEN
+				transfer_troops = yes
+			}
+			every_controlled_state = {
+				add_core_of = COL
+			}
+		}
+		COL = {
+			add_timed_idea = {
+				idea = COL_grand_colombian_tensions
+				days = 500
+			}
+		}
+	}
+}
+
+## Goodbye J Ham
+country_event = {
+	id = USA_starting_events.12
+	title = USA_starting_events.12.t
+	desc = USA_starting_events.12.d
+    #picture = 
+	
+	is_triggered_only = yes 
+	fire_only_once = yes
+	option = { 
+		name = USA_starting_events.12.a
+		add_country_leader_trait = lame_duck_president
+	}
+}
+
+
 
 add_namespace = USA_election_leadup
 
@@ -467,8 +557,7 @@ country_event = {
 	
 	option = {
 		name = USA_republican_national_convention.2.a
-		set_country_flag = USA_the_warren_campaign_unlock
-		set_country_flag = USA_the_warren_campaign_flag
+		set_country_flag = USA_the_shipstead_campaign_unlock
 	}
 }
 
@@ -487,6 +576,16 @@ country_event = {
 		name = USA_democratic_national_convention.1.a
 		country_event = {
 			id = USA_democratic_national_convention.2
+			days = 1
+		}
+	}
+	option = {
+		ai_chance = {
+			factor = 0
+		}
+		name = USA_democratic_national_convention.1.b
+		country_event = {
+			id = USA_republican_national_convention.1
 			days = 1
 		}
 	}
@@ -686,11 +785,6 @@ country_event = {
 		}
 		}
 	}
-	option = {
-		name = USA_democratic_national_convention.12.a
-		
-		set_country_flag = USA_longs_tour_of_america_flag
-	}
 }
 ##long leavs the democratic parrty
 country_event = {
@@ -767,7 +861,6 @@ country_event = {
 		news_event = USA_democratic_national_convention.18
 		set_country_flag = USA_dnc_has_ended
 		set_country_flag = USA_smith_wins_dnc
-		set_country_flag = USA_smith_campaign_flag
 		log = "DNC END"
 		ai_chance = {
 			factor = 100
@@ -818,7 +911,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.1.a
-		usa_modify_electoral_college_effect = yes
+			
+			1093 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			1094 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			1095 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			1096 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			1089 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			357 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #New York New England Campaign fails for Huey Long!
@@ -850,7 +986,28 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.3.a
-		usa_modify_electoral_college_effect = yes
+			378 = { 
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			385 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #West Coast Campaign fails for Huey Long!
@@ -883,9 +1040,44 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.5.a
-		usa_modify_electoral_college_effect = yes
+		361 = {
+			add_to_variable = {
+			  maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
+		362 = {
+			add_to_variable = {
+			  maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
+		360 = {
+			add_to_variable = {
+			  maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
+		1092 = {
+			add_to_variable = {
+			  maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
+		1099 = {
+			add_to_variable = {
+			  maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
 	}
 }
+
 #Mid Atlantic Campaign fails for Huey Long!
 country_event = {
 	id = USA_campaign_decision_events.6
@@ -909,7 +1101,64 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.7.a
-		usa_modify_electoral_college_effect = yes
+			363 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			364 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			365 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			366 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			367 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		
+			368 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			369 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			370 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -940,7 +1189,42 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.9.a
-		usa_modify_electoral_college_effect = yes
+			375 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			374 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			376 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			371 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			372 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -967,7 +1251,35 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.11.a
-		usa_modify_electoral_college_effect = yes
+			377 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			378 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			379 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			629 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -994,7 +1306,35 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.13.a
-		usa_modify_electoral_college_effect = yes
+			385 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			387 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			463 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -1020,7 +1360,49 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.15.a
-		usa_modify_electoral_college_effect = yes
+			380 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			388 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			381 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			382 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			389 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			390 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rockies Campaign fails for Huey Long!
@@ -1052,7 +1434,35 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.17.a
-		usa_modify_electoral_college_effect = yes
+			384 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			383 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			392 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			373 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #PPlains Campaign fails for Huey Long!
@@ -1079,7 +1489,49 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.19.a
-		usa_modify_electoral_college_effect = yes
+			391 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			393 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			394 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			395 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			261 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+			396 = {
+				add_to_variable = {
+				  maverick_support = 3
+				}
+				usa_maverick_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_maverick_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rustblt Campaign fails for Huey Long!
@@ -1104,7 +1556,20 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_campaign_decision_events.21.a
-		usa_modify_electoral_college_effect = yes
+		358 = {
+			add_to_variable = {
+				maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_maverick_support_by_three
+		}
+		359 = {
+			add_to_variable = {
+				maverick_support = 3
+			}
+			usa_maverick_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
 	}
 }
 #NY Campaign fails for Huey Long!
@@ -1122,15 +1587,15 @@ country_event = {
 
 
 ###Election Outcome
-add_namespace = USA_long_victory
+add_namespace = USA_maverick_victory
 country_event = {
-	id = USA_long_victory.1
-	title = USA_long_victory.1.t
-	desc = USA_long_victory.1.d
+	id = USA_maverick_victory.1
+	title = USA_maverick_victory.1.t
+	desc = USA_maverick_victory.1.d
 	#picture = 
 	is_triggered_only = yes
 	option = {
-		name = USA_long_victory.1.a
+		name = USA_maverick_victory.1.a
 
 		USA_update_congress_effect_elections = yes
 		
@@ -1174,7 +1639,7 @@ news_event = {
 			limit = {
 				tag = USA
 			}
-			#load_focus_tree = usa_smith_presidency_tree
+			load_focus_tree = usa_smith_presidency_tree
 			set_politics = {
 				ruling_party = democratic
 			}
@@ -1183,24 +1648,24 @@ news_event = {
 }
 
 
-add_namespace = USA_warren_victory
+add_namespace = USA_shipstead_victory
 
 ##borah inaugartion
 news_event = {
-	id = USA_warren_victory.1
-	title = USA_warren_victory.1.t
-	desc = USA_warren_victory.1.d
+	id = USA_shipstead_victory.1
+	title = USA_shipstead_victory.1.t
+	desc = USA_shipstead_victory.1.d
 	picture = GFX_williamborahinaugaration
 	major = yes
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_victory.1.a
+		name = USA_shipstead_victory.1.a
 		set_country_flag = USA_1936_elections_over
 		if = {
 			limit = {
 				tag = USA
 			}
-			#load_focus_tree = USA_warren_presidency_tree
+			load_focus_tree = USA_shipstead_presidency_tree
 		}
 	}
 }
@@ -1218,19 +1683,20 @@ country_event = {
 		set_country_flag = USA_1936_elections_over
 		if = {
 			limit = {
-				has_country_flag = USA_longs_tour_of_america_flag
+				has_completed_focus = USA_mavericks_campaign_speech
 			}
-			set_country_flag = USA_long_wins_elections
+			set_country_flag = USA_maverick_wins_elections
+			log = "huey"
 			hidden_effect = {
 				country_event = {
-					id = USA_long_events.1
+					id = USA_maverick_events.1
 					days = 75
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
-				has_country_flag = USA_smith_campaign_flag
+				has_completed_focus = USA_smith_campaign
 			}
 			set_country_flag = USA_smith_wins_elections
 			hidden_effect = {
@@ -1240,14 +1706,24 @@ country_event = {
 				}
 			}
 		}
-		if = {
+		else_if = {
 			limit = {
-				has_country_flag = USA_the_warren_campaign_flag
+				has_completed_focus = USA_the_shipstead_campaign
 			}
 			set_country_flag = USA_borah_wins_elections
 			hidden_effect = {
 				news_event = {
-					id = USA_warren_victory.1
+					id = USA_shipstead_victory.1
+					days = 75
+				}
+			}
+		}
+		else = {
+			set_country_flag = USA_maverick_wins_elections
+			log = "huey"
+			hidden_effect = {
+				country_event = {
+					id = USA_maverick_events.1
 					days = 75
 				}
 			}
@@ -1259,44 +1735,55 @@ country_event = {
 
 add_namespace = USA_long_transition
 
-add_namespace = USA_long_events
+add_namespace = USA_maverick_events
 ###Longs second inaguration
 country_event = {
-	id = USA_long_events.1
-	title = USA_long_events.1.t
-	desc = USA_long_events.1.d
+	id = USA_maverick_events.1
+	title = USA_maverick_events.1.t
+	desc = USA_maverick_events.1.d
     #picture = 
 	
 	is_triggered_only = yes
 	trigger = {
-		has_country_flag = USA_long_wins_elections
+		has_country_flag = USA_maverick_wins_elections
 	}
 	
 	option = {
-		name = USA_long_events.1.a 
+		name = USA_maverick_events.1.a 
 
-		news_event = USA_long_events.2
+		news_event = USA_maverick_events.2
 		
 	}
 }
 
 ###Longs inagruail addresss
 news_event = {
-	id = USA_long_events.2
-	title = USA_long_events.2.t
-	desc = USA_long_events.2.d
+	id = USA_maverick_events.2
+	title = USA_maverick_events.2.t
+	desc = USA_maverick_events.2.d
 	picture = GFX_hueylonginaugaration
 	major = yes
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.2.a
+		name = USA_maverick_events.2.a
         if = {
 			limit = {
 				tag = USA
 			}
-			#load_focus_tree = usa_long_new_deal_tree
+			load_focus_tree = usa_maverick_new_deal_tree
+			add_country_leader_role = {
+				character = USA_maury_maverick
+				promote_leader = yes
+				country_leader={
+					desc="LONG_DESC"
+					ideology=social_democratic
+					traits={ USA_americas_maverick }
+					expire="1947.1.1.1"
+					id=-1
+				}
+			}
 		}
 		
 	}
@@ -1304,15 +1791,15 @@ news_event = {
 
 ###Long's new deal
 country_event = {
-	id = USA_long_events.3
-	title = USA_long_events.3.t
-	desc = USA_long_events.3.d
-    picture = GFX_USA_longs_new_deal
+	id = USA_maverick_events.3
+	title = USA_maverick_events.3.t
+	desc = USA_maverick_events.3.d
+    picture = GFX_USA_mavericks_new_deal
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.3.a
+		name = USA_maverick_events.3.a
         
 		
 	}
@@ -1320,15 +1807,15 @@ country_event = {
 
 ###the Long PLan
 country_event = {
-	id = USA_long_events.4
-	title = USA_long_events.4.t
-	desc = USA_long_events.4.d
-    picture = GFX_USA_the_long_plan_event
+	id = USA_maverick_events.4
+	title = USA_maverick_events.4.t
+	desc = USA_maverick_events.4.d
+    picture = GFX_USA_the_maverick_plan_event
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.4.a
+		name = USA_maverick_events.4.a
         
 		add_political_power = 50
 	}
@@ -1337,15 +1824,15 @@ country_event = {
 
 ###Taking Down Standard Oil
 country_event = {
-	id = USA_long_events.5
-	title = USA_long_events.5.t
-	desc = USA_long_events.5.d
+	id = USA_maverick_events.5
+	title = USA_maverick_events.5.t
+	desc = USA_maverick_events.5.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.5.a
+		name = USA_maverick_events.5.a
         add_political_power = 100	
 		add_stability = -0.05
 
@@ -1377,7 +1864,7 @@ country_event = {
 		
 	}
 	option = {
-		name = USA_long_events.5.b
+		name = USA_maverick_events.5.b
 		
 		
 		add_stability = 0.05
@@ -1387,36 +1874,33 @@ country_event = {
 
 ##operation broken crackers
 country_event = {
-	id = USA_long_events.6
-	title = USA_long_events.6.t
-	desc = USA_long_events.6.d
+	id = USA_maverick_events.6
+	title = USA_maverick_events.6.t
+	desc = USA_maverick_events.6.d
     picture = GFX_USA_operation_broken_crackers
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.6.a
+		name = USA_maverick_events.6.a
 		hidden_effect = {
-			country_event = {id = USA_long_events.7 days = 20}
+			country_event = {id = USA_maverick_events.7 days = 20}
 		}
 	}
 }
 
 ##crackers success
 country_event = {
-	id = USA_long_events.7
-	title = USA_long_events.7.t
-	desc = USA_long_events.7.d
+	id = USA_maverick_events.7
+	title = USA_maverick_events.7.t
+	desc = USA_maverick_events.7.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.7.a
-        swap_ideas = {
-			add_idea = USA_south_in_shambles
-			remove_idea = USA_high_racial_tensions
-		}
+		name = USA_maverick_events.7.a
+        remove_ideas = USA_south_in_shambles
 		370 = { set_demilitarized_zone = no }
 		367 = { set_demilitarized_zone = no }
 		372 = { set_demilitarized_zone = no }
@@ -1424,20 +1908,22 @@ country_event = {
 		366 = { set_demilitarized_zone = no }
 		364 = { set_demilitarized_zone = no }
 		375 = { set_demilitarized_zone = no }
+		371 = { set_demilitarized_zone = no }
+		1043 = { set_demilitarized_zone = no }
 	}
 }
 
 ##equality to all americans!
 country_event = {
-	id = USA_long_events.8
-	title = USA_long_events.8.t
-	desc = USA_long_events.8.d
+	id = USA_maverick_events.8
+	title = USA_maverick_events.8.t
+	desc = USA_maverick_events.8.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.8.a
+		name = USA_maverick_events.8.a
 		add_stability = 0.1
 		add_political_power = 100
 		
@@ -1446,15 +1932,15 @@ country_event = {
 
 ##equality to all americans
 country_event = {
-	id = USA_long_events.9
-	title = USA_long_events.9.t
-	desc = USA_long_events.9.d
+	id = USA_maverick_events.9
+	title = USA_maverick_events.9.t
+	desc = USA_maverick_events.9.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.9.a
+		name = USA_maverick_events.9.a
 		add_stability = 0.1
 		add_political_power = 100
 		
@@ -1463,106 +1949,106 @@ country_event = {
 
 ##morning briefing
 country_event = {
-	id = USA_long_events.10
-	title = USA_long_events.10.t
-	desc = USA_long_events.10.d
+	id = USA_maverick_events.10
+	title = USA_maverick_events.10.t
+	desc = USA_maverick_events.10.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.10.a
-		country_event = {id = USA_long_events.11 hours = 4}
+		name = USA_maverick_events.10.a
+		country_event = {id = USA_maverick_events.11 hours = 4}
 		
 	}
 }
 
 ###long sneaks away
 country_event = {
-	id = USA_long_events.11
-	title = USA_long_events.11.t
-	desc = USA_long_events.11.d
+	id = USA_maverick_events.11
+	title = USA_maverick_events.11.t
+	desc = USA_maverick_events.11.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.11.a
-		country_event = {id = USA_long_events.12 hours = 1}
+		name = USA_maverick_events.11.a
+		country_event = {id = USA_maverick_events.12 hours = 1}
 		
 	}
 }
 
 ##a reflection
 country_event = {
-	id = USA_long_events.12
-	title = USA_long_events.12.t
-	desc = USA_long_events.12.d
+	id = USA_maverick_events.12
+	title = USA_maverick_events.12.t
+	desc = USA_maverick_events.12.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.12.a
+		name = USA_maverick_events.12.a
 	
-		country_event = {id = USA_long_events.13 hours = 5}
+		country_event = {id = USA_maverick_events.13 hours = 5}
 	}
 }
 
 country_event = {
-	id = USA_long_events.13
-	title = USA_long_events.13.t
-	desc = USA_long_events.13.d
+	id = USA_maverick_events.13
+	title = USA_maverick_events.13.t
+	desc = USA_maverick_events.13.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.13.a
+		name = USA_maverick_events.13.a
 	
-		country_event = {id = USA_long_events.14 }
+		country_event = {id = USA_maverick_events.14 }
 	}
 }
 
 country_event = {
-	id = USA_long_events.14
-	title = USA_long_events.14.t
-	desc = USA_long_events.14.d
+	id = USA_maverick_events.14
+	title = USA_maverick_events.14.t
+	desc = USA_maverick_events.14.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.14.a
+		name = USA_maverick_events.14.a
 	
-		country_event = {id = USA_long_events.15 }
+		country_event = {id = USA_maverick_events.15 }
 	}
 }
 
 country_event = {
-	id = USA_long_events.15
-	title = USA_long_events.15.t
-	desc = USA_long_events.15.d
+	id = USA_maverick_events.15
+	title = USA_maverick_events.15.t
+	desc = USA_maverick_events.15.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.15.a
-		set_country_flag = USA_unlock_long_foriegn_policy
+		name = USA_maverick_events.15.a
+		set_country_flag = USA_unlock_maverick_foriegn_policy
 	}
 }
 
 news_event = {
-	id = USA_long_events.16
-	title = USA_long_events.16.t
-	desc = USA_long_events.16.d
+	id = USA_maverick_events.16
+	title = USA_maverick_events.16.t
+	desc = USA_maverick_events.16.d
 #    #picture = 
 	major = yes
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.16.a
+		name = USA_maverick_events.16.a
         
 		
 	}
@@ -1571,83 +2057,84 @@ news_event = {
 
 ###the long doctrine
 country_event = {
-	id = USA_long_events.17
-	title = USA_long_events.17.t
-	desc = USA_long_events.17.d
+	id = USA_maverick_events.17
+	title = USA_maverick_events.17.t
+	desc = USA_maverick_events.17.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.17.a
+		name = USA_maverick_events.17.a
 	}
 }
 ##detriot conference
 country_event = {
-	id = USA_long_events.18
-	title = USA_long_events.18.t
-	desc = USA_long_events.18.d
+	id = USA_maverick_events.18
+	title = USA_maverick_events.18.t
+	desc = USA_maverick_events.18.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.18.a
+		name = USA_maverick_events.18.a
 	}
 }
 ###ireland
 country_event = {
-	id = USA_long_events.19
-	title = USA_long_events.19.t
-	desc = USA_long_events.19.d
+	id = USA_maverick_events.19
+	title = USA_maverick_events.19.t
+	desc = USA_maverick_events.19.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.19.a
+		name = USA_maverick_events.19.a
 	}
 }
 
 ###intervention in mexico
 country_event = {
-	id = USA_long_events.20
-	title = USA_long_events.20.t
-	desc = USA_long_events.20.d
+	id = USA_maverick_events.20
+	title = USA_maverick_events.20.t
+	desc = USA_maverick_events.20.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.20.a
+		name = USA_maverick_events.20.a
+		unlock_decision_category_tooltip = USA_mexico_rebels
 	}
 }
 
 ###colombia
 country_event = {
-	id = USA_long_events.21
-	title = USA_long_events.21.t
-	desc = USA_long_events.21.d
+	id = USA_maverick_events.21
+	title = USA_maverick_events.21.t
+	desc = USA_maverick_events.21.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.21.a
+		name = USA_maverick_events.21.a
 	}
 }
 
 ##das missio nsucces
 country_event = {
-	id = USA_long_events.22
-	title = USA_long_events.22.t
-	desc = USA_long_events.22.d
+	id = USA_maverick_events.22
+	title = USA_maverick_events.22.t
+	desc = USA_maverick_events.22.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.22.a
+		name = USA_maverick_events.22.a
 		custom_effect_tooltip = USA_increase_das_power
 
 		add_to_variable = {
@@ -1658,15 +2145,15 @@ country_event = {
 
 ##das crushed
 country_event = {
-	id = USA_long_events.23
-	title = USA_long_events.23.t
-	desc = USA_long_events.23.d
+	id = USA_maverick_events.23
+	title = USA_maverick_events.23.t
+	desc = USA_maverick_events.23.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.23.a
+		name = USA_maverick_events.23.a
 		add_to_variable = {
 			tooltip = USA_increase_mil_power_by_5
 			USA_Military_Power = 5
@@ -1676,15 +2163,15 @@ country_event = {
 
 ##long scandal
 country_event = {
-	id = USA_long_events.24
-	title = USA_long_events.24.t
-	desc = USA_long_events.24.d
+	id = USA_maverick_events.24
+	title = USA_maverick_events.24.t
+	desc = USA_maverick_events.24.d
     #picture = 
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = USA_long_events.24.a
+		name = USA_maverick_events.24.a
 	
 	}
 }
@@ -1724,7 +2211,10 @@ country_event = {
 	
 	option = {
 		name = USA_economic_reform_plan.2.a
-        
+        country_event = {
+			id = USA_economic_reform_plan.3
+			days = 35
+		}
 		
 	}
 }
@@ -1737,6 +2227,15 @@ country_event = {
     #picture = 
 	
 	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			country_event = {
+				id = USA_economic_reform_plan.5
+				days = 50
+			}
+		}
+	}
 	
 	option = {
 		name = USA_economic_reform_plan.3.a
@@ -2385,12 +2884,14 @@ country_event = {
 			remove_idea = USA_radical_reform_plan
 		}
 		370 = { set_demilitarized_zone = yes }
+		371 = { set_demilitarized_zone = yes }
 		367 = { set_demilitarized_zone = yes }
 		372 = { set_demilitarized_zone = yes }
 		365 = { set_demilitarized_zone = yes }
 		366 = { set_demilitarized_zone = yes }
 		364 = { set_demilitarized_zone = yes }
 		375 = { set_demilitarized_zone = yes }
+		1043 = { set_demilitarized_zone = yes }
 	}
 }
 
@@ -3629,95 +4130,95 @@ country_event = {
 
 
 
-add_namespace = USA_warren_tree
+add_namespace = USA_shipstead_tree
 #interniro
 country_event = {
-	id = USA_warren_tree.1
-	title = USA_warren_tree.1.t
-	desc = USA_warren_tree.1.d
+	id = USA_shipstead_tree.1
+	title = USA_shipstead_tree.1.t
+	desc = USA_shipstead_tree.1.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.1.a	
+		name = USA_shipstead_tree.1.a	
 		add_ideas = richard_nixon	
 	}
 	option = {
-		name = USA_warren_tree.1.b
+		name = USA_shipstead_tree.1.b
 		add_ideas = teddy_roosevelt_sr	
 	}
 }
 
 ##treasury
 country_event = {
-	id = USA_warren_tree.2
-	title = USA_warren_tree.2.t
-	desc = USA_warren_tree.2.d
+	id = USA_shipstead_tree.2
+	title = USA_shipstead_tree.2.t
+	desc = USA_shipstead_tree.2.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.2.a	
+		name = USA_shipstead_tree.2.a	
 		add_ideas = james_j_couzens	
 	}
 	option = {
-		name = USA_warren_tree.2.b
+		name = USA_shipstead_tree.2.b
 		add_ideas = herbert_hoover	
 	}
 }
 ##state
 country_event = {
-	id = USA_warren_tree.3
-	title = USA_warren_tree.3.t
-	desc = USA_warren_tree.3.d
+	id = USA_shipstead_tree.3
+	title = USA_shipstead_tree.3.t
+	desc = USA_shipstead_tree.3.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.3.a	
+		name = USA_shipstead_tree.3.a	
 		add_ideas = john_dulles	
 	}
 	option = {
-		name = USA_warren_tree.3.b
+		name = USA_shipstead_tree.3.b
 		add_ideas = john_bassett_moore	
 	}
 }
 
 ##invest -hoover
 country_event = {
-	id = USA_warren_tree.4
-	title = USA_warren_tree.4.t
-	desc = USA_warren_tree.4.d
+	id = USA_shipstead_tree.4
+	title = USA_shipstead_tree.4.t
+	desc = USA_shipstead_tree.4.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.4.a	
+		name = USA_shipstead_tree.4.a	
 	}
 }
 ##invest - couzens
 country_event = {
-	id = USA_warren_tree.5
-	title = USA_warren_tree.5.t
-	desc = USA_warren_tree.5.d
+	id = USA_shipstead_tree.5
+	title = USA_shipstead_tree.5.t
+	desc = USA_shipstead_tree.5.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.5.a	
+		name = USA_shipstead_tree.5.a	
 	}
 }
 
 ##mexican repat
 country_event = {
-	id = USA_warren_tree.6
-	title = USA_warren_tree.6.t
-	desc = USA_warren_tree.6.d
+	id = USA_shipstead_tree.6
+	title = USA_shipstead_tree.6.t
+	desc = USA_shipstead_tree.6.d
     #picture = 
 	
 	is_triggered_only = yes
 	option = {
-		name = USA_warren_tree.6.a	
+		name = USA_shipstead_tree.6.a	
 	}
 }
 
@@ -3734,6 +4235,10 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_generic_foriegn_policy_tree.1.a	
+		country_event = {
+			id = USA_generic_foriegn_policy_tree.2
+			days = 2
+		}
 	}
 }
 
@@ -3744,7 +4249,14 @@ country_event = {
 	title = USA_generic_foriegn_policy_tree.2.t
 	desc = USA_generic_foriegn_policy_tree.2.d
     #picture = 
-	
+	immediate = {
+		ENG = {
+			country_event = {
+				id = USA_generic_foriegn_policy_tree.3
+				days = 3
+			}
+		}
+	}
 	is_triggered_only = yes
 	option = {
 		name = USA_generic_foriegn_policy_tree.2.a	#business concessions
@@ -3787,6 +4299,27 @@ country_event = {
 				days = 1
 			}
 		}
+		ai_chance = {
+			base = 2
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Business_Concessions
+				}
+				factor = 2
+			}
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Jamaica
+				}
+				factor = 4
+			}
+			if = {
+				limit = {
+					has_global_flag = USA_Offered_Nothing
+				}
+				factor = 1
+			}
+		}
 	}
 	option = {
 		name = USA_generic_foriegn_policy_tree.3.b	
@@ -3795,6 +4328,9 @@ country_event = {
 				id = USA_generic_foriegn_policy_tree.5
 				days = 1
 			}
+		}
+		ai_chance = {
+			base = 2
 		}
 	}
 	
@@ -3823,6 +4359,11 @@ country_event = {
 	option = {
 		name = USA_generic_foriegn_policy_tree.5.a
 		set_country_flag = ENG_Denies_USA_Conference
+		uncomplete_national_focus = {
+			focus = USA_the_british_situation
+			uncomplete_children = yes
+			refund_political_power = yes
+		}
 	}
 }
 
@@ -3945,9 +4486,19 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_generic_foriegn_policy_tree.10.a
+		hidden_effect = {
+			JAP = {
+				keep_current_politics = yes
+			}
+		}
 		set_autonomy = {
 			target = JAP
 			autonomy_state = autonomy_satellite
+		}
+		hidden_effect = {
+			JAP = {
+				reset_government = yes
+			}
 		}
 	}
 }
@@ -3971,7 +4522,7 @@ news_event = {
 	id = USA_generic_foriegn_policy_tree.12 
 	title = USA_generic_foriegn_policy_tree.12.t
 	desc = USA_generic_foriegn_policy_tree.12.d
-	picture = GFX_usaoperatoinemancipation
+	picture = GFX_angolamericanwar
 	major = yes
 
 	#fire_only_once = yes   
@@ -4021,6 +4572,35 @@ news_event = {
 	}
 }
 
+add_namespace = USA_american_british_cold_war
+
+## start of cold war
+news_event = {
+	id = USA_american_british_cold_war.1 
+	title = USA_american_british_cold_war.1.t
+	desc = USA_american_british_cold_war.1.d
+	picture = GFX_americanargentinanwar
+	major = yes
+
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = USA_american_british_cold_war.1.a
+		ai_chance = { factor = 100 }
+		if = {
+			limit = {
+				tag = ENG
+			}
+			unlock_decision_category_tooltip = USA_american_british_cold_war
+		}
+		set_global_flag = start_of_american_british_cold_war
+
+	}
+}
+
+
+
 ########
 ###AI###
 ########
@@ -4035,7 +4615,51 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.1.a
-		usa_smith_modify_electoral_college_effect = yes
+		
+			
+			1093 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1094 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1095 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1096 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1089 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			357 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #New York New England Campaign fails for Huey Long!
@@ -4067,8 +4691,29 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.3.a
-				usa_smith_modify_electoral_college_effect = yes
-
+		
+			378 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_modify_electoral_college_smith_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			385 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_modify_electoral_college_smith_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_modify_electoral_college_smith_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #West Coast Campaign fails for Huey Long!
@@ -4101,8 +4746,41 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.5.a
-			usa_smith_modify_electoral_college_effect = yes
-
+			361 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			362 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			360 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1092 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			1099 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
 	}
 }
 #Mid Atlantic Campaign fails for Huey Long!
@@ -4128,8 +4806,65 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.7.a
-		usa_smith_modify_electoral_college_effect = yes
-	
+		
+			363 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			364 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			365 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			366 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			367 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		
+			368 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			369 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			370 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -4160,8 +4895,43 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.9.a
-			usa_smith_modify_electoral_college_effect = yes
-	
+		
+			375 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			374 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			376 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			371 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			372 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -4188,8 +4958,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.11.a
+		
+			377 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
 				usa_smith_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			378 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			379 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			629 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -4216,8 +5014,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.13.a
+		
+			385 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
 				usa_smith_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			387 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			463 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -4243,8 +5069,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.15.a
+		
+			380 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
 				usa_smith_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			388 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			381 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			382 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			389 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			390 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rockies Campaign fails for Huey Long!
@@ -4276,8 +5144,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.17.a
+		
+			384 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
 				usa_smith_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			383 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			392 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			373 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #PPlains Campaign fails for Huey Long!
@@ -4304,8 +5200,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.19.a
+		
+			391 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
 				usa_smith_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			393 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			394 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			395 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			261 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+			396 = {
+				add_to_variable = {
+				  smith_support = 3
+				}
+				usa_smith_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_smith_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rustblt Campaign fails for Huey Long!
@@ -4317,6 +5255,44 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_smith_campaign_decision_events.20.a
+		
+	}
+}
+#NY Campaign a Success for Huey Long!
+country_event = {
+	id = USA_smith_campaign_decision_events.21
+	title = USA_smith_campaign_decision_events.21.t
+	desc = USA_smith_campaign_decision_events.21.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_smith_campaign_decision_events.21.a
+		358 = {
+			add_to_variable = {
+				smith_support = 3
+			}
+			usa_smith_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		359 = {
+			add_to_variable = {
+				smith_support = 3
+			}
+			usa_smith_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		USA_electoral_vars_setup = yes
+	}
+}
+#NY Campaign fails for Huey Long!
+country_event = {
+	id = USA_smith_campaign_decision_events.22
+	title = USA_smith_campaign_decision_events.22.t
+	desc = USA_smith_campaign_decision_events.22.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_smith_campaign_decision_events.22.a
 		
 	}
 }
@@ -4334,8 +5310,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.1.a
+		
+			1093 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
 				usa_borah_modify_electoral_college_effect = yes
-
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1094 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1095 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1096 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1089 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			357 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #New York New England Campaign fails for Huey Long!
@@ -4367,7 +5385,29 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.3.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			378 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			385 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #West Coast Campaign fails for Huey Long!
@@ -4400,7 +5440,43 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.5.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			361 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			362 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			360 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1092 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			1099 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		
 	}
 }
 #Mid Atlantic Campaign fails for Huey Long!
@@ -4426,7 +5502,65 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.7.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			363 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			364 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			365 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			366 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			367 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		
+			368 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			369 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			370 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -4457,7 +5591,43 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.9.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			375 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			374 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			376 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			371 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			372 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Deep South Campaign fails for Huey Long!
@@ -4484,7 +5654,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.11.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			377 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			378 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			379 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			629 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -4511,7 +5710,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.13.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			385 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			386 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			387 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			463 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Pacific Campaign fails for Huey Long!
@@ -4537,7 +5765,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.15.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			380 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			388 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			381 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			382 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			389 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			390 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rockies Campaign fails for Huey Long!
@@ -4569,7 +5840,36 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.17.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			384 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			383 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			392 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			373 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #PPlains Campaign fails for Huey Long!
@@ -4596,7 +5896,50 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_borah_campaign_decision_events.19.a
-		usa_borah_modify_electoral_college_effect = yes
+		
+			391 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			393 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			394 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			395 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			261 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+			396 = {
+				add_to_variable = {
+				  borah_support = 3
+				}
+				usa_borah_modify_electoral_college_effect = yes
+				#custom_effect_tooltip = USA_increase_borah_support_by_three
+			}
+		USA_electoral_vars_setup = yes
 	}
 }
 #Rustblt Campaign fails for Huey Long!
@@ -4611,7 +5954,44 @@ country_event = {
 		
 	}
 }
-
+#NY Campaign a Success for Huey Long!
+country_event = {
+	id = USA_borah_campaign_decision_events.21
+	title = USA_borah_campaign_decision_events.21.t
+	desc = USA_borah_campaign_decision_events.21.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_borah_campaign_decision_events.21.a
+		358 = {
+			add_to_variable = {
+				borah_support = 3
+			}
+			usa_borah_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		359 = {
+			add_to_variable = {
+				borah_support = 3
+			}
+			usa_borah_modify_electoral_college_effect = yes
+			#custom_effect_tooltip = USA_increase_smith_support_by_three
+		}
+		USA_electoral_vars_setup = yes
+	}
+}
+#NY Campaign fails for Huey Long!
+country_event = {
+	id = USA_borah_campaign_decision_events.22
+	title = USA_borah_campaign_decision_events.22.t
+	desc = USA_borah_campaign_decision_events.22.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_borah_campaign_decision_events.22.a
+		
+	}
+}
 add_namespace = USA_debug_events
 country_event = {
 	id = USA_debug_events.1
@@ -4621,12 +6001,26 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = USA_debug_events.1.a
-		#load_focus_tree = usa_long_new_deal_tree
+		load_focus_tree = usa_maverick_new_deal_tree
 	}
 	option = {
 		name = USA_debug_events.1.b
 		
 	}
+}
+
+# funny event
+country_event = {
+	id = USA_debug_events.2
+	title = USA_debug_events.2.t
+	desc = USA_debug_events.2.d
+	#picture = 
+	is_triggered_only = yes
+	option = {
+		name = USA_debug_events.2.a
+		add_political_power = 10
+	}
+	
 }
 
 

@@ -1,0 +1,117 @@
+
+TUR_the_dersim_movement = {
+	enable = { always = yes }
+	icon = GFX_idea_ethnicfighting
+	resistance_target = 0.1
+	resistance_decay = -0.1
+	resistance_growth = 0.03
+	state_resources_factor = -0.5
+}
+TUR_the_syrian_movement = {
+	enable = { always = yes }
+	icon = GFX_idea_ethnicfighting
+	resistance_target = 0.1
+	resistance_decay = -0.1
+	resistance_growth = 0.03
+	state_resources_factor = -0.5
+}
+TUR_the_iraqi_movement = {
+	enable = { always = yes }
+	icon = GFX_idea_ethnicfighting
+	resistance_target = 0.1
+	resistance_decay = -0.1
+	resistance_growth = 0.03
+	state_resources_factor = -0.5
+}
+
+TUR_current_government_modifier = {
+	enable = {
+		always = yes
+	}
+
+	remove_trigger = {
+		# NOT = {
+		# 	has_country_leader = {
+		# 		name = "Albert I"
+		# 		ruling_only = yes
+		# 	}
+		# }
+	}
+
+	## kemals revisions
+	party_popularity_stability_factor = TUR_current_government_modifier_party_popularity_stability_factor
+
+
+	## Free Press
+	drift_defence_factor = TUR_current_government_modifier_drift_defence_factor
+
+	## Secret Police
+	industrial_capacity_factory = TUR_current_government_modifier_industrial_capacity_factory
+	resistance_target = TUR_current_government_modifier_resistance_target
+
+	## ummm
+	monthly_population = TUR_current_government_modifier_monthly_population
+	fuel_gain_from_states = TUR_current_government_modifier_fuel_gain_from_states
+
+	## assimilation
+	political_power_gain = TUR_current_government_modifier_political_power_gain
+	production_factory_max_efficiency_factor = TUR_current_government_modifier_production_factory_max_efficiency_factor
+
+	## scientific elite
+	research_speed_factor = TUR_current_government_modifier_research_speed_factor
+
+	## pro corp
+	consumer_goods_factor = TUR_current_government_modifier_consumer_goods_factor
+	industrial_concern_cost_factor = TUR_current_government_modifier_industrial_concern_cost_factor
+
+	## Pro Workers
+	local_resources_factor = TUR_current_government_modifier_local_resources_factor
+}
+
+cup_monarchy_discontent_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		NOT = {
+			is_owned_by = TUR
+		}
+	}
+	icon = GFX_idea_USA_mcadoo_southern_revival_campaign
+
+	local_resources_factor = -0.5
+	recruitable_population_factor = -0.5
+}
+
+cup_exploitation_modifier = {
+    enable = { always = yes }
+
+    icon = GFX_idea_Riots
+
+    local_resources_factor = 0.65
+    recruitable_population_factor = 0.65
+	resistance_growth = -0.5
+	resistance_target = -0.5
+	
+}
+
+TUR_arabian_cavalry_modifier = {
+	cavalry_attack_factor = 0.15
+	cavalry_defence_factor = 0.15
+	army_speed_factor = 0.1
+}
+
+TUR_the_goltz_generation_modifier = {
+	army_org_factor = 0.05
+	army_speed_factor = 0.1
+}
+
+TUR_caucusus_islamic_instability = {
+
+	enable = { always = yes }
+
+	icon = GFX_idea_Riots
+
+	recruitable_population_factor = -0.75
+    state_resources_factor = -0.75
+}

@@ -10,12 +10,20 @@ set_technology = {
 	tech_support = 1		
 	tech_engineers = 1
 	tech_mountaineers = 1
-	early_fighter = 1
-	gwtank = 1
-	basic_light_tank = 1
 	infantry_weapons = 1
 	infantry_weapons1 = 1
 	fuel_silos = 1
+}
+
+if = {
+	limit = { has_dlc = "By Blood Alone" }
+		set_technology = {
+			iw_small_airframe = 1
+			basic_small_airframe = 1
+			engines_1 = 1
+			aa_lmg = 1
+			aa_cannon_1 = 1
+		}
 }
 
 if = {
@@ -54,62 +62,16 @@ set_politics = {
 	elections_allowed = yes
 }
 set_popularities = {
-	democratic = 20
-	fascism = 30
-	communism = 20
-	democratic_communism = 30
+	democratic = 3
+	fascism = 7
+	communism = 35
+	democratic_communism = 47
+	socialism_democratic = 8
 }
 
-1939.1.1 = {
-	set_politics = {
-		ruling_party = neutrality
-		last_election = "1939.1.1"
-		election_frequency = 36
-		elections_allowed = yes
-	}
-}
 set_stability = 0.6
 
-create_country_leader = {
-	name = "George Obrenovic"
-	desc = ""
-	picture = "gfx/leaders/georgeobrehnovic.dds"
-	expire = "1965.1.1"
-ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
+recruit_character = OBS_trifun_kaclerovic
+recruit_character = OBS_vukasin_markovic
+recruit_character = OBS_konstantin_popovic
 
-create_country_leader = {
-	name = "Milan Nedic"
-	desc = ""
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Đorđe Obrenović"
-	desc = ""
-	picture = "gfx/leaders/georgeobrehnovic.dds"
-	expire = "1965.1.1"
-	ideology = radical_socialism
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Zivorad Jovanovic"
-	desc = ""
-	picture = "gfx/leaders/Europe/Portrait_Europe_Generic_land_3.dds"
-	expire = "1965.1.1"
-	ideology = leninism
-	traits = {
-		#
-	}
-}

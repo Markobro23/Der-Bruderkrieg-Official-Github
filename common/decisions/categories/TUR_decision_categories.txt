@@ -1,15 +1,3 @@
-TUR_arab_tension = {
-	icon = army_reform
-	allowed = {
-    tag = TUR
-	}
-
-	visible_when_empty = yes
-
-	visible = {
-		tag = TUR
-	}
-}
 
 
 TUR_ottoman_persian_war = {
@@ -25,5 +13,80 @@ TUR_ottoman_persian_war = {
 		TUR = {
 			has_war_with = PER
 		}
+	}
+}
+
+TUR_preparing_the_pashas_coup = {
+	icon = army_reform
+
+	allowed = {
+		tag = TUR
+	}
+
+	visible_when_empty = yes
+	visible = {
+		has_completed_focus = TUR_the_gray_wolfs_howl
+		NOT = {
+			has_completed_focus = TUR_storming_the_palace
+		}
+	}
+}
+
+TUR_plans_against_our_enemies = {
+	allowed = {
+		tag = TUR
+	}
+
+	visible = {
+		has_completed_focus = TUR_strengthen_the_ministry_of_war
+	}
+}
+
+TUR_post_marraige_decision_category = {
+	allowed = {
+		tag = TUR
+	}
+
+	visible = {
+		OR = {
+			has_completed_focus = TUR_the_italian_exile
+			has_completed_focus = TUR_the_shah_of_persia
+			has_completed_focus = TUR_fat_farouk_will_do
+		}
+		NOT = {
+			OR = {
+				has_completed_focus = TUR_rome_with_an_ottoman_style
+				has_completed_focus = TUR_otto_persian_personal_union
+				has_completed_focus = TUR_reestablish_the_khedivate
+			}
+		}
+	}
+}
+
+TUR_asserting_influence_in_arabia = {
+	allowed = {
+		tag = TUR
+	}
+
+	visible = {
+		has_completed_focus = TUR_a_deal_with_rashidi
+	}
+}
+
+TUR_solving_minority_problems = {
+	allowed = {
+		tag = TUR
+	}
+	visible = {
+		has_completed_focus = TUR_centralize_the_empire
+	}
+}
+
+TUR_gaining_control_over_balkans = {
+	allowed = {
+		tag = TUR
+	}
+	visible = {
+		has_completed_focus = TUR_reestablish_our_balkan_empire
 	}
 }

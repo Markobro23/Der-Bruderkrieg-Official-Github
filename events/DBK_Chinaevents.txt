@@ -1,998 +1,546 @@
-add_namespace = china_in_the_world_war
+add_namespace = DBK_china
 
-##Beyaing declaring on qiannixgan or cantonia
-country_event = {
-	id = china_in_the_world_war.1
-	title = china_in_the_world_war.1.t
-	desc = china_in_the_world_war.1.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = china_in_the_world_war.1.a
-		if = {
-			limit = {
-				GZC = {
-					exists = yes
-				}
-			}
-			declare_war_on = {
-				target = GZC
-				type = annex_everything
-			}
-			BEI = {
-				country_event = china_in_the_world_war.3
-			}
-			GZC = {
-				country_event = china_in_the_world_war.2
-			}
-			news_event = china_in_the_world_war.4
-		}
-		if = {
-			limit = {
-				YUN = {
-					exists = yes
-				}
-			}
-			declare_war_on = {
-				target = YUN
-				type = annex_everything
-			}
-			news_event = china_in_the_world_war.5
-			BEI = {
-				country_event = china_in_the_world_war.2
-			}
-			YUN = {
-				country_event = china_in_the_world_war.3
-			}
-		}
-		
-	}
-}
-##Beiang russia
-country_event = {
-	id = china_in_the_world_war.2
-	title = china_in_the_world_war.2.t
-	desc = china_in_the_world_war.2.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = china_in_the_world_war.2.a
-		
-		if = {
-			limit = {
-				SOV = {
-					is_in_faction = yes
-					is_faction_leader = yes
-				}
-			}
-			SOV = {
-				country_event = {
-					id = generic.2
-					days = 3
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				GER = {
-					is_in_faction = yes
-					is_faction_leader = yes
-				}
-			}
-			GER = {
-				country_event = {
-					id = generic.2
-					days = 3
-				}
-			}
-		}
-		else_if = {
-			limit = {
-				AIG = {
-					is_in_faction = yes
-					is_faction_leader = yes
-				}
-			}
-			AIG = {
-				country_event = {
-					id = generic.2
-					days = 3
-				}
-			}
-		}
-	}
-}
-
-
-##Beiang jap
-country_event = {
-	id = china_in_the_world_war.3
-	title = china_in_the_world_war.3.t
-	desc = china_in_the_world_war.3.d
-	fire_only_once = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = china_in_the_world_war.3.a
-		
-		AUS = {
-			country_event = {
-				id = generic.2
-				days = 3
-			}
-		}
-	}
-}
-
-##great china war
 news_event = {
-	id = china_in_the_world_war.4
-	title = china_in_the_world_war.4.t
-	desc = china_in_the_world_war.4.d
-	picture = GFX_greatchinawar
+	id = DBK_china.1 
+	title = DBK_china.1.t	
+	desc = DBK_china.1.d
+	picture = GFX_great_china_war
 	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = china_in_the_world_war.4.a
-	}
-}
-news_event = {
-	id = china_in_the_world_war.5
-	title = china_in_the_world_war.5.t
-	desc = china_in_the_world_war.5.d
-	picture = GFX_greatchinawar
-	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = china_in_the_world_war.5.a
-	}
-}
-
-
-
-add_namespace = south_china_war
-###event for ZHC 
- country_event = {
- 	id = south_china_war.1
- 	title = south_china_war.1.t
- 	desc = south_china_war.1.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = south_china_war.1.a
-		create_faction = "Qianxianggan Army"
-		add_to_faction = YUC
-
-		YUN = {
-			create_faction = "South Chinese Republic"
-			add_to_faction = GUC
-		}
-
-		declare_war_on = {
-			target = YUN
-			type = annex_everything
-		}
-
-		set_global_flag = south_china_war_activation
- 	}
- }
- ##qinajixxajgjfnn vicotry
- country_event = {
- 	id = south_china_war.2
- 	title = south_china_war.2.t
- 	desc = south_china_war.2.d
- 	fire_only_once = yes 
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = south_china_war.2.a
-		 YUN = {
-			 dismantle_faction = yes
-		 }
-		GZC = {
-			dismantle_faction = yes
-			annex_country = {
-				target = YUC
-				transfer_troops = no
-			}
-			annex_country = {
-				target = YUN
-				transfer_troops = no 
-			}
-			every_controlled_state = {
-				add_core_of = GZC
-			}
-			set_cosmetic_tag = chinese_confederacy
-		}
-		
-		news_event = { id = DBK_formablenations.6 hours = 1 random = 23 }
- 	}
- }
-
- #cantonese victory
- country_event = {
- 	id = south_china_war.3
- 	title = south_china_war.3.t
- 	desc = south_china_war.3.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	option = {
- 		name = south_china_war.3.a
-		YUN = {
-			dismantle_faction = yes
-			annex_country = {
-				target = YUC
-				transfer_troops = no
-			}
-			annex_country = {
-				target = GZC
-				transfer_troops = no
-			}
-			annex_country = {
-				target = GUC
-				transfer_troops = no
-			}
-			every_controlled_state = {
-				add_core_of = YUN
-			}
-			set_cosmetic_tag = south_chinese_republic
-		}
-		news_event = { id = DBK_formablenations.7 hours = 1 random = 23 }
- 	}
- }
-
-
-add_namespace = kmt_collapse
-##KMT collapse alliances
-country_event = {
- 	id = kmt_collapse.1
- 	title = kmt_collapse.1.t
- 	desc = kmt_collapse.1.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = kmt_collapse.1.a
-		BEI = {
-			create_faction = "Pact of Ambition"
-			add_to_faction = HUC
-			add_to_faction = SHX
-			add_to_faction = JAP
-			add_to_faction = GZC
-
-			declare_war_on = {
-				target = CHI
-				type = topple_government
-			}
-		}
-		set_global_flag = kmt_collapse_activation
-		news_event = kmt_collapse.4
- 	}
-}
-country_event = {
- 	id = kmt_collapse.2
- 	title = kmt_collapse.2.t
- 	desc = kmt_collapse.2.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = kmt_collapse.2.a
-		 BEI = {
-			 			dismantle_faction = yes
-						 country_event = {
-							 id = beyiang_centralization.1
-							 days = 25
-						 }
-
-		 }
-		JAP = {
-			transfer_state = 916
-			transfer_state = 598
-			transfer_state = 915
-			transfer_state = 920
-			transfer_state = 919
-			transfer_state = 597 
-		}
-		BEI = {
-			transfer_state = 607
-			transfer_state = 925
-			transfer_state = 921
-			transfer_state = 606
-			transfer_state = 926
-		}
-		GZC = {
-			transfer_state = 914
-			transfer_state = 613
-			transfer_state = 596
-			transfer_state = 912
-			transfer_state = 911
-			transfer_state = 903
-			transfer_state = 904
-			transfer_state = 905
-			transfer_state = 749
-		}
- 	}
-}
-country_event = {
- 	id = kmt_collapse.3
- 	title = kmt_collapse.3.t
- 	desc = kmt_collapse.3.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = kmt_collapse.3.a
-		BEI = {
-			dismantle_faction = yes
-		}
- 	}
-}
-
-## The War of the Hungry Sharls
-news_event = {
-	id = kmt_collapse.4 
-	title = kmt_collapse.4.t
-	desc = kmt_collapse.4.d
-	picture = GFX_news_event_japanese_army_parade
-	major = yes
-
+ 
 	#fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
-		name = kmt_collapse.4.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+		name = DBK_china.1.a 
+		ai_chance = { factor = 100 } 
 	}
 }
-
-
-add_namespace = beyiang_centralization
 country_event = {
- 	id = beyiang_centralization.1
- 	title = beyiang_centralization.1.t
- 	desc = beyiang_centralization.1.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = beyiang_centralization.1.a
-		BEI = {
-			save_global_event_target_as = chinese_annex_event_annexer
-		}
-		HUC = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 3
-			}
-		}
-		SHX = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 5
-			}
-		}
-		HSC = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 20
-			}
-		}
+	id = DBK_china.2 
+	title = DBK_china.2.t
+	desc = DBK_china.2.d
+	picture = GFX_report_event_asian_politicians
 
-		PRC = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 70
-			}
-		}
+	fire_only_once = yes   
+	is_triggered_only = yes
 
-		SHC = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 120
-			}
-		}
-
-		SIC = {
-			country_event = {
-				id = chinese_annex_event.1
-				days = 170
-			}
-		}
- 	}
-}
-
-add_namespace = chinese_annex_event
-##q army expanison
-country_event = {
- 	id = chinese_annex_event.1
- 	title = chinese_annex_event.1.t
- 	desc = chinese_annex_event.1.d
- 	fire_only_once = no
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = chinese_annex_event.1.a
-		event_target:chinese_annex_event_annexer = {
-			country_event = chinese_annex_event.2
-		}
-		ai_chance = {
-			factor = 1000
-			modifier = {
-				add = -1000
-				has_war = yes
-			}
-		}
- 	}
-	 option = {
- 		name = chinese_annex_event.1.b
-		 ai_chance = {
-			factor = 500 ##change later
-			modifier = {
-				add = 100000
-				tag = PRC
-			}
-		}
-		event_target:chinese_annex_event_annexer = {
-			country_event = chinese_annex_event.3
-		}
- 	}
-}
-country_event = {
- 	id = chinese_annex_event.2
- 	title = chinese_annex_event.2.t
- 	desc = chinese_annex_event.2.d
- 	fire_only_once = no
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = chinese_annex_event.2.a
-		 every_state = {
-			 limit = {
-				 is_owned_by = FROM
-			 }
-			 add_core_of = ROOT
-		 }
-		 annex_country = {
-			 target = FROM
-			 transfer_troops = yes
-		 }
-
- 	}
-
-}
-country_event = {
- 	id = chinese_annex_event.3
- 	title = chinese_annex_event.3.t
- 	desc = chinese_annex_event.3.d
- 	fire_only_once = no
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = chinese_annex_event.3.a
-		 declare_war_on = {
-			 target = FROM
-			 type = annex_everything
-		 }
-
- 	}
-
-}
-
-add_namespace = peoples_great_qing_expansion
-
-##chonqing
-country_event = {
- 	id = peoples_great_qing_expansion.1
- 	title = peoples_great_qing_expansion.1.t
- 	desc = peoples_great_qing_expansion.1.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.1.a
-		PRC = {
-			create_faction = "Great Qing"
-		}
-		SIC = {
-			create_faction = "Central Chinese Protection Force"
-			add_to_faction = SHC
-		}
-		PRC = {
-			declare_war_on = {
-				target = SHC
-				type = annex_everything
-			}
-		}
-		set_global_flag = peoples_great_qing_expansion_activation
- 	}
-}
-##prc vic
-country_event = {
- 	id = peoples_great_qing_expansion.2
- 	title = peoples_great_qing_expansion.2.t
- 	desc = peoples_great_qing_expansion.2.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.2.a
-		PRC = {
-			dismantle_faction = yes
-		}
-		SIC = {
-			dismantle_faction = yes
-		}
-		PRC = {
-			annex_country = {
-				target = SIC
-				transfer_troops = no
-			}
-			annex_country = {
-				target = SHC
-				transfer_troops = no
-			}
-			country_event = {
-				id = peoples_great_qing_expansion.4
-				days = 80
-			}
-		}
- 	}
-}
-##chonqing vic
-country_event = {
- 	id = peoples_great_qing_expansion.3
- 	title = peoples_great_qing_expansion.3.t
- 	desc = peoples_great_qing_expansion.3.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.3.a
-		PRC = {
-			dismantle_faction = yes
-		}
-		SIC = {
-			dismantle_faction = yes
-		}
- 	}
-}
-
-##MA prc war
-##ma
-country_event = {
- 	id = peoples_great_qing_expansion.4
- 	title = peoples_great_qing_expansion.4.t
- 	desc = peoples_great_qing_expansion.4.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.4.a
-		PRC = {
-			create_faction = "Great Qing"
-		}
-		XSM = {
-			create_faction = "Ma Sphere"
-		}
-		PRC = {
-			declare_war_on = {
-				target = XSM
-				type = annex_everything
-			}
-		}
-		set_global_flag = peoples_great_qing_expansion_ma_activation
- 	}
-}
-##prc vic
-country_event = {
- 	id = peoples_great_qing_expansion.5
- 	title = peoples_great_qing_expansion.5.t
- 	desc = peoples_great_qing_expansion.5.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.5.a
-		PRC = {
-			dismantle_faction = yes
-		}
-		XSM = {
-			dismantle_faction = yes
-		}
-		PRC = {
-			annex_country = {
-				target = XSM
-				transfer_troops = no
-			}
-			annex_country = {
-				target = GUO
-				transfer_troops = no
-			}
-			country_event = {
-				id = peoples_great_qing_expansion.7
-				days = 50
-			}
+	option = { 
+		name = DBK_china.2.a 
+		ai_chance = { factor = 100 }
+		faction_leader = {
+			country_event = DBK_china.3
 		}
 		
- 	}
-}
-##ma vic
+	}
+	option = { 
+		name = DBK_china.2.b
+		ai_chance = { factor = 0 }
+		country_event = DBK_china.3
+		
+	}
+} 
+#the six demands
 country_event = {
- 	id = peoples_great_qing_expansion.6
- 	title = peoples_great_qing_expansion.6.t
- 	desc = peoples_great_qing_expansion.6.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.6.a
-		PRC = {
-			dismantle_faction = yes
+	id = DBK_china.3 
+	title = DBK_china.3.t
+	desc = DBK_china.3.d
+	picture = GFX_report_event_asian_politicians
+
+#	fire_only_once = yes   
+	is_triggered_only = yes
+
+	#accept the six demands
+	option = { 
+		name = DBK_china.3.a 
+		ai_chance = { factor = 25 }
+		XSM = {
+			if = {
+				limit = {
+					XSM = {
+						is_in_faction_with = MNG
+					}
+				}
+				white_peace = QNG
+				white_peace = MON
+				else_if = {
+					limit = {
+						XSM = {
+							is_in_faction_with = QNG
+						}
+					}
+					white_peace = MNG
+					white_peace = MON
+				}
+			}
 		}
 		XSM = {
-			dismantle_faction = yes
+			leave_faction = yes
+			add_stability = -0.15
 		}
-		
- 	}
+		CRE = {
+			transfer_state = 898
+			transfer_state = 753
+			transfer_state = 929
+			transfer_state = 601
+			transfer_state = 1130
+		}
+		#cre goes to fight the non-xibei faction, and xibei
+		CRE = {	
+			country_event = {
+				id = DBK_china.8
+				days = 150
+			}
+		}
+	}
+	#denying the six demands
+	option = { 
+		name = DBK_china.3.b
+		ai_chance = { factor = 75 }	
+		#MNG/QNG & XSM fight CRE
+		if = {
+			limit = {
+				XSM = {
+					is_in_faction_with = MNG 
+				}
+			}
+			CRE = {
+				declare_war_on = {
+					target = MNG
+					type = annex_everything
+				}
+			}
+			XSM = {
+				add_to_war = {
+					targeted_alliance = MNG
+					enemy = CRE
+				}
+			}
+			
+			else_if = {
+				limit = {
+					XSM = {
+						is_in_faction_with = QNG
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+				XSM = {
+					add_to_war = {
+						targeted_alliance = QNG
+						enemy = CRE
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = DBK_china.3.c
+		ai_chance = { factor = 0 }
+		trigger = {
+			is_ai = no
+		}
+		country_event = DBK_china.7 
+	}
 }
-
-##tibet
 country_event = {
- 	id = peoples_great_qing_expansion.7
- 	title = peoples_great_qing_expansion.7.t
- 	desc = peoples_great_qing_expansion.7.d
- 	fire_only_once = yes
- 	is_triggered_only = yes
- 	
- 	option = {
- 		name = peoples_great_qing_expansion.7.a
-		PRC = {
+	id = DBK_china.4 
+	title = DBK_china.4.t
+	desc = DBK_china.4.d
+	picture = GFX_report_event_asian_politicians
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+	#CRE fights TIB, all Xinjiang tags fight CRE
+	option = { 
+		name = DBK_china.4.a 
+		ai_chance = { factor = 100 }
+		QNG = {
+			country_event = {
+				id = DBK_china.5
+				days = 14
+			}
+		}
+		CRE = {
 			declare_war_on = {
 				target = TIB
 				type = annex_everything
 			}
 		}
-		
-		
- 	}
-}
-
-country_event = { #puyi flees to Russian Manchuria
- 	id = peoples_great_qing_expansion.8
- 	title = peoples_great_qing_expansion.8.t
- 	desc = peoples_great_qing_expansion.8.d
- 	is_triggered_only = yes
- 	
- 	option = { #claim the mandate of heaven to try and win over the royalists
- 		name = peoples_great_qing_expansion.8.a
-		PRC_puyi = { set_nationality = MAN }
-		add_country_leader_role = {
-			character = PRC_mao_zedong 
-			promote_leader = yes
-			country_leader = {
-				ideology = marxism_trotskyism
-				expire = "1965.1.1"
+		if = {
+			limit = {
+				country_exists = KUL
 			}
-		}
-		#hidden_effect = {
-			MAN = {
-				add_country_leader_role = {
-					character = PRC_puyi 
-					promote_leader = yes
-					country_leader = {
-						ideology = despotic
-						expire = "1965.1.1"
-					}
+			KUL = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
 				}
 			}
-		#}
-		add_stability = -0.1
-		add_popularity = {
-			ideology = communism
-			popularity = -0.1
 		}
-		add_political_power = 50
- 	}
- 	option = { #abandon monarchism, it sucks anyways
- 		name = peoples_great_qing_expansion.8.b
-		PRC_puyi = { set_nationality = MAN }
-		add_country_leader_role = {
-			character = PRC_mao_zedong 
-			promote_leader = yes
-			country_leader = {
-				ideology = marxism_trotskyism
-				expire = "1965.1.1"
+		if = {
+			limit = {
+				country_exists = ETS
 			}
-		}
-		#hidden_effect = {
-			MAN = {
-				add_country_leader_role = {
-					character = PRC_puyi 
-					promote_leader = yes
-					country_leader = {
-						ideology = despotic
-						expire = "1965.1.1"
-					}
+			ETS = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
 				}
 			}
-		#}
-		add_war_support = 0.1
-		set_cosmetic_tag = PRC_not_qing
-		add_popularity = {
-			ideology = communism
-			popularity = -0.1
 		}
-		add_popularity = {
-			ideology = neutrality
-			popularity = -0.1
+		if = {
+			limit = {
+				country_exists = ILI
+			}
+			ILI = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
 		}
-		add_political_power = -100
- 	}
+		if = {
+			limit = {
+				country_exists = UMR
+			}
+			UMR = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = XSM
+			}
+			XSM = {
+				declare_war_on = {	
+					target = CRE
+					type = annex_everything
+				}
+			}
+		}
+		#XSM releases xinjiang in its faction 
+		if = {
+			limit = {
+				NOT = {
+					country_exists = KUL
+					country_exists = ETS
+					country_exists = ILI
+					country_exists = UMR
+				}
+				country_exists = XSM
+			}
+			XSM = {
+				release = XNJ
+			}
+			if = {
+				limit = {
+					XSM = {
+						is_in_faction = no
+					}
+				}
+				XSM = {
+					create_faction = XSM_NORTHWEST_ALLIANCE
+				}
+			}
+			XSM = { add_to_faction = XNJ }
+		}
+		
+	}
 }
+country_event = {
+	id = DBK_china.5 
+	title = DBK_china.5.t
+	desc = DBK_china.5.d
+	picture = GFX_report_event_asian_politicians
 
-add_namespace = tibet_expansion
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = DBK_china.5.a 
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = CRE
+			type = annex_everything
+		}
+		MNG = {
+			declare_war_on = {
+				target = QNG
+				type = annex_everything
+			}
+		}
+		news_event = {
+			id = DBK_china.6
+			days = 1
+		}
+		
+	}
+} 
 news_event = {
-	id = tibet_expansion.1 
-	title = tibet_expansion.1.t
-	desc = tibet_expansion.1.d
-	picture = GFX_declarationofgreatertibet
+	id = DBK_china.6 
+	title = DBK_china.6.t	
+	desc = DBK_china.6.d
+	picture = GFX_great_china_war
 	major = yes
-
+ 
 	#fire_only_once = yes   
 	is_triggered_only = yes
 
 	option = { # Only one option, just an acknowledgment by the player
-		name = tibet_expansion.1.a #needs to be localized
-		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
-
+		name = DBK_china.6.a 
+		ai_chance = { factor = 600 } 
 	}
 }
-
-
-add_namespace = focuses
-##Event: Considering Unity Talks
 country_event = {
-	id = focuses.1
-	title = focuses.1.title
-	desc = focuses.1.desc
-	picture = GFX_report_event_generic_read_write
+	id = DBK_china.7 
+	title = DBK_china.7.t
+	desc = DBK_china.7.d
+	picture = GFX_report_event_asian_politicians
+
+	#fire_only_once = yes   
 	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.1.a
-		ai_chance = { factor = 40}
-		PRC = { country_event = focuses.2 }
+
+	option = { 
+		name = DBK_china.7.a 
+		ai_chance = { factor = 100 }
+		country_event = { 
+			id = DBK_china.3
+			days = 0
+		}
 	}
-}
-##Event: The KMT approach us with talks!
+} 
 country_event = {
-	id = focuses.2
-	title = focuses.2.title
-	desc = focuses.2.desc
-	picture = GFX_report_event_vienna_award_hungary
-	is_triggered_only = yes
+	id = DBK_china.8
+	title  = DBK_china.8.t
+	desc = DBK_china.8.d
+	picture = GFX_report_event_asian_politicians
+	
 	fire_only_once = yes
+	is_triggered_only = yes
 	
 	option = {
-		name = focuses.2.a
-		ai_chance = { factor = 50}
-		CHI = { annex_country = {
-    target = PRC
-    transfer_troops = yes
-} 
-add_popularity = {
-    ideology = communism
-    popularity = 0.22
-    }
-country_event = focuses.5
-}
+		name = DBK_china.8.a
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = XSM
+			type = annex_everything
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_qing
+				}
+				QNG = {
+					exists = yes
+				}
+				MNG = {
+					exists = yes
+				}
+				XSM = {
+					exists = yes
+				}
+			}
+			CRE = {	
+				declare_war_on = {
+					target = QNG
+					type = annex_everything
+				}
+			}
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_ming
+				}
+				QNG = {
+					exists = yes
+				}
+				MNG = {
+					exists = yes
+				}
+				XSM = {
+					exists = yes
+				}
+			}
+			CRE = {	
+				declare_war_on = {
+					target = MNG
+					type = annex_everything
+				}
+			}
+		}
 	}
-	option = {
-		name = focuses.2.b
-		ai_chance = { factor = 20}
-		remove_from_faction = PRC
-	}
 }
-##Event: Dealing with the khan
-country_event = {
-	id = focuses.3
-	title = focuses.3.title
-	desc = focuses.3.desc
-	picture = GFX_report_event_spr_spanish_civil_war2
+country_event = { #hidden event for making people fight again
+	id = DBK_china.9
+	title = DBK_china.9.t
+	desc = DBK_china.9.d
+	picture = GFX_report_event_spr_civil_war_equipment
 	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.3.a
-		ai_chance = { factor = 50}
-		MON = { country_event = focuses.4 }
-	}
-}
-##Event: The KMT approach us with demands!
-country_event = {
-	id = focuses.4
-	title = focuses.4.title
-	desc = focuses.4.desc
-	picture = GFX_report_event_yugoslavia_partisans
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.4.a
-		ai_chance = { factor = 35}
-		every_state = {
-    limit = {
-        is_owned_by = MON
-        is_core_of = CHI
-    }
-    CHI = {
-        transfer_state = PREV
-    }
-}
 
-add_stability
-= -0.12
-add_war_support
-= -0.12
-add_political_power
-= -150
-	}
-	option = {
-		name = focuses.4.b
-		ai_chance = { factor = 45}
-		CHI = { create_wargoal= { 
-type = annex_everything 
-target = MON
-} }
-	}
-}
-##Event: Integrating Communist Leadership
-country_event = {
-	id = focuses.5
-	title = focuses.5.title
-	desc = focuses.5.desc
-	picture = GFX_report_event_soldiers_marching
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.5.a
-		ai_chance = { factor = 100}
-		create_country_leader = {
-	name = "Mao Zedong"
-	desc = "POLITICS_MAO_ZEDONG_DESC"
-	picture = "GFX_portrait_prc_mao_zedong"
-	expire = "1965.1.1"
-	ideology = marxism
-	traits = {
-		cornered_fox
-	}
-}
+	hidden = yes
 
-create_field_marshal = {
-	name = "Mao Zedong"
-	gfx = "GFX_portrait_prc_mao_zedong"
-	traits = { defensive_doctrine trait_cautious politically_connected }
-	skill = 4
-	attack_skill = 2
-	defense_skill = 4
-	planning_skill = 3
-	logistics_skill = 4
-}
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					ROOT = {
+						tag = MNG
+					}
+					ROOT = {
+						tag = QNG
+					}
+					ROOT = {
+						tag = CRE
+					}
+					ROOT = { 
+						tag = XSM
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRE
+					}
+					MNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = MNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = CRE
+					}
+					QNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				CRE = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = MNG
+					}
+					QNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				MNG = {
+					declare_war_on = {
+						target = QNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = QNG
+					}
+					MNG = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = QNG
+						}
+					}
+				}
+				QNG = {
+					declare_war_on = {
+						target = MNG
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = MNG
+					}
+					CRE = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = CRE
+						}
+					}
+				}
+				MNG = {
+					declare_war_on = {
+						target = CRE
+						type = annex_everything
+					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = QNG
+					}
+					CRE = {
+						country_exists = yes
+					}
+					NOT = {
+						ROOT = {
+							has_war_with = CRE
+						}
+					}
+				}
+				QNG = {
+					declare_war_on = {
+						target = CRE
+						type = annex_everything
+					}
+				}
+			}
+		}
+	}
 
-create_corps_commander = {
-	name = "Zhu De"
-	gfx = "GFX_portrait_prc_zhu_de"
-	traits = { infantry_officer organizer }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 3
-	planning_skill = 3
-	logistics_skill = 4
+	option = { #booya!
+		name = DBK_china.9.a
+		
+	}
 }
+	
 
-create_corps_commander = {
-	name = "Chen Yi"
-	gfx = "GFX_portrait_prc_chen_yi"
-	traits = { infantry_officer }
-	skill = 3
-	attack_skill = 4
-	defense_skill = 3
-	planning_skill = 2
-	logistics_skill = 2
-}
 
-create_corps_commander = {
-	name = "Peng Dehuai"
-	gfx = "GFX_portrait_prc_peng_dehuai"
-	traits = { infantry_officer trait_mountaineer }
-	skill = 4
-	attack_skill = 3
-	defense_skill = 5
-	planning_skill = 3
-	logistics_skill = 2
-}
 
-create_corps_commander = {
-	name = "Lin Biao"
-	portrait_path = "gfx/leaders/Asia/Portrait_Asia_Generic_warlord1.dds"
-	traits = { infantry_officer trait_mountaineer }
-	skill = 5
-	attack_skill = 4
-	defense_skill = 5
-	planning_skill = 3
-	logistics_skill = 4
-}
-
-news_event = { id = focuses.8 hours = 1 }
-	}
-}
-##Event: A White Peace?
-country_event = {
-	id = focuses.6
-	title = focuses.6.title
-	desc = focuses.6.desc
-	picture = GFX_report_event_soldiers_marching
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.6.a
-		ai_chance = { factor = 80}
-		BEI = { country_event = focuses.7 }
-	}
-	option = {
-		name = focuses.6.b
-		ai_chance = { factor = 20}
-		add_political_power= 100
-add_stability= 0.10
-	}
-}
-##Event: The KMT approach us with peace talks!
-country_event = {
-	id = focuses.7
-	title = focuses.7.title
-	desc = focuses.7.desc
-	picture = GFX_report_event_yugoslavia_partisans
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = focuses.7.a
-		ai_chance = { factor = 80}
-		CHI = { CHI = { transfer_state = 926 } CHI = { transfer_state = 921 } CHI = { transfer_state = 598 } CHI = { transfer_state = 915 }  white_peace = {
-    tag = BEI
-}
-     }
-CHI = { add_to_faction = BEI }
-add_stability = -0.08
-add_war_support = -0.08
-add_political_power = -150
-	}
-	option = {
-		name = focuses.7.b
-		ai_chance = { factor = 30}
-		add_stability = 0.08
-add_war_support = 0.08
-add_political_power = 150
-	}
-}
-##Event: The PRC and KMT unite!
-news_event = {
-	id = focuses.8
-	title = focuses.8.title
-	desc = focuses.8.desc
-	picture = GFX_report_event_generic_read_write
-	is_triggered_only = yes
-	fire_only_once = yes
-	major = yes
-	option = {
-		name = focuses.8.a
-		ai_chance = { factor = 100}
-	}
-}
 

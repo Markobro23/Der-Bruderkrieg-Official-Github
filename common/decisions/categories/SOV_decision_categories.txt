@@ -242,11 +242,10 @@ SOV_prussian_russian_industry = {
 		}
 	}
 	visible = {
-		has_country_flag = GER_agree_SOV_industrial_zone
-		NOT = {
-			GER = {
-				has_war_with = SOV
-			}
+		NOT = { OR = { has_war_with = SOV has_war_with = GER } }
+		OR = {
+			has_country_flag = GER_agree_SOV_industrial_zone
+			GER = { has_completed_focus = GER_expand_russo_german_economic_ties }
 		}
 	}
 }
@@ -463,3 +462,24 @@ SOV_east_africa_ambitions = {
 		}
 	}
 }
+
+SOV_expanding_naval_facilities = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_completed_focus = SOV_expanding_fleet_funding
+
+	}
+}
+
+SOV_defensive_infratructure = {
+	allowed = {
+		tag = SOV
+	}
+	visible = {
+		has_completed_focus = SOV_defense_of_russia
+
+	}
+}
+

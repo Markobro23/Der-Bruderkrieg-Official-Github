@@ -1,122 +1,114 @@
 ideas = {
 	country = {
 
-		## National Revolutionary Army
-		NRX_ma_support = {
-
+		#Xinjiang
+		XNJ_grandfather_governor = {
+			picture = XNJ_grandfather_governor
             allowed = {
                 always = yes
             }
         
             allowed_civil_war = {
-                always = yes
+                always = no
             }
         
             removal_cost = -1
         
             modifier = {
-                war_support_factor = 0.05
-				army_org_Factor = 0.05
+                political_power_gain = -0.5
+				stability_factor = -0.1
             }
         }
-
-		NRX_the_generalissimo = {
-
+		XNJ_accursed_confederation = {
+			picture = XNJ_accursed_confederation
             allowed = {
                 always = yes
             }
         
             allowed_civil_war = {
-                always = yes
+                always = no
             }
+        
+            removal_cost = -1
+        
+            modifier = {
+                command_power_gain_mult = 0.2
+				conscription_factor = 0.35
+            }
+        }
+		ILI_russian_army_advisors = {
+			picture = MON_russian_army_advisors
+            allowed = {
+				always = yes
+			}
 
-		cancel = {
-			NOT = { has_government = communism }
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				land_doctrine_cost_factor = -0.1
+				army_org_factor = 0.05
+				planning_speed = 0.15
+			}
 		}
-        
-            removal_cost = -1
-        
-            modifier = {
-                communism_drift = 0.03
-				resistance_damage_to_garrison = -0.2
-				industrial_capacity_factory = 0.1
-				stability_factor = -0.15
-				monthly_population = -0.15
-            }
-        }
-
-		## East Turkestan
-		ETR_uyghur_legitimacy = {
-
+		KUL_begs = {
+			picture = KUL_begs
             allowed = {
-                always = yes
-            }
-        
-            allowed_civil_war = {
-                always = yes
-            }
-        
-            removal_cost = -1
-        
-            modifier = {
-                army_morale_factor = 0.1
-            }
-        }
-		ETR_damolla_schism = {
+				always = yes
+			}
 
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+
+			modifier = {
+				consumer_goods_factor = -0.05
+				army_org_factor = 0.05
+				attrition = -0.1
+			}
+		}
+		ETS_revolutionary_fighters = {
+			picture = tur_kemalist_army_officers_powerful_neutral
             allowed = {
-                always = yes
-            }
-        
-            allowed_civil_war = {
-                always = yes
-            }
-        
-            removal_cost = -1
-        
-            modifier = {
-                party_popularity_stability_factor = -0.15
-				political_power_factor = -0.1
-            }
-        }
+				always = yes
+			}
 
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_attack_factor = 0.1
+				army_org_factor = -0.05
+				army_morale_factor = 0.1
+			}
+		}
+		UMR_shaky_republic = {
+			picture = gre_venerate_the_ancient_hellenes
+            allowed = {
+				always = yes
+			}
+
+			allowed_civil_war = {
+			always = yes
+			}
+
+			removal_cost = -1
+			modifier = {
+				political_power_cost = 0.2
+				defensive_war_stability_factor = 0.1
+				army_attack_factor = 0.05
+			}
+		}
 		
-
-		## Kumul
-		KUL_feudal_social_structure = {
-
-            allowed = {
-                always = yes
-            }
-        
-            allowed_civil_war = {
-                always = yes
-            }
-        
-            removal_cost = -1
-        
-            modifier = {
-                consumer_goods_factor = 0.05
-				industrial_capacity_factory = -0.1
-				stability_factor = -0.05
-            }
-        }
-		KUL_conservative_refugees = {
-
-            allowed = {
-                always = yes
-            }
-        
-            allowed_civil_war = {
-                always = yes
-            }
-        
-            removal_cost = -1
-        
-            modifier = {
-                monthly_population = 0.15
-				neutrality_drift = 0.02
-            }
-        }
 	}
+	
 }

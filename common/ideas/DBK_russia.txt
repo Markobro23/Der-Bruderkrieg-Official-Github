@@ -16,8 +16,6 @@ ideas = {
   removal_cost = -1
 
   modifier = {
-    stability_factor = -0.15
-    weekly_manpower= -200
 	consumer_goods_factor = 0.1
 	}
 }
@@ -1126,7 +1124,6 @@ SOV_tsars_lineage = {
 	modifier = {
 		custom_modifier_tooltip = SOV_increase_peoples_support_by_half_every_month
 		political_power_gain = 0.1
-		democratic_drift = 0.02
 		drift_defence_factor = 0.4
 	}
 }
@@ -2574,7 +2571,7 @@ SOV_beacon_of_democracy_4 = {
 
 		designer = yes
 
-		kharkiv_locomotive_factory = {
+		morozov_design_bureau = {
 
 			picture = generic_tank_manufacturer_3
 
@@ -2592,15 +2589,18 @@ SOV_beacon_of_democracy_4 = {
 			}
 		}
 
-		kb_arsenal = {
+		uralvagonzavod = {
 
 			picture = generic_tank_manufacturer_1
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 653 } #Yekaterinburg
 
 			research_bonus = {
 				armor = 0.15
@@ -2612,23 +2612,29 @@ SOV_beacon_of_democracy_4 = {
 			}
 		}
 
-		obukhov_state_plant = {
+		chelyabinskiy_traktornyy = {
 
 			picture = generic_tank_manufacturer_2
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 572 } #Chelyabinsk
 
 			research_bonus = {
 				armor = 0.15
 			}
 
-			traits = { heavy_tank_manufacturer }
+			traits = { tank_refurbishment_plant }
 
 			modifier = {
+				equipment_conversion_speed = 0.15
+				equipment_capture_factor = 0.15
+				land_equipment_upgrade_xp_cost = -0.1
 			}
 		}
 	
@@ -2637,36 +2643,39 @@ SOV_beacon_of_democracy_4 = {
 				
 			picture = usa_tank_destroyer_board
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
+			available = { owns_state = 653 } #Yekaterinburg
 				
 			research_bonus = {
 				armor = 0.15
 			}
 				
-			traits = { }
+			traits = { heavy_tank_manufacturer }
 				
 			equipment_bonus = {
-				light_tank_destroyer_equipment = {
-					build_cost_ic = -0.1
-					ap_attack = 0.1
-					hard_attack = 0.25
-				}
-				medium_tank_destroyer_equipment = {
-					build_cost_ic = -0.1
-					ap_attack = 0.1
-					hard_attack = 0.25
-				}
-				heavy_tank_destroyer_equipment = {
-					build_cost_ic = -0.1
-					ap_attack = 0.1
-					hard_attack = 0.25
-				}
 			}
 
 			modifier = {
 
+			}
+		}
+
+		avtomobilnoe_moskovskoe = {
+			allowed = {
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
+			}
+			available = { owns_state = 219 } #Moscow
+			traits = { infantry_tank_manufacturer }
+			research_bonus = {
+				armor = 0.15
 			}
 		}
 	}
@@ -2681,10 +2690,13 @@ SOV_beacon_of_democracy_4 = {
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 195 } #Saint Petersburg
 
 			research_bonus = {
 				naval_equipment = 0.15
@@ -2703,10 +2715,13 @@ SOV_beacon_of_democracy_4 = {
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 195 } #Saint Petersburg
 
 			research_bonus = {
 				naval_equipment = 0.15
@@ -2719,21 +2734,69 @@ SOV_beacon_of_democracy_4 = {
 		}
 	
 
-		lazarev_admiralty = {
+		admiralteiskie_verfi = {
 
 			picture = generic_naval_manufacturer_1
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 195 } #Saint Petersburg
 
 			research_bonus = {
 				naval_equipment = 0.15
 			}
 
-			traits = { coastal_defence_naval_manufacturer }
+			traits = { submarine_manufacturer }
+
+			modifier = {
+			}
+		}
+		SOV_sevastopol_marine_plant = {
+
+			picture = SOV_sevastopol_marine_plant
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			available = {
+				has_completed_focus = SOV_expand_repair_yards
+			}
+
+			research_bonus = {
+				naval_equipment = 0.1
+			}
+
+			cost = 50
+
+			traits = { repair_and_refurbishment_plant }
+
+			modifier = {
+				naval_accidents_chance = -0.15
+				repair_speed_factor = 0.1
+				refit_ic_cost = -0.1
+				refit_speed = 0.1
+			}
+		}
+
+		SOV_black_sea_shipyard = {
+
+			picture = SOV_black_sea_shipyard
+
+			allowed = {
+				original_tag = SOV
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+
+			traits = { black_sea_naval_manufacturer }
 
 			modifier = {
 			}
@@ -2749,10 +2812,13 @@ SOV_beacon_of_democracy_4 = {
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 219 } #Moscow
 
 			research_bonus = {
 				air_equipment = 0.15
@@ -2768,10 +2834,13 @@ SOV_beacon_of_democracy_4 = {
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 219 } #Moscow
 
 			research_bonus = {
 				air_equipment = 0.15
@@ -2783,13 +2852,16 @@ SOV_beacon_of_democracy_4 = {
 			}
 		}
 
-		russo_balt = {
+		tupolev = {
 
 			picture = generic_air_manufacturer_2
 
-
+			available = { owns_state = 219 } #Moscow
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
 
@@ -2808,10 +2880,13 @@ SOV_beacon_of_democracy_4 = {
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 219 } #Moscow
 
 			research_bonus = {
 				air_equipment = 0.15
@@ -2820,6 +2895,34 @@ SOV_beacon_of_democracy_4 = {
 			traits = { naval_aircraft_manufacturer }
 
 			modifier = {
+			}
+		}
+
+		sukhoi = {
+			allowed = {
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
+			}
+			available = { owns_state = 219 } #Moscow
+			traits = { fuel_efficient_aircraft_manufacturer }
+			research_bonus = {
+				air_equipment = 0.15
+			}
+		}
+
+		dux = {
+			allowed = {
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
+			}
+			available = { owns_state = 219 } #Moscow
+			traits = { multi_role_aircraft_manufacturer }
+			research_bonus = {
+				air_equipment = 0.15
 			}
 		}
 	}
@@ -2832,10 +2935,13 @@ SOV_beacon_of_democracy_4 = {
 			picture = generic_industrial_concern_1
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 195 } #Saint Petersburg
 
 			research_bonus = {
 				industry = 0.15
@@ -2847,16 +2953,19 @@ SOV_beacon_of_democracy_4 = {
 			}
 		}
 
-		petrograd_polytechnical_institute = {
+		oktava = {
 
 			picture = leningrad_polytechnical_institute
 
 
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 
-
+			available = { owns_state = 223 } #Tula
 
 			research_bonus = {
 				electronics = 0.15
@@ -2875,10 +2984,13 @@ SOV_beacon_of_democracy_4 = {
 			
 			
 			allowed = {
-				original_tag = SOV
+				OR = {
+					original_tag = SOV
+					original_tag = KLV
+				}
 			}
 			
-
+			available = { owns_state = 195 } #Saint Petersburg
 			
 			research_bonus = {
 				industry = 0.05
@@ -2891,23 +3003,21 @@ SOV_beacon_of_democracy_4 = {
 				fuel_gain_factor_from_states = 0.10
 			}
 		}
-		john_deere = {
-			
-			picture = generic_industrial_concern_2
-		
+
+		kharkiv_locomotive_factory = {
+
+			picture = generic_tank_manufacturer_3
+
 			allowed = {
 				original_tag = SOV
 			}
 
-			available = { 
-			}		
-			
 			research_bonus = {
-				industry = 0.1
+				train_tech = 0.1
 			}
-			
-			traits = { construction_company }
-			
+
+			traits = { railway_company }
+
 			modifier = {
 			}
 		}
@@ -2959,10 +3069,9 @@ SOV_beacon_of_democracy_4 = {
 			}
 		}
 
-		ford_russia = {
+		russo_balt = {
 
-			picture = ford_motor_company
-
+			#picture = gaz
 
 			allowed = {
 				original_tag = SOV
@@ -2984,672 +3093,7 @@ SOV_beacon_of_democracy_4 = {
 
 	
 
-	theorist = {
-
-
-		mikhail_tukhachevsky = {
-			ledger = army
-
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =
-			{
-			}
-
-			cost = 250
-
-			research_bonus = {
-				cat_mass_assault = 0.15
-			}
-
-			traits = { mass_assault_expert }
-		}
-
-		
-
-		konstantin_rokossovsky = {
-			ledger = army
-
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =
-			{
-			}
-
-			cost = 250
-
-			research_bonus = {
-				cat_mobile_warfare = 0.15
-			}
-
-			traits = { mobile_warfare_expert }
-		}
-
-		boris_shteifon = {
-			ledger = army
-
-			picture = generic_army_europe_4
-
-
-			allowed = {
-				original_tag = SOV
-			}
-
-
-
-			research_bonus = {
-				land_doctrine = 0.10
-			}
-
-			traits = { military_theorist }
-		}
-
-		georgy_zhukov = {
-			ledger = army
-
-
-			allowed = {
-				original_tag = SOV # Unlocked via focus
-
-			}
-			available = {
-				NOT = { has_idea = georgy_zhukov_armor }
-			}
-
-			cost = 150
-
-			research_bonus = {
-				land_doctrine = 0.10
-			}
-
-			traits = { blitzkrieg_theorist }
-		}
-
-		sergey_gorshkov = {
-			ledger = navy
-
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-
-			cost = 150
-
-			research_bonus = {
-				naval_doctrine = 0.10
-			}
-
-			traits = { naval_theorist }
-		}
-
-		vladimir_tributs = {
-			ledger = navy
-
-
-			allowed = {
-				original_tag = SOV
-			}
-
-			cost = 250
-
-			research_bonus = {
-				cat_fleet_in_being = 0.15
-			}
-
-			traits = { grand_fleet_proponent}
-		}
-
-		sergei_rudenko = {
-			ledger = air
-
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-
-			cost = 250
-
-			research_bonus = {
-				cat_battlefield_support = 0.15
-			}
-
-			traits = { close_air_support_proponent }
-		}
-
-		alexander_golovanov = {
-			ledger = air
-
-
-			allowed = {
-				original_tag = SOV
-			}
-
-
-
-			research_bonus = {
-				air_doctrine = 0.10
-			}
-
-			traits = { air_warfare_theorist }
-		}
-
-		igor_kurchatov = {
-			ledger = army
-
-
-			allowed = {
-				original_tag = SOV
-			}
-
-
-
-			research_bonus = {
-				nuclear = 0.15
-			}
-
-			traits = { nuclear_scientist }
-		}
-
-		sergei_korolev = {
-			ledger = air
-
-
-			allowed = {
-				original_tag = SOV
-			}
-
-			research_bonus = {
-				rocketry = 0.15
-			}
-
-
-			traits = { rocket_scientist }
-		}
-	}
-
-	army_chief = {
-		
-		
-		
-		
-		anton_denikin = {
-
-			picture = generic_army_europe_1
-			
-			allowed = {
-				original_tag = SOV
-			}
-			available = {
-			}
-			
-
-			
-			traits = { army_chief_drill_1 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		andrey_vlasov = {
-
-			picture = generic_army_europe_2
-			
-			allowed = {
-				original_tag = SOV
-			}
-						
-			traits = { army_chief_offensive_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		pyotr_krasnov = {
-			
-			picture = generic_army_europe_4
-
-			allowed = {
-				original_tag = SOV
-			}
-			available = {
-			}
-			
-
-
-			traits = { army_chief_defensive_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		pyotr_wrangel = {
-
-			picture = generic_army_europe_5
-
-			allowed = {
-				original_tag = SOV
-			}
-			
-			traits = { army_chief_old_guard }
-			
-			ai_will_do = {
-				factor = 0.02
-			}
-		}	
-		
-		lavr_kornilov = {
-			
-			picture = generic_army_europe_6
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-
-			traits = { army_chief_maneuver_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}	
-	}
-	navy_chief = {
-		
-		
-		
-		
-		
-		nikolay_kuznetsov = {
-			
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-			traits = { navy_chief_reform_2 }
-			
-			ai_will_do = {
-				factor = 0.2
-			}
-		}
-		
-		alexander_kolchak = {
-			
-			picture = generic_navy_europe_1
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			
-			traits = { navy_chief_decisive_battle_3 }
-			
-			ai_will_do = {
-				factor = 4
-			}
-		}	
 	
-
-		mikhail_berens = {
-			
-			picture = generic_navy_europe_3
-			
-			allowed = {
-				original_tag = SOV
-			}
-			
-
-			
-			traits = { navy_chief_maneuver_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-	}
-	
-	air_chief = {
-		
-		
-		alexander_novikov = {
-						
-			
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			
-			traits = { air_chief_reform_3 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		vyacheslav_tkachov = {
-			
-			picture = generic_air_europe_2
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			
-			traits = { air_chief_ground_support_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		yakov_smushkevich = {
-			
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-
-			traits = { air_chief_safety_2 } # Could also have reform
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		pavel_argeyev = {
-			
-			picture = generic_air_europe_3
-
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			traits = { air_chief_all_weather_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}	
-	}
-	
-	
-	high_command = {
-	
-		ivan_konev = {
-			ledger = army
-			#Also unit leader: 408
-			
-			allowed = {
-				original_tag = SOV
-			}
-			available =	{
-			}
-			
-
-			
-			traits = { army_concealment_2 }
-			# Almost certainly a psychopath
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		konstantin_nechaev = {
-			ledger = army
-			
-			picture = generic_army_europe_2
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-			
-			traits = { army_regrouping_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		georgy_zhukov_armor = {
-			ledger = army
-
-			picture = georgy_zhukov
-			
-			allowed = {
-				original_tag = SOV 
-			}
-			available =	{
-				NOT = { has_idea = georgy_zhukov }
-			}
-			
-			traits = { army_armored_3 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-
-		anatoli_rogozhin = {
-			ledger = army
-
-			picture = generic_army_europe_5
-
-			allowed = {
-				original_tag = SOV
-			}
-			
-			traits = { army_infantry_2 }
-			
-			ai_will_do = {
-				factor = 2
-			}
-		}	
-		
-		pavel_zhigarev = {
-			ledger = air
-			
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			
-			traits = { air_airborne_1 }
-			
-			ai_will_do = {
-				factor = 0.02
-			}
-		}
-		
-		sergei_khudyakov = {
-			ledger = air
-			
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-			traits = { air_close_air_support_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		alexander_kazakov = {
-			ledger = air
-			
-			picture = generic_air_europe_2
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-			
-			traits = { air_air_combat_training_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}	
-		
-		nestor_monastyrev = {
-			ledger = navy
-			
-			picture = generic_navy_europe_3
-
-			allowed = {
-				original_tag = SOV
-
-			}
-			available = {
-			}
-			
-
-			
-			traits = { navy_submarine_2 }
-			
-			ai_will_do = {
-				factor = 1
-			}
-		}
-		
-		gordey_levchenko = {
-			ledger = navy
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-
-			traits = { navy_capital_ship_2 }
-			
-			ai_will_do = {
-				factor = 0.2
-			}
-		}
-		
-		arseniy_golovko = {
-			ledger = army
-			
-			allowed = {
-				original_tag = SOV
-
-			}
-			available =	{
-			}
-			
-
-			
-			traits = { navy_amphibious_assault_2 }
-			
-			ai_will_do = {
-				factor = 0.2
-			}
-		}
-		semyon_budyonny = { 
-
-			ledger = army
-
-			picture = generic_army_europe_4
-
-			allowed = {
-				original_tag = SOV
-			}
-
-			available = {
-			}
-			
-			traits = { army_cavalry_2 }
-			
-			ai_will_do = {
-				factor = 0.1
-			}
-		}
-		vladimir_kappel = {
-			ledger = army
-
-			picture = generic_army_europe_6
-
-			allowed = {
-				original_tag = sov
-			}
-			
-			traits = { army_logistics_2 }
-			
-			ai_will_do = {
-				factor = 1.5
-			}
-		}
-	}
 
   head_of_government = {
 	aleksandr_konovalov = {

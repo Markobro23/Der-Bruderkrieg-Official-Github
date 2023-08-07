@@ -1,0 +1,1816 @@
+BUL_ethnic_crisis = {
+
+	BUL_the_macedonian_lands = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_macedonian_lands_completed	
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_macedonian_lands_completed	
+				}
+			}
+		}
+
+        complete_effect = {
+	
+		}
+
+	    remove_effect = {
+			set_country_flag = the_macedonian_lands_completed
+
+		}
+	}
+
+	BUL_make_concessions_to_macedonian_locals = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = the_macedonian_lands_completed
+       			tag = BUL
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = the_macedonian_lands_completed
+       			tag = BUL
+				NOT = {
+					has_country_flag = make_concessions_to_macedonian_locals_completed	
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = make_concessions_to_macedonian_locals_completed
+		}
+	}
+
+	BUL_improve_macedonian_infrastructure = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = make_concessions_to_macedonian_locals_completed
+       			tag = BUL
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = make_concessions_to_macedonian_locals_completed
+       			tag = BUL
+				NOT = {
+					has_country_flag = improve_macedonian_infrastructure_completed	
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = improve_macedonian_infrastructure_completed	
+		}
+	}
+
+	BUL_dealing_with_serbian_unionists_in_macedonia = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = improve_macedonian_infrastructure_completed
+       			tag = BUL
+				has_completed_focus = BUL_expel_serbian_unionists
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = improve_macedonian_infrastructure_completed
+       			tag = BUL
+				has_completed_focus = BUL_expel_serbian_unionists
+				NOT = {
+					has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = dealing_with_serbian_unionists_in_macedonia_completed	
+		}
+	}
+	
+
+	BUL_secure_macedonia = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+       			tag = BUL
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+				has_country_flag = dealing_with_serbian_unionists_in_macedonia_completed
+       			tag = BUL
+				NOT = {
+					has_country_flag = secure_macedonia_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = secure_macedonia_completed
+			if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_1
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_1
+						add_idea = BUL_ethnic_tensions_2
+					}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_2
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_2
+						add_idea = BUL_ethnic_tensions_3
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_3
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_3
+						add_idea = BUL_ethnic_tensions_4
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_4
+					}
+						remove_idea = BUL_ethnic_tensions_4
+				}
+				else = {
+					
+				}
+			}
+		}
+	}
+
+	BUL_the_ottoman_lands = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_ottoman_lands_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_ottoman_lands_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = the_ottoman_lands_completed	
+		}
+	}
+
+	BUL_allow_ottomans_religious_freedom = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_ottoman_lands_completed
+				NOT = {
+					has_country_flag = allow_ottomans_religious_freedom_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_ottoman_lands_completed
+				NOT = {
+					has_country_flag = allow_ottomans_religious_freedom_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = allow_ottomans_religious_freedom_completed
+		}
+	}
+
+	BUL_improve_edirne_infrastructure = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_ottomans_religious_freedom_completed
+				NOT = {
+					has_country_flag = improve_edirne_infrastructure_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_ottomans_religious_freedom_completed
+				NOT = {
+					has_country_flag = improve_edirne_infrastructure_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = improve_edirne_infrastructure_completed
+		}
+	}
+
+	BUL_dealing_with_sultan_loyalists = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+				has_completed_focus = BUL_removing_political_extremists
+       			tag = BUL
+				has_country_flag = improve_edirne_infrastructure_completed
+				NOT = {
+					has_country_flag = dealing_with_sultan_loyalists_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = improve_edirne_infrastructure_completed
+				NOT = {
+					has_country_flag = dealing_with_sultan_loyalists_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = dealing_with_sultan_loyalists_completed
+		}
+	}
+
+	BUL_secure_edirne = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_sultan_loyalists_completed
+				NOT = {
+					has_country_flag = secure_edirne_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_sultan_loyalists_completed
+				NOT = {
+					has_country_flag = secure_edirne_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = secure_edirne_completed
+			if = { 
+    				limit = { 
+						has_idea = BUL_ethnic_tensions_1
+					}
+    				swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_1
+						add_idea = BUL_ethnic_tensions_2
+					}
+			
+				else_if = { 
+    				limit = { 
+						has_idea = BUL_ethnic_tensions_2
+					}
+    				swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_2
+						add_idea = BUL_ethnic_tensions_3
+					}
+				}
+				else_if = { 
+    				limit = { 
+						has_idea = BUL_ethnic_tensions_3
+					}
+    				swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_3
+						add_idea = BUL_ethnic_tensions_4
+					}
+				}
+				else_if = { 
+    				limit = { 
+						has_idea = BUL_ethnic_tensions_4
+					}
+					remove_idea = BUL_ethnic_tensions_4
+				}
+				else = {
+				
+				}
+			}
+		}
+	}
+	
+
+	BUL_the_greek_lands = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_greek_lands_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = {
+					has_country_flag = the_greek_lands_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = the_greek_lands_completed
+		}
+	}
+
+	BUL_allow_greek_businesses = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_greek_lands_completed
+				NOT = {
+					has_country_flag = allow_greek_businesses_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_greek_lands_completed
+				NOT = {
+					has_country_flag = allow_greek_businesses_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = allow_greek_businesses_completed
+		}
+	}
+
+	BUL_build_thrace_roads = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_greek_businesses_completed
+				NOT = {
+					has_country_flag = build_thrace_roads_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_greek_businesses_completed
+				NOT = {
+					has_country_flag = build_thrace_roads_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = build_thrace_roads_completed
+		}
+	}
+
+	BUL_handling_the_hellenists = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = build_thrace_roads_completed
+				NOT = {
+					has_country_flag = handling_the_hellenists_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = build_thrace_roads_completed
+				NOT = {
+					has_country_flag = handling_the_hellenists_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = handling_the_hellenists_completed
+		}
+	}
+
+	BUL_secure_greek_lands = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = handling_the_hellenists_completed
+				NOT = {
+					has_country_flag = secure_greek_lands_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+				has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = handling_the_hellenists_completed
+				NOT = {
+					has_country_flag = secure_greek_lands_completed
+				}
+      		}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+		set_country_flag = secure_greek_lands_completed
+			if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_1
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_1
+						add_idea = BUL_ethnic_tensions_2
+					}
+				
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_2
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_2
+						add_idea = BUL_ethnic_tensions_3
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_3
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_3
+						add_idea = BUL_ethnic_tensions_4
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_4
+					}
+						remove_idea = BUL_ethnic_tensions_4
+				}
+				else = {
+					
+				}
+			}
+		}
+	}
+
+	BUL_the_romanian_lands = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = { has_country_flag = the_romanian_lands_completed }
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				NOT = { has_country_flag = the_romanian_lands_completed }
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = the_romanian_lands_completed
+		}
+	}
+
+	BUL_allow_locals_to_use_dobrudjan_ports = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_romanian_lands_completed
+				NOT = { 
+					has_country_flag = allow_locals_to_use_dobrudjan_ports_completed 
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = the_romanian_lands_completed
+				NOT = { 
+					has_country_flag = allow_locals_to_use_dobrudjan_ports_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = allow_locals_to_use_dobrudjan_ports_completed
+		}
+	}
+
+	BUL_improve_dobrudjan_ports = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_locals_to_use_dobrudjan_ports_completed
+				NOT = { 
+					has_country_flag = improve_dobrudjan_ports_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = allow_locals_to_use_dobrudjan_ports_completed
+				NOT = { 
+					has_country_flag = improve_dobrudjan_ports_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = improve_dobrudjan_ports_completed
+		}
+	}
+
+	BUL_dealing_with_the_RRL = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = improve_dobrudjan_ports_completed
+				NOT = { 
+					has_country_flag = dealing_with_the_RRL_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = improve_dobrudjan_ports_completed
+				NOT = { 
+					has_country_flag = dealing_with_the_RRL_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = dealing_with_the_RRL_completed
+		}
+	}
+
+	BUL_secure_dobrudja = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_the_RRL_completed
+				NOT = { 
+					has_country_flag = secure_dobrudja_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 15
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_the_ethnic_crisis
+       			tag = BUL
+				has_country_flag = dealing_with_the_RRL_completed
+				NOT = { 
+					has_country_flag = secure_dobrudja_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = secure_dobrudja_completed
+			if = { 
+    			limit = { 
+					has_idea = BUL_ethnic_tensions_1
+				}
+    			swap_ideas = {
+					remove_idea = BUL_ethnic_tensions_1
+					add_idea = BUL_ethnic_tensions_2
+				}
+			
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_2
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_2
+						add_idea = BUL_ethnic_tensions_3
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_3
+					}
+					swap_ideas = {
+						remove_idea = BUL_ethnic_tensions_3
+						add_idea = BUL_ethnic_tensions_4
+					}
+				}
+				else_if = { 
+					limit = { 
+						has_idea = BUL_ethnic_tensions_4
+					}
+						remove_idea = BUL_ethnic_tensions_4
+				}
+				else = {
+					
+				}
+			}
+		}
+	}
+}
+
+BUL_industrialising_the_nation = {
+
+
+	BUL_build_civilian_factories_in_western_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_western_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_western_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_western_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_western_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_western_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_western_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_western_bulgaria_completed
+			if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_1
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_1
+					add_idea = Balkan_depression_industry_2
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_2
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_2
+					add_idea = Balkan_depression_industry_3
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_3
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_3
+					add_idea = Balkan_depression_industry_4
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_4
+				}
+					remove_idea = Balkan_depression_industry_4
+			}
+			else = {
+				
+			}
+		}
+	}
+
+
+
+	BUL_build_civilian_factories_in_southern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_southern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_southern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_southern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_southern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_southern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_southern_bulgaria_completed
+			if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_1
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_1
+					add_idea = Balkan_depression_industry_2
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_2
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_2
+					add_idea = Balkan_depression_industry_3
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_3
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_3
+					add_idea = Balkan_depression_industry_4
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_4
+				}
+					remove_idea = Balkan_depression_industry_4
+			}
+			else = {
+				
+			}
+		}
+	}
+
+	BUL_build_civilian_factories_in_eastern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_eastern_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_eastern_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_eastern_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_eastern_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_eastern_bulgaria_completed
+			if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_1
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_1
+					add_idea = Balkan_depression_industry_2
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_2
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_2
+					add_idea = Balkan_depression_industry_3
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_3
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_3
+					add_idea = Balkan_depression_industry_4
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_4
+				}
+					remove_idea = Balkan_depression_industry_4
+			}
+			else = {
+				
+			}
+		}
+	}
+
+
+	BUL_build_civilian_factories_in_central_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_civilian_factories_in_central_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_civilian_factories_in_central_bulgaria_completed
+		}
+	}
+
+	BUL_build_military_factories_in_central_bulgaria = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_central_bulgaria_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 20
+		days_remove = 30
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_industrialising_the_nation
+       			tag = BUL
+				has_country_flag = build_civilian_factories_in_central_bulgaria_completed
+				NOT = { 
+					has_country_flag = build_military_factories_in_central_bulgaria_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_military_factories_in_central_bulgaria_completed
+			if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_1
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_1
+					add_idea = Balkan_depression_industry_2
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_2
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_2
+					add_idea = Balkan_depression_industry_3
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_3
+				}
+    			swap_ideas = {
+					remove_idea = Balkan_depression_industry_3
+					add_idea = Balkan_depression_industry_4
+				}
+			}
+			else_if = { 
+    			limit = { 
+					has_idea = Balkan_depression_industry_4
+				}
+					remove_idea = Balkan_depression_industry_4
+			}
+			else = {
+				
+			}
+		}
+	}
+}
+
+
+
+
+
+BUL_developing_the_economy = {
+
+
+	BUL_instate_tax_cuts = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = instate_tax_cuts_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 40
+		days_remove = 60
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = instate_tax_cuts_completed 
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = instate_tax_cuts_completed
+		}
+	}
+
+
+
+	BUL_offer_pro_natal_rewards = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = offer_pro_natal_rewards_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 40
+		days_remove = 60
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = offer_pro_natal_rewards_completed
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = offer_pro_natal_rewards_completed
+			remove_idea = Balkan_depression_population
+		}
+	}
+
+	BUL_invest_in_businesses = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = invest_in_businesses_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 40
+		days_remove = 60
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = invest_in_businesses_completed
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = invest_in_businesses_completed
+		}
+	}
+
+	BUL_build_bulgarian_infrastructure = {
+
+		icon = generic_construction
+
+		available = {
+    		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_bulgarian_infrastructure_completed
+				}
+			}
+		}
+
+		fire_only_once = no
+
+		cost = 40
+		days_remove = 60
+
+		modifier = {
+
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+		visible = {
+      		AND = {
+       			has_completed_focus = BUL_developing_the_economy
+       			tag = BUL
+				NOT = { 
+					has_country_flag = build_bulgarian_infrastructure_completed
+				}
+			}
+		}
+
+        complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = build_bulgarian_infrastructure_completed
+		}
+	}
+
+}
+
+

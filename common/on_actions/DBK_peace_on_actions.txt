@@ -340,6 +340,7 @@ on_actions = {
 								}
 								is_subject_of = GER
 							}
+							NOT = { original_tag = SPR }
 						}
 					}
 					spain_loses_to_brothers_coalition = yes
@@ -858,6 +859,48 @@ on_actions = {
 						target = WFR
 						transfer_troops = no
 					}
+				}
+			}
+			if = {
+				limit = {
+					ROOT = {
+						tag = FGD
+					}
+					FROM = {
+						OR = {
+							tag =FRA
+							is_in_faction_with = FRA
+						}
+					}
+				}
+				FRA = {
+					white_peace = FGD
+				}
+				FGD = {
+					set_politics = {
+						ruling_party = neutrality
+						last_election = "1933.3.5"
+						election_frequency = 48
+						elections_allowed = no
+					}
+
+					set_popularities = {
+						neutrality = 48
+						fascism = 41
+						authoritarian_democratic = 4
+						democratic = 5
+						communism = 2
+					}
+					keep_current_politics = yes
+				}
+				FRA = {
+					puppet = FGD
+				}
+				FGD = {
+					load_focus_tree = generic_focus
+				}
+				FGD = {
+					reset_government = yes
 				}
 			}
 			if = {
@@ -1575,149 +1618,149 @@ on_actions = {
 		}
 		
 
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = KUL
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = ETR
-						}
-						ROOT = {
-							tag = NRX
-						}
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = KUL
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = ETR
+		# 				}
+		# 				ROOT = {
+		# 					tag = NRX
+		# 				}
 						
-					}
-				}
-				KUL = {
-					white_peace = ROOT
-				}
-				KUL = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						NRX = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = KUL
-					}
-				}
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = NRX
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = ETR
-						}
-						ROOT = {
-							tag = KUL
-						}
-					}
-				}
-				NRX = {
-					white_peace = ROOT
-				}
-				NRX = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						KUL = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = NRX
-					}
-				}
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					OR = {
-						FROM = {
-							tag = ETR
-						}
-						FROM = {
-							tag = SOV
-						}
-					}
-					OR = {
-						ROOT = {
-							tag = NRX
-						}
-						ROOT = {
-							tag = KUL
-						}
-					}
-				}
-				ETR = {
-					white_peace = ROOT
-				}
+		# 			}
+		# 		}
+		# 		KUL = {
+		# 			white_peace = ROOT
+		# 		}
+		# 		KUL = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				NRX = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = KUL
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = NRX
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = ETR
+		# 				}
+		# 				ROOT = {
+		# 					tag = KUL
+		# 				}
+		# 			}
+		# 		}
+		# 		NRX = {
+		# 			white_peace = ROOT
+		# 		}
+		# 		NRX = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				KUL = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = NRX
+		# 			}
+		# 		}
+		# 	}
+		# }
+		# effect = {
+		# 	if = {
+		# 		limit = {
+		# 			OR = {
+		# 				FROM = {
+		# 					tag = ETR
+		# 				}
+		# 				FROM = {
+		# 					tag = SOV
+		# 				}
+		# 			}
+		# 			OR = {
+		# 				ROOT = {
+		# 					tag = NRX
+		# 				}
+		# 				ROOT = {
+		# 					tag = KUL
+		# 				}
+		# 			}
+		# 		}
+		# 		ETR = {
+		# 			white_peace = ROOT
+		# 		}
 				
-				ETR = {
-					annex_country = {
-						target = ROOT
-						transfer_troops = yes
-					}
-				}
-				if = {
-					limit = {
-						SOV = {
-							has_completed_focus = SOV_turkestan_democracy
-						}
-						NRX = {
-							exists = no
-						}
-						ETR = {
-							exists = no
-						}
-					}
-					SOV = {
-						puppet = ETR
-					}
-				}
-			}
-		}
+		# 		ETR = {
+		# 			annex_country = {
+		# 				target = ROOT
+		# 				transfer_troops = yes
+		# 			}
+		# 		}
+		# 		if = {
+		# 			limit = {
+		# 				SOV = {
+		# 					has_completed_focus = SOV_turkestan_democracy
+		# 				}
+		# 				NRX = {
+		# 					exists = no
+		# 				}
+		# 				ETR = {
+		# 					exists = no
+		# 				}
+		# 			}
+		# 			SOV = {
+		# 				puppet = ETR
+		# 			}
+		# 		}
+		# 	}
+		# }
 		effect = {
 			if = {
 				limit = {
@@ -1740,6 +1783,30 @@ on_actions = {
 				}
 				russia_persian_peace_deals = yes
 				
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					tag = JAB
+					FROM = {
+						tag = TUR
+					}
+				}
+				TUR = {
+					puppet = JAB
+				}
+			}
+			if = {
+				limit = {
+					tag = ANA
+					FROM = {
+						tag = TUR
+					}
+				}
+				TUR = {
+					puppet = ANA
+				}
 			}
 		}
 		effect = {
@@ -1833,11 +1900,28 @@ on_actions = {
 					}
 				}
 				GZC = {
-				white_peace = YUN
+					white_peace = YUN
 				}
 			
 				YUN = {
-					country_event = south_china_war.3
+			dismantle_faction = yes
+			annex_country = {
+				target = YUC
+				transfer_troops = no
+			}
+			annex_country = {
+				target = GZC
+				transfer_troops = no
+			}
+			annex_country = {
+				target = GUC
+				transfer_troops = no
+			}
+			every_controlled_state = {
+				add_core_of = YUN
+			}
+			set_cosmetic_tag = south_chinese_republic
+			news_event = { id = DBK_formablenations.6 hours = 1 random = 23 }
 				}
 			}
 		}
@@ -1853,15 +1937,29 @@ on_actions = {
 					}
 				}
 				YUN = {
-				white_peace = GZC
+					white_peace = GZC
 				}
-			
+				YUN = {
+					dismantle_faction = yes
+				}
 				GZC = {
-					country_event = south_china_war.2
-				}
+					dismantle_faction = yes
+					annex_country = {
+						target = YUC
+						transfer_troops = no
+					}
+					annex_country = {
+						target = YUN
+						transfer_troops = no 
+					}
+					every_controlled_state = {
+						add_core_of = GZC
+					}
+					set_cosmetic_tag = chinese_confederacy
+					news_event = { id = DBK_formablenations.6 hours = 1 random = 23 }
+				}	
 			}
 		}
-
 		
     }
 	
@@ -2008,6 +2106,665 @@ on_actions = {
 				}
 			}
 			drop_cosmetic_tag = yes
+		}
+	}
+	#china starts here, oh boy
+	on_capitulation = {
+		effect = {
+			country_event = weltkrieg_peace.11
+			##log
+			log = "[GetDateText]: FROM: [From.GetName] ROOT: [Root.GetName] on_capitulation"
+	
+			###CRE dies to Ming/Qing
+			if = {
+				limit = {
+					tag = CRE
+					FROM = {
+						tag = MNG
+					}
+				}
+				if = {
+					limit = {
+						country_exists = XSM
+						CRE = {#if cre previously got the six demands
+							owns_state = 753
+							owns_state = 929
+							owns_state = 601
+							owns_state = 1130
+						}
+					}
+					XSM = {
+						transfer_state = 753
+						transfer_state = 929
+						transfer_state = 601
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {#if cre owns tibet
+							owns_state = 322
+							owns_state = 601
+							owns_state = 757
+							owns_state = 758
+							owns_state = 1130
+							has_war_with = XSM
+						}
+					}
+					XSM = {
+						transfer_state = 322
+						transfer_state = 601
+						transfer_state = 757
+						transfer_state = 758
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {
+							has_war_with = XSM 
+						}
+						XSM = {#if xibei is large-nationalist
+							has_country_flag = xibei_large_nationalism
+						}
+					}
+					XSM = {
+						transfer_state = 752
+						transfer_state = 932
+						transfer_state = 900
+						transfer_state = 893
+						transfer_state = 894
+						transfer_state = 605
+						transfer_state = 620
+					}
+				}
+				MNG = {#just ensuring some nice borders down here
+					transfer_state = 747
+					transfer_state = 325
+					transfer_state = 906
+					transfer_state = 909
+					transfer_state = 907
+					transfer_state = 751
+					transfer_state = 899
+					transfer_state = 901
+				}
+				MNG = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						FROM = {
+							tag = MNG
+						}
+						FROM = {
+							tag = QNG
+						}
+						FROM = {
+							tag = XSM
+						}
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = CRE
+					FROM = {
+						tag = QNG
+					}
+				}
+				if = {
+					limit = {
+						country_exists = XSM
+						CRE = {#if cre previously got the six demands
+							owns_state = 753
+							owns_state = 929
+							owns_state = 601
+							owns_state = 1130
+						}
+					}
+					XSM = {
+						transfer_state = 753
+						transfer_state = 929
+						transfer_state = 601
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {#if cre owns tibet
+							owns_state = 322
+							owns_state = 601
+							owns_state = 757
+							owns_state = 758
+							owns_state = 1130
+							has_war_with = XSM
+						}
+					}
+					XSM = {
+						transfer_state = 322
+						transfer_state = 601
+						transfer_state = 757
+						transfer_state = 758
+						transfer_state = 1130
+					}
+				}
+				if = {
+					limit = {
+						CRE = {
+							has_war_with = XSM 
+						}
+						XSM = {#if xibei is large-nationalist
+							has_country_flag = xibei_large_nationalism
+						}
+					}
+					XSM = {
+						transfer_state = 752
+						transfer_state = 932
+						transfer_state = 900
+						transfer_state = 893
+						transfer_state = 894
+						transfer_state = 605
+						transfer_state = 620
+					}
+				}
+				QNG = {#just ensuring some nice borders down here
+					transfer_state = 620
+					transfer_state = 896
+					transfer_state = 897
+					transfer_state = 895
+					transfer_state = 750
+					transfer_state = 901
+					transfer_state = 602
+					transfer_state = 899
+					transfer_state = 894
+				}
+				QNG = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					NOT = {
+						FROM = {
+							tag = MNG
+						}
+						FROM = {
+							tag = QNG
+						}
+						FROM = {
+							tag = XSM
+						}
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = CRE
+					FROM = {
+						tag = XSM
+					}
+					XSM = {#xibei gets greedy and just takes it all
+						has_country_flag = xibei_large_nationalism
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = CRE
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = QNG 
+					OR = {
+						FROM = {
+							OR = {
+								tag = MNG
+								tag = CRE
+							}
+						}
+						AND = {
+							FROM = {
+								tag = XSM
+							}
+							XSM = {
+								has_country_flag = xibei_large_nationalism
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						MON = {
+							has_war_with = QNG
+						}
+					}
+					MON = {
+						transfer_state = 761
+						transfer_state = 612
+					}
+				}
+				FROM = {
+					annex_country = {
+						target = QNG
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = XSM
+				}
+				if = {
+					limit = {
+						MON = {
+							has_war_with = XSM
+						}
+					}
+					MON = {
+						transfer_state = 746
+						transfer_state = 616
+						transfer_state = 756
+						transfer_state = 755
+					}
+					if = {
+						limit = {
+							ROOT = {
+								owns_state = 933
+								owns_state = 618
+							}
+						}
+						MON = {
+							transfer_state = 933
+							transfer_state = 618
+						}
+					}
+				}
+				if = {
+					limit = {
+						country_exists = TIB
+					}
+					TIB = {
+						transfer_state = 929
+						transfer_state = 733
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							tag = MNG
+							tag = QNG
+						}
+					}
+					FROM = {
+						annex_country = {
+							target = XSM
+						}
+					}
+				}
+				FROM = {
+					country_event = {
+						id = DBK_china.9
+						days = 75
+					}
+				}
+			}
+			##britain
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = AIG
+							tag = INC
+							tag = KHA
+							tag = PAK
+							tag = KAS
+							tag = DRA
+						}
+			
+					}
+					FROM = {
+						OR = { tag = RAJ tag = ENG is_in_faction_with = RAJ }
+					}
+				}
+				RAJ = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					ROOT = {
+						OR = {
+							tag = RAJ
+							tag = INC
+							tag = KHA
+							tag = PAK
+							tag = KAS
+							tag = DRA
+						}
+			
+					}
+					FROM = {
+						tag = AIG
+					}
+				}
+				AIG = {
+					annex_country = {
+						target = ROOT
+						transfer_troops = no
+					}
+				}
+			}
+
+			if = {
+				limit = {
+					FROM = { 
+						OR = { tag = IRE tag = ENG }
+					}
+					ROOT = {
+						tag = IRA
+					}
+				}
+				ira_peace_deal = yes
+			}
+	
+			###dutch
+				if = {
+					limit = {
+						ROOT = {
+							tag = JNE
+	
+						}
+						FROM = {
+							tag = HOL
+						}
+					}
+					HOL = {
+						white_peace = JNE
+					}
+					HOL = {
+						annex_country = {
+							target = JNE
+							transfer_troops = no
+						}
+					}
+					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = LBA
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					LBA = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = LBA
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = PAP
+	
+						}
+						FROM = {
+							tag = ITA
+						}
+					}
+					PAP = {
+						white_peace = ITA
+					}
+					ITA = {
+						annex_country = {
+							target = PAP
+							transfer_troops = no
+						}
+					}
+				}
+				if = {
+					limit = {
+						tag = ALB
+						has_war_with = ITA
+					}
+					ALB = {
+						white_peace = ITA
+						set_cosmetic_tag = ITA_south_german_puppets
+					}
+					ITA = {
+						puppet = ALB
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = DEN
+	
+						}
+						FROM = {
+							tag = GER
+						}
+					}
+					if = {
+						limit = {
+							GER = {
+								NOT = {
+									is_subject = yes
+									OR = {
+										has_government = neutrality
+										has_government = democratic
+									}
+								}
+							}
+						}
+						DEN = {
+							white_peace = GER
+						}
+						DEN = {
+							if = {
+								limit = { GER = { has_government = ultranationalism } }
+								set_popularities = {
+									ultranationalism = 45
+									communism = 39
+									democratic_communism = 16
+								}
+								set_politics = {
+									ruling_party = ultranationalism	
+								}
+								keep_current_politics = yes
+							}
+						}
+						GER = {
+							puppet = DEN
+						}
+						DEN = {
+							reset_government = yes
+						}
+					}
+					else_if = {
+						limit = { GER = { is_subject = no NOT = { has_war_with = ICE } } }
+						GER = {
+							white_peace = DEN
+						}
+						ICE = {
+							annex_country = {
+								target = DEN
+							}
+							remove_ideas = ICE_royal_loyalists
+						}
+						GER = {
+							add_to_faction = ICE
+						}
+						ICE = {
+							every_controlled_state = {
+								add_core_of = ICE
+							}
+						}
+					}
+					else = {
+						GER = {
+							puppet = DEN
+						}
+					}
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = ATH
+	
+						}
+						FROM = {
+							tag = GRE
+						}
+					}
+					GRE = {
+						white_peace = ATH
+					}
+					GRE = {
+						annex_country = {
+							target = ATH
+							transfer_troops = no
+						}
+					}
+					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = GRE
+	
+						}
+						FROM = {
+							tag = ATH
+						}
+					}
+					GRE = {
+						white_peace = ATH
+					}
+					ATH = {
+						annex_country = {
+							target = GRE
+							transfer_troops = no
+						}
+					}
+					#news_event = dutch_civil_war.3
+				}
+				if = {
+					limit = {
+						tag = POR
+						FROM = {
+							OR = {
+								tag = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
+								is_subject_of = GER
+								tag = ITA
+								is_subject_of = ITA
+								is_in_faction_with = ITA
+							}
+						}
+					}
+					country_event = { id = POR_exile.1 }
+				}
+				if = {
+					limit = {
+						tag = SPR
+						FROM = {
+							OR = {
+								tag = GER
+								AND = {
+									is_in_faction_with = GER
+									GER = { is_subject = no }
+								}
+								is_subject_of = GER
+							}
+							NOT = { original_tag = SPR }
+						}
+					}
+					spain_loses_to_brothers_coalition = yes
+				}
+				if = {
+					limit = {
+						ROOT = {
+							tag = HOL
+	
+						}
+						FROM = {
+							tag = JNE
+						}
+					}
+					JNE = {
+						white_peace = HOL
+					}
+					JNE = {
+						transfer_state = 7
+						transfer_state = 35
+						transfer_state = 36
+						add_state_core = 7
+						add_state_core = 35
+						add_state_core = 36
+					}
+					HOL = {
+						transfer_state = 309
+						transfer_state = 966
+						transfer_state = 695
+						set_cosmetic_tag = dutch_govenrment_in_exile
+					}
+					#news_event = dutch_civil_war.4
+				}
 		}
 	}
 }

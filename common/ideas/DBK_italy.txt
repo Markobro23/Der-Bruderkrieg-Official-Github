@@ -19,7 +19,7 @@ ideas = {
       modifier = { 
         war_support_factor = 0.05
         conscription = 0.005
-        justify_war_goal_time = -0.15
+        justify_war_goal_time = -0.1
         army_core_attack_factor = 0.1
       }
 
@@ -48,9 +48,9 @@ ideas = {
       removal_cost = -1  
 
       modifier = { 
-        war_support_factor = 0.15
-        conscription = 0.015
-        justify_war_goal_time = -0.15
+        war_support_factor = 0.1
+        conscription = 0.01
+        justify_war_goal_time = -0.1
         army_core_attack_factor = 0.1
       }
 
@@ -133,9 +133,9 @@ ideas = {
 			allowed = {
 				always = yes
 			}
-			 cancel = {
-		  is_subject = yes
-	  }
+			cancel = {
+				is_subject = yes
+			}
 			allowed_civil_war = {
 				always = yes
 			}
@@ -144,18 +144,20 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = -0.1
-				production_speed_buildings_factor = -0.1
-				stability_factor = -0.1
+				production_speed_buildings_factor = -0.15
+				stability_factor = -0.15
 			}
 		}
 
 		Southern_Problem_2 = {
+			name = Southern_Problem
+			picture = Southern_Problem
 			allowed = {
 				always = yes 
 			}
-			 cancel = {
-		  is_subject = yes
-	  }
+			cancel = {
+				is_subject = yes
+			}
 			allowed_civil_war = {
 				always = yes
 			}
@@ -164,14 +166,75 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = -0.05
-				production_speed_buildings_factor = -0.05
-				stability_factor = -0.05
-				
-				
+				production_speed_buildings_factor = -0.1
+				stability_factor = -0.1
 			}
 		}
 
-		
+		Southern_Problem_3 = {
+			name = Southern_Problem
+			picture = Southern_Problem
+			allowed = {
+				always = yes 
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				production_speed_buildings_factor = -0.05
+				stability_factor = -0.05
+			}
+		}
+
+		Southern_Problem_but_worse = {
+			name = Southern_Problem
+			picture = Southern_Problem
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.15
+				production_speed_buildings_factor = -0.15
+				stability_factor = -0.2
+			}
+		}
+
+		Southern_Problem_but_worse_2 = {
+			name = Southern_Problem
+			picture = Southern_Problem
+			allowed = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = -0.2
+				production_speed_buildings_factor = -0.2
+				stability_factor = -0.25
+			}
+		}
 
 		ITA_mafia_idea = {
 
@@ -556,11 +619,13 @@ ideas = {
   
 		}
 	  }
-	  ITA_mass_economic_instability_2 = {
-
+	  ITA_mass_economic_instability_2 = { #pro ciano
+	  	name = ITA_mass_economic_instability
 		allowed = {
 		  always = yes
 		}
+
+		picture = ITA_mass_economic_instability
 		 cancel = {
 		  is_subject = yes
 	  }
@@ -572,9 +637,29 @@ ideas = {
   
 		modifier = {
 	    consumer_goods_factor = 0.05
-		production_factory_start_efficiency_factor = -0.5
-		  production_lack_of_resource_penalty_factor = 0.05
+		production_factory_start_efficiency_factor = -0.1
   
+		}
+	  }
+
+	  ITA_mass_economic_instability_3 = { #pro bianchi
+	  	name = ITA_mass_economic_instability
+		allowed = {
+		  always = yes
+		}
+		 cancel = {
+		  is_subject = yes
+	  }
+		allowed_civil_war = {
+		  always = yes
+		}
+
+		picture = ITA_mass_economic_instability
+  
+		removal_cost = -1
+  
+		modifier = {
+	    consumer_goods_factor = 0.1
 		}
 	  }
 
@@ -786,8 +871,8 @@ ideas = {
 		removal_cost = -1
 
 		modifier = {
-			army_org_factor = 0.1
-			army_attack_factor = 0.1
+			army_org_factor = 0.05
+			army_attack_factor = 0.05
 		}
 	}
 
@@ -806,9 +891,8 @@ ideas = {
 		removal_cost = -1
 
 		modifier = {
-			army_org_factor = 0.1
+			army_org_factor = 0.05
 			army_attack_factor = 0.1
-			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 		}
 	}
@@ -829,7 +913,6 @@ ideas = {
 		modifier = {
 			army_org_factor = 0.1
 			army_attack_factor = 0.1
-			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 			conscription_factor = 0.02
 		}
@@ -854,8 +937,8 @@ ideas = {
 			army_infantry_attack_factor = 0.1
 			industrial_capacity_factory = 0.05
 			conscription_factor = 0.02
-			political_power_gain = 0.15
-			war_support_factor = 0.1
+			political_power_gain = 0.1
+			war_support_factor = 0.05
 		}
 	}
 
@@ -1127,7 +1210,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				neutrality_drift = 0.03
+				war_support_factor = 0.05
 				political_power_gain = 0.1
 				army_org_factor = 0.05
 				army_morale_factor = 0.05
@@ -1148,7 +1231,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				industrial_capacity_factory = 0.1
+				neutrality_drift = 0.03
 				army_org_factor = 0.05
 				army_morale_factor = 0.05
 			}
@@ -1381,8 +1464,8 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				industrial_capacity_factory = 0.1
-				production_speed_buildings_factor = 0.1
+				industrial_capacity_factory = 0.05
+				production_speed_buildings_factor = 0.05
 				ultranationalism_drift = 0.03
 			}
 		}
@@ -1419,6 +1502,9 @@ ideas = {
 			allowed = {
 				always = no
 			}
+
+			picture = ITA_fascist_trade_unions
+
 			 cancel = {
 		  is_subject = yes
 	  }
@@ -1430,14 +1516,66 @@ ideas = {
 
 			modifier = {
 				industrial_capacity_factory = 0.1
-				production_speed_buildings_factor = 0.1
-				production_factory_efficiency_gain_factor = 0.15
+				production_factory_efficiency_gain_factor = 0.1
 				production_lack_of_resource_penalty_factor = -0.1
 				production_factory_max_efficiency_factor = 0.1
-				ultranationalism_drift = 0.03
+				ultranationalism_drift = 0.05
+				stability_factor = 0.05
+			}
+		}
+
+		ITA_fascist_trade_unions_state = {
+
+			name = ITA_fascist_trade_unions
+
+				picture = ITA_fascist_trade_unions
+
+			allowed = {
+				always = no
+			}
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				production_lack_of_resource_penalty_factor = -0.1
+				production_speed_buildings_factor = 0.1
+				ultranationalism_drift = 0.05
 				communism_drift = -0.05
 				democratic_communism_drift = -0.05
 				socialism_democratic_drift = -0.05
+			}
+		}
+
+		ITA_war_socialist_trade_unions = {
+
+			allowed = {
+				always = no
+			}
+			picture = ITA_fascist_trade_unions
+
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				industrial_capacity_factory = 0.15
+				production_factory_efficiency_gain_factor = 0.15
+				production_factory_max_efficiency_factor = 0.15
+				production_speed_buildings_factor = 0.1
+				communism_drift = 0.05
 				stability_factor = 0.05
 			}
 		}
@@ -1518,7 +1656,7 @@ ideas = {
 
 			modifier = {
 				stability_factor = 0.1
-				army_org_factor = 0.08
+				army_org_factor = 0.05
 			}
 		}
 
@@ -1536,8 +1674,9 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				stability_factor = 0.1
-				army_org_factor = 0.12
+				stability_factor = 0.05
+				army_org_factor = 0.05
+				global_building_slots_factor = 0.1
 				production_speed_buildings_factor = 0.1
 			}
 		}
@@ -1556,11 +1695,11 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				stability_factor = 0.12
-				army_org_factor = 0.08
+				stability_factor = -0.05
+				army_org_factor = 0.1
+				global_building_slots_factor = 0.15
 				production_speed_buildings_factor = 0.1
 				war_support_factor = 0.05
-				army_morale_factor = 0.12
 			}
 		}
 
@@ -1598,7 +1737,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				conscription = 0.015
+				conscription = 0.01
 			}
 		}
 		ITA_blueshirt_alliance = {
@@ -1616,7 +1755,7 @@ ideas = {
 
 			modifier = {
 				war_support_factor = 0.05
-				conscription = 0.015
+				conscription = 0.01
 			}
 		}
 
@@ -1637,7 +1776,34 @@ ideas = {
 				war_support_factor = 0.05
 				conscription = 0.015
 				drift_defence_factor = 0.35
-				political_power_factor = 0.1
+				resistance_target = -0.05
+				resistance_damage_to_garrison = -0.1
+			}
+		}
+
+		ITA_blackshirt_run_government_3 = {
+			name = ITA_blackshirt_run_government_2
+			picture = ITA_blackshirt_run_government_2
+			allowed = {
+				always = no
+			}
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = 0.1
+				conscription = 0.02
+				training_time_factor = -0.1
+				drift_defence_factor = 0.3
+				industrial_capacity_factory = 0.1
+				stability_factor = -0.15
+				political_power_cost = 0.1
 				resistance_target = -0.05
 				resistance_damage_to_garrison = -0.1
 			}
@@ -2072,12 +2238,704 @@ ideas = {
 			}
 		}
 		
+		ITA_2_year_plan = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_production_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.1
+				consumer_goods_factor = -0.075
+			}
+		}
+
+		ITA_2_year_plan_2 = {
+
+			name = ITA_2_year_plan
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_production_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				industrial_capacity_factory = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		ITA_benefitting_industrialists = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+				political_power_cost = 0.1
+				consumer_goods_factor = -0.05
+			}
+		}
+
+		ITA_north_syndicalist_powerhouse = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				production_factory_start_efficiency_factor = 0.1
+				production_factory_efficiency_gain_factor = 0.1
+				ultranationalism_drift = 0.05
+			}
+		}
+
+		ITA_croatian_nationalists = {
+			
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			cancel = {
+				is_subject_of = ITA
+			}
+
+			picture = generic_fascism_drift_bonus
+			
+			modifier = {
+				fascism_drift = 0.1
+				conscription_factor = -0.2
+				industrial_capacity_factory = -0.1
+			}
+		}
+
+		ITA_crushing_paramilitary_fights = {
+
+			picture = neutrality_idea
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
 
 
+			removal_cost = -1
 
+			modifier = {
+				conscription_factor = -0.05
+				stability_weekly = 0.005
+			}
+		}
 
+		ITA_cordon_sanitaire = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				OR = {
+					is_subject = yes
+					NOT = { has_government = ultranationalism }
+				}
+			}
+			allowed_civil_war = {
+				always = yes
+			}
 
+			removal_cost = -1
 
+			picture = Conte_Tyrannie
+
+			modifier = {
+				political_power_cost = 0.2
+			}
+		}
+
+		ITA_reactionary_support = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				neutrality_acceptance = 25
+				political_power_gain = 0.1
+				war_support_factor = 0.05
+			}
+		}
+
+		ITA_umberto_ii = {
+			allowed = {
+				always = no
+			}
+			cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_gain = 0.1
+				party_popularity_stability_factor = 0.15
+			}
+		}
+
+		ITA_blueshirt_loyalty = {
+			picture = ITA_blueshirt_alliance
+			allowed = {
+				always = no
+			}
+			 cancel = {
+				is_subject = yes
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = 0.15
+				training_time_factor = -0.1
+				political_power_gain = 0.1
+			}
+		}
+
+		ITA_megacorporation = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+				is_subject_of = ITA
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				production_factory_start_efficiency_factor = 0.1
+				consumer_goods_factor = -0.1
+				production_speed_buildings_factor = 0.05
+				stability_factor = -0.1
+				cic_to_overlord_factor = 0.1
+				mic_to_overlord_factor = 0.1
+			}
+		}
+
+		ITA_mediterranean_trade_bloc = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			available = {
+				OR = {
+					is_subject_of = ITA
+					tag = ITA
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.15
+				min_export = 0.05
+			}
+		}
+
+		ITA_mediterranean_trade_bloc_ENG = {
+
+			name = ITA_mediterranean_trade_bloc
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				has_war_with = ITA
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = -0.05
+				local_resources_factor = 0.1
+				min_export = 0.05
+			}
+		}
+
+		ITA_economic_concessions = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				OR = {
+					ITA = {
+						is_subject = yes
+					}
+					ITA = {
+						exists = no
+					}
+					has_war_with = ITA
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = 0.05
+				industrial_capacity_factory = -0.1
+			}
+		}
+
+		ITA_dominate_mediterranean = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+
+			removal_cost = -1
+
+			picture = MTG_naval_treaty_adherent_reduced
+	
+			modifier = {
+				war_support_factor = 0.1
+				industrial_capacity_dockyard = 0.15
+				production_speed_dockyard_factor = 0.15
+			}
+		}
+
+		ITA_cutting_blueshirt_costs = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				OR = {
+					is_subject = yes
+					has_completed_focus = ITA_declare_blueshirts_counter_revolutionaries
+					has_completed_focus = ITA_bind_blueshirts_to_party
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				consumer_goods_factor = -0.03
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		ITA_prussian_industrial_aid = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				OR = {
+					is_subject = yes
+					GER = {
+						is_subject = yes
+					}
+					has_war_with = GER
+				}
+			}
+
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				production_speed_buildings_factor = 0.15
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		ITA_colonial_department = {
+
+        	allowed = {
+              always = no
+            }
+
+            picture = MZB_forced_labor
+       
+            allowed_civil_war = {
+              always = yes
+            }
+
+            cancel = {
+            	is_subject = yes
+            }
+       
+            removal_cost = -1
+
+            modifier = {
+            	compliance_growth = 0.15
+            	non_core_manpower = 0.1
+            }
+
+        }
+
+	    ITA_religious_schools = {
+
+			picture = GER_protestant_state
+
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			cancel = {
+				is_subject = yes
+			}
+			removal_cost = -1
+			modifier = {
+				compliance_growth = 0.05
+				research_speed_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+
+		ITA_trade_idea = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			cancel = {
+				is_subject = yes
+			}
+			
+			removal_cost = -1
+
+			picture = generic_goods_red_bonus
+	
+			modifier = {
+				min_export = 0.1
+				trade_opinion_factor = 0.33
+			}
+		}
+
+		ITA_defend_the_alps = {
+
+			picture = chi_army_corruption3
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				OR = {
+					is_subject = yes
+					NOT = {
+						has_war_with = GER
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			targeted_modifier = {
+				tag = GER
+				defense_bonus_against = 0.1
+			}
+
+			modifier = {
+				army_defence_factor = 0.05
+				terrain_penalty_reduction = 0.1
+			}
+
+		}
+
+		ITA_technocratic_appointments = {
+
+			picture = generic_research_bonus
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			cancel = {
+				OR = {
+					is_subject = yes
+					NOT = {
+						has_government = fascism
+					}
+				}
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				stability_factor = 0.05
+				research_speed_factor = 0.1
+			}
+
+		}
+
+		ITA_return_nobility = {
+
+			picture = Stuck_Past
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  is_subject = yes
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        army_org_factor = 0.1
+        political_power_factor = 0.1
+        party_popularity_stability_factor = -0.1
+      }
+
+      
+		}
+
+		ITA_monarchist_rising = {
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        neutrality_drift = 0.02
+        surrender_limit = -0.1
+      }
+
+      
+		}
+
+		ITA_monarchist_rising_2 = {
+
+			name = ITA_monarchist_rising
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        surrender_limit = -0.1
+        consumer_goods_factor = 0.1
+        stability_factor = -0.2
+       	industrial_capacity_factory = -0.1
+      }
+
+      
+		}
+
+		ITA_monarchist_rising_3 = {
+
+			name = ITA_monarchist_rising
+
+			picture = ICE_royal_loyalists
+
+      allowed = {
+        always = yes
+      }
+	   cancel = {
+		  OR = {
+		  	is_subject = yes
+		  	has_government = neutrality
+		  	has_civil_war = yes
+		  }
+	  }
+      allowed_civil_war = {
+        always = yes
+      }
+
+      removal_cost = -1
+
+      modifier = {
+        surrender_limit = -0.1
+        stability_factor = -0.1
+      }
+
+      
+		}
+
+		ITA_occupying_naples = {
+			picture = ITA_broken_army
+			allowed = {
+				always = no
+			}
+			 cancel = {
+		  is_subject = yes
+	  }
+			allowed_civil_war = { 
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				army_morale_factor = -0.1
+				army_speed_factor = -0.1
+				stability_weekly = 0.002
+				stability_factor = -0.1
+				neutrality_drift = -0.05
+				consumer_goods_factor = 0.05
+			}
+		}
 
 		}
 
@@ -2091,10 +2949,7 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Julius Evola"
-						ruling_only = yes
-					}
+		 			has_government = neutrality
 		 		}
 
 		 		traits = { staunch_monarchist }
@@ -2125,10 +2980,7 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Costanzo Ciano"
-						ruling_only = yes
-					}
+		 			has_government = fascism
 		 		}
 
 		 		traits = { ex_admiral }
@@ -2142,13 +2994,35 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Attilio Teruzzi"
-						ruling_only = yes
-					}
+		 			OR = {
+		 				has_country_leader = {
+							name = "Attilio Teruzzi"
+							ruling_only = yes
+						}
+						has_completed_focus = ITA_promote_teruzzi
+		 			}
 		 		}
 
 		 		traits = { colonial_administrator }
+		 	}
+
+		 	ITA_ivanoe_bonomi = {
+
+		 		picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			OR = {
+		 				has_government = democratic
+		 				has_government = socialism_democratic
+		 				has_government = democratic_communism
+		 			}
+		 		}
+
+		 		traits = { social_liberal_economist }
 		 	}
 
 		}
@@ -2182,10 +3056,7 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Costanzo Ciano"
-						ruling_only = yes
-					}
+		 			has_government = fascism
 		 		}
 
 		 		traits = { appeaser }
@@ -2200,10 +3071,7 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Julius Evola"
-						ruling_only = yes
-					}
+		 			has_government = neutrality
 		 		}
 
 		 		traits = { hawk }
@@ -2225,6 +3093,21 @@ ideas = {
 		 		}
 
 		 		traits = { ardent_armer  }
+		 	}
+
+		 	ITA_alcide_de_gasperi = {
+
+		 		picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_government = democratic
+		 		}
+
+		 		traits = { loan_acquirer }
 		 	}
 
 		}
@@ -2258,33 +3141,25 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Costanzo Ciano"
-						ruling_only = yes
-					}
+		 			has_government = fascism
 		 		}
 
 		 		traits = { master_of_secret_service corrupt }
 		 	}
 
-		 	ITA_evola_intmin = {
+		 	ITA_junio_borghese = {
 
-		 		name = ITA_julius_evola
-
-		 		#picture = generic_political_advisor_europe_1
+		 		picture = generic_political_advisor_europe_1
 
 		 		allowed = {
 		 			original_tag = ITA
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Julius Evola"
-						ruling_only = yes
-					}
+		 			has_government = neutrality
 		 		}
 
-		 		traits = { colonial_administrator }
+		 		traits = { prince_of_terror }
 		 	}
 
 		 	ITA_cesare_maria_de_vecchi = {
@@ -2303,6 +3178,41 @@ ideas = {
 		 		}
 
 		 		traits = { colonial_administrator }
+		 	}
+
+		 	ITA_eugenio_corti = {
+
+		 		picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_completed_focus = ITA_empower_military_authority
+		 		}
+
+		 		traits = { editor anti_communist_crusader }
+		 	}
+
+		 	ITA_ferruccio_parri = {
+
+		 		picture = generic_political_advisor_europe_3
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			OR = {
+		 				has_government = communism
+		 				has_government = democratic_communism
+		 				has_government = democratic
+		 				has_government = socialism_democratic
+		 			}
+		 		}
+
+		 		traits = { democratic_socialist }
 		 	}
 
 		}
@@ -2354,10 +3264,7 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Costanzo Ciano"
-						ruling_only = yes
-					}
+		 			has_government = fascism
 		 		}
 
 		 		traits = { corporatist }
@@ -2372,10 +3279,22 @@ ideas = {
 		 		}
 
 		 		available = {
-		 			has_country_leader = {
-						name = "Julius Evola"
-						ruling_only = yes
-					}
+		 			has_government = neutrality
+		 		}
+
+		 		traits = { agricultural_reformer }
+		 	}
+
+		 	ITA_antonio_segni = {
+
+		 		picture = generic_political_advisor_europe_2
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			has_government = democratic
 		 		}
 
 		 		traits = { agricultural_reformer }
@@ -2419,18 +3338,32 @@ ideas = {
 
 		 		available = {
 		 			OR = {
-		 				has_country_leader = {
-							name = "Costanzo Ciano"
-							ruling_only = yes
-						}
-						has_country_leader = {
-							name = "Julius Evola"
-							ruling_only = yes
-						}
+		 				has_government = neutrality
+		 				has_government = fascism
 		 			}
 		 		}
 
 		 		traits = { export_advocate }
+		 	}
+
+		 	ITA_mauro_scoccimarro = {
+
+		 		picture = generic_political_advisor_europe_1
+
+		 		allowed = {
+		 			original_tag = ITA
+		 		}
+
+		 		available = {
+		 			OR = {
+		 				has_government = communism
+		 				has_government = democratic_communism
+		 				has_government = democratic
+		 				has_government = socialism_democratic
+		 			}
+		 		}
+
+		 		traits = { union_organizer }
 		 	}
 
 		}

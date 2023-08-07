@@ -356,7 +356,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
       modifier = {
         add = 2
         NOT = {
@@ -466,7 +466,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     fire_only_once = yes 
@@ -510,7 +510,7 @@ ITA_content_decisions = {
     cost = 150
     
     ai_will_do = {
-      factor = 3
+      factor = 2000
     }
 
     fire_only_once = yes 
@@ -581,565 +581,6 @@ ITA_content_decisions = {
   }
 }
 
-ITA_incoming_socialist_revolution = {
-  ITA_incoming_socialist_revolution_decision = {
-
-    priority = 10
-
-    icon = generic_ignite_civil_war
-
-    available = {
-      hidden_trigger = { always = no }
-    }
-
-    days_mission_timeout = 270 
-
-    fire_only_once = yes 
-
-    activation = {
-      always = no
-    }
-
-    visible = {
-      tag = ITA
-      has_idea = ITA_socialist_revolt
-    } 
-
-    cancel_if_not_visible = yes
-
-    is_good = yes
-
-    timeout_effect = {
-      ###copy nehe states
-     
-      ITA = { 
-        
-        country_event = ITA_socialist_revolution_events.1
-        set_country_flag = ITA_in_civil_war
-      }
-
-      hidden_effect = {
-        set_variable = {prob_of_op_axis_failing = 0}
-				set_temp_variable = {
-					prob_of_op_axis_succeeding = socialist_influence
-				}
-
-				subtract_from_temp_variable  = {prob_of_op_axis_succeeding = 100}
-				multiply_temp_variable = {prob_of_op_axis_succeeding = -1}
-
-				add_to_variable = {prob_of_op_axis_failing = ITA_operation_axis_probability_success}
-        random_list = {
-          prob_of_op_axis_succeeding = {
-            country_event = ITA_socialist_revolution_events.3
-          }
-          prob_of_op_axis_failing = {
-            country_event = ITA_socialist_revolution_events.3
-          }
-        }
-      }
-    }
-  }
-
-  italys_ai_sucks_timeout = {
-
-		priority = 10
-	
-		icon = generic_ignite_civil_war
-	
-		available = {
-		  hidden_trigger = { always = no }
-		}
-	
-		days_mission_timeout = 150
-	
-		fire_only_once = yes 
-	
-		activation = {
-		  ITA = {
-        has_war_with = CMI
-        is_ai = yes
-      }
-		}
-	
-		visible = {
-		  OR = { tag = ITA tag = CMI }
-      ITA = {
-        has_war_with = CMI
-      }
-		} 
-
-	
-	
-		#cancel_if_not_visible = yes
-	
-		is_good = yes
-	
-		timeout_effect = {
-			ITA = {
-					annex_country = {
-						target = CMI
-						transfer_troops = no
-					}
-				}
-		}
-		
-	}
-
-  ITA_send_in_shocktroopers_to_FROM = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-
-
-    icon = generic_army_support
-    cost = 35
-    days_remove = 50
-
-    fire_only_once = no
-    days_re_enable = 10
-
-    complete_effect = {
-       
-    }
-
-     modifier = {
-      experience_gain_army_factor = 0.01
-      democratic_communism_drift = -0.05
-      communism_drift = -0.05
-    }
-
-
-    ai_will_do = {
-      factor = 100
-    }
-
-
-    remove_effect = {
-      every_owned_state = {
-        add_to_variable = {
-        tooltip = ITA_increase_fasicst_influence_by_5_in_state
-        socialist_influence = -5
-        }
-        set_variable = {fascist_influence = 0}
-        set_temp_variable = {
-          socialist_temp_var = socialist_influence
-        }
-        subtract_from_temp_variable  = {socialist_temp_var = 100}
-        multiply_temp_variable = {socialist_temp_var = -1}
-
-        add_to_variable = {fascist_influence = socialist_temp_var}
-      } 
-    }
-  }
-  ITA_socialist_torture_campaign_in_FROM = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-
-    icon = generic_civil_support
-    cost = 60
-    days_remove = 75
-
-    fire_only_once = no
-    days_re_enable = 10
-
-    complete_effect = {
-     
-    }
-
-    modifier = {
-      political_power_gain = -0.05
-      production_speed_industrial_complex_factor = -0.05
-      democratic_communism_drift = -0.05
-      communism_drift = -0.05
-    }
-
-    ai_will_do = {
-      factor = 100
-    }
-
-
-    remove_effect = {
-      every_owned_state = {
-        add_to_variable = {
-        tooltip = ITA_increase_fasicst_influence_by_5_in_state
-        socialist_influence = -5
-        }
-        set_variable = {fascist_influence = 0}
-        set_temp_variable = {
-          socialist_temp_var = socialist_influence
-        }
-        subtract_from_temp_variable  = {socialist_temp_var = 100}
-        multiply_temp_variable = {socialist_temp_var = -1}
-
-        add_to_variable = {fascist_influence = socialist_temp_var}
-      } 
-    }
-  }
-  ITA_curb_socialist_intellegence = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-
-    icon = generic_operation
-
-    cost = 60
-    days_remove = 75
-
-    fire_only_once = no
-    days_re_enable = 10
-
-    complete_effect = {
-     
-    }
-
-    modifier = {
-      political_power_gain = -0.1
-      decryption_factor = -0.05
-      democratic_communism_drift = -0.03
-      communism_drift = -0.03
-    }
-
-    ai_will_do = {
-      factor = 100
-    }
-
-
-    remove_effect = {
-      every_owned_state = {
-        add_to_variable = {
-        tooltip = ITA_increase_fasicst_influence_by_5_in_state
-        socialist_influence = -5
-        }
-        set_variable = {fascist_influence = 0}
-        set_temp_variable = {
-          socialist_temp_var = socialist_influence
-        }
-        subtract_from_temp_variable  = {socialist_temp_var = 100}
-        multiply_temp_variable = {socialist_temp_var = -1}
-
-        add_to_variable = {fascist_influence = socialist_temp_var}
-      } 
-    }
-  }
-  ITA_jail_parri = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-
-    icon = generic_political_rally
-
-    cost = 75
-    days_remove = 5
-
-    fire_only_once = yes
-
-    complete_effect = {
-     
-    }
-
-    modifier = {
-      conscription_factor = -0.03
-    }
-
-
-    ai_will_do = {
-      factor = 100
-    }
-
-    remove_effect = {
-      every_owned_state = {
-        add_to_variable = {
-        tooltip = ITA_increase_fasicst_influence_by_5_in_state
-        socialist_influence = -5
-        }
-        set_variable = {fascist_influence = 0}
-        set_temp_variable = {
-          socialist_temp_var = socialist_influence
-        }
-        subtract_from_temp_variable  = {socialist_temp_var = 100}
-        multiply_temp_variable = {socialist_temp_var = -1}
-
-        add_to_variable = {fascist_influence = socialist_temp_var}
-      } 
-    }
-  }
-  ITA_jail_gramsci = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-    icon = generic_political_rally
-
-
-    cost = 75
-    days_remove = 5
-
-    fire_only_once = yes
-
-    ai_will_do = {
-      factor = 100
-    }
-
-    complete_effect = {
-     
-    }
-
-    modifier = {
-      conscription_factor = -0.03
-    }
-
-    remove_effect = {
-      every_owned_state = {
-        add_to_variable = {
-        tooltip = ITA_increase_fasicst_influence_by_5_in_state
-        socialist_influence = -5
-        }
-        set_variable = {fascist_influence = 0}
-        set_temp_variable = {
-          socialist_temp_var = socialist_influence
-        }
-        subtract_from_temp_variable  = {socialist_temp_var = 100}
-        multiply_temp_variable = {socialist_temp_var = -1}
-
-        add_to_variable = {fascist_influence = socialist_temp_var}
-      } 
-    }
-  }
-  ITA_crush_the_marxist_menace = {
-    available = {
-      tag = ITA
-    }
-    visible = {
-      has_completed_focus = ITA_purge_the_socialist_remnants
-    }
-
-    icon = generic_ignite_civil_war
-
-    cost = 0
-    days_remove = 0
-
-    fire_only_once = yes
-
-    complete_effect = {
-     
-    }
-    ai_will_do = {
-      factor = 100
-    }
-
-
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_socialist_influence_less_than_50
-        check_variable = {var = 159.fascist_influence value = 159.socialist_influence compare =  greater_than_or_equals}
-        check_variable = {var = 158.fascist_influence value = 158.socialist_influence compare =  greater_than_or_equals}
-        check_variable = {var = 161.fascist_influence value = 161.socialist_influence compare =  greater_than_or_equals}
-        check_variable = {var = 892.fascist_influence value = 892.socialist_influence compare =  greater_than_or_equals}
-        check_variable = {var = 891.fascist_influence value = 891.socialist_influence compare =  greater_than_or_equals}
-        check_variable = {var = 157.fascist_influence value = 157.socialist_influence compare =  greater_than_or_equals}
-      }
-    }
-
-    modifier = {
-      #conscription_factor = -0.03
-    }
-
-    remove_effect = {
-      ITA_decrease_party_stability_large = yes
-      swap_ideas = {
-        add_idea = ITA_socialist_revolt_2
-        remove_idea = ITA_socialist_revolt
-      }
-    }
-  }
-
-
-
-  ITA_blank_1 = {
-    available = {
-       always = no
-    }
-
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-  }
-  ###OPERATION AXIS
-  ITA_operation_axis_decision = {
-    complete_effect = {
-      # set_country_flag = ITA_open_operation_axis_gui
-      # custom_effect_tooltip = ITA_open_operation_axis_gui_tt
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-    available = {
-      always = no
-    }
-  }
-  ITA_increase_deflection = {
-    available = {
-      tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_operation_axis_deicision
-      }
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-
-    cost = 10
-    days_remove = 15
-
-    fire_only_once = no
-    days_re_enable = 30
-
-    complete_effect = {
-       set_country_flag = ITA_currently_doing_operation_axis_deicision
-    }
-
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_increase_operation_axis_probability_success_by_5
-        ITA_operation_axis_probability_success = 5
-      }
-      clr_country_flag =ITA_currently_doing_operation_axis_deicision
-    }
-  }
-  ITA_contact_our_double_agents = {
-    available = {
-      tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_operation_axis_deicision
-      }
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-
-    cost = 15
-    days_remove = 20
-
-    fire_only_once = no
-    days_re_enable = 40
-
-    complete_effect = {
-       set_country_flag = ITA_currently_doing_operation_axis_deicision
-    }
-
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_increase_operation_axis_probability_success_by_5
-        ITA_operation_axis_probability_success = 5
-      }
-      clr_country_flag =ITA_currently_doing_operation_axis_deicision
-    }
-  }
-  ITA_send_a_false_radio_signal_to_prussia = {
-    available = {
-      tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_operation_axis_deicision
-      }
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-
-    cost = 15
-    days_remove = 5
-
-    fire_only_once = no
-    days_re_enable = 25
-
-    complete_effect = {
-       set_country_flag = ITA_currently_doing_operation_axis_deicision
-    }
-
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_increase_operation_axis_probability_success_by_5
-        ITA_operation_axis_probability_success = 5
-      }
-      clr_country_flag =ITA_currently_doing_operation_axis_deicision
-    }
-  }
-  ITA_boost_encoding_of_plans = {
-    available = {
-      tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_operation_axis_deicision
-      }
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-
-    cost = 20
-    days_remove = 30
-
-    fire_only_once = no
-    days_re_enable = 15
-
-    complete_effect = {
-       set_country_flag = ITA_currently_doing_operation_axis_deicision
-    }
-
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_increase_operation_axis_probability_success_by_5
-        ITA_operation_axis_probability_success = 5
-      }
-      clr_country_flag =ITA_currently_doing_operation_axis_deicision
-    }
-  }
-  ITA_leak_decoy_plans = {
-    available = {
-      tag = ITA
-      NOT = {
-        has_country_flag = ITA_currently_doing_operation_axis_deicision
-      }
-    }
-    visible = {
-      has_completed_focus = ITA_Keep_the_Others_Out_of_It
-    }
-
-    cost = 30
-    days_remove = 45
-    days_re_enable = 20
-
-    fire_only_once = no
-
-    complete_effect = {
-       set_country_flag = ITA_currently_doing_operation_axis_deicision
-    }
-
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_increase_operation_axis_probability_success_by_7
-        ITA_operation_axis_probability_success = 7
-      }
-      clr_country_flag =ITA_currently_doing_operation_axis_deicision
-    }
-  }
-}
-
-
 # ITA_mafia_decision = {
 #   ITA_sabotage_mafia = {
 #     available = {
@@ -1160,180 +601,6 @@ ITA_incoming_socialist_revolution = {
 #     }
 #   }
 # }
-
-ITA_northern_investments_decision = {
-  ITA_invest_in_piedmont = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      158 = {
-        
-				add_building_construction = {
-					type = industrial_complex
-					level = 1
-					instant_build = yes
-  
-				}
-				add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-  ITA_invest_in_lombardy = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-        159 = {
-          
-          add_building_construction = {
-            type = industrial_complex
-            level = 1
-            instant_build = yes
-    
-          }
-          add_extra_state_shared_building_slots = 1
-        }
-        add_to_variable = {ITA_economic_civil_war_var = 5}
-        ITA_calc_economic_recovery = yes
-      }
-    
-  }
-  ITA_invest_in_emliginia = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      162 = {
-          
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-  
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-  ITA_invest_in_marche = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      888 = {
-          
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-  
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-
-  ITA_invest_in_umbria = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      887 = {
-          
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-  
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-
-  ITA_invest_in_abbruzo = {
-    available = {
-      tag = ITA
-
-    }
-    visible = {
-      tag = ITA 
-    }
-
-    cost = 20
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      889 = {
-          
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-  
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-    }
-  }
-
-  
-  
-}
-
 
 ITA_the_kings_men = {
   ITA_hold_a_speech_with_the_king = {
@@ -1772,7 +1039,7 @@ ITA_iron_guard = {
     days_remove = 7
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     complete_effect = {
@@ -1807,6 +1074,8 @@ ITA_iron_guard = {
       }
     }
 
+    cost = 20
+
     modifier = {
       political_power_cost = 0.2
     }
@@ -1833,7 +1102,7 @@ ITA_iron_guard = {
     icon = border_war
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     days_remove = 25
@@ -1860,7 +1129,7 @@ ITA_iron_guard = {
     days_remove = 30
 
     ai_will_do = {
-      factor = 1
+      factor = 2000
       modifier = {
         num_of_military_factories < 25
         factor = 0
@@ -1890,7 +1159,7 @@ ITA_iron_guard = {
     icon = generic_construction
 
     ai_will_do = {
-      factor = 1
+      factor = 2000
     }
 
     days_remove = 25
@@ -1915,6 +1184,10 @@ ITA_iron_guard = {
       available = {
         ROM = { has_government = neutrality }
         check_variable = { var = global.romanian_iron_guard_coup_success_probability value = 96 compare = less_than }
+      }
+
+      ai_will_do = {
+        factor = 2000
       }
 
       days_remove = 10
@@ -1944,7 +1217,7 @@ ITA_iron_guard = {
     fire_only_once = yes
 
     ai_will_do = {
-      factor = 2
+      factor = 2000
     }
 
     available = {
@@ -1968,1063 +1241,342 @@ ITA_iron_guard = {
 
 ITA_balkan_decision_cat = {
 
-  ##albania
-  ITA_albanian_expansion_decision = {
-    allowed = {
-      tag = ITA
+  ITA_provide_albanian_weapons = {
 
+    icon = generic_industry
+
+    cost = 10
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
     }
-    visible = { 
-      tag = ITA 
-      
+
+    available = {
+      has_equipment = {
+        infantry_equipment > 100
+      }
     }
+
     ai_will_do = {
-      factor = 1000
+      factor = 2000
+      modifier = {
+        factor = 0
+        ALB = { fascism > 0.3 }
+      }
     }
 
-    cost = 35
-    days_remove = 40
+    days_re_enable = 14
+
+    complete_effect = {
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = -100
+      }
+      ALB = {
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.03
+        }
+      }
+    }
+
+  }  
+
+  ITA_ALB_spread_anti_austrian_propaganda = {
+
+    icon = generic_political_discourse
+
+    cost = 30
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+      AUS = {
+        OR = {
+          is_in_faction_with = ALB
+          has_guaranteed = ALB
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 2000
+	modifier = {
+		factor = 0
+		ALB = { fascism > 0.3 }
+	}
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      ALB = {
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.05
+        }
+      }
+    }
+
+  }  
+
+  ITA_inspire_ALB_irredentist_rhetoric = {
+
+    icon = generic_nationalism
+
+    cost = 30
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 2000
+	modifier = {
+		factor = 0
+		ALB = { fascism > 0.3 }
+	}
+    }
+
+    days_re_enable = 14
+
+    complete_effect = {
+      ALB = {
+        add_war_support = 0.05
+        add_popularity = {
+          ideology = fascism
+          popularity = 0.05
+        }
+      }
+    }
+
+  }
+
+  ITA_balli_coup = {
+
+    icon = generic_prepare_civil_war
+
+    cost = 30
+
+    visible = {
+      NOT = {
+        ALB = {
+          OR = {
+            has_war_with = ITA
+            is_subject_of = ITA
+            has_government = fascism
+            exists = no
+          }
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 10
+    }
+
+    available = {
+      ALB = {
+        fascism > 0.3
+      }
+    }
 
     fire_only_once = yes
 
-    remove_effect = {
+    complete_effect = {
+      ALB = {
+        country_event = { id = italy.535 hours = 2 }
+      }
+    }
+
+  }
+
+  ITA_add_FROM_to_mediterranean_bloc = {
+
+    icon = generic_construction
+
+    cost = 25
+
+    fire_only_once = yes
+
+    visible = {
+      has_idea = ITA_mediterranean_trade_bloc
+    }
+
+    ai_will_do = {
+      factor = 2000
+    }
+
+    target_trigger = {
+      FROM = {
+        is_subject_of = ITA
+        capital_scope = {
+          is_on_continent = europe
+        }
+        any_owned_state = {
+          is_coastal = yes
+        }
+        NOT = {
+          has_idea = ITA_mediterranean_trade_bloc
+        }
+      }
+    }
+
+    complete_effect = {
+      FROM = {
+        add_ideas = ITA_mediterranean_trade_bloc
+      }
+    }
+
+  }
+
+}
+
+ITA_seize_ottoman_cities_cat = {
+
+  ITA_seize_tripoli = {
+
+    visible = {
+      NOT = {
+        OR = {
+          owns_state = 448
+          controls_state = 448
+          has_war_with = TUR
+        }
+      }
+    }
+
+    fire_only_once = yes
+
+    icon = border_war
+
+    cost = 25
+
+    ai_will_do = {
+      factor = 2000
+    }
+
+    available = {
       if = {
         limit = {
-          NOT = {
-            ALB = {
-              is_in_faction_with = AUS
-            }
-          }
-          ITA = { is_ai = no }
+          is_ai = yes
         }
-        ALB = {
-          country_event = {
-            id = italy.3 hours = 2
+        always = yes
+        else = {
+          divisions_in_state = {
+            size > 2
+            state = 661
           }
         }
       }
     }
-  }
-  ITA_albanian_integration = {
-    available = {
-      controls_state = 44
 
-    }
-    visible = { 
-      tag = ITA 
-    }
-    ai_will_do = {
-      factor = 1000
-    }
-
-    cost = 50
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      add_state_core = 44
-    }
-  }
-  ITA_fortify_against_vlore_and_greece = {
-    available = {
-      controls_state = 44
-
-    }
-    visible = { 
-      tag = ITA 
-    }
-    ai_will_do = {
-      factor = 1000
-    }
-
-    cost = 50
-    days_remove = 25
-
-    fire_only_once = yes
-
-    remove_effect = {
-      every_owned_state = {
-				limit = {
-					any_neighbor_state = {
-						is_controlled_by = GRE
-					}
-				}
-				add_building_construction = {
-					type = bunker
-					level = 3
-					instant_build = yes
-					province = {
-						all_provinces = yes
-						limit_to_border = yes
-					}
-				}
+    complete_effect = {
+      start_border_war = {
+        change_state_after_war = no
+        attacker = {
+          state = 661
+          num_provinces = 3
+          on_win = ITA_border_conflicts.3
+          on_lose = ITA_border_conflicts.1
+          on_cancel = ITA_border_conflicts.1
+        }
+        defender = {
+          state = 448
+          num_provinces = 1
+          on_win = ITA_border_conflicts.1
+          on_lose = ITA_border_conflicts.3
+          on_cancel = ITA_border_conflicts.1
+        }
       }
     }
-  }
-
-  ITA_promote_chetnik_resistance = {
-
-  	icon = generic_industry
-
-  	visible = {
-  		CRO = {
-  			OR = {
-  				exists = no
-  				is_subject_of = AUS
-  			}
-  		}
-  	}
-
-  	cost = 50
-
-  	complete_effect = {
-  		set_variable = { var_chetnik_resistance = -0.25 }
-  		every_state = {
-  			limit = {
-  				is_core_of = CRO
-  			}
-  			add_dynamic_modifier = {
-  				modifier = ITA_chetnik_resistance_modifier
-  			}
-  		}
-  	}
 
   }
 
-  ITA_promote_bosniak_resistance = {
-
-  	icon = generic_industry
-
-  	visible = {
-  		BOS = {
-  			OR = {
-  				exists = no
-  				is_subject_of = AUS
-  			}
-  		}
-  	}
-
-  	cost = 50
-
-  	complete_effect = {
-  		set_variable = { var_bosniak_resistance = -0.15 }
-  		every_state = {
-  			limit = {
-  				is_core_of = BOS
-  			}
-  			add_dynamic_modifier = {
-  				modifier = ITA_bosniak_resistance_modifier
-  			}
-  		} 
-  	}
-
-  }
-  
-}
-
-
-
-
-ITA_evolas_political_reforms_decisions = {
-  
-  ##brotherhood of chivlery
-  ITA_form_the_first_division_onore = {
-
-    cost = 50
-
-    fire_only_once = yes
-
-    icon = generic_army_support
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 0
-
-   
+  ITA_seize_benghazi = {
 
     visible = {
-      has_completed_focus = ITA_the_brotherhood_of_chivelry
+      NOT = {
+        OR = {
+          owns_state = 450
+          controls_state = 450
+          has_war_with = TUR
+        }
+      }
     }
-
-    remove_effect = {
-      
-    }
-
-  }
-  ITA_form_the_first_division_gloria = {
-
-    cost = 50
-
-    fire_only_once = yes
-
-    icon = generic_army_support
 
     ai_will_do = {
-      factor = 1
+      factor = 2000
     }
-
-    days_remove = 0
-
-    
-
-    visible = {
-      has_completed_focus = ITA_the_brotherhood_of_chivelry
-    }
-
-    remove_effect = {
-      
-    }
-
-  }
-  ITA_form_the_first_division_fede = {
-
-    cost = 50
 
     fire_only_once = yes
-
-    icon = generic_army_support
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 0
-
-    visible = {
-      has_completed_focus = ITA_the_brotherhood_of_chivelry
-    }
-
-   
-
-  }
-
-  ITA_lower_brotherhood_criteria = {
+    icon = border_war
 
     cost = 25
 
-    fire_only_once = yes
-
-    icon = generic_independence
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 20
-
-    modifier = {
-    }
-
-    visible = {
-      has_completed_focus = ITA_the_brotherhood_of_chivelry
-    }
-
-    remove_effect = {
-      add_manpower = 20000
-      add_war_support = -0.05
-    }
-
-  }
-
-  ITA_restrict_membership = {
-
-    cost = 25
-
-    fire_only_once = yes
-
-    icon = generic_operation
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 20
-
-    modifier = {
-    }
-
-    visible = {
-      has_completed_focus = ITA_the_brotherhood_of_chivelry
-    }
-
-    remove_effect = {
-      add_manpower = -20000
-      add_war_support = 0.05
-    }
-
-  }
-
-  ITA_purge_semites_from_the_government = {
-
-    cost = 0
-
-    fire_only_once = yes
-
-    icon = generic_civil_support
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 140 
-
-    modifier = {
-      political_power_factor = -0.3
-    }
-
-    visible = {
-      has_completed_focus = ITA_religious_intolerance
-    }
-
-    remove_effect = {
-      add_political_power = 120
-    }
-
-  }
-  ITA_purge_semites_from_the_army = {
-
-    cost = 0
-
-    fire_only_once = yes
-
-    icon = generic_civil_support
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 140 
-
-    modifier = {
-      army_org_factor = -0.2
-      experience_gain_army_factor = -0.5
-    }
-
-    visible = {
-      has_completed_focus = ITA_religious_intolerance
-    }
-
-    remove_effect = {
-      army_experience = 25
-      navy_experience = 25
-      air_experience = 25
-    }
-
-  }
-  ITA_purge_semites_from_the_banks = {
-
-    cost = 0
-
-    fire_only_once = yes
-
-    icon = generic_civil_support
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 70 
-
-    modifier = {
-      consumer_goods_factor = 1
-    }
-
-    visible = {
-      has_completed_focus = ITA_religious_intolerance
-    }
-
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 1
-          instant_build = yes
-        }
-        add_extra_state_shared_building_slots = 1
-      }
-     
-    }
-
-  }
-  
-  ITA_anti_habsburg_propoganda = {
-
-    cost = 50
-
-    fire_only_once = yes
-
-    icon = generic_form_nation
-
-    ai_will_do = {
-      factor = 1
-    }
-
-    days_remove = 50
-
-    modifier = {
-      war_support_weekly = 0.01
-    }
-
-    visible = {
-      has_completed_focus = ITA_the_greatest_threat
-    }
-
-    remove_effect = {
-      
-    }
-
-  }
-   
-  
- 
-}
-
-ITA_evola_neo_feudalist_reforms = {
-
-  ###FIRST ROUND OF LABORERS
-  ITA_send_in_former_socialists = {
-    icon = generic_ignite_civil_war
-    cost = 40
-
-    fire_only_once = yes
-
-    
-
-    days_remove = 75
-    
-   
-
-    modifier = {
-      political_power_cost = 0.15
-      communism_drift = -0.03
-      socialism_democratic_drift = -0.03
-      democratic_communism_drift = -0.03
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_10000
-        ITA_laborer_number = 10000
-      }
-    }
-  }
-  ITA_send_in_other_political_prisoners = {
-    icon = generic_civil_support
-    cost = 30
-
-    fire_only_once = yes
-
-    
-
-    days_remove = 50
-    
-   
-
-    modifier = {
-      political_power_cost = 0.1
-      democratic_liberalism_drift = -0.1
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_5000
-        ITA_laborer_number = 5000
-      }
-    }
-  }
-  ITA_send_in_mussolini_loyalists = {
-    icon = generic_nationalism
-    cost = 30
-
-    fire_only_once = yes
-
-    
-
-    days_remove = 50
-    
-   
-
-    modifier = {
-      political_power_cost = 0.1
-      fascism_drift = -0.1
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_5000
-        ITA_laborer_number = 5000
-      }
-    }
-  }
-
-  ##worker decisisions
-  ITA_small_build_civlian_factory_with_workers = {
-    icon = generic_industry
-    cost = 0
-  
-    fire_only_once = no
-  
     available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_3000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 3000
+      if = {
+        limit = {
+          is_ai = yes
         }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 30
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_3000
-        ITA_laborer_number = 3000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-  ITA_large_build_civlian_factory_with_workers = {
-    icon = generic_industry
-    cost = 0
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_6000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 6000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 60
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_6000
-        ITA_laborer_number = 6000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = industrial_complex
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-  ITA_small_build_infrastructure_with_workers = {
-    icon = generic_construction
-    cost = 0
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_3000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 3000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 30
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_3000
-        ITA_laborer_number = 3000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-  ITA_large_build_infrastructure_with_workers = {
-    icon = generic_construction
-    cost = 0
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_6000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 6000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 60
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_6000
-        ITA_laborer_number = 6000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = infrastructure
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-  ITA_small_build_military_factories_with_workers = {
-    icon = generic_army_support
-    cost = 0
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_3000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 3000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 30
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_3000
-        ITA_laborer_number = 3000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = arms_factory
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-  ITA_large_build_military_factories_with_workers = {
-    icon = generic_army_support
-    cost = 0
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_greater_than_6000
-        check_variable = {
-          var = ITA_laborer_number compare = greater_than value = 6000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 60
-    days_re_enable = 10
-    
-   
-  
-   complete_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_decrease_by_6000
-        ITA_laborer_number = 6000
-      }
-    }
-    
-    remove_effect = {
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = arms_factory
-          level = 2
-          instant_build = yes
-        }
-      }
-      random_owned_controlled_state = {
-        add_building_construction = {
-          type = arms_factory
-          level = 2
-          instant_build = yes
-        }
-      }
-    }
-  }
-
-  ##SECOND ROUND
-  ITA_send_in_former_socialists_2 = {
-    icon = generic_ignite_civil_war
-    cost = 40
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_less_than_3000
-        check_variable = {
-          ITA_laborer_number = 3000
+        always = yes
+        else = {
+          divisions_in_state = {
+            size > 2
+            state = 451
+          }
         }
       }
     }
 
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    
-  
-    days_remove = 75
-    
-   
-  
-    modifier = {
-      political_power_cost = 0.15
-      communism_drift = -0.03
-      socialism_democratic_drift = -0.03
-      democratic_communism_drift = -0.03
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_10000
-        ITA_laborer_number = 10000
-      }
-    }
-  }
-  ITA_send_in_other_political_prisoners_2 = {
-    icon = generic_civil_support
-    cost = 30
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_less_than_3000
-        check_variable = {
-          ITA_laborer_number = 3000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-    
-  
-    days_remove = 50
-    
-   
-  
-    modifier = {
-      political_power_cost = 0.1
-      democratic_liberalism_drift = -0.1
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_5000
-        ITA_laborer_number = 5000
-      }
-    }
-  }
-  ITA_send_in_mussolini_loyalists_2 = {
-    icon = generic_nationalism
-    cost = 30
-  
-    fire_only_once = no
-  
-    available = {
-      custom_trigger_tooltip = {
-        tooltip = ITA_number_of_workers_is_less_than_3000
-        check_variable = {
-          ITA_laborer_number = 3000
-        }
-      }
-    }
-  
-    visible = {
-      has_completed_focus = ITA_the_first_of_the_camps
-    }
-  
-    days_remove = 50
-    
-   
-  
-    modifier = {
-      political_power_cost = 0.1
-      fascism_drift = -0.1
-    }
-    
-    remove_effect = {
-      add_to_variable = {
-        tooltip = ITA_laborer_number_increase_by_5000
-        ITA_laborer_number = 5000
-      }
-    }
-  }
-}
-
-ITA_evola_romano_germanic_figure_of_worship = {
-  
-  ##ROMANO GERMANIC IDENTITY
-  ITA_the_political_strength_of_augustus = {
-    icon = generic_civil_support
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
     complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
+      start_border_war = {
+        change_state_after_war = no
+        attacker = {
+          state = 451
+          num_provinces = 1
+          on_win = ITA_border_conflicts.2
+          on_lose = ITA_border_conflicts.1
+          on_cancel = ITA_border_conflicts.1
+        }
+        defender = {
+          state = 450
+          num_provinces = 1
+          on_win = ITA_border_conflicts.1
+          on_lose = ITA_border_conflicts.2
+          on_cancel = ITA_border_conflicts.1
+        }
+      }
     }
 
-    modifier = {
-      neutrality_drift = 0.03
-      communism_drift = -0.01
-      socialism_democratic_drift = -0.01
-      democratic_communism_drift = -0.01
-    } 
   }
 
-  ITA_the_military_strength_of_caesar = {
-    icon = generic_army_support
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
-    }
-
-    modifier = {
-      army_org_factor = 0.15
-      planning_speed = 0.25
-    }
-
-    
-  }
-
-  ITA_the_roads_of_hadrian = {
-    icon = generic_construction
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
-    }
-
-    modifier = {
-      production_speed_infrastructure_factor = 0.15
-      production_speed_industrial_complex_factor = 0.1
-    } 
-  }
-
-  ITA_the_fierceness_of_alaric = {
-    icon = generic_tank
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
-    }
-
-    modifier = {
-      army_morale_factor = 0.1
-      army_attack_factor = 0.1
-    } 
-  }
-
-  ITA_the_cultural_renissance_of_charlegmagne = {
-    icon = generic_nationalism
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
-    }
-
-    modifier = {
-      research_speed_factor = 0.15
-      political_power_gain = 0.2
-    } 
-  }
-
-  ITA_the_diplomacy_of_bismarck = {
-    icon = generic_political_rally
-    cost = 50
-
-    days_re_enable = 35
-
-    available = {
-     NOT = { has_country_flag = ITA_currently_doing_worship_decision }
-    }
-
-    days_remove = 150
-    
-    complete_effect = {
-      set_country_flag = ITA_currently_doing_worship_decision
-    }
-
-    modifier = {
-      drift_defence_factor = 0.4
-      stability_factor = 0.15
-    } 
-  }
 }
 
 
@@ -3041,11 +1593,17 @@ ITA_maintaining_unity = {
     days_remove = 30
 
     available = {
-      OR = {
-        has_completed_focus = ITA_continue_cianos_rule
-        has_completed_focus = ITA_roccos_conspiracy
-        has_completed_focus = ITA_the_dawn_of_the_blueshirts
-        has_completed_focus = ITA_evolas_regime
+      LBA = {
+        OR = {
+          is_subject_of = ITA
+          exists = no
+        }
+      }
+    }
+
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 1
       }
     }
 
@@ -3054,7 +1612,11 @@ ITA_maintaining_unity = {
     }
 
     ai_will_do ={
-      factor = 1000
+      factor = 2000
+      modifier = {
+        factor = 0
+        has_political_power < 75
+      }
     }
 
   }
@@ -3071,15 +1633,21 @@ ITA_maintaining_unity = {
       ITA_decrease_party_stability_medium = yes
     }
 
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 3
+      }
+    }
+
     ai_will_do ={
-      factor = 1000
+      factor = 2000
     }
     available = {
       OR = {
-        has_completed_focus = ITA_continue_cianos_rule
-        has_completed_focus = ITA_roccos_conspiracy
-        has_completed_focus = ITA_the_dawn_of_the_blueshirts
-        has_completed_focus = ITA_evolas_regime
+        has_completed_focus = ITA_tame_the_blueshirts
+        has_completed_focus = ITA_end_bianchis_rule
+        has_completed_focus = ITA_end_cianos_conspiracies
+        has_completed_focus = ITA_exploit_evolas_shaky_position
       }
     }
 
@@ -3097,16 +1665,130 @@ ITA_maintaining_unity = {
       ITA_decrease_party_stability_large = yes
     }
     ai_will_do ={
-      factor = 1000
+      factor = 2000
+    }
+
+    visible = {
+      check_variable = {
+        ITA_NFP_party_stability > 5
+      }
     }
 
     available = {
-      OR = {
-        has_completed_focus = ITA_continue_cianos_rule
-        has_completed_focus = ITA_roccos_conspiracy
-        has_completed_focus = ITA_the_dawn_of_the_blueshirts
-        has_completed_focus = ITA_evolas_regime
+     OR = {
+        NOT = {
+          has_country_flag = ITA_bianchi_leads_triumvirate
+        }
+        has_country_flag = ITA_teruzzi_eliminated
+        has_country_flag = ITA_ciano_eliminated
       }
+    }
+  }
+
+  ITA_investigate_bianchis_failures = {
+
+    cost = 25
+
+    days_remove = 10
+
+    fire_only_once = yes
+
+    remove_effect = {
+      add_to_variable = { 
+        tooltip = ITA_decreases_bianchis_influence
+        ITA_head_tri_power = -5 
+      }
+      hidden_effect = {
+        random_list = {
+          50 = {
+            add_to_variable = { ITA_second_tri_power = 5 }
+          }
+          50 = {
+            add_to_variable = { ITA_third_tri_power = 5 }
+          }
+        }
+      }
+    }
+    ai_will_do ={
+      factor = 1000
+    }
+
+    visible = {
+      has_completed_focus = ITA_mobilize_grand_council_fascism
+      NOT = {
+        has_completed_focus = ITA_motion_no_confidence
+      }
+    }
+  }
+
+  ITA_block_bianchis_proposals = {
+
+    cost = 25
+
+    days_remove = 10
+
+    fire_only_once = yes
+
+    modifier = {
+      political_power_cost = 0.1
+    }
+
+    remove_effect = {
+      add_to_variable = { 
+        tooltip = ITA_decreases_bianchis_influence_large
+        ITA_head_tri_power = -10
+      }
+      hidden_effect = {
+        add_to_variable = { ITA_second_tri_power = 5 }
+        add_to_variable = { ITA_third_tri_power = 5 }
+      }
+    }
+    ai_will_do ={
+      factor = 1000
+    }
+
+    visible = {
+      has_completed_focus = ITA_mobilize_grand_council_fascism
+      NOT = {
+        has_completed_focus = ITA_motion_no_confidence
+      }
+    }
+  }
+
+  ITA_decrease_heads_influence = {
+
+    cost = 30
+
+    days_remove = 10
+
+    days_re_enable = 70
+
+    modifier = {
+      political_power_cost = 0.1
+    }
+
+    remove_effect = {
+      add_to_variable = { 
+        tooltip = ITA_decreases_heads_influence
+        ITA_head_tri_power = -5
+      }
+      hidden_effect = {
+        random_list = {
+          50 = {
+            add_to_variable = { ITA_second_tri_power = 5 }
+          }
+          50 = {
+            add_to_variable = { ITA_third_tri_power = 5 }
+          }
+        }
+      }
+    }
+    ai_will_do ={
+      factor = 2000
+    }
+
+    visible = {
+      has_completed_focus = ITA_motion_no_confidence
     }
   }
 
@@ -3128,7 +1810,10 @@ ITA_the_mercenaries = {
 			check_variable = { ITA_mercenary_number < 500 }
 		}
 		custom_cost_text = ITA_hire_more_mercenaries_tt
-  
+    
+    ai_will_do = {
+      factor = 2000
+    }
 
     remove_effect = {
       add_to_variable = {
@@ -3146,6 +1831,10 @@ ITA_the_mercenaries = {
      has_completed_focus = ITA_expand_scavenging_operations
     }
     cost = 35
+
+    ai_will_do = {
+      factor = 2000
+    }
     
     modifier = {
       consumer_goods_factor = -0.05
@@ -3167,6 +1856,10 @@ ITA_the_mercenaries = {
     }
     cost = 70
     days_remove = 40
+
+    ai_will_do = {
+      factor = 2000
+    }
     
     modifier = {
       consumer_goods_factor = -0.1
@@ -3192,6 +1885,10 @@ ITA_the_mercenaries = {
       consumer_goods_factor = 0.025
     }
     days_remove = 20
+
+    ai_will_do = {
+      factor = 2000
+    }
 
     remove_effect = {
       add_tech_bonus = {
@@ -3220,6 +1917,10 @@ ITA_the_mercenaries = {
     }
     days_remove = 40
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     remove_effect = {
       add_tech_bonus = {
         bonus = 0.5
@@ -3245,6 +1946,11 @@ ITA_the_mercenaries = {
        owns_state = 116
      }
     }
+
+    ai_will_do = {
+      factor = 2000
+    }
+
     available = {
       NOT = {
         has_country_flag = ITA_currently_doing_mercenary_raid
@@ -3277,6 +1983,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_corfu = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -3320,6 +2030,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_agean_adventures
      NOT = {
@@ -3358,6 +2072,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_crete = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -3402,6 +2120,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_clash_at_the_dodecanese
      NOT = {
@@ -3442,6 +2164,10 @@ ITA_the_mercenaries = {
       tag = ITA
     }
 
+    ai_will_do = {
+      factor = 2000
+    }
+
     visible = {
      has_completed_focus = ITA_secure_athens
      NOT = {
@@ -3480,6 +2206,10 @@ ITA_the_mercenaries = {
   ITA_raid_on_izmir = {
     allowed = {
       tag = ITA
+    }
+
+    ai_will_do = {
+      factor = 2000
     }
 
     visible = {
@@ -3534,6 +2264,10 @@ ITA_portugese_corporatists = {
 				}
 			}
 		}
+
+    ai_will_do = {
+      factor = 2000
+    }
 
 		days_remove = 30
 
@@ -3611,6 +2345,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		days_remove = 30
 
 		fire_only_once = yes
@@ -3651,6 +2389,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		days_re_enable = 60
 
 		complete_effect = {
@@ -3687,6 +2429,10 @@ ITA_portugese_corporatists = {
 			}
 		}
 
+    ai_will_do = {
+      factor = 2000
+    }
+
 		cost = 50
 
 		complete_effect = {
@@ -3699,18 +2445,24 @@ ITA_portugese_corporatists = {
 
 }
 
-ITA_portugese_syndaclists = {
+ITA_sponsor_falange = {
 
 	ITA_spread_claims_syndicalist_unity = {
+
+		icon = generic_political_discourse
 
 		cost = 25
 
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -3723,13 +2475,13 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_5_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 5 }
+			add_to_variable = { falangist_coup_progress = 5 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -3743,12 +2495,18 @@ ITA_portugese_syndaclists = {
 
 		cost = 40
 
+		icon = ger_mefo_bills
+
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -3761,13 +2519,13 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_10_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 10 }
+			add_to_variable = { falangist_coup_progress = 10 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -3781,12 +2539,18 @@ ITA_portugese_syndaclists = {
 
 		cost = 50
 
+		icon = generic_construction
+
 		visible = {
 			NOT = {
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
+		}
+
+		ai_will_do = {
+			factor = 1000
 		}
 
 		days_remove = 30
@@ -3800,13 +2564,13 @@ ITA_portugese_syndaclists = {
 
 		remove_effect = {
 			custom_effect_tooltip = ITA_10_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 10 }
+			add_to_variable = { falangist_coup_progress = 10 }
 			clamp_variable = {
-				var = portugese_coup_progress
+				var = falangist_coup_progress
 				min = 0
 				max = 100
 			}
-			POR = {
+			SPR = {
 				add_popularity = {
 					ideology = ultranationalism
 					popularity = 0.02
@@ -3820,65 +2584,73 @@ ITA_portugese_syndaclists = {
 
 	}
 
-	ITA_denounce_decadency_of_POR_king_synd = {
+	ITA_trigger_falangist_uprising = {
 
-		name = ITA_denounce_decadency_of_POR_king
-
-		cost = 30
-
-		visible = {
-			NOT = {
-				check_variable = {
-					portugese_coup_progress = 100
-				}
-			}
-		}
-
-		days_re_enable = 60
-
-		complete_effect = {
-			custom_effect_tooltip = ITA_5_progress_coup_ready
-			add_to_variable = { portugese_coup_progress = 5 }
-			clamp_variable = {
-				var = portugese_coup_progress
-				min = 0
-				max = 100
-			}
-			POR = {
-				add_popularity = {
-					ideology = ultranationalism
-					popularity = 0.02
-				}
-			}
-		}
-
-	}
-
-	ITA_trigger_POR_civil_war_synd = {
-
-		name = ITA_trigger_POR_civil_war
+		icon = generic_prepare_civil_war
 
 		fire_only_once = yes
 
+		ai_will_do = {
+			factor = 1000
+		}
+
 		available = {
-			has_war_with = POR
+			has_war_with = SPR
+      SPR = {
+        surrender_progress < 0.1
+      }
 			custom_trigger_tooltip = {
 				tooltip = ITA_POR_coup_100_ready
 				check_variable = {
-					portugese_coup_progress = 100
+					falangist_coup_progress = 100
 				}
 			}
 		}
 
-		cost = 50
+		cost = 25
 
 		complete_effect = {
-			POR = {
+			SPR = {
 				country_event = { id = italy.530 hours = 2 random = 2}
 			}
 		}
 
 	}
+
+  ITA_trigger_falangist_coup = {
+
+	icon = generic_nationalism
+
+    fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+    available = {
+      custom_trigger_tooltip = {
+        tooltip = ITA_POR_coup_100_ready
+        check_variable = {
+          falangist_coup_progress = 100
+        }
+      }
+    }
+
+    visible = {
+      NOT = {
+        has_war_with = SPR
+      }
+    }
+
+    cost = 50
+
+    complete_effect = {
+      SPR = {
+        country_event = { id = italy.530 hours = 2 random = 2}
+      }
+    }
+
+  }
 
 }
 
@@ -3892,13 +2664,12 @@ weltkrieg_decisions = {
 		}
 
 		available = {
-      PAP = {
-        exists = yes
-      }
+      country_exists = PAP
 		}
 
 		visible = {
 			has_war_with = FRA
+      country_exists = PAP
 		}
 
 		fire_only_once = yes
@@ -3913,6 +2684,11 @@ weltkrieg_decisions = {
 		}
 	
 		complete_effect = {
+      add_ai_strategy = {
+        id = PAP
+        type = prepare_for_war
+        value = 50
+      }
 		}
 	
 		remove_effect = {
@@ -3962,6 +2738,68 @@ weltkrieg_decisions = {
 }
 
 ITA_establish_stato_gemelli = {
+
+  ITA_contact_resistance_cells = {
+
+    icon = generic_industry
+
+    cost = 50
+
+    fire_only_once = yes
+
+    complete_effect = {
+      every_state = {
+        limit = {
+          is_owned_by = GER
+          is_controlled_by = GER
+          OR = {
+            is_core_of = AUS
+            is_core_of = NAS
+            is_core_of = GPU
+            is_core_of = BAD
+            is_core_of = WUR
+            is_core_of = HES
+          }
+        }
+        add_dynamic_modifier = {
+          modifier = ITA_catholic_rebels
+        }
+      }
+    }
+
+  }
+
+  ITA_benevolent_german_occupation = {
+
+    icon = generic_political_discourse
+
+    cost = 25
+
+    days_re_enable = 30
+
+    complete_effect = {
+      every_state = {
+        limit = {
+          is_owned_by = GER
+          is_controlled_by = ITA
+          NOT = {
+            is_core_of = ITA
+          }
+          OR = {
+            is_core_of = AUS
+            is_core_of = NAS
+            is_core_of = GPU
+            is_core_of = BAD
+            is_core_of = WUR
+            is_core_of = HES
+          }
+        }
+        add_resistance = -5
+        add_compliance = 5
+      }
+    }
+
+  }
   
   ITA_create_sg_vienna = {
 
@@ -3982,12 +2820,12 @@ ITA_establish_stato_gemelli = {
 
     available = {
       controls_state = 153
-      controls_state = 822
-      controls_state = 102
-      controls_state = 820
-      controls_state = 4
-      controls_state = 152
-      controls_state = 958
+          controls_state = 822
+          controls_state = 102
+          controls_state = 820
+          controls_state = 4
+          controls_state = 152
+          controls_state = 958
     }
 
     fire_only_once = yes
@@ -3997,19 +2835,426 @@ ITA_establish_stato_gemelli = {
     }
 
     complete_effect = {
-      AUS = {
-        transfer_state = 153
-        transfer_state = 822
-        transfer_state = 102
-        transfer_state = 820
-        transfer_state = 4
-        transfer_state = 152
-        transfer_state = 958
-        hidden_effect = {
-          set_cosmetic_tag = ITA_south_german_puppets
+      if = {
+        limit = {
+          AUS = { exists = no }
+        }
+        AUS = {
+          transfer_state = 153
+          transfer_state = 822
+          transfer_state = 102
+          transfer_state = 820
+          transfer_state = 4
+          transfer_state = 152
+          transfer_state = 958
+          hidden_effect = {
+            set_cosmetic_tag = ITA_south_german_puppets
+          }
+        }
+        puppet = AUS
+        else = {
+          hidden_effect = {
+            AUS = { drop_cosmetic_tag = yes }
+          }
+          AUS = {
+            transfer_state = 153
+            transfer_state = 822
+            transfer_state = 102
+            transfer_state = 820
+            transfer_state = 4
+            transfer_state = 152
+            transfer_state = 958
+          }
         }
       }
-      puppet = AUS
+    }
+
+  }
+
+}
+
+ITA_asserting_ourselves_in_coalition = {
+
+	ITA_request_croatia = {
+
+    icon = generic_political_discourse
+
+    cost = 50
+
+    visible = {
+      CRO = {
+        is_subject_of = GER
+      }
+    }
+
+    fire_only_once = yes
+
+    complete_effect = {
+      GER = {
+        country_event = { id = ITA_border_conflicts.9 hours = 2 }
+      }
+    }
+
+  }
+  
+  ITA_request_hungary = {
+
+    icon = generic_political_discourse
+
+    cost = 50
+
+    visible = {
+      HUN = {
+        is_subject_of = GER
+      }
+    }
+
+    fire_only_once = yes
+
+    complete_effect = {
+      GER = {
+        country_event = { id = ITA_border_conflicts.4 hours = 2 }
+      }
+    }
+
+  }
+
+  ITA_request_southern_france = {
+
+    icon = generic_political_discourse
+
+    cost = 50
+
+    visible = {
+      OCC = {
+        is_subject_of = GER
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    fire_only_once = yes
+
+    complete_effect = {
+      GER = {
+        country_event = { id = ITA_border_conflicts.7 hours = 2 }
+      }
+    }
+
+  }
+
+  ITA_request_northern_spain = {
+
+    icon = generic_political_discourse
+
+    cost = 50
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    visible = {
+      NAV = {
+        is_subject_of = GER
+      }
+      SPR = {
+        is_subject_of = ITA
+      }
+    }
+
+    fire_only_once = yes
+
+    complete_effect = {
+      GER = {
+        country_event = { id = ITA_border_conflicts.8 hours = 2 }
+      }
+    }
+
+  }
+
+  ITA_integrate_marseille = {
+
+    icon = generic_construction
+
+    cost = 50
+
+    visible = {
+      ADU = {
+        is_subject_of = ITA
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    days_remove = 70
+
+    available = {
+      ADU = {
+        surrender_progress < 0.1
+      }
+    }
+
+    modifier = {
+      political_power_cost = 0.1
+      consumer_goods_factor = 0.05
+    }
+
+    fire_only_once = yes
+
+    remove_effect = {
+      annex_country = {
+        target = ADU
+        transfer_troops = yes
+      }
+      add_state_core = 32
+      add_state_core = 21
+      add_state_core = 735
+    }
+
+  }
+
+  ITA_reunite_spanish_puppets = {
+
+    icon = generic_construction
+
+    cost = 50
+
+    visible = {
+      SPR = {
+        is_subject_of = ITA
+      }
+      NAV = {
+        is_subject_of = ITA
+      }
+    }
+
+    days_remove = 35
+
+    available = {
+      SPR = {
+        surrender_progress < 0.1
+      }
+      NAV = {
+        surrender_progress < 0.1
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    modifier = {
+      political_power_cost = 0.1
+      consumer_goods_factor = 0.05
+    }
+
+    fire_only_once = yes
+
+    remove_effect = {
+      SPR = {
+        annex_country = {
+          target = NAV
+          transfer_troops = yes
+        }
+        hidden_effect = {
+          every_state = {
+            limit = {
+              is_core_of = NAV
+              NOT = {
+                is_core_of = SPR
+              }
+            }
+            add_core_of = SPR
+          }
+        }
+      }
+    }
+
+  }
+
+}
+
+ITA_turncoats_apprectiation_society = {
+  
+  ITA_try_to_turn_FROM = {
+
+    target_trigger = {
+      FROM = {
+        is_in_faction_with = GER
+        is_subject = no
+        OR = {
+          tag = ROM
+          tag = BUL
+          tag = ATH
+          tag = OCC
+          tag = BRI
+          tag = NFR
+          tag = SER
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    cost = 25
+
+    fire_only_once = yes
+
+    complete_effect = {
+      FROM = {
+        country_event = { id = ITA_fascist_tree_events.23 }
+      }
+    }
+
+  }
+
+}
+
+ITA_uniting_rome = {
+  
+  ITA_roman_annex_FROM = {
+
+    icon = generic_nationalism
+
+    cost = 75
+
+    target_trigger = {
+      FROM = {
+        is_subject_of = ITA
+        surrender_progress < 0.1
+        OR = {
+          tag = LBA
+          tag = TUR
+          tag = OCC
+          tag = SPR
+          tag = POR
+          tag = ALB
+          tag = FRA
+          tag = PAP
+          tag = AUS
+          tag = FRA
+          tag = BUL
+          tag = ROM
+          tag = YUG
+          tag = SER
+          tag = OBS
+          tag = GRE
+          tag = THS
+          tag = ATH
+          tag = CRO
+          tag = BOS
+          tag = SWI
+          tag = BEL
+          tag = MOR
+          tag = EGY
+          tag = BYZ
+          tag = SYR
+          tag = SCA
+        }
+      }
+    }
+
+    ai_will_do = {
+      factor = 5
+    }
+
+    days_remove = 35
+
+    remove_effect = {
+      annex_country = {
+        target = FROM
+        transfer_troops = yes
+      }
+      every_state = {
+        limit = { is_core_of = FROM NOT = { is_core_of = ITA } }
+        add_core_of = ITA
+      }
+    }
+
+  }
+
+}
+
+ITA_crushing_counter_revolutionaries = {
+  
+  ITA_hunt_far_left_please = { #almost doneeeee
+
+    icon = generic_industry
+
+    cost = 10
+
+    visible = {
+      has_completed_focus = ITA_hunt_down_leftist_groups
+      NOT = {
+        has_government = communism
+      }
+    }
+
+    available = {
+      has_equipment = {
+        infantry_equipment > 100
+      }
+    }
+
+    days_re_enable = 30
+
+    days_remove = 30
+
+    complete_effect = {
+      add_popularity = {
+        ideology = communism
+        popularity = -0.01
+      }
+      add_popularity = {
+        ideology = democratic_communism
+        popularity = -0.01
+      }
+      add_popularity = {
+        ideology = socialism_democratic 
+        popularity = -0.01
+      }
+      add_equipment_to_stockpile = {
+        type = infantry_equipment
+        amount = -100
+      }
+    }
+
+    modifier = {
+      consumer_goods_factor = -0.02
+      industrial_capacity_factory = 0.05
+    }
+
+  }
+
+  ITA_send_opponents_to_work_camps = {
+
+    cost = 25
+
+    icon = generic_construction
+
+    visible = {
+      has_completed_focus = ITA_open_work_camps
+    }
+
+    days_re_enable = 70
+
+    days_remove = 70
+
+    modifier = {
+      production_speed_buildings_factor = 0.1
+    }
+
+    remove_effect = {
+      add_popularity = {
+        ideology = ROOT
+        popularity = 0.01
+      }
     }
 
   }

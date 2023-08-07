@@ -1,130 +1,6 @@
 
 
-form_ottoman_empire_category = {
 
-	form_ottoman_empire = {
- 
-		icon = generic_form_nation
-
-		allowed = {
-			original_tag = TUR
-			has_dlc = "Waking the Tiger"
-		}
-
-		available = {
-			is_subject = no
-			controls_state = 679
-			controls_state = 293
-			controls_state = 454
-			controls_state = 455
-			controls_state = 656
-			# Turkey
-			custom_trigger_tooltip = {
-				tooltip = form_country_turkey_required_states_tt
-				controls_state = 341
-				controls_state = 340
-				controls_state = 339
-				controls_state = 342
-				controls_state = 343
-				controls_state = 347
-				controls_state = 49
-				controls_state = 346
-				controls_state = 345
-				controls_state = 356
-				controls_state = 348
-				controls_state = 344
-				controls_state = 355
-				controls_state = 349
-				controls_state = 350
-				controls_state = 354
-				controls_state = 353
-				controls_state = 352
-			}
-			# Iraq
-			custom_trigger_tooltip = {
-				tooltip = form_country_iraq_required_states_tt
-				controls_state = 676
-				controls_state = 675
-				controls_state = 291
-			}
-			# France
-			custom_trigger_tooltip = {
-				tooltip = form_persia_france_required_states_tt
-				# Syria
-				controls_state = 677
-				controls_state = 680
-				controls_state = 553
-				controls_state = 554
-			}
-		}
-
-		visible = {
-			original_tag = TUR
-			NOT = { has_global_flag = form_ottoman_empire_flag }
-		}
-
-		complete_effect = {
-			set_cosmetic_tag = OTT_UNIFIED
-			679 = { add_core_of = ROOT }
-			293 = { add_core_of = ROOT }
-			665 = { add_core_of = ROOT }
-			458 = { add_core_of = ROOT }
-			# Iraq
-			custom_effect_tooltip = form_country_iraq_coring_states_tt
-			hidden_effect = {
-				676 = { add_core_of = ROOT }
-				675 = { add_core_of = ROOT }
-				291 = { add_core_of = ROOT }
-			}
-			# France
-			custom_effect_tooltip = form_persia_france_coring_states_tt
-			hidden_effect = {
-				677 = { add_core_of = ROOT }
-				680 = { add_core_of = ROOT }
-				553 = { add_core_of = ROOT }
-				554 = { add_core_of = ROOT }
-			}
-			# Italian North Africa and Dodecanese
-			custom_effect_tooltip = form_ottoman_italy_coring_states_tt
-			hidden_effect = {
-				448 = { add_core_of = ROOT }
-				661 = { add_core_of = ROOT }
-				449 = { add_core_of = ROOT }
-				662 = { add_core_of = ROOT }
-				450 = { add_core_of = ROOT }
-				451 = { add_core_of = ROOT }
-				663 = { add_core_of = ROOT }
-				164 = { add_core_of = ROOT }
-			}
-			# Britain
-			custom_effect_tooltip = form_persia_britain_coring_states_tt
-			hidden_effect = {
-				452 = { add_core_of = ROOT }
-				447 = { add_core_of = ROOT }
-				446 = { add_core_of = ROOT }
-				456 = { add_core_of = ROOT }
-				457 = { add_core_of = ROOT }
-				453 = { add_core_of = ROOT }
-				454 = { add_core_of = ROOT }
-				455 = { add_core_of = ROOT }
-				183 = { add_core_of = ROOT }
-				656 = { add_core_of = ROOT }
-			}
-			hidden_effect = {
-				news_event = { id = wtt_news.61 hours = 6 }
-				set_global_flag = form_ottoman_empire_flag
-			}
-		}
-
-		ai_will_do = {
-			factor = 200
-			modifier = {
-				factor = 0
-				is_historical_focus_on = yes
-			}
-		}
-	}
-}
 
 
 
@@ -725,50 +601,63 @@ form_germany_category = {
 		fire_only_once = yes
 
 		available = {
-			OR = {
-				is_subject = no
+			if = {
+				limit = {
+					tag = GPU
+					NOT = {
+						has_government = ultranationalism
+						has_government = fascism
+					}
+				}
+				OR = {
+					has_completed_focus = GPU_the_frankfurt_parliament
+				}
 			}
-			controls_state = 51
-			controls_state = 42
-			controls_state = 56
-			controls_state = 57
-			controls_state = 55
-			controls_state = 50
-			controls_state = 59
-			controls_state = 58
-			controls_state = 60
-			controls_state = 54
-			controls_state = 52
-			controls_state = 53
-			controls_state = 61
-			controls_state = 64
-			controls_state = 65
-			controls_state = 62
-			controls_state = 68
-			controls_state = 66
-			controls_state = 67
-			controls_state = 63
-			controls_state = 5
-			controls_state = 763
-			controls_state = 86
-			controls_state = 817
+			else = {
+				OR = {
+					is_subject = no
+				}
+				controls_state = 51
+				controls_state = 42
+				controls_state = 56
+				controls_state = 57
+				controls_state = 55
+				controls_state = 50
+				controls_state = 59
+				controls_state = 58
+				controls_state = 60
+				controls_state = 54
+				controls_state = 52
+				controls_state = 53
+				controls_state = 61
+				controls_state = 64
+				controls_state = 65
+				controls_state = 62
+				controls_state = 68
+				controls_state = 66
+				controls_state = 67
+				controls_state = 63
+				controls_state = 5
+				controls_state = 763
+				controls_state = 86
+				controls_state = 817
 
-			####new states
-			controls_state = 950
-			controls_state = 949
-			controls_state = 954
-			controls_state = 959
-			controls_state = 956
-			controls_state = 955
-			controls_state = 957
-			controls_state = 960
-			controls_state = 798
-			OR = {
-				tag = GER
-				tag = GPU
-				tag = FGD
-				tag = HAN
-				tag = SAX
+				####new states
+				controls_state = 950
+				controls_state = 949
+				controls_state = 954
+				controls_state = 959
+				controls_state = 956
+				controls_state = 955
+				controls_state = 957
+				controls_state = 960
+				controls_state = 798
+				OR = {
+					tag = GER
+					tag = FGD
+					tag = HAN
+					tag = SAX
+				} 
 			}
 		}
 
@@ -785,7 +674,15 @@ form_germany_category = {
 
 
 		complete_effect = {
-			set_cosmetic_tag = united_germany
+			if = {
+				limit = {
+					tag = GPU
+				}
+				set_cosmetic_tag = united_germany_diet
+			}
+			else = {
+				set_cosmetic_tag = united_germany
+			}
 			news_event = GER_unification_of_Germany.1 
 			# Germany
 			#custom_effect_tooltip = form_country_balkan_coring_states_tt
@@ -1008,12 +905,8 @@ form_serbia_category = {
 		
 
 		available = {
-			controls_state = 818
-			controls_state = 814
 			controls_state = 108
 			controls_state = 807
-			controls_state = 813
-			controls_state = 105
 			controls_state = 808
 			controls_state = 821
 			controls_state = 107
@@ -1039,12 +932,8 @@ form_serbia_category = {
 			}
 			set_global_flag = form_serbia_flag
 			drop_cosmetic_tag = yes
-			add_state_core = 818
-			add_state_core = 814
 			add_state_core = 108
 			add_state_core = 807
-			add_state_core = 813
-			add_state_core = 105
 			add_state_core = 808
 			add_state_core = 821
 			add_state_core = 107
@@ -1321,16 +1210,10 @@ form_china_category = {
 
 		allowed = {
 			OR = {
-				original_tag = SHC
-				original_tag = BEI
-				original_tag = SHX
 				original_tag = XSM
-				original_tag = SIC
-				original_tag = PRC
-				original_tag = YUN
-				original_tag = CHI
-				original_tag = GXC
-				original_tag = ANH
+				original_tag = MNG
+				original_tag = QNG
+				original_tag = CRE
 			}
 		}
 
@@ -1357,16 +1240,10 @@ form_china_category = {
 
 		visible = {
 			OR = {
-				original_tag = SHC
-				original_tag = BEI
-				original_tag = SHX
 				original_tag = XSM
-				original_tag = SIC
-				original_tag = PRC
-				original_tag = YUN
-				original_tag = CHI
-				original_tag = GXC
-				original_tag = ANH
+				original_tag = CRE
+				original_tag = MNG
+				original_tag = QNG
 			}
 			NOT = { has_global_flag = form_china_flag }
 		}
@@ -1667,7 +1544,6 @@ reunite_russia_category = {
 	}
 }
 
-
 reunite_denmark_category = {
 	
 	reunite_denmark_decision = {
@@ -1701,6 +1577,7 @@ reunite_denmark_category = {
 				set_cosmetic_tag = DEN
 				add_state_core = 99
 				add_state_core = 37
+				add_state_core = 801
 			}
 		}
 
@@ -1735,7 +1612,6 @@ unite_kalmar_category = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = controls_all_danish_lands
-				controls_state = 100
 				controls_state = 337
 				controls_state = 99
 				controls_state = 37
@@ -1858,6 +1734,7 @@ unite_north_sea_category = {
 		}
 
 	}
+
 
 }
 

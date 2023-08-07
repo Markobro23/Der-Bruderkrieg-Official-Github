@@ -1399,7 +1399,7 @@ shared_focus = {
         #     idea = SOV_a_strict_loyalty_army_program
         #    days = 250
         # } 
-
+        set_global_flag = new_officers_SOV
         swap_ideas = {
             add_idea = SOV_conservative_high_command_3
             remove_idea = SOV_conservative_high_command_2
@@ -1761,7 +1761,14 @@ shared_focus = {
         focus = SOV_defend_the_galician_border
     }
     available = {
-    	controls_state = 90
+    	90 = {
+            owner = {
+                OR = {
+                    tag = SOV
+                    is_in_faction_with = SOV
+                }
+            }
+        }
     }
     relative_position_id = SOV_defend_the_galician_border
     
@@ -2514,8 +2521,9 @@ shared_focus = {
 		}
 	}
     completion_reward = {
-        AFG = {
-            country_event = SOV_lenin_tree_events.9
+        add_to_variable = {
+            tooltip = increase_afghani_influence_by_5
+            afghani_influence = 5
         }
     }
 }

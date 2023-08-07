@@ -95,7 +95,7 @@ characters={
 		name="José Norton de Matos"
 		portraits={
 			civilian={
-				large="gfx/leaders/POR/portrait_por_jose_norton_de_matos.dds"
+				large="gfx/leaders/POR/Portrait_POR_Norton_Matos.png"
 			}
 			army={
 				large="gfx/leaders/POR/Portrait_POR_Norton_Matos.png"
@@ -159,6 +159,12 @@ characters={
 			logistics_skill=3
 			legacy_id=19001
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = POR_jose_vincente_de_freitas
+			traits = { army_chief_defensive_1 }
+			cost = 50
+		}
 	}
 	POR_jose_augusto_alves_rocadas={
 		name="José Augusto Alves Roçadas"
@@ -169,7 +175,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ inflexible_strategist trait_engineer }
+			traits={ old_guard inflexible_strategist trait_engineer fortress_buster }
 			skill=3
 			attack_skill=4
 			defense_skill=2
@@ -181,6 +187,9 @@ characters={
 	POR_antonio_oscar_de_fragoso_carmona={
 		name="António Oscar de Fragoso Carmona"
 		portraits={
+			civilian={
+				large="gfx/leaders/POR/Portrait_Portugal_Antonio_Carmona.png"
+			}
 			army={
 				large="gfx/leaders/POR/Portrait_Portugal_Antonio_Carmona.png"
 				small="gfx/interface/ideas/POR_Antonio_Carmona.png"
@@ -297,6 +306,22 @@ characters={
 			legacy_id=19008
 		}
 	}
+	POR_eugenio_bilstein_menezes = {
+		name = "Eugénio Bilstein de Menezes"
+		portraits = {
+			army = {
+				large = "gfx/leaders/POR/Portrait_POR_Castro_Bilstein_Menezes.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_cautious old_guard }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
 	POR_jose_mendes_cabecadas={
 		name="José Mendes Cabeçadas"
 		portraits={
@@ -327,14 +352,23 @@ characters={
 			slot = theorist
 			idea_token = POR_manuel_ortins_torres_de_bettencourt
 			ledger = navy
-			allowed = {
-				original_tag = POR
-				has_dlc = "La Resistance"
+			available = {
+				not_already_hired_except_as = theorist
 			}
 			
 			traits = {
 				naval_theorist
 			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_manuel_ortins_torres_de_bettencourt
+			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { navy_naval_air_defense_2 }
+			cost = 100
 		}
 		navy_leader={
 			traits={ blockade_runner air_controller }
@@ -351,6 +385,7 @@ characters={
 		portraits={
 			army={
 				large="gfx/leaders/POR/Portrait_POR_Manuel_Rodrigues.png"
+				small="gfx/interface/ideas/POR_manuel_sarmento_rodrigues.png"
 			}
 		}
 		navy_leader={
@@ -361,6 +396,13 @@ characters={
 			maneuvering_skill=2
 			coordination_skill=2
 			legacy_id=19102
+		}
+		advisor = {
+			slot = high_command
+			idea_token = POR_manuel_sarmento_rodrigues
+			ledger = navy
+			traits = { navy_screen_1 }
+			cost = 50
 		}
 	}
 	POR_americo_thomaz={

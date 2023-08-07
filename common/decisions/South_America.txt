@@ -221,7 +221,17 @@ ARG_decisions = {
 	ARG_form_la_plata = {
 		icon = generic_nation
 		available = {
-			has_country_flag = can_do_post_bush_war_stuff
+			NOT = {
+				has_war_with = PBC
+			}
+			OR = {
+				PRU = {
+					is_puppet_of = ARG
+				}
+				ARG = {
+					controls_state = 303
+				}
+			}
 		}
 		visible = {
 		
@@ -267,7 +277,17 @@ ARG_decisions = {
 	ARG_attack_brazil = {
 		icon = generic_nation
 		available = {
-			has_country_flag = can_do_post_bush_war_stuff
+			NOT = {
+				has_war_with = PBC
+			}
+			OR = {
+				PRU = {
+					is_puppet_of = ARG
+				}
+				ARG = {
+					controls_state = 303
+				}
+			}
 			OR = {
 				AND = {
 					BRE = {
@@ -316,7 +336,17 @@ ARG_decisions = {
 	ARG_ally_brazil = {
 		icon = generic_nation
 		available = {
-			has_country_flag = can_do_post_bush_war_stuff
+			NOT = {
+				has_war_with = PBC
+			}
+			OR = {
+				PRU = {
+					is_puppet_of = ARG
+				}
+				ARG = {
+					controls_state = 303
+				}
+			}
 			
 			BRS = {
 				exists = yes

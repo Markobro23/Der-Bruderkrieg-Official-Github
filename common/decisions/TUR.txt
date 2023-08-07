@@ -1,7 +1,140 @@
-TUR_arab_tension = {
 
+TUR_preparing_the_pashas_coup = {
+	TUR_boost_cup_coup_popularity = {
+
+		icon = generic_industry
+
+		cost = 25
+
+		modifier = {
+			fascism_drift = 0.05
+		}
+
+		days_remove = 30
+
+		fire_only_once = no
+
+		complete_effect = {
+		
+		}
+
+	}
+
+	TUR_rally_the_young_turks = {
+
+		icon = generic_industry
+
+		cost = 15
+
+		modifier = {
+		}
+		available = {
+			has_completed_focus = TUR_zafer_riots
+		}
+		days_remove = 0
+		days_re_enable = 30
+
+		fire_only_once = no
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.075
+			}
+		}
+	}
+
+	TUR_cup_secure_istanbul = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 4
+				state = 341
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			341 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+	TUR_cup_secure_ankara = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 3
+				state = 49
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			49 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.05
+			}
+		}
+	}
+
+	TUR_cup_secure_izmir = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		modifier = {
+		}
+		available = {
+			divisions_in_state = {
+				size > 2
+				state = 339
+			}
+			has_completed_focus = TUR_plot_detat
+		}
+		days_remove = 0
+
+		fire_only_once = yes
+
+		complete_effect = {
+			339 = {
+				set_state_flag = TUR_secured_by_the_cup
+			}
+			add_popularity = {
+				ideology = fascism
+				popularity = 0.02
+			}
+		}
+	}
 }
-
 
 TUR_ottoman_persian_war = {
 	TUR_ottoman_persian_war_mission_timeout = {
@@ -77,80 +210,888 @@ TUR_ottoman_persian_war = {
 	  }
 }
 
-# TUR_plans_against_our_enemies = {
-# 	TUR_plans_against_BUL = {
-# 		icon = generic_operation
-# 		available = {
-# 			has_war_with = BUL
-# 		}
-# 		visible = {
-# 			has_completed_focus = TUR_plans_against_bulgaria
-# 		}
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		fire_only_once = yes
-# 		days_remove = 50
-# 		modifier = {
-# 			production_speed_infrastructure_factor = 0.1
-# 		}
-# 		targeted_modifier = {
-# 			tag = BUL
-# 			attack_bonus_against = 0.1
-# 			defense_bonus_against = 0.1
-# 		}
-#   }
+TUR_plans_against_our_enemies = {
+	TUR_plans_against_BUL = {
+		icon = generic_operation
+		available = {
+			has_war_with = BUL
+		}
+		visible = {
+			has_completed_focus = TUR_strengthen_the_ministry_of_war
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+		modifier = {
+			production_speed_infrastructure_factor = 0.1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		targeted_modifier = {
+			tag = BUL
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+  }
 
 
 
 
-#     TUR_plans_against_YUG = {
-#   		icon = generic_operation
-#   		available = {
-#   			has_war_with = YUG
-#   		}
-#   		visible = {
-#   			has_completed_focus = TUR_plans_against_serbia
-#   		}
-#   		ai_will_do = {
-#   			factor = 1
-#   		}
-#   		fire_only_once = yes
-#   		days_remove = 50
-#   		modifier = {
-#   			production_speed_infrastructure_factor = 0.1
-#   		}
-#   		targeted_modifier = {
-#   			tag = YUG
-#   			attack_bonus_against = 0.1
-#   			defense_bonus_against = 0.1
-#   		}
-#     }
+    TUR_plans_against_YUG = {
+  		icon = generic_operation
+  		available = {
+  			has_war_with = YUG
+  		}
+  		visible = {
+  			has_completed_focus = TUR_strengthen_the_ministry_of_war
+  		}
+  		ai_will_do = {
+  			factor = 1
+  		}
+  		fire_only_once = yes
+  		days_remove = 50
+  		modifier = {
+  			production_speed_infrastructure_factor = 0.1
+  		}
+		ai_will_do = {
+			factor = 100
+		}
+  		targeted_modifier = {
+  			tag = YUG
+  			attack_bonus_against = 0.1
+  			defense_bonus_against = 0.1
+  		}
+    }
 
-#     TUR_plans_against_GRE = {
-#   		icon = generic_operation
-#   		available = {
-#   			has_war_with = GRE
-#   		}
-#   		visible = {
-#   			has_completed_focus = TUR_plans_against_greece
-#   		}
-#   		ai_will_do = {
-#   			factor = 1
-#   		}
-#   		fire_only_once = yes
-#   		days_remove = 50
-#   		modifier = {
-#   			production_speed_infrastructure_factor = 0.1
-#   		}
-#   		targeted_modifier = {
-#   			tag = GRE
-#   			attack_bonus_against = 0.1
-#   			defense_bonus_against = 0.1
-#   		}
-#     }
-# 	}
+    TUR_plans_against_GRE = {
+  		icon = generic_operation
+  		available = {
+  			has_war_with = GRE
+  		}
+  		visible = {
+  			has_completed_focus = TUR_strengthen_the_ministry_of_war
+  		}
+  		ai_will_do = {
+  			factor = 1
+  		}
+  		fire_only_once = yes
+  		days_remove = 50
+  		modifier = {
+  			production_speed_infrastructure_factor = 0.1
+  		}
+		ai_will_do = {
+			factor = 100
+		}
+  		targeted_modifier = {
+  			tag = GRE
+  			attack_bonus_against = 0.1
+  			defense_bonus_against = 0.1
+  		}
+    }
+}
 
+TUR_post_marraige_decision_category = {
+	TUR_reach_out_to_persia = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_spread_pro_ottoman_sentiment
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+
+		complete_effect = {
+			PER = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = medium_increase
+				}
+			}
+		}
+
+		modifier = {
+			improve_relations_maintain_cost_factor = -0.45
+		}	
+	}
+
+	TUR_reach_out_to_egypt = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pull_egypt_away_from_britain
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+
+		complete_effect = {
+			EGY = {
+				add_opinion_modifier = {
+					target = TUR
+					modifier = medium_increase
+				}
+			}
+		}
+
+		modifier = {
+			improve_relations_maintain_cost_factor = -0.45
+		}	
+	}
+
+	TUR_stage_roman_triumphs = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+		days_re_enable = 20
+
+		cost = 25
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_10
+				TUR_roman_revival_progress = 10
+			}
+		}
+
+		modifier = {
+			war_support_factor = 0.03
+		}	
+	}
+
+	TUR_model_the_roman_senate = {
+		icon = generic_operation
+		available = {
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = no
+		days_remove = 50
+		days_re_enable = 20
+
+		cost = 25
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_10
+				TUR_roman_revival_progress = 10
+			}
+		}
+
+		modifier = {
+			political_power_gain = 0.05
+		}	
+	}
+
+	TUR_claim_the_throne_of_byzantium = {
+		icon = generic_operation
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = TUR_roman_revival_progress_at_least_30
+				check_variable = {
+					TUR_roman_revival_progress > 29
+				}
+			}
+		}
+		visible = {
+			has_completed_focus = TUR_pan_roman_propaganda
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 15
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = TUR_roman_revival_progress_increase_by_20
+				TUR_roman_revival_progress = 20
+			}
+		}
+
+		modifier = {
+		}	
+	}
+}
+
+TUR_asserting_influence_in_arabia = {
+	TUR_influence_annazah = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			ANA = {
+				give_military_access = TUR
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_influence_jbs = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			JAB = {
+				give_military_access = TUR
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_secure_al_rasheed_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = JAB
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_rasheedi_family_secured
+			JAB = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	TUR_secure_al_sabhan_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = JAB
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_sabhan_family_secured
+			JAB = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	TUR_secure_al_hathal_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = ANA
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_hathal_family_secured
+			ANA = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+	TUR_secure_al_shalaan_family = {
+		icon = generic_operation
+		available = {
+			has_military_access_to = ANA
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+		modifier = {
+			civilian_factory_use = 2
+			political_power_gain = -0.05
+			conscription_factor = -0.05
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_al_shalaan_family_secured
+			ANA = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = arms_factory
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	TUR_puppet_jbs = {
+		icon = generic_operation
+		available = {
+			has_country_flag = TUR_al_rasheedi_family_secured
+			has_country_flag = TUR_al_sabhan_family_secured
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			JAB = {
+				country_event = generic.20
+			}
+		}
+	}
+	TUR_puppet_anazzah = {
+		icon = generic_operation
+		available = {
+			has_country_flag = TUR_al_hathal_family_secured
+			has_country_flag = TUR_al_shalaan_family_secured
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			ANA = {
+				country_event = generic.20
+			}
+		}
+	}
+
+
+	TUR_operation_desert_storm = {
+		icon = generic_operation
+		available = {
+			has_war_with = SAU
+		}
+		visible = {
+			has_completed_focus = TUR_destroy_the_saudi_family
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 100
+		ai_will_do = {
+			factor = 100
+		}
+		targeted_modifier = {
+			tag = SAU
+			attack_bonus_against = 0.15
+			defense_bonus_against = 0.1
+		}
+
+		cost = 0
+		
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+	}
+}
+TUR_solving_minority_problems = {
+	TUR_integrate_kurds = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_finish_the_dersim
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_kurds_crushed
+			add_state_core = 848
+			add_state_core = 869
+			add_state_core = 853
+			add_state_core = 676
+			add_state_core = 851
+			add_state_core = 850
+			every_owned_state = {
+				limit = {
+				has_dynamic_modifier = {
+					modifier = TUR_the_dersim_movement
+				}
+				}
+				remove_dynamic_modifier = {
+					modifier = TUR_the_dersim_movement
+				}
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_kurdistan_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_finish_the_dersim
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_kurds_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+			release_on_controlled = KUR
+			
+			declare_war_on = {
+				target = KUR
+				type = annex_everything
+			}
+		}
+	}
+
+	TUR_integrate_iraq = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_crush_sadouns_front
+		}
+		ai_will_do = {
+			factor = 50
+		}
+		fire_only_once = yes
+		days_remove = 0
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_iraq_crushed
+			add_state_core = 852
+			add_state_core = 855
+			add_state_core = 291
+			add_state_core = 854
+			add_state_core = 855
+			add_state_core = 656
+			every_owned_state = {
+				limit = {
+					has_dynamic_modifier = {
+						modifier = TUR_the_iraqi_movement
+					}
+				}
+				remove_dynamic_modifier = {
+					modifier = TUR_the_iraqi_movement
+				}
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_iraqi_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_crush_sadouns_front
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_iraq_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+			release_on_controlled = IRQ
+			IRQ = {
+				add_popularity = {
+					ideology = fascism
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = fascism
+				}
+			}
+			declare_war_on = {
+				target = IRQ
+				type = annex_everything
+			}
+		}
+	}
+
+	TUR_integrate_syria = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			has_completed_focus = TUR_lock_up_houranis_thugs
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		fire_only_once = yes
+		days_remove = 50
+
+		cost = 0
+		
+
+		complete_effect = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_syria_crushed
+			add_state_core = 680
+			add_state_core = 677
+			add_state_core = 841
+			add_state_core = 844
+			add_state_core = 680
+			add_state_core = 849
+			add_state_core = 553
+			add_state_core = 857
+			add_state_core = 455
+			add_state_core = 862
+			add_state_core = 856
+			add_state_core = 861
+			add_state_core = 554
+			every_owned_state = {
+				limit = {
+				has_dynamic_modifier = {
+					modifier = TUR_the_syrian_movement
+				}
+				}
+				remove_dynamic_modifier = {
+				modifier = TUR_the_syrian_movement
+				}
+			}
+		}
+
+		modifier = {
+			
+		}	
+	}
+	TUR_syrian_revolution = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = TUR_lock_up_houranis_thugs
+		}
+	
+		visible = {
+			tag = TUR
+			NOT = {
+				has_country_flag = TUR_syria_crushed
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			SYR = {
+				add_popularity = {
+					ideology = democratic_communism
+					popularity = 0.25
+				}
+				set_politics = {
+					ruling_party = democratic_communism
+				}
+			}
+			hidden_effect = {
+				SYR = {
+				add_state_core = 680
+				add_state_core = 677
+				add_state_core = 841
+				add_state_core = 844
+				add_state_core = 680
+				add_state_core = 849
+				add_state_core = 553
+				add_state_core = 857
+				add_state_core = 455
+				add_state_core = 862
+				add_state_core = 856
+				add_state_core = 861
+				}
+			}
+			release_on_controlled = SYR
+			declare_war_on = {
+				target = SYR
+				type = annex_everything
+			}
+		}
+	}
+}
 
 weltkrieg_decisions = {
 	TUR_ai_desperate_defense = {
@@ -189,9 +1130,358 @@ weltkrieg_decisions = {
 	
 		complete_effect = {
 		}
-	
+		ai_will_do = {
+			factor = 100
+		}
 		remove_effect = {
 			
+		}
+	}
+	TUR_operation_olu_ayi = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_war_with = SOV
+		}
+
+		visible = {
+			NOT = {
+				has_decision = TUR_operation_mamluk
+			}
+			has_completed_focus = TUR_wolves_among_sheep
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		targeted_modifier = {
+			tag = SOV
+			defence_bonus_against = 0.1
+		}
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+	}
+	TUR_operation_mamluk = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_war_with = SOV
+		}
+
+		visible = {
+			NOT = {
+				has_decision = TUR_operation_olu_ayi
+			}
+			has_completed_focus = TUR_wolves_among_sheep
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 100
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+		targeted_modifier = {
+			tag = SOV
+			attack_bonus_against = 0.1
+		}
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			
+		}
+	}
+}
+
+
+
+
+TUR_gaining_control_over_balkans = {
+	TUR_demand_control_over_balkans_from_austria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 10
+	
+		cost = 10
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			set_country_flag = TUR_has_control_over_balkans_from_austria
+		}
+	}
+	TUR_incoroporate_former_bulgarian_territories = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 948
+			controls_state = 833
+			controls_state = 184
+			controls_state = 212
+			controls_state = 829
+			controls_state = 106
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			transfer_state = 948
+			transfer_state = 833
+			transfer_state = 184
+			transfer_state = 212
+			transfer_state = 829
+			transfer_state = 106
+
+			add_state_core = 948
+			add_state_core = 833
+			add_state_core = 184
+			add_state_core = 212
+			add_state_core = 829
+			add_state_core = 106
+
+			BUL = {
+				remove_state_core = 948
+				remove_state_core = 833
+				remove_state_core = 184
+				remove_state_core = 212
+				remove_state_core = 829
+				remove_state_core = 106
+			}
+		}
+	}
+	TUR_establish_vilayet_of_bulgaria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 824
+			controls_state = 48
+			controls_state = 806
+			controls_state = 811
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			BUL = {
+				transfer_state = 824
+				transfer_state = 48
+				transfer_state = 806
+				transfer_state = 811
+			}
+			TUR = {
+				set_autonomy = {
+					target = BUL
+					autonomous_state = autonomy_ottoman_vilayet
+				}
+			}
+			BUL = {
+				set_cosmetic_tag = TUR_vilayet_cosmetic
+			}
+		}
+	}
+	TUR_establish_vilayet_of_wallachia = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 46
+			controls_state = 81	
+			BUL = {
+				is_puppet_of = TUR
+			}
+			
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			release_on_controlled = ROM
+			TUR = {
+				set_autonomy = {
+					target = ROM
+					autonomous_state = autonomy_ottoman_vilayet
+				}
+			}
+			ROM = {
+				set_cosmetic_tag = TUR_vilayet_cosmetic
+			}
+		}
+	}
+	TUR_give_wallachia_to_bulgaria = {
+
+		icon = generic_army_support
+	
+		allowed = {
+			tag = TUR
+		}
+
+		available = { 
+			has_country_flag = TUR_has_control_over_balkans_from_austria
+			controls_state = 46
+			controls_state = 81	
+			BUL = {
+				is_puppet_of = TUR
+			}
+			
+		}
+
+		visible = {
+			has_completed_focus = TUR_reestablish_our_balkan_empire
+		}
+
+		fire_only_once = yes
+	
+		days_remove = 0
+	
+		cost = 0
+	
+	
+		ai_will_do = {
+			factor = 1000
+		}
+
+	
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			BUL = {
+				transfer_state = 46
+				transfer_state = 81	
+			}
 		}
 	}
 }

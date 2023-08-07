@@ -1,5 +1,1529 @@
-add_namespace = ENG_Goering
+add_namespace = ENG_elections
 
+##Halifax victory
+news_event = {
+	id = ENG_elections.1
+	title = ENG_elections.1.t
+	desc = ENG_elections.1.d
+	picture = GFX_halifaxvictory
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.1.a
+	}
+}
+
+##churchill victory
+news_event = {
+	id = ENG_elections.2
+	title = ENG_elections.2.t
+	desc = ENG_elections.2.d
+	picture = GFX_churchillvictory
+	
+	major = yes
+	fire_only_once = no
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.2.a
+	}
+}
+
+##Mosley victory
+news_event = {
+	id = ENG_elections.3
+	title = ENG_elections.3.t
+	desc = ENG_elections.3.d
+	picture = GFX_mosleyvictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.3.a
+	}
+}
+
+##attlee victory
+news_event = {
+	id = ENG_elections.4
+	title = ENG_elections.4.t
+	desc = ENG_elections.4.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.4.a
+	}
+}
+
+##benett-eden victory
+news_event = {
+	id = ENG_elections.5
+	title = ENG_elections.5.t
+	desc = ENG_elections.5.d
+	picture = GFX_attleevictory
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.5.a
+	}
+}
+
+##blockade
+news_event = {
+	id = ENG_elections.6
+	title = ENG_elections.6.t
+	desc = ENG_elections.6.d
+	picture = GFX_britishembargo
+	major = yes
+	fire_only_once = no
+
+	is_triggered_only = yes
+
+    option = {
+		name = ENG_elections.6.a
+		if = {
+			limit = {
+				tag = GER
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = uk_embargo
+			}
+		}
+	}
+}
+
+## state of empire
+country_event = {
+	id = ENG_elections.7
+	title = ENG_elections.7.t
+	desc = ENG_elections.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.7.a
+		add_political_power = 20
+	}
+}
+
+## king in dublin
+country_event = {
+	id = ENG_elections.8
+	title = ENG_elections.8.t
+	desc = ENG_elections.8.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.8.a
+
+		hidden_effect = {
+			country_event = {
+				id = ENG_elections.9
+				days = 2
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ENG_elections.9
+	title = ENG_elections.9.t
+	desc = ENG_elections.9.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.9.a
+
+		hidden_effect = {
+			country_event = {
+				id = ENG_elections.10
+				days = 1
+			}
+		}
+	}
+}
+
+
+country_event = {
+	id = ENG_elections.10
+	title = ENG_elections.10.t
+	desc = ENG_elections.10.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_elections.10.a
+
+		add_ideas = ENG_the_irish_question
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
+country_event = {
+	id = ENG_elections.11
+	title = ENG_elections.11.t
+	desc = ENG_elections.11.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	#suport halifax
+	option = {
+		name = ENG_elections.11.a
+		set_country_flag = ENG_sided_with_halifax_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
+
+	}
+	option = {
+		name = ENG_elections.11.b
+		set_country_flag = ENG_sided_with_churchill_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
+	}
+	option = {
+		name = ENG_elections.11.c
+		set_country_flag = ENG_sided_with_attlee_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
+	}
+	option = {
+		name = ENG_elections.11.dd
+		set_country_flag = ENG_sided_with_hamsworth_campaign
+		set_variable = {
+            halifax_support = 32
+        }
+        set_variable = {
+            churchill_support = 25
+        }
+        set_variable = {
+            attlee_support = 23
+        }
+        set_variable = {
+            hamsworth_support = 20
+        }
+	}
+}
+
+
+add_namespace = ENG_halifax_path
+
+##irish traitors executed
+country_event = {
+	id = ENG_halifax_path.1
+	title = ENG_halifax_path.1.t
+	desc = ENG_halifax_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_halifax_path.1.a
+		ENG = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_10
+				ENG_irish_integration = 10
+			}
+		}
+	}
+}
+
+##start of rearememnt
+country_event = {
+	id = ENG_halifax_path.2
+	title = ENG_halifax_path.2.t
+	desc = ENG_halifax_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_halifax_path.2.a
+		random_owned_controlled_state = {
+			add_building_construction = {
+				type = arms_factory
+				level = 1
+				instant_build = yes
+			}
+			add_extra_state_shared_building_slots = 1
+		}
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = ENG_remove_national_government_idea_debuff_original
+				add_idea = ENG_remove_national_government_idea_debuff_new
+			}
+		}
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_change_by_1
+			ENG_kings_approval_var_change = 1
+		}
+		unlock_decision_category_tooltip = ENG_bring_albert_from_his_paranoia
+	}
+}
+##the new cabinet
+country_event = {
+	id = ENG_halifax_path.3
+	title = ENG_halifax_path.3.t
+	desc = ENG_halifax_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.3.a
+		set_country_flag = ENG_chose_tories_ng
+	}
+	## labour
+	option = {
+		name = ENG_halifax_path.3.b
+		set_country_flag = ENG_chose_liberals_ng
+	}
+}
+
+##this will not go well
+country_event = {
+	id = ENG_halifax_path.4
+	title = ENG_halifax_path.4.t
+	desc = ENG_halifax_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.4.a
+		add_political_power = 100
+		add_war_support = 0.03
+		hidden_effect = {
+			country_event = {
+				id = ENG_halifax_path.5
+			}
+		}
+	}
+}
+country_event = {
+	id = ENG_halifax_path.5
+	title = ENG_halifax_path.5.t
+	desc = ENG_halifax_path.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_halifax_path.5.a
+		
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
+add_namespace = ENG_churchill_path
+
+## meeting with albert
+country_event = {
+	id = ENG_churchill_path.1
+	title = ENG_churchill_path.1.t
+	desc = ENG_churchill_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_churchill_path.1.a
+		add_to_variable = {
+            tooltip = ENG_the_kings_mental_state_will_stop_decreasing
+            ENG_kings_approval_var_change = 1
+        }
+	}
+}
+## meeting with crown prince
+country_event = {
+	id = ENG_churchill_path.2
+	title = ENG_churchill_path.2.t
+	desc = ENG_churchill_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_churchill_path.2.a
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
+## purge
+country_event = {
+	id = ENG_churchill_path.3
+	title = ENG_churchill_path.3.t
+	desc = ENG_churchill_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	##tory
+	option = {
+		name = ENG_churchill_path.3.a
+		effect_tooltip = {
+			swap_ideas = {
+				add_idea = ENG_churchill_remove_debuffs_new
+				remove_idea = ENG_churchill_remove_debuffs_original
+			}
+		}
+		set_variable = {
+            ENG_current_government_modifier_production_speed_buildings_factor = 0
+        }
+        set_variable = {
+            ENG_current_government_modifier_political_power_factor = 0
+        }
+	}
+}
+
+add_namespace = ENG_attlee_path
+
+##Referrendum
+country_event = {
+	id = ENG_attlee_path.1
+	title = ENG_attlee_path.1.t
+	desc = ENG_attlee_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.1.a
+		set_country_flag = ENG_abolish_monarchy_referendum_succeeds
+	}
+}
+
+
+##Referrendum Fails
+country_event = {
+	id = ENG_attlee_path.2
+	title = ENG_attlee_path.2.t
+	desc = ENG_attlee_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.2.a
+		
+	}
+	option = {
+		name = ENG_attlee_path.2.b
+		add_political_power = -100
+		add_stability = -0.15
+		add_war_support = -0.15
+		set_country_flag = ENG_abolish_monarchy_referendum_succeeds
+	}
+}
+
+## resistance rises
+country_event = {
+	id = ENG_attlee_path.3
+	title = ENG_attlee_path.3.t
+	desc = ENG_attlee_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.3.a	
+		add_ideas = ENG_unstable_new_republic
+	}
+}
+
+## workin with henry
+country_event = {
+	id = ENG_attlee_path.4
+	title = ENG_attlee_path.4.t
+	desc = ENG_attlee_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_attlee_path.4.a	
+		add_to_variable = {
+			tooltip = ENG_kings_approval_var_decrease_by_15
+			ENG_kings_approval_var = -15
+		}
+	}
+}
+
+add_namespace = ENG_hamsworth_path
+
+## king to empire
+country_event = {
+	id = ENG_hamsworth_path.1
+	title = ENG_hamsworth_path.1.t
+	desc = ENG_hamsworth_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_hamsworth_path.1.a
+
+		complete_national_focus = ENG_the_grand_ham_prevails
+	}
+	option = {
+		name = ENG_hamsworth_path.1.b
+
+		complete_national_focus = ENG_a_national_revolution
+	}
+}
+
+## Emergency Powers
+country_event = {
+	id = ENG_hamsworth_path.2
+	title = ENG_hamsworth_path.2.t
+	desc = ENG_hamsworth_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_hamsworth_path.2.a
+		effect_tooltip = {
+            swap_ideas = {
+                remove_idea = ENG_remove_hamsworth_original
+                add_idea = ENG_remove_hamsworth_new
+            }
+
+			set_politics = {
+				ruling_party = ROOT
+				elections_allowed = no
+			}
+        }
+        set_variable = {
+            ENG_current_government_modifier_stability_factor = 0
+        }
+		custom_effect_tooltip = ENG_leader_to_lord_protector
+		
+	}
+
+}
+
+
+## End of Attlee and Bevin
+country_event = {
+	id = ENG_hamsworth_path.3
+	title = ENG_hamsworth_path.3.t
+	desc = ENG_hamsworth_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_hamsworth_path.3.a
+		add_popularity = {
+			ideology = communism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = democratic_communism
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = socialism_democratic
+			popularity = -0.075
+		}
+		
+	}
+
+}
+
+## Marriage
+country_event = {
+	id = ENG_hamsworth_path.4
+	title = ENG_hamsworth_path.4.t
+	desc = ENG_hamsworth_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_hamsworth_path.4.a
+		add_opinion_modifier = {
+			target = AUS
+			modifier = ENG_maintaining_imperial_integrity
+		}
+		
+		AUS = {
+			add_opinion_modifier = {
+				target = ENG
+				modifier = ENG_maintaining_imperial_integrity
+			}
+		}
+	}
+
+}
+
+
+## India Tree
+add_namespace = ENG_india_tree
+
+## Indian Situation
+country_event = {
+	id = ENG_india_tree.1
+	title = ENG_india_tree.1.t
+	desc = ENG_india_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.1.a
+		
+	}
+}
+
+## Offer To Nehur
+country_event = {
+	id = ENG_india_tree.2
+	title = ENG_india_tree.2.t
+	desc = ENG_india_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.2.a
+		ENG = {
+			country_event = ENG_india_tree.3
+		}
+	}
+	option = {
+		name = ENG_india_tree.2.b
+		ai_chance = {
+			factor = 0
+		}
+		ENG = {
+			country_event = ENG_india_tree.4
+		}
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.3
+	title = ENG_india_tree.3.t
+	desc = ENG_india_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.3.a
+		set_country_flag = ENG_nehru_accepts_offer
+		add_political_power = 25
+		diplomatic_relation = {
+			country = AIG
+			relation = non_aggression_pact
+			active = yes
+		}
+		ENG = {
+			diplomatic_relation = {
+				country = AIG
+				relation = military_access
+				active = yes
+			}
+		}
+		ENG = {
+			add_opinion_modifier = {
+				modifier = medium_increase
+				target = AIG
+			}
+		}
+		AIG = {
+			add_opinion_modifier = {
+				modifier = medium_increase
+				target = ENG
+			}
+		}
+
+		RAJ = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+		AIG = {
+			every_owned_state = {
+				add_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.4
+	title = ENG_india_tree.4.t
+	desc = ENG_india_tree.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.4.a
+		uncomplete_national_focus = ENG_work_with_the_united_front
+	}
+}
+
+country_event = {
+	id = ENG_india_tree.5
+	title = ENG_india_tree.5.t
+	desc = ENG_india_tree.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		RAJ = {
+			transfer_units_fraction= {
+				target = ENG
+				size = 1
+				stockpile_ratio = 1
+				army_ratio = 1
+				navy_ratio = 1
+				air_ratio = 1
+			}
+			
+		}
+		ENG = {
+			add_to_faction = AIG
+		}
+		RAJ = {
+			RAJ_noel_beresfordpeirse = {
+				set_nationality = ENG
+			}
+			RAJ_frank_messervy = {
+				set_nationality = ENG
+			}
+			RAJ_douglas_gracey = {
+				set_nationality = ENG
+			}
+			RAJ_herbert_fitzherbert = {
+				set_nationality = ENG
+			}
+			RAJ_philip_walhouse_chetwode = {
+				set_nationality = ENG
+			}
+			RAJ_thomas_wynford_rees = {
+				set_nationality = ENG
+			}
+			RAJ_hastings_ismay = {
+				set_nationality = ENG
+			}
+			RAJ_geoffrey_scoones = {
+				set_nationality = ENG
+			}
+			RAJ_charles_hamilton_boucher = {
+				set_nationality = ENG
+			}
+			RAJ_francis_tuker = {
+				set_nationality = ENG
+			}
+			RAJ_walter_lentaigne = {
+				set_nationality = ENG
+			}
+			RAJ_john_henry_godfrey = {
+				set_nationality = ENG
+			}
+			RAJ_william_slim = {
+				set_nationality = ENG
+			}
+			RAJ_archibald_wavell = {
+				set_nationality = ENG
+			}
+		}
+		AIG = {
+			annex_country = {
+				target = RAJ
+				transfer_troops = no
+			}
+			remove_ideas = AIG_recovering_from_war
+		}
+		name = ENG_india_tree.5.a
+	}
+}
+
+##consolidating india
+country_event = {
+	id = ENG_india_tree.6
+	title = ENG_india_tree.6.t
+	desc = ENG_india_tree.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_india_tree.6.a
+		KHA = {
+            country_event = chinese_annex_event.1
+        }
+
+        INC = {
+            country_event = chinese_annex_event.1
+        }
+		PAK = {
+            country_event = chinese_annex_event.1
+        }
+
+		KAS = {
+            country_event = chinese_annex_event.1
+        }
+		DRA = {
+            country_event = chinese_annex_event.1
+        }
+	}
+}
+
+add_namespace = ENG_foriegn_intervention_tree
+##christian from iceland
+country_event = {
+	id = ENG_foriegn_intervention_tree.1
+	title = ENG_foriegn_intervention_tree.1.t
+	desc = ENG_foriegn_intervention_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.1.a
+		if = {
+			limit = {
+				tag = DEN
+			}
+			ICE = {
+				annex_country = {
+					target = DEN
+				}
+				remove_ideas = ICE_royal_loyalists
+			}
+			ENG = {
+				add_to_faction = ICE
+			}
+			ICE = {
+				every_controlled_state = {
+					add_core_of = ICE
+				}
+			}
+		}
+		hidden_effect =  {
+			if = {
+				limit = {
+					tag = SWE
+					NOT = {
+						is_in_faction_with = GER
+					}
+					GER = {
+						is_faction_leader = yes
+					}
+				}
+				GER = {
+					country_event = generic.2
+				}
+			}
+		}
+	}
+}
+
+##kalmar
+country_event = {
+	id = ENG_foriegn_intervention_tree.2
+	title = ENG_foriegn_intervention_tree.2.t
+	desc = ENG_foriegn_intervention_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.2.a #NOR
+		NOR = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.2.b #DEN
+		SWE = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.2.c #SWE
+		ICE = {
+			country_event = ENG_foriegn_intervention_tree.3
+		}
+	}
+}
+
+country_event = {
+	id = ENG_foriegn_intervention_tree.3
+	title = ENG_foriegn_intervention_tree.3.t
+	desc = ENG_foriegn_intervention_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.3.a #NOR
+		if = {
+			limit = {
+				tag = NOR
+			}
+			set_cosmetic_tag = NDC
+			SWE = {
+				country_event = kalmar_union.1
+			}
+			ICE = {
+				country_event = kalmar_union.1
+			}
+		}
+		if = {
+			limit = {
+				tag = SWE
+			}
+			set_cosmetic_tag = NDC
+			NOR = {
+				country_event = kalmar_union.1
+			}
+			ICE = {
+				country_event = kalmar_union.1
+			}
+		}
+		if = {
+			limit = {
+				tag = DEN
+			}
+			set_cosmetic_tag = NDC
+			SWE = {
+				country_event = kalmar_union.1
+			}
+			NOR = {
+				country_event = kalmar_union.1
+			}
+		}
+	}
+
+}
+##return of hannover
+country_event = {
+	id = ENG_foriegn_intervention_tree.4
+	title = ENG_foriegn_intervention_tree.4.t
+	desc = ENG_foriegn_intervention_tree.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.4.a #NOR
+		HAN = {
+			transfer_state = 56
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.4.b #
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_increase
+			}
+		}
+	}
+	
+}
+country_event = {
+	id = ENG_foriegn_intervention_tree.5
+	title = ENG_foriegn_intervention_tree.5.t
+	desc = ENG_foriegn_intervention_tree.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.5.a #NOR
+		HAN = {
+			transfer_state = 59
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.5.b #
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_increase
+			}
+		}
+	}
+}
+country_event = {
+	id = ENG_foriegn_intervention_tree.6
+	title = ENG_foriegn_intervention_tree.6.t
+	desc = ENG_foriegn_intervention_tree.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.6.a #NOR
+		HAN = {
+			transfer_state = 817
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.6.b #
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_increase
+			}
+		}
+	}
+}
+country_event = {
+	id = ENG_foriegn_intervention_tree.7
+	title = ENG_foriegn_intervention_tree.7.t
+	desc = ENG_foriegn_intervention_tree.7.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_foriegn_intervention_tree.7.a #NOR
+		HAN = {
+			transfer_state = 955
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = ENG_foriegn_intervention_tree.7.b #
+		ENG = {
+			add_opinion_modifier = {
+				target = ROOT
+				modifier = large_increase
+			}
+		}
+	}
+}
+
+
+add_namespace = british_american_peace
+##kalmar
+country_event = {
+	id = british_american_peace.1
+	title = british_american_peace.1.t
+	desc = british_american_peace.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.1.a 
+		ai_chance = { factor = 75 } 
+		
+		FROM = {
+			country_event = british_american_peace.2
+		}
+	}
+	option = { 
+		name = british_american_peace.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = british_american_peace.3
+		}
+	}
+}
+
+country_event = {
+	id = british_american_peace.2
+	title = british_american_peace.2.t
+	desc = british_american_peace.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.2.a 
+		ai_chance = { factor = 90 } 
+		britain_beats_america_minor = yes
+	}
+}
+
+country_event = {
+	id = british_american_peace.3
+	title = british_american_peace.3.t
+	desc = british_american_peace.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+country_event = {
+	id = british_american_peace.4
+	title = british_american_peace.4.t
+	desc = british_american_peace.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.4.a 
+		ai_chance = { factor = 90 } 
+		add_ideas = USA_great_patriotic_war
+	}
+}
+
+country_event = { #revolt if you've puppeted the USA
+	id = british_american_peace.5
+	title = british_american_peace.5.t
+	desc = british_american_peace.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	is_triggered_only = yes 
+
+	immediate = {
+		hidden_effect = {
+			CSA = {
+				add_state_core = 362
+				add_state_core = 366
+				add_state_core = 365
+				add_state_core = 367
+				add_state_core = 370
+				add_state_core = 372
+				add_state_core = 375
+				add_state_core = 374
+				add_state_core = 1091
+				add_state_core = 373
+				add_state_core = 368
+				add_state_core = 369
+				add_state_core = 364
+				add_state_core = 363
+				add_state_core = 1090
+			}
+			every_country = {
+				limit = {
+					any_owned_state = {
+						is_core_of = CSA
+					}
+				}
+				release = CSA
+			}
+			CSA = {
+				set_politics = {
+					ruling_party = neutrality
+					elections_allowed = no
+				}
+				every_owned_state = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 4
+					}
+				}
+			}
+		}
+	}
+
+	option = { #the south rises agjiasjdfs
+		name = british_american_peace.5.a 
+		ai_chance = { factor = 90 } 
+		delete_unit = {
+			state = 362
+		}
+		delete_unit = {
+			state = 375
+		}
+		delete_unit = {
+			state = 371
+		}
+		delete_unit = {
+			state = 366
+		}
+		delete_unit = {
+			state = 365
+		}
+		create_wargoal = {
+			target = CSA
+			type = annex_everything
+		}
+		every_state = {
+			limit = { is_core_of = USA }
+			add_claim_by = CSA
+		}
+		CSA = {
+			add_ideas = USA_great_patriotic_war
+			create_wargoal = {
+				target = ENG
+				type = topple_government
+			}
+		}
+		hidden_effect = {
+			country_event = { id = british_american_peace.7 days = 6 random = 480 }
+			country_event = { id = british_american_peace.8 days = 6 random = 480 }
+			country_event = { id = british_american_peace.9 days = 6 random = 480 }
+			country_event = { id = british_american_peace.10 days = 6 random = 480 }
+		}
+	}
+}
+
+country_event = { #USB civil war
+	id = british_american_peace.6
+	title = british_american_peace.6.t
+	desc = british_american_peace.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		USB = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					set_cosmetic_tag = USA
+				}
+				else = {
+					start_civil_war = {
+						ideology = neutrality
+					size = 0.5
+						set_cosmetic_tag = USA
+					}
+				}
+			}
+		}
+		hidden_effect = {
+			country_event = { id = british_american_peace.7 days = 6 random = 480 }
+			country_event = { id = british_american_peace.8 days = 6 random = 480 }
+			country_event = { id = british_american_peace.9 days = 6 random = 480 }
+			country_event = { id = british_american_peace.10 days = 6 random = 480 }
+		}
+	}
+}
+
+country_event = { #TEX civil war
+	id = british_american_peace.7
+	title = british_american_peace.7.t
+	desc = british_american_peace.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+	trigger = {
+		has_subject = TEX
+	}
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		TEX = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = fascism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #MID civil war
+	id = british_american_peace.8
+	title = british_american_peace.8.t
+	desc = british_american_peace.8.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes 
+	trigger = {
+		has_subject = MID
+	} 
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		MID = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = democratic_communism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #DES civil war
+	id = british_american_peace.9
+	title = british_american_peace.9.t
+	desc = british_american_peace.9.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	trigger = {
+		has_subject = DES
+	}
+	is_triggered_only = yes 
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		DES = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = neutrality
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #CAL civil war
+	id = british_american_peace.10
+	title = british_american_peace.10.t
+	desc = british_american_peace.10.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	is_triggered_only = yes 
+
+	trigger = {
+		has_subject = CAL
+	}
+
+	option = { 
+		name = british_american_peace.6.a 
+		ai_chance = { factor = 90 } 
+		CAL = {
+			if = {
+				limit = {
+					NOT = { has_government = democratic }
+				}
+				start_civil_war = {
+					ideology = democratic
+					size = 0.5
+					drop_cosmetic_tag = yes
+				}
+				else = {
+					start_civil_war = {
+						ideology = fascism
+						size = 0.5
+						drop_cosmetic_tag = yes
+					}
+				}
+			}
+		}
+	}
+}
+
+add_namespace = ENG_imperial_federation_tree
+
+## invitation to imperial fed
+country_event = {
+	id = ENG_imperial_federation_tree.1
+	title = ENG_imperial_federation_tree.1.t
+	desc = ENG_imperial_federation_tree.1.d
+	is_triggered_only = yes
+	option = {
+		name = ENG_imperial_federation_tree.1.a
+		keep_current_politics = yes
+		drop_cosmetic_tag = yes
+		ENG = {
+			set_autonomy = {
+				target = PREV
+				autonomy_state = autonomy_imperial_federation_member
+			}
+		}
+		reset_government = yes
+
+		ai_chance = {
+			factor = var:GetImperialFedAcceptChance
+		}
+	}
+	option = {
+		name = ENG_imperial_federation_tree.1.b
+		ai_chance = {
+			factor = var:GetImperialFedAcceptChanceOpposite
+		}
+	}
+}
+
+##Kings coup
+add_namespace = ENG_alberts_coup
+country_event = {
+	id = ENG_alberts_coup.1
+	title = ENG_alberts_coup.1.t
+	desc = ENG_alberts_coup.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_alberts_coup.1.a
+		set_politics = {
+			ruling_party = neutrality
+		}
+		ai_chance = {
+			factor = 0
+		}
+		#load new tree
+	}
+	option = {
+		name = ENG_alberts_coup.1.b
+		add_political_power = -50
+		add_command_power = -25
+		army_experience = -10
+
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				ideology=democratic_conservative
+				expire="1938.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=democratic_liberal
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology= social_democratic
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=libertarian_socialism
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=despotic
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=authoritarian_democrat
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		add_country_leader_role = {
+			character = ENG_henry_ix
+			promote_leader = yes
+			country_leader={
+				#desc="POLITICS_WINSTON_CHURCHILL_DESC"
+				ideology=fascism_ideology
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+	}
+}
+
+country_event = {
+	id = ENG_alberts_coup.2
+	title = ENG_alberts_coup.2.t
+	desc = ENG_alberts_coup.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = ENG_alberts_coup.2.a
+		remove_country_leader_trait = paranoid_monarch
+	}
+	
+}
+
+
+##Prussian stuff
+add_namespace = ENG_Goering
 country_event = {
 	id = ENG_Goering.1
 	title = ENG_Goering.1.t
@@ -323,6 +1847,117 @@ country_event = { #Hanover's sabotaged evacuation route
 	}
 }
 
+country_event = { #by stalhpakt
+	id = ENG_Goering.12
+	title = ENG_Goering.12.t
+	desc = ENG_Goering.12.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.12.a #screw them
+		ENG = {
+			country_event = {
+				id = ENG_Goering.13
+				days = 1
+			}
+		}
+	}	
+	option = {
+		name = ENG_Goering.12.b #let's play into this
+		ai_chance = {
+			factor = 0
+		}
+		ENG = {
+			country_event = {
+				id = ENG_Goering.14
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #by stalhpakt
+	id = ENG_Goering.13
+	title = ENG_Goering.13.t
+	desc = ENG_Goering.13.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.13.a #screw them
+		
+	}	
+	
+}
+country_event = { #by stalhpakt
+	id = ENG_Goering.14
+	title = ENG_Goering.14.t
+	desc = ENG_Goering.14.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.14.a #screw them
+		
+	}	
+	
+}
+
+country_event = { #by stalhpakt
+	id = ENG_Goering.15
+	title = ENG_Goering.15.t
+	desc = ENG_Goering.15.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.15.a #screw them
+		ENG = {
+			country_event = {
+				id = ENG_Goering.16
+				days = 1
+			}
+		}
+	}	
+	option = {
+		name = ENG_Goering.15.b #let's play into this
+		ai_chance = {
+			factor = 0
+		}
+		ENG = {
+			country_event = {
+				id = ENG_Goering.17
+				days = 1
+			}
+		}
+	}
+}
+
+country_event = { #by stalhpakt
+	id = ENG_Goering.16
+	title = ENG_Goering.16.t
+	desc = ENG_Goering.16.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.16.a #screw them
+		annex_country = {
+			target = FROM
+			transfer_troops = yes
+		}
+	}	
+	
+}
+country_event = { #by stalhpakt
+	id = ENG_Goering.17
+	title = ENG_Goering.17.t
+	desc = ENG_Goering.17.d
+	is_triggered_only = yes
+
+	option = {
+		name = ENG_Goering.17.a #screw them
+		
+	}	
+	
+}
+
 news_event = {
 	id = ENG_Goering.3
 	title = ENG_Goering.3.t
@@ -350,108 +1985,3 @@ news_event = {
 	}
 }
 
-add_namespace = ENG_elections
-
-##Halifax victory
-news_event = {
-	id = ENG_elections.1
-	title = ENG_elections.1.t
-	desc = ENG_elections.1.d
-	picture = GFX_halifaxvictory
-	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.1.a
-	}
-}
-
-##churchill victory
-news_event = {
-	id = ENG_elections.2
-	title = ENG_elections.2.t
-	desc = ENG_elections.2.d
-	picture = GFX_churchillvictory
-	
-	major = yes
-	fire_only_once = no
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.2.a
-	}
-}
-
-##Mosley victory
-news_event = {
-	id = ENG_elections.3
-	title = ENG_elections.3.t
-	desc = ENG_elections.3.d
-	picture = GFX_mosleyvictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.3.a
-	}
-}
-
-##attlee victory
-news_event = {
-	id = ENG_elections.4
-	title = ENG_elections.4.t
-	desc = ENG_elections.4.d
-	picture = GFX_attleevictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.4.a
-	}
-}
-
-##benett-eden victory
-news_event = {
-	id = ENG_elections.5
-	title = ENG_elections.5.t
-	desc = ENG_elections.5.d
-	picture = GFX_attleevictory
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.5.a
-	}
-}
-
-##blockade
-news_event = {
-	id = ENG_elections.6
-	title = ENG_elections.6.t
-	desc = ENG_elections.6.d
-	picture = GFX_britishembargo
-	major = yes
-	fire_only_once = no
-
-	is_triggered_only = yes
-
-    option = {
-		name = ENG_elections.6.a
-		if = {
-			limit = {
-				tag = GER
-			}
-			add_opinion_modifier = {
-				target = ENG
-				modifier = uk_embargo
-			}
-		}
-	}
-}

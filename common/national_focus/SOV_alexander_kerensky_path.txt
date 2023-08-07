@@ -1943,7 +1943,7 @@ shared_focus = {
 shared_focus = {
 	id = SOV_great_beacon_democracy
 	icon = GFX_goal_Generic_Blue_Democracy
-	x = 27 
+	x = 29
 	y = 0
 	cost = 5
 	available_if_capitulated = yes
@@ -2049,7 +2049,10 @@ shared_focus = {
 	}
 	bypass = {
 		PER = {
-			exists = no
+			OR = {
+				exists = no
+				is_in_faction = yes
+			}
 		}
 	}
 	completion_reward = {
@@ -2072,11 +2075,14 @@ shared_focus = {
 	#search_filters = { FOCUS_FILTER_RESEARCH }
   
 	ai_will_do = {
-		factor = 1000
+		factor = 0
 	}
 	bypass = {
 		PER = {
-			exists = no
+			OR = {
+				exists = yes
+				is_in_faction = yes
+			}
 		}
 	}
 	available = {
@@ -2087,9 +2093,10 @@ shared_focus = {
 		}
 	}
 	completion_reward = {
-		PER = {
-			country_event = russia.22
-		}
+		add_to_variable = {
+            tooltip = increase_persian_influence_by_5
+            persian_influence = 5
+        }
 	}
 }
 shared_focus = {
@@ -2124,9 +2131,10 @@ shared_focus = {
 	available_if_capitulated = no
 
 	completion_reward = {
-		AFG = {
-			country_event = russia.22
-		}
+		add_to_variable = {
+            tooltip = increase_afghani_influence_by_5
+            afghani_influence = 5
+        }
 	}
 	ai_will_do = {
 		factor = 200

@@ -26,23 +26,18 @@ if = {
 
 set_research_slots = 3
 
-if = {
-	limit = { 
-		has_dlc = "Death or Dishonor"
-	}
-	add_ideas = {
-
-	}
-}
-
 add_ideas = {
 
 }
 
 add_ideas = {
 	Alexander_the_Mad
+	Balkan_depression_economic_1
+	Balkan_depression_industry_1
+	Balkan_depression_population
+	Alexanders_Nepotism
 	Army_in_Chaos
-	Agrarianism
+	#Agrarianism
 }
 
 set_technology = {
@@ -134,39 +129,17 @@ set_popularities = {
 set_stability = 0.6
 
 recruit_character = YUG_alexander_i
+recruit_character = YUG_petar_ii
+recruit_character = YUG_josip_broz_tito
+recruit_character = YUG_milan_stojadinovic
+recruit_character = YUG_milan_grol
+recruit_character = YUG_milutin_nedic
+recruit_character = YUG_milan_nedic
+recruit_character = YUG_petar_bojovic
+recruit_character = YUG_ljubomir_maric
+recruit_character = YUG_bogoljub_ilic
+recruit_character = YUG_milan_spasic
 
-create_country_leader = {
-	name = "Milan Stojadinović"
-	desc = "POLITICS_MILAN_STOJADINOVIC_DESC"
-	picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Milan_Stojadinovic.dds"
-	expire = "1965.1.1"
-	ideology = fascism_ideology
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Milan Grol"
-	desc = "POLITICS_MILAN_GROL_DESC"
-	picture = "gfx/leaders/YUG/Portrait_Yugoslavia_Milan_Grol.dds"
-	expire = "1965.1.1"
-	ideology = democratic_liberal
-	traits = {
-		#
-	}
-}
-
-create_country_leader = {
-	name = "Josip Broz Tito"
-	desc = "POLITICS_JOSIP_BROZ_TITO_DESC"
-	picture = "Portrait_Yugoslavia_Josip_Broz_Tito.dds"
-	expire = "1965.1.1"
-	ideology = leninism
-	traits = {
-		#
-	}
-}
 
 create_corps_commander = {
 	name = "Vladimir Čukavac"
@@ -203,16 +176,6 @@ create_field_marshal = {
 	logistics_skill = 1
 }
 
-create_field_marshal = {
-	name = "Milutin Nedić"
-	gfx = GFX_Portrait_yugoslavia_milutin_nedic
-	traits = { thorough_planner }
-	skill = 3
-	attack_skill = 3
-	defense_skill = 2
-	planning_skill = 2
-	logistics_skill = 3
-}
 
 create_corps_commander = {
 	name = "Petar Kosić"
@@ -307,34 +270,6 @@ if = {
 			fixed_ship_torpedo_slot = ship_torpedo_1
 			mid_1_custom_slot = ship_mine_layer_1
 			rear_1_custom_slot = ship_depth_charge_1
-		}
-	}
-}
-
-# 1939 Start #
-1939.1.1 = {
-	if = {
-		limit = { not = { has_dlc = "Man the Guns" } }
-		# Ship variants #
-	}
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		# Destroyers #
-		create_equipment_variant = {
-			name = "Beograd Class"
-			type = ship_hull_light_2
-			name_group = YUG_DD_HISTORICAL
-			parent_version = 0
-			modules = {
-				fixed_ship_battery_slot = ship_light_battery_2
-				fixed_ship_anti_air_slot = ship_anti_air_1
-				fixed_ship_fire_control_system_slot = ship_fire_control_system_0
-				fixed_ship_radar_slot = empty
-				fixed_ship_engine_slot = light_ship_engine_2
-				fixed_ship_torpedo_slot = ship_torpedo_1
-				mid_1_custom_slot = ship_mine_layer_1
-				rear_1_custom_slot = ship_depth_charge_1
-			}
 		}
 	}
 }

@@ -1,0 +1,571 @@
+add_namespace = xibei
+
+
+country_event = {
+	id = xibei.1 
+	title = xibei.1.t
+	desc = xibei.1.d
+	picture = GFX_report_event_china_politicians_captured
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xibei.1.a 
+		ai_chance = { factor = 60 }
+		set_country_flag = {
+			flag = xibei_small_nationalism
+			value = 1
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_ming
+				}
+			}
+			
+			QNG = {
+					create_faction = QNG_qing_sphere
+				}
+			QNG = { add_to_faction = XSM }
+		}
+		if = {
+			limit = {
+				MON = {
+					has_country_flag = mongolia_qing
+				}
+			}
+			MNG = {
+					create_faction = MNG_ming_sphere
+				}
+			MNG = { add_to_faction = XSM }
+		}
+		
+		news_event = {id = xibei.2 }
+	}
+	option = { 
+		name = xibei.1.b
+		ai_chance = { factor = 40 }
+		set_country_flag = {
+			flag = xibei_large_nationalism
+			value = 1
+		}
+		add_war_support = 0.15
+		
+	}
+}
+news_event = {
+	id = xibei.2 
+	title = xibei.2.t
+	desc = xibei.2.d
+	picture = GFX_china_march
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = xibei.2.a 
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+	}
+}
+
+#For large nationalism
+country_event = {
+	id = xibei.3 
+	title = xibei.3.t
+	desc = xibei.3.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xibei.3.a 
+		ai_chance = { factor = 50 }
+		hidden_effect = {
+			KUL = {
+				set_country_flag = xibei_ally
+			}
+			country_event = {
+				id = xibei.7
+				days = 320
+			}
+		}
+		diplomatic_relation = {
+			country = KUL
+			relation = guarantee
+			active = yes
+		}
+	}
+	option = { 
+		name = xibei.3.b
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			ETS = {
+				set_country_flag = xibei_ally
+			}
+			country_event = {
+				id = xibei.7
+				days = 320
+			}
+		}
+		diplomatic_relation = {
+			country = ETS
+			relation = guarantee
+			active = yes
+		}
+	}
+	option = { 
+		name = xibei.3.c
+		ai_chance = { factor = 30 }
+		hidden_effect = {
+			UMR = {
+				set_country_flag = xibei_ally
+			}
+			country_event = {
+				id = xibei.7
+				days = 320
+			}
+		}
+		diplomatic_relation = {
+			country = UMR
+			relation = guarantee
+			active = yes
+		}
+	}
+}
+#for small nationalism
+country_event = {
+	id = xibei.4 
+	title = xibei.4.t
+	desc = xibei.4.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xibei.4.a 
+		ai_chance = { factor = 100 }
+		declare_war_on = {
+			target = TIB
+			type = take_state_focus
+			generator = { 322 }
+		}
+	}
+	
+}
+#for small nationalism
+country_event = {
+	id = xibei.5 
+	title = xibei.5.t
+	desc = {
+		text = xibei.5.d.a
+		trigger = {
+			AND = {
+				KUL = {
+					has_war = no
+				}
+				ILI = {
+					has_war = no
+				}
+				UMR = {
+					has_war = no
+				}
+				ETS = {
+					has_war = no
+				}
+			}
+		}
+		text = xibei.5.d.b
+		trigger = {
+			OR = {
+				KUL = {
+					has_war = yes		
+				}
+				ILI = {
+					has_war = yes
+				}
+				UMR = {
+					has_war = yes
+				}
+				ETS = {
+					has_war = yes
+				}
+			}
+		}
+	}
+	picture = GFX_report_event_chinese_soldiers_running
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+	
+	#this is for if the war had a victor
+	option = { 
+		name = xibei.5.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				KUL = {
+					has_war = no
+				}
+				ILI = {
+					has_war = no
+				}
+				UMR = {
+					has_war = no
+				}
+				ETS = {
+					has_war = no
+				}
+			}
+		}
+		if = {	
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			else_if = {
+				limit = {
+					ETS = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ETS
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					UMR = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = UMR
+					type = annex_everything
+				}
+			}
+			else_if = {
+				limit = {
+					ILI = {
+						exists = yes
+					}
+				}
+				declare_war_on = {
+					target = ILI
+					type = annex_everything
+				}
+			}			
+			
+		}
+	}
+	#This is for if the war didn't end yet
+	option = {
+		name = xibei.5.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			OR = {
+				KUL = {
+					has_war = yes		
+				}
+				ILI = {
+					has_war = yes
+				}
+				UMR = {
+					has_war = yes
+				}
+				ETS = {
+					has_war = yes
+				}
+			}
+		}
+		if = {	
+			limit = {
+				KUL = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				ETS = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				UMR = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				ILI = {
+					exists = yes
+				}
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+		}			
+			
+	}
+}
+#for small nationalism
+country_event = {
+	id = xibei.6 
+	title = xibei.6.t
+	desc = xibei.6.d
+	picture = GFX_report_event_chinese_soldiers_fighting
+	fire_only_once = yes   
+	is_triggered_only = yes
+	option = { 
+		name = xibei.6.a 
+		ai_chance = { factor = 100 }
+		#triggers the clash of dragons
+		news_event = {
+			id = DBK_china.1
+			days = 2
+		}
+		country_event = {
+			id = DBK_china.2
+			days = 5
+		}
+		if = {
+			limit = {
+				is_in_faction_with = MNG 
+			}
+			MNG = {
+				declare_war_on = {
+					target = QNG
+					type = annex_everything
+				}
+			}
+			XSM = {
+				add_to_war = {
+					targeted_alliance = MNG
+					enemy = QNG
+				}
+			}
+			MON = {
+				add_to_war = {
+					targeted_alliance = QNG
+					enemy = MNG
+				}
+			}
+			
+			else_if = {
+				limit = {
+					is_in_faction_with = QNG
+				}
+				QNG = {
+					declare_war_on = {
+						target = MNG 
+						type = annex_everything
+					}
+				}
+				XSM = {
+					add_to_war = {
+						targeted_alliance = QNG
+						enemy = MNG
+					}
+				}
+				MON = {
+					add_to_war = {
+						targeted_alliance = MNG
+						enemy = QNG
+					}
+				}
+			}
+		}
+	}
+}
+#for large nationalism
+country_event = {
+	id = xibei.7 
+	title = xibei.7.t
+	desc = xibei.7.d
+	picture = GFX_report_event_chinese_soldiers_running
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	#for if the war had a victor
+	option = { 
+		name = xibei.7.a
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND = {
+				KUL = {
+					has_war = no
+				}
+				ILI = {
+					has_war = no
+				}
+				UMR = {
+					has_war = no
+				}
+				ETS = {
+					has_war = no
+				}
+				any_country = {
+					has_country_flag = xibei_ally
+				}
+			}
+		}
+		XSM = {
+			create_faction = XSM_NORTHWEST_ALLIANCE
+		}
+		every_country = {
+			limit = {
+				has_country_flag = xibei_ally
+			}
+			XSM = { add_to_faction = PREV }
+		}
+		hidden_effect = {
+			country_event = {
+				id = DBK_china.4
+				days = 280
+			}
+		}
+	}
+
+	#This is for if the war didn't end yet, but the ally lives
+	option = {
+		name = xibei.7.b
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND  = {
+				OR = {
+					KUL = {
+						has_war = yes		
+					}
+					ILI = {
+						has_war = yes
+					}
+					UMR = {
+						has_war = yes
+					}
+					ETS = {
+						has_war = yes
+					}
+				}
+				any_country = {
+					has_country_flag = xibei_ally
+				}
+			}
+		}
+		XSM = {
+			create_faction = XSM_NORTHWEST_ALLIANCE
+		}
+		every_country = {
+			limit = {
+				has_country_flag = xibei_ally
+			}
+			XSM = { add_to_faction = PREV }
+		}
+		hidden_effect = {
+			country_event = {
+				id = DBK_china.4
+				days = 280
+			}
+		}
+	}
+	option = {
+		name = xibei.7.c
+		ai_chance = { factor = 100 }
+		trigger = {
+			AND  = {
+				OR = {
+					KUL = {
+						has_war = yes		
+					}
+					ILI = {
+						has_war = yes
+					}
+					UMR = {
+						has_war = yes
+					}
+					ETS = {
+						has_war = yes
+					}
+				}
+				NOT = {
+					any_country = {
+						has_country_flag = xibei_ally
+					}
+				}
+			}
+		}
+		if = {
+			limit = {
+				country_exists = KUL
+			}
+			declare_war_on = {
+				target  = KUL
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				country_exists = ILI
+			}
+			declare_war_on = {
+				target  = ILI
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				country_exists = UMR
+			}
+			declare_war_on = {
+				target  = UMR
+				type = annex_everything
+			}
+		}
+		if = {
+			limit = {
+				country_exists = ETS
+			}
+			declare_war_on = {
+				target  = ETS
+				type = annex_everything
+			}
+		}
+		hidden_effect = {
+			country_event = {
+				id = DBK_china.4
+				days = 280
+			}
+		}
+	}
+	
+}
+ 
+
+
+ 

@@ -1,0 +1,418 @@
+characters={
+	QNG_pujie={
+		name="Pu Jie"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Pujie.png"
+			}
+		}
+		country_leader={
+			desc = zhengjie_desc
+			ideology=liberal_socialism
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			desc = zhengjie_desc
+			ideology=paternalistic_conservatism
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			desc = zhengjie_desc
+			ideology=authoritarian_conservatism
+			expire="1965.1.1.1"
+			id=-1
+		}
+		country_leader={
+			desc = zhengjie_desc
+			ideology=despotic 
+			expire="1965.1.1.1"
+			id=-1
+		}
+		field_marshal = {
+			traits = { trait_reckless politically_connected }
+			skill = 1
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	QNG_aisin_gioro_zaitao = {
+		name = "Aisin Gioro Zaitao"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Zaitao.png"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	QNG_aisin_gioro_xiqia = {
+		name = "Aisin Gioro Xiqia"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Xiqia.png"
+			}
+		}
+		corps_commander = {
+			traits = { cavalry_officer politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = QIE_aisin_gioro_xiqia
+			traits = { army_chief_organizational_1 }
+			cost = 50
+		}
+	}
+	QNG_aisin_gioro_jixing = {
+		name = "Aisin Gioro Jixing"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Jixing.png"
+			}
+		}
+		corps_commander = {
+			traits = { politically_connected }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	QNG_zhang_xueliang={
+		name="Zhang Xueliang"
+		portraits={
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_FNG_Zhang_Xueliang.png"
+			}
+			army = {
+				large = "gfx/leaders/QNG/Portrait_FNG_Zhang_Xueliang_Army.png"
+			}
+		}
+		corps_commander = {
+			traits = { trait_engineer politically_connected substance_abuser }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = FNG_zhang_xueliang_air_chief
+			available = {
+				not_already_hired_except_as = air_chief
+			}
+			traits = { air_chief_reform_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = FNG_zhang_xueliang_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_morale_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = high_command
+			idea_token = FNG_zhang_xueliang_high_command
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_air_superiority_1 }
+			cost = 50
+		}
+		
+	}
+	QNG_zhang_zuoxiang = {
+		name = "Zhang Zuoxiang"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_QNG_Zhang_Zuoxiang.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard career_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	QNG_zhang_zuolin = {
+		name = "Zhang Zuolin"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_FNG_Zhang_Zuolin.png"
+			}
+		}
+		field_marshal = {
+			traits = { old_guard substance_abuser organizer skilled_staffer logistics_wizard }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 4
+		}
+	}
+	QNG_wang_chengbin = {  # A Manchu
+		name = "Wang Chengbin"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Wang_Chengbin.png"
+			}
+		}
+		corps_commander = {
+			traits = { career_officer politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = QIE_wang_chengbin_hc
+			ledger = army
+			traits = { army_logistics_2 }
+			cost = 100
+		}
+	}
+	QNG_sa_zhenbing = {
+		name = "Sa Zhenbing"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Sa_Zhenbing.png"
+			}
+		}
+		navy_leader = {
+			traits = { gentlemanly navy_career_officer battleship_adherent naval_lineage }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 3
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = QIE_sa_zhenbing_navy_chief
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
+	}
+	QNG_feng_yuxiang = {
+		name = "Feng Yuxiang"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_Shanxi_Feng_Yuxiang.png"
+			}
+		}
+		corps_commander = {
+			traits = { infantry_leader aggressive_assaulter }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	QNG_yan_xishan = {
+		name = "Yan Xishan"
+		portraits = {
+			army = {
+				small=GFX_portrait_SHX_yan_xishan_small
+			}
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_Shanxi_Yan_Xishan.png"
+			}
+		}
+		corps_commander = {
+			traits = { brilliant_strategist organizer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	BEI_wu_peifu={
+		name="Wu Peifu"
+		portraits={
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Wu_Peifu.png"
+			}
+		}
+		field_marshal = {
+			#desc = QIE_WU_PEIFU_ARMY_DESC
+			traits = { old_guard brilliant_strategist politically_connected war_hero }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 1
+		}
+	}
+	BEI_sun_chuanfang = {
+		name = "Sun Chuanfang"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_LEP_Sun_Chuanfang.png"
+			}
+			army = {
+				large = "gfx/leaders/QNG/Portrait_LEP_Sun_Chuanfang.png"
+			}
+		}
+		field_marshal = {
+			#desc = "POLITICS_LEP_SUN_CHUANFANG_ARMY_DESC"
+			traits = { old_guard politically_connected substance_abuser trait_cautious organizer fast_planner }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	BEI_qi_xieyuan = {
+		name = "Qi Xieyuan"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/QNG/Portrait_LEP_Qi_Xieyuan.png"
+			}
+			army = {
+				large = "gfx/leaders/QNG/Portrait_LEP_Qi_Xieyuan.png"
+			}
+		}
+		corps_commander = {
+			#desc = "POLITICS_LEP_QI_XIEYUAN_ARMY_DESC"
+			traits = { old_guard politically_connected substance_abuser trait_cautious organizer thorough_planner }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	BEI_wang_lingyun = {
+		name = "Wang Lingyun"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Wang_Lingyun.png"
+			}
+		}
+		corps_commander = {
+			#desc = QIE_WANG_LINGYUN_ARMY_DESC
+			traits = { organizer trait_engineer infantry_officer }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = QIE_wang_lingyun_hc
+			ledger = army
+			traits = { army_entrenchment_2 }
+			cost = 100
+		}
+	}
+	BEI_zhang_shaozeng = {
+		name = "Zhang Shaozeng"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Zhang_Shaozeng.png"
+			}
+		}
+		corps_commander = {
+			#desc = QIE_ZHANG_SHAOZENG_ARMY_DESC
+			traits = { artillery_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 3
+		}
+	}
+	BEI_wei_yisan = {
+		name = "Wei Yisan"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Wei_Yisan.png"
+			}
+		}
+		corps_commander = {
+			#desc = QIE_WEI_YISAN_ARMY_DESC
+			traits = { politically_connected career_officer artillery_officer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+	}
+	BEI_wu_renli = {
+		name = "Wu Renli"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Wu_Renli.png"
+			}
+		}
+		navy_leader = {
+			#desc = QIE_WU_RENLI_NAVY_DESC
+			traits = { navy_career_officer superior_tactician }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			maneuvering_skill = 2
+			coordination_skill = 1
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = QIE_wu_renli_navy_chief
+			traits = { navy_chief_reform_2 }
+			cost = 100
+		}
+	}
+	BEI_du_xigui = {
+		name = "Du Xigui"
+		portraits = {
+			army = {
+				large = "gfx/leaders/QNG/Portrait_QIE_Du_Xigui.png"
+			}
+		}
+		navy_leader = {
+			#desc = QIE_DU_XIGUI_NAVY_DESC
+			traits = { old_guard_navy navy_career_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = QIE_du_xigui_hc
+			ledger = navy
+			traits = { navy_capital_ship_1 }
+			cost = 50
+		}
+	}
+}

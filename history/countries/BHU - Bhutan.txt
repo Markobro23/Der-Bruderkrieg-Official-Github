@@ -1,6 +1,6 @@
 ﻿capital = 324
 
-oob = "BHU_1936"
+oob = "BHU"
 
 # Starting tech
 set_technology = {
@@ -12,57 +12,14 @@ ENG = {
 	add_to_faction = BHU
 }
 
-add_ideas = {
-	BHU_tibetan_exile
-	BHU_last_bastion_of_sun_yat_sen
-}
+
 
 
 set_war_support = 0.1
 set_stability = 0.8
-1939.1.1 = {
-
-	add_political_power = 1198
-	
-	#generic focuses
-	complete_national_focus = army_effort
-	complete_national_focus = equipment_effort
-	complete_national_focus = motorization_effort
-	complete_national_focus = aviation_effort
-	complete_national_focus = construction_effort_2
-	complete_national_focus = production_effort_2
-	complete_national_focus = infrastructure_effort
-	complete_national_focus = industrial_effort
-	complete_national_focus = construction_effort
-	complete_national_focus = production_effort
-	
-	oob = "BHU_1939"
-	set_technology = {
-		infantry_weapons = 1
-		tech_mountaineers = 1
-
-		#doctrines
-		mass_assault = 1
-		pocket_defence = 1
-		defence_in_depth = 1
-
-		#electronics
-		electronic_mechanical_engineering = 1
-		radio = 1
-		mechanical_computing = 1
-
-		#industry
-		basic_machine_tools = 1
-		improved_machine_tools = 1
-		advanced_machine_tools = 1
-		fuel_silos = 1
-		construction1 = 1
-		dispersed_industry = 1
-	}
-}
 
 set_politics = {
-	ruling_party = democratic
+	ruling_party = neutrality
 	last_election = "1936.1.1"
 	election_frequency = 48
 	elections_allowed = no
@@ -79,7 +36,7 @@ set_popularities = {
 create_country_leader = {
 	name = "Jigme Wangchuck"
 	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
-	picture = "gfx/leaders/Jigme_Wanchuk.dds"
+	picture = "gfx/leaders/BHU/Jigme_Wanchuk.dds"
 	expire = "1965.1.1"
 	ideology = despotic
 	traits = {
@@ -87,25 +44,4 @@ create_country_leader = {
 	}
 }
 
-create_country_leader = {
-	name = "Ngapoi Ngawang Jigme"
-	desc = "POLITICS_JIGME_WANGCHUCK_DESC"
-	picture = "gfx/leaders/TIB/Ngapoi_Jingwe.dds"
-	expire = "1965.1.1"
-	ideology = democratic_conservative
-	traits = {
-		#
-	}
-}
 
-1939.1.1 = {
-	set_politics = {
-		ruling_party = neutrality
-		last_election = "1936.1.1"
-		election_frequency = 48
-		elections_allowed = no
-	}
-	set_popularities = {
-		neutrality = 100
-	}
-}

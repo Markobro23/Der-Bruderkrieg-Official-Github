@@ -64,15 +64,7 @@ defined_text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				NOT = {
-					has_country_flag = UK_chose_churchill
-				}
-				NOT = {
-					has_country_flag = UK_chose_mosley
-				}
-				NOT = {
-					has_country_flag = UK_chose_attlee
-				}
+				has_government = democratic
 			}
 		}
 		localization_key = "GFX_edward_halifax"
@@ -81,7 +73,7 @@ defined_text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_churchill
+				has_government = democratic_liberalism
 			}
 		}
 		localization_key = "GFX_WinstonChurchill"
@@ -90,16 +82,16 @@ defined_text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_mosley
+				has_government = fascism
 			}
 		}
-		localization_key = "GFX_OswaldMoseley"
+		localization_key = "GFX_HaroldHamsworth"
 	}
 	text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_attlee
+				has_government = socialism_democratic
 			}
 		}
 		localization_key = "GFX_ClementAttlee"
@@ -321,6 +313,24 @@ defined_text = {
 	text = {
 		trigger = {
 			THIS = {
+				tag = AST
+				has_government = socialism_democratic
+			}
+		}
+		localization_key = "GFX_john_garden"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = AST
+				has_government = democratic
+			}
+		}
+		localization_key = "GFX_arthur_fadden"
+	}
+	text = {
+		trigger = {
+			THIS = {
 				has_country_leader = {
 					name = "Ernst Rohm"
 					ruling_only = yes
@@ -365,6 +375,15 @@ defined_text = {
 			}
 		}
 		localization_key = "GFX_henry_wallace"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ANC
+				OR= { has_government = neutrality has_government = democratic has_government = authoritarian_democratic }
+			}
+		}
+		localization_key = "GFX_luke_mcnamee"
 	}
 	text = {
 		trigger = {
@@ -1984,13 +2003,13 @@ defined_text = {
 			THIS = {
 				original_tag = ENG
 				NOT = {
-					has_country_flag = UK_chose_churchill
+					has_government = democratic_liberalism
 				}
 				NOT = {
-					has_country_flag = UK_chose_mosley
+					has_government = fascism
 				}
 				NOT = {
-					has_country_flag = UK_chose_attlee
+					has_government = socialism_democratic
 				}
 			}
 		}
@@ -2000,7 +2019,7 @@ defined_text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_churchill
+				has_government = democratic_liberalism
 			}
 		}
 		localization_key = "Winston Churchill"
@@ -2009,16 +2028,16 @@ defined_text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_mosley
+				has_government = fascism
 			}
 		}
-		localization_key = "Oswald Moseley"
+		localization_key = "Harold Hamsworth"
 	}
 	text = {
 		trigger = {
 			THIS = {
 				original_tag = ENG
-				has_country_flag = UK_chose_attlee
+				has_government = socialism_democratic
 			}
 		}
 		localization_key = "Clement Attlee"
@@ -2372,7 +2391,16 @@ defined_text = {
 				has_government = socialism_democratic
 			}
 		}
-		localization_key = "Carlo Lazzarini"
+		localization_key = "John Garden"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = AST
+				has_government = democratic
+			}
+		}
+		localization_key = "Arthur Fadden"
 	}
 	text = {
 		trigger = {
@@ -2774,6 +2802,15 @@ defined_text = {
 			}
 		}
 		localization_key = "Henry Wallace"
+	}
+	text = {
+		trigger = {
+			THIS = {
+				tag = ANC
+				OR= { has_government = neutrality has_government = democratic has_government = authoritarian_democratic }
+			}
+		}
+		localization_key = "Luke McNamee"
 	}
 	text = {
 		trigger = {

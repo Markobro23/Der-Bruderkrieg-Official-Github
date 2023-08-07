@@ -1,0 +1,3365 @@
+ENG_chose_victor_of_elections = {
+	ENG_election_timeout = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 100
+	
+		fire_only_once = yes
+	
+		activation = {
+		tag = ENG
+		has_completed_focus = ENG_general_elections
+		}
+	
+		visible = {
+			
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			ENG_elections_timeout_effect = yes
+		}
+	}
+	
+}
+
+ENG_halifax_war_in_ireland = {
+	ENG_ireland_protest_mission = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 600
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_continue_the_war_in_ireland
+		}
+	
+		visible = {
+			NOT = {
+				has_completed_focus = ENG_complete_irish_integration
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			custom_effect_tooltip = USA_the_irish_civil_war_will_begin
+			hidden_effect = {
+				IRA = {
+					transfer_state = 134
+					transfer_state = 135
+					declare_war_on = {
+						target = IRE
+						type = civil_war
+					}
+				}
+			}
+		}
+	}
+	ENG_ireland_attack_mission = {
+	
+		priority = 10
+	
+		icon = generic_ignite_civil_war
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 25
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_continue_the_war_in_ireland
+		}
+	
+		visible = {
+			NOT = {
+				has_completed_focus = ENG_complete_irish_integration
+			}
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			IRE = {
+				random_owned_controlled_state = {
+					add_dynamic_modifier = {
+						modifier = ira_attack_modifier
+					}
+				}
+			}
+		}
+	}
+
+	##Crush Riots
+	ENG_crush_riots = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 0 
+
+
+
+		ai_will_do = {
+			factor = 100
+		}
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_array = IRE.owned_states
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = ira_attack_modifier
+				}
+			}
+			
+		}
+
+		available = {
+			ENG = {
+				has_completed_focus = ENG_crush_the_sein_fienn_rioters
+			}
+			divisions_in_state = {
+				size > 3
+				state = FROM
+			}
+		}
+		complete_effect = {
+			FROM = {
+				remove_dynamic_modifier = {
+					modifier = ira_attack_modifier
+				}
+			}
+			ENG = {
+				add_to_variable = {
+					tooltip = ENG_irish_integration_increase_by_5
+					ENG_irish_integration = 5
+				}
+			}
+		}
+	}
+
+	## End
+	ENG_increase_integration_for_ireland = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 50
+		days_re_enable = 15 
+
+		cost = 25
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_5
+				ENG_irish_integration = 5
+			}
+		}
+	}
+	## End
+	ENG_pro_british_propaganda = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 100
+		days_re_enable = 35 
+
+		cost = 10
+
+		fire_only_once = no
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_5
+				ENG_irish_integration = 5
+			}
+		}
+	}
+	## End
+	ENG_control_irish_media = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 60
+		days_re_enable = 0 
+
+		cost = 40
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_10
+				ENG_irish_integration = 10
+			}
+		}
+	}
+
+	ENG_invest_in_ireland = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 75
+		days_re_enable = 0 
+
+		modifier = {
+			civilian_factory_use = 2
+		}
+
+		cost = 0
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+		available = {
+			
+		}
+		visible = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_irish_integration_increase_by_10
+				ENG_irish_integration = 10
+			}
+			IRE = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+}
+
+ENG_bring_albert_from_his_paranoia = {
+	ENG_monthly_meeting_with_albert = {
+
+		icon = generic_civil_support
+
+		cost = 0
+
+		fire_only_once = no
+
+		days_remove = 30
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_5
+				ENG_kings_approval_var = 5
+			}
+		}
+
+	}
+	ENG_albert_defender_of_britain = {
+
+		icon = generic_civil_support
+
+		cost = 15
+
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			add_popularity = {
+				ideology = ROOT
+				popularity = 0.025
+			}
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+		}
+
+	}
+
+	ENG_albert_protector_of_windsor = {
+
+		icon = generic_civil_support
+
+		cost = 25
+
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+			add_war_support = 0.03
+		}
+
+	}
+
+	ENG_fight_for_albert = {
+
+		icon = generic_industry
+
+		cost = 0
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+		}
+
+		days_remove = 100
+
+		modifier = {
+			weekly_manpower = 100
+			mobilization_speed = 0.1
+		}
+
+	}
+
+	ENG_alberts_europakrieg_knowledge = {
+
+		icon = generic_prepare_civil_war
+
+		cost = 50
+
+		fire_only_once = yes
+
+		available = {
+			has_war = yes
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		complete_effect = {
+			add_to_variable = {
+				tooltip = ENG_kings_approval_var_increase_by_10
+				ENG_kings_approval_var = 10
+			}
+			army_experience = 5
+			add_tech_bonus = {
+				name = land_doc_bonus
+				bonus = 0.25
+				uses = 1
+				category = land_doctrine
+			}
+		}
+
+	}
+
+}
+
+weltkrieg_decisions = {
+	ENG_complete_mobilization = {
+
+		priority = 10
+
+		icon = generic_ignite_civil_war
+
+		available = {
+			hidden_trigger = { always = no }
+		}
+
+		days_mission_timeout = 25
+
+		fire_only_once = yes 
+
+		activation = {
+			tag = ENG
+			has_country_flag = ENG_activation_complete_mobilization_flag
+		}
+
+		visible = {
+			has_idea = SOV_the_mobilized_forces
+		} 
+
+		cancel_if_not_visible = yes
+
+		is_good = yes
+
+		timeout_effect = {
+			remove_ideas = SOV_the_mobilized_forces
+			create_wargoal = {
+				target = GER
+				type = topple_government
+			}
+			add_war_support = 0.15
+		}
+	}
+	ENG_invade_prussia_for_memes = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_war_with = SOV
+			NOT = {
+				has_country_flag = UK_chose_mosley
+				has_country_flag = UK_chose_attlee
+			}
+		}
+
+		cost = 0
+		days_remove = 35
+
+		available = {
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			activate_mission = ENG_complete_mobilization
+			set_country_flag = ENG_activation_complete_mobilization_flag
+			add_ideas = SOV_the_mobilized_forces
+
+			hidden_effect = {
+				AUS = {
+					country_event = { id = british_inteverntion_in_prussian_expansion.3 days = 2 }
+				}
+				GER = {
+					country_event = {
+						id = british_inteverntion_in_prussian_expansion.8
+						days = 3
+					}
+				}
+			}
+
+		}
+
+	}
+}
+
+ENG_withdraw_from_hanover_cat = {
+	
+	ENG_HAN_withdrawal_mission = {
+
+		allowed = {
+			OR = {
+				tag = HAN
+				tag = GER
+				tag = ENG
+			}
+		}
+
+		activation = {
+			has_global_flag = UK_is_a_pussy
+		}
+
+		available = {
+			HAN = {
+				has_war_with = GER
+			}
+		}
+
+		is_good = no
+		fire_only_once = yes
+		days_mission_timeout = 35
+
+		timeout_effect = {
+			effect_tooltip = {
+				news_event = ENG_Goering.3
+				ENG = {
+					diplomatic_relation = {
+						country = HAN
+						relation = guarantee
+						active = no
+					}
+				}
+				GER = {
+					add_timed_idea = {
+						idea = GER_pact_with_britain
+						days = 200
+					}
+					add_threat = 5
+				}
+				HAN = {
+					remove_ideas = HAN_anglo_expeditionary_force
+				}
+			}
+			if = {
+				limit = { tag = GER }
+				hidden_effect = {
+					news_event = ENG_Goering.3
+					add_timed_idea = {
+						idea = GER_pact_with_britain
+						days = 200
+					}
+					add_threat = 5
+				}
+
+			}
+			if = {
+				limit = { tag = ENG }
+				hidden_effect = {
+					diplomatic_relation = {
+						country = HAN
+						relation = guarantee
+						active = no
+					}
+				}
+			}
+			if = {
+				limit = { tag = HAN }
+				hidden_effect = {
+					remove_ideas = HAN_anglo_expeditionary_force
+				}
+			}
+		}
+
+	}
+
+	GER_make_threatening_noises = {
+
+		allowed = {
+			tag = GER
+		}
+
+		fire_only_once = yes
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 7 }
+		}
+
+		cost = 10
+
+		available = {
+			has_war_support > 0.69
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+						tag = ENG
+					}
+				}
+				country_event = { id = ENG_Goering.10 }
+			}
+		}
+
+	}
+
+	GER_declare_war_on_HAN_anyways = {
+
+		allowed = {
+			tag = GER
+		}
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 4 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		cost = 50
+
+		available = {
+			strength_ratio = {
+				tag = HAN
+				ratio > 2
+			}
+			custom_trigger_tooltip = {
+				tooltip = GER_at_least_3_troops_hanover_border_state
+				OR = {
+					divisions_in_state = {
+						size > 2
+						state = 60
+					}
+					divisions_in_state = {
+						size > 2
+						state = 64
+					}
+					divisions_in_state = {
+						size > 2
+						state = 61
+					}
+					divisions_in_state = {
+						size > 2
+						state = 58
+					}
+				}
+			}
+		}
+
+		complete_effect = {
+			declare_war_on = {
+				target = HAN
+				type = annex_everything
+			}
+		}
+
+	}
+
+	ENG_speed_up_withdrawal = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 9 }
+		}
+
+		cost = 20
+
+		available = {
+			has_war_support < 0.6
+		}
+
+		complete_effect = {
+			add_days_mission_timeout = {
+				mission = ENG_HAN_withdrawal_mission
+				days = -7
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+					}
+				}
+				country_event = { id = ENG_Goering.9 }
+			}
+		}
+
+	}
+
+	ENG_slow_down_withdrawal = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 3 }
+		}
+
+		cost = 20
+
+		available = {
+			has_war_support > 0.3
+		}
+
+		complete_effect = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = GER
+						tag = HAN
+						tag = ENG
+					}
+				}
+				country_event = { id = ENG_Goering.8 }
+			}
+		}
+
+	}
+
+	HAN_sabotage_evacuation_route = {
+
+		allowed = {
+			tag = HAN
+		}
+
+		days_re_enable = 10
+
+		icon = generic_ignite_civil_war
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 15 }
+			ENG = {
+				NOT = {
+					has_country_flag = ENG_done_with_HAN_sht
+				}
+			}
+		}
+
+		cost = 25
+
+		complete_effect = {
+			if = {
+				limit = { check_variable = { HAN_poking_uk < 2 } }
+				every_country = {
+					limit = {
+						OR = {
+							tag = GER
+							tag = HAN
+							tag = ENG
+						}
+					}
+					country_event = { id = ENG_Goering.8 }
+				}
+				else = {
+					ENG = {
+						country_event = ENG_Goering.11
+					}
+				}
+			}
+			add_to_variable = { HAN_poking_uk = 1 }
+		}
+
+	}
+
+	HAN_support_defection_british_forces = {
+
+		allowed = {
+			tag = HAN
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_active_mission = ENG_HAN_withdrawal_mission
+			check_variable = { days_mission_timeout@ENG_HAN_withdrawal_mission > 4 }
+			ENG = {
+				NOT = {
+					has_country_flag = ENG_done_with_HAN_sht
+				}
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			division_template = {
+				name = "British Expeditionary Force"
+				division_names_group = ENG_INF_01
+				is_locked = yes
+				regiments = {
+					infantry = { x = 0 y = 0 }
+					infantry = { x = 0 y = 1 }
+					infantry = { x = 0 y = 2 }
+			        infantry = { x = 1 y = 0 }
+					infantry = { x = 1 y = 1 }
+					infantry = { x = 1 y = 2 }
+			        infantry = { x = 2 y = 0 }
+					infantry = { x = 2 y = 1 }
+					infantry = { x = 2 y = 2 }
+				}
+			}
+			capital_scope = {
+				create_unit = {
+				    division = "name = \"British Expeditionary Force\" division_template = \"British Expeditionary Force\" start_experience_factor = 0.3"
+				    owner = HAN
+				}
+			}
+			add_to_variable = { HAN_poking_uk = 1 }
+		}
+
+	}
+
+}
+
+
+ENG_crushing_bose_rebels = {
+	ENG_crushing_bose_rebels_in_FROM = {
+
+		icon = eng_trade_unions_demand
+
+		allowed = {
+		}
+
+	
+
+		days_remove = 0 
+
+
+
+		ai_will_do = {
+			factor = 100
+		}
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+		target_trigger = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+		}
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				has_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+			
+		}
+
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					size > 3
+					state = FROM
+				}
+			}
+		}
+		complete_effect = {
+			FROM = {
+				remove_dynamic_modifier = {
+					modifier = bose_is_annoying_attack_modifier
+				}
+			}
+			
+		}
+	}
+}
+
+ENG_imperial_federation_category = {
+	ENG_imperial_federation_nationalization_act = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 450
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_national_centralization_act
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			
+			AST = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+			SAF = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+			CAN = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+		}
+	}
+
+	ENG_imperial_federation_centralization_act = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 450
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_imperial_centralization_act
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+		
+			AST = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+			SAF = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+			CAN = {
+				set_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = GetImperialFedAcceptChance
+				}
+				multiply_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = -1
+				}
+				add_to_temp_variable = {
+					GetImperialFedAcceptChanceOpposite = 100
+				}
+				country_event = ENG_imperial_federation_tree.1
+			}
+		}
+	}
+	
+	ENG_south_african_propaganda = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			SAF = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			SAF = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_australian_propaganda = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			AST = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			AST = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_canadian_propaganda = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_pan_imperial_propaganda	
+		}
+
+		cost = 0
+		days_remove = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			CAN = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			CAN = {
+				
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_south_african_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			SAF = { add_ideas = SOV_foreign_investment_idea }
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			SAF = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			SAF = { remove_ideas = SOV_foreign_investment_idea }
+			SAF = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_australian_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			AST = { add_ideas = SOV_foreign_investment_idea }
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			AST = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			AST = { remove_ideas = SOV_foreign_investment_idea }
+			AST = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+	ENG_canadian_investments = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_invest_in_the_dominions	
+		}
+
+		cost = 0
+		days_remove = 50
+		complete_effect = {
+			CAN = { add_ideas = SOV_foreign_investment_idea }
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			CAN = { 
+				add_to_variable = {
+					tooltip = ENG_increase_imperial_fed_acceptance_chance_by_10
+					GetImperialFedAcceptChance = 10
+				}
+			}
+			CAN = { remove_ideas = SOV_foreign_investment_idea }
+			CAN = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+		modifier = {
+			production_factory_max_efficiency_factor = -0.05
+			civilian_factory_use = 2
+		}
+	}
+
+	ENG_imperial_federation_crackdown_south_africa = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_south_africa
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_south_africa
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			SAF = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_south_african_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_south_africa
+			}
+			SAF = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		
+	}
+	ENG_imperial_federation_crackdown_australia = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_australia
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_australia
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_australia
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			AST = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_australia
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_australian_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_australia
+			}
+			AST = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		
+	}
+	ENG_imperial_federation_crackdown_canada = {
+		icon = generic_civil_support
+		allowed = { 
+			tag = ENG	
+		}
+		available = {
+			NOT = {
+				any_state = {
+					has_state_flag = ENG_nationalists_rioting_in_canada
+				}
+			}
+			
+		}
+		visible = {
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_canada
+			}
+		}
+		priority = 100
+		activation = {	
+			any_state = {
+				has_state_flag = ENG_nationalists_rioting_in_canada
+			}
+		}
+		days_mission_timeout = 50
+		selectable_mission = no
+		cancel_if_not_visible = yes
+		fire_only_once = no
+		timeout_effect = {
+			CAN = { 
+				every_state = {
+					clr_state_flag = ENG_nationalists_rioting_in_canada
+				}
+				add_to_variable = {
+					tooltip = ENG_decrease_imperial_fed_acceptance_chance_by_5
+					GetImperialFedAcceptChance = 5
+				}
+			}
+		}	
+	}
+	ENG_canadian_crackdown_on_nationalists = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		fire_only_once = yes
+
+		icon = eng_trade_unions_demand
+
+		visible = {
+			has_completed_focus = ENG_curb_colonial_nationalism	
+		}
+
+		cost = 0
+		days_remove = 0
+		complete_effect = {
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			effect_tooltip = {
+				activate_mission = ENG_imperial_federation_crackdown_canada
+			}
+			CAN = {
+				random_owned_controlled_state = {
+					set_state_flag = ENG_nationalists_rioting_in_canada
+				}
+			}
+		}
+		
+	}
+
+	ENG_targeted_crush_anti_imperial_federation_riots = {
+
+		icon = generic_prepare_civil_war
+
+		days_re_enable = 0
+
+		ai_will_do = {
+			factor = 1000
+		}
+
+		on_map_mode = map_and_decisions_view
+		highlight_states = {
+			state = FROM
+		}
+		cost = 0
+
+		target_trigger = {
+			FROM = {
+				OR = {
+					has_state_flag = ENG_nationalists_rioting_in_canada
+					has_state_flag = ENG_nationalists_rioting_in_australia
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+		state_target = yes
+		fire_only_once = no
+		visible = {
+			FROM = {
+				OR = {
+					has_state_flag = ENG_nationalists_rioting_in_canada
+					has_state_flag = ENG_nationalists_rioting_in_australia
+					has_state_flag = ENG_nationalists_rioting_in_south_africa
+				}
+			}
+		}
+
+		available = {
+			if = {
+				limit = {
+					is_ai = no
+				}
+				divisions_in_state = {
+					size > 3
+					state = FROM
+				}
+			}
+			else =  {
+				always = yes
+			}
+		}
+
+		complete_effect = {
+			FROM = {
+				clr_state_flag = ENG_nationalists_rioting_in_canada
+				clr_state_flag = ENG_nationalists_rioting_in_australia
+				clr_state_flag = ENG_nationalists_rioting_in_south_africa
+				owner = {
+					add_to_variable = {
+						tooltip = ENG_increase_imperial_fed_acceptance_chance_by_5
+						GetImperialFedAcceptChance = 5
+					}
+				}
+			}
+		}
+
+	}
+}
+
+ENG_referendum_on_the_monarchy = {
+	ENG_referendum_on_the_monarchy_mission = {
+	
+		priority = 10
+		icon = decision_revolt
+	
+		available = {
+			hidden_trigger = { always = no }
+		}
+	
+		days_mission_timeout = 150
+	
+		fire_only_once = yes
+	
+		activation = {
+			has_completed_focus = ENG_to_a_republic
+		}
+	
+		visible = {
+			tag = ENG
+		} 
+	
+		cancel_if_not_visible = yes
+	
+		is_good = yes
+	 
+		timeout_effect = {
+			hidden_effect = {
+				if = {
+					limit = {
+						check_variable = {
+							ENG_abolish_monarchy_referrendum_support > 49
+						}
+					}
+					country_event = ENG_attlee_path.1
+				}
+				else = {
+					country_event = ENG_attlee_path.2
+				}
+			}
+		}
+	}
+
+	ENG_slander_the_king = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = no
+		cost = 15
+		days_remove = 35
+		days_re_enable = 20
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_abolish_monarchy_referrendum_support_increase_by_6
+				ENG_abolish_monarchy_referrendum_support = 6
+			}
+		}
+	}
+	ENG_rally_republicans = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = no
+		cost = 10
+		days_remove = 15
+		days_re_enable = 10
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_abolish_monarchy_referrendum_support_increase_by_3
+				ENG_abolish_monarchy_referrendum_support = 3
+			}
+		}
+	}
+	ENG_campaign_in_factories = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = yes
+		cost = 0
+		days_remove = 25
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_abolish_monarchy_referrendum_support_increase_by_6
+				ENG_abolish_monarchy_referrendum_support = 6
+			}
+		}
+	}
+}
+
+influencing_belgium = {
+	ENG_lower_public_support_for_degrelle = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = no
+		cost = 30
+		days_remove = 60
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_decrease_degrelles_support_by_6
+				ENG.belgian_influence = 6
+			}
+		}
+	}
+	ENG_dont_fund_a_military_parade_for_degrelle = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 30
+		cost = 20
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_decrease_degrelles_support_by_3
+				ENG.belgian_influence = 3
+			}
+		}
+	}
+	ENG_invest_in_flemish_infrastructure = {
+		icon = generic_operation
+		available = {
+			always = yes
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 45
+		cost = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_decrease_degrelles_support_by_5
+				ENG.belgian_influence = 5
+			}
+			
+		}
+	}
+	ENG_invest_in_antwerp = {
+		icon = generic_operation
+		available = {
+			
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 45
+		cost = 50
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = ENG_decrease_degrelles_support_by_5
+				ENG.belgian_influence = 5
+			}
+			
+		}
+	}
+}
+
+the_great_game = {
+
+	## Persian Crash
+	ENG_invest_in_persian_infrastructure = {
+		icon = generic_industry
+		available = {
+			PER = {
+				has_idea = PER_the_anglo_recession
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = PER_recession_recovery_started
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 0
+		modifier = {
+			production_speed_infrastructure_factor = -0.05
+			civilian_factory_use = 3
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+			PER = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = infrastructure
+						level = 2
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+	ENG_persian_foriegn_aid = {
+		icon = generic_construction
+		available = {
+			PER = {
+				has_idea = PER_the_anglo_recession
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = PER_recession_recovery_started
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 40
+		cost = 0
+		modifier = {
+			production_speed_buildings_factor = -0.05
+			civilian_factory_use = 3
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+			PER = {
+				random_owned_controlled_state = {
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+					add_extra_state_shared_building_slots = 1
+				}
+			}
+		}
+	}
+
+	## Generic Great Game
+	ENG_boost_persian_influence = {
+		icon = generic_civil_support
+		available = {
+			PER = {
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 15
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+		}
+	}
+	ENG_boost_afghani_influence = {
+		icon = generic_civil_support
+		available = {
+			AFG = {
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 15
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_afghani_influence_by_5
+				afghani_influence = 5
+			}
+		}
+	}
+
+	ENG_persian_propaganda = {
+		icon = generic_propaganda
+		available = {
+			PER = {
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 15
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_persian_influence_by_5
+				persian_influence = 5
+			}
+		}
+	}
+	ENG_afghani_propaganda = {
+		icon = generic_propaganda
+		available = {
+			AFG = {
+				is_in_faction = no
+			}
+		}
+		visible = {
+			tag = ENG
+			has_global_flag = great_game_has_begun
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = no
+		days_remove = 25
+		days_re_enable = 20
+		cost = 15
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				tooltip = increase_afghani_influence_by_5
+				afghani_influence = 5
+			}
+		}
+	}
+
+
+	## WINNER
+	## Generic Great Game
+	great_game_invite_persian_to_faction = {
+		icon = generic_independence
+		available = {
+			check_variable = {
+				persian_influence > 99
+			}
+			custom_trigger_tooltip = {
+				tooltip = persian_influence_at_100
+			}
+		}
+		visible = {
+			OR = {
+				tag = SOV
+				tag = ENG
+			}
+			PER = {
+				is_in_faction = no
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_faction = PER
+		}
+	}
+	great_game_invite_afghan_to_faction = {
+		icon = generic_independence
+		available = {
+			check_variable = {
+				afghani_influence > 99
+			}
+			custom_trigger_tooltip = {
+				tooltip = afghani_influence_at_100
+			}
+		}
+		visible = {
+			OR = {
+				tag = SOV
+				tag = ENG
+			}
+			AFG = {
+				is_in_faction = no
+			}
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_faction = AFG
+		}
+	}
+
+	great_game_escalation_level_2 = {
+		icon = generic_ignite_civil_war
+		available = {
+			OR = {
+				AFG = {
+					is_in_faction = yes
+				}
+				PER = {
+					is_in_faction = yes
+				}
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			has_global_flag = great_game_has_begun
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_war_support = 0.02
+			add_to_variable = {
+				global.great_game_escalation_level = 1
+			}
+		}
+	}
+	great_game_escalation_level_3 = {
+		icon = generic_ignite_civil_war
+		available = {
+			AFG = {
+				is_in_faction = yes
+			}
+			PER = {
+				is_in_faction = yes
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			check_variable = {
+				global.great_game_escalation_level = 2
+			}
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_war_support = 0.02
+			add_to_variable = {
+				global.great_game_escalation_level = 1
+			}
+		}
+	}
+	great_game_escalation_level_4 = {
+		icon = generic_ignite_civil_war
+		available = {
+			OR = {
+				PAL = {
+					is_in_faction_with = ENG
+				}
+				ENG = {
+					any_enemy_country = {
+						is_major = yes
+					}
+				}
+				SOV = {
+					any_enemy_country = {
+						is_major = yes
+					}
+				}
+			}
+		}
+		visible = {
+			OR = {
+				#tag = SOV
+				tag = ENG
+			}
+			check_variable = {
+				global.great_game_escalation_level = 3
+			}
+			
+		}
+		ai_will_do = {
+			factor = 5
+		}
+		fire_only_once = yes
+		days_remove = 0
+		days_re_enable = 0
+		cost = 0
+		modifier = {
+			
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_to_variable = {
+				global.great_game_escalation_level = 1
+			}
+			add_war_support = 0.2
+			if = {
+				limit = {
+					tag = ENG
+				}
+				create_wargoal = {
+					target = SOV
+					type = topple_government
+				}
+			}
+			if = {
+				limit = {
+					tag = SOV
+				}
+				create_wargoal = {
+					target = ENG
+					type = topple_government
+				}
+			}
+		}
+	}
+	
+}
+
+ENG_the_expedition_to_the_north_pole = {
+	ENG_search_for_oil_in_antarctica = {
+		icon = generic_factory
+		available = {
+			NOT = {
+				has_idea = ENG_antarctic_exploration_oil
+			}
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = no
+		cost = 0
+		days_remove = 25
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			random_list = {
+				50 = {
+					add_ideas = ENG_antarctic_exploration_oil
+				}
+				50 = {
+					add_political_power = -10
+				}
+			}
+		}
+	}
+	ENG_develop_outer_reaches_of_antarctica = {
+		icon = generic_industry
+		available = {
+			
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = yes
+		cost = 0
+		days_remove = 25
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_offsite_building = { type = industrial_complex level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
+		}	
+	}
+	ENG_antarctic_military_complex = {
+		icon = generic_army_support
+		available = {
+			
+		}
+		visible = {
+			tag = ENG
+		}
+		ai_will_do = {
+			factor = 3
+		}
+	
+		fire_only_once = yes
+		cost = 0
+		days_remove = 25
+		modifier = {
+			civilian_factory_use = 1
+		}
+		ai_will_do = {
+			factor = 100
+		}
+		remove_effect = {
+			add_offsite_building = { type = arms_factory level = 1 }
+			add_offsite_building = { type = arms_factory level = 1 }
+		}	
+	}
+}
+
+ENG_occupation_of_america = {
+
+	ENG_american_revolt_mission = {
+
+		allowed = {
+			tag = ENG
+		}
+
+		activation = {
+			OR = {
+				has_subject = USA
+				AND = {
+					has_subject = USB
+					NOT = { has_war_with = USA }
+				}
+				AND = {
+					USA = { exists = no }
+					owns_state = 361
+				}
+			}
+		}
+
+		days_mission_timeout = 180
+
+		timeout_effect = {
+			if = {
+				limit = {
+					OR = {
+						has_subject = USA
+						AND = {
+							USA = { exists = no }
+							count_triggers = {
+								count = 2
+								NOT = { country_exists = MID }
+								NOT = { country_exists = CAL }
+								NOT = { country_exists = DES }
+								NOT = { country_exists = TEX }
+							}
+						}
+					}
+				}
+				country_event = { id = british_american_peace.5 }
+				else = {
+					country_event = { id = british_american_peace.6 }
+				}
+			}
+		}
+
+	}
+
+	ENG_give_canada_northwest = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			386 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	385 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	388 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	387 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			
+        	
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CAN = {
+				transfer_state = 386
+				transfer_state = 385
+				transfer_state = 388
+				transfer_state = 387
+				add_state_core = 386
+				add_state_core = 385
+				add_state_core = 388
+				add_state_core = 387
+			}
+		}
+	}
+	ENG_give_canada_great_lakes = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			393 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	394 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	395 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	396 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			
+        	
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CAN = {
+				transfer_state = 393
+				transfer_state = 394
+				transfer_state = 395
+				transfer_state = 396
+				add_state_core = 393
+				add_state_core = 394
+				add_state_core = 388
+				add_state_core = 396
+			}
+		}
+	}
+	ENG_give_usb_great_lakes = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			USB = {
+				exists = yes
+				is_in_faction_with = ENG
+			}
+			393 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	394 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	395 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	396 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			
+        	
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			USB = {
+				transfer_state = 393
+				transfer_state = 394
+				transfer_state = 395
+				transfer_state = 396
+				add_state_core = 393
+				add_state_core = 394
+				add_state_core = 388
+				add_state_core = 396
+			}
+		}
+	}
+	ENG_dominion_of_california = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			378 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	379 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			CAL = {
+				set_cosmetic_tag = CAL_ENG
+				transfer_state = 378
+				transfer_state = 379
+				
+				add_state_core = 378
+				add_state_core = 379
+				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = CAL
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = CAL
+				}
+			}
+			hidden_effect = {
+				378 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 2
+					}
+				}
+			}
+		}	
+	}
+	
+	ENG_dominion_of_deseret = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			381 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	380 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			382 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			377 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			376 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			DES = {
+				set_cosmetic_tag = DES_ENG
+				transfer_state = 381
+				transfer_state = 380
+				transfer_state = 382
+				transfer_state = 377
+				transfer_state = 376
+				
+				
+				add_state_core = 381
+				add_state_core = 380
+				add_state_core = 382
+				add_state_core = 377
+				add_state_core = 376
+				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = DES
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = DES
+				}
+			}
+			hidden_effect = {
+				381 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = CAL
+						count = 2
+					}
+				}
+			}
+		}
+	}
+
+	ENG_dominion_of_texas = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			1090 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	375 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			374 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			371 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			372 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			383 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			373 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1091 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			TEX = {
+				set_cosmetic_tag = TEX_ENG
+				transfer_state = 1090
+				transfer_state = 375
+				transfer_state = 374
+				transfer_state = 371
+				transfer_state = 372
+				transfer_state = 383
+				transfer_state = 373
+				transfer_state = 1091
+				
+				add_state_core = 1090
+				add_state_core = 375
+				add_state_core = 374
+				add_state_core = 371
+				add_state_core = 372
+				add_state_core = 383
+				transfer_state = 373
+				transfer_state = 1091
+			}
+			ENG = { 
+				transfer_state = 1043
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = TEX
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = TEX
+				}
+			}
+			hidden_effect = {
+				375 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = TEX
+						count = 2
+					}
+				}
+			}
+		}
+	}
+	ENG_dominion_of_badlands = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			390 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	391 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			384 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			392 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			389 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			MID = {
+				set_cosmetic_tag = MID_ENG
+				transfer_state = 390
+				transfer_state = 391
+				transfer_state = 384
+				transfer_state = 392
+				transfer_state = 389
+				
+				add_state_core = 390
+				add_state_core = 391
+				add_state_core = 384
+				add_state_core = 392
+				add_state_core = 389
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = MID
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = MID
+				}
+			}
+			hidden_effect = {
+				390 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = MID
+						count = 2
+					}
+				}
+			}
+		}
+	}
+	ENG_dominion_of_america = {
+
+		icon = ger_reichskommissariats
+
+		available = {
+			261 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+        	369 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			368 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			370 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			367 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			365 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			366 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			364 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			363 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			362 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1092 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			361 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1099 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			360 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			359 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			358 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1094 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1093 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1095 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1096 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			1089 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+			357 = {
+				CONTROLLER = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+				}
+			}
+		}
+
+		ai_will_do = {
+            factor = 1000
+        }
+
+		fire_only_once = yes
+
+		complete_effect = {
+			USB = {
+				set_cosmetic_tag = USB_ENG
+				transfer_state = 261
+				transfer_state = 369
+				transfer_state = 368
+				transfer_state = 370
+				transfer_state = 367
+				transfer_state = 365
+				transfer_state = 366
+				transfer_state = 364
+				transfer_state = 363
+				transfer_state = 362
+				transfer_state = 1092
+				transfer_state = 361
+				transfer_state = 1099
+				transfer_state = 360
+				transfer_state = 359
+				transfer_state = 358
+				transfer_state = 1094
+				transfer_state = 1093
+				transfer_state = 1095
+				transfer_state = 1096
+				transfer_state = 1089
+				transfer_state = 357
+				
+				
+				add_state_core = 261
+				add_state_core = 369
+				add_state_core = 368
+				add_state_core = 370
+				add_state_core = 367
+				add_state_core = 365
+				add_state_core = 366
+				add_state_core = 364
+				add_state_core = 363
+				add_state_core = 362
+				add_state_core = 1092
+				add_state_core = 361
+				add_state_core = 1099
+				add_state_core = 360
+				add_state_core = 359
+				add_state_core = 358
+				add_state_core = 1094
+				add_state_core = 1093
+				add_state_core = 1095
+				add_state_core = 1096
+				add_state_core = 1089
+				add_state_core = 357
+				
+			}
+			ENG = { 
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+  
+					set_autonomy = {
+						target = USB
+						autonomy_state = autonomy_dominion
+					}   
+				}
+				else = {
+					puppet = USB
+				}
+			}
+			hidden_effect = {
+				261 = {
+					create_unit = {
+						division = "name = \"Infantry Division\" division_template = \"Infantry Division\" start_experience_factor = 0.2"
+						owner = USB
+						count = 4
+					}
+				}
+			}
+		}
+	}
+}
+
+ENG_home_guard_cat = {
+	ENG_deploy_home_guard = {
+		icon = generic_army
+
+		available = {
+			has_completed_focus = ENG_home_guard
+			surrender_progress > 0.1
+		}
+
+		visible = {
+			has_completed_focus = ENG_home_guard
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+
+		complete_effect = {
+			division_template = {
+				name = "Home Guard" 
+				division_names_group = ENG_INF
+				template_counter = 68
+				is_locked = yes
+				force_allow_recruiting = yes
+				division_cap = 8
+
+				regiments = { 
+					militia = { x = 0 y = 0 }
+					militia = { x = 0 y = 1 }
+					militia = { x = 1 y = 0 }
+					militia = { x = 1 y = 1 }
+					militia = { x = 2 y = 0 }
+					militia = { x = 2 y = 1 }
+				}
+				support = { 
+					engineer = { x = 0 y = 0 }
+				}
+			}
+			capital_scope = {
+                create_unit = { 
+                    division = "name = \"1. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"2. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"3. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"4. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"5. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"6. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"7. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+                create_unit = { 
+                    division = "name = \"8. Home Guard\" division_template = \"Home Guard\" start_experience_factor = 0.6 start_equipment_factor = 1.0" owner = ROOT
+                }
+            }
+		}
+	}
+}

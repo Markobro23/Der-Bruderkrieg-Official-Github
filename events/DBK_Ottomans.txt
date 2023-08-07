@@ -19,7 +19,1218 @@
 # 	}
 # }
 
- add_namespace = TUR_arab_revolt 
+add_namespace = TUR_starting_tree
+
+#state of the ottoman
+country_event = {
+	id = TUR_starting_tree.1
+	title = TUR_starting_tree.1.t
+	desc = TUR_starting_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_starting_tree.1.a
+		hidden_effect = {
+			country_event = {
+				id = TUR_starting_tree.2
+				days = 5
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	
+}
+
+## King is dead
+country_event = {
+	id = TUR_starting_tree.2
+	title = TUR_starting_tree.2.t
+	desc = TUR_starting_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_starting_tree.2.a
+		add_country_leader_role = {
+			character = TUR_regency_council
+			promote_leader = yes
+			country_leader = {
+				ideology = despotic
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	
+}
+
+add_namespace = TUR_pashas_path
+## state o CUP
+country_event = {
+	id = TUR_pashas_path.1
+	title = TUR_pashas_path.1.t
+	desc = TUR_pashas_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_pashas_path.1.a
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## power struggle
+country_event = {
+	id = TUR_pashas_path.2
+	title = TUR_pashas_path.2.t
+	desc = TUR_pashas_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_pashas_path.2.a
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## power struggle outcome
+country_event = {
+	id = TUR_pashas_path.3
+	title = TUR_pashas_path.3.t
+	desc = TUR_pashas_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_pashas_path.3.a
+
+		ai_chance = {
+			factor = 1000
+		}
+
+		add_country_leader_role = {
+			character = TUR_mehmet_talaat_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= fascism_ideology
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+
+		trigger = {
+			check_variable = {
+				TUR_mehmet_talaat_pasha_influence > 34
+			}
+		}
+	}
+	option = {
+		name = TUR_pashas_path.3.b
+
+		ai_chance = {
+			factor = 1000
+		}
+
+		trigger = {
+			check_variable = {
+				TUR_enver_pasha_influence > 34
+			}
+		}
+
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = ultranationalism
+		}
+		add_country_leader_role = {
+			character = TUR_enver_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= ultranationalist
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+	}
+	option = {
+		name = TUR_pashas_path.3.c
+
+		ai_chance = {
+			factor = 1000
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = neutrality
+		}
+		add_country_leader_role = {
+			character = TUR_ahmed_cemal_pasha
+			promote_leader = yes
+			country_leader={
+				ideology= despotic
+				expire="1965.1.1.1"
+				id=-1
+			}
+		}
+		trigger = {
+			check_variable = {
+				TUR_ahmed_pasha_influence > 34
+			}
+		}
+	}
+}
+
+add_namespace = TUR_fuad_path
+## Fuad
+country_event = {
+	id = TUR_fuad_path.1
+	title = TUR_fuad_path.1.t
+	desc = TUR_fuad_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.1.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.03
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## End of the CUP
+country_event = {
+	id = TUR_fuad_path.2
+	title = TUR_fuad_path.2.t
+	desc = TUR_fuad_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.2.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.15
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.1
+		}
+		
+		FRA = {
+			country_event = TUR_fuad_path.3
+		}
+		GER = {
+			country_event = TUR_fuad_path.4
+		}
+
+		effect_tooltip = {
+			TUR_ahmed_cemal_pasha = {
+				set_nationality = FRA
+			}
+			TUR_enver_pasha = {
+				set_nationality = GER
+			}
+			
+		}
+
+		TUR_mehmet_talaat_pasha = {
+			remove_unit_leader_role = yes
+		}
+		add_corps_commander_role = {
+			character = TUR_mehmet_talaat_pasha
+			skill = 4
+			attack_skill = 3
+			defense_skill = 4
+			planning_skill = 4
+			logistics_skill = 3
+		}
+
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## France  Ahmed Pasha joins us
+country_event = {
+	id = TUR_fuad_path.3
+	title = TUR_fuad_path.3.t
+	desc = TUR_fuad_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.3.a
+		
+		TUR = {
+			TUR_ahmed_cemal_pasha = {
+				set_nationality = FRA
+			}
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## Prussia  Enver Pasha joins us
+country_event = {
+	id = TUR_fuad_path.4
+	title = TUR_fuad_path.4.t
+	desc = TUR_fuad_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_fuad_path.4.a
+		TUR = {
+			TUR_enver_pasha = {
+				set_nationality = GER
+			}
+		}
+		
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+##demand custody of enver and ahmed
+country_event = {
+	id = TUR_fuad_path.5
+	title = TUR_fuad_path.5.t
+	desc = TUR_fuad_path.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.5.a 
+		ai_chance = { factor = 90 } 
+		TUR = { country_event = TUR_fuad_path.6 }
+	}
+	option = { 
+		name = TUR_fuad_path.5.b
+		ai_chance = { factor = 0 } 
+		TUR = { country_event = TUR_fuad_path.7 }
+	}
+}
+
+country_event = {
+	id = TUR_fuad_path.6
+	title = TUR_fuad_path.6.t
+	desc = TUR_fuad_path.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.6.a 
+		ai_chance = { factor = 90 } 
+		if = {
+			limit = {
+				FROM = {
+					tag = FRA
+				}
+			}
+			FRA = {
+				TUR_ahmed_cemal_pasha = {
+					set_nationality = TUR
+				}
+			}
+			TUR_ahmed_cemal_pasha = {
+				remove_unit_leader_role = yes
+			}
+			add_corps_commander_role = {
+				character = TUR_ahmed_cemal_pasha
+				skill=3
+				attack_skill=4
+				defense_skill=2
+				planning_skill=1
+				logistics_skill=3
+			}
+		}
+		if = {
+			limit = {
+				FROM = {
+					tag = GER
+				}
+			}
+			GER = {
+				TUR_enver_pasha = {
+					set_nationality = TUR
+				}
+			}
+			TUR_enver_pasha = {
+				remove_unit_leader_role = yes
+			}
+			add_corps_commander_role = {
+				character = TUR_enver_pasha
+				skill=4
+				attack_skill=4
+				defense_skill=2
+				planning_skill=4
+				logistics_skill=3
+			}
+		}
+	}
+}
+country_event = {
+	id = TUR_fuad_path.7
+	title = TUR_fuad_path.7.t
+	desc = TUR_fuad_path.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_fuad_path.7.a 
+		ai_chance = { factor = 90 } 
+		TUR = {
+			add_opinion_modifier = {
+				target = FROM
+				modifier = large_decrease
+			}
+		}
+	}
+}
+
+
+add_namespace = TUR_kemal_path
+## kemal
+country_event = {
+	id = TUR_kemal_path.1
+	title = TUR_kemal_path.1.t
+	desc = TUR_kemal_path.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.1.a
+		add_popularity = {
+			ideology = fascism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = ultranationalism
+			popularity = -0.03
+		}
+		add_popularity = {
+			ideology = neutrality
+			popularity = -0.03
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## The direction of the congress
+country_event = {
+	id = TUR_kemal_path.2
+	title = TUR_kemal_path.2.t
+	desc = TUR_kemal_path.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.2.a
+		ai_chance = {
+			factor = 1000 
+		}
+	}
+}
+
+## Sultana
+country_event = {
+	id = TUR_kemal_path.3
+	title = TUR_kemal_path.3.t
+	desc = TUR_kemal_path.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.3.a
+		ai_chance = {
+			factor = 1000 
+		}
+		set_country_flag = TUR_chose_farouk_for_marraige
+	}
+	option = {
+		name = TUR_kemal_path.3.b
+		ai_chance = {
+			factor = 1000 
+		}
+		set_country_flag = TUR_chose_qajar_for_marraige
+	}
+	option = {
+		name = TUR_kemal_path.3.c
+		ai_chance = {
+			factor = 1000 
+		}
+		set_country_flag = TUR_chose_umberto_for_marraige
+	}
+}
+
+
+## cairo
+country_event = {
+	id = TUR_kemal_path.4
+	title = TUR_kemal_path.4.t
+	desc = TUR_kemal_path.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.4.a
+		ai_chance = {
+			factor = 1000 
+		}
+	}
+}
+
+##tehran
+country_event = {
+	id = TUR_kemal_path.5
+	title = TUR_kemal_path.5.t
+	desc = TUR_kemal_path.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.5.a
+		ai_chance = {
+			factor = 1000 
+		}
+	}
+}
+
+##constaninople
+country_event = {
+	id = TUR_kemal_path.6
+	title = TUR_kemal_path.6.t
+	desc = TUR_kemal_path.6.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_kemal_path.6.a
+		ai_chance = {
+			factor = 1000 
+		}
+	}
+}
+
+##demand PU
+country_event = {
+	id = TUR_kemal_path.7
+	title = TUR_kemal_path.7.t
+	desc = TUR_kemal_path.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_kemal_path.7.a 
+		ai_chance = { factor = 90 } 
+		TUR = { country_event = TUR_kemal_path.8 }
+	}
+	option = { 
+		name = TUR_kemal_path.7.b
+		ai_chance = { factor = 0 } 
+		TUR = { country_event = TUR_kemal_path.9 }
+	}
+}
+
+country_event = {
+	id = TUR_kemal_path.8
+	title = TUR_kemal_path.8.t
+	desc = TUR_kemal_path.8.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_kemal_path.8.a 
+		ai_chance = { factor = 90 } 
+		set_autonomy = {
+			target = FROM
+			autonomy_state = autonomy_personal_union_member
+		}
+		
+	}
+}
+country_event = {
+	id = TUR_kemal_path.9
+	title = TUR_kemal_path.9.t
+	desc = TUR_kemal_path.9.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_kemal_path.9.a 
+		ai_chance = { factor = 90 } 
+		create_wargoal = {
+			target = FROM
+			type = annex_everything
+		}
+	}
+}
+
+country_event = {
+	id = TUR_kemal_path.10
+	title = TUR_kemal_path.10.t
+	desc = TUR_kemal_path.10.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = TUR_kemal_path.10.a
+		ai_chance = {
+			factor = 1000 
+		}
+		hidden_effect = {
+			set_temp_variable = {neu_pop = party_popularity@ruling_party}
+
+			add_popularity = {
+				popularity = neu_pop
+				ideology = authoritarian_democratic
+			}
+
+			set_temp_variable = {sub_neu_pop = party_popularity@ruling_party}
+			multiply_temp_variable = {sub_neu_pop = -1}
+
+			add_popularity = {
+				popularity = sub_neu_pop
+				ideology = democratic
+			}
+		}
+		set_politics = {
+			ruling_party = authoritarian_democratic
+		}
+		trigger = {
+			check_variable = {
+				var = TUR_kemalist_influence
+				value = TUR_liberal_influence
+				compare = greater_than_or_equals
+			}
+		}
+	}
+	option = {
+		name = TUR_kemal_path.10.b
+		ai_chance = {
+			factor = 1000 
+		}
+		hidden_effect = {
+			set_temp_variable = {neu_pop = party_popularity@ruling_party}
+
+			add_popularity = {
+				popularity = neu_pop
+				ideology = democratic_liberalism
+			}
+
+			set_temp_variable = {sub_neu_pop = party_popularity@ruling_party}
+			multiply_temp_variable = {sub_neu_pop = -1}
+
+			add_popularity = {
+				popularity = sub_neu_pop
+				ideology = democratic
+			}
+		}
+		set_politics = {
+			ruling_party = democratic_liberalism
+		}
+		trigger = {
+			check_variable = {
+				var = TUR_liberal_influence
+				value = TUR_kemalist_influence
+				compare = greater_than_or_equals
+			}
+		}
+	}
+}
+
+add_namespace = TUR_arab_tree
+#Arab chaos
+country_event = {
+	id = TUR_arab_tree.1
+	title = TUR_arab_tree.1.t
+	desc = TUR_arab_tree.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.1.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+## Dersim massacre
+country_event = {
+	id = TUR_arab_tree.2
+	title = TUR_arab_tree.2.t
+	desc = TUR_arab_tree.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.2.a 
+		ai_chance = { factor = 90 } 
+		remove_state_core = 848
+		remove_state_core = 869
+		remove_state_core = 853
+		remove_state_core = 676
+		remove_state_core = 851
+		remove_state_core = 850
+	}
+}
+
+## sadoun massacre
+country_event = {
+	id = TUR_arab_tree.3
+	title = TUR_arab_tree.3.t
+	desc = TUR_arab_tree.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.3.a 
+		ai_chance = { factor = 90 } 
+		remove_state_core = 852
+		remove_state_core = 855
+		remove_state_core = 291
+		remove_state_core = 854
+		remove_state_core = 855
+		remove_state_core = 656
+	}
+}
+
+## syria massacre
+country_event = {
+	id = TUR_arab_tree.4
+	title = TUR_arab_tree.4.t
+	desc = TUR_arab_tree.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.4.a 
+		ai_chance = { factor = 90 } 
+		remove_state_core = 680
+		remove_state_core = 677
+		remove_state_core = 841
+		remove_state_core = 844
+		remove_state_core = 680
+		remove_state_core = 849
+		remove_state_core = 553
+		remove_state_core = 857
+		remove_state_core = 455
+		remove_state_core = 862
+		remove_state_core = 856
+		remove_state_core = 861
+		remove_state_core = 554
+	}
+}
+
+##demand custody of enver and ahmed
+country_event = {
+	id = TUR_arab_tree.5
+	title = TUR_arab_tree.5.t
+	desc = TUR_arab_tree.5.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.5.a 
+		ai_chance = { factor = 90 } 
+		TUR = { country_event = TUR_arab_tree.6 }
+	}
+	option = { 
+		name = TUR_arab_tree.5.b
+		ai_chance = { factor = 0 } 
+		TUR = { country_event = TUR_arab_tree.7 }
+	}
+}
+
+country_event = {
+	id = TUR_arab_tree.6
+	title = TUR_arab_tree.6.t
+	desc = TUR_arab_tree.6.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.6.a 
+		ai_chance = { factor = 90 } 
+		custom_effect_tooltip = TUR_we_will_betray_jbs_to_saudis_for_alliance
+		set_global_flag = TUR_made_alliance_with_nejd
+	}
+}
+country_event = {
+	id = TUR_arab_tree.7
+	title = TUR_arab_tree.7.t
+	desc = TUR_arab_tree.7.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_arab_tree.7.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+add_namespace = TUR_foreign_policy_tree
+## ottoman vic
+country_event = {
+	id = TUR_foreign_policy_tree.1
+	title = TUR_foreign_policy_tree.1.t
+	desc = TUR_foreign_policy_tree.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.1.a
+		TUR = {
+			transfer_state = 355
+		}
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.1.b
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## russia vic
+country_event = {
+	id = TUR_foreign_policy_tree.2
+	title = TUR_foreign_policy_tree.2.t
+	desc = TUR_foreign_policy_tree.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.2.a
+		TRB = {
+			transfer_state = 1041
+		}
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.2.b
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+##otoman vc
+country_event = {
+	id = TUR_foreign_policy_tree.3
+	title = TUR_foreign_policy_tree.3.t
+	desc = TUR_foreign_policy_tree.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.3.a
+		TUR = {
+			transfer_state = 354
+			transfer_state = 345
+		}
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 3000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.3.b
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+## russia vic
+country_event = {
+	id = TUR_foreign_policy_tree.4
+	title = TUR_foreign_policy_tree.4.t
+	desc = TUR_foreign_policy_tree.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	option = {
+		name = TUR_foreign_policy_tree.4.a
+		TRB = {
+			transfer_state = 355
+		}
+		trigger = {
+			tag = SOV
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+	option = {
+		name = TUR_foreign_policy_tree.4.b
+		trigger = {
+			tag = TUR
+		}
+		ai_chance = {
+			factor = 1000
+		}
+	}
+}
+
+add_namespace = TUR_gallipoli_conflict
+country_event = {
+ 	id = TUR_gallipoli_conflict.1
+ 	title = TUR_gallipoli_conflict.1.t
+ 	desc = TUR_gallipoli_conflict.1.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.1.a
+		 TUR = { country_event = TUR_gallipoli_conflict.2 }
+
+		 ai_chance = {
+			 factor = 1000
+		 }
+ 	}
+	 option = {
+		name = TUR_gallipoli_conflict.1.b
+		TUR = {
+			country_event = TUR_gallipoli_conflict.3
+		}
+	}
+}
+
+country_event = {
+ 	id = TUR_gallipoli_conflict.2
+ 	title = TUR_gallipoli_conflict.2.t
+ 	desc = TUR_gallipoli_conflict.2.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.2.a
+		transfer_state = 948
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.3
+ 	title = TUR_gallipoli_conflict.3.t
+ 	desc = TUR_gallipoli_conflict.3.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.3.a
+		start_border_war = {
+          change_state_after_war = no
+          attacker = {
+              state = 341
+              num_provinces = 1
+              on_win = TUR_gallipoli_conflict.4
+              on_lose = TUR_foreign_policy_tree.5
+          }
+              
+          defender = {
+              state = 948
+              num_provinces = 3
+              on_win = TUR_foreign_policy_tree.5
+              on_lose = TUR_gallipoli_conflict.4
+          }
+      }
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+	option = {
+ 		name = TUR_gallipoli_conflict.3.b
+		add_war_support = -0.1
+		add_political_power = -50
+		ai_chance = {
+			factor = 1000
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.4
+ 	title = TUR_gallipoli_conflict.4.t
+ 	desc = TUR_gallipoli_conflict.4.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	
+ 	option = {
+ 		name = TUR_gallipoli_conflict.4.a
+		transfer_state = 948
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = TUR
+		}
+ 	}
+	option = {
+ 		name = TUR_gallipoli_conflict.4.b
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = BUL
+		}
+ 	}
+}
+country_event = {
+ 	id = TUR_gallipoli_conflict.5
+ 	title = TUR_gallipoli_conflict.5.t
+ 	desc = TUR_gallipoli_conflict.5.d
+ 	fire_only_once = yes
+ 	is_triggered_only = yes
+ 	option = {
+ 		name = TUR_gallipoli_conflict.5.a
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = BUL
+		}
+ 	}
+ 	option = {
+ 		name = TUR_gallipoli_conflict.5.b
+		add_war_support = -0.3
+		add_political_power = -150
+		ai_chance = {
+			factor = 1000
+		}
+		trigger = {
+			tag = TUR
+		}
+ 	}
+}
+
+
+add_namespace = TUR_thessalonki_seizure
+##luxembourg
+country_event = {
+	id = TUR_thessalonki_seizure.1
+	title = TUR_thessalonki_seizure.1.t
+	desc = TUR_thessalonki_seizure.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.1.a 
+		ai_chance = { factor = 75 } 
+	
+		TUR = {
+			country_event = TUR_thessalonki_seizure.2
+		}
+	}
+	option = { 
+		name = TUR_thessalonki_seizure.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 TUR = { is_ai = no }
+		} } 
+		TUR = {
+			country_event = TUR_thessalonki_seizure.3
+		}
+	}
+}
+
+country_event = {
+	id = TUR_thessalonki_seizure.2
+	title = TUR_thessalonki_seizure.2.t
+	desc = TUR_thessalonki_seizure.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.2.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = turkey_gets_thessalonkia_in_peace_deal
+	}
+}
+
+country_event = {
+	id = TUR_thessalonki_seizure.3
+	title = TUR_thessalonki_seizure.3.t
+	desc = TUR_thessalonki_seizure.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.3.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+}
+
+
+country_event = {
+	id = TUR_thessalonki_seizure.4
+	title = TUR_thessalonki_seizure.4.t
+	desc = TUR_thessalonki_seizure.4.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.4.a 
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+	option = { 
+		name = TUR_thessalonki_seizure.4.b
+		ai_chance = { factor = 90 } 
+		set_global_flag = greece_gets_thessalonkia_in_peace_deal
+	}
+}
+
+add_namespace = TUR_albania_seizure
+##luxembourg
+country_event = {
+	id = TUR_albania_seizure.1
+	title = TUR_albania_seizure.1.t
+	desc = TUR_albania_seizure.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_albania_seizure.1.a 
+		ai_chance = { factor = 75 } 
+	
+		TUR = {
+			country_event = TUR_albania_seizure.2
+		}
+	}
+	option = { 
+		name = TUR_albania_seizure.1.b 
+		ai_chance = { factor = 75 modifier = {
+			factor = -1 TUR = { is_ai = no }
+		} } 
+		TUR = {
+			country_event = TUR_albania_seizure.3
+		}
+	}
+}
+
+country_event = {
+	id = TUR_albania_seizure.2
+	title = TUR_albania_seizure.2.t
+	desc = TUR_albania_seizure.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_albania_seizure.2.a 
+		ai_chance = { factor = 90 } 
+		annex_country = {
+			target = ALB
+			transfer_troops = yes
+		}
+	}
+}
+
+country_event = {
+	id = TUR_albania_seizure.3
+	title = TUR_albania_seizure.3.t
+	desc = TUR_albania_seizure.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = TUR_thessalonki_seizure.3.a 
+		ai_chance = { factor = 90 } 
+	}
+}
+
+add_namespace = TUR_arab_revolt 
 
 ##russia one
  country_event = {

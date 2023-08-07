@@ -202,7 +202,10 @@ anthrax_decisions = {
 }
 atomwaffen_decisions = {
 	allowed = {
-		tag = GER
+		OR = {
+			tag = GER
+			tag = GPU
+		}
 	}
 	visible = {
 		has_country_flag = unlock_atomwaffen_flag
@@ -219,6 +222,22 @@ GER_occupation_of_russia = {
 
 	visible = {
 		has_completed_focus = GER_exploit_separatism
+		is_subject = no
+	}
+}
+
+GER_sponsor_anti_russian_rebels = {
+	icon = military_operation
+
+	allowed = {
+		original_tag = GER
+	}
+
+	visible = {
+		has_completed_focus = GER_sponsor_anti_russian_revolutionaries
+		NOT = {
+			has_war_with = SOV
+		}
 		is_subject = no
 	}
 }

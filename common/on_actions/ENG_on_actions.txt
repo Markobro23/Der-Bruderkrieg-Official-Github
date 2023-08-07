@@ -1,0 +1,97 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			ENG = {
+				every_core_state = {
+					limit = {
+						NOT = {
+							OR = {
+								state = 120
+								state = 136
+								state = 125
+								state = 119
+							} 
+						}
+					}
+					add_to_array = {
+						array = ENG.election_states
+					}
+				}
+
+				set_variable = {
+					ENG_kings_approval_var = 55
+				}
+				set_variable = {
+					ENG_kings_approval_var_change = -1
+				}
+
+				set_variable = {
+					ENG_current_government_modifier_political_power_factor = -0.1
+				}
+				set_variable = {
+					ENG_current_government_modifier_stability_factor = -0.05
+				}
+				set_variable = {
+					ENG_current_government_modifier_production_speed_buildings_factor = -0.05
+				}
+
+				add_dynamic_modifier = {
+					modifier = ENG_current_government_modifier
+				}
+			}
+		}
+	}
+
+	on_monthly_ENG = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = {
+						ENG_kings_approval_var < 21
+					}
+				}
+				country_event = {
+					id = ENG_alberts_coup.1
+				}
+			}
+			if = {
+				limit = {
+					check_variable = {
+						ENG_kings_approval_var > 74
+					}
+				}
+				country_event = {
+					id = ENG_alberts_coup.2
+				}
+			}
+
+			add_to_variable = {
+				ENG_kings_approval_var = ENG_kings_approval_var_change
+			}
+			clamp_variable = {
+				var = ENG_kings_approval_var
+				min = 0
+				max = 100
+			}
+		}
+	}
+
+	on_state_control_changed = {
+    	effect = {
+			if = {
+				limit = {
+					OR = {
+						tag = ENG
+						is_in_faction_with = ENG
+					}
+					FROM.FROM = {
+						is_core_of = USA
+					}
+				}
+				USA = {
+					country_event = british_american_peace.4
+				}
+			}
+		}
+	}
+}

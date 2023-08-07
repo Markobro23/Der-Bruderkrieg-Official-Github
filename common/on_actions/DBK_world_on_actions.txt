@@ -1,6 +1,17 @@
 on_actions = {
 	on_startup = {
 		effect = {
+
+			every_country = {
+				limit = {
+					is_ai = no
+				}
+				country_event = {
+					id = USA_debug_events.2
+					days = 1
+				}
+			}
+
 			#load in tree alert
 			SOV = {
 				country_event = { id = lore_dump.1 }
@@ -345,10 +356,17 @@ on_actions = {
 				
 			}
 
-			CEN = {	
+			PER = {
 				country_event = {
-					id =  central_american_collapse.1
-					days = 528
+					id = PER_anglo_recession.1
+					days = 525
+				}
+			}
+
+			JAP = {
+				country_event = {
+					id = JAP_taishos_will.1
+					days = 250
 				}
 			}
 			
@@ -357,7 +375,25 @@ on_actions = {
 				set_country_flag = open_startup_window_flag
 				#country_event = { id = DBK_austria_start.1 days = 1 }
 			}
-
+			MON = {
+				country_event = {
+					id = mongolia.1
+					days = 340
+				}
+			}
+			XSM = {
+				country_event = {
+					id = xibei.1
+					days = 370
+				}
+			}
+			
+			XNJ = {
+				country_event = {
+					id = xinjiang.1
+					days = 430
+				}
+			}
 			
 			#AUS = {country_event = {id =  vienna.1 days = 65}}
 			# SPR = {country_event = {id =  spain.100 days = 85}}
@@ -368,24 +404,9 @@ on_actions = {
 			#CHI = {country_event = {id =  chinacivilwar.1 days = 153}}
 			#BEI = {country_event = {id =  chinacivilwar.1 days = 153}}
 
-      GZC = {
-        country_event = {
-          id = south_china_war.1
-          days = 820
-        }
+      
       }
-      BEI = {
-        country_event = {
-          id = kmt_collapse.1
-          days = 500
-        }
-      }
-	#   PRC = {
-	# 	  country_event = {
-	# 		  id = peoples_great_qing_expansion.1
-	# 		  days = 405
-	# 	  }
-	#   }
+	
 
 			
 
@@ -901,7 +922,18 @@ on_actions = {
 
 
 
-
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					check_variable = {
+						num_armies_with_type@superhuman_subtype > 9
+					}
+				}
+				country_event = superhumans.2
+			}
+		}
+	}
 
 
 

@@ -22,7 +22,7 @@ Tanzimat = {
 }
 
 Tanzimat_2 = { #######Islamic Supremacy Focus
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -41,7 +41,7 @@ Tanzimat_2 = { #######Islamic Supremacy Focus
 }
 
 Tanzimat_3 = { #######Death to Infedels
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -62,7 +62,7 @@ Tanzimat_3 = { #######Death to Infedels
 }
 
 Tanzimat_4 = { #######Reform Janiserries
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -87,7 +87,7 @@ Tanzimat_4 = { #######Reform Janiserries
 
 
 Tanzimat_5 = { #######Islamic Supremacy Focus
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -105,7 +105,7 @@ Tanzimat_5 = { #######Islamic Supremacy Focus
 }
 
 Tanzimat_6 = { #######Death to Infedels
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -124,7 +124,7 @@ Tanzimat_6 = { #######Death to Infedels
 }
 
 Tanzimat_7 = { #######Reform Janiserries
-
+  name = Tanzimat
   allowed = {
     always = no
   }
@@ -218,8 +218,27 @@ TUR_mighty_empire = {
   removal_cost = -1
 
   modifier = {
-    neutrality_drift = -0.03
+    democratic_communism_drift = -0.03
 		communism_drift = -0.03
+    socialism_democratic_drift = -0.03
+  }
+}
+TUR_mighty_empire_pasha_2 = {
+
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+
+  removal_cost = -1
+
+  modifier = {
+    democratic_communism_drift = -0.03
+		communism_drift = -0.03
+    socialism_democratic_drift = -0.03
   }
 }
 
@@ -240,6 +259,29 @@ TUR_new_empire = {
 		fascism_drift = -0.03
   }
 }
+
+TUR_Centralism = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			cancel = {
+				is_subject = yes
+			}
+
+			modifier = {
+				resistance_growth = -0.25
+				political_power_factor = 0.1
+				local_resources_factor = 0.2
+			}
+		}
 
 TUR_grey_wolf_howl = {
 
@@ -272,6 +314,25 @@ TUR_liberty_and_freedom = {
 
   modifier = {
     democratic_drift = 0.05
+  }
+}
+
+TUR_liberty_and_freedom_2 = {
+  name = TUR_liberty_and_freedom
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+
+  removal_cost = -1
+
+  modifier = {
+    democratic_drift = 0.05
+    political_power_gain = 0.05
+		army_core_defence_factor = 0.035
   }
 }
 
@@ -310,7 +371,231 @@ TUR_falling_moon = {
   }
 }
 
+TUR_secret_police_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_secret_police_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    industrial_capacity_factory = 0.05
+    resistance_target = -0.2
+  }
+}
 
+TUR_turkification_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_turkification_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    monthly_population = -0.05
+    fuel_gain_from_states = 0.1
+  }
+}
+
+TUR_assimilation_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_assimilation_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    political_power_gain = 0.1
+    production_factory_max_efficiency_factor = 0.075
+  }
+}
+
+TUR_research_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_research_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    research_speed_factor = 0.08
+  }
+}
+TUR_kemals_revisions_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_kemals_revisions_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    party_popularity_stability_factor = 0.15
+  }
+}
+TUR_free_press_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_free_press_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    drift_defence_factor = -0.05
+    monthly_population = 0.15
+  }
+}
+TUR_pro_corp_original = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+  }
+}
+TUR_pro_corp_new = {
+  name = TUR_current_government_modifier
+  allowed = {
+    always = no
+  }
+  allowed_civil_war = {
+    always = yes
+  }
+    cancel = {
+      is_subject = yes
+      }
+  removal_cost = -1
+  modifier = {
+    consumer_goods_factor = -0.05
+    industrial_concern_cost_factor = -0.15
+  }
+}
 TUR_reformism = {
 
   allowed = {
@@ -402,8 +687,24 @@ Degredation_Sultan = {
   removal_cost = -1
 
   modifier = {
-    political_power_gain = -0.20
-    stability_factor = -0.1
+    political_power_gain = -0.1
+    army_morale_factor = -0.05
+  }
+}
+Degredation_Sultan_2 = {
+  name = Degredation_Sultan
+  allowed = {
+    always = no
+  }
+
+  allowed_civil_war = {
+    always = yes
+  }
+
+  removal_cost = -1
+
+  modifier = {
+    political_power_gain = -0.075
   }
 }
 
@@ -421,9 +722,6 @@ Arab_Spring = {
   removal_cost = -1
 
   modifier = {
-    consumer_goods_factor = 0.05
-    
-    stability_factor = -0.15
     surrender_limit = -0.5
   }
 }
@@ -626,12 +924,9 @@ TUR_CALIPHATE = {
   removal_cost = -1
 
   modifier = {
-  army_morale_factor = 0.1
-  fascism_drift = 0.10
-  political_power_gain = 0.1
-  war_support_factor = 0.1
-  conscription = 0.02
-  army_org_factor = 0.1
+    neutrality_drift = 0.03
+  army_org_factor = 0.075
+  land_reinforce_rate = 0.15
   }
 }
 
@@ -774,7 +1069,7 @@ TUR_improved_artillery =  {
 }
 
 TUR_improved_artillery_2 =  {
-
+  name = TUR_improved_artillery
 	allowed = {
 		always = yes
 	}
@@ -793,7 +1088,7 @@ TUR_improved_artillery_2 =  {
 }
 
 TUR_improved_artillery_3 =  {
-
+  name = TUR_improved_artillery
 	allowed = {
 		always = yes
 	}
@@ -908,7 +1203,7 @@ TUR_conscription_idea =  {
 }
 
 TUR_conscription_idea_2 =  {
-
+  name = TUR_conscription_idea
 	allowed = {
 		always = yes
 	}
@@ -928,7 +1223,7 @@ TUR_conscription_idea_2 =  {
 }
 
 TUR_conscription_idea_3 =  {
-
+  name = TUR_conscription_idea
 	allowed = {
 		always = yes
 	}
@@ -949,7 +1244,75 @@ TUR_conscription_idea_3 =  {
 	}
 }
 
+TUR_balkan_customs_union = {
+    allowed = {
+    always = yes
+    }
 
+    allowed_civil_war = {
+    always = yes
+    }
+
+    cancel = {
+      NOT = {
+        OR = {
+          is_subject_of = FRA
+          is_in_faction_with = FRA
+        }
+      }
+    }
+
+    removal_cost = -1
+
+    modifier = {
+      consumer_goods_factor = -0.05
+      overlord_trade_cost_factor = -0.2
+      faction_trade_opinion_factor = 0.25
+    }
+  }
+
+
+  TUR_our_sea = {
+    allowed = {
+    always = yes
+    }
+
+    allowed_civil_war = {
+    always = yes
+    }
+
+    removal_cost = -1
+
+    cancel = {
+      is_subject = yes
+    }
+
+    modifier = {
+      naval_damage_factor = 0.2
+      naval_defense_factor = 0.2
+    }
+    research_bonus = {
+      naval_doctrine = 0.25
+    }
+    
+  }
+
+  TUR_ITA_dual_mediterranean_dominance = {
+    equipment_bonus = {
+				ship_hull_carrier = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				ship_hull_cruiser = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+				ship_hull_submarine = {
+					instant = yes
+					build_cost_ic = -0.05
+				}
+			}
+  }
 
 
 
@@ -999,290 +1362,277 @@ TUR_conscription_idea_3 =  {
 # 	}
 # }
 
-theorist = {
 
-TUR_mehmet_gunaltay = {
-	ledger = army
 
-	picture = generic_army_europe_2
 
-	allowed = {
-		original_tag = TUR
-	}
+	aircraft_manufacturer = {
 
-	research_bonus = {
-		land_doctrine = 0.10
-	}
+		designer = yes
 
-	traits = { military_theorist }
-}
+		thk = {
 
-TUR_refik_saydam = {
-	ledger = air
+			picture = generic_air_manufacturer_2
 
-	picture = generic_political_advisor_europe_1
 
-	allowed = {
-		original_tag = TUR
-	}
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_air_industry
+			}
 
-	research_bonus = {
-		air_doctrine = 0.10
-	}
+			research_bonus = {
+				air_equipment = 0.15
+			}
 
-	traits = { air_warfare_theorist }
-}
-}
+			traits = { medium_aircraft_manufacturer }
 
-army_chief = {
+			equipment_bonus = {
+				# trainers, and air ambulances?
+			}
 
-	TUR_kazim_orbay = {
-
-		picture = generic_army_europe_1
-
-		allowed = {
-			original_tag = TUR
+			ai_will_do = {
+				factor = 1
+			}
 		}
 
+		tomtas = {
+
+			picture = generic_air_manufacturer_1
 
 
-		traits = { army_chief_offensive_2 }
+			allowed = {
+				original_tag = TUR
+			}
 
-		ai_will_do = {
-			factor = 1
+			research_bonus = {
+				air_equipment = 0.15
+			}
+
+			traits = { light_aircraft_manufacturer }
+
+			equipment_bonus = {
+				# assembled license aircrafts from across the world
+			}
+
+			ai_will_do = {
+				factor = 1
+			}
 		}
-	}
-}
+		turkish_airlines = {
 
-air_chief = {
-
-	TUR_memduh_tagmac = {
-
-		picture = generic_air_europe_3
-
-		allowed = {
-			original_tag = TUR
-		}
+			picture = generic_air_manufacturer_1
 
 
+			allowed = {
+				original_tag = TUR
+			}
 
-		traits = { air_chief_night_operations_2 }
+			research_bonus = {
+				air_equipment = 0.15
+			}
 
-		ai_will_do = {
-			factor = 1
-		}
-	}
+			traits = { heavy_aircraft_manufacturer }
 
-	TUR_ali_orlungat = {
+			equipment_bonus = {
+				# 
+			}
 
-		picture = generic_air_europe_1
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { air_chief_ground_support_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-navy_chief = {
-
-
-	TUR_mehmet_ali_ungen = {
-
-		picture = generic_navy_europe_3
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { navy_chief_decisive_battle_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-high_command = {
-
-	TUR_sabiha_gokcen = {
-		ledger = air
-
-		picture = sabiha_gocen
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-
-		traits = { air_strategic_bombing_3 }
-
-		ai_will_do = {
-			factor = 1
+			ai_will_do = {
+				factor = 1
+			}
 		}
 	}
 
-	TUR_abdurrahman_gurman = {
-		ledger = army
+	naval_manufacturer = {
 
-		picture = generic_army_europe_3
+		designer = yes
 
-		allowed = {
-			original_tag = TUR
+		golcuk_nsy = {
+
+			picture = generic_naval_manufacturer_1
+
+
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_navy_industry
+			}
+
+			research_bonus = {
+				naval_equipment = 0.15
+			}
+
+			traits = { mediterranean_naval_manufacturer }
 		}
 
+		taskizak = {
 
-		traits = { army_armored_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
-	TUR_ali_fuat_cebesoy = {
-		ledger = navy
-
-		picture = generic_navy_europe_1
-
-		allowed = {
-			original_tag = TUR
-		}
+			picture = generic_naval_manufacturer_1
 
 
-		traits = { navy_screen_2 }
+			allowed = {
+				original_tag = TUR
+				#has_completed_focus = TUR_navy_industry
+			}
 
-		ai_will_do = {
-			factor = 1
-		}
-	}
+			research_bonus = {
+				naval_equipment = 0.15
+			}
 
-	TUR_erkan_gataly = {
-		ledger = navy
-
-		picture = generic_navy_europe_2
-
-		allowed = {
-			original_tag = TUR
-		}
-
-
-		traits = { navy_fleet_logistics_2 }
-
-		ai_will_do = {
-			factor = 1
-		}
-	}
-}
-
-
-aircraft_manufacturer = {
-
-	designer = yes
-
-	thk = {
-
-		picture = generic_air_manufacturer_2
-
-
-		allowed = {
-			original_tag = TUR
-			#has_completed_focus = TUR_air_industry
-		}
-
-		research_bonus = {
-			air_equipment = 0.15
-		}
-
-		traits = { light_aircraft_manufacturer }
-
-		equipment_bonus = {
-			# trainers, and air ambulances?
-		}
-
-		ai_will_do = {
-			factor = 1
+			traits = { black_sea_naval_manufacturer }
 		}
 	}
 
-	ktf = {
+	materiel_manufacturer = {
 
-		picture = generic_air_manufacturer_1
+		designer = yes
+
+		sarsilmaz = {
+
+			picture = generic_infantry_equipment_manufacturer_3
 
 
-		allowed = {
-			original_tag = TUR
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				infantry_weapons = 0.15
+			}
+
+			equipment_bonus = {
+				# rifles and pistols
+			}
+
+			traits = { infantry_equipment_manufacturer }
 		}
 
-		research_bonus = {
-			air_equipment = 0.15
-		}
+		zeytinburnu = {
 
-		traits = { medium_aircraft_manufacturer }
+			allowed = {
+				original_tag = TUR
+			}
 
-		equipment_bonus = {
-			# assembled license aircrafts from across the world
-		}
+			research_bonus = {
+				artillery = 0.15
+			}
 
-		ai_will_do = {
-			factor = 1
+			traits = { artillery_manufacturer }
+
+			modifier = {
+				# +10% arty/at/aa research speed
+			}
 		}
 	}
-}
-
-naval_manufacturer = {
-
-	designer = yes
-
-	golcuk_nsy = {
-
-		picture = generic_naval_manufacturer_1
-
-
-		allowed = {
-			original_tag = TUR
-			#has_completed_focus = TUR_navy_industry
+	industrial_concern = {
+	
+		
+		karabuk_demir = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				industry = 0.15
+			}
+			
+			traits = { industrial_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
+		}
+		
+		postahane = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				electronics = 0.15
+			}
+			
+			traits = { electronics_concern }
+			
+			ai_will_do = {
+				factor = 1
+			}
 		}
 
-		research_bonus = {
-			naval_equipment = 0.15
-		}
+		TUR_tpc = {
+			
+			
+			allowed = {
+				original_tag = TUR
+			}
 
-		traits = { naval_manufacturer }
+			
+
+			
+			research_bonus = {
+				industry = 0.05
+				synth_resources = 0.15
+			}
+			
+			traits = { refinery_concern }
+			
+			modifier = {
+			}
+		}
+		ddum = {
+
+			allowed = {
+				original_tag = TUR
+			}
+
+			research_bonus = {
+				train_tech = 0.15
+
+			}
+
+			traits = { railway_company }
+		}
 	}
-}
+	tank_manufacturer = { 
+	
+		designer = yes
+		
+		basak = {
 
-materiel_manufacturer = {
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { fast_tank_manufacturer }
 
-	designer = yes
+			ai_will_do = {
+				factor = 10
+			}
 
-	istanbul_military_industries = {
-
-		picture = generic_infantry_equipment_manufacturer_3
-
-
-		allowed = {
-			original_tag = TUR
 		}
 
-		research_bonus = {
-			infantry_weapons = 0.15
-		}
+		osmanli = {
 
-		equipment_bonus = {
-			# rifles and pistols
-		}
+			
+			allowed = {
+				original_tag = TUR
+			}
+			
+			research_bonus = {
+				armor = 0.15
+			}
+			
+			traits = { medium_tank_manufacturer }
 
-		traits = { infantry_equipment_manufacturer }
+			ai_will_do = {
+				factor = 10
+			}
+
+		}
 	}
-}
 }

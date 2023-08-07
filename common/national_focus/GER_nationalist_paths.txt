@@ -128,10 +128,11 @@ focus_tree = {
 	shared_focus = GER_the_reichsheer_capabillities
 	shared_focus = GER_preussische_reichsmarine
 	shared_focus = GER_luftstreltkrafte_innovations
-	shared_focus = GER_the_mosley_pact
 	shared_focus = GER_operation_walross
 	#shared_focus = GER_a_german_triumph
 	shared_focus = GER_von_das_slavenvolk
+	shared_focus = GER_undermine_the_stahlpakt
+	shared_focus = GER_honor_the_pakt
 
 
 	continuous_focus_position = { x = 500 y = 3000 }
@@ -314,6 +315,9 @@ shared_focus = {
 		remove_ideas= GER_Clash_Of_The_Militias
 		# remove_unit_leader = 11
 		# remove_unit_leader = 17
+		retire_character = GER_eberhard_von_mackensen
+		retire_character = GER_kurt_von_hammerstein_equord
+		retire_character = GER_alfred_von_vollard_bockelberg
 	}
 	ai_will_do = {
 		factor = 60
@@ -3826,7 +3830,7 @@ shared_focus = {
 	id = GER_unternehmen_attila
 	icon = GFX_goal_GER_operation_attilla
 	cost = 1
-	x = 0
+	x = -1
 	y = 1
 	prerequisite = {
 		focus = GER_slaughter_the_jacobins
@@ -4173,88 +4177,88 @@ shared_focus = {
 	}
 }
 
-shared_focus = {
-	id = GER_the_mosley_pact
-	icon = GFX_goal_GER_the_mosley_pact
-	cost = 5
-	x = 20
-	y = 10
+# shared_focus = {
+# 	id = GER_the_mosley_pact
+# 	icon = GFX_goal_GER_the_mosley_pact
+# 	cost = 5
+# 	x = 21
+# 	y = 9
 	
-	ai_will_do = {
-		factor = 600
-	}
+# 	ai_will_do = {
+# 		factor = 600
+# 	}
 
 
-	mutually_exclusive = {
-		focus = GER_operation_walross
-	}
+# 	mutually_exclusive = {
+# 		focus = GER_operation_walross
+# 	}
 
-	available = {
-		ENG = {
-			has_country_flag = UK_chose_mosley
-		}
-		OR = {
-			has_war_with = FRA
-			has_global_flag = austria_defeated
-			has_global_flag = prussia_has_beaten_france
-		}
-	}
+# 	available = {
+# 		ENG = {
+# 			has_country_flag = UK_chose_mosley
+# 		}
+# 		OR = {
+# 			has_war_with = FRA
+# 			has_global_flag = austria_defeated
+# 			has_global_flag = prussia_has_beaten_france
+# 		}
+# 	}
 
-	completion_reward = {
-		ENG = {
-			country_event = prussia_britain_pact.1
-		}
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			country_event = prussia_britain_pact.1
+# 		}
+# 	}
+# }
 
-shared_focus = {
-	id = GER_military_cooperation_with_britain
-	icon = GFX_goal_GER_military_coop_with_britain
-	cost = 5
-	x = -1
-	y = 1
+# shared_focus = {
+# 	id = GER_military_cooperation_with_britain
+# 	icon = GFX_goal_GER_military_coop_with_britain
+# 	cost = 5
+# 	x = -1
+# 	y = 1
 	
-	relative_position_id = GER_the_mosley_pact
-	ai_will_do = {
-		factor = 60
-	}
+# 	relative_position_id = GER_the_mosley_pact
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
 
-	prerequisite = {
-		focus = GER_the_mosley_pact
-	}
+# 	prerequisite = {
+# 		focus = GER_the_mosley_pact
+# 	}
 
-	completion_reward = {
-		ENG = {
-			add_ideas = ENG_prussian_advisors
-		}
-		GER = {
-			add_ideas = GER_british_advisors
-		}	
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			add_ideas = ENG_prussian_advisors
+# 		}
+# 		GER = {
+# 			add_ideas = GER_british_advisors
+# 		}	
+# 	}
+# }
 
-shared_focus = {
-	id = GER_the_push_for_paris
-	icon = GFX_goal_GER_the_push_on_paris
-	cost = 5
-	x = 0
-	y = 1
+# shared_focus = {
+# 	id = GER_the_push_for_paris
+# 	icon = GFX_goal_GER_the_push_on_paris
+# 	cost = 5
+# 	x = 0
+# 	y = 1
 	
-	relative_position_id = GER_military_cooperation_with_britain
-	ai_will_do = {
-		factor = 60
-	}
+# 	relative_position_id = GER_military_cooperation_with_britain
+# 	ai_will_do = {
+# 		factor = 60
+# 	}
 
-	prerequisite = {
-		focus = GER_military_cooperation_with_britain
-	}
+# 	prerequisite = {
+# 		focus = GER_military_cooperation_with_britain
+# 	}
 
-	completion_reward = {
-		ENG = {
-			country_event = britain_declares_france.1
-		}
-	}
-}
+# 	completion_reward = {
+# 		ENG = {
+# 			country_event = britain_declares_france.1
+# 		}
+# 	}
+# }
 #######################
 #The Untersmensch Path#
 #######################
@@ -4526,7 +4530,7 @@ shared_focus = {
 	id = GER_breaking_the_chains
 	icon = GFX_goal_GER_silesia_or_war
 	cost = 7
-	x = 0
+	x = 1
 	y = 1
 	prerequisite = {
 		focus = GER_unternehmen_steigend
@@ -4652,18 +4656,22 @@ shared_focus = {
 	id = GER_operation_walross
 	icon = GFX_goal_GER_operation_walross
 	cost = 5
-	x = 24
-	y = 10
+	x = 2
+	y = 1
 	
 	ai_will_do = {
 		factor = 600
 	}
-
+	prerequisite = {
+		focus = GER_slaughter_the_jacobins
+		focus = GER_unternehmen_steigend
+	}
+	relative_position_id = GER_slaughter_the_jacobins
 
 	
 	available = {
-		has_global_flag = operation_walross_blockade
 		OR = {
+			has_global_flag = operation_walross_blockade
 			has_war_with = FRA
 			has_global_flag = austria_defeated
 			has_global_flag = prussia_has_beaten_france
@@ -4683,8 +4691,8 @@ shared_focus = {
 	id = GER_secure_the_baltic_front
 	icon = GFX_goal_GER_secure_the_baltic
 	cost = 5
-	x = -2
-	y = 1
+	x = -1
+	y = 2
 	
 	relative_position_id = GER_operation_walross
 	ai_will_do = {
@@ -4693,7 +4701,6 @@ shared_focus = {
 
 	prerequisite = {
 		focus = GER_operation_walross
-		focus = GER_the_mosley_pact
 	}
 
 	completion_reward = {
@@ -4730,7 +4737,7 @@ shared_focus = {
 	id = GER_germania_rules_the_seas
 	icon = GFX_goal_GER_germania_rule_the_seas
 	cost = 5
-	x = 2
+	x = 1
 	y = 1
 	
 	relative_position_id = GER_secure_the_baltic_front
@@ -4762,8 +4769,8 @@ shared_focus = {
 	id = GER_support_the_cult_of_kali
 	icon = GFX_goal_GER_support_the_cult_of_kali
 	cost = 5
-	x = 2
-	y = 1
+	x = 1
+	y = 2
 	
 	relative_position_id = GER_operation_walross
 	ai_will_do = {
@@ -5016,7 +5023,6 @@ shared_focus = {
 
 		cost = 5
 	#	prerequisite = { focus = GER_the_goring_doctorine }
-		prerequisite = { focus = GER_luftstreltkrafte_innovations }
 		prerequisite = {
 			focus = GER_air_base_construction
 		}
@@ -5142,7 +5148,6 @@ shared_focus = {
 
 		cost = 5
 		#prerequisite = { focus = GER_the_goring_doctorine }
-		prerequisite = { focus = GER_luftstreltkrafte_innovations }
 		prerequisite = { focus = GER_modernization_of_our_airforce }
 
 		
@@ -5439,7 +5444,7 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			63 = {
+			62 = {
 				add_resource = {
 				   type = oil
 				   amount = 12
@@ -6113,7 +6118,7 @@ shared_focus = {
 
 		}
 
-		cost = 5
+		cost = 10
 		prerequisite = { focus = GER_the_uboat }
 		prerequisite = {
 			focus = GER_rudeltaktik
@@ -6124,11 +6129,83 @@ shared_focus = {
 		available_if_capitulated = no
 
 		completion_reward = {
-			add_tech_bonus = {
-				bonus = 1
-				uses = 1
-				category = bb_tech
-			}
+			navy_experience = 25
+	        add_tech_bonus = {
+	            name = GER_the_bismarck_class
+	            bonus = 1.0
+	            uses = 2
+	            category = bb_tech
+	        }
+
+	        #H-Class Super-Heavy Battleship
+	        if = {
+	            limit = {
+	                NOT = { has_dlc = "Man the Guns" }
+	            }
+	            add_tech_bonus = {
+	                name = GER_the_bismarck_class
+	                bonus = 3.0
+	                uses = 1
+	                category = shbb_tech    
+	            }
+	        }
+	        else = {
+	            #Grant SHBB Tech and required battery modules (not fire control)
+	            if = {
+	                limit = {
+	                    NOT = { has_tech = ship_hull_super_heavy }
+	                }
+	                hidden_effect = {
+	                    set_technology = {
+	                        ship_hull_super_heavy = 1
+	                    }
+	                }
+	                custom_effect_tooltip = GER_h_class_shbb_tt
+	            }
+	            create_equipment_variant = { 
+	                name = "H-Class"
+	                type = ship_hull_super_heavy_1
+	                name_group = GER_BB_HISTORICAL
+	                parent_version = 0
+	                modules = {
+	                    fixed_ship_battery_slot = ship_super_heavy_battery_1
+	                    fixed_ship_anti_air_slot = ship_anti_air_2
+	                    fixed_ship_fire_control_system_slot = ship_fire_control_system_1
+	                    fixed_ship_radar_slot = empty
+	                    fixed_ship_engine_slot = heavy_ship_engine_2
+	                    fixed_ship_secondaries_slot = ship_secondaries_2
+	                    fixed_ship_armor_slot = ship_armor_shbb
+	                    front_1_custom_slot = ship_anti_air_2
+	                    front_2_custom_slot = empty
+	                    mid_1_custom_slot = empty
+	                    mid_2_custom_slot = ship_secondaries_2
+	                    mid_3_custom_slot = ship_secondaries_2
+	                    rear_1_custom_slot = ship_super_heavy_battery_1
+	                    rear_2_custom_slot = ship_airplane_launcher_1
+	                }
+	            }
+	            #Line Production
+	            add_equipment_production = {
+	                equipment = {
+	                    type = ship_hull_super_heavy_1
+	                    creator = "GER"
+	                    version_name = "H-Class"
+	                }
+	                requested_factories = 1
+	                progress = 0.50
+	                amount = 1
+	            }
+	            add_equipment_production = {
+	                equipment = {
+	                    type = ship_hull_super_heavy_1
+	                    creator = "GER"
+	                    version_name = "H-Class"
+	                }
+	                requested_factories = 1
+	                progress = 0.40
+	                amount = 1
+	            }
+	        }
 
 		}
 		ai_will_do = {
@@ -6146,6 +6223,7 @@ shared_focus = {
 		relative_position_id = GER_preussische_reichsmarine
 		
 		available = {
+			controls_state = 61
 		}
 		bypass = {
 
@@ -6908,7 +6986,10 @@ shared_focus = {
 				}
 			}
 			NOT = {
-				has_war_with = ITA
+				OR = {
+					has_non_aggression_pact_with = ITA
+					has_war_with = ITA
+				}
 			}
 			ITA = {
 				exists = yes
@@ -7046,8 +7127,8 @@ shared_focus = {
 	shared_focus = {
 		id = GER_von_das_slavenvolk
 		icon = GFX_goal_GER_von_das_slavs 
-		x = 31
-		y = 7
+		x = 13
+		y = 12
 		cost = 2.5
 		ai_will_do = {
 			factor = 250
@@ -7059,9 +7140,83 @@ shared_focus = {
 		available = { 
 			custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
 		}	
+		mutually_exclusive = {
+			focus = GER_undermine_the_stahlpakt
+			focus = GER_honor_the_pakt
+		}
 		completion_reward = {
 			## No effect listed
 			add_ideas = GER_the_last_war_idea
+		}
+	}
+
+	shared_focus = {
+		id = GER_undermine_the_stahlpakt
+		icon = GFX_goal_GER_unterhemmen_steigend2 
+		x = 18
+		y = 12
+		cost = 2.5
+		ai_will_do = {
+			factor = 250
+		}
+		available = { 
+			custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+			NOT = {
+				has_war_with = SOV
+			}
+		}	
+		mutually_exclusive = {
+			focus = GER_von_das_slavenvolk
+			focus = GER_honor_the_pakt
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_faction_with = SOV
+				}
+				add_opinion_modifier = {
+					target = GER
+					modifier = small_decrease
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_honor_the_pakt
+		icon = GFX_goal_GER_the_stahlpakt 
+		x = 23
+		y = 12
+		cost = 2.5
+		ai_will_do = {
+			factor = 250
+		}
+		available = { 
+			custom_trigger_tooltip = { tooltip = form_germany_needed_tt OR = { has_global_flag = form_germany_flag has_country_flag = deutschland_uber_allies_achievement } }
+			NOT = {
+				has_country_leader = {
+					name = "Ernst Rohm"
+					ruling_only = yes
+				}
+			}
+			NOT = {
+				has_war_with = SOV
+			}
+		}	
+		mutually_exclusive = {
+			focus = GER_von_das_slavenvolk
+			focus = GER_undermine_the_stahlpakt
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					is_in_faction_with = SOV
+				}
+				add_opinion_modifier = {
+					target = GER
+					modifier = small_increase
+				}
+			}
 		}
 	}
 	
@@ -7091,6 +7246,9 @@ shared_focus = {
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
 			factor = 100
+		}
+		bypass = {
+			has_war_with = SOV
 		}
 		completion_reward = {
 			swap_ideas = {
@@ -7137,13 +7295,20 @@ shared_focus = {
 		x = 1
 		y = 1
 		cost = 5
+
+		bypass = {
+			has_war_with = SOV
+		}
 		prerequisite = { focus = GER_von_das_slavenvolk }
 		relative_position_id = GER_von_das_slavenvolk
 		ai_will_do = {
 			factor = 100
 		}
 		completion_reward = {
-			add_ideas = GER_winter_clothing_overdrive
+			custom_effect_tooltip = GER_declaring_war_on_russia_gives
+			effect_tooltip = {
+				add_ideas = GER_winter_clothing_overdrive
+			}
 		}
 	}
 	
@@ -7155,11 +7320,13 @@ shared_focus = {
 		y = 1
 		cost = 5
 		will_lead_to_war_with = SOV
-		prerequisite = { focus = GER_winter_clothing }
-		prerequisite = { focus = GER_prepare_for_the_struggle }
+		prerequisite = { focus = GER_winter_clothing focus = GER_prepare_for_the_struggle }
 		relative_position_id = GER_winter_clothing
 		ai_will_do = {
 			factor = 100
+		}
+		bypass = {
+			has_war_with = SOV
 		}
 		will_lead_to_war_with = SOV
 		completion_reward = {
@@ -7175,7 +7342,7 @@ shared_focus = {
 		icon = GFX_goal_GER_surpass_winter
 		x = -2
 		y = 1
-		cost = 2
+		cost = 3
 		prerequisite = { focus = GER_streik }
 		relative_position_id = GER_streik
 		mutually_exclusive = {
@@ -7271,7 +7438,7 @@ shared_focus = {
 		icon = GFX_goal_GER_exploit_separatism
 		x = -2
 		y = 1
-		cost = 5
+		cost = 4
 		prerequisite = { 
 			focus = GER_moskowien_awaits focus = GER_surpass_general_winter
 		}
@@ -7318,16 +7485,30 @@ shared_focus = {
 		icon = GFX_goal_GER_the_last_war
 		x = 0
 		y = 1
-		cost = 2
+		cost = 4
 		prerequisite = { focus = GER_exploit_separatism }
 		relative_position_id = GER_exploit_separatism
 		ai_will_do = {
 			factor = 100
 		}
+		available = {
+			has_war_with = SOV
+		}
 		completion_reward = {
-			swap_ideas = {
-				remove_idea = GER_the_last_war_idea1
-				add_idea = GER_the_greatest_war_idea
+			if = {
+				limit = {
+					NOT = { has_idea = GER_the_last_war_idea1 }
+				}
+				swap_ideas = {
+					remove_idea = GER_the_last_war_idea
+					add_idea = GER_the_last_war_idea1
+				}
+				else = {
+					swap_ideas = {
+						remove_idea = GER_the_last_war_idea1
+						add_idea = GER_the_greatest_war_idea
+					}
+				}
 			}
 		}
 	}
@@ -7363,3 +7544,306 @@ shared_focus = {
 	# 	}
 	# }
 
+	shared_focus = {
+		id = GER_sponsor_anti_russian_revolutionaries
+		icon = GFX_goal_GER_ethnic_militias 
+		x = 0
+		y = 1
+		relative_position_id = GER_undermine_the_stahlpakt
+		cost = 5
+		ai_will_do = {
+			factor = 500
+		}	
+		prerequisite = {
+			focus = GER_undermine_the_stahlpakt
+		}
+		completion_reward = {
+			unlock_decision_category_tooltip = GER_sponsor_anti_russian_rebels
+		}
+	}
+
+	shared_focus = {
+		id = GER_isolate_russian_economy
+		icon = GFX_goal_GER_prep_operation_maragrethe
+		x = -1
+		y = 1
+		relative_position_id = GER_sponsor_anti_russian_revolutionaries
+		cost = 5
+		ai_will_do = {
+			factor = 500
+		}	
+		prerequisite = {
+			focus = GER_sponsor_anti_russian_revolutionaries
+		}
+		completion_reward = {
+			SOV = {
+				country_event = { id = GER_wiltkrieg_faction_events.31 hours = 3 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_send_aid_russias_enemies
+		icon = GFX_goal_GER_von_das_slavs 
+		x = 1
+		y = 1
+		relative_position_id = GER_sponsor_anti_russian_revolutionaries
+		cost = 5
+		ai_will_do = {
+			factor = 500
+		}	
+		prerequisite = {
+			focus = GER_sponsor_anti_russian_revolutionaries
+		}
+		available = {
+			any_country = {
+				NOT = {
+					has_war_with = GER
+					has_war_with = SOV
+				}
+			}
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					NOT = {
+						OR = {
+							is_in_faction_with = GER
+							has_war_with = GER
+						}
+					}
+					has_war_with = SOV
+				}
+				country_event = { id = GER_wiltkrieg_faction_events.30 hours = 3 }
+			}
+			add_ideas = GER_anti_russian_initiatives
+		}
+	}
+
+	shared_focus = {
+		id = GER_establish_steel_curtain
+		icon = GFX_goal_GER_the_foundation_of_strength 
+		x = 1
+		y = 1
+		relative_position_id = GER_isolate_russian_economy
+		cost = 7
+		ai_will_do = {
+			factor = 500
+		}	
+		prerequisite = {
+			focus = GER_isolate_russian_economy
+		}
+		prerequisite = {
+			focus = GER_send_aid_russias_enemies
+		}
+		completion_reward = {
+			every_state = {
+				limit = {
+					is_owned_by = GER
+					any_neighbor_state = {
+						OWNER = {
+							OR = {
+								tag = SOV
+								is_in_faction_with = SOV
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = bunker
+					level = 3
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_border = yes
+					}
+				}
+			}
+			news_event = { id = GER_wiltkrieg_faction_events.29 hours = 3 }
+		}
+	}
+
+	shared_focus = {
+		id = GER_united_front_against_old_order
+		icon = GFX_goal_GER_military_coop_with_britain 
+		x = -1
+		y = 1
+		relative_position_id = GER_honor_the_pakt
+		cost = 5
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_honor_the_pakt
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_war_with = USA
+				}
+				every_country = {
+					limit = { has_war_with = USA }
+					add_timed_idea = {
+						idea = GER_united_front_idea
+						days = 365
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_war_with = ENG
+				}
+				every_country = {
+					limit = { has_war_with = ENG NOT = { has_war_with = USA } }
+					add_timed_idea = {
+						idea = GER_united_front_idea
+						days = 365
+					}
+				}
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_expand_russo_german_economic_ties
+		icon = GFX_goal_GER_continuing_ataurky 
+		x = 1
+		y = 1
+		relative_position_id = GER_honor_the_pakt
+		cost = 5
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_honor_the_pakt
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					has_country_flag = GER_agree_SOV_industrial_zone
+				}
+				add_ideas = GER_russian_economic_ties
+				else = {
+					unlock_decision_category_tooltip = SOV_prussian_russian_industry
+				}
+			}
+			SOV = {
+				country_event = { id = GER_wiltkrieg_faction_events.32 hours = 3 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_defend_the_revolution
+		icon = GFX_goal_GER_the_great_african_revolutions 
+		x = 0
+		y = 1
+		relative_position_id = GER_united_front_against_old_order
+		cost = 5
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_united_front_against_old_order
+		}
+		mutually_exclusive = {
+			focus = GER_consolidate_economic_communities
+		}
+		completion_reward = {
+			army_experience = 25
+			add_doctrine_cost_reduction = {
+				cost_reduction = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			SOV = {
+				add_ideas = ENG_prussian_advisors
+				army_experience = 25
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_consolidate_economic_communities
+		icon = GFX_goal_GER_prussian_industrial_plan 
+		x = 0
+		y = 1
+		relative_position_id = GER_expand_russo_german_economic_ties
+		cost = 5
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_expand_russo_german_economic_ties
+		}
+		available = {
+			has_completed_focus = GER_focus_on_european_nationalism
+		}
+		mutually_exclusive = {
+			focus = GER_defend_the_revolution
+		}
+		completion_reward = {
+			SOV = {
+				country_event = { id = GER_wiltkrieg_faction_events.26 hours = 3 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_propose_european_confederation
+		icon = GFX_goal_GER_supporting_the_italians 
+		x = 0
+		y = 1
+		relative_position_id = GER_consolidate_economic_communities
+		cost = 10
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_defend_the_revolution
+			focus = GER_consolidate_economic_communities
+		}
+		available = {
+			has_completed_focus = GER_focus_on_european_nationalism
+			NOT = {
+				has_country_flag = GER_consolidated_economies_rejected
+			}
+		}
+		mutually_exclusive = {
+			focus = GER_uneasy_peace
+		}
+		completion_reward = {
+			SOV = {
+				country_event = { id = GER_wiltkrieg_faction_events.23 hours = 3 }
+			}
+		}
+	}
+
+	shared_focus = {
+		id = GER_uneasy_peace
+		icon = GFX_GER_capacity 
+		x = 0
+		y = 1
+		relative_position_id = GER_defend_the_revolution
+		cost = 5
+		ai_will_do = {
+			factor = 250
+		}	
+		prerequisite = {
+			focus = GER_defend_the_revolution
+		}
+		mutually_exclusive = {
+			focus = GER_propose_european_confederation
+		}
+		completion_reward = {
+			every_country = {
+				limit = {
+					OR = {
+						tag = SOV
+						tag = GER
+					}
+				}
+				add_ideas = GER_uneasy_peace_idea
+			}
+		}
+	}

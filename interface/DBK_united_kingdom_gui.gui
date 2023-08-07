@@ -1,0 +1,989 @@
+guiTypes = {
+	containerWindowType = { 
+		name = "Kings_Approval_container"
+		position = { x = 1112 y = 4 }
+		iconType ={
+			name ="Kings_Approval_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=-85 y=0 }
+		}
+		iconType = {
+			name ="Kings_Approval_icon"
+			spriteType = "GFX_pol_power_icon"
+			position = { x = -80 y = 1 }
+			scale = 0.7
+		}
+		instantTextBoxType = {
+			name ="Kings_Approval_text"
+			position = { x = -62 y = 4 }
+			font = "hoi_18mbs"
+			text = "[?ENG_kings_approval_var]%"
+			format = center
+			maxWidth = 46
+			maxHeight = 24 
+			fixedsize = yes
+			pdx_tooltip = "Kings_Approval_tt" 
+		}   
+	}
+ 
+	##GOVERNMENT GUI 
+	containerWindowType = {
+		name = "ENG_current_government_gui"
+		position = { x = 230 y = 450}
+		iconType = {
+			name = "ENG_current_government_icon"
+			position = {
+				x = 0
+				y = 0 
+			} 
+			spriteType = "GFX_genericfaction"
+			pdx_tooltip = "ENG_current_government_gui_tt"
+		}
+	}
+
+	###NEW british ELECITON GUI 
+	#british election gui
+
+	containerWindowType = {
+		name = "ENG_open_duma_election_window"
+		position = { x = 250 y = 390}
+		iconType = {
+			name = "ENG_openelectionsbutton"
+			position = {
+				x = 0
+				y = 0
+			}
+			spriteType = "GFX_openelectionsbutton"
+			pdx_tooltip = "ENG_russian_election_gui_tt"
+		}
+	}
+
+	containerWindowType = {
+		name = "ENG_electionsview"
+		position = { x=-606 y=78}	
+		show_position = { x=-9 y =78 }
+		show_animation_type = decelerated
+		hide_animation_type = accelerated
+		animation_time = 300	
+		size = { width=550 height=100%% }
+		clipping = no
+		
+		#hide_sound = menu_close_window
+		show_sound = menu_open_window
+		
+		background = {
+			name = "Background"		
+			quadTextureSprite ="GFX_tiled_window_thin_border"
+		}
+		
+
+		iconType ={
+			name ="ENG_election_screen_top_bg"
+			spriteType = "GFX_construction_screen_top_bg"
+			position = { x= 5 y = 37 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		# containerWindowType = {
+		# 	name = "ENG_election_divider1"
+		# 	position = { x = 5 y = 96 }
+		# 	size = { width = 430 height = 45 }
+
+		# 	background = {
+		# 		name = "ENG_election_divider2"
+		# 		quadTextureSprite ="GFX_ENG_election_divider"
+		# 	}
+		# }
+
+		iconType ={
+			name ="ENG_election_header_bg"
+			spriteType = "GFX_header_bg"
+			position = { x= 5 y = 07 }
+			Orientation = "UPPER_LEFT"
+		}	
+		
+		instantTextboxType = {
+			name = "ENG_election_title"
+			position = { x = 20 y = 8 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			text = "British P.M. Elections"
+			maxWidth = 500
+			maxHeight = 20
+			format = left	
+		}
+		
+		containerWindowType = {
+			name = "ENG_election_win_top"
+			position = { x = 28 y = 26 }
+			size = { width = 100% height = 80% }
+			verticalScrollbar = "right_vertical_slider"
+			
+			#background = {
+			#	name = "Background"
+			#	spriteType ="GFX_production_win_top"
+			#}
+
+			# iconType = {
+			# 	name = "ENG_election_party_icon"
+			# 	position = { x = -222 y = -65 }
+			# 	spriteType = "GFX_election_ideology_spd"
+			# }
+			
+			
+			instantTextboxType = {
+				name = "ENG_election_states_value"
+				position = { x = 10 y = 32 }
+				textureFile = ""
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 0}
+				text = "[?days_mission_timeout@ENG_election_timeout] days left until the election!" 
+				maxWidth = 200
+				maxHeight = 20
+				format = center
+			}
+
+			instantTextboxType = {
+				name = "ENG_election_chosen_candidate"
+				position = { x = 220 y = 32 }
+				textureFile = ""
+				font = "hoi_20b"
+				borderSize = {x = 0 y = 0}
+				text = "Playing as: [ENG_get_selected_candidate]"
+				maxWidth = 200
+				maxHeight = 20
+				format = center
+			}
+		
+			
+			# # instantTextboxType = {
+			# # 	name = "SOV_election_influence"
+			# # 	position = { x = 94 y = 24 }
+			# # 	textureFile = ""
+			# # 	font = "hoi_18mbs"
+			# # 	borderSize = {x = 0 y = 0}
+			# # 	text = "SOV_election_influence"
+			# # 	maxWidth = 200
+			# # 	maxHeight = 20
+			# # 	format = left
+			# # }			
+			# # instantTextboxType = {
+			# # 	name = "SOV_election_influence_value"
+			# # 	position = { x = 159 y = 24 }
+			# # 	textureFile = ""
+			# # 	font = "hoi_18mbs"
+			# # 	borderSize = {x = 0 y = 0}
+			# # 	text = "SOV_election_influence_value"
+			# # 	maxWidth = 70
+			# # 	maxHeight = 20
+			# # 	format = center
+			# # }
+
+			# # instantTextboxType = {
+			# # 	name = "SOV_election_popularity"
+			# # 	position = { x = 94 y = 44 }
+			# # 	textureFile = ""
+			# # 	font = "hoi_18mbs"
+			# # 	borderSize = {x = 0 y = 0}
+			# # 	text = "SOV_election_popularity"
+			# # 	maxWidth = 200
+			# # 	maxHeight = 20
+			# # 	format = left
+			# # }
+			
+			# # instantTextboxType = {
+			# # 	name = "SOV_election_popularity_value"
+			# # 	position = { x = 159 y = 44 }
+			# # 	textureFile = ""
+			# # 	font = "hoi_18mbs"
+			# # 	borderSize = {x = 0 y = 0}
+			# # 	text = "SOV_election_popularity_value"
+			# # 	maxWidth = 70
+			# # 	maxHeight = 20
+			# # 	format = right
+			# # }
+
+			# iconType = {
+			# 	name = "construction_speed_icon"
+			# 	position = { x = 264 y = 45 }
+			# 	spriteType = "GFX_construction_speed_icon"
+			# }
+			
+			# instantTextboxType = {
+			# 	name = "construction_speed_value"
+			# 	position = { x = 315 y = 44 }
+			# 	textureFile = ""
+			# 	font = "hoi_18mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "99"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	format = right
+			# }			
+			
+		}
+			
+		containerWindowType = {
+			name = "production_lines"
+			position = { x = 0 y = 130 }
+			size = { width = 440 height = 100%% }
+			verticalScrollbar = "right_vertical_slider"
+			
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window2_1b_border"
+			}
+			
+			containerWindowType = {
+				name = "ENG_election_map_bg"
+				position = { x = 6 y = 15 }
+				size = { width = 410 height = 350 }
+				
+				# background = {
+				# 	name = "ENG_election_map_ph"
+				# 	quadTextureSprite ="GFX_ENG_election_map_ph"
+				# }
+
+				background = {
+					name = "ENG_tiled_research_bg"
+					quadTextureSprite ="GFX_tiled_research_bg"
+				}
+			}
+
+			verticalScrollbar = "right_vertical_slider"
+			iconType = {
+				name = "invisible piece of shit"
+				position = {
+					x = -10000
+					y = 600
+				}
+				spriteType = "GFX_dog"
+			}
+
+			# containerWindowType = {
+			# 	name = "ENG_election_map_ui"
+			# 	position = { x = 8 y = 360 }
+			# 	size = { width = 408 height = 45 }
+
+			# 	background = {
+			# 		name = "ENG_election_divider"
+			# 		quadTextureSprite ="GFX_ENG_election_divider"
+			# 	}
+			# }
+			
+			# containerWindowType = {
+			# 	name = "ENG_election_focuses"
+			# 	position = { x = 8 y = 400 }
+			# 	size = { width = 410 height = 270 }
+			# 	verticalScrollbar = "right_vertical_slider"
+			# 	vertical_scroll_step = 50
+			# 	scroll_wheel_factor = 40
+			# 	smooth_scrolling = yes
+			# 	margin = { top = 13 left = 13 bottom = 15 right = 25}
+
+			# 	background = {
+			# 		name = "ENG_election_focuses_bg"
+			# 		quadTextureSprite ="GFX_tiled_special_cut_bg"
+			# 	}
+
+			# 	containerWindowType = {
+			# 		name = "ENG_election_focuses_inner"
+			# 		position = { x = 0 y = 0 }
+			# 		size = { width = 380 height = 600 }
+					
+			# 		background = {
+			# 			name = "ENG_election_focuses_bg_overlay"
+			# 			quadTextureSprite ="GFX_tiled_generic_overlay_bg1_small"
+			# 		}
+					
+			# 	}
+			# }
+
+		}
+		containerWindowType = {
+			name = "british_parliament_presidential_elections_container"
+			size = {
+				width = 550
+				height = 650
+			}
+	
+		
+	
+	
+			containerWindowType = {
+				name = "british_elections_progressbar_container"
+				position = { x = 36 y = -5 }
+				iconType = { 
+					name = "parliament_elections_halifax_progress_bar"
+					spriteType = "GFX_duma_elections_kerensky_progress_bar"
+					pdx_tooltip = "ENG_halifax_election_desc"
+					position = {
+						x = 6
+						y = 140 
+					}
+				}
+				iconType = { 
+					name = "parliament_elections_churchill_progress_bar"
+					spriteType = "GFX_duma_elections_pavel_progress_bar"
+					pdx_tooltip = "ENG_churchill_election_desc"
+					position = {
+						x = 93
+						y = 140
+					}
+				}
+				iconType = { 
+					name = "parliament_elections_attlee_progress_bar"
+					spriteType = "GFX_duma_elections_lenin_progress_bar"
+					pdx_tooltip = "ENG_attlee_election_desc"
+					position = {
+						x = 180
+						y = 140
+					}
+				}
+				iconType = { 
+					name = "parliament_elections_hamsworth_progress_bar"
+					spriteType = "GFX_duma_elections_tsar_progress_bar"
+					pdx_tooltip = "ENG_hamsworth_election_desc"
+					position = {
+						x = 267
+						y = 140
+					}
+				}
+			}
+
+			containerWindowType = {
+				name = "russian_progressbar_description_container" 
+				position = { 
+					x = 36
+					y = 500
+				}
+	
+				instantTextBoxType = {
+					name = "halifax_election_description"
+					font = "hoi_18mbs"
+					text = "ENG_halifax_election_desc"
+					position = {
+						x = 6
+						y = 0   
+					}
+					maxWidth = 80
+					format = center
+				}
+	
+				instantTextBoxType = {
+					name = "churchill_election_description"
+					font = "hoi_18mbs"
+					text = "ENG_churchill_election_desc"
+					position = {
+						x = 93
+						y = 0
+					}
+					maxWidth = 80
+					format = center
+				}
+	
+				instantTextBoxType = {
+					name = "attlee_election_description" 
+					font = "hoi_18mbs" 
+					text = "ENG_attlee_election_desc"
+					position = {
+						x = 180
+						y = 0
+					}
+					maxWidth = 80
+					format = center 
+				}
+	
+				instantTextBoxType = {
+					name = "hamsworth_election_description"
+					font = "hoi_18mbs"
+					text = "ENG_hamsworth_election_desc"
+					position = {
+						x = 267
+						y = 0
+					}
+					maxWidth = 80
+					format = center
+				}
+			}
+
+		
+	
+		}
+
+		containerWindowType = {
+			name = "ENG_election_state_buttons"
+			position = { x = 438 y = 40 }
+			size = { width = 104 height = 475 }
+			
+			# background = {
+			# 	name = "Background"
+			# 	quadTextureSprite ="GFX_ENG_election_bg2"
+			# }
+
+			iconType = {
+				name = "province_constructions"
+				position = { x = 33 y = 9 }
+				quadTextureSprite = "GFX_province_constructions"
+				pdx_tooltip = ENG_the_campaign_trail
+			}
+			gridboxtype = {
+				name = "ENG_election_state_buttons_gridbox"
+				position = { x = 5 y = 50 }
+				size = { width = 95 height = 675 }
+				slotsize = { width = 95 height = 45 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+			
+		}
+
+		
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_belarus_button_click_enabled_tt"
+			# 	name = "SOV_election_map_belarus_button"
+			# 	position = { x = -98 y = 95 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_belarus_button_click_enabled_tt"
+			# 	name = "SOV_election_map_belarus_text"
+			# 	position = { x = 5 y = 107 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Belarus"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	format = right
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_ukraine_button_click_enabled_tt"
+			# 	name = "SOV_election_map_ukraine_button"
+			# 	position = { x = -98 y = 140 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_ukraine_button_click_enabled_tt"
+			# 	name = "SOV_election_map_ukraine_text"
+			# 	position = { x = 14 y = 152 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Ukraine"
+			# 	maxWidth = 80
+			# 	maxHeight = 20
+			# 	multiline = yes
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_southern_oblasts_button_click_enabled_tt"
+			# 	name = "SOV_election_map_southern_oblasts_button"
+			# 	position = { x = -98 y = 185 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_southern_oblasts_button_click_enabled_tt"
+			# 	name = "SOV_election_map_southern_oblasts_text"
+			# 	position = { x = 21 y = 191 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Southern Oblasts"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_caucasus_button_click_enabled_tt"
+			# 	name = "SOV_election_map_caucasus_button"
+			# 	position = { x = -98 y = 230 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_caucasus_button_click_enabled_tt"
+			# 	name = "SOV_election_map_caucasus_text"
+			# 	position = { x = 18 y = 245 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Caucasus"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	multiline = yes
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_srednaya_azyiya_button_click_enabled_tt"
+			# 	name = "SOV_election_map_srednaya_azyiya_button"
+			# 	position = { x = -98 y = 275 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_srednaya_azyiya_button_click_enabled_tt"
+			# 	name = "SOV_election_map_srednaya_azyiya_text"
+			# 	position = { x = 20 y = 280 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Srednaya Azyiya"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_west_siberia_button_click_enabled_tt"
+			# 	name = "SOV_election_map_west_siberia_button"
+			# 	position = { x = -98 y = 320 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_west_siberia_button_click_enabled_tt"
+			# 	name = "SOV_election_map_west_siberia_text"
+			# 	position = { x = 20 y = 325 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "West Siberia"
+			# 	maxWidth = 70 
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_east_siberia_button_click_enabled_tt"
+			# 	name = "SOV_election_map_east_siberia_button"
+			# 	position = { x = -98 y = 365 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_east_siberia_button_click_enabled_tt"
+			# 	name = "SOV_election_map_east_siberia_text"
+			# 	position = { x = 20 y = 370 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "East Siberia"
+			# 	maxWidth = 70
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+			# buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_perm_button_click_enabled_tt"
+			# 	name = "SOV_election_map_perm_button"
+			# 	position = { x = -98 y = 410 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_perm_button_click_enabled_tt"
+			# 	name = "SOV_election_map_perm_text"
+			# 	position = { x = 7 y = 425 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Perm"
+			# 	maxWidth = 90
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+            # buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_northern_oblasts_button_click_enabled_tt"
+			# 	name = "SOV_election_map_northern_oblasts_button"
+			# 	position = { x = -98 y = 455 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_northern_oblasts_button_click_enabled_tt"
+			# 	name = "SOV_election_map_northern_oblasts_text"
+			# 	position = { x = 10 y = 460 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Northern Oblasts"
+			# 	maxWidth = 90
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+
+            # buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_finland_button_click_enabled_tt"
+			# 	name = "SOV_election_map_finland_button"
+			# 	position = { x = -98 y = 500 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_finland_button_click_enabled_tt"
+			# 	name = "SOV_election_map_finland_text"
+			# 	position = { x = 7 y = 515 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Finland"
+			# 	maxWidth = 90
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+
+            # buttonType = {
+			# 	pdx_tooltip = "SOV_election_map_moskow_button_click_enabled_tt"
+			# 	name = "SOV_election_map_moskow_button"
+			# 	position = { x = -98 y = 545 }
+			# 	spriteType = "GFX_SOV_election_button"
+			# 	buttonFont = "Main_14_black"
+			# 	Orientation = "UPPER_RIGHT"
+			# }
+
+			# instantTextboxType = {
+			# 	pdx_tooltip = "SOV_election_map_moskow_button_click_enabled_tt"
+			# 	name = "SOV_election_map_moskow_text"
+			# 	position = { x = 10 y = 560 }
+			# 	textureFile = ""
+			# 	font = "hoi_16mbs"
+			# 	borderSize = {x = 0 y = 0}
+			# 	text = "Moskow"
+			# 	maxWidth = 90
+			# 	maxHeight = 20
+			# 	format = center
+			# }
+		
+
+		containerWindowType = {
+			name = "ENG_election_story_game_buttons"
+			position = { x = 438 y = 730 }
+			size = { width = 105 height = 220 } 
+			
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_plain_bg_small"
+			}
+			instantTextboxType = {
+				name = "ENG_election_map_candidates_text"
+				position = { x = 10 y = 18 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Parties"
+				maxWidth = 90
+				maxHeight = 20
+				format = center
+			}
+			buttonType = {
+				name = "ENG_election_map_halifax_button"
+				position = { x = -98 y = 48 }
+				spriteType = "GFX_SOV_election_button"
+				buttonFont = "Main_14_black"
+				Orientation = "UPPER_RIGHT"
+			}
+
+			instantTextboxType = {
+				name = "ENG_election_map_NG_text"
+				position = { x = 10 y = 63 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Nat. Govt."
+				maxWidth = 90
+				maxHeight = 20
+				format = center
+			}
+
+			buttonType = {
+				name = "ENG_election_map_tories_button"
+				position = { x = -98 y = 93 }
+				spriteType = "GFX_SOV_election_button"
+				buttonFont = "Main_14_black"
+				Orientation = "UPPER_RIGHT"
+			}
+
+			instantTextboxType = {
+				name = "ENG_election_map_tories_text"
+				position = { x = 10 y = 108 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Liberals"
+				maxWidth = 90
+				maxHeight = 20
+				format = center
+			}
+
+			buttonType = {
+				name = "ENG_election_map_labour_button"
+				position = { x = -98 y = 138 }
+				spriteType = "GFX_SOV_election_button"
+				buttonFont = "Main_14_black"
+				Orientation = "UPPER_RIGHT"
+			}
+
+			instantTextboxType = {
+				name = "ENG_election_map_labour_text"
+				position = { x = 10 y = 153 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = {x = 0 y = 0}
+				text = "Labour"
+				maxWidth = 90
+				maxHeight = 20
+				format = center
+			}
+
+			buttonType = {
+				name = "ENG_election_map_new_labour_button"
+				position = { x = -98 y = 183 }
+				spriteType = "GFX_SOV_election_button" 
+				buttonFont = "Main_14_black"
+				Orientation = "UPPER_RIGHT"
+			}
+
+			instantTextboxType = {
+				name = "ENG_election_map_new_labour_text"
+				position = { x = 10 y = 198 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = {x = 0 y = 0}
+				text = "U.E.P."
+				maxWidth = 90
+				maxHeight = 20
+				format = center
+			}
+		}
+
+		containerWindowType = {
+			name = "ENG_election_story_game"
+			position = { x = 20 y = 630 }
+			size = {
+				width = 410
+				height = 100%%
+			}
+
+			instantTextBoxType = {
+				name = "ENG_election_story_game_party_name_select"
+				position = {
+					x = 0
+					y = -25
+				}
+				text = "Party Selected: "
+				maxWidth = 390
+				format = center
+				font = "hoi_20b"
+			}
+			
+			instantTextBoxType = {
+				name = "ENG_election_story_game_party_name"
+				position = {
+					x = 0
+					y = 0
+				}
+				text = "[ENG_GetPartyGUISelected]"
+				maxWidth = 390 
+				format = center
+				font = "hoi_30header"
+			}
+			instantTextBoxType = {
+				name = "ENG_election_story_game_party_policies"
+				position = {
+					x = 30
+					y = 44
+				} 
+				text = "[ENG_GetPartyPoliciesGUISelected]"
+				maxWidth = 300
+				format = left
+				font = "hoi_20b"
+			}
+
+			instantTextBoxType = {
+				name = "ENG_election_story_game_party_interactions"
+				position = {
+					x = -40
+					y = 160
+				}
+				text = "Campaign Interactions"
+				maxWidth = 500
+				format = center
+				font = "hoi_30header"
+			}
+
+			
+			#Halifax Decisions
+			buttonType = {
+				name = "ENG_attack_halifax_policies"
+				pdx_tooltip = "ENG_attack_halifax_policies_tt"
+				position = { x = 55 y = 200 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Attack Halifax's Domestic Policies"
+			}
+			buttonType = {
+				name = "ENG_attack_halifax_ireland"
+				pdx_tooltip = "ENG_attack_halifax_ireland_tt"
+				position = { x = 55 y = 250 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Denounce His War In Ireland"
+			}
+			buttonType = {
+				name = "ENG_highlight_his_indecisiveness"
+				pdx_tooltip = "ENG_highlight_his_indecisiveness_tt"
+				position = { x = 55 y = 300 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Highlight His Indecisiveness"
+			}
+
+			#Churchill Decisions
+			buttonType = {
+				name = "ENG_attack_churchill_policies"
+				pdx_tooltip = "ENG_attack_churchill_policies_tt"
+				position = { x = 55 y = 200 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Attack Churchill's Domestic Policies"
+			}
+			buttonType = {
+				name = "ENG_point_out_their_impracticalness"
+				pdx_tooltip = "ENG_point_out_their_impracticalness_tt"
+				position = { x = 55 y = 250 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Attack His War-Mongering"
+			}
+			buttonType = {
+				name = "ENG_paint_him_as_aloof"
+				pdx_tooltip = "ENG_paint_him_as_aloof_tt"
+				position = { x = 55 y = 300 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Paint Him As Aloof"
+			}
+
+			#Attlee Decisions
+			buttonType = {
+				name = "ENG_labour_will_be_the_end_of_britain"
+				pdx_tooltip = "ENG_labour_will_be_the_end_of_britain_tt"
+				position = { x = 55 y = 200 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Attack Attlee's Extremism"
+			}
+			buttonType = {
+				name = "ENG_socialism_will_never_work"
+				pdx_tooltip = "ENG_socialism_will_never_work_tt"
+				position = { x = 55 y = 250 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Socialism Will Never Work"
+			}
+			buttonType = {
+				name = "ENG_rally_pro_monarchists"
+				pdx_tooltip = "ENG_rally_pro_monarchists_tt"
+				position = { x = 55 y = 300 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Rally Pro-Monarchists"
+			}
+
+			#Hamsworth Decisions
+			buttonType = { 
+				name = "ENG_denouncing_hamsworth_as_an_autocrat"
+				pdx_tooltip = "ENG_denouncing_hamsworth_as_an_autocrat_tt"
+				position = { x = 55 y = 200 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Denouncing Hamsworth as an Autocrat"
+			}
+			buttonType = {
+				name = "ENG_condemn_his_radical_ties"
+				pdx_tooltip = "ENG_condemn_his_radical_ties_tt"
+				position = { x = 55 y = 250 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Condemn His Radical Ties"
+			}
+			buttonType = {
+				name = "ENG_attacking_his_extremist_policies"
+				pdx_tooltip = "ENG_attacking_his_extremist_policies_tt"
+				position = { x = 55 y = 300 }
+				quadTextureSprite ="GFX_SOV_election_story_button"
+				buttonFont = "hoi_20b"
+				buttonText = "Slander His Insane Policies"
+			}
+
+
+			
+		}
+		
+		buttonType = {
+			name = "close_button"
+			position = { x = -43 y = 9 }
+			quadTextureSprite ="GFX_closebutton"
+			buttonFont = "Main_14_black"
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			clicksound = click_close
+		}
+	}
+
+	containerWindowType = { 
+		name = "ENG_election_state_entry" 
+		buttonType = {
+			pdx_tooltip = "ENG_election_map_state_button_click_enabled_tt" 
+			name = "ENG_election_map_state_button"
+			position = { x = 0 y = 0 }
+			spriteType = "GFX_SOV_election_button"
+			Orientation = "UPPER_RIGHT"
+		}
+ 
+		instantTextboxType = {
+			pdx_tooltip = "ENG_election_map_state_button_click_enabled_tt"
+			name = "ENG_election_map_state_text"
+			position = { x = 0 y = 12 }
+			textureFile = ""
+			font = "hoi_16mbs"
+			borderSize = {x = 0 y = 0}
+			text = "[THIS.GetName]"
+			maxWidth = 95
+			maxHeight = 45
+			format = center
+		}
+	}
+}

@@ -1,0 +1,147 @@
+###########################
+# Portugal Events
+###########################
+
+add_namespace = portugal_military_coup
+
+# Military Coup
+country_event = {
+	id = portugal_military_coup.1
+	title = portugal_military_coup.1.t
+	desc = portugal_military_coup.1.desc
+	picture = GFX_report_event_por_president_military_inspection
+
+	is_triggered_only = yes
+
+	option = {
+		name = portugal_military_coup.1.a
+
+		ai_chance = {
+			base = 20
+		}
+		custom_effect_tooltip =  portugal_military_coup.1_a_tt
+		hidden_effect = { country_event = { id = portugal_military_coup.2 days = 7 } }
+		ROOT = {
+
+		}
+	}
+
+	# No
+	option = {
+		name = portugal_military_coup.1.b
+
+		ai_chance = {
+			base = 40
+			
+		}
+		custom_effect_tooltip =  portugal_military_coup.1_b_tt
+	}
+}
+
+country_event = {
+	id = portugal_military_coup.2
+	title = portugal_military_coup.2.t
+	desc = portugal_military_coup.2.desc
+	picture = GFX_report_event_generic_army
+
+	is_triggered_only = yes
+
+	option = {
+		name = portugal_military_coup.2.a
+
+		ai_chance = {
+			base = 20
+		}
+		#custom_effect_tooltip =  portugal_military_coup.2_a_tt
+		hidden_effect = { country_event = { id = portugal_military_coup.3 days = 28 } }
+		ROOT = {
+			set_politics = {
+				ruling_party = neutrality
+			    elections_allowed = no
+			    last_election = "1933.3.5"
+			    election_frequency = 48
+			    #long_name = TAG_party_long
+			    #name = TAG_party
+			}
+			add_popularity = {
+			    ideology = neutrality
+			    popularity = 0.15
+			}
+			remove_ideas = POR_french_dockyard_capital
+		}
+	}
+}
+
+country_event = {
+	id = portugal_military_coup.3
+	title = portugal_military_coup.3.t
+	desc = portugal_military_coup.3.desc
+	picture = GFX_report_event_por_estado_novo
+
+	is_triggered_only = yes
+
+	option = {
+		name = portugal_military_coup.3.a
+
+		ai_chance = {
+			base = 20
+		}
+		#custom_effect_tooltip =  portugal_military_coup.3_a_tt
+		hidden_effect = { country_event = { id = portugal_military_coup.4 days = 23 } }
+		ROOT = {
+			add_country_leader_role = {
+			    character = POR_antonio_oscar_de_fragoso_carmona
+			    promote_leader = yes
+			    country_leader = {
+			        ideology = reactionary_autocrat
+			        expire = "1965.1.1.1"
+			        #traits = { war_industrialist }
+			    }
+			}
+			add_popularity = {
+			    ideology = neutrality
+			    popularity = 0.05
+			}
+			remove_ideas = POR_growing_corporatist_movement
+		}
+	}
+}
+
+country_event = {
+	id = portugal_military_coup.4
+	title = portugal_military_coup.4.t
+	desc = portugal_military_coup.4.desc
+	picture = GFX_report_event_por_salazar_military
+
+	is_triggered_only = yes
+
+	option = {
+		name = portugal_military_coup.4.a
+
+		ai_chance = {
+			base = 20
+		}
+		#custom_effect_tooltip =  portugal_military_coup.4_a_tt
+		
+		ROOT = {
+			set_politics = {
+				ruling_party = fascism
+			    elections_allowed = no
+			    last_election = "1933.3.5"
+			    election_frequency = 48
+			    #long_name = TAG_party_long
+			    #name = TAG_party
+			}
+			add_popularity = {
+			    ideology = fascism
+			    popularity = 0.25
+			}
+			set_political_party = {
+			    ideology = neutrality
+			    popularity = 0
+			}
+			
+		}
+	}
+}
+

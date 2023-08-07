@@ -1,0 +1,275 @@
+add_namespace = xinjiang
+
+
+country_event = {
+	id = xinjiang.1 
+	title = xinjiang.1.t
+	desc = xinjiang.1.d
+	picture = GFX_report_event_chinese_soldiers_02
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xinjiang.1.a 
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		UMR = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				} 
+			}
+			news_event = {id = xinjiang.2 }
+		}
+		kill_country_leader = yes
+	}
+	option = { 
+		name = xinjiang.1.b
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		KUL = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+			news_event = {id = xinjiang.2 }
+		}
+		kill_country_leader = yes
+	}
+	option = { 
+		name = xinjiang.1.c
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		ETS = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+			news_event = {id = xinjiang.2 }
+		}
+		kill_country_leader = yes
+	}
+	option = { 
+		name = xinjiang.1.e
+		ai_chance = { factor = 25 }
+		ILI = {
+			transfer_state = 618
+		}
+		KUL = {
+			transfer_state = 933
+			transfer_state = 760
+		}
+		ETS = {
+			transfer_state = 619
+			transfer_state = 1133
+		}
+		UMR = {
+			annex_country = {
+				target = XNJ
+				transfer_troops = no
+			}
+		}
+		ILI = {
+			change_tag_from = ROOT
+		}
+		hidden_effect = {
+			UMR = {
+				country_event = {
+					id = xinjiang.3
+					days = 10
+				}
+			}
+			news_event = {id = xinjiang.2 }
+		}
+		kill_country_leader = yes
+	}
+	immediate = {
+		
+	}
+}
+news_event = {
+	id = xinjiang.2 
+	title = xinjiang.2.t
+	desc = xinjiang.2.d
+	picture = GFX_china_march
+	major = yes
+ 
+	#fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { # Only one option, just an acknowledgment by the player
+		name = xinjiang.2.a 
+		ai_chance = { factor = 100 } #this factor means the AI will almost always pick this one
+	}
+}
+country_event = {
+	id = xinjiang.3
+	title = xinjiang.3.t
+	desc = xinjiang.3.d
+	picture = GFX_report_event_chinese_soldiers
+
+	fire_only_once = yes   
+	is_triggered_only = yes
+
+	option = { 
+		name = xinjiang.3.a 
+		ai_chance = { factor = 100 }
+		ILI = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+			load_oob = "ILI_civil_war"
+		}
+		KUL = {
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+			load_oob = "KUL_civil_war"
+		}
+		ETS = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = UMR
+				type = annex_everything
+			}
+			load_oob = "ETS_civil_war"
+		}
+		UMR = {
+			declare_war_on = {
+				target = KUL
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ETS
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = ILI
+				type = annex_everything
+			}
+			load_oob = "UMR_civil_war"
+		}
+		hidden_effect = {
+			if = {
+				limit = {
+					XSM = {
+						has_country_flag = xibei_large_nationalism
+					}
+				}
+				XSM = {
+					country_event = {
+						id = xibei.3
+						days = 5
+					}
+				}
+				else_if = {
+					limit = {
+						XSM = {
+							has_country_flag = xibei_small_nationalism
+						}
+					}
+					XSM = {
+						country_event = {
+							id = xibei.4
+							days = 375
+						}
+					}	
+				}
+			}
+		}
+	}
+}
+
+
+ 
+
+
+ 

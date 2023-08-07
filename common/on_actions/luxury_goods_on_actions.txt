@@ -1,0 +1,58 @@
+on_actions = {
+	on_monthly = {
+		effect = {
+			every_state = {
+				limit = {
+					is_luxury_state = yes
+				}
+
+				if = {
+					limit = {
+						satisifies_high_luxury_conditions = yes
+					}
+					if = {
+						limit = {
+							is_high_luxury_state = no
+						}
+						level_up_luxury_goods = yes
+					}
+				}
+				else = {
+					level_down_luxury_goods = yes
+				}
+
+				if = {
+					limit = {
+						satisifies_medium_luxury_conditions = yes
+					}
+					if = {
+						limit = {
+							is_medium_luxury_state = no
+						}
+
+						level_up_luxury_goods = yes
+					}
+				}
+				else = {
+					level_down_luxury_goods = yes
+				}
+
+				if = {
+					limit = {
+						satisifies_low_luxury_conditions = yes
+					}
+					if = {
+						limit = {
+							is_low_luxury_state = no
+						}
+
+						level_up_luxury_goods = yes
+					}
+				}
+				else = {
+					level_down_luxury_goods = yes
+				}
+			}
+		}
+	}
+}

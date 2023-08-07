@@ -1,72 +1,87 @@
 SOV_russian_duma_support_modifier = {
 	enable = {always = yes}
-
 	political_power_factor = SOV_russian_duma_support_pp
 }
-
 SOV_russian_people_support_modifier = {
 	enable = {always = yes}
-
 	stability_factor = SOV_russian_peoples_support_stability
 }
 SOV_young_italy_activities = {
     enable = { always = yes }
-
     icon = GFX_modifiers_sabotaged_resource
-
     recruitable_population_factor = young_italy_activity_power
     state_resources_factor = young_italy_activity_power
 }
 SOV_hungarian_communist_activities = {
     enable = { always = yes }
-
     icon = GFX_modifiers_sabotaged_resource
-
     recruitable_population_factor = young_italy_activity_power
     state_resources_factor = young_italy_activity_power
 }
-
 SOV_peoples_support_for_current_regime_modifier = {
     stability_factor = SOV_peoples_support_for_current_regime_stability_factor
     political_power_gain = SOV_peoples_support_for_current_regime_political_power_gain
     drift_defence_factor = SOV_peoples_support_for_current_regime_drift_defence_factor
 }
-
 SOV_orthodox_resistance = {
     recruitable_population_factor = -0.35
     state_resources_factor = -0.35
 }
-
 SOV_leftist_crackdown = {
 	enable = { always = yes }
-
 	icon = GFX_modifiers_sabotaged_resource
-
 	recruitable_population_factor = -0.5
 	local_building_slots_factor = 0.25
 	state_resources_factor = 0.25
 	state_production_speed_buildings_factor = 0.25
 }
-
 SOV_crushed_ukranian_resistance = {
     enable = { always = yes }
-
     icon = GFX_idea_SOV_crushed_ukranian_resistance
-
     local_resources_factor = 0.65
     recruitable_population_factor = 0.65
 	resistance_growth = -0.5
 	resistance_target = -0.5
 	
 }
-
 SOV_minority_rights_in_states = {
 	enable = { always = yes }
-
 	icon = GFX_idea_SOV_minority_rights_in_states
-
 	recruitable_population_factor = -0.35
 	local_building_slots_factor = 0.1
 	state_resources_factor = 0.1
 	state_production_speed_buildings_factor = 0.1
+}
+SOV_rising_ukrainian_nationalism = {
+	enable = { always = yes }
+	icon = GFX_idea_risingukraniannationalism
+	local_building_slots_factor = -0.1
+	recruitable_population_factor = -0.05
+	state_resources_factor = -0.1
+	state_production_speed_buildings_factor = -0.15
+}
+SOV_baltic_separatism = {
+	enable = { always = yes }
+	icon = GFX_idea_balticseperatism
+	local_building_slots_factor = -0.25
+	army_speed_factor = -0.15
+	recruitable_population_factor = -0.25
+	state_resources_factor = -0.25
+	state_production_speed_buildings_factor = -0.25
+}
+SOV_ethnic_conflicts = {
+	enable = { always = yes }
+	icon = GFX_idea_ethnicfighting
+	resistance_target = 0.1
+	resistance_decay = -0.1
+	resistance_growth = 0.03
+	state_resources_factor = -0.15
+}
+SOV_caucasian_discord = {
+	enable = { always = yes }
+	icon = GFX_idea_caucasiandiscord
+	local_building_slots_factor = -0.05
+	recruitable_population_factor = -0.025
+	state_resources_factor = -0.05
+	state_production_speed_buildings_factor = -0.08
 }

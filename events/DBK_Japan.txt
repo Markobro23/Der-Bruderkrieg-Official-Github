@@ -4,18 +4,40 @@ country_event = {
 	title = JAP_taishos_will.1.t
 	desc = JAP_taishos_will.1.d
     #picture = 
+
+	immediate = {
+		
+	}
 	
 	is_triggered_only = yes
 	option = { #status quo
 		name = JAP_taishos_will.1.a
-		
+		JAP_replace_taisho = yes
+		add_popularity = {
+			ideology = authoritarian_democratic
+			popularity = 0.05
+		}
 	}
 	option = { #true democracy
 		name = JAP_taishos_will.1.b
-	
+		JAP_replace_taisho = yes
+		add_popularity = {
+			ideology = democratic
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = democratic
+		}
 	}
 	option = { #yashiotp
 		name = JAP_taishos_will.1.c
-        
+		JAP_replace_taisho = yes
+        add_popularity = {
+			ideology = ultranationalism
+			popularity = 0.25
+		}
+		set_politics = {
+			ruling_party = ultranationalism
+		}
 	}
 }

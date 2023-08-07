@@ -1,0 +1,25 @@
+###########################
+# Montenegro Events
+###########################
+add_namespace = MNT_kings_death
+country_event = {
+    id = MNT_kings_death.1
+    title = MNT_kings_death.1.t
+    desc = MNT_kings_death.1.d
+    fire_only_once = yes
+    is_triggered_only = yes
+    picture = GFX_report_event_generic_funeral
+    option = {
+        name = MNT_kings_death.1.a
+        retire_character = MNT_danilo_ii
+        add_country_leader_role = {
+		    character = MNT_michael_i
+		    promote_leader = yes
+		    country_leader = {
+		        ideology = despotic
+		        expire = "1965.1.1.1"
+		        traits = {  }
+		    }
+		}
+    }
+}

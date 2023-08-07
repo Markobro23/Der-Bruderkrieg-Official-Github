@@ -143,9 +143,6 @@ if = {
 		basic_fire_control_system = 1
 		basic_dp_light_battery = 1
 	}
-	#add_ideas = #MTG_naval_treaty_adherent
-	set_global_flag = MTG_second_london_conference
-	set_global_flag = { flag = MTG_naval_treaty_signatories value = 5 }
 }
 
 if = {
@@ -163,7 +160,7 @@ set_variable = { var = eng_influence_in_colombia value = 10 }
 add_ideas = {
 	ENG_pact_of_atlantica
 	ENG_broken_crown_jewel
-	ENG_british_jingoism
+	#ENG_british_jingoism
 	ENG_federalism
 
 	edward_halifax
@@ -214,7 +211,7 @@ if = {
 		freedom_level = 0.4
 	}
 	set_autonomy = {
-		target = YEM
+		target = ISR
 		autonomous_state = autonomy_dominion
 		freedom_level = 0.4
 	}
@@ -223,7 +220,7 @@ if = {
 		puppet = MAL
 		puppet = RAJ
 		puppet = BHU
-		puppet = YEM
+		puppet = ISR
 		
 	}
 }
@@ -268,21 +265,7 @@ ENG = { if = {
     }
 }
 
-ENG = { if = {
-  limit = {
-    has_dlc = "Together for Victory"
-  }
-  
-  set_autonomy = {
-    target = NGA
-    autonomy_state = autonomy_colony
-  }
 
-  else = {
-    puppet = NGA
-        }
-    }
-}
 
 
 
@@ -300,7 +283,7 @@ HAN = {
 	give_military_access = ENG
 }
 
-give_guarantee = SMC
+
 give_guarantee = SCA
 
 set_politics = {
@@ -310,9 +293,10 @@ set_politics = {
 	elections_allowed = yes ##suspended through duration of war, which is handled via event
 }
 set_popularities = {
-	democratic = 40
+	democratic = 25
+	authoritarian_democratic = 10
 	socialism_democratic = 13
-	democratic_liberalism = 20
+	democratic_liberalism = 25
 	fascism = 12
 	communism = 4
 	neutrality = 7
@@ -339,8 +323,12 @@ add_to_faction = BHU
 
 
 recruit_character = ENG_albert_i
+recruit_character = ENG_henry_ix
 recruit_character = ENG_winston_churchill
-recruit_character = ENG_oswald_mosley
+recruit_character = ENG_clement_attlee
+recruit_character = ENG_edward_halifax
+recruit_character = ENG_harold_hamsworth
+recruit_character = ENG_clement_attlee
 recruit_character = ENG_harry_pollitt
 recruit_character = ENG_alan_brooke
 recruit_character = ENG_bernard_montgomery
@@ -388,6 +376,15 @@ recruit_character = ENG_frederick_bowhill
 recruit_character = ENG_louis_mountbatten
 recruit_character = ENG_max_horton
 recruit_character = ENG_david_stirling
+recruit_character = ENG_john_beckett
+recruit_character = ENG_ernest_bevin
+
+# Political Advisors
+recruit_character = ENG_alan_turing
+recruit_character = ENG_stewart_menzies
+recruit_character = ENG_maxwell_aitken
+recruit_character = ENG_ernest_bevin
+recruit_character = ENG_anthony_eden
 
 if = {
 	limit = {
@@ -975,11 +972,11 @@ if = {
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_1
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = heavy_ship_engine_2
-			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
 			fixed_ship_armor_slot = ship_armor_bc_2
 			front_1_custom_slot = ship_anti_air_1
 			mid_1_custom_slot = empty
-			mid_2_custom_slot = ship_secondaries_2
+			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
 		obsolete = yes
@@ -1120,17 +1117,17 @@ if = {
 			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = heavy_ship_engine_1
-			fixed_ship_secondaries_slot = ship_secondaries_2
+			fixed_ship_secondaries_slot = ship_secondaries_1
 			fixed_ship_armor_slot = ship_armor_bb_1
 			front_1_custom_slot = ship_anti_air_1
 			mid_1_custom_slot = ship_airplane_launcher_1
-			mid_2_custom_slot = ship_secondaries_2
+			mid_2_custom_slot = ship_secondaries_1
 			rear_1_custom_slot = ship_heavy_battery_1
 		}
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "King George V Class"
+		name = "King Edward VIII Class" #KGV
 		type = ship_hull_heavy_1
 		name_group = ENG_BB_HISTORICAL
 		parent_version = 0
@@ -1182,13 +1179,13 @@ if = {
 		obsolete = yes
 	}
 	create_equipment_variant = {
-		name = "Cavendish Class"
+		name = "Vindictive Class"
 		type = ship_hull_carrier_conversion_ca
 		name_group = ENG_CVL_HISTORICAL
 		parent_version = 0
 		modules = {
 			fixed_ship_deck_slot_1 = ship_deck_space
-			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_armor_carrier_deck
 			fixed_ship_anti_air_slot = ship_anti_air_1
 			fixed_ship_radar_slot = empty
 			fixed_ship_engine_slot = cruiser_ship_engine_1

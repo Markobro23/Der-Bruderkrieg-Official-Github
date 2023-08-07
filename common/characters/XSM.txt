@@ -1,22 +1,55 @@
 characters={
+	XSM_ma_buqing = {
+		name = "Ma Buqing"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Buqing.png"
+			}
+			army = {
+				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Buqing.png"
+			}
+		}
+		field_marshal = {
+			traits = { politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		country_leader={
+			desc = ma_buqing_desc
+			ideology=nationalist_autocrat
+			expire="1965.1.1.1"
+			id=-1
+		}
+	}
 	XSM_ma_lin={
 		name="Ma Lin"
 		portraits={
 			civilian={
 				large="gfx/leaders/XSM/MaLin.dds"
 			}
+			army = {
+				small="gfx/interface/ideas/XSM_ma_lin.png"
+			}
 		}
-		country_leader={
-			ideology=despotic
-			expire="1965.1.1.1"
-			id=-1
+		#country_leader={
+		#	ideology=despotic
+		#	expire="1965.1.1.1"
+		#	id=-1
+		advisor = {
+			slot = army_chief
+			idea_token = XSM_ma_lin_army_chief
+			traits = { army_chief_offensive_1 }
 		}
+
 	}
 	XSM_ma_bufang={
 		name="Ma Bufang"
 		portraits={
 			army={
-				small="GFX_portrait_xsm_ma_bufang_small"
+				small="gfx/interface/ideas/XSM_ma_bufang.png"
 				large="gfx/leaders/XSM/Portrait_XSM_Ma_Bufang_2.png"
 			}
 		}
@@ -34,6 +67,12 @@ characters={
 			expire="1965.1.1.1"
 			id=-1
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = XSM_ma_bufang_army_chief
+			traits = { army_chief_maneuver_2 }
+			cost = 100
+		}
 	}
 	XSM_ma_hongbin={
 		name="Ma Hongbin"
@@ -43,7 +82,7 @@ characters={
 				large="gfx/leaders/XSM/Portrait_XSM_Ma_Hongbin.png"
 			}
 		}
-		field_marshal = {
+		corps_commander = {
 			traits = { politically_connected }
 			skill = 3
 			attack_skill = 3
@@ -57,6 +96,7 @@ characters={
 		portraits = {
 			civilian = {
 				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Fuxiang.png"
+				small="gfx/interface/ideas/XSM_ma_fuxiang.png"
 			}
 		}
 		field_marshal = {
@@ -67,12 +107,19 @@ characters={
 			planning_skill = 4
 			logistics_skill = 3
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = XSM_ma_fuxiang_army_chief
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
 	}
 	XSM_ma_hongkui = {
 		name = "Ma Hongkui"
 		portraits = {
 			army = {
 				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Hongkui.png"
+				small="gfx/interface/ideas/XSM_Ma_Hongkui.png"
 			}
 		}
 		corps_commander = {
@@ -82,6 +129,12 @@ characters={
 			defense_skill = 2
 			planning_skill = 3
 			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = XSM_ma_hongkui_army_mhc
+			ledger = army
+			traits = { army_logistics_1 }
 		}
 	}
 	XSM_ma_biao = {
@@ -121,6 +174,7 @@ characters={
 		portraits = {
 			army = {
 				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Zhongying.png"
+				small="gfx/interface/ideas/XSM_Ma_Zhongying.png"
 			}
 		}
 		corps_commander = {
@@ -131,12 +185,24 @@ characters={
 			planning_skill = 1
 			logistics_skill = 1
 		}
+		advisor = {
+			cost = 100
+			
+			slot = theorist
+			idea_token = XSM_ma_zhongying
+			ledger = army
+				
+			traits = {
+				military_theorist
+			}
+		}
 	}
 	XSM_ma_hushan = {
 		name = "Ma Hushan"
 		portraits = {
 			army = {
 				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Hushan.png"
+				small="gfx/interface/ideas/XSM_Ma_Hushan.png"
 			}
 		}
 		corps_commander = {
@@ -147,12 +213,21 @@ characters={
 			planning_skill = 1
 			logistics_skill = 2
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = XSM_ma_hushan_army_chief
+			available = {
+				not_already_hired_except_as = army_chief
+			}
+			traits = { army_chief_morale_1 }
+		}
 	}
 	XSM_ma_jiyuan = {
 		name = "Ma Jiyuan"
 		portraits = {
 			army = {
 				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Jiyuan.png"
+				small="gfx/interface/ideas/XSM_Ma_Jiyuan.png"
 			}
 		}
 		corps_commander = {
@@ -163,21 +238,11 @@ characters={
 			planning_skill = 1
 			logistics_skill = 1
 		}
-	}
-	XSM_ma_buqing = {
-		name = "Ma Buqing"
-		portraits = {
-			army = {
-				large = "gfx/leaders/XSM/Portrait_XSM_Ma_Buqing.png"
-			}
-		}
-		corps_commander = {
-			traits = { politically_connected }
-			skill = 2
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 2
-			logistics_skill = 2
+		advisor = {
+			slot = high_command
+			idea_token = XSM_ma_jiyuan_army_mhc
+			ledger = army
+			traits = { army_cavalry_1 }
 		}
 	}
 	

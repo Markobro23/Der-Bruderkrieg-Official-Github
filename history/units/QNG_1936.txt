@@ -1,0 +1,278 @@
+﻿instant_effect = {
+	add_equipment_production = {
+		equipment = {
+			type = infantry_equipment_0
+			creator = "QIE"
+		}
+		requested_factories = 4
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = artillery_equipment_1
+			creator = "QIE"
+		}
+		requested_factories = 2
+		progress = 0.3
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "QIE"
+		}
+		requested_factories = 1
+		progress = 0.3
+		efficiency = 50
+	}
+}
+
+division_template = {
+	name = "New Army Division" #Xinjun Zhen
+	is_locked = yes
+	division_names_group = QNG_INF_01
+	regiments = { #Each Qing New Army division had a different number of troops/regiment or /division from western and HOI4 standard so I edited it. Can explain to anyone interested.
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		artillery_brigade = { x = 0 y = 3 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		artillery_brigade = { x = 1 y = 3 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+	}
+	support = { 
+		engineer = { x = 0 y = 0 }
+		logistics_company = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "New Army Mixed Force" #Xinjun Huncheng Xie
+	is_locked = no
+	division_names_group = "QNG_INF_02"
+	regiments = { #Each Qing New Army division had a different number of troops/regiment or /division from western and HOI4 standard so I edited it. Can explain to anyone interested.
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		artillery_brigade = { x = 0 y = 3 }
+		cavalry = { x = 1 y = 0 }
+	}
+	support = { 
+		engineer = { x = 0 y = 0 }
+	}
+}
+
+division_template = {
+	name = "National Garrison Force"
+	division_names_group = "QNG_GAR_01"
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 0 y = 3 }
+	}
+}
+
+division_template = {
+	name = "Qibing Biao"
+	division_names_group = QNG_CAV_01
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 0 y = 3 }
+		cavalry = { x = 0 y = 4 }
+		cavalry = { x = 1 y = 0 }
+	}
+}
+
+units = {
+	#Central Army
+	division = {
+		location = 9843
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 6969
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 3900
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 952
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.4
+	}
+	division = {
+		location = 4148
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.4
+	}
+	division = {
+		location = 7459
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.4
+	}
+	division = {
+		location = 7109
+		division_template = "New Army Division"
+		start_experience_factor = 0.6
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 1489
+		division_template = "Qibing Biao"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 1027
+		division_template = "Qibing Biao"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 1519
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.3
+	}
+	division = {
+		location = 4093
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.1
+	}
+	division = {
+		location = 11962
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		location = 1180
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 9958
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.9
+	}
+	division = {
+		location = 7129
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		location = 7508
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.4
+	}
+	division = {
+		location = 1603
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.8
+	}
+	division = {
+		location = 7568
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.2
+	}
+	division = {
+		location = 10064
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.7
+	}
+	division = {
+		location = 7222
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.5
+	}
+	division = {
+		location = 10008
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 0.6
+	}
+	division = {
+		location = 1089
+		division_template = "New Army Mixed Force"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1.0
+	}
+	division = {
+		name = "Jilin Di 1 Xunfang Ying"
+		location = 4037
+		division_template = "National Garrison Force"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.7
+	}
+	division = {
+		name = "Anhui Di 1 Xunfang Ying"
+		location = 4071
+		division_template = "National Garrison Force"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.6
+	}
+	division = {
+		name = "Anhui Di 2 Xunfang Ying"
+		location = 1069
+		division_template = "National Garrison Force"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.9
+	}
+	division = {
+		name = "Henan Di 1 Xunfang Ying"
+		location = 12045
+		division_template = "National Garrison Force"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.8
+	}
+	division = {
+		name = "Hebei Di 1 Xunfang Ying"
+		location = 7089
+		division_template = "National Garrison Force"
+		start_experience_factor = 0.1
+		start_equipment_factor = 0.5
+	}
+}
+
+air_wings = {
+
+	608 = {
+		fighter_equipment_0 = {
+			owner = "QNG"
+			amount = 50
+		}
+		tac_bomber_equipment_0 = {
+			owner = "QNG"
+			amount = 25
+		}
+	}
+}
+

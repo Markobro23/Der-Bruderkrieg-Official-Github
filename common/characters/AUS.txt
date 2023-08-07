@@ -1,104 +1,23 @@
 characters={
-	AUS_gunther_burstyn={
-		name="Gunther Burstyn"
-		portraits={
-			army={
-				large="gfx/leaders/AUS/Portrait_AUS_Gunther_Burstyn.png"
-				small="GFX/interface/advisors/AUS/AUS_Gunther_Burstyn.png"
-			}
-		}
-		advisor={
-			cost = 200
-			slot = theorist
-			idea_token = burstyn
-			ledger = army
-			allowed = {
-				original_tag = AUS
-			}
-			traits = {
-				blitzkrieg_theorist
-			}
-		}
-		corps_commander={
-			traits={ armor_officer trait_engineer panzer_leader panzer_expert }
-			skill=4
-			attack_skill=4
-			defense_skill=3
-			planning_skill=3
-			logistics_skill=3
-			legacy_id=13003
-		}
-	}
-	AUS_lothar_rendulic={
-		name="Lothar Rendulic"
-		portraits={
-			army={
-				large="gfx/leaders/AUS/Portrait_AUS_Lothar_Rendulic.png"
-				small="GFX/interface/advisors/AUS/AUS_Lothar_Rendulic.png"
-			}
-		}
-		advisor={
-			slot = high_command
-			idea_token = lothar
-			allowed = {
-				original_tag = AUS
-			}
-			traits = {
-				army_infantry_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.000
-			}
-		}
-		corps_commander={
-			traits={ harsh_leader armor_officer commando }
-			skill=2
-			attack_skill=2
-			defense_skill=2
-			planning_skill=1
-			logistics_skill=2
-			legacy_id=13008
-		}
-	}
-	AUS_wilhelm_zehner={
-		name="Wilhelm Zehner"
-		portraits={
-			army={
-				large="gfx/leaders/AUS/Portrait_AUS_Wilhelm_Zehner.png"
-				small="GFX/interface/advisors/AUS/AUS_Wilhelm_Zehner.png"
-			}
-		}
-		advisor={
-			slot = high_command
-			idea_token = zehner
-			ledger = army
-			allowed = {
-				original_tag = AUS
-			}
-			traits = {
-				army_regrouping_2
-			}
-			cost = 100
-			ai_will_do = {
-				factor = 1.500
-			}
-		}
-		corps_commander={
-			traits={ brilliant_strategist career_officer infantry_leader commando urban_assault_specialist }
-			skill=3
-			attack_skill=3
-			defense_skill=2
-			planning_skill=2
-			logistics_skill=3
-			legacy_id=13006
-		}
-	}
 	AUS_engelbert_dolfuss={
 		name="Engelbert Dolfuss"
 		portraits={
 			civilian={
 				large="gfx/leaders/AUS/Portrait_AUS_Engelbert_Dolfuss.png"
+				small = "gfx/interface/advisors/AUS/AUS_engelbert_dolfuss.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = engelbert_dolfuss
+			allowed  = {
+				original_tag  = AUS
+			}
+			available = {
+				has_completed_focus = AUS_engelbert_dolfuss_focus
+			}
+			traits  = {
+				corporatist 
 			}
 		}
 		country_leader={
@@ -145,15 +64,24 @@ characters={
 		}
 		
 	}
-	# AUS_karl_i_2={
-	# 	name="Karl I"
-	# 	portraits={
-	# 		civilian={
-	# 			large="gfx/leaders/KarlPortrait.dds"
-	# 		}
-	# 	}
-		
-	# }
+
+	AUS_otto_von_habsburg = {
+		name = "Otto von Habsburg"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/AUS/Portrait_AUS_Otto_von_Habsburg.png"
+			}
+		}
+	}
+
+	AUS_albrect_von_teschen={
+		name="Albrecht Franz von Teschen"
+		portraits={
+			civilian={
+				large="gfx/leaders/AUS/Portrait_AUS_Albrecht_von_Habsburg_Teschen.png"
+			}
+		}
+	}
 	
 	AUS_alfred_kahr={
 		name="Alfred Klahr"
@@ -168,23 +96,6 @@ characters={
 			traits={ staunch_stalinist }
 			expire="1965.1.1.1"
 			id=-1
-		}
-	}
-	AUS_leopold_salvator_von_habsburglothringen={
-		name="Leopold Salvator von Habsburg-Lothringen"
-		portraits={
-			army={
-				large="gfx/leaders/AUS/Archduke_Leopold_Portrait.dds"
-			}
-		}
-		field_marshal={
-			traits={ old_guard inflexible_strategist politically_connected offensive_doctrine }
-			skill=4
-			attack_skill=3
-			defense_skill=2
-			planning_skill=1
-			logistics_skill=4
-			legacy_id=-1
 		}
 	}
 	AUS_joseph_von_habsburglothringen={
@@ -269,7 +180,7 @@ characters={
 				factor = 8.000
 			}
 		}
-		field_marshal={
+		corps_commander={
 			traits={ trait_reckless media_personality armor_officer war_hero trickster }
 			skill=4
 			attack_skill=4
@@ -277,6 +188,95 @@ characters={
 			planning_skill=2
 			logistics_skill=3
 			legacy_id=4
+		}
+	}
+	AUS_gunther_burstyn={
+		name="Gunther Burstyn"
+		portraits={
+			army={
+				large="gfx/leaders/AUS/Portrait_AUS_Gunther_Burstyn.png"
+				small="GFX/interface/advisors/AUS/AUS_Gunther_Burstyn.png"
+			}
+		}
+		advisor={
+			cost = 200
+			slot = theorist
+			idea_token = burstyn
+			ledger = army
+			allowed = {
+				original_tag = AUS
+			}
+			traits = {
+				blitzkrieg_theorist
+			}
+		}
+		corps_commander={
+			traits={ armor_officer trait_engineer panzer_leader panzer_expert }
+			skill=4
+			attack_skill=4
+			defense_skill=3
+			planning_skill=3
+			logistics_skill=3
+			legacy_id=13003
+		}
+	}
+	AUS_lothar_rendulic={
+		name="Lothar Rendulic"
+		portraits={
+			army={
+				large="gfx/leaders/AUS/Portrait_AUS_Lothar_Rendulic.png"
+				small="GFX/interface/advisors/AUS/AUS_Lothar_Rendulic.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = lothar
+			traits = {
+				army_infantry_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
+		corps_commander={
+			traits={ harsh_leader armor_officer commando }
+			skill=2
+			attack_skill=2
+			defense_skill=2
+			planning_skill=1
+			logistics_skill=2
+			legacy_id=13008
+		}
+	}
+	AUS_wilhelm_zehner={
+		name="Wilhelm Zehner"
+		portraits={
+			army={
+				large="gfx/leaders/AUS/Portrait_AUS_Wilhelm_Zehner.png"
+				small="GFX/interface/advisors/AUS/AUS_Wilhelm_Zehner.png"
+			}
+		}
+		advisor={
+			slot = high_command
+			idea_token = zehner
+			ledger = army
+			traits = {
+				army_regrouping_2
+			}
+			cost = 100
+			ai_will_do = {
+				factor = 1.500
+			}
+		}
+		corps_commander={
+			traits={ brilliant_strategist career_officer infantry_leader commando urban_assault_specialist }
+			skill=3
+			attack_skill=3
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=3
+			legacy_id=13006
 		}
 	}
 	AUS_erwin_von_witzleben={
@@ -332,9 +332,6 @@ characters={
 		advisor={
 			slot = army_chief
 			idea_token = eimannsberger
-			allowed = {
-				original_tag = AUS
-			}
 			traits = {
 				army_chief_offensive_2
 			}
@@ -1233,6 +1230,161 @@ characters={
 				nuclear = 0.150
 			}
 			cost = 100
+		}
+	}
+	AUS_emil_milan_uzelac = {
+		name = "Emil Uzelac"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_emil_milan_uzelac.png"
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = AUS_emil_milan_uzelac
+			traits = { air_chief_reform_2 }
+			cost = 100
+		}
+	}
+	AUS_emmerich_czermach = {
+		name = "Emmerich Czermak"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_emmerich_czermach.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = emmerich_czermach
+			allowed  = {
+				original_tag  = AUS
+			}
+			available = {
+				has_completed_focus = AUS_emmerich_czermach_focus
+			}
+			traits  = {
+				armaments_organizer 
+			}
+		}
+	}
+	AUS_karl_sietz = {
+		name = "Karl Seitz"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_karl_sietz.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = karl_sietz
+			allowed  = {
+				original_tag  = AUS
+			}
+			available = {
+				has_completed_focus = AUS_karl_sietz_focus
+			}
+			traits  = {
+				lieutenant_of_industry 
+			}
+		}
+	}
+	AUS_wilhelm_miklas = {
+		name = "Wilhelm Miklas"
+		portraits = {
+			army = {
+				large="gfx/leaders/AUS/Portrait_AUS_Wilhelm_Miklas.png"
+				small = "gfx/interface/advisors/AUS/AUS_wilhelm_miklas.dds"
+			}
+		}
+		advisor={
+			slot = head_of_government
+			idea_token = wilhelm_miklas
+			allowed  = {
+				original_tag  = AUS
+			}
+			available = {
+				NOT = {
+					has_completed_focus = AUS_sign_a_new_constitution
+				}
+			}
+			traits  = {
+				sincere_catholic 
+			}
+		}
+		advisor={
+			slot = political_advisor
+			idea_token = wilhelm_miklas2
+			allowed  = {
+				original_tag  = AUS
+			}
+			available = {
+				has_completed_focus = AUS_engelbert_dolfuss_focus
+			}
+			traits  = {
+				sincere_catholic 
+			}
+		}
+	}
+
+	AUS_maximilian_ronge = {
+		name = "Maximilian Ronge"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_maximilian_ronge.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_maximilian_ronge
+			available = {
+				has_intelligence_agency = yes
+			}
+			allowed = {
+				original_tag = AUS
+				has_dlc = "La Resistance"
+			}
+			traits = {
+				head_of_intelligence 
+			}
+		}
+	}
+	AUS_julius_meinl_jr = {
+		name = "Julius Meinl Jr."
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_julius_meinl_jr.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_julius_meinl_jr
+			traits = { captain_of_industry }
+		}
+	}
+	AUS_walter_breisky = {
+		name = "Walter Breisky"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_walter_breisky.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_walter_breisky
+			traits = { education_reformer }
+		}
+	}
+	AUS_ludwig_von_mises = {
+		name = "Ludwig von Mises"
+		portraits = {
+			army = {
+				small = "gfx/interface/advisors/AUS/AUS_ludwig_von_mises.png"
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = AUS_ludwig_von_mises
+			traits = { efficient_budgeter }
 		}
 	}
 }

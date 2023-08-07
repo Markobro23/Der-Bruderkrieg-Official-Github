@@ -20,13 +20,27 @@ division_template = {
 } 
 
 
-division_template = {
-	name = "Guard Division"
-	division_names_group = ITA_INF_01
+division_template = { #Blackshirts
+	name = "Camicie Nere" 
+	division_names_group = ITA_INF_02
+	template_counter = 68
+	is_locked = yes
+	force_allow_recruiting = yes
+	division_cap = 12 #WARNING THIS VALUE NEEDS TOP MATCH THE value in var ITA_militias_cap set in history file
 
-	regiments = {
-		infantry = { x = 0 y = 0 }
-		infantry = { x = 0 y = 1 }
+	# Represents nearly all infantry divisions
+	# In later years, CC.NN. Brigade added to INF Division (1x2 MIL/INF regiments)
+	# Also represent semi-mountain divisions (1st, 2nd, 3rd, 4th, 6th Divisions)
+	regiments = { 
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+	}
+	support = { 
+		engineer = { x = 0 y = 0 }
 	}
 }
 
@@ -152,6 +166,18 @@ units = {
 		division_template = "Reggimento di Cavalleria"
 		start_experience_factor = 0.2
 		start_equipment_factor = 0.7
+	}
+	division = { # 
+		name = "1a Divisione CC.NN. '23 Marzo'" 
+		location = 9907 
+		division_template = "Camicie Nere"	# CC.NN. militia, lower training and equipment
+		start_experience_factor = 0.15
+	}
+	division = { # 
+		name = "5a Divisione CC.NN. '1 Febbraio'" 
+		location = 819 
+		division_template = "Camicie Nere"	# CC.NN. militia, lower training and equipment
+		start_experience_factor = 0.15
 	}
 
 	## 4a Armata ##
@@ -310,20 +336,28 @@ units = {
 	# Subordinate to Theater #
 	division = { #
 		name = "7a Divisione CC.NN. 'Cirene'"
-		location = 11874
+		location = 11773
 		division_template = "Divisione di Fanteria"	# CC.NN. militia, lower training and equipment
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.5
 	}
-	division = { #
-		division_name = {
-			is_name_ordered = yes
-			name_order = 2
-		} #  "2a Divisione Coloniale 'Libia'"
-		location = 11874
-		division_template = "Divisione Coloniale" # Colonial militia, lower training and equipment
-		force_equipment_variants = { infantry_equipment_0 = { owner = "ITA" } }
-		start_equipment_factor = 0.5
+	division = { # 
+		name = "4a Divisione CC.NN. '3 Gennaio'" 
+		location = 12723 
+		division_template = "Camicie Nere"	# CC.NN. militia, lower training and equipment
+		start_experience_factor = 0.15
+	}
+	division = { # 
+		name = "3a Divisione CC.NN. '21 Aprile'" 
+		location = 8164
+		division_template = "Camicie Nere"	# CC.NN. militia, lower training and equipment
+		start_experience_factor = 0.15
+	}
+	division = { # 
+		name = "6a Divisione CC.NN. 'Tevere'" 
+		location = 2063 
+		division_template = "Camicie Nere"	# CC.NN. militia, lower training and equipment
+		start_experience_factor = 0.15
 	}
 
 	### Armata dell'Africa Orientale Italiana ###
@@ -434,7 +468,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 31
 		} #  "1a Divisione Coloniale 'Eritrea'"
-		location = 3780
+		location = 12766
 		division_template = "Divisione Coloniale" # Colonial militia, lower training and equipment
 		force_equipment_variants = { infantry_equipment_0 = { owner = "ITA" } }
 	}
@@ -443,7 +477,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 32
 		} #  "2a Divisione Coloniale 'Eritrea'"
-		location = 3780
+		location = 12766
 		division_template = "Divisione Coloniale" # Colonial militia, lower training and equipment
 		force_equipment_variants = { infantry_equipment_0 = { owner = "ITA" } }
 	}
@@ -472,7 +506,7 @@ units = {
 			is_name_ordered = yes
 			name_order = 101
 		} #  "101a Divisione Coloniale 'Somalia'"
-		location = 11568
+		location = 12991
 		division_template = "Divisione Coloniale" # Colonial militia, lower training and equipment
 		force_equipment_variants = { infantry_equipment_0 = { owner = "ITA" } }
 	}
@@ -515,16 +549,16 @@ instant_effect = {
 			efficiency = 50
 		}
 
-		add_equipment_production = {
-			equipment = {
-				type = light_tank_equipment_1
-				creator = "ITA"
-			}
+		add_equipment_production = { 
+			equipment = { 
+				type = light_tank_equipment_1 
+				creator = "ITA" 
+			} 
 
-			requested_factories = 1
-			progress = 0.4
-			efficiency = 50
-		}
+			requested_factories = 1 
+			progress = 0.4 
+			efficiency = 50 
+		} 
 
 		add_equipment_production = {
 			equipment = {

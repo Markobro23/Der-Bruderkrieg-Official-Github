@@ -1,20 +1,13 @@
 ﻿capital = 4
-
 create_faction = AUS_1
 add_to_faction = "AUS"
-
 give_guarantee = PAP
 give_guarantee = ALB
-give_guarantee = SMC
 give_guarantee = SCA
-
 set_variable = { var = riots_stuff value = -50 }
 set_variable = { var = industrial_stuff value = -50 }
 set_variable = { var = AUS_prussian_infil_var value = 7 }
-
 set_variable = { italia_revolt_var = 8 }
-
-
 if = {
 	limit = {
 		NOT = {
@@ -29,77 +22,51 @@ if = {
 	}
 	set_oob = "AUS_1936_nsb"
 }
-
 set_country_flag = AUS_imperial_diet_austria_click_flag
-
 set_autonomy = {
 	target = GPU
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = WUR
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = HES
 	autonomous_state =  autonomy_puppet
 } 
-
 set_autonomy = {
 	target = BAD
 	autonomous_state =  autonomy_puppet
-} 
-
+}
 set_autonomy = {
 	target = NAS
 	autonomous_state =  autonomy_puppet
-} 
-
-# set_autonomy = {
-# 	target = BOS
-# 	autonomous_state =  autonomy_puppet
-# } 
-
-
+}
 set_autonomy = {
 	target = ORA
 	autonomous_state =  autonomy_colony
 } 
-
-# set_autonomy = {
-# 	target = SWA
-# 	autonomous_state =  autonomy_colony
-# }
-
 set_variable = {karl_mood = 3}
 set_variable = {people_mood = 8}
-
-
-
 set_variable = {austrian_tech_var = 30}
-
 diplomatic_relation = {
 	country = ALB
 	relation = non_aggression_pact
 }
-
+diplomatic_relation = {
+	country = TUR
+	relation = non_aggression_pact
+}
 add_ideas = {
 	GroBosterreich
 	Absolutism
 	AUS_a_collapsing_empire_idea
 	AUS_stagnant_economic_growth
 	AUS_treaty_of_vienna
-	
 	wilhelm_miklas
-	ignaz_seipel
-	friedrich_hayek
-	leopold_berchtold
-	sigmund_freud
 	vacant 
 }
-
 add_dynamic_modifier = {
 	modifier = Bohemian_Outrage
 }
@@ -158,7 +125,6 @@ set_technology = {
 	fuel_refining = 1
 	basic_train = 1
 }
-
 if = {
 	limit = {
 		NOT = { has_dlc = "No Step Back" }
@@ -179,7 +145,6 @@ if = {
 		improved_light_tank_chassis = 1
 	}
 }
-
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_technology = {
@@ -188,12 +153,10 @@ if = {
 		basic_depth_charges = 1
 		basic_torpedo = 1
 		basic_battery = 1
-		#basic_secondary_battery = 1
 		basic_cruiser_armor_scheme = 1
 		basic_heavy_battery = 1
 		basic_medium_battery = 1
 		basic_light_battery = 1
-		improved_secondary_battery = 1
 		basic_heavy_armor_scheme = 1
 		early_ship_hull_submarine = 1
 		basic_ship_hull_submarine = 1
@@ -234,18 +197,15 @@ if = {
 	}
 	set_naval_oob = "AUS_naval_legacy"
 }
-
 set_research_slots = 4
 set_stability = 0.35
 set_war_support = 0.25
-
 set_politics = {
 	ruling_party = authoritarian_democratic
 	last_election = "1933.3.5"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
-
 set_popularities = {
 	authoritarian_democratic = 45
 	fascism = 14
@@ -255,15 +215,14 @@ set_popularities = {
 	communism = 6
 	socialism_democratic = 5
 }
-
-set_convoys = 70
-starting_train_buffer = 2
-
+set_convoys = 50
 recruit_character = AUS_gunther_burstyn
 recruit_character = AUS_lothar_rendulic
 recruit_character = AUS_wilhelm_zehner
 recruit_character = AUS_engelbert_dolfuss
 recruit_character = AUS_karl_i
+recruit_character = AUS_otto_von_habsburg
+recruit_character = AUS_albrect_von_teschen
 recruit_character = AUS_alfred_kahr
 recruit_character = AUS_joseph_von_habsburglothringen
 recruit_character = AUS_friedrich_materna
@@ -291,7 +250,7 @@ recruit_character = AUS_stanislaw_szeptycki
 recruit_character = AUS_dmytro_vitovsky
 recruit_character = AUS_tadeusz_kutrzeba
 recruit_character = AUS_alois_podhajsky
-recruit_character = AUS_josef_bíly
+recruit_character = AUS_josef_bily
 recruit_character = AUS_josef_votruba
 recruit_character = AUS_kocsard_janky_de_bulcs
 recruit_character = AUS_hugo_sonyi
@@ -315,6 +274,18 @@ recruit_character = AUS_Alfred_von_Randow
 recruit_character = AUS_nikolaus_von_falkenhorst
 recruit_character = AUS_manfred_von_richthofen
 recruit_character = AUS_alexander_loehr
+recruit_character = AUS_emil_milan_uzelac
+
+# Head of Government
+recruit_character = AUS_emmerich_czermach
+recruit_character = AUS_karl_sietz
+recruit_character = AUS_wilhelm_miklas
+
+# Political Advisors
+recruit_character = AUS_maximilian_ronge
+recruit_character = AUS_julius_meinl_jr
+recruit_character = AUS_walter_breisky
+recruit_character = AUS_ludwig_von_mises
 
 if = {
 	limit = {
@@ -334,24 +305,6 @@ if = {
 		upgrades = {
 			tank_nsb_engine_upgrade = 1
 			tank_nsb_armor_upgrade = 1
-		}
-		obsolete = yes
-	}
-	create_equipment_variant = {
-		name = "Burstyn MtG"
-		type = light_tank_chassis_0
-		parent_version = 0
-		modules = {
-		main_armament_slot = tank_small_cannon
-			turret_type_slot = tank_light_two_man_tank_turret
-			suspension_type_slot = tank_bogie_suspension
-			armor_type_slot = tank_riveted_armor
-			engine_type_slot = tank_gasoline_engine
-			special_type_slot_1 = additional_machine_guns
-		}
-		upgrades = {
-			tank_nsb_engine_upgrade = 0
-			tank_nsb_armor_upgrade = 0
 		}
 		obsolete = yes
 	}
@@ -845,7 +798,6 @@ if = {
 			fixed_ship_engine_slot = carrier_ship_engine_1
 			fixed_ship_secondaries_slot = empty
 			front_1_custom_slot = ship_deck_space
-
 		}
 	}
 }

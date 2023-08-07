@@ -1,0 +1,123 @@
+ENG_current_government_modifier = {
+	enable = {
+		always = yes
+	}
+
+	remove_trigger = {
+		# NOT = {
+		# 	has_country_leader = {
+		# 		name = "Albert I"
+		# 		ruling_only = yes
+		# 	}
+		# }
+	}
+
+	political_power_factor = ENG_current_government_modifier_political_power_factor
+	stability_factor = ENG_current_government_modifier_stability_factor
+	production_speed_buildings_factor = ENG_current_government_modifier_production_speed_buildings_factor
+	
+	## NHS
+	monthly_population = ENG_current_government_modifier_monthly_population
+	global_building_slots_factor = ENG_current_government_modifier_global_building_slots_factor
+
+	## Refugees
+	research_speed_factor = ENG_current_government_modifier_research_speed_factor
+	army_morale_factor = ENG_current_government_modifier_army_morale_factor
+
+	## Crushing Extremists
+	party_popularity_stability_factor = ENG_current_government_modifier_party_popularity_stability_factor
+	economy_cost_factor = ENG_current_government_modifier_economy_cost_factor
+
+	## Pro Workers
+	production_factory_max_efficiency_factor = ENG_current_government_modifier_production_factory_max_efficiency_factor
+	local_resources_factor = ENG_current_government_modifier_local_resources_factor
+
+	## Attlee Anti-Communism
+	consumer_goods_factor = ENG_current_government_modifier_consumer_goods_factor
+	industrial_concern_cost_factor = ENG_current_government_modifier_industrial_concern_cost_factor
+
+	## Military
+	command_power_gain_mult = ENG_current_government_modifier_command_power_gain_mult
+	conscription_factor = ENG_current_government_modifier_concscription_factor
+
+	## Air
+	air_attack_factor = ENG_current_government_modifier_air_attack_factor
+	air_defence_factor = ENG_current_government_modifier_air_defence_factor
+	air_intercept_efficiency = ENG_current_government_modifier_air_intercept_efficiency
+}
+
+ira_attack_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		NOT = {
+			is_owned_by = IRE
+		}
+	}
+	icon = GFX_idea_USA_mcadoo_southern_revival_campaign
+
+	local_resources_factor = -0.5
+	recruitable_population_factor = -0.5
+}
+
+bose_is_annoying_attack_modifier = {
+	enable = {
+		always = yes
+	}
+	remove_trigger = {
+		NOT = {
+			OR = {
+				is_owned_by = AIG
+			}
+			OR = {
+				is_owned_by = RAJ
+			}
+		}
+	}
+	icon = GFX_idea_USA_mcadoo_southern_revival_campaign
+
+	local_resources_factor = -0.5
+	recruitable_population_factor = -0.5
+}
+
+
+ENG_unit_leader_imperial_federation_modifier = {
+	icon = "GFX_idea_USA_great_depression"
+	
+	skill_bonus_factor = -0.15
+	wounded_chance_factor = 0.1
+	promote_cost_factor = 0.1
+}
+
+ENG_unit_leader_good_modifier = {
+	icon = "GFX_idea_USA_great_depression"
+	
+	skill_bonus_factor = 0.15
+	wounded_chance_factor = -0.25
+	promote_cost_factor = -0.1
+}
+
+ENG_naval_leader_good_modifier = {
+	icon = "GFX_idea_USA_great_depression"
+	
+	naval_coordination = 0.15
+	naval_morale_factor = 0.2
+}
+
+ENG_air_leader_good_modifier = {
+	icon = "GFX_idea_USA_great_depression"
+	
+	air_agility_factor = 0.25
+	air_mission_efficiency = 0.35
+}
+
+central_asian_uprising = {
+
+	enable = { always = yes }
+
+	icon = GFX_idea_Riots
+
+	recruitable_population_factor = -0.75
+    state_resources_factor = -0.75
+}

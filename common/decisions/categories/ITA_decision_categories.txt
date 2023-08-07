@@ -4,33 +4,11 @@ ITA_content_decisions = {
 	}
 
 	visible = {
-		#has_country_flag = DEBUG_ITA_CONTENT_DECISIONS
-		is_subject = no
+		always = no
 	}
 	priority = 10000
 }
 
-ITA_incoming_socialist_revolution = {
-	icon = army_reform
-	allowed = {
-    tag = ITA
-	}
-
-	scripted_gui = italy_civil_war_decision_gui
-
-	visible = {
-		OR = {
-			has_completed_focus = ITA_purge_the_socialist_remnants
-		}
-		NOT = {
-			OR = {
-				has_completed_focus = ITA_resources_in_ethiopia 
-				has_completed_focus = ITA_end_the_rivalry
-			}
-		}
-	}
-	priority = 100 
-}
 
 ITA_risorgemento_decisions = {
 	allowed = {
@@ -111,38 +89,8 @@ ITA_the_next_grand_council_of_fascism_elections = {
 	}
 }
 
-ITA_road_to_recovery = {
-	icon = army_reform
-	allowed = {
-	tag = ITA
-	has_completed_focus = ITA_northern_investments
-	}
-
-	#scripted_gui = kings_men_gui
-
-	visible = {
-	tag = ITA
-	has_completed_focus = ITA_northern_investments
-	}
-
-	visible_when_empty = yes
-}
 
 
-
-
-
-ITA_northern_investments_decision = {
-	icon = army_reform
-	allowed = {
-    tag = ITA
-	}
-
-	visible = {
-    tag = ITA
-		has_completed_focus = ITA_northern_investments
-	}
-} 
 
 ITA_factory_repairing = {
 	icon = army_reform
@@ -162,35 +110,15 @@ ITA_iron_guard = {
 	}
 
 	visible = {
-    	tag = ITA
-    	OR = { has_completed_focus = ITA_a_route_through_romania has_completed_focus = ITA_fund_legionaires_in_romania }
-	}
-}
-
-ITA_evola_neo_feudalist_reforms = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_establish_a_neo_feudalist_society
-	}
-}
-
-ITA_evolas_political_reforms_decisions = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_strengthen_the_regime
-	}
-}
-
-ITA_evola_romano_germanic_figure_of_worship = {
-	allowed = {
-		tag = ITA
-	}
-	visible = {
-		has_completed_focus = ITA_our_romano_germanic_identity
+    	ROM = {
+    		NOT = {
+    			has_government = fascism
+    		}
+    	}
+    	NOT = {
+    		has_global_flag = ROM_iron_guard_coup_failed
+    	}
+    	has_completed_focus = ITA_fund_rrl
 	}
 }
 
@@ -199,13 +127,25 @@ ITA_maintaining_unity = {
 	allowed = {
 		tag = ITA
 	}
-	visible = {
-		OR = {
-			has_idea = ITA_socialist_revolt
-			has_idea = ITA_socialist_revolt_2
-		}
-	}
 	priority = 250
+	visible_when_empty = yes
+}
+
+ITA_seize_ottoman_cities_cat = {
+	icon = border_war
+	allowed = {
+		tag = ITA
+	}
+	visible = {
+		NOT = {
+			AND = {
+				owns_state = 450
+				owns_state = 448
+			}
+		}
+		has_country_flag = ITA_ottomans_refused_us_cities
+	}
+	priority = 20
 }
 
 ITA_balkan_decision_cat = {
@@ -214,7 +154,7 @@ ITA_balkan_decision_cat = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_albanian_expansion
+		has_completed_focus = ITA_fund_balli_kombetar
 	}
 	priority = 20
 }
@@ -235,25 +175,26 @@ ITA_portugese_corporatists = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_fortify_west_coast
-		has_country_leader = {
-			name = "Costanzo Ciano"
-		}
+		#has_completed_focus = ITA_fortify_west_coast
+		#has_country_leader = {
+		#	name = "Costanzo Ciano"
+		#}
+		always = no
 	}
 }
 
-ITA_portugese_syndaclists = {
+ITA_sponsor_falange = {
 	allowed = {
 		tag = ITA
 	}
 	visible = {
-		has_completed_focus = ITA_fortify_west_coast
-		OR = {
-			has_country_leader = {
-				name = "Michele Bianchi"
-			}
-			has_country_leader = {
-				name = "Attilio Teruzzi"
+		has_completed_focus = ITA_sponsor_the_falange
+		NOT = {
+			SPR = {
+				OR = {
+					exists = no
+					has_government = ultranationalism
+				}
 			}
 		}
 	}
@@ -267,13 +208,75 @@ ITA_establish_stato_gemelli = {
 	}
 
 	visible = {
-		OR = {
-			has_war_with = GER
-			any_owned_state = {
-				is_core_of = GER
+		has_completed_focus = ITA_savior_of_catholic_germans
+		NOT = {
+			has_country_leader = {
+				name = "Julius Evola"
+				ruling_only = yes
 			}
-			any_controlled_state = {
-				is_core_of = GER
+		}
+	}
+}
+
+ITA_asserting_ourselves_in_coalition = {
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		has_completed_focus = ITA_second_brothers_forever
+		is_in_faction_with = GER
+	}
+}
+
+
+ITA_turncoats_apprectiation_society = { #please help me I am dying by the second
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		focus_progress = {
+			focus = ITA_florence_berlin_split
+			progress > 0
+		}
+		NOT = {
+			has_completed_focus = ITA_florence_berlin_split
+		}
+	}
+}
+
+ITA_uniting_rome = { 
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		has_completed_focus = ITA_rome_larp
+		is_subject = no
+	}
+}
+
+ITA_crushing_counter_revolutionaries = {
+	icon = generic_political_actions
+
+	allowed = {
+		original_tag = ITA
+	}
+
+	visible = {
+		has_completed_focus = ITA_hunt_down_leftist_groups
+		OR = {
+			has_government = ultranationalism
+			has_country_leader = {
+				name = "Michele Bianchi"
+				ruling_only = yes
 			}
 		}
 	}

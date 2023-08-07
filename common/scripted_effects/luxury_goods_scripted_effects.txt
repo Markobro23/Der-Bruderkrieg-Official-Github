@@ -1,0 +1,334 @@
+level_up_luxury_goods = {
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_one
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_two
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_two
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_three
+			}
+		}
+		set_state_flag = can_spread_luxury_good_to_other_state
+	}
+
+
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_one
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_two
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_two
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_three
+			}
+		}
+		set_state_flag = can_spread_luxury_good_to_other_state
+	}
+
+	
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_one
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_two
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_two
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_three
+			}
+		}
+		set_state_flag = can_spread_luxury_good_to_other_state
+	}
+
+	
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_one
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_two
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_two
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_three
+			}
+		}
+		set_state_flag = can_spread_luxury_good_to_other_state
+	}
+}
+
+
+
+level_down_luxury_goods = {
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_one
+		}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_two
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_one
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_diamond_modifier_level_three
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_two
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_diamond_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_flag = can_spread_luxury_good_to_other_state
+		}
+		clr_state_flag = can_spread_luxury_good_to_other_state
+	}
+
+
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_one
+		}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_two
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_one
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_gold_modifier_level_three
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_two
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_gold_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_flag = can_spread_luxury_good_to_other_state
+		}
+		clr_state_flag = can_spread_luxury_good_to_other_state
+	}
+
+
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_one
+		}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_two
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_one
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_uranium_modifier_level_three
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_two
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_uranium_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_flag = can_spread_luxury_good_to_other_state
+		}
+		clr_state_flag = can_spread_luxury_good_to_other_state
+	}
+	
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_one
+			}
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_one
+		}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_two
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_one
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_two
+		}
+	}
+	else_if = {
+		limit = {
+			has_dynamic_modifier = {
+				modifier = luxury_good_fur_modifier_level_three
+			}
+		}
+		add_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_two
+		}
+		remove_dynamic_modifier = {
+			modifier = luxury_good_fur_modifier_level_three
+		}
+	}
+	else_if = {
+		limit = {
+			has_state_flag = can_spread_luxury_good_to_other_state
+		}
+		clr_state_flag = can_spread_luxury_good_to_other_state
+	}
+}
+
+update_loans = {
+	set_variable = { foriegn_loans_consumer_goods_factor = var:loan_giver.opinion@ROOT }
+	divide_variable = { foriegn_loans_consumer_goods_factor = -500 }
+	log = "[?foriegn_loans_consumer_goods_factor]"
+
+	set_variable = { global_building_slots_factor = var:loan_giver.opinion@ROOT }
+	divide_variable = { global_building_slots_factor = -350 }
+
+	set_variable = { base_fuel_gain_factor = var:loan_giver.opinion@ROOT }
+	divide_variable = { base_fuel_gain_factor = -400 }
+}

@@ -1,0 +1,70 @@
+division_template = {
+	name = "Revolutionary Infantry"				# Represents: German-trained divisions (better equipment than rest),
+	division_names_group = CHI_INF_01
+									# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+	}
+
+	priority = 0 # garrison
+}
+division_template = {
+	name = "Revolutionary Cavalry"				# Represents: German-trained divisions (better equipment than rest),
+	division_names_group = CHI_CAV_01
+									# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		cavalry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+	}
+
+	priority = 0 # garrison
+}
+division_template = {
+	name = "Revolutionary Regiment"				# Represents: German-trained divisions (better equipment than rest),
+	division_names_group = CHI_INF_01
+									# 	as well as two-division infantry corps (generally poorly-equipped militias),
+	regiments = {					#	and local militia groups.
+		infantry = { x = 0 y = 0 }	# Note: Chinese divisions were brigade-sized compared other nations' armies
+		infantry = { x = 0 y = 1 }
+	}
+
+	priority = 0 # garrison
+}
+units = {
+	division = {
+		name = "Qeshqer Infantry"
+		location = 2015
+		division_template = "Revolutionary Infantry"
+		start_experience_factor = 0.2
+	}
+	division = {
+		name = "Khotan Infantry"
+		location = 10911
+		division_template = "Revolutionary Infantry"
+		start_experience_factor = 0.2
+	}
+	division = {
+		name = "Aksu Cavalry"
+		location = 4828
+		division_template = "Revolutionary Cavalry"
+		start_experience_factor = 0.2
+	}
+	division = {
+		name = "1st Revolutionary Regiment"
+		location = 7949
+		division_template = "Revolutionary Regiment"
+		start_experience_factor = 0.2
+	}
+	division = {
+		name = "2nd Revolutionary Regiment"
+		location = 4973
+		division_template = "Revolutionary Regiment"
+		start_experience_factor = 0.2
+	}
+}

@@ -1,17 +1,21 @@
 capital = 46
 
 oob = "ROM_1936"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "ROM_1936_naval_mtg"
-	else = {
-		set_naval_oob = "ROM_1936_naval_legacy"
-	}
-}
+
 
 set_research_slots = 3
 set_stability = 0.6
 set_war_support = 0.6
+
+BUL = {
+
+	set_autonomy = {
+		target = ROM
+		autonomous_state = autonomy_puppet
+	} 
+
+}
+
 
 # Starting tech 
 if = {
@@ -88,7 +92,12 @@ if = {
 add_ideas = {
 	Corruption
 	ROM_Agrarianism
+	ROM_Liga_Romana
 	ROM_romanian_nationalism
+	BUL_puppets_sofia_charter
+	Balkan_depression_economic_1
+	Balkan_depression_industry_1
+	Balkan_depression_population
 	#ROM_last_of_the_hollenherzens
 	ROM_petre_bejan
 	ROM_nicolae_petrescu_comnen
@@ -103,30 +112,34 @@ add_ideas = {
 
 set_convoys = 10
 
+set_cosmetic_tag = ROM_BUL
 
 set_politics = {
-	ruling_party = democratic
+	ruling_party = authoritarian_democratic
 	last_election = "1933.12.20"
 	election_frequency = 48
-	elections_allowed = yes
+	elections_allowed = no
 }
+
+set_cosmetic_tag = ROM_BUL
+
 set_popularities = {
 	communism = 4
 	democratic_communism = 5
 	socialism_democratic = 9
-	democratic_liberalism = 11
-	democratic = 26
-	authoritarian_democratic = 10
-	neutrality = 5
-	fascism = 25
-	ultranationalism = 5
+	democratic_liberalism = 8
+	democratic = 6
+	authoritarian_democratic = 53
+	neutrality = 0
+	fascism = 15
+	ultranationalism = 0
 }
+
 
 
 recruit_character = ROM_ion_antonescu
 recruit_character = ROM_horia_macellariu
 recruit_character = ROM_gheorghe_avramescu
-recruit_character = ROM_carol_ii
 recruit_character = ROM_babru_lazareanu
 recruit_character = ROM_octavian_goga
 recruit_character = ROM_petre_dumitrescu

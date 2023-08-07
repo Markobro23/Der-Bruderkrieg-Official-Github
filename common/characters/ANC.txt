@@ -65,18 +65,24 @@ characters={
 		name="Delos Carleton Emmons"
 		portraits={
 			army={
-				small="gfx/interface/ideas/idea_europe_generic_land_1.dds"
+				small="gfx/interface/ideas/ANC_Delos_Emmons.png"
 				large="gfx/leaders/ANC/Portrait_HAW_Delos_Emmons.png"
 			}
 		}
 		corps_commander={
 			traits={ politically_connected trait_engineer }
-			skill=1
+			skill=2
 			attack_skill=1
-			defense_skill=1
+			defense_skill=2
 			planning_skill=1
-			logistics_skill=1
+			logistics_skill=3
 			legacy_id=-1
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = ANC_delos_carleton_emmons
+			traits = { air_chief_reform_2 }
+			cost = 100
 		}
 	}
 	ANC_robert_richardson={
@@ -177,17 +183,46 @@ characters={
 			}
 		}
 		field_marshal={
-			traits={ trait_cautious }
+			traits={ trait_cautious skilled_staffer }
 			skill=3
 			attack_skill=3
-			defense_skill=3
-			planning_skill=1
+			defense_skill=2
+			planning_skill=2
 			logistics_skill=3
 			legacy_id=-1
 		}
+		advisor = {
+			slot = army_chief
+			idea_token = ANC_walter_campbell_short
+			traits = { army_chief_defensive_2 }
+			cost = 100
+		}
+	}
+	ANC_charles_douglas_herron = {
+		name = "Charles D. Herron"
+		portraits = {
+			army = {
+				small = "gfx/interface/ideas/ANC_charles_douglas_herron.png"
+				large = "gfx/leaders/ANC/Portrait_HAW_Charles_Herron.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = ANC_charles_douglas_herron
+			traits = { army_chief_organizational_2 }
+			cost = 100
+		}
 	}
 	ANC_william_halsey_jr={
-		name="William Halsey, Jr."
+		name="William Halsey Jr."
 		portraits={
 			army={
 				small="gfx/interface/ideas/idea_USA_william_halsey_jr.dds"
@@ -209,10 +244,19 @@ characters={
 			traits = {
 				navy_chief_naval_aviation_2
 			}
+			available = { not_already_hired_except_as = navy_chief }
 			cost = 100
 			ai_will_do = {
 				factor = 1.000
 			}
+		}
+		advisor = {
+			slot = theorist
+			idea_token = USA_william_frederick_halsey_jr_theorist
+			ledger = navy
+			available = { not_already_hired_except_as = theorist }
+			traits = { naval_theorist }
+			cost = 100
 		}
 	}
 	ANC_frank_jack_fletcher={
@@ -268,7 +312,6 @@ characters={
 			defense_skill=2
 			maneuvering_skill=2
 			coordination_skill=1
-			legacy_id=-1
 		}
 	}
 	ANC_luke_mcnamee={
@@ -286,7 +329,7 @@ characters={
 			traits = {
 				navy_chief_decisive_battle_1
 			}
-			cost = 100
+			cost = 50
 			ai_will_do = {
 				factor = 1.000
 			}
@@ -295,10 +338,33 @@ characters={
 			traits={ ironside old_guard_navy } 
 			skill=2
 			attack_skill=2
-			defense_skill=2
+			defense_skill=1
+			maneuvering_skill=2
+			coordination_skill=2
+		}
+	}
+	ANC_willis_augustus_lee_jr = {
+		name = "Willis Augustus Lee"
+		portraits = {
+			army = {
+				large = "gfx/leaders/ANC/Portrait_ANC_willis_lee.png"
+				small = "gfx/interface/advisors/ANC/ANC_willis_augustus_lee_jr.png"
+			}
+		}
+		navy_leader = {
+			traits = { gunnery_expert }
+			skill=1
+			attack_skill=1
+			defense_skill=1
 			maneuvering_skill=1
 			coordination_skill=1
-			legacy_id=-1
+		}
+		advisor = {
+			slot = theorist
+			idea_token = USA_willis_augustus_lee_jr_theorist
+			ledger = navy
+			traits = { grand_fleet_proponent }
+			cost = 150
 		}
 	}
 }

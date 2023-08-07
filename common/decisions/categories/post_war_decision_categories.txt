@@ -13,3 +13,23 @@ post_war_prussia_loses = {
 		always = no
 	}
 } 
+
+race_for_german_unification = {
+	allowed = {
+		OR = {
+			tag = AUS
+			tag = FRA
+			tag = FGD
+			tag = GPU
+		}
+	}
+	visible = {
+		GER = {
+			NOT = {
+				has_war_with = AUS
+				has_war_with = FRA
+			}
+		}
+		has_global_flag = france_austria_split_deal
+	}
+}

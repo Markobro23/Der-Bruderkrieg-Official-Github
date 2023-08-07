@@ -130,4 +130,94 @@ ideas = {
 
     }
  
+ materiel_manufacturer = {
+
+    designer = yes
+
+    hanomag = {
+
+      allowed = {
+        or={
+          original_tag = HAN
+          original_tag = OLD
+        }
+      }
+
+      research_bonus = {
+        motorized_equipment = 0.15
+      }
+
+      traits = { motorized_equipment_manufacturer }
+    }
+  }
+  industrial_concern = {
+
+    korting = {
+
+      allowed = {
+        or={
+          original_tag = HAN
+          original_tag = OLD
+        }
+      }
+
+      research_bonus = {
+        industry = 0.15
+      }
+
+
+
+      traits = { industrial_concern }
+    }
+  }
+
+  tank_manufacturer = { 
+  
+    designer = yes
+    
+    HAN_continental = {
+
+      
+      allowed = {
+        or={
+          original_tag = HAN
+          original_tag = OLD
+        }
+      }
+      
+      research_bonus = {
+        armor = 0.15
+      }
+      
+      traits = { fast_tank_manufacturer }
+
+      ai_will_do = {
+        factor = 10
+      }
+
+    }
+  }
+  naval_manufacturer = {
+
+    designer = yes
+
+    norddeutscher_lloyd = {
+      picture = generic_naval_manufacturer_3
+
+
+      allowed = {
+        original_tag = HAN
+      }
+
+      research_bonus = {
+        naval_equipment = 0.15
+      }
+
+      equipment_bonus = {
+        # destroyers
+      }
+
+      traits = { convoy_escort_naval_manufacturer }
+    }
+  }
 }

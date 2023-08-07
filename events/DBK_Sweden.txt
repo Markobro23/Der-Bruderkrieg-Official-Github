@@ -131,3 +131,224 @@ news_event = { #Gustav's Self-coup
 		}
 	}
 }
+
+add_namespace = SWE_swedish_student_revolt
+##Students Organising
+country_event = {
+	id = SWE_swedish_student_revolt.1
+	title = SWE_swedish_student_revolt.1.t
+	desc = SWE_swedish_student_revolt.1.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.1.a
+		add_stability = -0.01
+		country_event = {
+			id = SWE_swedish_student_revolt.2
+			days = 15
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.2
+	title = SWE_swedish_student_revolt.2.t
+	desc = SWE_swedish_student_revolt.2.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.2.a
+		add_stability = -0.02
+		country_event = {
+			id = SWE_swedish_student_revolt.3
+			days = 1
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.3
+	title = SWE_swedish_student_revolt.3.t
+	desc = SWE_swedish_student_revolt.3.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = SWE_swedish_student_revolt.3.a
+		add_stability = -0.05
+		add_manpower = -1
+		country_event = {
+			id = SWE_swedish_student_revolt.4
+			days = 1
+		}
+	}
+}
+country_event = {
+	id = SWE_swedish_student_revolt.4
+	title = SWE_swedish_student_revolt.4.t
+	desc = SWE_swedish_student_revolt.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	immediate = {
+		start_civil_war = {
+			ideology = socialism_democratic
+			size = 0.4
+			keep_political_leader = yes
+
+			ENG = {
+				add_to_faction = PREV
+			}
+		}
+	}
+	option = {
+		name = SWE_swedish_student_revolt.4.a
+	}
+	option = {
+		name = SWE_swedish_student_revolt.4.b
+	}
+}
+
+add_namespace = kalmar_union
+##kalmar
+country_event = {
+	id = kalmar_union.1
+	title = kalmar_union.1.t
+	desc = kalmar_union.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FROM = {
+				annex_country = {
+					target = ROOT
+					transfer_troops = yes
+				}
+			}
+		}
+		FROM = {
+			country_event = kalmar_union.2
+		}
+	}
+	option = { 
+		name = kalmar_union.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = kalmar_union.3
+		}
+	}
+}
+
+country_event = {
+	id = kalmar_union.2
+	title = kalmar_union.2.t
+	desc = kalmar_union.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.2.a 
+		ai_chance = { factor = 90 } 
+		ROOT = {
+			annex_country = {
+				target = FROM
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = kalmar_union.3
+	title = kalmar_union.3.t
+	desc = kalmar_union.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = kalmar_union.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}
+
+add_namespace = swedish_prussian_alliance
+##kalmar
+country_event = {
+	id = swedish_prussian_alliance.1
+	title = swedish_prussian_alliance.1.t
+	desc = swedish_prussian_alliance.1.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.1.a 
+		ai_chance = { factor = 75 } 
+		effect_tooltip = {
+			FROM = {
+				annex_country = {
+					target = DEN
+					transfer_troops = yes
+				}
+			}
+		}
+		FROM = {
+			country_event = swedish_prussian_alliance.2
+		}
+	}
+	option = { 
+		name = swedish_prussian_alliance.1.b 
+		ai_chance = { factor = 1 modifier = {
+			factor = -1 FROM = { is_ai = no }
+		} } 
+		FROM = {
+			country_event = swedish_prussian_alliance.3
+		}
+	}
+}
+
+country_event = {
+	id = swedish_prussian_alliance.2
+	title = swedish_prussian_alliance.2.t
+	desc = swedish_prussian_alliance.2.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.2.a 
+		ai_chance = { factor = 90 } 
+		SWE = {
+			annex_country = {
+				target = DEN
+				transfer_troops = yes
+			}
+		}
+	}
+}
+
+country_event = {
+	id = swedish_prussian_alliance.3
+	title = swedish_prussian_alliance.3.t
+	desc = swedish_prussian_alliance.3.d
+	#picture = GFX_ITA_the_Italian_mess
+
+	fire_only_once = yes  
+	is_triggered_only = yes 
+
+	option = { 
+		name = swedish_prussian_alliance.3.a 
+		ai_chance = { factor = 90 } 
+		
+	}
+}

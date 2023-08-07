@@ -154,6 +154,13 @@ characters={
 			expire="1965.1.1.1"
 			id=-1
 		}
+		country_leader={
+			#desc="POLITICS_KING_ZOG_DESC"
+			ideology= despotic
+			traits={  }
+			expire="1965.1.1.1"
+			id=-1
+		}
 	}
 	GPU_franz_halder={
 		name= "Franz Halder"
@@ -312,6 +319,19 @@ characters={
 				large="gfx/leaders/GPU/Portrait_GPU_Wilhelm_Ritter_von_Leeb.png"
 			}
 		}
+		advisor={	
+			slot = army_chief
+			idea_token = wilhelm_ritter_von_leeb
+			allowed = {
+				original_tag = GPU
+			}
+			traits = {
+				army_chief_old_guard
+			}
+			ai_will_do = {
+				factor = 1.000
+			}
+		}
 		corps_commander={
 			traits={ old_guard infantry_officer }
 			skill=3
@@ -355,6 +375,19 @@ characters={
 			defense_skill=1
 			planning_skill=2
 			logistics_skill=2
+		}
+		advisor={
+			cost = 100
+			slot = theorist
+			idea_token = ritter_von_greim_theorist
+			ledger = air
+			allowed = {
+				original_tag = GPU
+			}
+			
+			traits = {
+				air_warfare_theorist
+			}
 		}
 		advisor={
 			slot = air_chief
@@ -490,6 +523,9 @@ characters={
 			slot = high_command
 			idea_token = gunther_lutjens
 			ledger = navy
+			available = {
+				not_already_hired_except_as = high_command
+			}
 			traits = {
 				navy_fleet_logistics_2
 			}
@@ -498,13 +534,22 @@ characters={
 				factor = 1.000
 			}
 		}
+		advisor = {
+			slot = navy_chief
+			idea_token = gunther_lutjens_navy_chief
+			available = {
+				not_already_hired_except_as = navy_chief
+			}
+			traits = { navy_chief_decisive_battle_2 }
+			cost = 100
+		}
 		navy_leader={
 			traits={ gentlemanly navy_career_officer superior_tactician }
 			skill=3
-			attack_skill=4
+			attack_skill=3
 			defense_skill=1
-			maneuvering_skill=1
-			coordination_skill=1
+			maneuvering_skill=3
+			coordination_skill=3
 			legacy_id=31
 		}
 	}

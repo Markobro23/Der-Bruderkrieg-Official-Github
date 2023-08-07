@@ -77,7 +77,7 @@ bolivia_join_bush_war = {
 		value = 1000
 	}
 }
-brazil_dont_be_dumb = {
+BRE_dont_be_dumb = {
 	allowed = {
 		tag = BRE
 	}
@@ -94,6 +94,50 @@ brazil_dont_be_dumb = {
 	ai_strategy = {
 		type = front_control
 		tag = UBR
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+}
+BRS_dont_be_dumb = {
+	allowed = {
+		tag = BRS
+	}
+	enable = {
+		tag = BRS
+	}
+	ai_strategy = {
+		type = front_control
+		tag = BRE
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = front_control
+		tag = UBR
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+}
+UBR_dont_be_dumb = {
+	allowed = {
+		tag = UBR
+	}
+	enable = {
+		tag = UBR
+	}
+	ai_strategy = {
+		type = front_control
+		tag = BRE
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = front_control
+		tag = BRS
 		ordertype = front
 		execution_type = rush
 		manual_attack = yes

@@ -1,12 +1,19 @@
 ﻿capital = 48
 
 oob = "BUL_1936"
+if = {
+	limit = { has_dlc = "Man the Guns" } 
+		set_naval_oob = "BUL_naval_mtg"
+}
 
 add_ideas = {
 	limited_conscription
 	Greater_Bulgaria
-	Agrarianism
-	BUL_ethnic_tensions
+	BUL_sofia_charter
+	BUL_ethnic_tensions_1
+	Balkan_depression_economic_1
+	Balkan_depression_industry_1
+	Balkan_depression_population
 	BUL_racho_petrov
 	BUL_radko_dimitriev
 	BUL_petar_gabrovski
@@ -18,7 +25,12 @@ BUL = {
 set_autonomy = {
 	target = THS
 	autonomous_state =  autonomy_puppet
-} 
+}
+
+set_autonomy = {
+	target = ROM
+	autonomous_state =  autonomy_puppet
+}
 
 if = {
 	limit = { has_dlc = "By Blood Alone" }
@@ -119,10 +131,10 @@ if = {
 set_convoys = 200
 
 set_politics = {
-	ruling_party = fascism
-	last_election = "1931.6.21"
+	ruling_party = neutrality
+	last_election = "1935.6.21"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 
 set_popularities = {
@@ -131,16 +143,18 @@ set_popularities = {
 	socialism_democratic = 15
 	democratic_liberalism = 5
 	democratic = 10
-	fascism = 37
-	neutrality = 5
-	authoritarian_democratic = 8
-	ultranationalism = 2
+	fascism = 8
+	neutrality = 28
+	authoritarian_democratic = 11
+	ultranationalism = 5
 }
+
+create_faction = "Sofia Accord"
+add_to_faction = ROM 
+add_to_faction = THS
 
 
 recruit_character = BUL_hristo_lukov
-recruit_character = BUL_ferdinand_i
-recruit_character = BUL_boris_iii
 recruit_character = BUL_teodosi_daskalov
 recruit_character = BUL_georgi_dimitrov
 recruit_character = BUL_nikola_petkov
@@ -171,5 +185,28 @@ if = {
 			engine_type_slot = tank_gasoline_engine
 		}
 		#icon = "gfx/interface/equipmentdesigner/tanks/designer/Reichspakt/GER_gwtank.png"
+	}
+}
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	create_equipment_variant = {
+		name = "Bretagne Class"
+		type = ship_hull_heavy_1
+		name_group = BUL_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = ship_heavy_battery_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
 	}
 }

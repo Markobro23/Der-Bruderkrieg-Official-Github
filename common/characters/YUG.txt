@@ -3,7 +3,7 @@ characters={
 		name="Josip Broz Tito"
 		portraits={
 			civilian={
-				large="gfx/leaders/YUG/Portrait_Yugoslavia_Josip_Broz_Tito.dds"
+				large="gfx/leaders/YUG/Portrait_SER_Josip_Broz.png"
 			}
 		}
 		country_leader={
@@ -28,11 +28,19 @@ characters={
 			id=-1
 		}
 	}
-	YUG_milan_stojadinović={
+	YUG_petar_ii = {
+		name = "Peter II"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/YUG/Portrait_SER_Peter_II.png"
+			}
+		}
+	}
+	YUG_milan_stojadinovic={
 		name="Milan Stojadinović"
 		portraits={
 			civilian={
-				large="gfx/leaders/YUG/Portrait_Yugoslavia_Milan_Stojadinovic.dds"
+				large="gfx/leaders/YUG/Portrait_SER_Milan_Stojadinovic.png"
 			}
 		}
 		country_leader={
@@ -46,7 +54,7 @@ characters={
 		name="Milan Grol"
 		portraits={
 			civilian={
-				large="gfx/leaders/YUG/Portrait_Yugoslavia_Milan_Grol.dds"
+				large="gfx/leaders/YUG/Portrait_SER_Milan_Grol.png"
 			}
 		}
 		country_leader={
@@ -56,13 +64,27 @@ characters={
 			id=-1
 		}
 	}
+	YUG_petar_bojovic = {
+		name = "Petar Bojović"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Petar_Bojovic.png"
+			}
+		}
+		corps_commander = {
+			traits = { old_guard war_hero inflexible_strategist }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 3
+		}
+	}
 	YUG_vladimir_Čukavac={
 		name="Vladimir Čukavac"
 		portraits={
 			army={
 				small="GFX_Portrait_yugoslavia_vladimir_cukavac_small"
-			}
-			army={
 				large="GFX_Portrait_yugoslavia_vladimir_cukavac"
 			}
 		}
@@ -81,8 +103,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_Portrait_yugoslavia_ivan_gosnjak_small"
-			}
-			army={
 				large="GFX_Portrait_yugoslavia_ivan_gosnjak"
 			}
 		}
@@ -101,8 +121,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_Portrait_yugoslavia_danilo_kalafatovic_small"
-			}
-			army={
 				large="GFX_Portrait_yugoslavia_danilo_kalafatovic"
 			}
 		}
@@ -115,24 +133,56 @@ characters={
 			legacy_id=-1
 		}
 	}
-	YUG_milutin_nedić={
+	YUG_milutin_nedic={
 		name="Milutin Nedić"
 		portraits={
 			army={
-				small="GFX_Portrait_yugoslavia_milutin_nedic_small"
-			}
-			army={
-				large="GFX_Portrait_yugoslavia_milutin_nedic"
+				small = "gfx/interface/ideas/YUG_milutin_nedic.png"
+				large="gfx/leaders/YUG/Portrait_SER_Milutin_Nedic.png"
 			}
 		}
-		field_marshal={
-			traits={ thorough_planner }
-			skill=3
-			attack_skill=3
-			defense_skill=2
-			planning_skill=2
-			logistics_skill=3
-			legacy_id=-1
+		corps_commander = {
+			traits = { career_officer politically_connected }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = SER_milutin_nedic_ac
+			available = {
+				not_already_hired_except_as = air_chief
+			}
+			traits = { air_chief_ground_support_1 }
+			cost = 50
+		}
+		advisor = {
+			slot = high_command
+			idea_token = SER_milutin_nedic_mhc
+			ledger = air
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { air_pilot_training_1 }
+			cost = 50
+		}
+	}
+	YUG_milan_nedic = {
+		name = "Milan Nedić"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Milan_Nedic.png"
+			}
+		}
+		field_marshal = {
+			traits = { old_guard career_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
 		}
 	}
 	YUG_petar_kosić={
@@ -140,8 +190,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_Portrait_yugoslavia_petar_kosic_small"
-			}
-			army={
 				large="GFX_Portrait_yugoslavia_petar_kosic"
 			}
 		}
@@ -159,8 +207,6 @@ characters={
 		portraits={
 			army={
 				small="GFX_Portrait_yugoslavia_marijan_polic_small"
-			}
-			army={
 				large="GFX_Portrait_yugoslavia_marijan_polic"
 			}
 		}
@@ -174,74 +220,73 @@ characters={
 			legacy_id=-1
 		}
 	}
-	YUG_nikola_simovic={
-		name="Nikola Simovic"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_1.dds"
+	YUG_ljubomir_maric = {
+		name = "Ljubomir Marić"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Lubomir_Maric.png"
+				small = "gfx/interface/ideas/SER_ljubomir_maric.png"
 			}
 		}
-		country_leader={
-			ideology=radical_socialism
-			traits={ armaments_organizer hawk }
-			expire="1953.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { old_guard career_officer trickster }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SER_ljubomir_maric
+			traits = { army_chief_entrenchment_1 }
+			cost = 50
 		}
 	}
-	YUG_sava_sokolovic={
-		name="Sava Sokolovic"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
+	YUG_bogoljub_ilic = {
+		name = "Bogoljub Ilić"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Bogoljub_Ilic.png"
+				small = "gfx/interface/ideas/SER_bogoljub_ilic.png"
 			}
 		}
-		country_leader={
-			ideology=liberal_socialism
-			traits={ armaments_organizer }
-			expire="1954.1.1.12"
-			id=-1
+		corps_commander = {
+			traits = { cavalry_officer politically_connected }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = SER_bogoljub_ilic
+			traits = { army_chief_morale_1 }
+			cost = 50
 		}
 	}
-	YUG_radomir_sokolovic={
-		name="Radomir Sokolovic"
-		portraits={
-			civilian={
-				large="GFX_portrait_europe_generic_5"
+	YUG_milan_spasic = {
+		name = "Milan Spasić"
+		portraits = {
+			army = {
+				large = "gfx/leaders/YUG/Portrait_SER_Milan_Spasic.png"
+				small = "gfx/interface/ideas/SER_milan_spasic.png"
 			}
 		}
-		country_leader={
-			ideology=democratic_conservative
-			traits={ fortification_engineer efficient_budgeter }
-			expire="1955.1.1.12"
-			id=-1
+		navy_leader = {
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			maneuvering_skill = 1
+			coordination_skill = 1
 		}
-	}
-	YUG_dragutin_misic={
-		name="Dragutin Misic"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_2.dds"
-			}
-		}
-		country_leader={
-			ideology=iliberal_democrat
-			traits={ fortification_engineer }
-			expire="1941.1.1.12"
-			id=-1
-		}
-	}
-	YUG_jovan_pesic={
-		name="Jovan Pesic"
-		portraits={
-			civilian={
-				large="gfx/leaders/Europe/Portrait_Europe_Generic_3.dds"
-			}
-		}
-		country_leader={
-			ideology=racial_nationalism
-			traits={ reluctant_interventionist quartermaster_general }
-			expire="1942.1.1.12"
-			id=-1
+		advisor = {
+			slot = high_command
+			idea_token = SER_milan_spasic
+			ledger = navy
+			traits = { navy_fleet_logistics_1 }
+			cost = 50
 		}
 	}
 }

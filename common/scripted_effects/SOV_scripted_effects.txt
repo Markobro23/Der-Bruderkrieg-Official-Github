@@ -1991,3 +1991,161 @@ d_slovakian_moment = {
 		}
 	}
 }
+
+SOV_setup_civil_war = {
+	#log = "KR_Event_Logging;RCW STARTS;[GetDateText]"
+	#set_capital = { state = 653 }
+	#add_named_threat = {
+	#	threat = 6
+	#	name = RUS_civil_war_threat
+	#}
+	hidden_effect = {
+		every_owned_state = {
+			limit = {
+				OR = {
+					region = 134 #Western Russia
+					region = 135 #Kuban
+					region = 137 #Caspian Lowlands
+					region = 250 #East Karelia
+					region = 12 #Lappland
+					region = 251 #Arkhangelsk
+					region = 40 #Transvolga
+					region = 150 #Arctic Russia
+					region = 138 #Urals
+					region = 14 #Trans-Urals
+					region = 136 #Great Steppe
+					region = 231 #Transcaspia
+					region = 232 #Smarkland
+					region = 233 #Ferghana
+					region = 249 #Altai
+					region = 151 #Western Siberia
+					region = 147 #Northern Siberia
+					region = 248 #Central Siberia
+					region = 149 #Eastern Siberia
+					region = 247 #Amur
+					region = 148 #Eastern Russia
+					state = 137 #Crimea
+					#state = 256 #Cheboksary
+					#state = 880 #Dvinsk
+				}
+				#NOT = { state = 216 } #Petrozavodsk
+				#NOT = { state = 251 } #Samara
+				#NOT = { state = 264 } #Tikhvin
+				#NOT = { state = 652 } #Orenburg
+			}
+			add_core_of = KLV
+			save_current_factory_count = yes
+			transfer_state_to = KLV
+			restore_previous_factory_count = yes
+		}
+		delete_unit_template_and_units = { division_template = "Motostrelkovaya Diviziya" }
+		delete_unit_template_and_units = { division_template = "Tankovaya Diviziya" }
+		delete_unit_template_and_units = { division_template = "Gornostrelkovaya Diviziya" }
+		transfer_units_fraction = {
+			target = KLV
+			size = 0.5
+			navy_ratio = 0.7
+			keep_unit_leaders_trigger = { always = yes }
+		}
+		KLV = {
+			#set_cosmetic_tag = SOV_civil_war
+			set_major = yes
+			transfer_technology_without_doctrines = yes
+			transfer_navy = { target = KLV }
+			#add_ideas = SOV_chaotic_revolution
+			unit_limit_calculation_effect = yes
+			#add_state_claim = 329 #Tuva
+			every_owned_state = {
+			#	remove_core_of = SOV
+			#	add_claim_by = SOV
+				teleport_armies = {
+					limit = { tag = KLV }
+					to_state_array = owned_controlled_states
+				}
+			}
+		}
+		SOV_pyotr_wrangel = { set_nationality = KLV }
+		SOV_larv_kornilov = { set_nationality = KLV }
+		KLV = {
+	      add_country_leader_role = {
+	        character = SOV_larv_kornilov
+	        country_leader = {
+	          expire = "1945.1.1"
+	          ideology = authoritarian_democrat
+	          traits = {
+	           
+	          }
+	        }
+	        promote_leader = yes
+	      }
+	    }
+	    set_global_flag = new_officers_SOV
+		SOV_anton_denikin = { set_nationality = KLV }
+		SOV_andrey_vlasov = { set_nationality = KLV }
+		SOV_sergey_markov = { set_nationality = KLV }
+		SOV_pyotr_krasnov = { set_nationality = KLV }
+		SOV_mikhail_drozdovskiy = { set_nationality = KLV }
+		SOV_pavel_shatilov = { set_nationality = KLV }
+		SOV_vladimir_kappel = { set_nationality = KLV }
+		SOV_vasily_boldyrev = { set_nationality = KLV }
+		SOV_mikhail_bonchbburyevich = { set_nationality = KLV }
+		SOV_anton_turkul = { set_nationality = KLV }
+		SOV_vladimir_von_manstein = { set_nationality = KLV }
+		SOV_abram_dragomirov = { set_nationality = KLV }
+		SOV_pavlo_skoropadskyi = { set_nationality = KLV }
+		SOV_giorgi_khimshiashvili = { set_nationality = KLV }
+		SOV_konstantin_gilchevsky = { set_nationality = KLV }
+		SOV_leonid_govorov = { set_nationality = KLV }
+		SOV_markian_popov = { set_nationality = KLV }
+		SOV_ivan_romanovsky = { set_nationality = KLV }
+		SOV_alexander_kutepov = { set_nationality = KLV }
+		SOV_boris_shteifon = { set_nationality = KLV }
+		SOV_vladimir_vitkovsky = { set_nationality = KLV }
+		SOV_fyedor_abramov = { set_nationality = KLV }
+		SOV_vyacheslav_naumenko = { set_nationality = KLV }
+		SOV_pavel_bermondtavalov = { set_nationality = KLV }
+		SOV_aleksey_grishinalmazov = { set_nationality = KLV }
+		SOV_mikhail_levitov = { set_nationality = KLV }
+		SOV_grigory_semyonov = { set_nationality = KLV }
+		SOV_alexander_kolchak = { set_nationality = KLV }
+		SOV_mikhail_kedrov = { set_nationality = KLV }
+		SOV_gordey_levchenko = { set_nationality = KLV }
+		SOV_vladmir_kislitsin = { set_nationality = KLV }
+		SOV_konstantin_nechayev = { set_nationality = KLV }
+		SOV_vyacheslav_tkachyov = { set_nationality = KLV }
+		SOV_nestor_monastyryev = { set_nationality = KLV }
+		every_core_state = { add_core_of = KLV }
+		set_major = yes
+
+		#country_event = { id = rusd.123 days = 60 random_days = 30 }
+		#news_event = { id = russianews.7 days = 1 }
+		#MON = { country_event = { id = tram.80 days = 2 random_days = 6 } }
+		country_lock_all_division_template = no
+	}
+	declare_war_on = {
+		target = KLV
+		type = civil_war
+	}
+	hidden_effect = {
+		add_civil_war_target = KLV
+		if = {
+			limit = { is_ai = yes }
+			KLV = {
+				add_political_power = 150
+				add_equipment_to_stockpile = {
+					type = infantry_equipment
+					amount = 20000
+				}
+				add_equipment_to_stockpile = {
+					type = support_equipment
+					amount = 500
+				}
+				add_equipment_to_stockpile = {
+					type = artillery_equipment
+					amount = 500
+				}
+			}
+		}
+	}
+}
+

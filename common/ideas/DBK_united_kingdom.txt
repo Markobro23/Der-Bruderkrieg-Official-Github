@@ -18,6 +18,27 @@ ideas = {
         ultranationalism_acceptance = -5
       }
    }
+   ENG_pact_of_atlantica_2 = {
+	  name = ENG_pact_of_atlantica
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+       cancel = {
+		    is_subject = yes
+	     }
+      modifier = {
+		surrender_limit = 0.05
+		dig_in_speed_factor = 0.25
+        guarantee_cost = 0.25
+        justify_war_goal_time = 0.25
+        fascism_acceptance = -5
+        ultranationalism_acceptance = -5
+      }
+   }
     ENG_broken_crown_jewel = {
       allowed = { 
         always = no
@@ -47,8 +68,107 @@ ideas = {
 		    is_subject = yes
 	     }
       modifier = {
-        conscription = 0.01
       }
+	  equipment_bonus = {
+		infantry_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+	}
+   }
+
+   # Army
+
+		ENG_sas = {
+
+			name = ENG_special_air_service
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			modifier = {
+				special_forces_cap = 0.05
+				special_forces_training_time_factor = -0.1
+			}
+
+			picture = eng_special_air_service
+			
+			removal_cost = -1			
+			
+		}
+
+		ENG_convoy_defence = {
+
+			picture = generic_coastal_defense_ships2
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				experience_gain_destroyer_combat_factor = 0.1
+				experience_gain_destroyer_training_factor = 0.1
+			}
+			equipment_bonus = {
+				ship_hull_cruiser = {
+					build_cost_ic = -0.1 instant = yes
+				}
+			}
+		}
+
+		ENG_home_guard = {
+		
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			modifier = {
+				army_core_defence_factor = 0.05
+				foreign_subversive_activites = -0.10
+				resistance_growth_on_our_occupied_states = 0.15
+			}
+		}
+
+   ENG_rogue_squadron = {
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+       cancel = {
+		    is_subject = yes
+	     }
+      modifier = {
+      }
+	  equipment_bonus = {
+		CAS_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+		strat_bomber_equipment = {
+			instant = yes
+			build_cost_ic = -0.15
+		}
+	}
    }
 
    ENG_federalism = {
@@ -67,19 +187,431 @@ ideas = {
       }
    }
 
-   ENG_prussian_advisors = {
+   ENG_the_irish_question = {
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+       cancel = {
+		    is_subject = yes
+	     }
+      modifier = {
+        political_power_cost = 0.2
+		consumer_goods_factor = 0.075
+      }
+   }
+
+   ENG_sterling_bloc = {
+      allowed = {
+        always = no
+      }
+
+      allowed_civil_war = {
+        always = yes
+      }
+       cancel = {
+		    is_subject = yes
+	     }
+      modifier = {
+        min_export = -0.05
+		trade_opinion_factor = 0.2
+      }
+   }
+
+   	ENG_prussian_advisors = {
 		allowed = {
 			always = no
 		}
 		allowed_civil_war = {
 			always = yes
 		}
-     cancel = {
+     	cancel = {
 		    is_subject = yes
 	     }
 		removal_cost = -1
 		modifier = {
 			army_org_factor = 0.05
+		}
+	}
+
+	ENG_convene_national_governments_idea_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			political_power_factor = -0.1
+			stability_factor = -0.05
+			production_speed_buildings_factor = -0.05
+		}
+	}
+	ENG_convene_national_governments_idea_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			political_power_factor = -0.1
+		}
+	}
+
+	ENG_remove_national_government_idea_debuff_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			political_power_factor = -0.1
+		}
+	}
+	ENG_remove_national_government_idea_debuff_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+
+	ENG_expand_welfare_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_expand_welfare_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			monthly_population = 0.35
+			global_building_slots_factor = 0.15
+		}
+	}
+
+	ENG_the_refugees_act_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_the_refugees_act_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			research_speed_factor = 0.075
+			army_morale_factor = 0.05
+		}
+	}
+
+	ENG_churchill_remove_debuffs_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_churchill_remove_debuffs_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			political_power_factor = 0.1
+			production_speed_buildings_factor = 0.05
+		}
+	}
+	ENG_pro_workers_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_workers_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			production_factory_max_efficiency_factor = 0.1
+			local_resources_factor = 0.15
+		}
+	}
+	ENG_pro_corp_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_corp_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			consumer_goods_factor = -0.05
+			industrial_concern_cost_factor = -0.15
+		}
+	}
+	ENG_remove_hamsworth_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_remove_hamsworth_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			stability_factor = 0.1
+		}
+	}
+	ENG_pro_military_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_military_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			command_power_gain_mult = 0.15
+			conscription_factor = 0.075
+		}
+	}
+
+	ENG_pro_air_original = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+		}
+	}
+	ENG_pro_air_new = {
+		name = ENG_convene_national_governments_idea
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			air_attack_factor = 0.15
+			air_defence_factor = 0.15
+			air_intercept_efficiency = 0.25
+		}
+	}
+	ENG_unstable_new_republic = {
+
+		allowed = {
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			stability_factor = -0.25
+			political_power_factor = -0.2
+			production_speed_buildings_factor = -0.1
+			surrender_limit = -0.5
+		}
+	}
+	ENG_true_beacon_of_democracy = {
+
+		allowed = {
+		}
+
+		allowed_civil_war = {
+			always = yes
+		}
+
+		removal_cost = -1
+
+		modifier = {
+			army_morale_factor = 0.05
+			drift_defence_factor = 0.25
+		}
+	}
+	ENG_operation_st_lawrence = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		targeted_modifier = {
+			tag = USA
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
 		}
 	}
 
@@ -129,7 +661,66 @@ ideas = {
 			}
 
 	}
-
+	ENG_russian_offensive = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		targeted_modifier = {
+			tag = SOV
+			attack_bonus_against = 0.1
+			defense_bonus_against = 0.1
+		}
+    	equipment_bonus = {
+			infantry_equipment = {
+				instant = yes
+				build_cost_ic = 0.05
+			}
+			armor = {
+				instant = yes
+				build_cost_ic = 0.05
+			}
+		}
+	}
+	ENG_banana_profits = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			consumer_goods_factor = -0.05
+			supply_consumption_factor = -0.15
+		}
+	}
+	ENG_antarctic_exploration_oil = {
+		allowed = {
+			always = no
+		}
+		allowed_civil_war = {
+			always = yes
+		}
+     	cancel = {
+		    is_subject = yes
+	     }
+		removal_cost = -1
+		modifier = {
+			fuel_gain_factor_from_states = 0.15
+			production_oil_factor = 0.25
+		}
+	}
+	
 	ENG_sanctions = {
 		allowed = {
 			always = no
@@ -232,69 +823,9 @@ ideas = {
 				factor = 0.5
 			}
 	   }
-	    winston_churchill = {
-			allowed = {
-				original_tag = ENG
-			}
-			available = {
-				has_country_flag = UK_chose_churchill
-			}
-		
-			traits = { british_bulldog }
-		
-			ai_will_do = {
-				factor = 0.5
-			}
-	   }
-	   edward_halifax = {
-			allowed = {
-				original_tag = ENG
-			}
-			available = {
-				has_country_flag = UK_chose_halifax
-			}
-		
-			traits = { conservative_grandee }
-		
-			ai_will_do = {
-				factor = 0.5
-			}
-	    }
-	   clement_attlee = {
-			allowed = {
-				original_tag = ENG
-			}
-			available = {
-				has_country_flag = UK_chose_attlee
-			}
-		
-			traits = { social_liberal_economist }
-		
-			ai_will_do = {
-				factor = 0.5
-			}
-	    }
     }
 
     minister_of_foriegn_affairs = {
-
-    	ENG_anthony_eden = { #halifax and churchill
-
-    		allowed = {
-				original_tag = ENG
-			}
-
-			available = {
-				always = yes
-			}
-		
-			traits = { reluctant_interventionist }
-		
-			ai_will_do = {
-				factor = 0.5
-			}
-
-    	}
 
     	ENG_john_simon = { #attlee
 

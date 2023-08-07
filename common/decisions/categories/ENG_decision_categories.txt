@@ -1,0 +1,130 @@
+ENG_chose_victor_of_elections = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		NOT = {
+			has_country_flag = ENG_elections_are_over
+		}
+	}
+} 
+
+ENG_withdraw_from_hanover_cat = { #insert cat picture here
+	allowed = {
+		OR = {
+			tag = HAN
+			tag = GER
+			tag = ENG
+		}
+	}
+	visible = {
+		HAN = {
+			has_idea = HAN_anglo_expeditionary_force
+		}
+		has_global_flag = UK_is_a_pussy
+		NOT = {
+			GER = { has_war_with = HAN }
+		}
+	}
+
+	priority = 100000
+}
+
+ENG_halifax_war_in_ireland = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_continue_the_war_in_ireland
+	}
+}
+
+ENG_crushing_bose_rebels = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_crush_boses_lackies
+	}
+}
+
+ENG_imperial_federation_category = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_the_imperial_federation
+	}
+	visible_when_empty = yes
+}
+
+ENG_bring_albert_from_his_paranoia = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		OR = {
+			has_completed_focus = ENG_gradual_rearmenent
+			has_completed_focus = ENG_rescue_alberts_mind
+			has_completed_focus = ENG_cult_of_albert_i
+		}
+		has_country_leader_with_trait = paranoid_monarch
+	}
+}
+
+ENG_referendum_on_the_monarchy = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_to_a_republic
+		NOT = {
+			has_completed_focus = ENG_light_the_torch
+			has_completed_focus = ENG_mantain_the_crown
+		}
+	}
+	visible_when_empty = yes
+}
+
+the_great_game = {
+	allowed = {
+		OR = {
+			tag = ENG
+			tag = SOV
+			tag = AFG
+			tag = PER
+		}
+	}
+	visible = {
+	}
+
+	visible_when_empty = yes
+	priority = 999
+}
+
+ENG_the_expedition_to_the_north_pole = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_antarctic_exploration
+	}
+}
+
+ENG_occupation_of_america = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_the_war_of_occupation
+	}
+}
+
+ENG_home_guard_cat = {
+	allowed = {
+		tag = ENG
+	}
+	visible = {
+		has_completed_focus = ENG_home_guard
+	}
+}

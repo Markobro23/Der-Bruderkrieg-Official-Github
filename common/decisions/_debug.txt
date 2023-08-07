@@ -36,7 +36,7 @@ debug_decisions = {
 	}
 
 	###USA DEBUG DECISIONS
-	test_load_huey_long_path = {
+	test_load_maury_maverick_path = {
 		available = {
 			always = yes
 		}
@@ -49,7 +49,7 @@ debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			#load_focus_tree = usa_long_new_deal_tree
+			load_focus_tree = usa_maverick_new_deal_tree
 		}
 	}
 	test_load_smith_long_path = {
@@ -65,13 +65,13 @@ debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			#load_focus_tree = usa_smith_presidency_tree
+			load_focus_tree = usa_smith_presidency_tree
 			set_politics = {
 				ruling_party = democratic
 			}
 		}
 	}
-	test_load_warren_path = {
+	test_load_shipstead_path = {
 		available = {
 			always = yes
 		}
@@ -84,7 +84,7 @@ debug_decisions = {
 		cost = 0
 
 		complete_effect = {
-			#load_focus_tree = USA_warren_presidency_tree
+			load_focus_tree = USA_shipstead_presidency_tree
 			set_politics = {
 				ruling_party = democratic_liberalism
 			}
@@ -252,285 +252,149 @@ debug_decisions = {
 		}
 	}
 
-	research_all_tank_techs_nsb = {
-		icon = generic_tank
-
-		visible = {
-			is_ai = no
-			is_debug = yes
-		}
-
-		complete_effect = {
-			set_technology = {
-				gwtank_chassis = 1
-				popup = no
-			}
-			set_technology = {
-				basic_light_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				improved_light_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				amphibious_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				amphibious_drive = 1
-				popup = no
-			}			
-			set_technology = {
-				advanced_light_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				basic_medium_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				improved_medium_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				advanced_medium_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				main_battle_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				basic_heavy_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				improved_heavy_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				advanced_heavy_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				super_heavy_tank_chassis = 1
-				popup = no
-			}			
-			set_technology = {
-				armor_tech_1 = 1
-				popup = no
-			}			
-			set_technology = {
-				armor_tech_2 = 1
-				popup = no
-			}			
-			set_technology = {
-				armor_tech_3 = 1
-				popup = no
-			}			
-			set_technology = {
-				armor_tech_4 = 1
-				popup = no
-			}			
-			set_technology = {
-				engine_tech_1 = 1
-				popup = no
-			}			
-			set_technology = {
-				engine_tech_2 = 1
-				popup = no
-			}			
-			set_technology = {
-				engine_tech_3 = 1
-				popup = no
-			}			
-			set_technology = {
-				engine_tech_4 = 1
-				popup = no
-			}
-			set_technology = {
-				gw_artillery = 1
-				popup = no
-			}
-			set_technology = {
-				interwar_artillery = 1
-				popup = no
-			}
-			set_technology = {
-				artillery1 = 1
-				popup = no
-			}
-			set_technology = {
-				artillery2 = 1
-				popup = no
-			}
-			set_technology = {
-				artillery3 = 1
-				popup = no
-			}
-			set_technology = {
-				artillery4 = 1
-				popup = no
-			}
-			set_technology = {
-				artillery5 = 1
-				popup = no
-			}
-			set_technology = {
-				mountain_gun = 1
-				popup = no
-			}
-			set_technology = {
-				rocket_artillery = 1
-				popup = no
-			}
-			set_technology = {
-				rocket_artillery2 = 1
-				popup = no
-			}
-			set_technology = {
-				rocket_artillery3 = 1
-				popup = no
-			}
-			set_technology = {
-				rocket_artillery4 = 1
-				popup = no
-			}
-			set_technology = {
-				interwar_antiair = 1
-				popup = no
-			}
-			set_technology = {
-				antiair1 = 1
-				popup = no
-			}
-			set_technology = {
-				antiair2 = 1
-				popup = no
-			}
-			set_technology = {
-				antiair3 = 1
-				popup = no
-			}
-			set_technology = {
-				antiair4 = 1
-				popup = no
-			}
-			set_technology = {
-				antiair5 = 1
-				popup = no
-			}
-			set_technology = {
-				interwar_antitank = 1
-				popup = no
-			}
-			set_technology = {
-				antitank1 = 1
-				popup = no
-			}
-			set_technology = {
-				antitank2 = 1
-				popup = no
-			}
-			set_technology = {
-				antitank3 = 1
-				popup = no
-			}
-			set_technology = {
-				antitank4 = 1
-				popup = no
-			}
-			set_technology = {
-				antitank5 = 1
-				popup = no
-			}
-			set_technology = {
-				tech_engineers = 1
-				popup = no
-			}
-			set_technology = {
-				tech_engineers2 = 1
-				popup = no
-			}
-		}
-	}
-
-	add_efficiency_growth_debug = {
-		icon = generic_research
-
+	##BRITISH DEBUG DECISIONS
+	test_load_halifax_path = {
 		available = {
-			is_ai = no
-			is_debug = yes
+			always = yes
 		}
 
 		visible = {
-			always = yes
+			tag = ENG
 		}
 
 		fire_only_once = no
 		cost = 0
 
 		complete_effect = {
-			add_ideas = add_production_efficiency
+			set_politics = {
+				ruling_party = democratic
+			}
+			load_focus_tree = ENG_halifax_tree
 		}
 	}
-		
-	remove_efficiency_growth_debug = {
-		icon = generic_research
-
+	test_load_churchill_path = {
 		available = {
-			is_ai = no
-			is_debug = yes
+			always = yes
 		}
 
 		visible = {
-			always = yes
+			tag = ENG
 		}
 
 		fire_only_once = no
 		cost = 0
 
 		complete_effect = {
-			if = {
-				limit = {
-					has_idea = add_production_efficiency
+			set_politics = {
+				ruling_party = democratic_liberalism
+			}
+			load_focus_tree = ENG_churchill_tree
+		}
+	}
+	test_load_attlee_path = {
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = ENG
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			set_politics = {
+				ruling_party = socialism_democratic
+			}
+			load_focus_tree = ENG_attlee_tree
+		}
+	}
+	test_load_hamsworth_path = {
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = ENG
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			set_politics = {
+				ruling_party = authoritarian_democratic
+			}
+			load_focus_tree = ENG_hamsworth_tree
+		}
+	}
+
+	##OTTOMAN DEBUG DECISIONS
+	test_load_fuad_path = {
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = TUR
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			add_country_leader_role = {
+				character = TUR_osman_fuad_efendi
+				promote_leader = yes
+				country_leader={
+					ideology=despotic
+					expire="1965.1.1.1"
+					id=-1
 				}
-				remove_ideas = add_production_efficiency
 			}
-			if = {
-				limit = {
-					has_idea = decrease_production_efficiency
-				}
-				remove_ideas = decrease_production_efficiency
-			}	
+			load_focus_tree = TUR_monarchy_tree
 		}
 	}
-		
-	decrease_efficiency_growth_debug = {
-		icon = generic_research
-
+	test_load_cup_path = {
 		available = {
-			is_ai = no
-			is_debug = yes
+			always = yes
 		}
 
 		visible = {
-			always = yes
+			tag = TUR
 		}
 
 		fire_only_once = no
 		cost = 0
 
 		complete_effect = {
-			add_ideas = decrease_production_efficiency
-		}
-
-		ai_will_do = {
-			base = 0
+			set_politics = {
+				ruling_party = fascism
+			}
+			load_focus_tree = TUR_cup_tree
 		}
 	}
-	
+	test_load_attaturk_path = {
+		available = {
+			always = yes
+		}
+
+		visible = {
+			tag = TUR
+		}
+
+		fire_only_once = no
+		cost = 0
+
+		complete_effect = {
+			set_politics = {
+				ruling_party = authoritarian_democratic
+			}
+			load_focus_tree = TUR_attaturk_tree
+		}
+	}
+
 	history_entry_debug = {
 
 		icon = generic_research
@@ -834,4 +698,5 @@ debug_decisions = {
 		}
 		
 	}
+	
 }
