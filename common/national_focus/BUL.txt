@@ -1,204 +1,725 @@
+focus_tree = {
+	id = BUL_start_tree
+	country = {
+		factor = 0
+		modifier = {
+			add = 11
+			tag = BUL
+		}
+	}
+	shared_focus = BUL_the_regency
+	continuous_focus_position = { x = -50 y = 2400 } 
+}
+shared_focus = {
+	id = BUL_the_regency
+	icon = GFX_goal_GER_the_berlin_rally
+	x = 10
+	y = -3
+	
+	available = {
+	}
+	bypass = {
 
+	}
 
-# ### search_filters = {FOCUS_FILTER_POLITICAL}
-# ### search_filters = {FOCUS_FILTER_RESEARCH}
-# ### search_filters = {FOCUS_FILTER_INDUSTRY}
-# ### search_filters = {FOCUS_FILTER_STABILITY}
-# ### search_filters = {FOCUS_FILTER_WAR_SUPPORT}
-
-
-# #Made by Cheesemeister
-
-# focus_tree = {
-# 	id = bulgaria_focus
-# 	country = {
-# 		factor = 0
-# 		modifier = {
-# 			add = 10
-# 			tag = BUL
-# 		}
-# 	}
-
-# 	default = no
-# 	continuous_focus_position = { x = 50 y = 1300}
-
-
-
-
-
-
-# #Wholesome balkan hegemon larp
-# 	focus = {
-# 		id = BUL_king_of_balkans
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 10
-# 		y = 0
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-			
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-# 			add_political_power = 100
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_the_ethnic_crisis
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 8
-# 		y = 1
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_king_of_balkans
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_expel_serbian_unionists
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 7
-# 		y = 2
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_the_ethnic_crisis
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_removing_political_extremists
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 9
-# 		y = 2
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_the_ethnic_crisis
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_industrialising_the_nation
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 12
-# 		y = 1
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_king_of_balkans
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_developing_the_economy
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 12
-# 		y = 2
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_industrialising_the_nation
-# 		}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_ask_for_russian_support
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 11
-# 		y = 3
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_developing_the_economy
-# 		}
-# 		mutually_exclusive = {focus = BUL_develop_alone}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-# 			SOV = {
-# 				country_event = {
-#      				id = bulgaria_asking_for_russian_support.1
-# 				}
-# 			}
-# 		}
-# 	}
-
-# 	focus = {
-# 		id = BUL_develop_alone
-# 		icon = GFX_focus_BUL_guardians_of_the_balkans
-# 		x = 13
-# 		y = 3
-# 		cost = 6
-# 		available_if_capitulated = yes
-		
-# 		prerequisite = { 
-# 			focus = BUL_developing_the_economy
-# 		}
-# 		mutually_exclusive = {focus = BUL_ask_for_russian_support}
-# 		search_filters = { FOCUS_FILTER_POLITICAL } 
-# 		ai_will_do = {
-# 			factor = 1
-# 		}
-# 		completion_reward = {
-
-# 		}
-# 	}
-
+	cost = 1
 	
 
+	cancel_if_invalid = yes
 
 
+	completion_reward = {
+		country_event = GER_goering_internal_stabilization.10
+	}
+	ai_will_do = {
+		factor = 60
+	}
+}
+shared_focus = {
+	id = BUL_Democracy
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -2
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_the_regency
+	}
+	mutually_exclusive = { focus = BUL_Autocracy }
+	relative_position_id = BUL_the_regency
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
 
 
-# #End of focuses 
-#  }
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_Autocracy
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 2
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_the_regency
+	}
+	mutually_exclusive = { focus = BUL_Democracy }
+	relative_position_id = BUL_the_regency
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = Expand_Rep_pop
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_Democracy
+	}
+	relative_position_id = BUL_Democracy
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_excuse_minorities
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_Democracy
+	}
+	relative_position_id = BUL_Democracy
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_Follow_russian_example
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_excuse_minorities
+	}
+	relative_position_id = BUL_excuse_minorities
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_Fair_deal
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = Expand_Rep_pop
+	}
+	relative_position_id = Expand_Rep_pop
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_two_party
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_Fair_deal
+		focus = BUL_Follow_russian_example
+	}
+	relative_position_id = BUL_Fair_deal
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_support_liberals
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_two_party
+	}
+	mutually_exclusive = { focus = BUL_work_with_left }
+	relative_position_id = BUL_two_party
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_work_with_left
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_two_party
+	}
+	mutually_exclusive = { focus = BUL_support_liberals }
+	relative_position_id = BUL_two_party
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_freedom_wealth
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_support_liberals
+	}
+	relative_position_id = BUL_support_liberals
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_equality_labour
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_work_with_left
+	}
+	relative_position_id = BUL_work_with_left
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_more_unstopable
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_equality_labour
+		focus = BUL_freedom_wealth
+	}
+	relative_position_id = BUL_equality_labour
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_shining_light
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_more_unstopable
+	}
+	relative_position_id = BUL_more_unstopable
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+
+shared_focus = {
+	id = BUL_expand_monarch_pop
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_Autocracy
+	}
+	relative_position_id = BUL_Autocracy
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_orthodox_support
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_Autocracy
+	}
+	relative_position_id = BUL_Autocracy
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_expose_leftists
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_expand_monarch_pop
+	}
+	relative_position_id = BUL_expand_monarch_pop
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_favour_conservatives
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_orthodox_support
+	}
+	relative_position_id = BUL_orthodox_support
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_questions_of_right
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_expose_leftists
+		focus = BUL_favour_conservatives
+	}
+	relative_position_id = BUL_expose_leftists
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_end_their_terror
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_questions_of_right
+	}
+	mutually_exclusive = { focus = BUL_keep_on_leash }
+	relative_position_id = BUL_questions_of_right
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_keep_on_leash
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_questions_of_right
+	}
+	mutually_exclusive = { focus = BUL_end_their_terror }
+	relative_position_id = BUL_questions_of_right
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_proud_bulgaria
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_end_their_terror
+	}
+	relative_position_id = BUL_end_their_terror
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_stable_bulgaria
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_keep_on_leash
+	}
+	relative_position_id = BUL_keep_on_leash
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_prepare_king
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -1
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_proud_bulgaria
+		focus = BUL_stable_bulgaria
+	}
+	relative_position_id = BUL_stable_bulgaria
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_balkan_caesar
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_prepare_king
+	}
+	relative_position_id = BUL_prepare_king
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_new_reforms
+	icon = GFX_goal_GER_issueofthemilitias
+	x = -2
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_balkan_caesar
+		focus = BUL_shining_light
+	}
+	relative_position_id = BUL_balkan_caesar
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
+shared_focus = {
+	id = BUL_onwards
+	icon = GFX_goal_GER_issueofthemilitias
+	x = 0
+	y = 1
+	
+	available = {
+	}
+	bypass = {
+
+	}
+	prerequisite = {
+		focus = BUL_new_reforms
+	}
+	relative_position_id = BUL_new_reforms
+
+	cost = 4
+	
+
+	cancel_if_invalid = yes
+
+
+	completion_reward = {
+		add_political_power = 120
+}
+}
